@@ -749,46 +749,7 @@ class SecurityLabel(models.Model):
         comodel_name="hc.vs.security.label",
         string="Parent",
         help="Parent security label.")
-
-class SubstanceCode(models.Model):  
-    _name = "hc.vs.substance.code"  
-    _description = "Substance Code"     
-    _inherit = ["hc.value.set.contains"]    
-
-    name = fields.Char(
-        string="Name", 
-        help="Name of this substance code.")
-    code = fields.Char(
-        string="Code", 
-        help="Code of this substance code.")
-    contains_id = fields.Many2one(
-        comodel_name="hc.vs.substance.code",
-        string="Parent", 
-        help="Parent substance code.")
-
-class ParentSubstanceCode(models.Model):
-    _name = "hc.parent.substance.code"
-    _description = "Parent Substance Code"
-    _inherit = ["hc.basic.association"]
-    _inherits = {"hc.vs.substance.code": "substance_code_id"}
-
-    substance_code_id = fields.Many2one(
-        comodel_name="hc.vs.substance.code", 
-        string="Substance Code", 
-        ondelete="restrict", 
-        required="True", 
-        help="Substance Code associated with this Parent Substance Code.")
-                   
-class SubstanceCode(models.Model):  
-    _inherit = "hc.vs.substance.code"
-
-    parent_ids = fields.One2many(
-        comodel_name="hc.parent.substance.code", 
-        inverse_name="substance_code_id", 
-        string="Parents", 
-        help="Parent substance code.")
-
-    
+   
 class TimeUOM(models.Model): 
     _name = "hc.vs.time.uom" 
     _description = "Time Unit of Measure"            

@@ -103,6 +103,7 @@
                             <page string="Reactions">                   
                                 <field name="reaction_ids" mode="tree">             
                                     <tree>              
+                                        <field name="substance_id"/>
                                         <field name="description"/>      
                                         <field name="onset"/>       
                                         <field name="duration"/>
@@ -113,7 +114,7 @@
                                         <sheet>
                                             <div class="oe_title oe_left">                      
                                                 <h1>                    
-                                                    <field name="substance_id" readonly="1"/>              
+                                                    <field name="substance_id" placeholder="Substance"/>              
                                                 </h1>
                                             </div>     
                                             <group col="4" colspan="4">
