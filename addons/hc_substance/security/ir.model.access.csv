@@ -5,8 +5,8 @@ access_hc_substance_hc_substance_ingredient_user,hc.substance.hc.substance.ingre
 access_hc_substance_hc_substance_instance_user,hc.substance.hc.substance.instance.user,model_hc_substance_instance,hc_base.group_hc_base_user,1,0,0,0
 access_hc_substance_hc_substance_instance_identifier_user,hc.substance.hc.substance.instance.identifier.user,model_hc_substance_instance_identifier,hc_base.group_hc_base_user,1,0,0,0
 access_hc_substance_hc_vs_substance_category_manager,hc.substance.hc.vs.substance.category.manager,model_hc_vs_substance_category,hc_base.group_hc_base_manager,1,1,1,1
-access_hc_substance_hc_parent_substance_code_manager,hc.substance.hc.parent.substance.code.manager,model_hc_parent_substance_code,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_substance_hc_vs_substance_code_manager,hc.substance.hc.vs.substance.code.manager,model_hc_vs_substance_code,hc_base.group_hc_base_manager,1,1,1,1
+access_hc_substance_hc_substance_association_manager,hc.substance.hc.substance.association.manager,model_hc_substance_association,hc_base.group_hc_base_manager,1,1,1,1
 
 
 

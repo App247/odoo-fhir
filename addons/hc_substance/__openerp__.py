@@ -35,7 +35,7 @@
         'data/data_substance.xml',
         # 'data/hc.vs.substance.code.csv',
         # 'data/hc.parent.substance.code.csv',
-        # 'data/hc.child.parent.substance.code.csv',
+        # 'data/hc.substance.association.csv',
         'views/hc_res_substance_views.xml',
         'views/hc_res_substance_templates.xml',
     ],
