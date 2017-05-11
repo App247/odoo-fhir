@@ -156,6 +156,7 @@ class PersonName(models.Model):
     _name = "hc.person.name"    
     _description = "Person Name"
     _inherit = ["hc.basic.association"]
+    _inherit = ["hc.human.name.use"] 
     _inherits = {"hc.human.name": "human_name_id"}
 
     human_name_id = fields.Many2one(

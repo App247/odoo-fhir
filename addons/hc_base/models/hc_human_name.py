@@ -80,7 +80,8 @@ class HumanNameUse(models.Model):
             ("temp", "Temp"), 
             ("nickname", "Nickname"), 
             ("anonymous", "Anonymous"), 
-            ("old", "Old"), ("maiden", "Maiden")], 
+            ("old", "Old"), 
+            ("maiden", "Maiden")], 
         default="usual",
         help="The use of a human name.")                   
     start_date = fields.Datetime(
@@ -91,10 +92,8 @@ class HumanNameUse(models.Model):
         help="End of the time period when name was/is in use.")
     
 class HumanName(models.Model):
-
     _name = "hc.human.name"
     _description = "Human Name"
-    _inherit = ["hc.human.name.use"]
     
     name = fields.Char(
         compute='_compute_full_name',
@@ -179,144 +178,56 @@ class HumanName(models.Model):
             ("old", "Old"), ("maiden", "Maiden")], 
         default="usual",
         help="The use of a human name.")
-    # 
+    
+    # Requirements
+
+    # No mandatory fields
+
+    # compute: Given = First Name + Middle Names + Initial Names + "(" + Nicknames +")"
+    # compute: Family = Mother Maiden Name + Birth Name + Previous Name + Last Name
+    # compute: Family_Reverse = Birth Name + Previous Name + Last Name + Mother Maiden Name
+    # compute: Full = Prefix + Given + Family + Suffix
+    # compute: Full_Reverse = Prefix + Family + Given + Suffix
+    # compute: Full_Family_Reverse = Prefix + Given + Family_Reverse + Suffix
+
     @api.depends('display_order', 'prefix_ids', 'first_id', 'middle_ids', 'initial_ids', 'nickname_ids', 'mother_maiden_id', 'surname_id', 'suffix_ids', 'previous_surname_ids', 'birth_surname_id')
     def _compute_full_name(self):
-        first = self.first_id.name if self.first_id else ''
-        middle = " ".join([middle.name for middle in self.middle_ids]) if self.middle_ids else ''
-        initial = " ".join([initial.name for initial in self.initial_ids]) if self.initial_ids else ''
-        nickname = " ".join([nickname.name for nickname in self.nickname_ids]) if self.nickname_ids else ''
+        for rec in self:
+            first = rec.first_id.name if rec.first_id else ''
+            middle = " ".join([middle.name for middle in rec.middle_ids]) if rec.middle_ids else ''
+            initial = " ".join([initial.name for initial in rec.initial_ids]) if rec.initial_ids else ''
+            nickname = " ".join([nickname.name for nickname in rec.nickname_ids]) if rec.nickname_ids else ''
 
-        if nickname == '':
-            given = first + ' ' + middle + ' ' + initial
-            self.given = given
+            if nickname == '':
+                given = first + ' ' + middle + ' ' + initial
+                rec.given = given
 
-        if nickname != '':
-            given = first + ' ' + middle + ' ' + initial + ' (' + nickname + ')'
-            self.given = given
+            if nickname != '':
+                given = first + ' ' + middle + ' ' + initial + ' (' + nickname + ')'
+                rec.given = given
 
-        mother_maiden = self.mother_maiden_id.name if self.mother_maiden_id else ''
-        birth_surname = self.birth_surname_id.name if self.birth_surname_id else ''
-        previous_surname = " ".join([previous_surname.name for previous_surname in self.previous_surname_ids]) if self.previous_surname_ids else ''
-        surname = self.surname_id.name if self.surname_id else ''
-        family = mother_maiden + ' ' + birth_surname + ' ' + previous_surname + ' ' + surname
-        self.family = family
+            mother_maiden = rec.mother_maiden_id.name if rec.mother_maiden_id else ''
+            birth_surname = rec.birth_surname_id.name if rec.birth_surname_id else ''
+            previous_surname = " ".join([previous_surname.name for previous_surname in rec.previous_surname_ids]) if rec.previous_surname_ids else ''
+            surname = rec.surname_id.name if rec.surname_id else ''
+            family = mother_maiden + ' ' + birth_surname + ' ' + previous_surname + ' ' + surname
+            rec.family = family
 
-        family_reverse = birth_surname + ' ' + surname + ' ' + mother_maiden
-        
-        prefix = " ".join([prefix.name for prefix in self.prefix_ids]) if self.prefix_ids else ''
-        suffix = " ".join([suffix.name for suffix in self.suffix_ids]) if self.suffix_ids else ''
-        
-        if self.display_order == 'first_maiden_last':
-            full = prefix + ' ' + given + ' ' + family + ' ' + suffix
-            self.name = full
+            family_reverse = birth_surname + ' ' + surname + ' ' + mother_maiden
+            
+            prefix = " ".join([prefix.name for prefix in rec.prefix_ids]) if rec.prefix_ids else ''
+            suffix = " ".join([suffix.name for suffix in rec.suffix_ids]) if rec.suffix_ids else ''
+            
+            if rec.display_order == 'first_maiden_last':
+                full = prefix + ' ' + given + ' ' + family + ' ' + suffix
+                rec.name = full
 
-        if self.display_order == 'maiden_last_first':
-            full_reverse = prefix + ' ' + family + ' ' + given + ' ' + suffix
-            self.name = full_reverse
+            if rec.display_order == 'maiden_last_first':
+                full_reverse = prefix + ' ' + family + ' ' + given + ' ' + suffix
+                rec.name = full_reverse
 
-        if self.display_order == 'first_last_maiden':
-            full_family_reverse = prefix + ' ' + given + ' ' + family_reverse + ' ' + suffix
-            self.name = full_family_reverse  
+            if rec.display_order == 'first_last_maiden':
+                full_family_reverse = prefix + ' ' + given + ' ' + family_reverse + ' ' + suffix
 
-# class HcExtensionHumanNameFull(models.Model):
-#     _inherit = 'hc.human.name'
 
-#     @api.depends('first_id','surname_id')
-#     def compute_full(self):
-#         full = ''
-#         lines = ''
-#         first = self.first_id and ', '+self.first_id.name or ''
-#         surname = self.surname_id and ', '+self.surname_id.name or ''
-#         lines = first+surname+lines
-#         self.name = lines
-
-#     name = fields.Char(
-#         compute='compute_full', 
-#         store="True",
-#         string="Full Name",
-#         help="A full text representation of the human name.")
-
-# class HcExtensionHumanNameFamily(models.Model):
-#     _inherit = 'hc.human.name'
-
-#     @api.depends('mother_maiden_id','surname_id')
-#     def compute_family(self):
-#         family = ''
-#         lines = ''
-#         maiden = self.mother_maiden_id and ', '+self.mother_maiden_id.name or ''
-#         surname = self.surname_id and ', '+self.surname_id.name or ''
-#         lines = maiden+surname+lines
-#         self.name = lines
-
-#     family = fields.Char(
-#         compute="compute_family",
-#         store="True",
-#         string="Family Name", 
-#         help="Family name (often called 'Surname').")
-
-# Requirements
-
-# No mandatory fields
-
-# compute: Given = First Name + Middle Names + Initial Names + "(" + Nicknames +")"
-# compute: Family = Mother Maiden Name + Birth Name + Previous Name + Last Name
-# compute: Family_Reverse = Birth Name + Previous Name + Last Name + Mother Maiden Name
-# compute: Full = Prefix + Given + Family + Suffix
-# compute: Full_Reverse = Prefix + Family + Given + Suffix
-# compute: Full_Family_Reverse = Prefix + Given + Family_Reverse + Suffix
-
-# class HcExtensionHumanName(models.Model):
-#     _inherit = 'hc.human.name'
-
-#     @api.model
-#     def create(self, vals):
-
-#         first = self.env['hc.human.name.term'].browse(vals['first_id']).name
-        # middle = self.env['hc.human.name.term'].browse(vals['middle_ids']).name
-        # last = self.env['hc.human.name.term'].browse(vals['surname_id']).name
-        # maiden = self.env['hc.human.name.term'].browse(vals['mother_maiden_id']).name
-        # full = first+ ' ' +last
-        # full_first = first+ ' ' +middle
-        # full_family = maiden+ ' ' +last
-        # vals['name'] = full
-        # vals['given'] = full_first
-        # vals['family'] = full_family
-
-        # return super(HcExtensionHumanName, self).create(vals)
-
-    # @api.multi
-    # def write(self, vals):
-       
-    #     if 'first_id' in vals:   
-    #         first = self.env['hc.human.name.term'].browse(vals['first_id']).name
-    #     else:
-    #         first = self.first_id.name
-
-        # if 'middle_ids' in vals:   
-        #     middle = self.env['hc.human.name.term'].browse(vals['middle_ids']).name
-        # else:
-        #     middle = self.middle_ids.name
-
-        # if 'mother_maiden_id' in vals:    
-        #     maiden = self.env['hc.human.name.term'].browse(vals['mother_maiden_id']).name
-        # else:
-        #     maiden = self.mother_maiden_id.name    
-
-        # if 'surname_id' in vals:    
-        #     last = self.env['hc.human.name.term'].browse(vals['surname_id']).name
-        # else:
-        #     last = self.surname_id.name
-
-        # full = first+ ' ' +last
-        # full_first = first+ ' ' +middle
-        # full_family = maiden+ ' ' +last
-        # vals['name'] = full
-        # vals['given'] = full_first
-        # vals['family'] = full_family
-
-        # return super(HcExtensionHumanName, self).create(vals)
-
-# class HumanName(models.Model):
-#     _inherit = 'hc.human.name'
 

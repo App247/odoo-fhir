@@ -28,6 +28,7 @@ class Patient(models.Model):
     animal_name = fields.Char(
         string="Animal Name",
         help="Name of the animal.")
+
     is_active = fields.Boolean(
         string="Active", 
         help="Whether this patient's record is in active use.")
@@ -157,6 +158,60 @@ class Patient(models.Model):
     def create(self, vals):
         vals['is_patient'] = self.env.context.get('is_patient', False)
         return super(Patient, self).create(vals)
+
+    @api.model
+    def create(self, vals):
+        person_obj = self.env['hc.res.person']
+        patient_address_obj = self.env['hc.patient.address']
+        patient_name_obj = self.env['hc.patient.name']
+        # patient_identifier_obj = self.env['hc.patient.identifier']
+        # patient_telecom_obj = self.env['hc.patient.telecom]
+        # patient_photo_obj = self.env['hc.patient.photo']
+        vals['is_patient'] = self.env.context.get('is_patient', False)
+        res = super(Patient, self).create(vals)
+        patient_address_vals = {}
+        patient_name_vals = {}
+        # patient_identifier_vals = {}
+        # patient_telecom_vals = {}
+        # patient_photo_vals = {}
+        if vals and vals.get('person_id'):
+            person_id = person_obj.browse(vals.get('person_id'))
+            if person_id.address_ids:
+                for person_add in person_id.address_ids:
+                    patient_address_vals.update({
+                                'address_id': person_add.id,
+                                'patient_id': res.id
+                                })
+                    patient_address_obj.create(patient_address_vals)
+            if person_id.name_ids:
+                for person_name in person_id.name_ids:
+                    patient_name_vals.update({
+                                    'human_name_id': person_name.human_name_id.id,
+                                    'patient_id': res.id
+                                    })
+                    patient_name_obj.create(patient_name_vals)
+            # if person_id.identifier_ids:
+            #     for person_name in person_id.identifier_ids:
+            #         patient_name_vals.update({
+            #                         'identifier_id': person_name.identifier_id.id,
+            #                         'patient_id': res.id
+            #                         })
+            #         patient_identifier_obj.create(patient_identifier_vals)
+            # if person_id.telecom_ids:
+            #     for person_name in person_id.telecom_ids:
+            #         patient_name_vals.update({
+            #                         'telecom_id': person_name.telecom_id.id,
+            #                         'patient_id': res.id
+            #                         })
+            #         patient_telecom_obj.create(patient_telecom_vals)
+            # if person_id.photo_ids:
+            #     for person_name in person_id.photo_ids:
+            #         patient_name_vals.update({
+            #                         'photo_id': person_name.photo_id.id,
+            #                         'patient_id': res.id
+            #                         })
+            #         patient_photo_obj.create(patient_photo_vals)
+        return res
 
 class PatientIdentifier(models.Model):  
     _name = "hc.patient.identifier" 

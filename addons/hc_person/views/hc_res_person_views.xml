@@ -59,6 +59,7 @@
                                     <form>
                                         <sheet>
                                             <group>
+                                                <field name="use" widget="radio" colspan="4"/>
                                                 <field name="is_preferred"/>
                                                 <field name="human_name_id"/>
                                             </group>

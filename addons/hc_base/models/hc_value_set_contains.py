@@ -6,21 +6,17 @@ class ValueSetContains(models.AbstractModel):
 
     _name = "hc.value.set.contains"
     _description = "Value Set Contains"
+    _parent_name = "contains_id"  
+    _parent_store = "True"  
+    _parent_order = "name"
+    _order = "parent_left"
+    _order = "parent_left"
     _inherit = ["hc.codeable.concept.coding"]
-    _order = "code"
 
-    # system = fields.Char(
-    #     string="Source URL",
-    #     help="Web address of the source of the code.")
+
     is_abstract = fields.Boolean(
         string="Abstract", 
         help="If user cannot select this entry.")
-    # version = fields.Char(
-    #     string="Version", 
-    #     help="Version in which this code / display is defined.")
-    # code = fields.Char(
-    #     string="Code", 
-    #     help="Code - if blank, this is not a choosable code.")
     name = fields.Char(
         string="Name", 
         help="User display for the concept.")
@@ -44,7 +40,22 @@ class ValueSetContains(models.AbstractModel):
     contains_id = fields.Many2one(
         comodel_name="hc.value.set.contains", 
         string="Parent",
+        ondelete="restrict",
+        index="True",
         help="Parent concept.")
+    child_ids = fields.One2many(
+        comodel_name="hc.value.set.contains", 
+        inverse_name="contains_id", 
+        string="Children concepts", 
+        help="Child concept.")
+    parent_left = fields.Integer(
+        string="Left Parent", 
+        index="True", 
+        help="Special field related to the contains_id field. Makes queries execute efficiently.")
+    parent_right = fields.Integer(
+        string="Right Parent", 
+        index="True", 
+        help="Special field related to the contains_id field. Makes queries execute efficiently.")
 
     _sql_constraints = [
         ('code_unique',
@@ -61,6 +72,12 @@ class ValueSetContains(models.AbstractModel):
     # def _check_description(self):
     #     if self.name == self.description:
     #         raise ValidationError("Concept name and description must be different")
+
+    @api.constrains('contains_id')
+    def _check_hierarchy(self):
+        if not self._check_recursion():
+            raise models.ValidationError(
+                'Error! You cannot create recursive categories.')
 
 class ActCode(models.Model):   
     _name = "hc.vs.act.code"
@@ -831,3 +848,4 @@ class EntityNameUse(models.Model):
         comodel_name="hc.vs.entity.name.use", 
         string="Parent", 
         help="Parent entity name use.")                    
+

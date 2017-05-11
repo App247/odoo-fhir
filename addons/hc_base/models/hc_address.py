@@ -327,7 +327,7 @@ class Address(models.Model):
 
     text = fields.Char(
         string="Full Address", 
-        compute="_compute_text", 
+        compute="_compute_full_address", 
         store="True", 
         help="A full text representation of the address.")
     line1 = fields.Char(
@@ -369,7 +369,7 @@ class Address(models.Model):
         help="Country (can be ISO 3166 3 letter code).")
     
     @api.depends('line1','line2','line3','city_id','postal_code_id', 'district_id', 'state_id', 'division_id', 'region_id', 'country_id')
-    def _compute_text(self):
+    def _compute_full_address(self):
         address = ''
         lines = ''
         line1 = self.line1 and self.line1 or ''

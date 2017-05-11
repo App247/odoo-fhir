@@ -498,7 +498,8 @@
                     <field name="definition"/>
                     <field name="contains_id"/>                    
                     <group>                 
-                        <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>             
+                        <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>
+                        <filter name="group_by_level_name" string="level name" context="{'group_by': 'level_name'}"/>             
                     </group>                    
                 </search>                       
             </field>                            
@@ -510,9 +511,12 @@
 <!--             <field name="inherit_id" ref="hc_value_set_contains_view_tree"/>   -->                          
             <field name="arch" type="xml">                          
                 <tree string="Animal Species" default_order="name, code">                      
+                    <field name="contains_id" invisible="1"/>
                     <field name="name"/>                    
                     <field name="code"/>                    
-                    <field name="definition"/>                  
+                    <field name="definition"/>
+                    <field name="level" invisible="1"/>     
+                    <field name="level_name" invisible="1"/>                  
                     <field name="source_id" invisible="0"/>                 
                 </tree>                     
             </field>                            
