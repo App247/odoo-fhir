@@ -10,7 +10,6 @@ class ValueSetContains(models.AbstractModel):
     _parent_store = "True"  
     _parent_order = "name"
     _order = "parent_left"
-    _order = "parent_left"
     _inherit = ["hc.codeable.concept.coding"]
 
 
@@ -46,7 +45,7 @@ class ValueSetContains(models.AbstractModel):
     child_ids = fields.One2many(
         comodel_name="hc.value.set.contains", 
         inverse_name="contains_id", 
-        string="Children concepts", 
+        string="Children", 
         help="Child concept.")
     parent_left = fields.Integer(
         string="Left Parent", 

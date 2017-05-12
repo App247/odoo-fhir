@@ -124,15 +124,15 @@ class TimingRepeat(models.Model):
         'CHECK(bounds_duration >= 0.0)',
         'Bounds Duration SHALL be a non-negative value.'),
 
-        ('range_low_gt_zero',              
+        ('bounds_range_low_gt_zero',              
         'CHECK(bounds_range_low >= 0.0)',                
         'Range Low SHALL be a non-negative value.'),
 
-        ('range_high_gt_low',
+        ('bounds_range_high_gt_low',
         'CHECK(bounds_range_high >= bounds_range_low)',
         'Range High SHALL not be lower than Range Low.'),
 
-        ('period_end_gt_start',
+        ('bounds_period_end_gt_start',
         'CHECK(bounds_period_end_date >= bounds_period_start_date)',
         'Period End Date SHALL not be lower than Period Start Date.'),
 
