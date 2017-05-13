@@ -320,6 +320,28 @@ class CountryPostalCode(models.Model):
         string="Country", 
         help="Country (can be ISO-3166 3-letter code).")
 
+class AddressUse(models.Model): 
+    _name = "hc.address.use"    
+    _description = "Address Use"            
+    _inherit = ["hc.basic.association"]
+
+    use = fields.Selection(
+        string="Use", 
+        selection=[
+            ("home", "Home"), 
+            ("work", "Work"), 
+            ("temp", "Temp"), 
+            ("old", "Old")], 
+        help="The purpose of this address.")        
+    type = fields.Selection(
+        string="Type", 
+        selection=[
+            ("postal", "Postal"), 
+            ("physical", "Physical"), 
+            ("both", "Both")], 
+        default="both",
+        help="Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care-of addresses). Most addresses are both.")
+
 class Address(models.Model):
     _name = "hc.address"
     _description = "Address"
@@ -385,24 +407,4 @@ class Address(models.Model):
         lines = line1+line2+line3+city+postal+district+state+division+region+country+lines
         self.text = lines
 
-class AddressUse(models.Model): 
-    _name = "hc.address.use"    
-    _description = "Address Use"            
-    _inherit = ["hc.basic.association"]
-
-    use = fields.Selection(
-        string="Use", 
-        selection=[
-            ("home", "Home"), 
-            ("work", "Work"), 
-            ("temp", "Temp"), 
-            ("old", "Old")], 
-        help="The purpose of this address.")        
-    type = fields.Selection(
-        string="Type", 
-        selection=[
-            ("postal", "Postal"), 
-            ("physical", "Physical"), 
-            ("both", "Both")], 
-        default="both",
-		help="Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care-of addresses). Most addresses are both.")      
+      

@@ -32,7 +32,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['hc_medication_request', 'hc_procedure'],
+    'depends': ['hc_detected_issue', 'hc_procedure'],
 
     # always loaded
     'data': [

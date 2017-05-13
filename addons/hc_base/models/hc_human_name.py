@@ -22,6 +22,22 @@ class PartnerTitle(models.Model):
         default="generational",
         help="Category of title.")
 
+class HumanNameTermType(models.Model):
+    _name = "hc.vs.human.name.term.type"
+    _description = "Human Name Term Type"
+    _inherit = ["hc.value.set.contains"]
+
+    name = fields.Char(
+        string="Name", 
+        help="Name of this human name term type.")                                
+    code = fields.Char(
+        string="Code", 
+        help="Code of this human name term type.")                                
+    contains_id = fields.Many2one(
+        comodel_name="hc.vs.human.name.term.type", 
+        string="Parent", 
+        help="Parent human name term type.")                              
+
 class HumanNameTerm(models.Model):  
     _name = "hc.human.name.term" 
     _description = "Human Name Term"       
@@ -30,6 +46,11 @@ class HumanNameTerm(models.Model):
         string="Human Name Term",
         required="True", 
         help="A single term of a human name (e.g., John, Smith).")
+    type_ids = fields.Many2many(
+        comodel_name="hc.vs.human.name.term.type", 
+        relation="human_name_term_type_rel", 
+        string="Types", 
+        help="Type of human name term.")
 
     _sql_constraints = [
         ("name_unique",
@@ -54,17 +75,6 @@ class HumanNameSuffix(models.Model):
         string="Description",
         help="Describes a suffix.")
     type = fields.Selection(
-        # string="Type", 
-        # selection=[
-        #     ("academic", "Academic"),
-        #     ("generational", "Generational"),
-        #     ("practitioner", "Healthcare Practitioner"), 
-        #     ("honorary", "Honorary"),
-        #     ("legal", "Legal"),
-        #     ("organizational", "Organizational"),
-        #     ("professional", "Professional"),
-        #     ("religious", "Religious")],
-        # default="generational",
         help="Category of suffix.")
 
 class HumanNameUse(models.Model):   
@@ -228,6 +238,4 @@ class HumanName(models.Model):
 
             if rec.display_order == 'first_last_maiden':
                 full_family_reverse = prefix + ' ' + given + ' ' + family_reverse + ' ' + suffix
-
-
-
+                rec.name = full_family_reverse

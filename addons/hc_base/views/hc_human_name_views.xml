@@ -1,16 +1,93 @@
 <openerp>
     <data>
 
+
+        <!-- Human Name Term Type Views -->                     
+                        
+        <record id="hc_vs_human_name_term_type_view_search" model="ir.ui.view">                     
+            <field name="name">Human Name Term Type Search</field>                  
+            <field name="model">hc.vs.human.name.term.type</field>                  
+            <field name="arch" type="xml">                  
+                <search string="Human Name Term Types">             
+                    <field name="name"/>            
+                    <field name="code"/>            
+                    <field name="definition"/>          
+                    <group>         
+                        <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>      
+                    </group>            
+                </search>               
+            </field>                    
+        </record>                       
+                                
+        <record id="hc_vs_human_name_term_type_view_tree" model="ir.ui.view">                       
+            <field name="name">Human Name Term Type Tree</field>                    
+            <field name="model">hc.vs.human.name.term.type</field>                  
+            <field name="arch" type="xml">                  
+                <tree string="Human Name Term Types" default_order="name, code">                
+                    <field name="name"/>            
+                    <field name="code"/>            
+                    <field name="definition"/>          
+                    <field name="contains_id"/>         
+                    <field name="source_id" invisible="0"/>         
+                </tree>             
+            </field>                    
+        </record>                       
+                                
+        <record id="hc_vs_human_name_term_type_view_form" model="ir.ui.view">                       
+            <field name="name">Human Name Term Type Form</field>                    
+            <field name="model">hc.vs.human.name.term.type</field>                  
+            <field name="arch" type="xml">                  
+                <form string="Human Name Term Types" >              
+                    <sheet>         
+                        <h1>        
+                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>  
+                        </h1>       
+                        <field name="code" placeholder="Code (e.g., biological)"/>      
+                        <field name="definition" placeholder="Definition"/>     
+                        <field name="comments" placeholder="Comments"/>     
+                        <group>     
+                            <group> 
+                                <field name="contains_id"/>
+                            </group>    
+                            <group> 
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
+                            </group>    
+                        </group>        
+                    </sheet>            
+                </form>             
+            </field>                    
+        </record>                       
+
+        <act_window id="hc_vs_human_name_term_type_action"          
+                    name="HC Human Name Term Types"
+                    res_model="hc.vs.human.name.term.type"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <menuitem id="hc_base.menu_human_name_term_type" 
+                  name="Human Name Term Types" 
+                  parent="hc_base.menu_human_name" 
+                  action="hc_vs_human_name_term_type_action" 
+                  groups="hc_base.group_hc_base_manager" 
+                  sequence="10"/>
+
         <!-- Human Name Term Views -->            
             
         <record id="hc_human_name_term_view_search" model="ir.ui.view">           
-          <field name="name">Human Name Term Search</field>         
-          <field name="model">hc.human.name.term</field>          
-          <field name="arch" type="xml">          
-            <search string="Human Name Terms">        
-              <field name="name"/>   
-            </search>       
-          </field>          
+            <field name="name">Human Name Term Search</field>         
+            <field name="model">hc.human.name.term</field>          
+            <field name="arch" type="xml">          
+                <search string="Human Name Terms">        
+                    <field name="name"/>
+<!--                     <field name="type_ids" widget="many2many_tags"/>       
+                    <group string="Group By">   
+                        <filter name="group_by_type" string="Type" context="{'group_by': 'type_ids'}"/>
+                    </group> -->
+                </search>    
+            </field>          
         </record>           
                     
         <record id="hc_human_name_term_view_tree" model="ir.ui.view">           
@@ -18,7 +95,8 @@
           <field name="model">hc.human.name.term</field>          
           <field name="arch" type="xml">          
             <tree string="Human Name Terms" editable="top">        
-                <field name="name"/>      
+                <field name="name"/>
+                <field name="type_ids" widget="many2many_tags"/>      
             </tree>       
           </field>          
         </record>           
@@ -36,6 +114,7 @@
                 </div>    
                 <group>   
                   <group>
+                    <field name="type_ids" widget="many2many_tags"/>
                   </group>  
                   <group> 
                   </group>  
@@ -62,10 +141,11 @@
                       sequence="40"/>
 
                 <menuitem id="hc_base.menu_human_name_term" 
-                          name="Terms" parent="hc_base.menu_human_name" 
+                          name="Terms" 
+                          parent="hc_base.menu_human_name" 
                           action="hc_human_name_term_action" 
                           groups="hc_base.group_hc_base_manager" 
-                          sequence="10"/>
+                          sequence="11"/>
 
             <!-- Human Name Suffix Views -->            
                         
@@ -190,32 +270,28 @@
               <field name="arch" type="xml">          
                 <form string="Human Name">        
                   <sheet>     
-                    <div class="oe_title oe_left">    
                       <h1>  
                         <field name="name" readonly="1"/>
-                      </h1>
-                    </div>    
+                      </h1> 
                     <group>
-<!--                       <label for="first_id" string="Given"/>  -->  
-                      <group> 
-                        <field name="prefix_ids" string="Prefix" widget="many2many_tags" default_focus="1"/>
-                        <field name="first_id" placeholder="Single term (e.g., John)"/>
-                        <field name="middle_ids" placeholder="Other Given Names besides First Name" widget="many2many_tags"/>
-                        <field name="initial_ids" placeholder="(e.g., O., E.V.)" widget="many2many_tags"/>
+                      <group string="Given"> 
+                        <field name="first_id" string="First" placeholder="Single term (e.g., John)" default_focus="1"/>
+                        <field name="middle_ids" string="Middle" placeholder="Other Given Names besides First Name" widget="many2many_tags"/>
+                        <field name="initial_ids" string="Initials" placeholder="(e.g., O., E.V.)" widget="many2many_tags"/>
                         <field name="nickname_ids" widget="many2many_tags"/>
                       </group>  
-                      <group>
-                        <field name="mother_maiden_id" placeholder="Mother's birth last name."/>
-                        <field name="surname_id" string="Last/Family Name"/>
+                      <group string="Last">
+                        <field name="mother_maiden_id" string="Mother Maiden" placeholder="Mother's birth last name."/>
+                        <field name="surname_id" string="Family"/>
+                        <field name="previous_surname_ids" string="Previous" placeholder="If different from current or birth last name." widget="many2many_tags"/>
+                        <field name="birth_surname_id" string="Birth" placeholder="If different from current or previous last name."/>
+                      </group>
+                      <group string="Prefix/Suffix">
+                        <field name="prefix_ids" string="Prefix" widget="many2many_tags"/>
                         <field name="suffix_ids" string="Suffix" placeholder="(e.g., Jr., MBA)" widget="many2many_tags"/>
-                        <field name="preferred_name" placeholder="Preferred name in a conversation (e.g., Jack, Mr. Smith)"/>
-                        <field name="previous_surname_ids" placeholder="If different from current or birth last name." widget="many2many_tags"/>
-                        <field name="birth_surname_id" placeholder="If different from current or previous last name."/>
                       </group>
-                      <group>
-                        <!-- <field name="use" widget="radio"/> -->
-                      </group>
-                      <group>
+                      <group string="Miscl">
+                        <field name="preferred_name" string="Preferred" placeholder="Preferred name in a conversation (e.g., Jack, Mr. Smith)"/>
                         <field name="display_order" widget="radio"/>
                       </group>
                     </group>

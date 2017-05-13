@@ -92,6 +92,29 @@
                 ref('base.uk'),ref('base.va')])]"/>
         </record>
 
+        
+        <!--Human Name Term Type -->    
+    
+        <record id="hc_base.human_name_term_type_uc" model="hc.vs.human.name.term.type">    
+            <field name="code">uc</field>
+            <field name="name">Use Case</field>
+        </record>   
+            
+        <record id="hc_base.human_name_term_type_i" model="hc.vs.human.name.term.type"> 
+            <field name="code">i</field>
+            <field name="name">Initials</field>
+        </record>   
+            
+        <record id="hc_base.human_name_term_type_hc" model="hc.vs.human.name.term.type">    
+            <field name="code">hc</field>
+            <field name="name">Health Care</field>
+        </record>
+
+        <record id="hc_base.human_name_term_type_abbr" model="hc.vs.human.name.term.type">  
+            <field name="code">abbr</field>
+            <field name="name">Abbreviation</field>
+        </record>   
+
         <!-- Entity Name Use -->
 
         <record id="hc_base.name_use_l" model="hc.vs.entity.name.use">  

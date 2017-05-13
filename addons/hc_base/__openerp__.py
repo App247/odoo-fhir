@@ -87,7 +87,5 @@
         # 'demo/hc.vs.country.city.csv',
         'demo/hc.human.name.term.csv',
         'demo/hc.human.name.csv',
-        #'demo/hc.res.person.csv',
-
     ],
 }

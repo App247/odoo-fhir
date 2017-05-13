@@ -1,6 +1,6 @@
 "id","parent_ids/id"
 hc_substance.subs_code_406455002,"hc_substance.subs_code_105590001_par"
-hc_substance.subs_code_406472009,"hc_substance.subs_code_406455002_par"
+hc_substance.subs_code_406472009,"hc_substance.subs_code_105590001_par,hc_substance.subs_code_406455002_par"
 hc_substance.subs_code_406473004,"hc_substance.subs_code_406455002_par"
 hc_substance.subs_code_410980008,"hc_substance.subs_code_406455002_par"
 hc_substance.subs_code_709759000,"hc_substance.subs_code_406455002_par"
@@ -10,3 +10,5 @@ hc_substance.subs_code_406467000,"hc_substance.subs_code_406455002_par"
 hc_substance.subs_code_406469002,"hc_substance.subs_code_406455002_par"
 hc_substance.subs_code_406464007,"hc_substance.subs_code_406455002_par"
 hc_substance.subs_code_410981007,"hc_substance.subs_code_406455002_par"
+
+

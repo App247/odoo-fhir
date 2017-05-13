@@ -58,7 +58,8 @@ class Person(models.Model):
 #         string="Managing Organization", 
 #         help="The Organization that is the custodian of the person record.")
     is_active_person = fields.Boolean(
-        string="Active", 
+        string="Active",
+        default="True", 
         help="This person's record is in active use.")
     link_ids = fields.One2many(
         comodel_name="hc.person.link", 
@@ -68,13 +69,25 @@ class Person(models.Model):
 
     @api.model
     def create(self, vals):
+        person_name_obj = self.env['hc.person.name']
         name = self.env['hc.human.name'].browse(vals['name_id'])
         vals['name'] = name.name
-        # vals['is_patient'] = self.env.context.get('is_patient', False)
-        # vals['is_practitioner'] = self.env.context.get('is_practitioner', False)
-        # vals['is_related_person'] = self.env.context.get('is_related_person', False)
-        return super(Person, self).create(vals)
+        names_vals = {}
+        res = super(Person, self).create(vals)
+        if name:
+            names_vals.update({
+                        'is_preferred': True,
+                        'human_name_id': name.id,
+                        'person_id': res.id
+                        })
+            person_name_obj.create(names_vals)
+        return res   
+    
+    # vals['is_patient'] = self.env.context.get('is_patient', False)
+    # vals['is_practitioner'] = self.env.context.get('is_practitioner', False)
+    # vals['is_related_person'] = self.env.context.get('is_related_person', False)
 
+    
     _defaults = {
         "is_company": False,
         "customer": False,
@@ -126,7 +139,8 @@ class PersonLink(models.Model):
             ("level1", "Level 1"), 
             ("level2", "Level 2"), 
             ("level3", "Level 3"), 
-            ("level4", "Level 4")], 
+            ("level4", "Level 4")],
+        default="level1", 
         help="Level of assurance that this link is actually associated with the target resource.")
 
     @api.multi
@@ -155,7 +169,6 @@ class PersonIdentifier(models.Model):
 class PersonName(models.Model): 
     _name = "hc.person.name"    
     _description = "Person Name"
-    _inherit = ["hc.basic.association"]
     _inherit = ["hc.human.name.use"] 
     _inherits = {"hc.human.name": "human_name_id"}
 

@@ -14,6 +14,7 @@ access_hc_base_hc_human_name_use_manager,hc.base.hc.human.name.use.manager,model
 access_hc_base_hc_extension_human_name_manager,hc.base.hc.extension.human.name.user,model_hc_extension_human_name,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_human_name_user,hc.base.hc.human.name.user,model_hc_human_name,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_human_name_suffix_user,hc.base.hc.human.name.suffix.user,model_hc_human_name_suffix,hc_base.group_hc_base_user,1,0,0,0
+access_hc_base_hc_vs_human_name_term_type_manager,hc.base.hc.vs.human.name.term.type.manager,model_hc_vs_human_name_term_type,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_human_name_term_user,hc.base.hc.human.name.term.user,model_hc_human_name_term,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_human_name_use_user,hc.base.hc.human.name.use.user,model_hc_human_name_use,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_extension_human_name_user,hc.base.hc.extension.human.name.user,model_hc_extension_human_name,hc_base.group_hc_base_user,1,0,0,0
