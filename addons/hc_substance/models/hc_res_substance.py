@@ -7,9 +7,9 @@ class Substance(models.Model):
     _description = "Substance"        
 
     name = fields.Char(
-    	string="Event Name", 
-    	required="True", 
-    	help="Human-readable label for this substance.")
+        string="Event Name", 
+        required="True", 
+        help="Human-readable label for this substance.")
     identifier_ids = fields.One2many(
         comodel_name="hc.substance.identifier", 
         inverse_name="substance_id", 

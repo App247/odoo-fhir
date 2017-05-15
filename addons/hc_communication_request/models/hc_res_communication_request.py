@@ -36,12 +36,30 @@ class CommunicationRequest(models.Model):
         comodel_name="hc.res.device", 
         string="Sender Device", 
         help="Device message sender.")                
-    sender_organization_id = fields.Many2one(comodel_name="hc.res.organization", string="Sender Organization", help="Organization message sender.")                
-    sender_patient_id = fields.Many2one(comodel_name="hc.res.patient", string="Sender Patient", help="Patient message sender.")                
-    sender_practitioner_id = fields.Many2one(comodel_name="hc.res.practitioner", string="Sender Practitioner", help="Practitioner message sender.")                
-    sender_related_person_id = fields.Many2one(comodel_name="hc.res.related.person", string="Sender Related Person", help="Related Person message sender.")                
-    recipient_ids = fields.One2many(comodel_name="hc.communication.request.recipient", inverse_name="communication_request_id", string="Recipients", help="Message recipient.")                
-    medium_ids = fields.Many2many(comodel_name="hc.vs.participation.mode", string="Mediums", help="Communication medium.")               
+    sender_organization_id = fields.Many2one(
+        comodel_name="hc.res.organization", 
+        string="Sender Organization", 
+        help="Organization message sender.")                
+    sender_patient_id = fields.Many2one(
+        comodel_name="hc.res.patient", 
+        string="Sender Patient", 
+        help="Patient message sender.")                
+    sender_practitioner_id = fields.Many2one(
+        comodel_name="hc.res.practitioner", 
+        string="Sender Practitioner", 
+        help="Practitioner message sender.")                
+    sender_related_person_id = fields.Many2one(
+        comodel_name="hc.res.related.person", 
+        string="Sender Related Person", 
+        help="Related Person message sender.")                
+    recipient_ids = fields.One2many(
+        comodel_name="hc.communication.request.recipient", 
+        inverse_name="communication_request_id", 
+        string="Recipients", 
+        help="Message recipient.")                
+    medium_ids = fields.Many2many(
+        comodel_name="hc.vs.participation.mode", 
+        string="Mediums", help="Communication medium.")               
     requester_type = fields.Selection(
         string="Requester Type", 
         selection=[
@@ -49,12 +67,40 @@ class CommunicationRequest(models.Model):
             ("Patient", "Patient"), 
             ("Related Person", "Related Person")], 
         help="Type of message recipient.")                
-    requester_name = fields.Char(string="Requester", compute="_compute_requester_name", store="True", help="An individual who requested a communication.")                
-    requester_practitioner_id = fields.Many2one(comodel_name="hc.res.practitioner", string="Requester Practitioner", help="Practitioner who requested a communication.")                
-    requester_patient_id = fields.Many2one(comodel_name="hc.res.patient", string="Requester Patient", help="Patient who requested a communication.")                
-    requester_related_person_id = fields.Many2one(comodel_name="hc.res.related.person", string="Requester Related Person", help="Related Person who requested a communication.")                
-    status = fields.Selection(string="Communication Request Status", selection=[("proposed", "Proposed"), ("planned", "Planned"), ("requested", "Requested"), ("received", "Received"), ("accepted", "Accepted"), ("in-progress", "In-Progress"), ("completed", "Completed"), ("suspended", "Suspended"), ("rejected", "Rejected") ], help="The status of the proposal or order.")                
-    encounter_id = fields.Many2one(comodel_name="hc.res.encounter", string="Encounter", help="Encounter leading to message.")                
+    requester_name = fields.Char(
+        string="Requester", 
+        compute="_compute_requester_name", 
+        store="True", 
+        help="An individual who requested a communication.")                
+    requester_practitioner_id = fields.Many2one(
+        comodel_name="hc.res.practitioner", 
+        string="Requester Practitioner", 
+        help="Practitioner who requested a communication.")                
+    requester_patient_id = fields.Many2one(
+        comodel_name="hc.res.patient", 
+        string="Requester Patient", 
+        help="Patient who requested a communication.")                
+    requester_related_person_id = fields.Many2one(
+        comodel_name="hc.res.related.person", 
+        string="Requester Related Person", 
+        help="Related Person who requested a communication.")                
+    status = fields.Selection(
+        string="Communication Request Status", 
+        selection=[
+            ("proposed", "Proposed"), 
+            ("planned", "Planned"), 
+            ("requested", "Requested"), 
+            ("received", "Received"), 
+            ("accepted", "Accepted"), 
+            ("in-progress", "In-Progress"), 
+            ("completed", "Completed"), 
+            ("suspended", "Suspended"), 
+            ("rejected", "Rejected") ], 
+        help="The status of the proposal or order.")                
+    encounter_id = fields.Many2one(
+        comodel_name="hc.res.encounter", 
+        string="Encounter", 
+        help="Encounter leading to message.")                
     scheduled_type = fields.Selection(
         string="Scheduled Type", 
         selection=[

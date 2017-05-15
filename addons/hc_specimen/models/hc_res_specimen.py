@@ -8,7 +8,8 @@ class Specimen(models.Model):
 
     name = fields.Char(
         string="Event Name", 
-        required="True", 
+        compute="_compute_name", 
+        store="True", 
         help="Text representation of the specimen event. Subject Name + Accession Identifier + Received Time.")
     identifier_ids = fields.One2many(
         comodel_name="hc.specimen.identifier", 

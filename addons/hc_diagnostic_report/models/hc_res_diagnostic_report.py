@@ -8,8 +8,9 @@ class DiagnosticReport(models.Model):
 
     name = fields.Char(
         string="Name", 
-        required="True", 
-        help="Name for this diagnostic report. Subject Name + Code + Issued.") 
+        compute="_compute_name", 
+        store="True", 
+        help="Name for this diagnostic report. Subject Name + Code + Issued.")
     identifier_ids = fields.One2many(
         comodel_name="hc.diagnostic.report.identifier", 
         inverse_name="diagnostic_report_id", 

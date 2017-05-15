@@ -7,8 +7,9 @@ class BodySite(models.Model):
     _description = "Body Site"
 
     name = fields.Char(
-        string="Event Name", 
-        required="True", 
+        string="Name", 
+        compute="_compute_name", 
+        store="True", 
         help="Text representation of the body site event. Patient + Code + Date.")
     date = fields.Datetime(
         string="Date", 

@@ -10,7 +10,7 @@ class ProcedureRequest(models.Model):
         string="Event Name", 
         compute="_compute_name", 
         store="True", 
-        help="Text representation of the procedure event. Subject Name + Type + Ordered Date.")
+        help="Text representation of the procedure request event. Subject Name + Type + Ordered Date.")
     identifier_ids = fields.One2many(
         comodel_name="hc.procedure.request.identifier", 
         inverse_name="procedure_request_id", 

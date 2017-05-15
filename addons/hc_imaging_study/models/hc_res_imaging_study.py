@@ -5,11 +5,12 @@ from openerp import models, fields, api
 class ImagingStudy(models.Model):    
     _name = "hc.res.imaging.study"    
     _description = "Imaging Study"
-
+  
     name = fields.Char(
         string="Event Name", 
-        required="True", 
-        help="Text representation of the imaging manifest event. Patient + UID + Authoring Date.")
+        compute="_compute_name", 
+        store="True", 
+        help="Text representation of the procedure request event. Patient Name + UID + Started Date.")
     uid = fields.Char(
         string="UID", 
         required="True", 

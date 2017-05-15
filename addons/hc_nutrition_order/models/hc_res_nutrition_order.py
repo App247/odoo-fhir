@@ -8,8 +8,9 @@ class NutritionOrder(models.Model):
 
     name = fields.Char(
         string="Event Name", 
-        required="True", 
-        help="Text representation of the nutrition order event. Patient Name + Encounter + Date Requested.")
+        compute="_compute_name", 
+        store="True", 
+        help="Text representation of the nutrition order event. Patient Name + DOB + Orderer + Date.")
     identifier_ids = fields.One2many(
         comodel_name="hc.nutrition.order.identifier", 
         inverse_name="nutrition_order_id", 

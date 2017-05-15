@@ -7,8 +7,9 @@ class Device(models.Model):
     _description = "Device"
 
     name = fields.Char(
-        string="Event Name", 
-        required="True", 
+        string="Name", 
+        compute="_compute_name", 
+        store="True", 
         help="Human-readable label for this device. UDI ID + Name.")
     identifier_ids = fields.One2many(
         comodel_name="hc.device.identifier", 

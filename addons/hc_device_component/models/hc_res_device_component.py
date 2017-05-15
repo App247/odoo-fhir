@@ -8,8 +8,9 @@ class DeviceComponent(models.Model):
 
     name = fields.Char(
         string="Name", 
-        required="True", 
-        help="Human-readable label for this device component.")
+        compute="_compute_name", 
+        store="True", 
+        help="Human-readable label for this device component. Type + Device + Last System Change")
     type_id = fields.Many2one(
         comodel_name="hc.vs.device.component.type", 
         string="Type", 
