@@ -216,7 +216,8 @@
                                             <group>         
                                                 <group>
                                                     <field name="recorded_date"/>
-                                                    <field name="author_type"/>
+                                                    <field name="author_name"/>
+                                                    <field name="author_type" class="oe_edit_only"/>
                                                     <field name="author_string" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','string')]}"/>
                                                     <field name="author_patient_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','patient')]}"/>
                                                     <field name="author_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','practitioner')]}"/>

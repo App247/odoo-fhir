@@ -6,6 +6,11 @@ class Encounter(models.Model):
     _name = "hc.res.encounter"  
     _description = "Encounter"      
 
+    name = fields.Char(
+        string="Name", 
+        compute="_compute_name", 
+        store="True", 
+        help="Text representation of the encounter event. Patient Name + Encounter Type + Start Date.")
     identifier_ids = fields.One2many(
         comodel_name="hc.encounter.identifier", 
         inverse_name="encounter_id", 

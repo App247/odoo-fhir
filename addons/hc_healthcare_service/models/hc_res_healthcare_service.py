@@ -37,8 +37,8 @@ class HealthcareService(models.Model):
         inverse_name="healthcare_service_id", 
         string="Location", 
         help="Location(s) where service may be provided.")        
-    service_name = fields.Char(
-        string="Service Name", 
+    name = fields.Char(
+        string="Name", 
         help="Further description of the service as it would be presented to a consumer while searching.")        
     comment = fields.Text(
         string="Comment", 

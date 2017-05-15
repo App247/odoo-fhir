@@ -5,8 +5,11 @@ from openerp import models, fields, api
 class ImagingManifest(models.Model):    
     _name = "hc.res.imaging.manifest"    
     _description = "Imaging Manifest"
-    _rec_name = "uid"
 
+    name = fields.Char(
+        string="Event Name", 
+        required="True", 
+        help="Text representation of the imaging manifest event. Patient + UID + Authoring Date.")
     uid = fields.Char(
         string="UID", 
         required="True", 

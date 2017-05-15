@@ -57,9 +57,9 @@
         <field name="arch" type="xml">                                                          
             <form string="Condition">                                                       
                 <sheet>                                                                                            
-                    <h2>
+                    <h1>
                         <field name="name" placeholder="Condition Event Name (e.g., Subject Name + Code + Asserted Date)"/>
-                    </h2>                                           
+                    </h1>                                           
                     <div name="buttons" class="oe_right oe_button_box"></div>                                               
                     <group>                                             
                         <group string="Event" name="event">                                         
@@ -75,8 +75,6 @@
                             <field name="clinical_status"/>
                             <field name="verification_status"/>
                             <field name="severity_id"/>
-                            <field name="has_stage"/>
-                            <field name="stage_summary_id" attrs="{'invisible': [('has_stage','=',False)]}"/>                                    
                         </group>
                         <group string = "Who, Where">
                             <field name="asserter_name"/>
@@ -87,33 +85,115 @@
                             <field name="body_site_ids" widget="many2many_tags"/>
                         </group>                                          
                         <group string = "Timeline">
-                            <label for="onset" string="Onset"/>                 
-                            <div>
-                            <field name="onset_name"/>
-                            <field name="onset_type" class="oe_edit_only"/>
-                            <field name="onset_date_time" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','date_time')]}"/>
-                            <field name="onset_age" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','age')]}"/>
-                            <field name="onset_age_uom_id" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','age')]}"/>
-                            <field name="onset_start_date" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','period')]}"/>
-                            <field name="onset_end_date" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','period')]}"/>
-                            <field name="onset_range_low" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','range')]}"/>
-                            <field name="onset_range_high" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','range')]}"/>
-                            <field name="onset_string" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','string')]}"/>
-                            </div>
-                            <field name="abatement_name"/>
-                            <field name="abatement_type" class="oe_edit_only"/>
-                            <field name="abatement_date" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','date')]}"/>
-                            <field name="abatement_age" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','age')]}"/>
-                            <field name="abatement_age_uom_id" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','age')]}"/>
-                            <field name="abatement_boolean" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','boolean')]}"/>
-                            <field name="abatement_start_date" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','period')]}"/>
-                            <field name="abatement_end_date" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','period')]}"/>
-                            <field name="abatement_range_low" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','range')]}"/>
-                            <field name="abatement_range_high" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','range')]}"/>
-                            <field name="abatement_string" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','string')]}"/>   
+                                <field name="onset_name"/>
+                                <field name="onset_type" class="oe_edit_only"/>
+                                <field name="onset_date_time" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','date_time')]}"/>
+                                <field name="onset_age" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','age')]}"/>
+                                <field name="onset_age_uom_id" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','age')]}"/>
+                                <field name="onset_start_date" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','period')]}"/>
+                                <field name="onset_end_date" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','period')]}"/>
+                                <field name="onset_range_low" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','range')]}"/>
+                                <field name="onset_range_high" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','range')]}"/>
+                                <field name="onset_string" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','string')]}"/>
+                                <field name="abatement_name"/>
+                                <field name="abatement_type" class="oe_edit_only"/>
+                                <field name="abatement_date_time" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','date_time')]}"/>
+                                <field name="abatement_age" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','age')]}"/>
+                                <field name="abatement_age_uom_id" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','age')]}"/>
+                                <field name="abatement_boolean" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','boolean')]}"/>
+                                <field name="abatement_start_date" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','period')]}"/>
+                                <field name="abatement_end_date" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','period')]}"/>
+                                <field name="abatement_range_low" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','range')]}"/>
+                                <field name="abatement_range_high" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','range')]}"/>
+                                <field name="abatement_string" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','string')]}"/>   
                         </group>                                            
                     </group>                                                
-                    <notebook>                                              
+                    <notebook>
+                        <page string="Stages">                   
+                            <field name="stage_ids" mode="tree">             
+                                <tree>              
+                                    <field name="summary_id"/>     
+                                </tree>         
+                                <form>          
+                                    <sheet>
+                                        <group>
+                                            <group> 
+                                                <field name="summary_id"/>         
+                                            </group>
+                                            <group>
+                                            </group>
+                                        </group>
+                                        <notebook>
+                                            <page string="Assessments">
+                                                <field name="assessment_ids" mode="tree">
+                                                    <tree>
+                                                        <field name="assessment_name"/>
+                                                        <field name="assessment_type"/>
+                                                    </tree>
+                                                    <form>
+                                                        <sheet>
+                                                            <div class="oe_left">
+                                                            </div>
+                                                            <group>
+                                                                <group>
+                                                                    <field name="assessment_name" readonly="1"/>
+                                                                    <field name="assessment_type" class="oe_edit_only"/>
+                                                                    <!-- <field name="assessment_observation_id" class="oe_edit_only" attrs="{'invisible': [('assessment_type','!=','observation')]}"/>
+                                                                    <field name="assessment_clinical_impression_id" class="oe_edit_only" attrs="{'invisible': [('assessment_type','!=','clinical_impression')]}"/>
+                                                                    <field name="assessment_diagnostic_report_id" class="oe_edit_only" attrs="{'invisible': [('assessment_type','!=','diagnostic_report')]}"/> -->
+                                                                </group>
+                                                                <group>
+                                                                </group>
+                                                            </group>
+                                                        </sheet>
+                                                    </form>
+                                                </field>
+                                            </page>
+                                        </notebook>    
+                                    </sheet>        
+                                </form>         
+                            </field>                
+                        </page>                                                                                
+                        <page string="Evidences">                                           
+                            <field name="evidence_ids" mode="tree">                                     
+                                <tree>                                  
+                                    <field name="code_id"/>                             
+                                </tree>                                 
+                                <form>                                  
+                                    <sheet>                             
+                                        <group>                         
+                                            <group>                     
+                                                <field name="code_id"/>                 
+                                            </group>                        
+                                        </group>                            
+                                        <notebook>                          
+                                            <page string="Details">                        
+                                                <field name="detail_ids" mode="tree">                  
+                                                    <tree>              
+                                                        <field name="detail_name"/>           
+                                                        <field name="detail_type"/>
+                                                        <!-- <field name="reference_model"/> -->                    
+                                                    </tree>             
+                                                    <form>              
+                                                        <sheet>         
+                                                            <group>     
+                                                                <group> 
+                                                                    <!-- <field name="reference_model"/> -->
+                                                                    <field name="detail_name"/>
+                                                                    <field name="detail_type" class="oe_edit_only"/>
+<!--                                                                     <field name="detail_string" class="oe_edit_only" attrs="{'invisible': [('detail_type','!=','string')]}"/>
+                                                                    <field name="detail_code_id" class="oe_edit_only" attrs="{'invisible': [('detail_type','!=','code')]}"/> -->
+                                                                </group>    
+                                                            </group>        
+                                                        </sheet>            
+                                                    </form>             
+                                                </field>                    
+                                            </page>                     
+                                        </notebook>
+                                    </sheet>                                                         
+                                </form>                             
+                            </field>                                    
+                        </page>                                                                                                         
                         <page string="Identifiers">                                         
                             <field name="identifier_ids" mode="tree">                                       
                                 <tree>                                  
@@ -159,70 +239,9 @@
                                             </group>                        
                                         </group>
                                     </sheet>                                
-                                    </form>                             
-                                </field>                                  
-                        </page> 
-                        <page string="Stage Assessments" attrs="{'invisible': [('has_stage','=',False)]}">                        
-                            <field name="stage_assessment_ids" mode="tree">                  
-                                <tree>              
-                                    <field name="stage_assessment_name"/>           
-                                    <field name="stage_assessment_type"/>                    
-                                </tree>             
-                                <form>              
-                                    <sheet>         
-                                        <group>     
-                                            <group> 
-                                                <field name="stage_assessment_name" readonly="1"/>
-                                                <field name="stage_assessment_type" class="oe_edit_only"/>
-                                                <!-- <field name="stage_assessment_observation_id" class="oe_edit_only" attrs="{'invisible': [('stage_assessment_type','!=','observation')]}"/>
-                                                <field name="stage_assessment_clinical_impression_id" class="oe_edit_only" attrs="{'invisible': [('stage_assessment_type','!=','clinical_impression')]}"/>
-                                                <field name="stage_assessment_diagnostic_report_id" class="oe_edit_only" attrs="{'invisible': [('stage_assessment_type','!=','diagnostic_report')]}"/> -->
-                                            </group>    
-                                        </group>        
-                                    </sheet>            
-                                </form>             
-                            </field>                    
-                        </page>                                                                                
-                        <page string="Evidences">                                           
-                            <field name="evidence_ids" mode="tree">                                     
-                                <tree>                                  
-                                    <field name="code_id"/>                             
-                                </tree>                                 
-                                <form>                                  
-                                    <sheet>                             
-                                        <group>                         
-                                            <group>                     
-                                                <field name="code_id"/>                 
-                                            </group>                        
-                                        </group>                            
-                                        <notebook>                          
-                                            <page string="Details">                        
-                                                <field name="detail_ids" mode="tree">                  
-                                                    <tree>              
-                                                        <field name="detail_name"/>           
-                                                        <field name="detail_type"/>
-                                                        <!-- <field name="reference_model"/> -->                    
-                                                    </tree>             
-                                                    <form>              
-                                                        <sheet>         
-                                                            <group>     
-                                                                <group> 
-                                                                    <!-- <field name="reference_model"/> -->
-                                                                    <field name="detail_name"/>
-                                                                    <field name="detail_type" class="oe_edit_only"/>
-<!--                                                                     <field name="detail_string" class="oe_edit_only" attrs="{'invisible': [('detail_type','!=','string')]}"/>
-                                                                    <field name="detail_code_id" class="oe_edit_only" attrs="{'invisible': [('detail_type','!=','code')]}"/> -->
-                                                                </group>    
-                                                            </group>        
-                                                        </sheet>            
-                                                    </form>             
-                                                </field>                    
-                                            </page>                     
-                                        </notebook>
-                                    </sheet>                                                         
                                 </form>                             
-                            </field>                                    
-                        </page>                                                                                                                          
+                            </field>                                  
+                        </page>                                                                 
                     </notebook>                                             
                 </sheet>                                                    
             </form>                                                     

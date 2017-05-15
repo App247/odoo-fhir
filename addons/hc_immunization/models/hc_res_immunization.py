@@ -6,6 +6,11 @@ class Immunization(models.Model):
     _name = "hc.res.immunization"    
     _description = "Immunization"        
 
+    name = fields.Char(
+        string="Event Name", 
+        compute="_compute_name", 
+        store="True", 
+        help="Text representation of the immunization event. Patient + Vaccine + Date.")
     identifier_ids = fields.One2many(
         comodel_name="hc.immunization.identifier", 
         inverse_name="immunization_id", 

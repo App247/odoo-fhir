@@ -391,23 +391,21 @@ class DiagnosticReportCode(models.Model):
 
 # External Reference
 
-class ConditionStageAssessment(models.Model):    
-    _inherit = "hc.condition.stage.assessment"
+# class ConditionStageAssessment(models.Model):    
+#     _inherit = "hc.condition.stage.assessment"
 
-    stage_assessment_diagnostic_report_id = fields.Many2one(
-        comodel_name="hc.res.diagnostic.report", 
-        string="Assessment Diagnostic Reports", 
-        help="Diagnostic Report formal record of assessment.")
-
-    @api.depends('stage_assessment_type')          
-    def _compute_stage_assessment_name(self):         
-        for hc_condition_stage_assessment in self:       
-            if hc_condition_stage_assessment.stage_assessment_type == 'observation': 
-                hc_condition_stage_assessment.stage_assessment_name = hc_condition_stage_assessment.stage_assessment_observation_id.name
-            elif hc_condition_stage_assessment.stage_assessment_type == 'clinical_impression':   
-                hc_condition_stage_assessment.stage_assessment_name = hc_condition_stage_assessment.stage_assessment_clinical_impression_id.name
-            elif hc_condition_stage_assessment.stage_assessment_type == 'diagnostic_report':   
-                hc_condition_stage_assessment.stage_assessment_name = hc_condition_stage_assessment.stage_assessment_diagnostic_report_id.name
+#     assessment_diagnostic_report_id = fields.Many2one(
+#         comodel_name="hc.res.diagnostic.report", 
+#         string="Assessment Diagnostic Reports", 
+#         help="Diagnostic Report formal record of assessment.")  
+    
+#     @api.depends('assessment_type')                
+#     def _compute_stage_assessment_name(self):         
+#         for hc_condition_stage_assessment in self:       
+#             if hc_condition_stage_assessment.assessment_type == 'observation': 
+#                 hc_condition_stage_assessment.assessment_name = hc_condition_stage_assessment.assessment_observation_id.name
+#             elif hc_condition_stage_assessment.assessment_type == 'diagnostic_report':   
+#                 hc_condition_stage_assessment.assessment_name = hc_condition_stage_assessment.assessment_diagnostic_report_id.name
 
 class ProcedureReport(models.Model):  
     _inherit = "hc.procedure.report"

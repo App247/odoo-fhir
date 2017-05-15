@@ -717,16 +717,16 @@ class ReferenceRangeMeaning(models.Model):
 class ConditionStageAssessment(models.Model):    
     _inherit = "hc.condition.stage.assessment"
 
-    stage_assessment_observation_id = fields.Many2one(
+    assessment_observation_id = fields.Many2one(
         comodel_name="hc.res.observation", 
         string="Assessment Observations", 
         help="Observation formal record of assessment.")                    
 
-    @api.multi          
+    @api.depends('assessment_type')                
     def _compute_stage_assessment_name(self):         
         for hc_condition_stage_assessment in self:       
-            if hc_condition_stage_assessment.stage_assessment_type == 'observation': 
-                hc_condition_stage_assessment.stage_assessment_name = hc_condition_stage_assessment.stage_assessment_observation_id.name
+            if hc_condition_stage_assessment.assessment_type == 'observation': 
+                hc_condition_stage_assessment.assessment_name = hc_condition_stage_assessment.assessment_observation_id.name
 
 class SequenceVariant(models.Model):    
     _inherit = "hc.sequence.variant"

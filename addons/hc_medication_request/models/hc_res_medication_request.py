@@ -6,6 +6,11 @@ class MedicationRequest(models.Model):
     _name = "hc.res.medication.request" 
     _description = "Medication Request"         
 
+    name = fields.Char(
+        string="Event Name", 
+        compute="_compute_name", 
+        store="True", 
+        help="Text representation of the medication request event. Subject Name + Medication + Authored Date.")
     identifier_ids = fields.One2many(
         comodel_name="hc.medication.request.identifier", 
         inverse_name="medication_request_id", 

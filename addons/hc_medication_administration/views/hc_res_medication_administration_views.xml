@@ -1,7 +1,66 @@
 <openerp>
     <data>
 
-        <!-- Medication Administration Action and Menu -->  
+        <!-- Medication Administration Views -->
+
+        <record id="hc_res_medication_administration_view_search" model="ir.ui.view">         
+            <field name="name">Medication Administration Search</field>       
+            <field name="model">hc.res.medication.administration</field>      
+            <field name="arch" type="xml">      
+                <search string="Medication Administrations">
+                    <field name="name"/>  
+                </search>   
+            </field>        
+        </record>           
+                    
+        <record id="hc_res_medication_administration_view_tree" model="ir.ui.view">           
+            <field name="name">Medication Administration Tree</field>     
+            <field name="model">hc.res.medication.administration</field>      
+            <field name="arch" type="xml">      
+                <tree string="Medication Administrations">    
+                    <field name="name"/>
+                </tree> 
+            </field>        
+        </record>
+
+        <record id="hc_res_medication_administration_view_form" model="ir.ui.view">                                     
+            <field name="name">Medication Administration Form</field>                                   
+            <field name="model">hc.res.medication.administration</field>                                    
+            <field name="arch" type="xml">                                  
+                <form string="Medication Administration">                               
+                    <sheet>                         
+                        <h1>                    
+                            <field name="name" default_focus="1" placeholder="Event Name"/>             
+                        </h1>                   
+                        <group>                     
+                            <group>                 
+                            </group>                    
+                            <group>                 
+                            </group>                    
+                        </group>                        
+                        <notebook>                      
+                            <page string="Identifiers">                 
+                                <field name="identifier_ids" mode="tree">               
+                                    <tree>          
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>    
+                                        </sheet>        
+                                    </form>         
+                                </field>                
+                            </page>                 
+                        </notebook>                     
+                    </sheet>                            
+                </form>                             
+            </field>                                    
+        </record>
+
     
         <act_window id="hc_res_medication_administration_action"    
                     name="HC Medication Administrations"

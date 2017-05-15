@@ -6,6 +6,10 @@ class RiskAssessment(models.Model):
     _name = "hc.res.risk.assessment"    
     _description = "Risk Assessment"        
 
+    name = fields.Char(
+        string="Name", 
+        required="True", 
+        help="Text representation of the risk assessment event. Subject Name + Context Name + Occurrence Date.")
     identifier_id = fields.Many2one(
         comodel_name="hc.risk.assessment.identifier", 
         string="Identifier", 
@@ -23,7 +27,7 @@ class RiskAssessment(models.Model):
             ("registered", "Registered"), 
             ("preliminary", "Preliminary"), 
             ("final", "Final"), 
-            ("amended +", "Amended +")], 
+            ("amended", "Amended")], 
         help="The status of the result value.")                
     code_id = fields.Many2one(
         comodel_name="hc.vs.risk.assessment.type", 
@@ -70,7 +74,7 @@ class RiskAssessment(models.Model):
     occurrence_type = fields.Selection(
         string="Occurrence Type", 
         selection=[
-            ("dateTime", "Datetime"), 
+            ("date_time", "Date Time"), 
             ("Period", "Period")], 
         help="Type of originating encounter.")                
     occurrence_name = fields.Char(
@@ -78,8 +82,8 @@ class RiskAssessment(models.Model):
         compute="_compute_occurrence_name", 
         store="True", 
         help="When was assessment made?")                
-    occurrence_date = fields.Datetime(
-        string="Occurrence Date", 
+    occurrence_date_time = fields.Datetime(
+        string="Occurrence Date Time", 
         help="Datetime when was assessment made.")                
     occurrence_start_date = fields.Datetime(
         string="Occurrence Start Date", 

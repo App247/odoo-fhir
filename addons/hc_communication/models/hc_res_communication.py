@@ -6,6 +6,11 @@ class Communication(models.Model):
     _name = "hc.res.communication"    
     _description = "Communication"        
 
+    name = fields.Char(
+        string="Name", 
+        compute="_compute_name", 
+        store="True", 
+        help="Text representation of the communication event. Subject Name + Category + Sent Date.")
     identifier_ids = fields.One2many(
         comodel_name="hc.communication.identifier", 
         inverse_name="communication_id", 
@@ -50,11 +55,11 @@ class Communication(models.Model):
     context_type = fields.Selection(
         string="Context Type", 
         selection=[
-            ("Device", "Device"), 
-            ("Organization", "Organization"), 
-            ("Patient", "Patient"), 
-            ("Practitioner", "Practitioner"), 
-            ("Related Person", "Related Person")], 
+            ("device", "Device"), 
+            ("organization", "Organization"), 
+            ("patient", "Patient"), 
+            ("practitioner", "Practitioner"), 
+            ("related_person", "Related Person")], 
         help="Encounter or episode leading to message.")                
     context_name = fields.Char(
         string="Context", 
@@ -78,11 +83,11 @@ class Communication(models.Model):
     sender_type = fields.Selection(
         string="Sender Type", 
         selection=[
-            ("Device", "Device"), 
-            ("Organization", "Organization"), 
-            ("Patient", "Patient"), 
-            ("Practitioner", "Practitioner"), 
-            ("Related Person", "Related Person")], 
+            ("device", "Device"), 
+            ("organization", "Organization"), 
+            ("patient", "Patient"), 
+            ("practitioner", "Practitioner"), 
+            ("related_person", "Related Person")], 
         help="Type of message sender.")                
     sender_name = fields.Char(
         string="Sender", 

@@ -6,7 +6,12 @@ class ImmunizationRecommendation(models.Model):
     _name = "hc.res.immunization.recommendation"    
     _description = "Immunization Recommendation"        
 
-    identifier_ids = fields.One2many(comodel_name="hc.immunization.rec.identifier", inverse_name="immunization_recommendation_id", string="Identifiers", help="Business identifier.")                
+    name = fields.Char(string="Event Name", compute="_compute_name", store="True", help="Text representation of the immunization recommendation event. Patient + Recommendation + Date.")
+    identifier_ids = fields.One2many(
+        comodel_name="hc.immunization.rec.identifier", 
+        inverse_name="immunization_recommendation_id", 
+        string="Identifiers", 
+        help="Business identifier.")                
     patient_id = fields.Many2one(comodel_name="hc.res.patient", string="Patient", required="True", help="Who this profile is for.")                
     recommendation_ids = fields.One2many(comodel_name="hc.immunization.rec.rec", inverse_name="immunization_recommendation_id", string="Recommendations", required="True", help="Vaccine administration recommendations.")                
 

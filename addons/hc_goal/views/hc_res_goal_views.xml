@@ -1,8 +1,66 @@
 <openerp>
     <data>
 
-        <!-- Goal Action and Menu -->   
+       <!-- Goal Views -->
+
+        <record id="hc_res_goal_view_search" model="ir.ui.view">         
+            <field name="name">Goal Search</field>       
+            <field name="model">hc.res.goal</field>      
+            <field name="arch" type="xml">      
+                <search string="Goals">
+                    <field name="name"/>  
+                </search>   
+            </field>        
+        </record>           
+                    
+        <record id="hc_res_goal_view_tree" model="ir.ui.view">           
+            <field name="name">Goal Tree</field>     
+            <field name="model">hc.res.goal</field>      
+            <field name="arch" type="xml">      
+                <tree string="Goals">    
+                    <field name="name"/>
+                </tree> 
+            </field>        
+        </record>           
     
+        <record id="hc_res_goal_view_form" model="ir.ui.view">                                     
+            <field name="name">Goal Form</field>                                   
+            <field name="model">hc.res.goal</field>                                    
+            <field name="arch" type="xml">                                  
+                <form string="Goal">                               
+                    <sheet>                         
+                        <h1>                    
+                            <field name="name" default_focus="1" placeholder="Name"/>             
+                        </h1>                   
+                        <group>                     
+                            <group>                 
+                            </group>                    
+                            <group>                 
+                            </group>                    
+                        </group>                        
+                        <notebook>                      
+                            <page string="Identifiers">                 
+                                <field name="identifier_ids" mode="tree">               
+                                    <tree>          
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>    
+                                        </sheet>        
+                                    </form>         
+                                </field>                
+                            </page>                 
+                        </notebook>                     
+                    </sheet>                            
+                </form>                             
+            </field>                                    
+        </record>
+
         <act_window id="hc_res_goal_action" 
                     name="HC Goals"
                     res_model="hc.res.goal"

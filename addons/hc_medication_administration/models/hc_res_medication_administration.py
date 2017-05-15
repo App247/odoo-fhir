@@ -6,6 +6,11 @@ class MedicationAdministration(models.Model):
     _name = "hc.res.medication.administration"  
     _description = "Medication Administration"      
 
+    name = fields.Char(
+        string="Event Name", 
+        compute="_compute_name", 
+        store="True", 
+        help="Text representation of the medication administration event. Patient Name + Medication + Effective Time.")
     identifier_ids = fields.One2many(
         comodel_name="hc.medication.administration.identifier", 
         inverse_name="medication_administration_id", 
@@ -32,7 +37,7 @@ class MedicationAdministration(models.Model):
         string="Medication", 
         compute="_compute_medication_name", 
         store="True", 
-        help="What was administered?.")                
+        help="What was administered?")                
     medication_code_id = fields.Many2one(
         comodel_name="hc.vs.medication.code", 
         string="Medication Code", 

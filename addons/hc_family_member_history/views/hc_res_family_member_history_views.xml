@@ -1,6 +1,132 @@
 <openerp>
     <data>
     
+        <!-- Family Member History Views -->            
+                    
+        <record id="hc_res_family_member_history_view_search" model="ir.ui.view">           
+            <field name="name">Family Member History Search</field>     
+            <field name="model">hc.res.family.member.history</field>        
+            <field name="arch" type="xml">      
+                <search string="Family Member Histories">
+                    <field name="name"/>    
+                </search>   
+            </field>        
+        </record>           
+                    
+        <record id="hc_res_family_member_history_view_tree" model="ir.ui.view">         
+            <field name="name">Family Member History Tree</field>       
+            <field name="model">hc.res.family.member.history</field>        
+            <field name="arch" type="xml">      
+                <tree string="Family Member Histories">  
+                    <field name="name"/>
+                </tree> 
+            </field>        
+        </record>           
+
+        <record id="hc_res_family_member_history_view_form" model="ir.ui.view">                                     
+            <field name="name">Family Member History Form</field>                                   
+            <field name="model">hc.res.family.member.history</field>                                    
+            <field name="arch" type="xml">                                  
+                <form string="Family Member History">                               
+                    <sheet>                         
+                        <h1>                    
+                            <field name="name" default_focus="1" placeholder="Event Name"/>             
+                        </h1>                   
+                        <group>                     
+                            <group>                 
+                            </group>                    
+                            <group>                 
+                            </group>                    
+                        </group>                        
+                        <notebook>                      
+                            <page string="Conditions">                 
+                                <field name="condition_ids" mode="tree">               
+                                    <tree>          
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                            <notebook>                      
+                                                <page string="Notes">                 
+                                                    <field name="note_ids" mode="tree">               
+                                                        <tree>          
+                                                        </tree>         
+                                                        <form>          
+                                                            <sheet>     
+                                                                <group> 
+                                                                    <group>
+                                                                    </group>
+                                                                    <group>
+                                                                    </group>
+                                                                </group>    
+                                                            </sheet>        
+                                                        </form>         
+                                                    </field>                
+                                                </page>                 
+                                            </notebook>                     
+                                        </sheet>        
+                                    </form>     
+                                </field>            
+                            </page>
+                            <page string="Identifiers">                 
+                                <field name="identifier_ids" mode="tree">               
+                                    <tree>          
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>    
+                                        </sheet>        
+                                    </form>     
+                                </field>            
+                            </page>
+                            <page string="Reason References">                 
+                                <field name="reason_reference_ids" mode="tree">               
+                                    <tree>          
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>    
+                                        </sheet>        
+                                    </form>     
+                                </field>            
+                            </page>
+                            <page string="Notes">                 
+                                <field name="note_ids" mode="tree">               
+                                    <tree>          
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>    
+                                        </sheet>        
+                                    </form>     
+                                </field>            
+                            </page>                 
+                        </notebook>                     
+                    </sheet>                            
+                </form>                             
+            </field>                                    
+        </record>                                       
+
         <!-- Family Member History Action and Menu -->  
     
         <act_window id="hc_res_family_member_history_action"    

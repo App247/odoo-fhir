@@ -493,15 +493,31 @@ class ClinicalImpressionCode(models.Model):
 class ConditionStageAssessment(models.Model):    
     _inherit = ["hc.condition.stage.assessment"]
 
-    stage_assessment_clinical_impression_id = fields.Many2one(
+    assessment_name = fields.Char(
+        string="Assessment", 
+        compute="_compute_assessment_name",
+        store="True",  
+        help="Formal record of assessment.")
+    assessment_clinical_impression_id = fields.Many2one(
         comodel_name="hc.res.clinical.impression", 
-        string="Assessment Clinical Impressions", 
-        help="Clinical Impression formal record of assessment.")                                       
+        string="Assessment Clinical Impression", 
+        help="Clinical Impression formal record of assessment.")
+    assessment_diagnostic_report_id = fields.Many2one(
+        comodel_name="hc.res.diagnostic.report", 
+        string="Assessment Diagnostic Report", 
+        help="Diagnostic Report formal record of assessment.")                    
+    assessment_observation_id = fields.Many2one(
+        comodel_name="hc.res.observation", 
+        string="Assessment Observation", 
+        help="Observation formal record of assessment.")                                        
 
-    @api.depends('assessment_type')          
-    def _compute_stage_assessment_name(self):         
+    @api.depends('assessment_type')                
+    def _compute_assessment_name(self):         
         for hc_condition_stage_assessment in self:       
-            if hc_condition_stage_assessment.stage_assessment_type == 'observation': 
-                hc_condition_stage_assessment.stage_assessment_name = hc_condition_stage_assessment.stage_assessment_observation_id.name
-            elif hc_condition_stage_assessment.stage_assessment_type == 'clinical_impression':   
-                hc_condition_stage_assessment.stage_assessment_name = hc_condition_stage_assessment.stage_assessment_clinical_impression_id.name
+            if hc_condition_stage_assessment.assessment_type == 'clinical_impression':   
+                hc_condition_stage_assessment.assessment_name = hc_condition_stage_assessment.assessment_clinical_impression_id.name
+            elif hc_condition_stage_assessment.assessment_type == 'observation': 
+                hc_condition_stage_assessment.assessment_name = hc_condition_stage_assessment.assessment_observation_id.name
+            elif hc_condition_stage_assessment.assessment_type == 'diagnostic_report':   
+                hc_condition_stage_assessment.assessment_name = hc_condition_stage_assessment.assessment_diagnostic_report_id.name
+

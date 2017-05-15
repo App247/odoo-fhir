@@ -13,6 +13,10 @@ class PractitionerRole(models.Model):
         required="True",
         ondelete="restrict",
         help="Person who is this practitioner.")  
+    name = fields.Char(
+        string="Name", 
+        required="True", 
+        help="Text representation of the practitioner role. Practitioner + Organization + Period Start Date.")
     practitioner_id = fields.Many2one(
         comodel_name="hc.res.practitioner", 
         string="Practitioner", 

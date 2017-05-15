@@ -6,6 +6,11 @@ class ProcedureRequest(models.Model):
     _name = "hc.res.procedure.request"    
     _description = "Procedure Request"            
 
+    name = fields.Char(
+        string="Event Name", 
+        compute="_compute_name", 
+        store="True", 
+        help="Text representation of the procedure event. Subject Name + Type + Ordered Date.")
     identifier_ids = fields.One2many(
         comodel_name="hc.procedure.request.identifier", 
         inverse_name="procedure_request_id", 

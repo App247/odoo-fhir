@@ -6,6 +6,10 @@ class VisionPrescription(models.Model):
     _name = "hc.res.vision.prescription"    
     _description = "Vision Prescription"        
 
+    name = fields.Char(
+        string="Name", 
+        required="True", 
+        help="Text representation of the vision prescription event. Patient Name + DOB + Prescriber + Date Written.")
     identifier_ids = fields.One2many(
         comodel_name="hc.vision.prescription.identifier", 
         inverse_name="vision_prescription_id", 

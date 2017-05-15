@@ -6,6 +6,11 @@ class EpisodeOfCare(models.Model):
     _name = "hc.res.episode.of.care"    
     _description = "Episode Of Care"        
 
+    name = fields.Char(
+        string="Name", 
+        compute="_compute_name", 
+        store="True", 
+        help="Text representation of the episode of care event. Patient Name + Episode of Care Type + Start Date.")
     identifier_ids = fields.One2many(
         comodel_name="hc.episode.of.care.identifier", 
         inverse_name="episode_of_care_id", 
@@ -24,7 +29,8 @@ class EpisodeOfCare(models.Model):
         help="The status of the episode of care.")              
     type_ids = fields.Many2many(
         comodel_name="hc.vs.episode.of.care.type", 
-        inverse_name="", string="Types", 
+        inverse_name="", 
+        string="Types", 
         help="Specific type of Episode of Care.")             
     condition_ids = fields.One2many(
         comodel_name="hc.episode.of.care.condition", 

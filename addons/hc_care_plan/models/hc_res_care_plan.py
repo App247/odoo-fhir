@@ -553,7 +553,20 @@ class CarePlanSupportingInfo(models.Model):
         string="Supporting Info", 
         selection="_reference_models", 
         help="Information considered as part of plan.")
-    
+
+    @api.model          
+    def _reference_models(self):            
+        models = self.env['ir.model'].search([('state', '!=', 'manual')])       
+        return [(model.model, model.name)       
+            for model in models 
+                if model.model.startswith('hc.res')]
+                
+    @api.depends('supporting_info_name')            
+    def _compute_supporting_info_type(self):            
+        for this in self:       
+            if this.supporting_info_name:   
+                this.supporting_info_type = this.supporting_info_name._description
+
 class CarePlanGoal(models.Model):
     _name = "hc.care.plan.goal"
     _description = "Care Plan Goal"

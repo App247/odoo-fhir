@@ -6,6 +6,9 @@ class ReferralRequest(models.Model):
     _name = "hc.res.referral.request"    
     _description = "Referral Request"        
 
+    name = fields.Char(string="Name", 
+        required="True", 
+        help="Text representation of the referral request event. Patient Name + Context Name + Authored Date.")
     identifier_ids = fields.One2many(
         comodel_name="hc.referral.request.identifier", 
         inverse_name="referral_request_id", 

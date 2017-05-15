@@ -1,7 +1,64 @@
 <openerp>
     <data>
     
-        <!-- Diagnostic Report Action and Menu -->  
+        <!-- Diagnostic Report Views -->                                        
+                                        
+        <record id="hc_res_diagnostic_report_view_search" model="ir.ui.view">                                       
+            <field name="name">Diagnostic Report Search</field>                                 
+            <field name="model">hc.res.diagnostic.report</field>                                    
+            <field name="arch" type="xml">                                  
+                <search string="Diagnostic Reports">                                
+                </search>                               
+            </field>                                    
+        </record>                                       
+                                                
+        <record id="hc_res_diagnostic_report_view_tree" model="ir.ui.view">                                     
+            <field name="name">Diagnostic Report Tree</field>                                   
+            <field name="model">hc.res.diagnostic.report</field>                                    
+            <field name="arch" type="xml">                                  
+                <tree string="Diagnostic Reports">                              
+                </tree>                             
+            </field>                                    
+        </record>                                       
+                                                
+        <record id="hc_res_diagnostic_report_view_form" model="ir.ui.view">                                     
+            <field name="name">Diagnostic Report Form</field>                                   
+            <field name="model">hc.res.diagnostic.report</field>                                    
+            <field name="arch" type="xml">                                  
+                <form string="Diagnostic Report">                               
+                    <sheet>                         
+                        <h1>                        
+                            <field name="name" default_focus="1" placeholder="Event Name"/>                 
+                        </h1>                       
+                        <group>                     
+                            <group>                 
+                            </group>                    
+                            <group>                 
+                            </group>                    
+                        </group>                        
+                        <notebook>                      
+                            <page string="Identifiers">                 
+                                <field name="identifier_ids" mode="tree">               
+                                    <tree>          
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>    
+                                        </sheet>        
+                                    </form>         
+                                </field>                
+                            </page>                 
+                        </notebook>                     
+                    </sheet>                            
+                </form>                             
+            </field>                                    
+        </record>                                       
+  
   
         
 
@@ -20,34 +77,6 @@
                   action="hc_res_diagnostic_report_action" 
                   groups="hc_base.group_hc_base_manager" 
                   sequence="20"/>
-
-        <record id="hc_res_procedure_view_form" model="ir.ui.view">
-            <field name="name">Procedure Form Inherit</field>
-            <field name="model">hc.res.procedure</field>
-            <field name="inherit_id" ref="hc_procedure.hc_res_procedure_view_form"/>
-            <field name="arch" type="xml">
-                <xpath expr="//field[@name='based_on_ids']//form//group//field[@name='based_on_type']" position="after">
-                    <field name="based_on_care_plan_id" class="oe_edit_only" attrs="{'invisible': [('based_on_type','!=','care_plan')]}"/>
-                    <field name="based_on_referral_request_id" class="oe_edit_only" attrs="{'invisible': [('based_on_type','!=','referral_request')]}"/>
-                </xpath>
-                <!-- <xpath expr="//field[@name='report_ids']" position="after">
-                    <tree>                      
-                        <field name="report_id"/>
-                    </tree>                     
-                    <form>                     
-                        <sheet>                              
-                            <h1>            
-                                <field name="report_id" placeholder="Diagnostic Report"/>        
-                            </h1>                    
-                            <group>             
-                                <group>
-                                </group>           
-                            </group>                
-                        </sheet>                    
-                    </form> 
-                </xpath> -->
-            </field>
-        </record>
 
     </data>
 </openerp>

@@ -6,6 +6,10 @@ class Goal(models.Model):
     _name = "hc.res.goal"    
     _description = "Goal"        
 
+    name = fields.Char(
+        string="Name", 
+        required="True", 
+        help="Human-readable label for this goal.")
     identifier_ids = fields.One2many(
         comodel_name="hc.goal.identifier", 
         inverse_name="goal_id", 

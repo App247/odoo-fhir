@@ -1,7 +1,64 @@
 <openerp>
     <data>
    
-        <!-- Diagnostic Request Action and Menu --> 
+        <!-- Diagnostic Request Views -->                                       
+                                        
+        <record id="hc_res_diagnostic_request_view_search" model="ir.ui.view">                                      
+            <field name="name">Diagnostic Request Search</field>                                    
+            <field name="model">hc.res.diagnostic.request</field>                                   
+            <field name="arch" type="xml">                                  
+                <search string="Diagnostic Requests">                               
+                </search>                               
+            </field>                                    
+        </record>                                       
+                                                
+        <record id="hc_res_diagnostic_request_view_tree" model="ir.ui.view">                                        
+            <field name="name">Diagnostic Request Tree</field>                                  
+            <field name="model">hc.res.diagnostic.request</field>                                   
+            <field name="arch" type="xml">                                  
+                <tree string="Diagnostic Requests">                             
+                </tree>                             
+            </field>                                    
+        </record>                                       
+                                                
+        <record id="hc_res_diagnostic_request_view_form" model="ir.ui.view">                                        
+            <field name="name">Diagnostic Request Form</field>                                  
+            <field name="model">hc.res.diagnostic.request</field>                                   
+            <field name="arch" type="xml">                                  
+                <form string="Diagnostic Request">                              
+                    <sheet>                         
+                        <h1>                        
+                            <field name="name" default_focus="1" placeholder="Event Name"/>                 
+                        </h1>                       
+                        <group>                     
+                            <group>                 
+                            </group>                    
+                            <group>                 
+                            </group>                    
+                        </group>                        
+                        <notebook>                      
+                            <page string="Identifiers">                 
+                                <field name="identifier_ids" mode="tree">               
+                                    <tree>          
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>    
+                                        </sheet>        
+                                    </form>         
+                                </field>                
+                            </page>                 
+                        </notebook>                     
+                    </sheet>                            
+                </form>                             
+            </field>                                    
+        </record>                                       
+
     
         <act_window id="hc_res_diagnostic_request_action"   
                     name="HC Diagnostic Requests"

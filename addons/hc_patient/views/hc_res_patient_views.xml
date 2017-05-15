@@ -2,14 +2,12 @@
 <openerp>
     <data>  
 
-        <!-- Patient Views -->                      
-                        
-<!--         <record id="hc_res_person_view_search_inherited" model="ir.ui.view">   -->
+        <!-- Patient Views -->                                  
+
          <record id="hc_res_patient_view_search" model="ir.ui.view">             
             <field name="name">Patient Search</field>                   
             <field name="model">hc.res.patient</field>                  
-<!--             <field name="inherit_id" ref="hc_res_person_view_search">                   
- -->            <field name="arch" type="xml">                  
+            <field name="arch" type="xml">                  
                 <search string="Patients">              
                     <field name="name"/>
                     <field name="birth_date" string="DOB"/>            
@@ -40,8 +38,7 @@
                             options="{'preview_image': 'image_medium', 'size': [90, 90]}"/>                        
                         <div class="oe_title">                     
                             <h1>                    
-                                <field name="person_id" default_focus="1" placeholder="Name" context="{'is_patient': True}"/>
-                                <!-- <field name="animal_name" default_focus="1" placeholder="Animal Name" context="{'is_patient': True}" attrs="{'invisible': [('type','!=','animal')]}"/> -->               
+                                <field name="person_id" default_focus="1" placeholder="Name" context="{'is_patient': True}"/>             
                             </h1>                   
                         </div>                      
                         <div name="buttons" class="oe_right oe_button_box"></div>                       
@@ -52,13 +49,10 @@
                                 <field name="birth_date"/>
                                 <field name="birth_time"/>              
                                 <field name="is_multiple_birth"/>               
-                                <field name="multiple_birth_count" 
-                                       attrs="{'invisible': [('is_multiple_birth','=',False)]}"/>               
-                                <field name="multiple_birth_order" 
-                                       attrs="{'invisible': [('is_multiple_birth','=',False)]}"/>
+                                <field name="multiple_birth_count" attrs="{'invisible': [('is_multiple_birth','=',False)]}"/>               
+                                <field name="multiple_birth_order" attrs="{'invisible': [('is_multiple_birth','=',False)]}"/>
                                 <field name="is_deceased"/>             
-                                <field name="deceased_date" 
-                                       attrs="{'invisible': [('is_deceased','=',False)]}"/>                 
+                                <field name="deceased_date" attrs="{'invisible': [('is_deceased','=',False)]}"/>                 
                             </group>                    
                             <group>                   
                                 <field name="marital_status_id" attrs="{'invisible': [('type','!=','human')]}"/>
@@ -70,7 +64,6 @@
                             </group>                    
                         </group>                        
                         <notebook colspan="4">                      
-                        <!--     <page string="Names"/>  -->
                             <page string="Names">
                                 <field name="name_ids" mode="tree">
                                     <tree>
@@ -99,8 +92,7 @@
                                         </sheet>
                                     </form>
                                 </field>
-                            </page>                  
-                            <!-- <page string="Identifiers"/> -->                    
+                            </page>                                    
                             <page string="Identifiers">
                                 <field name="identifier_ids" mode="tree">
                                     <tree>
@@ -130,7 +122,6 @@
                                     </form>
                                 </field>
                             </page> 
-                            <!-- <page string="Addresses"/> -->
                             <page string="Addresses" attrs="{'invisible': [('type','=','animal')]}">         
                                 <field name="address_ids" mode="tree">
                                     <tree>      
@@ -183,7 +174,6 @@
                                     </form>
                                 </field>
                             </page>                    
-                            <!-- <page string="Photos"/> -->
                             <page string="Photos">
                                 <field name="photo_ids" mode="tree">
                                     <tree>
@@ -217,6 +207,7 @@
                                         <sheet>
                                             <group>
                                                 <group>
+                                                    <field name="general_practitioner_name"/>
                                                     <field name="general_practitioner_type"/>
                                                     <field name="general_practitioner_organization_id" attrs="{'invisible': [('general_practitioner_type','!=','organization')]}"/>
                                                     <field name="general_practitioner_practitioner_id" attrs="{'invisible': [('general_practitioner_type','!=','practitioner')]}"/>
@@ -240,6 +231,7 @@
                                         <sheet>
                                             <group>
                                                 <group>
+                                                    <field name="other_name"/>
                                                     <field name="other_type"/>
                                                     <field name="other_patient_id" attrs="{'invisible': [('other_type','!=','patient')]}"/>
                                                     <field name="other_related_person_id" attrs="{'invisible': [('other_type','!=','related_person')]}"/>
@@ -339,7 +331,6 @@
                                     </form>
                                 </field>
                             </page>
-                            <!-- <page string="Marital History" attrs="{'invisible': [('type','=','animal')]}"/> -->
                             <page string="Marital History" attrs="{'invisible': [('type','=','animal')]}">
                                 <field name="marital_history_ids" mode="tree">
                                     <tree>
@@ -556,8 +547,7 @@
             
         <record id="hc_vs_animal_breed_view_search" model="ir.ui.view">             
             <field name="name">Animal Breed Search</field>          
-            <field name="model">hc.vs.animal.breed</field>          
-<!--             <field name="inherit_id" ref="hc_value_set_contains_view_search"/>     -->      
+            <field name="model">hc.vs.animal.breed</field>             
             <field name="arch" type="xml">          
                 <search string="Animal Breeds">     
                     <field name="name"/>    
@@ -576,7 +566,6 @@
         <record id="hc_vs_animal_breed_view_tree" model="ir.ui.view">           
             <field name="name">Animal Breed Tree</field>        
             <field name="model">hc.vs.animal.breed</field>      
-<!--             <field name="inherit_id" ref="hc_value_set_contains_view_tree"/>        --> 
             <field name="arch" type="xml">      
                 <tree string="Animal Breeds" default_order="name, code">    
                     <field name="name"/>
@@ -632,17 +621,20 @@
         </record> -->
 
         <record id="hc_res_person_view_form_inherited_patient" model="ir.ui.view">     
-          <field name="name">Person Form</field>   
-          <field name="model">hc.res.person</field>   
-          <field name="inherit_id" ref="hc_person.hc_res_person_view_form"/>   
-          <field name="arch" type="xml">
-              <field name="gender" position="before"> 
-                <field name="is_patient"/>
-              </field>
-          </field>
+            <field name="name">Person Form</field>   
+            <field name="model">hc.res.person</field>   
+            <field name="inherit_id" ref="hc_person.hc_res_person_view_form"/>   
+            <field name="arch" type="xml">
+                <field name="gender" position="before"> 
+                    <field name="is_patient"/>
+                </field>
+                <field name="target_type" position="after"> 
+                    <field name="target_patient_id" attrs="{'invisible': [('target_type','!=','patient')]}"/>
+                </field>
+            </field>
         </record>
 
-        <record id="hc_res_person_view_form_inherited_patient" model="ir.ui.view">          
+<!--         <record id="hc_res_person_view_form_inherited_patient" model="ir.ui.view">          
             <field name="name">Person Form</field>      
             <field name="model">hc.res.person</field>       
             <field name="inherit_id" ref="hc_person.hc_res_person_view_form"/>      
@@ -651,9 +643,9 @@
                     <field name="target_patient_id" attrs="{'invisible': [('target_type','!=','patient')]}"/>
                 </field>    
             </field>        
-        </record>           
+        </record> -->           
 
-        <record id="hc_annotation_view_form_inherited_patient" model="ir.ui.view">     
+        <!-- <record id="hc_annotation_view_form_inherited_patient" model="ir.ui.view">     
             <field name="name">Annotation Form</field>   
             <field name="model">hc.annotation</field>   
             <field name="inherit_id" ref="hc_base.hc_annotation_view_form"/>   
@@ -662,7 +654,7 @@
                     <field name="author_patient_id" attrs="{'invisible': [('author_type','!=','patient')]}"/>  
                 </field>
             </field>
-        </record>
+        </record> -->
 
     </data>
 </openerp>

@@ -6,6 +6,11 @@ class MedicationDispense(models.Model):
     _name = "hc.res.medication.dispense"    
     _description = "Medication Dispense"        
 
+    name = fields.Char(
+        string="Event Name", 
+        compute="_compute_name", 
+        store="True", 
+        help="Text representation of the medication dispense event. Subject Name + Medication + Handed Over Date.")
     identifier_id = fields.Many2one(
         comodel_name="hc.medication.dispense.identifier", 
         string="Identifier", 
@@ -13,7 +18,7 @@ class MedicationDispense(models.Model):
     part_of_ids = fields.One2many(
         comodel_name="hc.medication.dispense.part.of", 
         inverse_name="medication_dispense_id", 
-        string="Supporting Information", 
+        string="Part Of", 
         help="Event that dispense is part of.")
     status = fields.Selection(
         string="Status", 
