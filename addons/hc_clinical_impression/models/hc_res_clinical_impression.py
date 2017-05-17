@@ -399,6 +399,18 @@ class ClinicalImpressionNote(models.Model):
         string="Clinical Impression", 
         help="Clinical Impression associated with this Clinical Impression Note.")                
 
+    @api.depends('author_type')
+    def _compute_author_name(self):
+        for hc_clinical_impression_note in self:
+            if hc_clinical_impression_note.author_type == 'string':
+                hc_clinical_impression_note.author_name = hc_clinical_impression_note.author_string
+            elif hc_clinical_impression_note.author_type == 'practitioner':
+                hc_clinical_impression_note.author_name = hc_clinical_impression_note.author_practitioner_id.name
+            elif hc_clinical_impression_note.author_type == 'patient':
+                hc_clinical_impression_note.author_name = hc_clinical_impression_note.author_patient_id.name
+            elif hc_clinical_impression_note.author_type == 'related_person':
+                hc_clinical_impression_note.author_name = hc_clinical_impression_note.author_related_person_id.name
+
 class ClinicalImpressionProblem(models.Model):    
     _name = "hc.clinical.impression.problem"    
     _description = "Clinical Impression Problem"        

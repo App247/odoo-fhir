@@ -8,7 +8,8 @@ class AdverseEvent(models.Model):
 
     name = fields.Char(
         string="Event Name", 
-        required="True", 
+        compute="_compute_name", 
+        store="True", 
         help="Text representation of the adverse event. Subject Name + Adverse Event + Date.")
     identifier_id = fields.Many2one(
         comodel_name="hc.adverse.event.identifier", 

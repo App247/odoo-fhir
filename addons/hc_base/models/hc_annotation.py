@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 
+
 from openerp import models, fields, api
+from datetime import datetime
+from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as DTF
 
 class Annotation(models.AbstractModel):
     _name = "hc.annotation"
@@ -15,7 +18,8 @@ class Annotation(models.AbstractModel):
         required="True", 
         help="The annotation - text content.")
     recorded_date = fields.Datetime(
-        string="Recorded Date", 
+        string="Recorded Date",
+        default="_get_default_date", 
         help="When the annotation was made.")
     author_type = fields.Selection(
         string="Author Type", 
@@ -46,7 +50,11 @@ class Annotation(models.AbstractModel):
     #     string="Author Related Person", 
     #     help="Related Person responsible for the annotation.")
 
-    @api.multi
+    def _get_default_date(self):
+        return datetime.strftime(datetime.strptime(date.today(), DTF), "%Y-%m-%d %H:%M:%S")
+        # return date.today().strftime('%Y-%m-%d %H:%M:%S')
+
+    @api.depends('author_type')
     def _compute_author_name(self):
         for hc_annotation in self:
             if hc_annotation.author_type == 'string':
@@ -63,14 +71,3 @@ class Annotation(models.AbstractModel):
     #             hc_annotation.author_name = hc_annotation.author_patient_id.name
     #         elif hc_annotation.author_type == 'related_person':
     #             hc_annotation.author_name = hc_annotation.author_related_person_id.name
-
-
-    # @api.multi
-    # def _compute_author_name(self):
-    #     for hc_annot in self:
-    #         if hc_annot.author_type == 'practitioner':
-    #             hc_annot.author_name = hc_annot.author_practitioner_id.name
-    #         elif hc_annot.author_type == 'patient':
-    #             hc_annot.author_name = hc_annot.author_patient_id.name
-    #         elif hc_annot.author_type == 'related person':
-    #             hc_annot.author_name = hc_annot.author_related_person_id.name

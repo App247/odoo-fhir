@@ -76,5 +76,18 @@
                   groups="hc_base.group_hc_base_manager" 
                   sequence="10"/>
 
+        <!-- External Referece -->
+
+        <record id="hc_vs_identifier_code_view_form_inherited" model="ir.ui.view">
+            <field name="name">Identifier Code Form Inherit</field>
+            <field name="model">hc.vs.identifier.code</field>
+            <field name="inherit_id" ref="hc_base.hc_vs_identifier_code_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form//group//field[@name='type_id']" position="after">
+                    <field name="assigner_id"/>
+                </xpath>
+            </field>
+        </record>
+
     </data>   
 </openerp>

@@ -14,8 +14,9 @@ class PractitionerRole(models.Model):
         ondelete="restrict",
         help="Person who is this practitioner.")  
     name = fields.Char(
-        string="Name", 
-        required="True", 
+        string="Event Name", 
+        compute="_compute_name", 
+        store="True", 
         help="Text representation of the practitioner role. Practitioner + Organization + Period Start Date.")
     practitioner_id = fields.Many2one(
         comodel_name="hc.res.practitioner", 

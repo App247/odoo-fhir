@@ -37,7 +37,7 @@
             <field name="name">Marital Status Form</field>
             <field name="model">hc.vs.marital.status</field>
             <field name="arch" type="xml">
-                <form string="Marital Statuses" >
+                <form string="Marital Status">
                     <sheet>
                         <h1>
                             <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>

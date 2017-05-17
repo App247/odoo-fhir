@@ -8,7 +8,8 @@ class QuestionnaireResponse(models.Model):
 
     name = fields.Char(
         string="Event Name", 
-        required="True", 
+        compute="_compute_name", 
+        store="True", 
         help="Text representation of the questionnaire response event. Subject Name + Questionnaire + Authored Date.")
     identifier_id = fields.Many2one(
         comodel_name="hc.questionnaire.response.identifier", 

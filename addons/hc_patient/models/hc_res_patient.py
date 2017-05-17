@@ -642,8 +642,7 @@ class PersonLink(models.Model):
         string="Target Patient", 
         help="Patient who is the resource to which this actual person is associated.")
 
-    @api.multi
-    @api.depends('target_person_id', 'target_practitioner_id', 'target_related_person_id', 'target_patient_id')          
+    @api.depends('target_type')          
     def _compute_target_name(self):         
         for hc_person_link in self:      
             if hc_person_link.target_type == 'person': 
@@ -666,18 +665,12 @@ class RelatedPersonPatient(models.Model):
 class Annotation(models.Model):
     _inherit = ["hc.annotation"]
 
-    # author_name = fields.Char(
-    #     string="Author", 
-    #     compute="_compute_author_name", 
-    #     store="True",
-    #     help="Individual responsible for the annotation.")
     author_patient_id = fields.Many2one(
         comodel_name="hc.res.patient", 
         string="Author Patient", 
         help="Patient responsible for the annotation.")
 
-    @api.multi
-    @api.depends('author_string', 'author_practitioner_id', 'author_related_person_id', 'author_patient_id')
+    @api.depends('author_type')
     def _compute_author_name(self):
         for hc_annotation in self:
             if hc_annotation.author_type == 'string':

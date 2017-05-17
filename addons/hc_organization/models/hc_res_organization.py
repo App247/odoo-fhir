@@ -279,10 +279,10 @@ class Partner(models.Model):
         string="Is an Organization Contact", 
         help="This partner is an organization contact.")
 
-class Identifier(models.Model):
-    _inherit = ["hc.identifier"]
+class IdentifierCode(models.Model):
+    _inherit = ["hc.vs.identifier.code"]
 
-    assigner_organization_id = fields.Many2one(
+    assigner_id = fields.Many2one(
         comodel_name="hc.res.organization", 
         string="Assigner Organization", 
         help="Organization that issued id (may be just text).")

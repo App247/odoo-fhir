@@ -1,7 +1,64 @@
 <openerp>
     <data>
 
-        <!-- Questionnaire Action and Menu -->  
+        <!-- Questionnaire Views -->                                        
+                                        
+        <record id="hc_res_questionnaire_view_search" model="ir.ui.view">                                       
+            <field name="name">Questionnaire Search</field>                                 
+            <field name="model">hc.res.questionnaire</field>                                    
+            <field name="arch" type="xml">                                  
+                <search string="Questionnaires">                                
+                </search>                               
+            </field>                                    
+        </record>                                       
+                                                
+        <record id="hc_res_questionnaire_view_tree" model="ir.ui.view">                                     
+            <field name="name">Questionnaire Tree</field>                                   
+            <field name="model">hc.res.questionnaire</field>                                    
+            <field name="arch" type="xml">                                  
+                <tree string="Questionnaires">                              
+                </tree>                             
+            </field>                                    
+        </record>                                       
+                                                
+        <record id="hc_res_questionnaire_view_form" model="ir.ui.view">                                     
+            <field name="name">Questionnaire Form</field>                                   
+            <field name="model">hc.res.questionnaire</field>                                    
+            <field name="arch" type="xml">                                  
+                <form string="Questionnaire">                               
+                    <sheet>                         
+                        <h1>                        
+                            <field name="name" default_focus="1" placeholder="Name"/>                   
+                        </h1>                       
+                        <group>                     
+                            <group>                 
+                            </group>                    
+                            <group>                 
+                            </group>                    
+                        </group>                        
+                        <notebook>                      
+                            <page string="Identifiers">                 
+                                <field name="identifier_ids" mode="tree">               
+                                    <tree>          
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>    
+                                        </sheet>        
+                                    </form>         
+                                </field>                
+                            </page>                 
+                        </notebook>                     
+                    </sheet>                            
+                </form>                             
+            </field>                                    
+        </record>                                       
+  
     
         <act_window id="hc_res_questionnaire_action"    
             name="HC Questionnaires"

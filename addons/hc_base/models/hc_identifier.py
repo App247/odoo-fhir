@@ -35,11 +35,17 @@ class Identifier(models.Model):
     _description = "Identifier"
 
     name = fields.Char(
-        string="Name", 
-        help="Name of this identifier (e.g., CA Driver's License Number).")
-    code = fields.Char(
+        string="Name",
+        compute="_compute_name",
+        store="True",
+        help="Name of this identifier record. Value + Code Name.")                             
+    code_id = fields.Many2one(
+        comodel_name="hc.vs.identifier.code", 
         string="Code", 
-        help="Code of this identifier (e.g., CA DL).")
+        help="Code of this identifier (e.g., CA DL).")                                                             
+    value = fields.Char(
+        string="Value", 
+        help="The value that is unique.")
     use = fields.Selection(
         string="Use", 
         selection=[
@@ -47,27 +53,49 @@ class Identifier(models.Model):
             ("official", "Official"), 
             ("temp", "Temporary"), 
             ("secondary", "Secondary")], 
-        help="The purpose of this identifier record.")
-    definition = fields.Char(
-        string="Definition", 
-        help="An explanation of the meaning of the identifier.")
+        help="The purpose of this identifier.")
+    type_id = fields.Many2one(
+        string="Type",
+        related="code_id.type_id", 
+        help="Description of identifier.")                                                      
+
+class IdentifierCode(models.Model):
+    _name = "hc.vs.identifier.code"
+    _description = "Identifier Code"
+    _inherit = ["hc.value.set.contains"]
+
+    name = fields.Char(
+        string="Name", 
+        compute="_compute_name", 
+        store="True", 
+        help="Name of this identifier (e.g., CA Driver's License Number).")                                
+    code = fields.Char(
+        string="Code", 
+        help="Code of this identifier (e.g., CA DL).")                             
+    contains_id = fields.Many2one(
+        comodel_name="hc.vs.identifier.code", 
+        string="Parent", 
+        help="Parent identifier code.")                                
     type_id = fields.Many2one(
         comodel_name="hc.vs.identifier.type", 
         string="Type", 
-        help="Description of identifier.")
+        help="Description of identifier.")                               
     system = fields.Char(
         string="System URI", 
-        help="The namespace for the identifier.")
-    value = fields.Char(
-        string="Value", 
-        help="Value of this identifier record.")
-    # assigner_organization_id = fields.Many2one(
+        help="The namespace for the identifier.")                             
+    definition = fields.Text(
+        string="Definition", 
+        help="An explanation of the meaning of the identifier.")                              
+    # assigner_id = fields.Many2one(
     #     comodel_name="hc.res.organization", 
-    #     string="Identifier Assigner Organization", 
-    #     help="Organization that issued id (may be just text).")
+    #     string="Assigner", 
+    #     help="Organization that issued id (may be just text)")
     country_id = fields.Many2one(
         comodel_name="res.country", 
         string="Country", 
         help="Country associated with the identifier.")
+
+
+                       
 
 

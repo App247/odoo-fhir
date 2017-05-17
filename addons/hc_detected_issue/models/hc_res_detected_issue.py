@@ -8,7 +8,8 @@ class DetectedIssue(models.Model):
 
     name = fields.Char(
         string="Event Name", 
-        required="True", 
+        compute="_compute_name", 
+        store="True", 
         help="Text representation of the detected issue event. Patient + Detected Issue + Date.")
     patient_id = fields.Many2one(
         comodel_name="hc.res.patient", 

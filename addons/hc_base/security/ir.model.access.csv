@@ -56,6 +56,7 @@ access_hc_base_hc_vs_country_state_type_user,hc.base.hc.vs.country.state.type.us
 access_hc_base_hc_vs_identifier_type_manager,hc.base.hc.vs.identifier.type.manager,model_hc_vs_identifier_type,group_hc_base_manager,1,1,1,1
 access_hc_base_hc_vs_identifier_type_user,hc.base.hc.vs.identifier.type.user,model_hc_vs_identifier_type,group_hc_base_user,1,0,0,0
 access_hc_base_hc_vs_identifier_type_class_manager,hc.base.hc.vs.identifier.type.class.manager,model_hc_vs_identifier_type_class,group_hc_base_manager,1,1,1,1
+access_hc_base_hc_vs_identifier_code_manager,hc.base.hc.vs.identifier.code.manager,model_hc_vs_identifier_code,group_hc_base_manager,1,1,1,1
 access_hc_base_hc_vs_identifier_type_class_user,hc.base.hc.vs.identifier.type.class.user,model_hc_vs_identifier_type_class,group_hc_base_user,1,0,0,0
 access_hc_base_hc_vs_language_manager,hc.base.hc.vs.language.manager,model_hc_vs_language,group_hc_base_manager,1,1,1,1
 access_hc_base_hc_vs_language_user,hc.base.hc.vs.language.user,model_hc_vs_language,group_hc_base_user,1,0,0,0

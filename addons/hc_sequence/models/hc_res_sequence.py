@@ -8,7 +8,8 @@ class Sequence(models.Model):
 
     name = fields.Char(
         string="Event Name", 
-        required="True", 
+        compute="_compute_name", 
+        store="True", 
         help="Text representation of the sequence event. Subject Name + Type + Date.")
     date = fields.Datetime(
         string="Date", 

@@ -7,53 +7,41 @@ from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as DTF
 
 class FamilyMemberHistory(models.Model):    
     _name = "hc.res.family.member.history"  
-    _description = "Family Member History"          
+    _description = "Family Member History"
+    _rec_name="record_name"          
 
-    name = fields.Char(
+    record_name = fields.Char(
         string="Record Name", 
-        compute="_compute_name", 
+        compute="_compute_record_name", 
         store="True", 
-        help="Human-readable label for this family member history definition. Patient Name + Family Member Name + Update Date.")
+        help="Human-readable label for this family member history definition. Patient Name + DOB + Family Member Name + Relationship + Update Date.")
     identifier_ids = fields.One2many(
         comodel_name="hc.family.member.history.identifier", 
         inverse_name="family_member_history_id", 
         string="Identifiers", 
         help="External Id(s) for this record.")                 
-    definition_type = fields.Selection(
-        string="Definition Type", 
-        selection=[
-            ("plan_definition", "Plan Definition"), 
-            ("questionnaire", "Questionnaire")], 
-        help="Type of instantiates protocol or definition.")
-    definition_name = fields.Char(
-        string="Definition", 
-        compute="_compute_definition_name", 
-        store="True", 
+    definition_ids = fields.One2many(
+        comodel_name="hc.family.member.history.definition", 
+        inverse_name="family_member_history_id", 
+        string="Definitions", 
         help="Instantiates protocol or definition.")
-    definition_plan_definition_id = fields.Many2one(
-        comodel_name="hc.res.plan.definition", 
-        string="Definition Plan Definition", 
-        help="Istantiates Plan Definition.")
-    definition_questionnaire_id = fields.Many2one(
-        comodel_name="hc.res.questionnaire", 
-        string="Definition Questionnaire", 
-        help="Instantiates Questionnaire.")
     status = fields.Selection(
-        string="status", 
+        string="Status", 
         required="True", 
         selection=[
             ("partial", "Partial"), 
             ("completed", "Completed"), 
             ("entered-in-error", "Entered-In-Error"), 
-            ("health-unknown", "Health-Unknown")], 
+            ("health-unknown", "Health-Unknown")],
+        default="partial", 
         help="A code specifying the status of the record of the family history of a specific family member.")
-    data_absent_reason = fields.Char(
+    data_absent_reason = fields.Selection(
         string="Data Absent Reason", 
         selection=[
             ("subject-unknown", "Subject-Unknown"), 
             ("withheld", "Withheld"), 
             ("unable-to-obtain", "Unable-To-Obtain"), 
-            ("deferred", "Deferred")], 
+            ("deferred", "Deferred")],
         help="Describes why the family member history did not occur in coded and/or textual form.")
     patient_id = fields.Many2one(
         comodel_name="hc.res.patient", 
@@ -61,7 +49,8 @@ class FamilyMemberHistory(models.Model):
         required="True", 
         help="Patient history is about.")                                       
     date = fields.Datetime(
-        string="Date", 
+        string="Date",
+        required="True", 
         help="When history was captured/updated.")                                        
     family_member_name_type = fields.Selection(
         string="Family Member Name Type", 
@@ -74,10 +63,10 @@ class FamilyMemberHistory(models.Model):
         string="Family Member Name", 
         compute="_compute_family_member_name", 
         store="True", 
-        help="Name of family member.")
+        help="The family member described.")
     family_member_name_string = fields.Char(
-        string="Casual Family Member Name", 
-        help="The family member described (e.g., 'My aunt Agatha', 'uncle'.")                  
+        string="Family Member Name String", 
+        help="String value of the family member described (e.g., 'My aunt Agatha', 'uncle'.")                  
     family_member_name_related_person_id = fields.Many2one(
         comodel_name="hc.res.related.person", 
         string="Family Member Related Person Name", 
@@ -105,7 +94,7 @@ class FamilyMemberHistory(models.Model):
     #     string="Deceased Age",
     #     related="person_id.deceased_name", 
     #     readonly="1", 
-    #     help="Dead? How old/when?.")
+    #     help="Dead? How old/when?")
     gender = fields.Selection(
         string="Gender", 
         selection=[
@@ -172,11 +161,11 @@ class FamilyMemberHistory(models.Model):
         help="Age is estimated?")
     is_deceased = fields.Boolean(
         string="Deceased", 
-        help="Dead? How old/when?.")                    
+        help="Dead? How old/when?")                    
     # is_deceased_age_known = fields.Boolean(
     #     string="Is Deceased Age Known", 
     #     help="Deceased age known?")  
-    deceased_type = fields.Selection(
+    deceased_age_type = fields.Selection(
         string="Deceased Age Type", 
         selection=[
             ("age", "Age"), 
@@ -185,7 +174,7 @@ class FamilyMemberHistory(models.Model):
             ("string", "String")], 
         default="date",
         help="Type of dead? how old/when?")                   
-    deceased_name = fields.Char(
+    deceased_age_name = fields.Char(
         string="Deceased Age", 
         compute="_compute_deceased_age_name", 
         help="Dead? How old/when?")                                  
@@ -201,26 +190,26 @@ class FamilyMemberHistory(models.Model):
         help="Deceased age unit of measure.")
     deceased_age_range_low = fields.Float(
         string="Deceased Age Range Low", 
-        help="Low limit of dead? how old/when?.")                    
+        help="Low limit of dead? how old/when?")                    
     deceased_age_range_high = fields.Float(
         string="Deceased Age Range High", 
-        help="High limit of dead? how old/when?.")                 
-    deceased_date = fields.Date(
-        string="Deceased Date", 
+        help="High limit of dead? how old/when?")                 
+    deceased_age_date = fields.Date(
+        string="Deceased Age Date", 
         help="Deceased date.")                 
-    deceased_string = fields.Text(
-        string="Deceased", 
+    deceased_age_string = fields.Char(
+        string="Deceased Age String", 
         help="String of dead? how old/when?")
     reason_code_ids = fields.Many2many(
         comodel_name="hc.vs.clinical.finding", 
         relation="family_member_history_reason_code_rel", 
         string="Reason Codes", 
-        help="Why was family member history performed?.")
+        help="Why was family member history performed?")
     reason_reference_ids = fields.One2many(
         comodel_name="hc.family.member.history.reason.reference", 
         inverse_name="family_member_history_id", 
         string="Reason References", 
-        help="Why was family member history performed?.")
+        help="Why was family member history performed?")
     note_ids = fields.One2many(
         comodel_name="hc.family.member.history.note", 
         inverse_name="family_member_history_id", 
@@ -232,21 +221,21 @@ class FamilyMemberHistory(models.Model):
         string="Conditions", 
         help="Condition that the related person had.")
         
-    @api.depends('patient_id', 'family_member_name', 'update_date')             
-    def _compute_name(self):                
+    @api.depends('patient_id', 'family_member_name', 'date')             
+    def _compute_record_name(self):                
         comp_name = '/'         
         for hc_res_family_member_history in self:           
             if hc_res_family_member_history.patient_id:     
                 comp_name = hc_res_family_member_history.patient_id.name    
                 if hc_res_family_member_history.patient_id.birth_date:  
                     patient_birth_date = datetime.strftime(datetime.strptime(hc_res_family_member_history.patient_id.birth_date, DF), "%Y-%m-%d")
-                    comp_name = comp_name + "("+ patient_birth_date + ")"
+                    comp_name = comp_name + "("+ patient_birth_date + "),"
             if hc_res_family_member_history.family_member_name:     
-                comp_name = comp_name + " " + hc_res_family_member_history.family_member_name.name or ''    
-            if hc_res_family_member_history.update_date:        
-                patient_update_date = datetime.strftime(datetime.strptime(hc_res_family_member_history.update_date, DTF), "%Y-%m-%d")   
-                comp_name = comp_name + " " + patient_update_date   
-            hc_res_family_member_history.name = comp_name       
+                comp_name = comp_name + " " + hc_res_family_member_history.family_member_name + ", " + hc_res_family_member_history.relationship_id.name + "," or ''           
+            if hc_res_family_member_history.date:        
+                patient_date = datetime.strftime(datetime.strptime(hc_res_family_member_history.date, DTF), "%Y-%m-%d")   
+                comp_name = comp_name + " " + patient_date   
+            hc_res_family_member_history.record_name = comp_name       
 
     @api.depends('family_member_name_type')         
     def _compute_family_member_name(self):          
@@ -255,14 +244,6 @@ class FamilyMemberHistory(models.Model):
                 hc_res_family_member_history.family_member_name = hc_res_family_member_history.family_member_name_string
             elif hc_res_family_member_history.family_member_name_type == 'related_person':  
                 hc_res_family_member_history.family_member_name = hc_res_family_member_history.family_member_name_related_person_id.name
-
-    @api.depends('definition_type')            
-    def _compute_definition_name(self):         
-        for hc_res_family_member_history in self:       
-            if hc_res_family_member_history.definition_type == 'plan_definition':   
-                hc_res_family_member_history.definition_name = hc_res_family_member_history.definition_plan_definition_id.name
-            elif hc_res_family_member_history.definition_type == 'questionnaire':   
-                hc_res_family_member_history.definition_name = hc_res_family_member_history.definition_questionnaire_id.name
 
     @api.depends('born_type')           
     def _compute_born_name(self):           
@@ -278,24 +259,24 @@ class FamilyMemberHistory(models.Model):
     def _compute_age_name(self):            
         for hc_res_family_member_history in self:      
             if hc_res_family_member_history.age_type == 'age': 
-                hc_res_family_member_history.age_name = str(hc_res_family_member_history.age_age) + ' ' + hc_res_family_member_history.age_age_uom_id.name
+                hc_res_family_member_history.age_name = str(hc_res_family_member_history.age) + ' ' + str(hc_res_family_member_history.age_uom_id.name) + 's old'
             elif hc_res_family_member_history.age_type == 'range': 
-                hc_res_family_member_history.age_name = 'Between' + str(hc_res_family_member_history.age_age_range_low) + ' and ' + str(hc_res_family_member_history.age_age_range_high)
+                hc_res_family_member_history.age_name = 'Between ' + str(hc_res_family_member_history.age_range_low) + ' and ' + str(hc_res_family_member_history.age_range_high)
             elif hc_res_family_member_history.age_type == 'string':    
                 hc_res_family_member_history.age_name = hc_res_family_member_history.age_string
 
     # @api.multi          
-    @api.depends('deceased_type')         
+    @api.depends('deceased_age_type')         
     def _compute_deceased_age_name(self):           
         for hc_res_family_member_history in self:      
-            if hc_res_family_member_history.deceased_type == 'age':  
-                hc_res_family_member_history.deceased_name = str(hc_res_family_member_history.deceased_age) + ' ' + hc_res_family_member_history.deceased_age_uom_id.name
-            elif hc_res_family_member_history.deceased_type == 'range':    
-                hc_res_family_member_history.deceased_name = 'Between ' + str(hc_res_family_member_history.deceased_age_range_low) + ' and ' + str(hc_res_family_member_history.deceased_age_range_high)
-            elif hc_res_family_member_history.deceased_type == 'date': 
-                hc_res_family_member_history.deceased_name = str(hc_res_family_member_history.deceased_date)
-            elif hc_res_family_member_history.deceased_type == 'string': 
-                hc_res_family_member_history.deceased_name = hc_res_family_member_history.deceased_string
+            if hc_res_family_member_history.deceased_age_type == 'age':  
+                hc_res_family_member_history.deceased_age_name = str(hc_res_family_member_history.deceased_age) + ' ' + str(hc_res_family_member_history.deceased_age_uom_id.name) + 's old'
+            elif hc_res_family_member_history.deceased_age_type == 'range':    
+                hc_res_family_member_history.deceased_age_name = 'Between ' + str(hc_res_family_member_history.deceased_age_range_low) + ' and ' + str(hc_res_family_member_history.deceased_age_range_high)
+            elif hc_res_family_member_history.deceased_age_type == 'date': 
+                hc_res_family_member_history.deceased_age_name = str(hc_res_family_member_history.deceased_age_date)
+            elif hc_res_family_member_history.deceased_age_type == 'string': 
+                hc_res_family_member_history.deceased_age_name = hc_res_family_member_history.deceased_age_string
 
 class FamilyMemberHistoryCondition(models.Model):   
     _name = "hc.family.member.history.condition"    
@@ -355,7 +336,7 @@ class FamilyMemberHistoryCondition(models.Model):
 
     @api.depends('onset_type')          
     def _compute_onset_name(self):          
-        for hc_res_family_member_history in self:
+        for hc_family_member_history_condition in self:
             if hc_family_member_history_condition.onset_type == 'age':
                 hc_family_member_history_condition.onset_name = str(hc_family_member_history_condition.onset_age) + " " + str(hc_family_member_history_condition.onset_age_uom_id.name) + "s old"
             elif hc_family_member_history_condition.onset_type == 'string':  
@@ -379,7 +360,44 @@ class FamilyMemberHistoryIdentifier(models.Model):
         string="Family Member History", 
         help="Family Member History associated with this Family Member Identifier.")              
                  
-class FamilyMemberHistoryFamilyMemberHistoryReasonReference(models.Model):  
+class FamilyMemberHistoryDefinition(models.Model):
+    _name = "hc.family.member.history.definition"
+    _description = "Family Member History Definition"
+    _inherit = ["hc.basic.association"]
+
+    family_member_history_id = fields.Many2one(
+        comodel_name="hc.res.family.member.history", 
+        string="Family Member History", 
+        help="Family Member History associated with this Family Member History Definition.")                                
+    definition_type = fields.Selection(
+        string="Definition Type", 
+        selection=[
+            ("plan_definition", "Plan Definition"), 
+            ("questionnaire", "Questionnaire")], 
+        help="Type of instantiates protocol or definition.")                               
+    definition_name = fields.Char(
+        string="Definition", 
+        compute="_compute_definition_name", 
+        store="True", 
+        help="Instantiates protocol or definitio.")                                
+    definition_plan_definition_id = fields.Many2one(
+        comodel_name="hc.res.plan.definition", 
+        string="Definition Plan Definition", 
+        help="Plan Definition instantiates protocol or definition.")                                
+    definition_questionnaire_id = fields.Many2one(
+        comodel_name="hc.res.questionnaire", 
+        string="Definition Questionnaire", 
+        help="Questionnaire instantiates protocol or definition.")                                
+
+    @api.depends('definition_type')            
+    def _compute_definition_name(self):         
+        for hc_family_member_history_definition in self:       
+            if hc_family_member_history_definition.definition_type == 'plan_definition':   
+                hc_family_member_history_definition.definition_name = hc_family_member_history_definition.definition_plan_definition_id.name
+            elif hc_family_member_history_definition.definition_type == 'questionnaire':   
+                hc_family_member_history_definition.definition_name = hc_family_member_history_definition.definition_questionnaire_id.name
+
+class FamilyMemberHistoryReasonReference(models.Model):  
     _name = "hc.family.member.history.reason.reference"   
     _description = "Family Member History Reason Reference"           
     _inherit = ["hc.basic.association"] 
@@ -440,6 +458,18 @@ class FamilyMemberHistoryNote(models.Model):
         string="Family Member History", 
         help="Family Member History associated with this Family Member History Note.")
 
+    @api.depends('author_type')
+    def _compute_author_name(self):
+        for hc_family_member_history_note in self:
+            if hc_family_member_history_note.author_type == 'string':
+                hc_family_member_history_note.author_name = hc_family_member_history_note.author_string
+            elif hc_family_member_history_note.author_type == 'practitioner':
+                hc_family_member_history_note.author_name = hc_family_member_history_note.author_practitioner_id.name
+            elif hc_family_member_history_note.author_type == 'patient':
+                hc_family_member_history_note.author_name = hc_family_member_history_note.author_patient_id.name
+            elif hc_family_member_history_note.author_type == 'related_person':
+                hc_family_member_history_note.author_name = hc_family_member_history_note.author_related_person_id.name
+
 class FamilyMemberHistoryConditionNote(models.Model):   
     _name = "hc.family.member.history.condition.note"   
     _description = "Family Member History Condition Note"           
@@ -449,6 +479,18 @@ class FamilyMemberHistoryConditionNote(models.Model):
         comodel_name="hc.family.member.history.condition", 
         string="Condition", 
         help="Condition associated with this Family Member History Condition Note.")
+
+    @api.depends('author_type')
+    def _compute_author_name(self):
+        for hc_family_member_history_note in self:
+            if hc_family_member_history_note.author_type == 'string':
+                hc_family_member_history_note.author_name = hc_family_member_history_note.author_string
+            elif hc_family_member_history_note.author_type == 'practitioner':
+                hc_family_member_history_note.author_name = hc_family_member_history_note.author_practitioner_id.name
+            elif hc_family_member_history_note.author_type == 'patient':
+                hc_family_member_history_note.author_name = hc_family_member_history_note.author_patient_id.name
+            elif hc_family_member_history_note.author_type == 'related_person':
+                hc_family_member_history_note.author_name = hc_family_member_history_note.author_related_person_id.name
 
 class V3FamilyMember(models.Model): 
     _name = "hc.vs.v3.family.member"    

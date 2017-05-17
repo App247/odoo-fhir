@@ -270,7 +270,7 @@ class PersonLink(models.Model):
         string="Target Practitioner", 
         help="Practitioner who is the resource to which this actual person is associated.")
 
-    @api.multi          
+    @api.depends('target_type')          
     def _compute_target_name(self):         
         for hc_person_link in self:      
             if hc_person_link.target_type == 'person': 
@@ -286,7 +286,7 @@ class Annotation(models.Model):
         string="Author Practitioner", 
         help="Practitioner responsible for the annotation.")
 
-    @api.multi
+    @api.depends('author_type')
     def _compute_author_name(self):
         for hc_annotation in self:
             if hc_annotation.author_type == 'string':

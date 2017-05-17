@@ -1,7 +1,64 @@
 <openerp>
     <data>
       
-        <!-- Questionnaire Response Action and Menu --> 
+        <!-- Questionnaire Response Views -->                                       
+                                        
+        <record id="hc_res_questionnaire_response_view_search" model="ir.ui.view">                                      
+            <field name="name">Questionnaire Response Search</field>                                    
+            <field name="model">hc.res.questionnaire.response</field>                                   
+            <field name="arch" type="xml">                                  
+                <search string="Questionnaire Responses">                               
+                </search>                               
+            </field>                                    
+        </record>                                       
+                                                
+        <record id="hc_res_questionnaire_response_view_tree" model="ir.ui.view">                                        
+            <field name="name">Questionnaire Response Tree</field>                                  
+            <field name="model">hc.res.questionnaire.response</field>                                   
+            <field name="arch" type="xml">                                  
+                <tree string="Questionnaire Responses">                             
+                </tree>                             
+            </field>                                    
+        </record>                                       
+                                                
+        <record id="hc_res_questionnaire_response_view_form" model="ir.ui.view">                                        
+            <field name="name">Questionnaire Response Form</field>                                  
+            <field name="model">hc.res.questionnaire.response</field>                                   
+            <field name="arch" type="xml">                                  
+                <form string="Questionnaire Response">                              
+                    <sheet>                         
+                        <h1>                        
+                            <field name="name" default_focus="1" placeholder="Name"/>                   
+                        </h1>                       
+                        <group>                     
+                            <group>                 
+                            </group>                    
+                            <group>                 
+                            </group>                    
+                        </group>                        
+                        <notebook>                      
+                            <page string="Based On">                 
+                                <field name="based_on_ids" mode="tree">               
+                                    <tree>          
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>    
+                                        </sheet>        
+                                    </form>         
+                                </field>                
+                            </page>                 
+                        </notebook>                     
+                    </sheet>                            
+                </form>                             
+            </field>                                    
+        </record>                                       
+ 
     
         <act_window id="hc_res_questionnaire_response_action"   
                     name="HC Questionnaire Responses"

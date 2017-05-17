@@ -1,11 +1,19 @@
 # -*- coding: utf-8 -*-
 
 from openerp import models, fields, api
+from datetime import datetime
+from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as DF
+from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as DTF
 
 class Questionnaire(models.Model):    
     _name = "hc.res.questionnaire"    
     _description = "Questionnaire"            
 
+    name = fields.Char(
+        string="Event Name", 
+        compute="_compute_name", 
+        store="True", 
+        help="Text representation of the questionnaire. Title + Publisher + Date.")
     url = fields.Char(
         string="URI", 
         help="Globally unique logical identifier for questionnaire.")                    
@@ -56,6 +64,19 @@ class Questionnaire(models.Model):
         inverse_name="questionnaire_id", 
         string="Items", 
         help="Questions and sections within the Questionnaire.")                    
+
+    @api.depends('title', 'publisher', 'date')                
+    def _compute_name(self):                
+        comp_name = '/'            
+        for hc_res_questionnaire in self:            
+            if hc_res_questionnaire.title:        
+                comp_name = hc_res_questionnaire.title  
+            if hc_res_questionnaire.publisher:        
+                comp_name = comp_name + " " + hc_res_questionnaire.publisher or ''    
+            if hc_res_questionnaire.date:        
+                title_date = datetime.strftime(datetime.strptime(hc_res_questionnaire.date, DTF), "%Y-%m-%d")    
+                comp_name = comp_name + " " + title_date    
+            hc_res_questionnaire.name = comp_name        
 
 class QuestionnaireItem(models.Model):    
     _name = "hc.questionnaire.item"    

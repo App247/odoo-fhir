@@ -54,9 +54,7 @@
                 </form>                 
             </field>                        
         </record>                           
-                                    
-        <!-- Identifier Type Action and Menu -->                            
-                                    
+                                                                                   
         <record id="hc_vs_identifier_type_class_action" model="ir.actions.act_window">                          
             <field name="name">HC Identifier Type Classes</field>                      
             <field name="type">ir.actions.act_window</field>                        
@@ -66,12 +64,11 @@
         </record>                           
 
 
-        <menuitem 
-            id="hc_base.menu_ident_type_class" 
-            name="Identifier Type Classes" 
-            parent="hc_base.menu_ident" 
-            action="hc_vs_identifier_type_class_action" 
-            sequence="20"/>
+        <menuitem id="hc_base.menu_ident_type_class" 
+                  name="Identifier Type Classes" 
+                  parent="hc_base.menu_ident" 
+                  action="hc_vs_identifier_type_class_action" 
+                  sequence="20"/>
 
         <!-- Identifier Type Views -->            
             
@@ -126,9 +123,7 @@
                     </sheet>      
                 </form>       
             </field>          
-        </record>           
-                    
-        <!-- Identifier Type Action and Menu -->            
+        </record>                
                     
         <record id="hc_vs_identifier_type_action" model="ir.actions.act_window">            
             <field name="name">HC Identifier Types</field>          
@@ -138,12 +133,11 @@
             <field name="view_mode">tree,form</field>         
         </record>           
 
-        <menuitem 
-            id="hc_base.menu_ident_type" 
-            name="Identifier Types" 
-            parent="hc_base.menu_ident" 
-            action="hc_vs_identifier_type_action" 
-            sequence="10"/>
+        <menuitem id="hc_base.menu_ident_type" 
+                  name="Identifier Types" 
+                  parent="hc_base.menu_ident" 
+                  action="hc_vs_identifier_type_action" 
+                  sequence="10"/>
 
         <!-- Identifier Views -->           
                 
@@ -153,9 +147,7 @@
             <field name="arch" type="xml">          
                 <search string="Identifiers">       
                     <field name="name"/>      
-                    <field name="type_id"/>
-                    <group> 
-                        <filter name="group_by_type" string="type" context="{'group_by': 'type_id'}"/>
+                    <group>
                     </group>     
                 </search>       
             </field>          
@@ -166,9 +158,10 @@
             <field name="model">hc.identifier</field>         
             <field name="arch" type="xml">          
                 <tree string="Identifiers">       
-                    <field name="name"/>      
-                    <field name="type_id"/>     
-                    <field name="country_id"/>      
+                    <field name="name"/>
+                    <field name="code_id"/> 
+                    <field name="value"/> 
+                    <field name="use"/>             
                 </tree>       
             </field>          
         </record>           
@@ -186,21 +179,17 @@
                         </div>    
                         <group>   
                             <group> 
-                                <field name="code"/>
-                                <field name="definition"/>
+                                <field name="code_id"/>
+                                <field name="value"/>
+                                <field name="use"/>
                             </group>  
                             <group> 
-                                <field name="type_id"/>
-                                <field name="system" widget="url"/>
-                                <field name="country_id"/>
                             </group>  
                         </group>    
                     </sheet>      
                 </form>       
             </field>          
-        </record>           
-                    
-        <!-- Identifier Action and Menu -->           
+        </record>                      
                     
         <record id="hc_identifier_action" model="ir.actions.act_window">            
             <field name="name">HC Identifiers</field>         
@@ -210,12 +199,90 @@
             <field name="view_mode">tree,form</field>         
         </record>           
 
-        <menuitem 
-            id="hc_base.menu_ident_ident"
-            name="Identifiers"
-            parent="hc_base.menu_ident" 
-            action="hc_identifier_action" 
-            sequence="1"/>
-            
+        <menuitem id="hc_base.menu_ident_ident"
+                  name="Identifiers"
+                  parent="hc_base.menu_ident" 
+                  action="hc_identifier_action" 
+                  sequence="1"/>
+    
+        <!-- Identifier Code Views -->                                                              
+                                                                    
+        <record id="hc_vs_identifier_code_view_search" model="ir.ui.view">                                                              
+            <field name="name">Identifier Code Search</field>                                                           
+            <field name="model">hc.vs.identifier.code</field>                                                           
+            <field name="arch" type="xml">                                                          
+                <search string="Identifier Code">                                                      
+                    <field name="name"/>                                                    
+                    <field name="code"/>
+                    <field name="type_id"/>                                                    
+                    <field name="definition"/>                                                  
+                    <group> 
+                        <filter name="group_by_type" string="type" context="{'group_by': 'type_id'}"/>                                               
+                        <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>                                              
+                    </group>                                                    
+                </search>                                                       
+            </field>                                                            
+        </record>                                                               
+                                                                        
+        <record id="hc_vs_identifier_code_view_tree" model="ir.ui.view">                                                                
+            <field name="name">Identifier Code Tree</field>                                                         
+            <field name="model">hc.vs.identifier.code</field>                                                           
+            <field name="arch" type="xml">                                                          
+                <tree string="Identifier Codes" default_order="name, code">                                                     
+                    <field name="name"/>                                                    
+                    <field name="code"/>
+                    <field name="type_id"/>     
+                    <field name="country_id"/>                                                    
+                    <field name="contains_id" invisible="1"/>                                                 
+                    <field name="source_id" invisible="1"/>                                                 
+                </tree>                                                     
+            </field>                                                            
+        </record>                                                               
+                                                                        
+        <record id="hc_vs_identifier_code_view_form" model="ir.ui.view">                                                                
+            <field name="name">Identifier Code Form</field>                                                         
+            <field name="model">hc.vs.identifier.code</field>                                                           
+            <field name="arch" type="xml">                                                          
+                <form string="Identifier Code">                                                       
+                    <sheet>                                                 
+                        <h1>                                                
+                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>                                          
+                        </h1>                                               
+                        <field name="code" placeholder="Code (e.g., biological)"/>                                              
+                        <field name="definition" placeholder="Definition"/>                                             
+                        <field name="comments" placeholder="Comments"/>                                             
+                        <group>                                             
+                            <group>
+                                <field name="type_id"/>                                                                         
+                                <field name="country_id"/>                             
+                            </group>
+                            <group>
+                                <field name="contains_id"/> 
+                            </group>                                            
+                            <group>                                         
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>                                        
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>                                     
+                            </group>                                            
+                        </group>                                                
+                    </sheet>                                                    
+                </form>                                                     
+            </field>                                                            
+        </record>                                                               
+
+        <act_window id="hc_vs_identifier_code_action"           
+                    name="HC Identifier Codes"
+                    res_model="hc.vs.identifier.code"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <menuitem id="hc_base.menu_ident_code" 
+                  name="Identifier Codes" 
+                  parent="hc_base.menu_ident" 
+                  action="hc_vs_identifier_code_action" 
+                  groups="hc_base.group_hc_base_manager" 
+                  sequence="30"/>
+                                                                
     </data>
 </openerp>

@@ -38,7 +38,39 @@
                             <group>                 
                             </group>                    
                         </group>                        
-                        <notebook>                      
+                        <notebook>
+                            <page string="Investigations">                 
+                                <field name="investigation_ids" mode="tree">               
+                                    <tree>          
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>    
+                                        </sheet>        
+                                    </form>         
+                                </field>                
+                            </page>
+                            <page string="Findings">                 
+                                <field name="finding_ids" mode="tree">               
+                                    <tree>          
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>    
+                                        </sheet>        
+                                    </form>         
+                                </field>                
+                            </page>                      
                             <page string="Identifiers">                 
                                 <field name="identifier_ids" mode="tree">               
                                     <tree>          
@@ -54,7 +86,111 @@
                                         </sheet>        
                                     </form>         
                                 </field>                
-                            </page>                 
+                            </page>
+                            <page string="Problems">                 
+                                <field name="problem_ids" mode="tree">               
+                                    <tree>          
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                    <field name="problem_name"/>
+                                                    <field name="problem_type" class="oe_edit_only"/>
+                                                    <field name="problem_condition_id" class="oe_edit_only" attrs="{'invisible': [('problem_type','!=','condition')]}"/>
+                                                    <field name="problem_allergy_intolerance_id" class="oe_edit_only" attrs="{'invisible': [('problem_type','!=','allergy_intolerance')]}"/>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>    
+                                        </sheet>        
+                                    </form>         
+                                </field>                
+                            </page>
+                            <page string="Protocols">                 
+                                <field name="protocol_ids" mode="tree">               
+                                    <tree>          
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>    
+                                        </sheet>        
+                                    </form>         
+                                </field>                
+                            </page>
+                            <page string="Prognosis Refs">                 
+                                <field name="prognosis_reference_ids" mode="tree">               
+                                    <tree>          
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>    
+                                        </sheet>        
+                                    </form>         
+                                </field>                
+                            </page>
+                             <page string="Actions">                 
+                                <field name="action_ids" mode="tree">               
+                                    <tree>          
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                    <field name="action_name"/>
+                                                        <field name="action_type" class="oe_edit_only"/>
+                                                        <field name="action_referral_request_id" class="oe_edit_only" attrs="{'invisible': [('action_type','!=','referral_request')]}"/>
+                                                        <field name="action_procedure_request_id" class="oe_edit_only" attrs="{'invisible': [('action_type','!=','procedure_request')]}"/>
+                                                        <field name="action_procedure_id" class="oe_edit_only" attrs="{'invisible': [('action_type','!=','procedure')]}"/>
+                                                        <field name="action_medication_request_id" class="oe_edit_only" attrs="{'invisible': [('action_type','!=','medication_request')]}"/>
+                                                        <field name="action_appointment_id" class="oe_edit_only" attrs="{'invisible': [('action_type','!=','appointment')]}"/>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>    
+                                        </sheet>        
+                                    </form>         
+                                </field>                
+                            </page>
+                            <page string="Notes">                       
+                                <field name="note_ids" mode="tree">                 
+                                    <tree>              
+                                        <field name="text"/>            
+                                        <field name="author_type"/>         
+                                        <field name="recorded_date"/>           
+                                    </tree>             
+                                    <form>              
+                                        <sheet>         
+                                            <div>       
+                                                <field name="text" placeholder="Annotation"/>   
+                                            </div>      
+                                            <group>     
+                                                <group> 
+                                                    <field name="author_name"/>
+                                                    <field name="author_type" class="oe_edit_only"/>
+                                                    <field name="author_string" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','string')]}"/>
+                                                    <field name="author_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','practitioner')]}"/>
+                                                    <field name="author_patient_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','patient')]}"/>
+                                                    <field name="author_related_person_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','related_person')]}"/>
+                                                </group>    
+                                                <group> 
+                                                    <field name="recorded_date"/>
+                                                </group>    
+                                            </group>        
+                                        </sheet>            
+                                    </form>             
+                                </field>                    
+                            </page>                     
                         </notebook>                     
                     </sheet>                            
                 </form>                             

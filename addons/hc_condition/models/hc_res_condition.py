@@ -13,7 +13,7 @@ class Condition(models.Model):
         string="Event Name", 
         compute="_compute_name", 
         store="True", 
-        help="Text representation of the condition event. Subject Name + Condition + Asserted Date.")
+        help="Text representation of the condition event. Subject Name + Condition Code + Asserted Date.")
     identifier_ids = fields.One2many(
         comodel_name="hc.condition.identifier", 
         inverse_name="condition_id", 
