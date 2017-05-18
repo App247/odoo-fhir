@@ -20,7 +20,7 @@ class ClinicalImpression(models.Model):
         string="Identifiers", 
         help="Business identifier.")                
     status = fields.Selection(
-        string="Clinical Impression Status", 
+        string="Status", 
         required="True", 
         selection=[
             ("in-progress", "In Progress"), 
@@ -28,8 +28,10 @@ class ClinicalImpression(models.Model):
             ("entered-in-error", "Entered In Error")], 
         help="Identifies the workflow status of the assessment.")                
     code_id = fields.Many2one(
-        comodel_name="hc.vs.clinical.impression.kind", 
+        comodel_name="hc.vs.clinical.impression.kind",
         string="Code", 
+        required="True",
+        default=fields.datetime.now(), 
         help="Kind of impression performed.")                
     description = fields.Text(
         string="Description", 
@@ -48,13 +50,11 @@ class ClinicalImpression(models.Model):
         help="Patient or group assessed.")                
     subject_patient_id = fields.Many2one(
         comodel_name="hc.res.patient", 
-        string="Subject Patient", 
-        required="True", 
+        string="Subject Patient",  
         help="Patient assessed.")                
     subject_group_id = fields.Many2one(
         comodel_name="hc.res.group", 
         string="Subject Group", 
-        required="True", 
         help="Group assessed.")                
     context_type = fields.Selection(
         string="Context Type",
@@ -96,7 +96,9 @@ class ClinicalImpression(models.Model):
         string="Effective End Date", 
         help="End of the time of assessment.")
     date = fields.Datetime(
-        string="Date", 
+        string="Date",
+        required="True",
+        default=fields.datetime.now(),  
         help="When the assessment was documented.")             
     assessor_id = fields.Many2one(
         comodel_name="hc.res.practitioner", 
@@ -158,11 +160,11 @@ class ClinicalImpression(models.Model):
                 comp_name = hc_res_clinical_impression.subject_patient_id.name
                 if hc_res_clinical_impression.subject_patient_id.birth_date:    
                     subject_patient_birth_date = datetime.strftime(datetime.strptime(hc_res_clinical_impression.subject_patient_id.birth_date, DF), "%Y-%m-%d")
-                    comp_name = comp_name + "("+ subject_patient_birth_date + ")"
+                    comp_name = comp_name + "("+ subject_patient_birth_date + "),"
             if hc_res_clinical_impression.subject_type == 'group':
-                comp_name = hc_res_clinical_impression.subject_group_id.name
+                comp_name = hc_res_clinical_impression.subject_group_id.name + ","
             if hc_res_clinical_impression.code_id:      
-                comp_name = comp_name + " " + hc_res_clinical_impression.code_id.name or '' 
+                comp_name = comp_name + " " + hc_res_clinical_impression.code_id.name + "," or '' 
             if hc_res_clinical_impression.date:     
                 patient_date = datetime.strftime(datetime.strptime(hc_res_clinical_impression.date, DTF), "%Y-%m-%d")   
                 comp_name = comp_name + " " + patient_date  
@@ -217,14 +219,16 @@ class ClinicalImpressionAction(models.Model):
         help="Actions taken during assessment.")
     action_referral_request_id = fields.Many2one(
         comodel_name="hc.res.referral.request", 
-        string="Action Referral Request", help="Referral Request actions taken during assessment.")
+        string="Action Referral Request", 
+        help="Referral Request actions taken during assessment.")
     action_procedure_request_id = fields.Many2one(
         comodel_name="hc.res.procedure.request", 
         string="Action Procedure Request", 
         help="Procedure Request actions taken during assessment.")
     action_procedure_id = fields.Many2one(
         comodel_name="hc.res.procedure", 
-        string="Action Procedure", 
+        string="Action Procedure",
+        domain="['|',('action_procedure_id.subject_patient_id','=',subject_patient_id), ('action_procedure_id.subject_group_id','=','subject_group_id')]",
         help="Procedure actions taken during assessment.")
     action_medication_request_id = fields.Many2one(
         comodel_name="hc.res.medication.request", 
@@ -287,7 +291,8 @@ class ClinicalImpressionInvestigation(models.Model):
         help="Questionnaire Response record of a specific investigation.")
     item_family_member_history_id = fields.Many2one(
         comodel_name="hc.res.family.member.history", 
-        string="Item Family Member History", 
+        string="Item Family Member History",
+        domain="['|',('item_family_member_history_id.subject_patient_id','=',subject_patient_id), ('item_family_member_history_id.subject_group_id','=','subject_group_id')]", 
         help="Family Member History record of a specific investigation.")
     item_diagnostic_report_id = fields.Many2one(
         comodel_name="hc.res.diagnostic.report", 
@@ -308,7 +313,7 @@ class ClinicalImpressionInvestigation(models.Model):
             if hc_res_clinical_impression.item_type == 'observation':   
                 hc_res_clinical_impression.item_name = hc_res_clinical_impression.item_observation_id.name
             elif hc_res_clinical_impression.item_type == 'family_member_history':   
-                hc_res_clinical_impression.item_name = hc_res_clinical_impression.item_family_member_history_id.name
+                hc_res_clinical_impression.item_name = hc_res_clinical_impression.item_family_member_history_id.record_name
             elif hc_res_clinical_impression.item_type == 'questionnaire_response':  
                 hc_res_clinical_impression.item_name = hc_res_clinical_impression.item_questionnaire_response_id.name 
             elif hc_res_clinical_impression.item_type == 'diagnostic_report':   
@@ -471,7 +476,7 @@ class ClinicalImpressionProtocol(models.Model):
         comodel_name="hc.res.clinical.impression", 
         string="Clinical Impression", 
         help="Clinical Impression associated with this Clinical Impression Protocol.")                
-    protocol = fields.Char(
+    protocol = fields.Html(
         string="Protocol URI", 
         help="URI of Protocol associated with this Clinical Impression Protocol.")
                 

@@ -8,7 +8,14 @@
             <field name="model">hc.res.clinical.impression</field>      
             <field name="arch" type="xml">      
                 <search string="Clinical Impressions">
-                    <field name="name"/>  
+                    <field name="name"/>
+                    <field name="subject_name"/>
+                    <field name="code_id"/>
+                    <field name="date"/>
+                    <field name="status"/>
+                    <group string="Group By">   
+                        <filter name="group_by_code" string="Code" context="{'group_by':'code'}"/>
+                    </group>    
                 </search>   
             </field>        
         </record>           
@@ -19,6 +26,10 @@
             <field name="arch" type="xml">      
                 <tree string="Clinical Impressions">    
                     <field name="name"/>
+                    <field name="subject_name"/>
+                    <field name="code_id"/>
+                    <field name="date"/>
+                    <field name="status"/>
                 </tree> 
             </field>        
         </record>           
@@ -31,24 +42,52 @@
                     <sheet>                         
                         <h1>                    
                             <field name="name" default_focus="1" placeholder="Event Name"/>             
-                        </h1>                   
+                        </h1>
+                        <field name="summary" placeholder="Summary of assessment"/>                   
                         <group>                     
-                            <group>                 
+                            <group string="Event">
+                                <field name="subject_name"/>
+                                <field name="subject_type" class="oe_edit_only"/>
+                                <field name="subject_patient_id" class="oe_edit_only" attrs="{'invisible': [('subject_type','!=','patient')], 'required': [('subject_type','=','patient')]}"/>
+                                <field name="subject_group_id" class="oe_edit_only" attrs="{'invisible': [('subject_type','!=','group')], 'required': [('subject_type','=','group')]}"/>
+                                <field name="code_id" placeholder="Kind"/>
+                                <field name="description"/>
+                                <field name="date"/>
                             </group>                    
-                            <group>                 
+                            <group string="Status">
+                                <field name="status"/>
+                                <field name="prognosis_codeable_concept_ids" string="Prognosis" widget="many2many_tags"/>                 
+                            </group>
+                            <group string="Who, What">
+                                <field name="assessor_id" placeholder="Practitioner"/>
+                                <field name="previous_id" placeholder="Clinical Impression"/>
                             </group>                    
                         </group>                        
                         <notebook>
                             <page string="Investigations">                 
                                 <field name="investigation_ids" mode="tree">               
-                                    <tree>          
+                                    <tree>
+                                        <field name="code_id"/>
+                                        <field name="item_name"/>
+                                        <field name="item_type"/>
                                     </tree>         
                                     <form>          
                                         <sheet>     
                                             <group> 
                                                 <group>
+                                                    <field name="code_id" placeholder="Investigation Set"/>
                                                 </group>
                                                 <group>
+                                                </group>
+                                                <group>
+                                                    <field name="item_name"/>
+                                                    <field name="item_type" class="oe_edit_only"/>
+                                                    <field name="item_observation_id" class="oe_edit_only" attrs="{'invisible': [('item_type','!=','observation')], 'required': [('item_type','=','observation')]}"/>
+                                                    <field name="item_questionnaire_response_id" class="oe_edit_only" attrs="{'invisible': [('item_type','!=','questionnaire_response')], 'required': [('item_type','=','questionnaire_response')]}"/>
+                                                    <field name="item_family_member_history_id" class="oe_edit_only" attrs="{'invisible': [('item_type','!=','family_member_history')], 'required': [('item_type','=','family_member_history')]}"/>
+                                                    <field name="item_diagnostic_report_id" class="oe_edit_only" attrs="{'invisible': [('item_type','!=','diagnostic_report')], 'required': [('item_type','=','diagnostic_report')]}"/>
+                                                    <field name="item_risk_assessment_id" class="oe_edit_only" attrs="{'invisible': [('item_type','!=','risk_assessment')], 'required': [('item_type','=','risk_assessment')]}"/>
+                                                    <field name="item_imaging_study_id" class="oe_edit_only" attrs="{'invisible': [('item_type','!=','imaging_study')], 'required': [('item_type','=','imaging_study')]}"/>
                                                 </group>
                                             </group>    
                                         </sheet>        
@@ -57,12 +96,14 @@
                             </page>
                             <page string="Findings">                 
                                 <field name="finding_ids" mode="tree">               
-                                    <tree>          
+                                    <tree>
+                                        <field name="cause"/>            
                                     </tree>         
                                     <form>          
-                                        <sheet>     
+                                        <sheet>
+                                            <field name="cause" placeholder="Cause"/>       
                                             <group> 
-                                                <group>
+                                                <group>                                                
                                                 </group>
                                                 <group>
                                                 </group>
@@ -71,25 +112,44 @@
                                     </form>         
                                 </field>                
                             </page>                      
-                            <page string="Identifiers">                 
-                                <field name="identifier_ids" mode="tree">               
-                                    <tree>          
-                                    </tree>         
-                                    <form>          
-                                        <sheet>     
-                                            <group> 
-                                                <group>
-                                                </group>
-                                                <group>
-                                                </group>
-                                            </group>    
-                                        </sheet>        
-                                    </form>         
-                                </field>                
-                            </page>
+                            <page string="Identifiers">                     
+                                <field name="identifier_ids" mode="tree">                   
+                                    <tree>              
+                                        <field name="is_preferred"/>            
+                                        <field name="name"/>            
+                                        <field name="value"/>
+                                        <field name="code_id"/>           
+                                        <field name="type_id"/>         
+                                    </tree>             
+                                    <form>              
+                                        <sheet>         
+                                            <div class="oe_title oe_left">      
+                                                <h1>    
+                                                    <field name="name" placeholder="Identifier"/>
+                                                </h1>   
+                                            </div>      
+                                            <group>     
+                                                <group> 
+                                                    <field name="value"/>
+                                                    <field name="code_id"/>
+                                                    <field name="type_id" readonly="1"/>
+                                                    <field name="is_preferred"/>
+                                                    <field name="is_active"/>
+                                                </group>    
+                                                <group> 
+                                                    <field name="start_date" placeholder="Valid From"/>
+                                                    <field name="end_date" placeholder="Valid To"/>
+                                                </group>    
+                                            </group>        
+                                        </sheet>            
+                                    </form>             
+                                </field>                    
+                            </page>                     
                             <page string="Problems">                 
                                 <field name="problem_ids" mode="tree">               
-                                    <tree>          
+                                    <tree>
+                                        <field name="problem_name"/>
+                                        <field name="problem_type"/>          
                                     </tree>         
                                     <form>          
                                         <sheet>     
@@ -97,10 +157,10 @@
                                                 <group>
                                                     <field name="problem_name"/>
                                                     <field name="problem_type" class="oe_edit_only"/>
-                                                    <field name="problem_condition_id" class="oe_edit_only" attrs="{'invisible': [('problem_type','!=','condition')]}"/>
-                                                    <field name="problem_allergy_intolerance_id" class="oe_edit_only" attrs="{'invisible': [('problem_type','!=','allergy_intolerance')]}"/>
+                                                    <field name="problem_condition_id" class="oe_edit_only" attrs="{'invisible': [('problem_type','!=','condition')], 'required': [('problem_type','=','condition')]}"/>
+                                                    <field name="problem_allergy_intolerance_id" class="oe_edit_only" attrs="{'invisible': [('problem_type','!=','allergy_intolerance')], 'required': [('problem_type','=','allergy_intolerance')]}"/>
                                                 </group>
-                                                <group>
+                                                <group>                                                    
                                                 </group>
                                             </group>    
                                         </sheet>        
@@ -109,12 +169,14 @@
                             </page>
                             <page string="Protocols">                 
                                 <field name="protocol_ids" mode="tree">               
-                                    <tree>          
+                                    <tree>
+                                        <field name="protocol"/>          
                                     </tree>         
                                     <form>          
-                                        <sheet>     
+                                        <sheet>
+                                            <field name="protocol" placeholder="Protocol URI"/>     
                                             <group> 
-                                                <group>
+                                                <group>   
                                                 </group>
                                                 <group>
                                                 </group>
@@ -125,12 +187,14 @@
                             </page>
                             <page string="Prognosis Refs">                 
                                 <field name="prognosis_reference_ids" mode="tree">               
-                                    <tree>          
+                                    <tree>
+                                        <field name="prognosis_reference_id"/>          
                                     </tree>         
                                     <form>          
                                         <sheet>     
                                             <group> 
                                                 <group>
+                                                    <field name="prognosis_reference_id"/>                                                    
                                                 </group>
                                                 <group>
                                                 </group>
@@ -141,19 +205,21 @@
                             </page>
                              <page string="Actions">                 
                                 <field name="action_ids" mode="tree">               
-                                    <tree>          
+                                    <tree>
+                                        <field name="action_name"/>
+                                        <field name="action_type"/>          
                                     </tree>         
                                     <form>          
                                         <sheet>     
                                             <group> 
                                                 <group>
                                                     <field name="action_name"/>
-                                                        <field name="action_type" class="oe_edit_only"/>
-                                                        <field name="action_referral_request_id" class="oe_edit_only" attrs="{'invisible': [('action_type','!=','referral_request')]}"/>
-                                                        <field name="action_procedure_request_id" class="oe_edit_only" attrs="{'invisible': [('action_type','!=','procedure_request')]}"/>
-                                                        <field name="action_procedure_id" class="oe_edit_only" attrs="{'invisible': [('action_type','!=','procedure')]}"/>
-                                                        <field name="action_medication_request_id" class="oe_edit_only" attrs="{'invisible': [('action_type','!=','medication_request')]}"/>
-                                                        <field name="action_appointment_id" class="oe_edit_only" attrs="{'invisible': [('action_type','!=','appointment')]}"/>
+                                                    <field name="action_type" class="oe_edit_only"/>
+                                                    <field name="action_referral_request_id" class="oe_edit_only" attrs="{'invisible': [('action_type','!=','referral_request')], 'required': [('action_type','=','referral_request')]}"/>
+                                                    <field name="action_procedure_request_id" class="oe_edit_only" attrs="{'invisible': [('action_type','!=','procedure_request')], 'required': [('action_type','=','procedure_request')]}"/>
+                                                    <field name="action_procedure_request_id" class="oe_edit_only" attrs="{'invisible': [('action_type','!=','procedure_request')], 'required': [('action_type','=','procedure_request')]}"/>
+                                                    <field name="action_medication_request_id" class="oe_edit_only" attrs="{'invisible': [('action_type','!=','medication_request')], 'required': [('action_type','=','medication_request')]}"/>
+                                                    <field name="action_appointment_id" class="oe_edit_only" attrs="{'invisible': [('action_type','!=','appointment')], 'required': [('action_type','=','appointment')]}"/>
                                                 </group>
                                                 <group>
                                                 </group>
@@ -178,10 +244,10 @@
                                                 <group> 
                                                     <field name="author_name"/>
                                                     <field name="author_type" class="oe_edit_only"/>
-                                                    <field name="author_string" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','string')]}"/>
-                                                    <field name="author_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','practitioner')]}"/>
-                                                    <field name="author_patient_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','patient')]}"/>
-                                                    <field name="author_related_person_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','related_person')]}"/>
+                                                    <field name="author_string" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','string')], 'required': [('author_type','=','string')]}"/>
+                                                    <field name="author_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','practitioner')], 'required': [('author_type','=','practitioner')]}"/>
+                                                    <field name="author_patient_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','patient')], 'required': [('author_type','=','patient')]}"/>
+                                                    <field name="author_related_person_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','related_person')], 'required': [('author_type','=','related_person')]}"/>
                                                 </group>    
                                                 <group> 
                                                     <field name="recorded_date"/>

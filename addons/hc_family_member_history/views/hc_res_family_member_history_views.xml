@@ -37,8 +37,8 @@
                             <field name="patient_id"/>
                             <field name="family_member_name"/>
                             <field name="family_member_name_type" class="oe_edit_only"/>
-                            <field name="family_member_name_string" class="oe_edit_only" attrs="{'invisible': [('family_member_name_type','!=','string')], 'required': [('family_member_name_type', '=', 'string')]}"/>
-                            <field name="family_member_name_related_person_id" class="oe_edit_only" attrs="{'invisible': [('family_member_name_type','!=','related_person')], 'required': [('family_member_name_type', '=', 'related_person')]}"/>
+                            <field name="family_member_name_string" class="oe_edit_only" attrs="{'invisible': [('family_member_name_type','!=','string')], 'required': [('family_member_name_type','=','string')]}"/>
+                            <field name="family_member_name_related_person_id" class="oe_edit_only" attrs="{'invisible': [('family_member_name_type','!=','related_person')], 'required': [('family_member_name_type','=','related_person')]}"/>
                             <field name="relationship_id" attrs="{'invisible': [('family_member_name_type','!=','string')]}"/>
                             <field name="gender" attrs="{'invisible': [('family_member_name_type','!=','string')]}"/>
                             <field name="date"/>

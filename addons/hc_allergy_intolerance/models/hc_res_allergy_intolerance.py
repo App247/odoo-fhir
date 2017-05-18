@@ -117,7 +117,8 @@ class AllergyIntolerance(models.Model):
         help="String of when allergy or intolerance was identified.")
     asserted_date = fields.Datetime(
         string="Asserted Date",
-        required="True", 
+        required="True",
+        default=fields.datetime.now(), 
         help="Date record was believed accurate.")               
     recorder_type = fields.Selection(
         string="Recorder Type", 

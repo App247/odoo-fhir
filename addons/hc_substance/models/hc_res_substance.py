@@ -26,11 +26,11 @@ class Substance(models.Model):
         comodel_name="hc.vs.substance.category", 
         string="Categories", 
         help="What class/type of substance this is.")                
-    code_id = fields.Many2one(
-        comodel_name="hc.vs.substance.code", 
-        string="Code", 
-        required="True", 
-        help="What substance this is.")                
+    # code_id = fields.Many2one(
+    #     comodel_name="hc.vs.substance.code", 
+    #     string="Code", 
+    #     required="True", 
+    #     help="What substance this is.")                
     description = fields.Text(
         string="Description", 
         help="Textual description of the substance, comments.")                
@@ -180,95 +180,27 @@ class SubstanceCode(models.Model):
         comodel_name="hc.vs.substance.code",
         string="Parent", 
         help="Parent substance code.")
-    child_ids = fields.One2many(
-        comodel_name="hc.vs.substance.code", 
-        inverse_name="contains_id", 
-        string="Children", 
-        help="Child concept.")
-    # parent_substance_code_id = fields.Many2one(
-    #     comodel_name="hc.parent.substance.code", 
-    #     string="Parent", 
-    #     help="Substance associated with this Parent Substance.")
-    parent_ids = fields.One2many(
-        comodel_name="hc.vs.substance.code", 
-        inverse_name="contains_id", 
-        string="Parents", 
-        help="Parent concept.")
-
-    # parent_ids = fields.One2many(
-    #     comodel_name="hc.substance.association", 
-    #     inverse_name="contains_id", 
-    #     string="Parents", 
-    #     help="Parent substance code.")                    
-    # child_ids = fields.One2many(
-    #     comodel_name="hc.substance.association", 
-    #     inverse_name="child_id", 
-    #     string="Children", 
-    #     help="Child substance code.")
-
-# class SubstanceAssociation(models.Model):   
-#     _name = "hc.substance.association"
-#     _description = "Substance Association"
-#     _inherit = ["hc.basic.association"]
-
-#     parent_id = fields.Many2one(
-#         comodel_name="hc.vs.substance.code", 
-#         string="Parent", 
-#         help="Parent substance of this Substance.")                    
-#     child_id = fields.Many2one(
-#         comodel_name="hc.vs.substance.code", 
-#         string="Child", 
-#         help="Child substance of this substance.")                   
-#     child_level = fields.Integer(
-#         string="Level",
-#         related="parent_id.child_level", 
-#         help="Level as child in a hierarch of codes.")
-
-# class ParentSubstanceCode(models.Model):
-#     _name = "hc.parent.substance.code"
-#     _description = "Parent Substance Code"
-#     _inherit = ["hc.value.set.contains"]
-#     # _inherits = {"hc.vs.substance.code": "substance_code_id"}
-
-#     # substance_id = fields.Many2one(
-#     #     comodel_name="hc.vs.substance.code", 
-#     #     string="Substance", 
-#     #     help="Substance associated with this Parent Substance.")
-#     name = fields.Char(
-#         string="Name", 
-#         help="Name of this parent substance code.")
-#     code = fields.Char(
-#         string="Code", 
-#         help="Code of this parent substance code.")
-#     contains_id = fields.Many2one(
-#         comodel_name="hc.parent.substance.code",
-#         string="Parent", 
-#         help="Parent of parent substance code.")
-    # child_ids = fields.One2many(
+    level_attribute = fields.Char(
+        string="Level Attribute",
+        help="Level associated with Parent concept.")
+    # parent_child_ids = fields.Many2many(
     #     comodel_name="hc.vs.substance.code",
-    #     inverse="parent_substance_code_id", 
-    #     string="Children", 
-    #     help="Child substance code.")
-
-# class SubstanceCode(models.Model):  
-#     _inherit = "hc.vs.substance.code"
-
-    # parent_ids = fields.One2many(
-    #     comodel_name="hc.parent.substance.code", 
-    #     inverse_name="substance_id", 
+    #     relation="substance_code_parent_child_rel", 
     #     string="Parents", 
     #     help="Parent substance code.")
-    # parent_substance_code_id = fields.Many2one(
-    #     comodel_name="hc.parent.substance.code", 
-    #     string="Substance Code", 
-    #     help="Parent Substance Code associated with this Substance Code.")
 
-
-
-# class ParentSubstanceCode(models.Model):
-#     _inherit = "hc.parent.substance.code"
-
-#     substance_id = fields.Many2one(
-#         comodel_name="hc.vs.substance.code", 
-#         string="Substance", 
-#         help="Substance associated with this Parent Substance.")
+    # @api.model
+    # def create(self, vals):
+    #     res = super(SubstanceCode, self).create(vals)
+    #     level_attr = False
+    #     if res.parent_child_ids:
+    #         for code in res.parent_child_ids:
+    #             res.level = code.level + 1
+    #             if not level_attr:
+    #                 level_attr = '(' + str(res.level) + ',' + code.name +')'
+    #             else:
+    #                 level_attr = level_attr + ',' + '(' + str(res.level) + ',' + code.name +')'
+    #     else:
+    #         res.level = 0
+    #     res.level_attribute = level_attr or ''
+    #     return res

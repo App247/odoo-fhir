@@ -192,7 +192,8 @@ class Condition(models.Model):
         help="String of when in resolution/remission.")       
     asserted_date = fields.Datetime(
         string="Asserted Date",
-        required="True", 
+        required="True",
+        default=fields.datetime.now(), 
         help="Date record was believed accurate.")                  
     asserter_type = fields.Selection(
         string="Asserter Type",

@@ -180,8 +180,9 @@
                     <field name="definition" invisible="1"/>
                     <field name="contains_id"/>
                     <field name="level"/>
-                    <field name="parent_ids" widget="one2many_tags" invisible="1"/>
-                    <field name="child_ids" widget="one2many_tags" invisible="0"/>                                                                                          
+                    <field name="level_attribute"/>
+<!--                     <field name="parent_child_ids" widget="one2many_tags" invisible="1"/>
+                    <field name="child_ids" widget="one2many_tags" invisible="0"/>  -->                                                                                         
                     <field name="source_id" invisible="0"/>                                         
                 </tree>                                             
             </field>                                                    
@@ -206,26 +207,24 @@
                             </group>                                    
                         </group>
                         <notebook>
-                            <page string="Parents">                               
-                                <field name="parent_ids" mode="tree">                         
-                                    <tree>                      
-                                        <field name="contains_id"/>
-                                        <field name="child_level"/>                 
+                            <page string="Parents"/>
+                            <!-- <page string="Parents">                               
+                                <field name="parent_child_ids" mode="tree">                         
+                                    <tree>                                      
                                     </tree>                     
                                     <form>                      
                                         <sheet>                              
                                             <h1>            
-                                                <field name="contains_id" placeholder="Parent Substance Name (e.g., Biological Substance)"/>        
+                                                <field name="parent_child_id" placeholder="Parent Substance Name (e.g., Biological Substance)"/>        
                                             </h1>                    
                                             <group>             
                                                 <group>
-                                                    <field name="child_level"/>
                                                 </group>           
                                             </group>                
                                         </sheet>                    
                                     </form>                     
                                 </field>
-                            </page>
+                            </page> -->
                         </notebook>                                         
                     </sheet>                                            
                 </form>                                             

@@ -19,7 +19,7 @@ class Annotation(models.AbstractModel):
         help="The annotation - text content.")
     recorded_date = fields.Datetime(
         string="Recorded Date",
-        default="_get_default_date", 
+        default=fields.datetime.now(), 
         help="When the annotation was made.")
     author_type = fields.Selection(
         string="Author Type", 
@@ -50,8 +50,8 @@ class Annotation(models.AbstractModel):
     #     string="Author Related Person", 
     #     help="Related Person responsible for the annotation.")
 
-    def _get_default_date(self):
-        return datetime.strftime(datetime.strptime(date.today(), DTF), "%Y-%m-%d %H:%M:%S")
+    # def _get_default_date(self):
+    #     return datetime.strftime(datetime.strptime(date.today(), DTF), "%Y-%m-%d %H:%M:%S")
         # return date.today().strftime('%Y-%m-%d %H:%M:%S')
 
     @api.depends('author_type')

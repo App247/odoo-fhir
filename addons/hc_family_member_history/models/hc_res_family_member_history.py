@@ -50,7 +50,8 @@ class FamilyMemberHistory(models.Model):
         help="Patient history is about.")                                       
     date = fields.Datetime(
         string="Date",
-        required="True", 
+        required="True",
+        default=fields.datetime.now(), 
         help="When history was captured/updated.")                                        
     family_member_name_type = fields.Selection(
         string="Family Member Name Type", 

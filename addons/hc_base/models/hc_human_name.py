@@ -216,6 +216,10 @@ class HumanName(models.Model):
                 given = first + ' ' + middle + ' ' + initial + ' (' + nickname + ')'
                 rec.given = given
 
+            if not first and not middle and not initial and nickname:
+                given = nickname
+                rec.given = given
+
             mother_maiden = rec.mother_maiden_id.name if rec.mother_maiden_id else ''
             birth_surname = rec.birth_surname_id.name if rec.birth_surname_id else ''
             previous_surname = " ".join([previous_surname.name for previous_surname in rec.previous_surname_ids]) if rec.previous_surname_ids else ''
@@ -239,3 +243,6 @@ class HumanName(models.Model):
             if rec.display_order == 'first_last_maiden':
                 full_family_reverse = prefix + ' ' + given + ' ' + family_reverse + ' ' + suffix
                 rec.name = full_family_reverse
+
+            # if not first and not middle and not initial and not mother_maiden and not birth_surname and nickname:
+            #     rec.name = nickname

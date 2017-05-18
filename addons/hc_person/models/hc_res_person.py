@@ -181,6 +181,8 @@ class PersonName(models.Model):
         comodel_name="hc.res.person", 
         string="Person", 
         help="Person associated with this Person Name.")
+    start_date = fields.Datetime(
+        default=person_id.birth_date)
 
 class PersonTelecom(models.Model):  
     _name = "hc.person.telecom" 
