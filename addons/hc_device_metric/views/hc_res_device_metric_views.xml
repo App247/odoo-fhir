@@ -16,7 +16,13 @@
             <field name="name">Device Metric Tree</field>                                   
             <field name="model">hc.res.device.metric</field>                                    
             <field name="arch" type="xml">                                  
-                <tree string="Device Metrics">                              
+                <tree string="Device Metrics">
+                    <field name="name"/>
+                    <field name="identifier_id"/>
+                    <field name="type_id"/>
+                    <field name="unit_id"/>
+                    <field name="operational_status"/>
+                    <field name="last_calibration_time"/>
                 </tree>                             
             </field>                                    
         </record>                                       
@@ -31,20 +37,40 @@
                             <field name="name" default_focus="1" placeholder="Name"/>                   
                         </h1>                       
                         <group>                     
-                            <group>                 
+                            <group string="Event">
+                                <field name="identifier_id"/>
+                                <field name="type_id"/>
+                                <field name="unit_id"/>
+                                <field name="last_calibration_time"/>
                             </group>                    
-                            <group>                 
+                            <group string="Status">
+                                <field name="operational_status"/>                 
+                            </group>
+                            <group string="Characteristic">
+                                <field name="color"/>
+                                <field name="category"/>
+                                <field name="source_id"/>
+                                <field name="parent_id"/>
+                            </group>
+                            <group string="Timeline">
+                                <field name="measurement_period_id"/>
                             </group>                    
                         </group>                        
                         <notebook>                      
                             <page string="Calibrations">                 
                                 <field name="calibration_ids" mode="tree">               
-                                    <tree>          
+                                    <tree>
+                                        <field name="type"/>
+                                        <field name="state"/>
+                                        <field name="time"/>
                                     </tree>         
                                     <form>          
                                         <sheet>     
                                             <group> 
                                                 <group>
+                                                    <field name="type"/>
+                                                    <field name="state"/>
+                                                    <field name="time"/>
                                                 </group>
                                                 <group>
                                                 </group>

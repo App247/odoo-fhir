@@ -207,24 +207,22 @@
                             </group>                                    
                         </group>
                         <notebook>
-                            <page string="Parents"/>
-                            <!-- <page string="Parents">                               
+                            <page string="Parents">                             
                                 <field name="parent_child_ids" mode="tree">                         
-                                    <tree>                                      
+                                    <!-- <tree>                                      
                                     </tree>                     
                                     <form>                      
                                         <sheet>                              
-                                            <h1>            
-                                                <field name="parent_child_id" placeholder="Parent Substance Name (e.g., Biological Substance)"/>        
+                                            <h1>                    
                                             </h1>                    
                                             <group>             
                                                 <group>
                                                 </group>           
                                             </group>                
                                         </sheet>                    
-                                    </form>                     
+                                    </form> -->                     
                                 </field>
-                            </page> -->
+                            </page>
                         </notebook>                                         
                     </sheet>                                            
                 </form>                                             

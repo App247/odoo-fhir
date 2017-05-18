@@ -29,6 +29,11 @@ class AllergyIntolerance(models.Model):
             ("resolved", "Resolved")],
         default="draft", 
         help="The clinical status of the allergy or intolerance.")
+    clinical_status_history_ids = fields.One2many(
+        comodel_name="hc.allergy.intolerance.clinical.status.history", 
+        inverse_name="allergy_intolerance_id", 
+        string="Clinical Status History", 
+        help="The clinical status of the allergy or intolerance over time.")
     verification_status = fields.Selection(
         string="Verification Status", 
         required="True", 
@@ -39,6 +44,11 @@ class AllergyIntolerance(models.Model):
             ("entered-in-error", "Entered-In-Error")],
         default="unconfirmed", 
         help="Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified substance (including pharmaceutical product).")                    
+    verification_status_history_ids = fields.One2many(
+        comodel_name="hc.allergy.intolerance.verification.status.history", 
+        inverse_name="allergy_intolerance_id", 
+        string="Verification Status History", 
+        help="The verification status of the allergy or intolerance over time.")
     type = fields.Selection(
         string="Type", 
         selection=[
@@ -191,7 +201,7 @@ class AllergyIntolerance(models.Model):
                 comp_name = comp_name + ", " + hc_res_allergy_intolerance.code_id.name or '' 
             if hc_res_allergy_intolerance.asserted_date:        
                 patient_asserted_date = datetime.strftime(datetime.strptime(hc_res_allergy_intolerance.asserted_date, DTF), "%Y-%m-%d") 
-                comp_name = comp_name + " " + patient_asserted_date 
+                comp_name = comp_name + ", " + patient_asserted_date 
             hc_res_allergy_intolerance.name = comp_name     
 
     @api.depends('onset_type')              
@@ -330,6 +340,47 @@ class AllergyIntoleranceReactionNote(models.Model):
         string="Reaction", 
         help="Reaction associated with this Allergy Intolerance Reaction Note.")           
 
+class AllergyIntoleranceClinicalStatusHistory(models.Model):
+    _name = "hc.allergy.intolerance.clinical.status.history"
+    _description = "Allergy Intolerance Clinical Status History"
+
+    allergy_intolerance_id = fields.Many2one(
+        comodel_name="hc.res.allergy.intolerance", 
+        string="Allergy Intolerance", 
+        help="Allergy Intolerance associated with this Allergy Intolerance Clinical Status History.")                                
+    clinical_status = fields.Char(
+        string="Clinical Status", 
+        compute="_compute_clinical_status", 
+        store="True", 
+        help="The clinical status of the allergy or intolerance.")
+    start_date = fields.Datetime(
+        string="Start Date", 
+        help="Start of the period during which this clinical status is valid.")
+    end_date = fields.Datetime(
+        string="End Date", 
+        help="End of the period during which this clinical status is valid.")
+                                
+
+class AllergyIntoleranceVerificationStatusHistory(models.Model):
+    _name = "hc.allergy.intolerance.verification.status.history"
+    _description = "Allergy Intolerance Verification Status History"
+
+    allergy_intolerance_id = fields.Many2one(
+        comodel_name="hc.res.allergy.intolerance", 
+        string="Allergy Intolerance",  
+        help="Allergy Intolerance associated with this Allergy Intolerance Verification Status History.")                                
+    verification_status = fields.Char(
+        string="Verification Status", 
+        compute="_compute_verification_status", 
+        store="True", 
+        help="The verification status of the allergy or intolerance.")                                
+    start_date = fields.Datetime(
+        string="Start Date", 
+        help="Start of the period during which this verification status is valid.")
+    end_date = fields.Datetime(
+        string="End Date", 
+        help="End of the period during which this verification status is valid.")
+                             
 class AllergyIntoleranceCode(models.Model): 
     _name = "hc.vs.allergy.intolerance.code"   
     _description = "Allergy Intolerance Code"        

@@ -229,6 +229,24 @@
                                         </sheet>
                                     </form>
                                 </field>
+                            </page>
+                            <page string="Clinical Statuses">
+                                <field name="clinical_status_history_ids" mode="tree">
+                                    <tree>
+                                        <field name="clinical_status" readonly="1"/>
+                                        <field name="start_date" readonly="1"/>
+                                        <field name="end_date" readonly="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Verification Statuses">
+                                <field name="verification_status_history_ids" mode="tree">
+                                    <tree>
+                                        <field name="verification_status" readonly="1"/>
+                                        <field name="start_date" readonly="1"/>
+                                        <field name="end_date" readonly="1"/>
+                                    </tree>
+                                </field>
                             </page>                                       
                         </notebook>                     
                     </sheet>                            

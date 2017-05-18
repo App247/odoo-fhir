@@ -34,14 +34,14 @@ class DeviceMetric(models.Model):
         string="Parent", 
         help="Describes the link to the parent DeviceComponent.")                    
     operational_status = fields.Selection(
-        string="Device Metric Operational Status", 
+        string="Operational Status", 
         selection=[
             ("on", "On"), 
             ("off", "Off"), 
             ("standby", "Standby")], 
         help="Indicates current operational state of the device.")                    
     color = fields.Selection(
-        string="Device Metric Color", 
+        string="Color", 
         selection=[
             ("black", "Black"), 
             ("red", "Red"), 
@@ -53,7 +53,7 @@ class DeviceMetric(models.Model):
             ("white", "White")], 
         help="Describes the color representation for the metric.")                    
     category = fields.Selection(
-        string="Device Metric Category", 
+        string="Category", 
         required="True", 
         selection=[
             ("measurement", "Measurement"), 
@@ -63,18 +63,46 @@ class DeviceMetric(models.Model):
         help="Indicates the category of the observation generation process.")                    
     measurement_period_id = fields.Many2one(
         comodel_name="hc.device.metric.measurement.period", 
-        string="Measurement Periods", 
+        string="Measurement Period", 
         help="Describes the measurement repetition time.")
     last_calibration_time = fields.Datetime(
         string="Last Calibration Time",
-        compute="_compute_last_time",
+        compute="_compute_last_calibration_time",
         store="True", 
         help="Describes the time last calibration has been performed.")                    
     calibration_ids = fields.One2many(
         comodel_name="hc.device.metric.calibration", 
         inverse_name="device_metric_id", 
         string="Calibrations", 
-        help="Describes the calibrations that have been performed or that are required to be performed.")                    
+        help="Describes the calibrations that have been performed or that are required to be performed.")
+
+    @api.depends('calibration_ids')
+    def _compute_last_calibration_time(self):
+        for rec in self:
+            if rec.calibration_ids:
+                latest_time = False
+                for calibration in rec.calibration_ids:
+                    if not latest_time:
+                        latest_time = calibration.time
+                    if calibration.time >= latest_time:
+                        latest_time = calibration.time
+                rec.last_calibration_time = latest_time                    
+
+    @api.depends('identifier_id', 'type_id', 'parent_id')
+    # @api.depends('identifier_id', 'type_id', 'parent_id', 'last_calibration_time')                    
+    def _compute_name(self):                    
+        comp_name = '/'             
+        for hc_res_device_metric in self:               
+            if hc_res_device_metric.identifier_id:           
+                comp_name = hc_res_device_metric.identifier_id.name     
+            if hc_res_device_metric.type_id:       
+                comp_name = comp_name + "," + hc_res_device_metric.type_id.name or ''  
+            if hc_res_device_metric.parent_id:            
+                comp_name = comp_name + "," + hc_res_device_metric.parent_id.name or ''        
+            # if hc_res_device_metric.last_calibration_time:          
+            #     identifier_last_calibration_time = datetime.strftime(datetime.strptime(hc_res_device_metric.last_calibration_time, DTF), "%Y-%m-%d")        
+            #     comp_name = comp_name + " " + identifier_last_calibration_time      
+            hc_res_device_metric.name = comp_name           
 
 class DeviceMetricCalibration(models.Model):    
     _name = "hc.device.metric.calibration"    
@@ -90,17 +118,21 @@ class DeviceMetricCalibration(models.Model):
             ("unspecified", "Unspecified"), 
             ("offset", "Offset"), 
             ("gain", "Gain"), 
-            ("two-point", "Two-Point")], 
+            ("two-point", "Two-Point")],
+        default="unspecified", 
         help="Describes the type of the calibration method.")                    
-    state = fields.Selection(string="Calibration State", 
+    state = fields.Selection(
+        string="Calibration State", 
         selection=[
             ("not-calibrated", "Not-Calibrated"), 
             ("calibration-required", "Calibration-Required"), 
             ("calibrated", "Calibrated"), 
-            ("unspecified", "Unspecified")], 
+            ("unspecified", "Unspecified")],
+        default="unspecified",     
         help="Describes the state of the calibration.")                    
     time = fields.Datetime(
-        string="Time", 
+        string="Time",
+        default=fields.datetime.now(),
         help="Describes the time last calibration has been performed.")                    
 
 class DeviceMetricIdentifier(models.Model):    

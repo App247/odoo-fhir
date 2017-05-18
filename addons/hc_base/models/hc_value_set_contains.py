@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from openerp import models, fields, api
+from openerp.exceptions import ValidationError
 
 class ValueSetContains(models.AbstractModel):
 
@@ -76,7 +77,7 @@ class ValueSetContains(models.AbstractModel):
     def _check_hierarchy(self):
         if not self._check_recursion():
             raise models.ValidationError(
-                'Error! You cannot create recursive categories.')
+                'Error! A code cannot be a child of itself.')
 
 class ActCode(models.Model):   
     _name = "hc.vs.act.code"

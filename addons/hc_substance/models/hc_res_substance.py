@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from openerp import models, fields, api
+from openerp.exceptions import ValidationError
 
 class Substance(models.Model):    
     _name = "hc.res.substance"    
@@ -183,24 +184,35 @@ class SubstanceCode(models.Model):
     level_attribute = fields.Char(
         string="Level Attribute",
         help="Level associated with Parent concept.")
-    # parent_child_ids = fields.Many2many(
-    #     comodel_name="hc.vs.substance.code",
-    #     relation="substance_code_parent_child_rel", 
-    #     string="Parents", 
-    #     help="Parent substance code.")
+    parent_child_ids = fields.Many2many(
+        'hc.vs.substance.code', 
+        'parent_child_rel',
+        'parent_id','child_id', 
+        string="Parents",
+        help="Parent substance code.")
 
-    # @api.model
-    # def create(self, vals):
-    #     res = super(SubstanceCode, self).create(vals)
-    #     level_attr = False
-    #     if res.parent_child_ids:
-    #         for code in res.parent_child_ids:
-    #             res.level = code.level + 1
-    #             if not level_attr:
-    #                 level_attr = '(' + str(res.level) + ',' + code.name +')'
-    #             else:
-    #                 level_attr = level_attr + ',' + '(' + str(res.level) + ',' + code.name +')'
-    #     else:
-    #         res.level = 0
-    #     res.level_attribute = level_attr or ''
-    #     return res
+    @api.model
+    def create(self, vals):
+        res = super(SubstanceCode, self).create(vals)
+        level_attr = False
+        if res.parent_child_ids:
+            for code in res.parent_child_ids:
+                res.level = code.level + 1
+                if not level_attr:
+                    level_attr = '(' + str(res.level) + ',' + code.name +')'
+                else:
+                    level_attr = level_attr + ',' + '(' + str(res.level) + ',' + code.name +')'
+        else:
+            res.level = 1
+        res.level_attribute = level_attr or ''
+        return res
+
+    @api.multi
+    def write(self, vals):
+        res = super(SubstanceCode, self).write(vals)
+        for rec in self:
+            if rec.parent_child_ids:
+                if rec.id in rec.parent_child_ids.ids:
+                    raise ValidationError(
+                        "Error! A code cannot be a child of itself.")
+                return res
