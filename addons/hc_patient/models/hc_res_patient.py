@@ -134,6 +134,43 @@ class Patient(models.Model):
         comodel_name="hc.vs.animal.gender.status", 
         string="Animal Gender Status", 
         help="Indicates the current state of the animal's reproductive organs (e.g., neutered, intact).")
+    
+    # Extension attribute
+    birth_place_id = fields.Many2one(
+        comodel_name="hc.address", 
+        string="Birth Place", 
+        help="The registered place of birth of the patient.")
+    adoption_info_id = fields.Many2one(comodel_name="hc.vs.adoption.info", string="Adoption Info", help="Code indication the adoption status of the patient.")
+    # birth_time = fields.Datetime(string="Birth Time", help="The time of day that the Patient was born.")
+    is_cadaveric_donor = fields.Boolean(
+        string="Cadaveric Donor", 
+        help="Flag indicating whether the patient authorized the donation of body parts after death.")
+    congregation = fields.Char(
+        string="Congregation", 
+        help="A group or place of religious practice that may provide services to the patient.")
+    disability_ids = fields.Many2many(
+        comodel_name="hc.vs.disability", 
+        relation="patient_disability_rel", 
+        string="Disabilities", 
+        help="Value(s) identifying physical or mental condition(s) that limits a person's movements, senses, or activities.")
+    importance_id = fields.Many2one(
+        comodel_name="hc.vs.importance",  
+        string="Importance",
+        help="The importance of the patient (e.g. VIP).")
+    is_interpreter_required = fields.Boolean(
+        string="Interpreter Required", 
+        help="This Patient requires an interpreter to communicate healthcare information to the practitioner.")
+    mothers_maiden_name = fields.Char(
+        string="Mothers Maiden Name",
+        compute="_compute_mothers_maiden_name", 
+        help="Mother's maiden (unmarried) name, commonly collected to help verify patient identity.")
+    religion_ids = fields.Many2many(
+        comodel_name="hc.vs.religion", 
+        relation="patient_religion_rel", 
+        string="Religions", 
+        help="The patient's professed religious affiliations.")
+    
+    # Backbone Element
     link_ids = fields.One2many(
         comodel_name="hc.patient.link", 
         inverse_name="patient_id", 
@@ -150,6 +187,24 @@ class Patient(models.Model):
         string="Languages", 
         help="A list of Languages which may be used to communicate with the patient about his or her health.")
 
+    #Extension Backbone Element
+
+    citizenship_ids = fields.One2many(
+        comodel_name="hc.patient.citizenship", 
+        inverse_name="patient_id", 
+        string="Citizenships", 
+        help="The patient's legal status as citizen of a country.")
+    clinical_trial_ids = fields.One2many(
+        comodel_name="hc.patient.clinical.trial", 
+        inverse_name="patient_id", 
+        string="Clinical Trials", 
+        help="The clinical trials this patient has or is participating in.")
+    nationality_ids = fields.One2many(
+        comodel_name="hc.patient.nationality", 
+        inverse_name="patient_id", 
+        string="Nationalities", 
+        help="The nationality of the patient (aka SNOMED Ethnic group (observable entity)).")
+
     _defaults = {
         "is_patient": True,
         }
@@ -158,6 +213,8 @@ class Patient(models.Model):
     def create(self, vals):
         vals['is_patient'] = self.env.context.get('is_patient', False)
         return super(Patient, self).create(vals)
+
+    # Inherit Person Addresses, Person Names, Person Identifiers, Person Telecom, Person Photos
 
     @api.model
     def create(self, vals):
@@ -214,6 +271,63 @@ class Patient(models.Model):
             #         patient_photo_obj.create(patient_photo_vals)
         return res
 
+class PatientCitizenship(models.Model): 
+    _name = "hc.patient.citizenship"    
+    _description = "Patient Citizenship"
+
+    patient_id = fields.Many2one(
+        comodel_name="hc.res.patient", 
+        string="Patient", 
+        help="Patient associated with this Patient Citizenship.")     
+    code_id = fields.Many2one(comodel_name="res.country", string="Code", help="Nation code of citizenship.")        
+    start_date = fields.Datetime(
+        string="Valid from", 
+        help="Start of the time period of citizenship.")      
+    end_date = fields.Datetime(
+        string="Valid to", 
+        help="End of the time period of citizenship.")        
+
+class PatientClinicalTrial(models.Model):
+    _name = "hc.patient.clinical.trial"
+    _description = "Patient Clinical Trial"
+
+    patient_id = fields.Many2one(
+        comodel_name="hc.res.patient", 
+        string="Patient", 
+        help="Patient associated with this Patient Clinical Trial.")      
+    nct = fields.Char(
+        string="NCT", 
+        help="National Clinical Trial number.")     
+    start_date = fields.Datetime(
+        string="Valid from", 
+        help="Start of the the period of participation in the clinical trial.")       
+    end_date = fields.Datetime(
+        string="Valid to", 
+        help="End of the the period of participation in the clinical trial.")     
+    reason_id = fields.Many2one(
+        comodel_name="hc.vs.clinical.trial.reason", 
+        string="Reason", 
+        help="The reason for participation in the clinical trial.")        
+
+class PatientNationality(models.Model):
+    _name = "hc.patient.nationality"
+    _description = "Patient Nationality"
+
+    patient_id = fields.Many2one(
+        comodel_name="hc.res.patient", 
+        string="Patient", 
+        help="Patient associated with this Patient Nationality.")     
+    code_id = fields.Many2one(
+        comodel_name="hc.vs.nationality", 
+        string="Code", 
+        help="Nationality Code.")        
+    start_date = fields.Datetime(
+        string="Valid from", 
+        help="Start of the nationality period.")      
+    end_date = fields.Datetime(
+        string="Valid to", 
+        help="End of the nationality period.")        
+
 class PatientIdentifier(models.Model):  
     _name = "hc.patient.identifier" 
     _description = "Patient Identifier"         
@@ -245,8 +359,6 @@ class PatientName(models.Model):
         comodel_name="hc.res.patient", 
         string="Patient", 
         help="Patient associated with this Patient Name.")
-    # first_id = fields.Many2one(
-    #     related="name_id.first_id")                      
 
 class PatientAddress(models.Model): 
     _name = "hc.patient.address"    
@@ -554,6 +666,25 @@ class PatientGeneralPractitioner(models.Model):
             elif hc_patient_general_practitioner.general_practitioner_type == 'practitioner':  
                 hc_patient_general_practitioner.general_practitioner_name = hc_patient_general_practitioner.general_practitioner_practitioner_id.name
 
+class MaritalStatus(models.Model):  
+    _name = "hc.vs.marital.status"  
+    _description = "Marital Status" 
+    _inherit = ["hc.value.set.contains"]
+
+    name = fields.Char(
+        string="Name", 
+        help="Name of this marital status.")
+    code = fields.Char(
+        string="Code", 
+        help="Code of this marital status.")
+    contains_id = fields.Many2one(
+        comodel_name="hc.vs.marital.status",
+        string="Parent",
+        help="Parent marital status.")
+    may_have_spouse = fields.Boolean(
+        string="Spouse",
+        help="Spouse possible?")
+
 class ContactRelationship(models.Model):    
     _name = "hc.vs.v2.contact.role"    
     _description = "V2 Contact Role"   
@@ -624,6 +755,101 @@ class AnimalSpecies(models.Model):
     level_name = fields.Char(
         string="Level Name",
         help="Name of level (e.g., Species")
+
+class AdoptionInfo(models.Model):
+    _name = "hc.vs.adoption.info"
+    _description = "Adoption Info"
+    _inherit = ["hc.value.set.contains"]
+
+    name = fields.Char(
+        string="Name", 
+        help="Name of this adoption info.")                               
+    code = fields.Char(
+        string="Code", 
+        help="Code of this adoption info.")                               
+    contains_id = fields.Many2one(
+        comodel_name="hc.vs.adoption.info", 
+        string="Parent", 
+        help="Parent adoption info.")                                
+
+class Disability(models.Model): 
+    _name = "hc.vs.disability"
+    _description = "Disability"
+    _inherit = ["hc.value.set.contains"]
+
+    name = fields.Char(
+        string="Name", 
+        help="Name of this disability.")                              
+    code = fields.Char(
+        string="Code", 
+        help="Code of this disability.")                              
+    contains_id = fields.Many2one(
+        comodel_name="hc.vs.disability", 
+        string="Parent", 
+        help="Parent disability.")                              
+
+class Importance(models.Model):
+    _name = "hc.vs.importance"
+    _description = "Importance"
+    _inherit = ["hc.value.set.contains"]
+
+    name = fields.Char(
+        string="Name", 
+        help="Name of this importance.")                              
+    code = fields.Char(
+        string="Code", 
+        help="Code of this importance.")                              
+    contains_id = fields.Many2one(
+        comodel_name="hc.vs.importance", 
+        string="Parent", 
+        help="Parent importance.")                              
+
+class Religion(models.Model):
+    _name = "hc.vs.religion"
+    _description = "Religion"
+    _inherit = ["hc.value.set.contains"]
+
+    name = fields.Char(
+        string="Name", 
+        help="Name of this religion.")                                
+    code = fields.Char(
+        string="Code", 
+        help="Code of this religion.")                                
+    contains_id = fields.Many2one(
+        comodel_name="hc.vs.religion", 
+        string="Parent", help="Parent religion.")                              
+
+class ClinicalTrialReason(models.Model):
+    _name = "hc.vs.clinical.trial.reason"
+    _description = "Clinical Trial Reason"
+    inherit = ["hc.value.set.contains"]
+
+    name = fields.Char(
+        string="Name", 
+        help="Name of this clinical trial reason.")                               
+    code = fields.Char(
+        string="Code", 
+        help="Code of this clinical trial reason.")                               
+    contains_id = fields.Many2one(
+        comodel_name="hc.vs.clinical.trial.reason", 
+        string="Parent", 
+        help="Parent clinical trial reason.")                                
+
+class Nationality(models.Model):
+    _name = "hc.vs.nationality"
+    _description = "Nationality"
+    _inherit = ["hc.value.set.contains"]
+
+    name = fields.Char(
+        string="Name", 
+        help="Name of this nationality.")                             
+    code = fields.Char(
+        string="Code", 
+        help="Code of this nationality.")                             
+    contains_id = fields.Many2one(
+        comodel_name="hc.vs.nationality", 
+        string="Parent", 
+        help="Parent nationality.")                                
 
 # External Reference
 

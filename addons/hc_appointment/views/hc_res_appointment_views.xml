@@ -84,12 +84,12 @@
                                                     <field name="required" widget="radio"/>
                                                     <field name="status" widget="radio"/>
                                                     <field name="actor_type"/>
-                                                    <field name="actor_patient_id" class="oe_edit_only" attrs="{'invisible': [('actor_type','!=','patient')]}"/>
-                                                    <field name="actor_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('actor_type','!=','practitioner')]}"/>
-                                                    <field name="actor_related_person_id" class="oe_edit_only" attrs="{'invisible': [('actor_type','!=','related_person')]}"/>
-                                                    <field name="actor_device_id" class="oe_edit_only" attrs="{'invisible': [('actor_type','!=','device')]}"/>
-                                                    <field name="actor_healthcare_service_id" class="oe_edit_only" attrs="{'invisible': [('actor_type','!=','healthcare_service')]}"/>
-                                                    <field name="actor_location_id" class="oe_edit_only" attrs="{'invisible': [('actor_type','!=','location')]}"/>
+                                                    <field name="actor_patient_id" class="oe_edit_only" attrs="{'invisible': [('actor_type','!=','patient')], 'required': [('actor_type','=','patient')]}"/>
+                                                    <field name="actor_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('actor_type','!=','practitioner')], 'required': [('actor_type','=','practitioner')]}"/>
+                                                    <field name="actor_related_person_id" class="oe_edit_only" attrs="{'invisible': [('actor_type','!=','related_person')], 'required': [('actor_type','=','related_person')]}"/>
+                                                    <field name="actor_device_id" class="oe_edit_only" attrs="{'invisible': [('actor_type','!=','device')], 'required': [('actor_type','=','device')]}"/>
+                                                    <field name="actor_healthcare_service_id" class="oe_edit_only" attrs="{'invisible': [('actor_type','!=','healthcare_service')], 'required': [('actor_type','=','healthcare_service')]}"/>
+                                                    <field name="actor_location_id" class="oe_edit_only" attrs="{'invisible': [('actor_type','!=','location')], 'required': [('actor_type','=','location')]}"/>
                                                 </group>    
                                             </group>        
                                         </sheet>            

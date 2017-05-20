@@ -208,9 +208,9 @@
                                             <group>
                                                 <group>
                                                     <field name="general_practitioner_name"/>
-                                                    <field name="general_practitioner_type"/>
-                                                    <field name="general_practitioner_organization_id" attrs="{'invisible': [('general_practitioner_type','!=','organization')]}"/>
-                                                    <field name="general_practitioner_practitioner_id" attrs="{'invisible': [('general_practitioner_type','!=','practitioner')]}"/>
+                                                    <field name="general_practitioner_type" class="oe_edit_only"/>
+                                                    <field name="general_practitioner_organization_id" class="oe_edit_only" attrs="{'invisible': [('general_practitioner_type','!=','organization')], 'required': [('general_practitioner_type','=','organization')]}"/>
+                                                    <field name="general_practitioner_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('general_practitioner_type','!=','practitioner')], 'required': [('general_practitioner_type','=','practitioner')]}"/>
                                                 </group>
                                                 <group>
                                                 </group>
@@ -219,7 +219,6 @@
                                     </form>
                                 </field>
                             </page>
-                            <!-- <page string="Links" attrs="{'invisible': [('type','=','animal')]}"/> -->
                             <page string="Links" attrs="{'invisible': [('type','=','animal')]}">
                                  <field name="link_ids" mode="tree">
                                     <tree>
@@ -232,9 +231,9 @@
                                             <group>
                                                 <group>
                                                     <field name="other_name"/>
-                                                    <field name="other_type"/>
-                                                    <field name="other_patient_id" attrs="{'invisible': [('other_type','!=','patient')]}"/>
-                                                    <field name="other_related_person_id" attrs="{'invisible': [('other_type','!=','related_person')]}"/>
+                                                    <field name="other_type" class="oe_edit_only"/>
+                                                    <field name="other_patient_id" class="oe_edit_only" attrs="{'invisible': [('other_type','!=','patient')], 'required': [('other_type','=','patient')]}"/>
+                                                    <field name="other_related_person_id" class="oe_edit_only" attrs="{'invisible': [('other_type','!=','related_person')], 'required': [('other_type','=','related_person')]}"/>
                                                 </group>
                                                 <group>
                                                     <field name="type"/>
@@ -244,7 +243,6 @@
                                     </form>
                                 </field>
                             </page>
-                            <!-- <page string="Contacts"/> -->
                             <page string="Contacts">
                                 <field name="contact_ids" mode="tree">
                                     <tree>
@@ -335,7 +333,7 @@
                                 <field name="marital_history_ids" mode="tree">
                                     <tree>
                                         <field name="marital_status_id"/>
-                                        <field name="partner_id"/>
+                                        <field name="partner_id" attrs="{'invisible': [('may_have_spouse','!=','True')]}"/>
                                         <field name="start_date"/>
                                         <field name="end_date"/>
                                     </tree> 
@@ -359,8 +357,7 @@
                     </sheet>
                 </form>
             </field>
-        </record>                                     
-                      
+        </record>                                                          
                                 
         <!-- Patient Action and Menu -->                        
                                 
@@ -438,50 +435,87 @@
             </field>                                    
         </record>                                       
 
-        <!-- Value Set Views -->                             
-                                        
-        <menuitem id="hc_patient.menu_pat_conf" 
-                  name="Configuration" 
-                  parent="hc_patient.menu_pat" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="10"/>
+        <!-- Marital Status Views -->
 
-        <act_window id="hc_vs_animal_species_action"                                
-                    name="HC Animal Species"                    
-                    res_model="hc.vs.animal.species"                    
-                    view_mode="tree,form"                   
-                    domain=""                   
-                    context=""                  
-                    limit=""/>                  
+        <record id="hc_vs_marital_status_view_search" model="ir.ui.view">
+            <field name="name">Marital Status Search</field>
+            <field name="model">hc.vs.marital.status</field>
+            <field name="arch" type="xml">
+                <search string="Marital Statuses">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="definition"/>
+                    <group>
+                        <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
 
-        <menuitem id="hc_patient.menu_pat_species" 
-                  name="Animal Species" 
-                  parent="hc_patient.menu_pat_conf" 
-                  action="hc_vs_animal_species_action" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="10"/>
-                  
-        <act_window id="hc_vs_animal_breed_action"          
-                    name="HC Animal Breeds"
-                    res_model="hc.vs.animal.breed"
+        <record id="hc_vs_marital_status_view_tree" model="ir.ui.view">
+            <field name="name">Marital Status Tree</field>
+            <field name="model">hc.vs.marital.status</field>
+            <field name="arch" type="xml">
+                <tree string="Marital Statuses" default_order="name, code">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                    <field name="may_have_spouse" widget="boolean_button"/>
+                    <field name="level"/>
+                    <field name="contains_id"/>
+                    <field name="source_id" invisible="0"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_vs_marital_status_view_form" model="ir.ui.view">
+            <field name="name">Marital Status Form</field>
+            <field name="model">hc.vs.marital.status</field>
+            <field name="arch" type="xml">
+                <form string="Marital Status">
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>
+                        </h1>
+                        <field name="code" placeholder="Code (e.g., biological)"/>
+                        <field name="definition" placeholder="Definition"/>
+                        <field name="comments" placeholder="Comments"/>
+                        <group>
+                            <group>
+                                <field name="may_have_spouse" widget="boolean_button"/>
+                                <field name="level"/>
+                                <field name="contains_id"/>
+                            </group>
+                            <group>
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_vs_marital_status_action"
+                    name="HC Marital Statuses"
+                    res_model="hc.vs.marital.status"
                     view_mode="tree,form"
                     domain=""
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_practitioner.menu_pat_breed" 
-                  name="Animal Breeds" 
-                  parent="hc_patient.menu_pat_conf" 
-                  action="hc_vs_animal_breed_action" 
+        <menuitem id="hc_patient.menu_mar_stat" 
+                  name="Marital Status" 
+                  parent="hc_patient.menu_pat" 
+                  action="hc_vs_marital_status_action" 
                   groups="hc_base.group_hc_base_manager" 
-                  sequence="20"/>
+                  sequence="10"/>
 
         <!-- Animal Species Views -->                               
                                         
         <record id="hc_vs_animal_species_view_search" model="ir.ui.view">                               
             <field name="name">Animal Species Search</field>                            
-            <field name="model">hc.vs.animal.species</field>                            
-<!--             <field name="inherit_id" ref="hc_value_set_contains_view_search"/>  -->                         
+            <field name="model">hc.vs.animal.species</field>                                                 
             <field name="arch" type="xml">                          
                 <search string="Animal Species">                        
                     <field name="name"/>                    
@@ -498,8 +532,7 @@
                                         
         <record id="hc_vs_animal_species_view_tree" model="ir.ui.view">                             
             <field name="name">Animal Species Tree</field>                          
-            <field name="model">hc.vs.animal.species</field>                            
-<!--             <field name="inherit_id" ref="hc_value_set_contains_view_tree"/>   -->                          
+            <field name="model">hc.vs.animal.species</field>                                                     
             <field name="arch" type="xml">                          
                 <tree string="Animal Species" default_order="name, code">                      
                     <field name="contains_id" invisible="1"/>
@@ -543,6 +576,21 @@
             </field>                            
         </record>                               
 
+        <act_window id="hc_vs_animal_species_action"                                
+                    name="HC Animal Species"                    
+                    res_model="hc.vs.animal.species"                    
+                    view_mode="tree,form"                   
+                    domain=""                   
+                    context=""                  
+                    limit=""/>                  
+
+        <menuitem id="hc_patient.menu_pat_species" 
+                  name="Animal Species" 
+                  parent="hc_patient.menu_pat" 
+                  action="hc_vs_animal_species_action" 
+                  groups="hc_base.group_hc_base_manager" 
+                  sequence="20"/>
+        
         <!-- Animal Breed Views -->         
             
         <record id="hc_vs_animal_breed_view_search" model="ir.ui.view">             
@@ -582,7 +630,7 @@
             <field name="name">Animal Breed Form</field>                    
             <field name="model">hc.vs.animal.breed</field>                  
             <field name="arch" type="xml">                  
-                <form string="Animal Breeds" >              
+                <form string="Animal Breeds">              
                     <sheet>         
                         <h1>        
                             <field name="name" default_focus="1" placeholder="Name (e.g., United States)"/> 
@@ -603,7 +651,21 @@
                 </form>             
             </field>                    
         </record>                       
+             
+        <act_window id="hc_vs_animal_breed_action"          
+                    name="HC Animal Breeds"
+                    res_model="hc.vs.animal.breed"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
 
+        <menuitem id="hc_patient.menu_pat_breed" 
+                  name="Animal Breeds" 
+                  parent="hc_patient.menu_pat" 
+                  action="hc_vs_animal_breed_action" 
+                  groups="hc_base.group_hc_base_manager" 
+                  sequence="30"/>
 
 
         <!-- External Reference View -->
@@ -634,27 +696,6 @@
             </field>
         </record>
 
-<!--         <record id="hc_res_person_view_form_inherited_patient" model="ir.ui.view">          
-            <field name="name">Person Form</field>      
-            <field name="model">hc.res.person</field>       
-            <field name="inherit_id" ref="hc_person.hc_res_person_view_form"/>      
-            <field name="arch" type="xml">      
-                <field name="target_type" position="after"> 
-                    <field name="target_patient_id" attrs="{'invisible': [('target_type','!=','patient')]}"/>
-                </field>    
-            </field>        
-        </record> -->           
-
-        <!-- <record id="hc_annotation_view_form_inherited_patient" model="ir.ui.view">     
-            <field name="name">Annotation Form</field>   
-            <field name="model">hc.annotation</field>   
-            <field name="inherit_id" ref="hc_base.hc_annotation_view_form"/>   
-            <field name="arch" type="xml">
-                <field name="author_type" position="after">
-                    <field name="author_patient_id" attrs="{'invisible': [('author_type','!=','patient')]}"/>  
-                </field>
-            </field>
-        </record> -->
 
     </data>
 </openerp>

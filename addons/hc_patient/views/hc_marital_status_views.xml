@@ -26,6 +26,7 @@
                     <field name="name"/>
                     <field name="code"/>
                     <field name="definition"/>
+                    <field name="may_have_spouse" widget="boolean_button"/>
                     <field name="level"/>
                     <field name="contains_id"/>
                     <field name="source_id" invisible="0"/>
@@ -47,6 +48,7 @@
                         <field name="comments" placeholder="Comments"/>
                         <group>
                             <group>
+                                <field name="may_have_spouse" widget="boolean_button"/>
                                 <field name="level"/>
                                 <field name="contains_id"/>
                             </group>

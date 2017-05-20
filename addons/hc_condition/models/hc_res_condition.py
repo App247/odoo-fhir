@@ -251,7 +251,7 @@ class Condition(models.Model):
                 comp_name = comp_name + ", " + hc_res_condition.code_id.name or ''   
             if hc_res_condition.asserted_date:      
                 patient_asserted_date = datetime.strftime(datetime.strptime(hc_res_condition.asserted_date, DTF), "%Y-%m-%d")   
-                comp_name = comp_name + " " + patient_asserted_date 
+                comp_name = comp_name + ", " + patient_asserted_date 
             hc_res_condition.name = comp_name       
           
     @api.depends('subject_type')          

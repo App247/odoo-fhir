@@ -185,9 +185,10 @@ class SubstanceCode(models.Model):
         string="Level Attribute",
         help="Level associated with Parent concept.")
     parent_child_ids = fields.Many2many(
-        'hc.vs.substance.code', 
-        'parent_child_rel',
-        'parent_id','child_id', 
+        comodel_name="hc.vs.substance.code",
+        relation="parent_child_rel",
+        column1="parent_id",
+        column2="child_id",
         string="Parents",
         help="Parent substance code.")
 

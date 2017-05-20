@@ -61,7 +61,7 @@ class FamilyMemberHistory(models.Model):
             ("related_person", "Related Person")], 
         help="Type of name of family member.")                
     family_member_name = fields.Char(
-        string="Family Member Name", 
+        string="Family Member", 
         compute="_compute_family_member_name", 
         store="True", 
         help="The family member described.")

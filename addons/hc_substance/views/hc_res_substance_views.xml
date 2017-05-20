@@ -169,7 +169,7 @@
             </field>                                                    
         </record>                                                       
                                                                 
-        <record id="hc_vs_substance_code_view_tree" model="ir.ui.view">                                                     
+        <record id="hc_vs_substance_code_view_tree1" model="ir.ui.view">                                                     
             <field name="name">Substance Code Tree</field>                                                  
             <field name="model">hc.vs.substance.code</field>                                                    
             <field name="arch" type="xml">                                                  

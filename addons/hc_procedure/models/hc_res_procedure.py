@@ -82,7 +82,7 @@ class Procedure(models.Model):
         string="Performed Date Type",
         required="True",
         selection=[
-            ("date_time", "Datetime"),  
+            ("date_time", "Date Time"),  
             ("period", "Period")], 
         help="Date/Period the procedure was performed.")
     performed_date_name = fields.Char(
@@ -90,8 +90,8 @@ class Procedure(models.Model):
         compute="_compute_performed_date_name",
         store="True",  
         help="Who the procedure was performed on.")                 
-    performed_datetime = fields.Datetime(
-        string="Performed Datetime", 
+    performed_date_time = fields.Datetime(
+        string="Performed Date Time", 
         help="Date the procedure was performed.")                 
     performed_start_date = fields.Datetime(
         string="Performed Start Date", 
@@ -172,7 +172,7 @@ class Procedure(models.Model):
         string="Focal Devices", 
         help="Device changed in procedure.")
 
-    @api.depends('subject_patient_id', 'subject_group_id', 'code_id', 'performed_datetime', 'performed_start_date')                
+    @api.depends('subject_patient_id', 'subject_group_id', 'code_id', 'performed_date_time', 'performed_start_date')                
     def _compute_name(self):                
         comp_name = '/'         
         for hc_res_procedure in self:           
@@ -186,11 +186,11 @@ class Procedure(models.Model):
             if hc_res_procedure.code_id:        
                 comp_name = comp_name + ", " + hc_res_procedure.code_id.name or ''   
             if hc_res_procedure.performed_date_type == 'date_time':
-                performed_date = datetime.strftime(datetime.strptime(hc_res_procedure.performed_datetime, DTF), "%Y-%m-%d")
-                comp_name = comp_name + " " + performed_date
+                performed_date = datetime.strftime(datetime.strptime(hc_res_procedure.performed_date_time, DTF), "%Y-%m-%d")
+                comp_name = comp_name + ", " + performed_date
             if hc_res_procedure.performed_date_type == 'period':
                 performed_date = datetime.strftime(datetime.strptime(hc_res_procedure.performed_start_date, DTF), "%Y-%m-%d")    
-                comp_name = comp_name + " " + performed_date   
+                comp_name = comp_name + ", " + performed_date   
             hc_res_procedure.name = comp_name       
 
     @api.depends('subject_type')         
@@ -205,7 +205,7 @@ class Procedure(models.Model):
     def _compute_performed_date_name(self):         
         for hc_res_procedure in self:       
             if hc_res_procedure.performed_date_type == 'date_time': 
-                hc_res_procedure.performed_date_name = str(hc_res_procedure.performed_datetime)
+                hc_res_procedure.performed_date_name = str(hc_res_procedure.performed_date_time)
             elif hc_res_procedure.performed_date_type == 'period':  
                 hc_res_procedure.performed_date_name = 'Between ' + str(hc_res_procedure.performed_start_date) + ' and ' + str(hc_res_procedure.performed_end_date)
             

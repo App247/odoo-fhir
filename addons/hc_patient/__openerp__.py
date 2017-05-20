@@ -42,9 +42,11 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'data/data_patient.xml',
         'data/hc.vs.animal.species.csv',
         'data/hc.vs.animal.breed.csv',
-        'data/hc.vs.v2.contact.role.csv',
+        # 'data/hc.vs.v2.contact.role.csv',
+        # 'views/hc_marital_status_views.xml',
         'views/hc_res_patient_views.xml',
         'views/hc_res_patient_templates.xml',
     ],

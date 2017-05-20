@@ -8,7 +8,14 @@
             <field name="model">hc.res.family.member.history</field>        
             <field name="arch" type="xml">      
                 <search string="Family Member Histories">
-                    <field name="record_name"/>    
+                    <field name="record_name"/>
+                    <field name="patient_id"/>
+                    <field name="family_member_name"/>
+                    <field name="date"/>
+                    <field name="status"/>
+                    <group string="Group By">   
+                        <filter name="group_by_patient" string="Patient" context="{'group_by':'patient_id'}"/>
+                    </group>
                 </search>   
             </field>        
         </record>           
@@ -19,6 +26,11 @@
             <field name="arch" type="xml">      
                 <tree string="Family Member Histories">  
                     <field name="record_name"/>
+                    <field name="patient_id"/>
+                    <field name="family_member_name"/>
+                    <field name="relationship_id"/>
+                    <field name="date"/>
+                    <field name="status"/>
                 </tree> 
             </field>        
         </record>           

@@ -439,3 +439,11 @@ In Odoo,
 * Update Module List in ```Apps>Update Apps List```
 * Locate installed app
 * Install
+
+# Display schema in database
+
+```
+psql FHIR-DEV
+\d hc_res_allergy_intolerance
+```
+ctrl-z to quit

@@ -287,9 +287,9 @@
             <field name="inherit_id" ref="hc_condition.hc_res_condition_view_form"/>   
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='assessment_ids']//form//group//field[@name='assessment_type']" position="after">
-                    <field name="assessment_observation_id" class="oe_edit_only" attrs="{'invisible': [('assessment_type','!=','observation')]}"/>
-                    <field name="assessment_clinical_impression_id" class="oe_edit_only" attrs="{'invisible': [('assessment_type','!=','clinical_impression')]}"/>
-                    <field name="assessment_diagnostic_report_id" class="oe_edit_only" attrs="{'invisible': [('assessment_type','!=','diagnostic_report')]}"/>
+                    <field name="assessment_observation_id" class="oe_edit_only" attrs="{'invisible': [('assessment_type','!=','observation')], 'required': [('assessment_type','=','observation')]}"/>
+                    <field name="assessment_clinical_impression_id" class="oe_edit_only" attrs="{'invisible': [('assessment_type','!=','clinical_impression')], 'required': [('assessment_type','=','clinical_impression')]}"/>
+                    <field name="assessment_diagnostic_report_id" class="oe_edit_only" attrs="{'invisible': [('assessment_type','!=','diagnostic_report')], 'required': [('assessment_type','=','diagnostic_report')]}"/>
                 </xpath>
             </field>
         </record>

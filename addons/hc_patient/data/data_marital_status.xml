@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>      
+<openerp>       
+    <data noupdate="0">
+
+        <!--Marital Status -->  
+    
+<record id="hc_base.marital_status_a" model="hc.vs.marital.status"> 
+    <field name="code">A</field>
+    <field name="name">Annulled</field>
+    <field name="definition">Marriage contract has been declared null and to not have existed.</field>
+    <field name="may_have_spouse">True</field>
+    <field name="source_id" ref="base.hl7v3"/>
+    <field name="system">http://build.fhir.org/v3/MaritalStatus/cs.html</field>
+    <field name="level">1</field>
+</record>   
+    
+<record id="hc_base.marital_status_d" model="hc.vs.marital.status"> 
+    <field name="code">D</field>
+    <field name="name">Divorced</field>
+    <field name="definition">Marriage contract has been declared dissolved and inactive.</field>
+    <field name="may_have_spouse">True</field>
+    <field name="source_id" ref="base.hl7v3"/>
+    <field name="system">http://build.fhir.org/v3/MaritalStatus/cs.html</field>
+    <field name="level">1</field>
+</record>   
+    
+<record id="hc_base.marital_status_i" model="hc.vs.marital.status"> 
+    <field name="code">I</field>
+    <field name="name">Interlocutory</field>
+    <field name="definition">Subject to an Interlocutory Decree.</field>
+    <field name="may_have_spouse">True</field>
+    <field name="source_id" ref="base.hl7v3"/>
+    <field name="system">http://build.fhir.org/v3/MaritalStatus/cs.html</field>
+    <field name="level">1</field>
+</record>   
+    
+<record id="hc_base.marital_status_l" model="hc.vs.marital.status"> 
+    <field name="code">L</field>
+    <field name="name">Legally Separated</field>
+    <field name="definition">Legally Separated.</field>
+    <field name="may_have_spouse">True</field>
+    <field name="source_id" ref="base.hl7v3"/>
+    <field name="system">http://build.fhir.org/v3/MaritalStatus/cs.html</field>
+    <field name="level">1</field>
+</record>   
+    
+<record id="hc_base.marital_status_m" model="hc.vs.marital.status"> 
+    <field name="code">M</field>
+    <field name="name">Married</field>
+    <field name="definition">A current marriage contract is active.</field>
+    <field name="may_have_spouse">True</field>
+    <field name="source_id" ref="base.hl7v3"/>
+    <field name="system">http://build.fhir.org/v3/MaritalStatus/cs.html</field>
+    <field name="level">1</field>
+</record>   
+    
+<record id="hc_base.marital_status_p" model="hc.vs.marital.status"> 
+    <field name="code">P</field>
+    <field name="name">Polygamous</field>
+    <field name="definition">More than 1 current spouse.</field>
+    <field name="may_have_spouse">True</field>
+    <field name="source_id" ref="base.hl7v3"/>
+    <field name="system">http://build.fhir.org/v3/MaritalStatus/cs.html</field>
+    <field name="level">1</field>
+</record>   
+    
+<record id="hc_base.marital_status_s" model="hc.vs.marital.status"> 
+    <field name="code">S</field>
+    <field name="name">Never Married</field>
+    <field name="definition">No marriage contract has ever been entered.</field>
+    <field name="may_have_spouse">False</field>
+    <field name="source_id" ref="base.hl7v3"/>
+    <field name="system">http://build.fhir.org/v3/MaritalStatus/cs.html</field>
+    <field name="level">1</field>
+</record>   
+    
+<record id="hc_base.marital_status_t" model="hc.vs.marital.status"> 
+    <field name="code">T</field>
+    <field name="name">Domestic Partner</field>
+    <field name="definition">Person declares that a domestic partner relationship exists.</field>
+    <field name="may_have_spouse">True</field>
+    <field name="source_id" ref="base.hl7v3"/>
+    <field name="system">http://build.fhir.org/v3/MaritalStatus/cs.html</field>
+    <field name="level">1</field>
+</record>   
+    
+<record id="hc_base.marital_status_u" model="hc.vs.marital.status"> 
+    <field name="code">U</field>
+    <field name="name">Unmarried</field>
+    <field name="definition">Currently not in a marriage contract. The marital history is not known or stated.</field>
+    <field name="may_have_spouse">False</field>
+    <field name="source_id" ref="base.hl7v3"/>
+    <field name="system">http://build.fhir.org/v3/MaritalStatus/cs.html</field>
+    <field name="level">1</field>
+</record>   
+    
+<record id="hc_base.marital_status_w" model="hc.vs.marital.status"> 
+    <field name="code">W</field>
+    <field name="name">Widowed</field>
+    <field name="definition">The spouse has died.</field>
+    <field name="may_have_spouse">True</field>
+    <field name="source_id" ref="base.hl7v3"/>
+    <field name="system">http://build.fhir.org/v3/MaritalStatus/cs.html</field>
+    <field name="level">1</field>
+</record>   
+    
+<record id="hc_base.marital_status_ni" model="hc.vs.marital.status">    
+    <field name="code">NI</field>
+    <field name="name">No Information</field>
+    <field name="definition">The value is exceptional (missing, omitted, incomplete, improper). No information as to the reason for being an exceptional value is provided. This is the most general exceptional value. It is also the default exceptional value.</field>
+    <field name="may_have_spouse">False</field>
+    <field name="source_id" ref="base.hl7v3"/>
+    <field name="system">http://build.fhir.org/v3/NullFlavor/cs.html</field>
+    <field name="level">1</field>
+</record>   
+    
+<record id="hc_base.marital_status_inv" model="hc.vs.marital.status">   
+    <field name="code">INV</field>
+    <field name="name">Invalid</field>
+    <field name="definition">The value as represented in the instance is not a member of the set of permitted data values in the constrained value domain of a variable.</field>
+    <field name="may_have_spouse">False</field>
+    <field name="source_id" ref="base.hl7v3"/>
+    <field name="system">http://build.fhir.org/v3/NullFlavor/cs.html</field>
+    <field name="contains_id" ref="hc_base.marital_status_ni"/>
+    <field name="level">2</field>
+</record>   
+    
+<record id="hc_base.marital_status_der" model="hc.vs.marital.status">   
+    <field name="code">DER</field>
+    <field name="name">Derived</field>
+    <field name="definition">An actual value may exist, but it must be derived from the provided information (usually an EXPR generic data type extension will be used to convey the derivation expressionexpression .</field>
+    <field name="may_have_spouse">False</field>
+    <field name="source_id" ref="base.hl7v3"/>
+    <field name="system">http://build.fhir.org/v3/NullFlavor/cs.html</field>
+    <field name="contains_id" ref="hc_base.marital_status_inv"/>
+    <field name="level">3</field>
+</record>   
+    
+<record id="hc_base.marital_status_oth" model="hc.vs.marital.status">   
+    <field name="code">OTH</field>
+    <field name="name">Other</field>
+    <field name="definition">The actual value is not a member of the set of permitted data values in the constrained value domain of a variable. (e.g., concept not provided by required code system).</field>
+    <field name="may_have_spouse">False</field>
+    <field name="source_id" ref="base.hl7v3"/>
+    <field name="system">http://build.fhir.org/v3/NullFlavor/cs.html</field>
+    <field name="contains_id" ref="hc_base.marital_status_inv"/>
+    <field name="level">3</field>
+    "<field name=""comments"">Usage Notes: This flavor and its specializations are most commonly used with the CD datatype and its flavors. However, it may apply to &quot;any&quot; datatype where the constraints of the type are tighter than can be conveyed. For example, a PQ that is for a true measured amount whose units are not supported in UCUM, a need to convey a REAL when the type has been constrained to INT, etc. 
+
+With coded datatypes, this null flavor may only be used if the vocabulary binding has a coding strength of CNE. By definition, all local codes and original text are part of the value set if the coding strength is CWE.</field>"
+</record>   
+    
+<record id="hc_base.marital_status_ninf" model="hc.vs.marital.status">  
+    <field name="code">NINF</field>
+    <field name="name">Negative Infinity</field>
+    <field name="definition">Negative infinity of numbers.</field>
+    <field name="may_have_spouse">False</field>
+    <field name="source_id" ref="base.hl7v3"/>
+    <field name="system">http://build.fhir.org/v3/NullFlavor/cs.html</field>
+    <field name="contains_id" ref="hc_base.marital_status_oth"/>
+    <field name="level">4</field>
+</record>   
+    
+<record id="hc_base.marital_status_pinf" model="hc.vs.marital.status">  
+    <field name="code">PINF</field>
+    <field name="name">Positive Infinity</field>
+    <field name="definition">Positive infinity of numbers.</field>
+    <field name="may_have_spouse">False</field>
+    <field name="source_id" ref="base.hl7v3"/>
+    <field name="system">http://build.fhir.org/v3/NullFlavor/cs.html</field>
+    <field name="contains_id" ref="hc_base.marital_status_oth"/>
+    <field name="level">4</field>
+</record>   
+    
+<record id="hc_base.marital_status_unc" model="hc.vs.marital.status">   
+    <field name="code">UNC</field>
+    <field name="name">Un-Encoded</field>
+    "<field name=""definition"">The actual value has not yet been encoded within the approved value domain. 
+
+Example: Original text or a local code has been specified but translation or encoding to the approved value set has not yet occurred due to limitations of the sending system. Original text has been captured for a PQ, but not attempt has been made to split the value and unit or to encode the unit in UCUM.</field>"
+    <field name="may_have_spouse">False</field>
+    <field name="source_id" ref="base.hl7v3"/>
+    <field name="system">http://build.fhir.org/v3/NullFlavor/cs.html</field>
+    <field name="contains_id" ref="hc_base.marital_status_inv"/>
+    <field name="level">3</field>
+    "<field name=""comments"">Usage Notes: If it is known that it is not possible to encode the concept, OTH should be used instead. However, use of UNC does not necessarily guarantee the concept will be encodable, only that encoding has not been attempted.
+
+Data type properties such as original text and translations may be present when this null flavor is included.</field>"
+</record>   
+    
+<record id="hc_base.marital_status_msk" model="hc.vs.marital.status">   
+    <field name="code">MSK</field>
+    <field name="name">Masked</field>
+    <field name="definition">There is information on this item available but it has not been provided by the sender due to security, privacy or other reasons. There may be an alternate mechanism for gaining access to this information.</field>
+    <field name="may_have_spouse">False</field>
+    <field name="source_id" ref="base.hl7v3"/>
+    <field name="system">http://build.fhir.org/v3/NullFlavor/cs.html</field>
+    <field name="contains_id" ref="hc_base.marital_status_ni"/>
+    <field name="level">2</field>
+    <field name="comments">Note: Using this null flavor does provide information that may be a breach of confidentiality, even though no detail data is provided. Its primary purpose is for those circumstances where it is necessary to inform the receiver that the information does exist without providing any detail.</field>
+</record>   
+    
+<record id="hc_base.marital_status_na" model="hc.vs.marital.status">    
+    <field name="code">NA</field>
+    <field name="name">Not Applicable</field>
+    <field name="definition">Known to have no proper value (e.g., last menstrual period for a male).</field>
+    <field name="may_have_spouse">False</field>
+    <field name="source_id" ref="base.hl7v3"/>
+    <field name="system">http://build.fhir.org/v3/NullFlavor/cs.html</field>
+    <field name="contains_id" ref="hc_base.marital_status_ni"/>
+    <field name="level">2</field>
+</record>   
+    
+<record id="hc_base.marital_status_unk" model="hc.vs.marital.status">   
+    <field name="code">UNK</field>
+    <field name="name">Unknown</field>
+    <field name="definition">A proper value is applicable, but not known.</field>
+    <field name="may_have_spouse">False</field>
+    <field name="source_id" ref="base.hl7v3"/>
+    <field name="system">http://build.fhir.org/v3/NullFlavor/cs.html</field>
+    <field name="contains_id" ref="hc_base.marital_status_ni"/>
+    <field name="level">2</field>
+    "<field name=""comments"">Usage Notes: This means the actual value is not known. If the only thing that is unknown is how to properly express the value in the necessary constraints (value set, datatype, etc.), then the OTH or UNC flavor should be used. No properties should be included for a datatype with this property unless: 
+
+Those properties themselves directly translate to a semantic of &quot;unknown&quot;. (E.g. a local code sent as a translation that conveys &quot;unknown&quot;) Those properties further qualify the nature of what is unknown. (E.g. specifying a use code of &quot;H&quot; and a URL prefix of &quot;tel:&quot; to convey that it is the home phone number that is unknown.)</field>"
+</record>   
+    
+<record id="hc_base.marital_status_asku" model="hc.vs.marital.status">  
+    <field name="code">ASKU</field>
+    <field name="name">Asked But Unknown</field>
+    <field name="definition">Information was sought but not found (e.g., patient was asked but didn&apos;t know)</field>
+    <field name="may_have_spouse">False</field>
+    <field name="source_id" ref="base.hl7v3"/>
+    <field name="system">http://build.fhir.org/v3/NullFlavor/cs.html</field>
+    <field name="contains_id" ref="hc_base.marital_status_unk"/>
+    <field name="level">3</field>
+</record>   
+    
+<record id="hc_base.marital_status_nav" model="hc.vs.marital.status">   
+    <field name="code">NAV</field>
+    <field name="name">Temporarily Unavailable</field>
+    <field name="definition">Information is not available at this time but it is expected that it will be available later.</field>
+    <field name="may_have_spouse">False</field>
+    <field name="source_id" ref="base.hl7v3"/>
+    <field name="system">http://build.fhir.org/v3/NullFlavor/cs.html</field>
+    <field name="contains_id" ref="hc_base.marital_status_asku"/>
+    <field name="level">4</field>
+</record>   
+    
+<record id="hc_base.marital_status_nask" model="hc.vs.marital.status">  
+    <field name="code">NASK</field>
+    <field name="name">Not Asked</field>
+    <field name="definition">This information has not been sought (e.g., patient was not asked).</field>
+    <field name="may_have_spouse">False</field>
+    <field name="source_id" ref="base.hl7v3"/>
+    <field name="system">http://build.fhir.org/v3/NullFlavor/cs.html</field>
+    <field name="contains_id" ref="hc_base.marital_status_unk"/>
+    <field name="level">3</field>
+</record>   
+    
+<record id="hc_base.marital_status_navu" model="hc.vs.marital.status">  
+    <field name="code">NAVU</field>
+    <field name="name">Not Available</field>
+    <field name="definition">Information is not available at this time (with no expectation regarding whether it will or will not be available in the future).</field>
+    <field name="may_have_spouse">False</field>
+    <field name="source_id" ref="base.hl7v3"/>
+    <field name="system">http://build.fhir.org/v3/NullFlavor/cs.html</field>
+    <field name="contains_id" ref="hc_base.marital_status_unk"/>
+    <field name="level">3</field>
+</record>   
+    
+<record id="hc_base.marital_status_qs" model="hc.vs.marital.status">    
+    <field name="code">QS</field>
+    <field name="name">Sufficient Quantity</field>
+    <field name="definition">The specific quantity is not known, but is known to be non-zero and is not specified because it makes up the bulk of the material. e.g. &quot;Add 10mg of ingredient X, 50mg of ingredient Y, and sufficient quantity of water to 100mL.&quot; The null flavor would be used to express the quantity of water.</field>
+    <field name="may_have_spouse">False</field>
+    <field name="source_id" ref="base.hl7v3"/>
+    <field name="system">http://build.fhir.org/v3/NullFlavor/cs.html</field>
+    <field name="contains_id" ref="hc_base.marital_status_unk"/>
+    <field name="level">3</field>
+</record>   
+    
+<record id="hc_base.marital_status_trc" model="hc.vs.marital.status">   
+    <field name="code">TRC</field>
+    <field name="name">Trace</field>
+    <field name="definition">The content is greater than zero, but too small to be quantified.</field>
+    <field name="may_have_spouse">False</field>
+    <field name="source_id" ref="base.hl7v3"/>
+    <field name="system">http://build.fhir.org/v3/NullFlavor/cs.html</field>
+    <field name="contains_id" ref="hc_base.marital_status_unk"/>
+    <field name="level">3</field>
+</record>   
+    
+<record id="hc_base.marital_status_np" model="hc.vs.marital.status">    
+    <field name="code">NP</field>
+    <field name="name">Not Present</field>
+    <field name="definition">Value is not present in a message. This is only defined in messages, never in application data! All values not present in the message must be replaced by the applicable default, or no-information (NI) as the default of all defaults.</field>
+    <field name="may_have_spouse">False</field>
+    <field name="source_id" ref="base.hl7v3"/>
+    <field name="system">http://build.fhir.org/v3/NullFlavor/cs.html</field>
+    <field name="level">1</field>
+</record>   
+  
+    
+    </data>
+</openerp>

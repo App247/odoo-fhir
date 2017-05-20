@@ -543,22 +543,6 @@ class Jurisdiction(models.Model):
         string="Parent",
         help="Parent jurisdiction.")  
 
-class MaritalStatus(models.Model):  
-    _name = "hc.vs.marital.status"  
-    _description = "Marital Status" 
-    _inherit = ["hc.value.set.contains"]
-
-    name = fields.Char(
-        string="Name", 
-        help="Name of this marital status.")
-    code = fields.Char(
-        string="Code", 
-        help="Code of this marital status.")
-    contains_id = fields.Many2one(
-        comodel_name="hc.vs.marital.status",
-        string="Parent",
-        help="Parent marital status.")
-
 class MedicationAsNeededReason(models.Model):    
     _name = "hc.vs.medication.as.needed.reason"    
     _description = "Medication As Needed Reason"        

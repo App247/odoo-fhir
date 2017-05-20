@@ -40,13 +40,10 @@
             <tree string="Conditions">
                 <field name="name"/>
                 <field name="subject_name"/>
-                <field name="subject_type"/>
-                <field name="code_id"/>  
-                <field name="code"/>
-<!--                 <field name="context_name"/> -->
-                <field name="asserter_name"/>
-                <field name="asserter_type"/>
+                <field name="code_id"/>
                 <field name="asserted_date"/>
+                <field name="clinical_status"/>
+                <field name="verification_status"/>
             </tree> 
         </field>        
     </record>
@@ -65,8 +62,8 @@
                         <group string="Event" name="event">                                         
                             <field name="subject_name"/>
                             <field name="subject_type" class="oe_edit_only"/>
-                            <field name="subject_patient_id" class="oe_edit_only" attrs="{'invisible': [('subject_type','!=','patient')]}" placeholder="Patient"/>
-                            <field name="subject_group_id" class="oe_edit_only" attrs="{'invisible': [('subject_type','!=','group')]}" placeholder="Group"/>  
+                            <field name="subject_patient_id" class="oe_edit_only" attrs="{'invisible': [('subject_type','!=','patient')], 'required': [('subject_type','=','patient')]}"/>
+                            <field name="subject_group_id" class="oe_edit_only" attrs="{'invisible': [('subject_type','!=','group')], 'required': [('subject_type','=','group')]}"/>  
                             <field name="code_id"/>
                             <field name="asserted_date"/>
                             <field name="category_ids" widget="many2many_tags"/>
@@ -79,33 +76,33 @@
                         <group string = "Who, Where">
                             <field name="asserter_name"/>
                             <field name="asserter_type" class="oe_edit_only"/>
-                            <field name="asserter_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('asserter_type','!=','practitioner')]}"/>
-                            <field name="asserter_patient_id" class="oe_edit_only" attrs="{'invisible': [('asserter_type','!=','patient')]}"/>
-                            <field name="asserter_related_person_id" class="oe_edit_only" attrs="{'invisible': [('asserter_type','!=','related_person')]}"/>
+                            <field name="asserter_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('asserter_type','!=','practitioner')], 'required': [('asserter_type','=','practitioner')]}"/>
+                            <field name="asserter_patient_id" class="oe_edit_only" attrs="{'invisible': [('asserter_type','!=','patient')], 'required': [('asserter_type','=','patient')]}"/>
+                            <field name="asserter_related_person_id" class="oe_edit_only" attrs="{'invisible': [('asserter_type','!=','related_person')], 'required': [('asserter_type','=','related_person')]}"/>
                             <field name="body_site_ids" widget="many2many_tags"/>
                         </group>                                          
                         <group string = "Timeline">
                                 <field name="onset_name"/>
                                 <field name="onset_type" class="oe_edit_only"/>
-                                <field name="onset_date_time" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','date_time')]}"/>
-                                <field name="onset_age" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','age')]}"/>
-                                <field name="onset_age_uom_id" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','age')]}"/>
-                                <field name="onset_start_date" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','period')]}"/>
-                                <field name="onset_end_date" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','period')]}"/>
-                                <field name="onset_range_low" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','range')]}"/>
-                                <field name="onset_range_high" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','range')]}"/>
-                                <field name="onset_string" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','string')]}"/>
+                                <field name="onset_date_time" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','date_time')], 'required': [('onset_type','=','date_time')]}"/>
+                                <field name="onset_age" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','age')], 'required': [('onset_type','=','age')]}"/>
+                                <field name="onset_age_uom_id" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','age')], 'required': [('onset_type','=','age')]}"/>
+                                <field name="onset_start_date" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','period')], 'required': [('onset_type','=','period')]}"/>
+                                <field name="onset_end_date" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','period')], 'required': [('onset_type','=','period')]}"/>
+                                <field name="onset_range_low" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','range')], 'required': [('onset_type','=','range')]}"/>
+                                <field name="onset_range_high" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','range')], 'required': [('onset_type','=','range')]}"/>
+                                <field name="onset_string" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','string')], 'required': [('onset_type','=','string')]}"/>
                                 <field name="abatement_name"/>
                                 <field name="abatement_type" class="oe_edit_only"/>
-                                <field name="abatement_date_time" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','date_time')]}"/>
-                                <field name="abatement_age" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','age')]}"/>
-                                <field name="abatement_age_uom_id" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','age')]}"/>
+                                <field name="abatement_date_time" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','date_time')], 'required': [('abatement_type','=','date_time')]}"/>
+                                <field name="abatement_age" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','age')], 'required': [('abatement_type','=','age')]}"/>
+                                <field name="abatement_age_uom_id" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','age')], 'required': [('abatement_type','=','age')]}"/>
                                 <field name="abatement_boolean" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','boolean')]}"/>
-                                <field name="abatement_start_date" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','period')]}"/>
-                                <field name="abatement_end_date" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','period')]}"/>
-                                <field name="abatement_range_low" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','range')]}"/>
-                                <field name="abatement_range_high" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','range')]}"/>
-                                <field name="abatement_string" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','string')]}"/>   
+                                <field name="abatement_start_date" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','period')], 'required': [('abatement_type','=','period')]}"/>
+                                <field name="abatement_end_date" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','period')], 'required': [('abatement_type','=','period')]}"/>
+                                <field name="abatement_range_low" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','range')], 'required': [('abatement_type','=','range')]}"/>
+                                <field name="abatement_range_high" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','range')], 'required': [('abatement_type','=','range')]}"/>
+                                <field name="abatement_string" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','string')], 'required': [('abatement_type','=','string')]}"/>   
                         </group>                                            
                     </group>                                                
                     <notebook>
@@ -138,9 +135,9 @@
                                                                 <group>
                                                                     <field name="assessment_name" readonly="1"/>
                                                                     <field name="assessment_type" class="oe_edit_only"/>
-                                                                    <!-- <field name="assessment_observation_id" class="oe_edit_only" attrs="{'invisible': [('assessment_type','!=','observation')]}"/>
-                                                                    <field name="assessment_clinical_impression_id" class="oe_edit_only" attrs="{'invisible': [('assessment_type','!=','clinical_impression')]}"/>
-                                                                    <field name="assessment_diagnostic_report_id" class="oe_edit_only" attrs="{'invisible': [('assessment_type','!=','diagnostic_report')]}"/> -->
+                                                                    <!-- <field name="assessment_observation_id" class="oe_edit_only" attrs="{'invisible': [('assessment_type','!=','observation')], 'required': [('assessment_type','=','observation')]}"/>
+                                                                    <field name="assessment_clinical_impression_id" class="oe_edit_only" attrs="{'invisible': [('assessment_type','!=','clinical_impression')], 'required': [('assessment_type','=','clinical_impression')]}"/>
+                                                                    <field name="assessment_diagnostic_report_id" class="oe_edit_only" attrs="{'invisible': [('assessment_type','!=','diagnostic_report')], 'required': [('assessment_type','=','diagnostic_report')]}"/> -->
                                                                 </group>
                                                                 <group>
                                                                 </group>

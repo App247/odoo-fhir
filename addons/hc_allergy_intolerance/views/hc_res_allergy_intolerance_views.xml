@@ -77,25 +77,25 @@
                             <group string = "Who, Where">
                                 <field name="recorder_name"/>
                                 <field name="recorder_type" class="oe_edit_only"/>
-                                <field name="recorder_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('recorder_type','!=','practitioner')]}"/>
-                                <field name="recorder_patient_id" class="oe_edit_only" attrs="{'invisible': [('recorder_type','!=','patient')]}"/>
+                                <field name="recorder_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('recorder_type','!=','practitioner')], 'required': [('recorder_type','=','practitioner')]}"/>
+                                <field name="recorder_patient_id" class="oe_edit_only" attrs="{'invisible': [('recorder_type','!=','patient')], 'required': [('recorder_type','=','patient')]}"/>
                                 <field name="asserter_name"/>
                                 <field name="asserter_type" class="oe_edit_only"/>
-                                <field name="asserter_patient_id" class="oe_edit_only" attrs="{'invisible': [('asserter_type','!=','patient')]}"/>
-                                <field name="asserter_related_person_id" class="oe_edit_only" attrs="{'invisible': [('asserter_type','!=','related_person')]}"/>
-                                <field name="asserter_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('asserter_type','!=','practitioner')]}"/>
+                                <field name="asserter_patient_id" class="oe_edit_only" attrs="{'invisible': [('asserter_type','!=','patient')], 'required': [('asserter_type','=','patient')]}"/>
+                                <field name="asserter_related_person_id" class="oe_edit_only" attrs="{'invisible': [('asserter_type','!=','related_person')], 'required': [('asserter_type','=','related_person')]}"/>
+                                <field name="asserter_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('asserter_type','!=','practitioner')], 'required': [('asserter_type','=','practitioner')]}"/>
                             </group>
                             <group string = "Timeline">
                                 <field name="onset_name"/>
                                 <field name="onset_type" class="oe_edit_only"/>
-                                <field name="onset_date_time" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','date_time')]}"/>
-                                <field name="onset_age" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','age')]}"/>
-                                <field name="onset_age_uom_id" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','age')]}"/>
-                                <field name="onset_start_date" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','period')]}"/>
-                                <field name="onset_end_date" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','period')]}"/>
-                                <field name="onset_range_low" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','range')]}"/>
-                                <field name="onset_range_high" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','range')]}"/>
-                                <field name="onset_string" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','string')]}"/>
+                                <field name="onset_date_time" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','date_time')], 'required': [('onset_type','=','date_time')]}"/>
+                                <field name="onset_age" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','age')], 'required': [('onset_type','=','age')]}"/>
+                                <field name="onset_age_uom_id" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','age')], 'required': [('onset_type','=','age')]}"/>
+                                <field name="onset_start_date" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','period')], 'required': [('onset_type','=','period')]}"/>
+                                <field name="onset_end_date" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','period')], 'required': [('onset_type','=','period')]}"/>
+                                <field name="onset_range_low" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','range')], 'required': [('onset_type','=','range')]}"/>
+                                <field name="onset_range_high" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','range')], 'required': [('onset_type','=','range')]}"/>
+                                <field name="onset_string" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','string')], 'required': [('onset_type','=','string')]}"/>
                                 <field name="last_occurence"/>
                             </group>               
                         </group>                        
@@ -215,13 +215,12 @@
                                             </div>          
                                             <group>         
                                                 <group>
-                                                    <field name="recorded_date"/>
                                                     <field name="author_name"/>
                                                     <field name="author_type" class="oe_edit_only"/>
-                                                    <field name="author_string" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','string')]}"/>
-                                                    <field name="author_patient_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','patient')]}"/>
-                                                    <field name="author_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','practitioner')]}"/>
-                                                    <field name="author_related_person_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','related_person')]}"/>
+                                                    <field name="author_string" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','string')], 'required': [('author_type','=','string')]}"/>
+                                                    <field name="author_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','practitioner')], 'required': [('author_type','=','practitioner')]}"/>
+                                                    <field name="author_patient_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','patient')], 'required': [('author_type','=','patient')]}"/>
+                                                    <field name="author_related_person_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','related_person')], 'required': [('author_type','=','related_person')]}"/>
                                                 </group>
                                                 <group>       
                                                 </group>
@@ -276,8 +275,7 @@
         
         <record id="hc_vs_allergy_intolerance_code_view_search" model="ir.ui.view">                     
             <field name="name">Allergy Intolerance Code Search</field>                  
-            <field name="model">hc.vs.allergy.intolerance.code</field>                  
-            <!-- <field name="inherit_id" ref="hc_value_set_contains_view_search"/> -->                  
+            <field name="model">hc.vs.allergy.intolerance.code</field>                                   
             <field name="arch" type="xml">                  
                 <search string="Allergy Intolerance Codes">             
                     <field name="name"/>            
@@ -292,8 +290,7 @@
         
         <record id="hc_vs_allergy_intolerance_code_view_tree" model="ir.ui.view">                       
             <field name="name">Allergy Intolerance Code Tree</field>                    
-            <field name="model">hc.vs.allergy.intolerance.code</field>                  
-            <!-- <field name="inherit_id" ref="hc_value_set_contains_view_tree"/> -->                    
+            <field name="model">hc.vs.allergy.intolerance.code</field>                                     
             <field name="arch" type="xml">                  
                 <tree string="Allergy Intolerance Codes" default_order="name, code">                
                     <field name="name"/>            
@@ -356,8 +353,7 @@
         
         <record id="hc_vs_manifestation_code_view_search" model="ir.ui.view">                       
             <field name="name">Manifestation Code Search</field>                    
-            <field name="model">hc.vs.manifestation.code</field>                    
-            <!-- <field name="inherit_id" ref="hc_value_set_contains_view_search"/> -->                  
+            <field name="model">hc.vs.manifestation.code</field>                                     
             <field name="arch" type="xml">                  
                 <search string="Manifestation Codes">               
                     <field name="name"/>            
@@ -372,8 +368,7 @@
         
         <record id="hc_vs_manifestation_code_view_tree" model="ir.ui.view">                     
             <field name="name">Manifestation Code Tree</field>                  
-            <field name="model">hc.vs.manifestation.code</field>                    
-            <!-- <field name="inherit_id" ref="hc_value_set_contains_view_tree"/> -->                    
+            <field name="model">hc.vs.manifestation.code</field>                                        
             <field name="arch" type="xml">                  
                 <tree string="Manifestation Codes" default_order="name, code">              
                     <field name="name"/>            
