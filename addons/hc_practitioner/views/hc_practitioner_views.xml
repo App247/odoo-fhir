@@ -206,11 +206,11 @@
 
         <!-- Practitioner Value Set Action and Menu -->         
         
-        <menuitem id="hc_practitioner.menu_prac_conf" 
+<!--         <menuitem id="hc_practitioner.menu_prac_conf" 
                   name="Configuration" 
                   parent="hc_practitioner.menu_prac" 
                   groups="hc_base.group_hc_base_manager" 
-                  sequence="10"/>            
+                  sequence="10"/> -->            
         
         <record id="hc_vs_practitioner_specialty_view_search" model="ir.ui.view">                       
             <field name="name">Practitioner Specialty Search</field>                    
@@ -281,7 +281,7 @@
 
         <menuitem id="hc_practitioner.menu_prac_spec" 
                   name="Practitioner Specialties" 
-                  parent="hc_practitioner.menu_prac_conf" 
+                  parent="hc_practitioner.menu_prac" 
                   action="hc_vs_practitioner_specialty_action" 
                   groups="hc_base.group_hc_base_manager" 
                   sequence="10"/>

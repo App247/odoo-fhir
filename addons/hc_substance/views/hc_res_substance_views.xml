@@ -169,7 +169,7 @@
             </field>                                                    
         </record>                                                       
                                                                 
-        <record id="hc_vs_substance_code_view_tree1" model="ir.ui.view">                                                     
+        <record id="hc_vs_substance_code_view_tree" model="ir.ui.view">                                                     
             <field name="name">Substance Code Tree</field>                                                  
             <field name="model">hc.vs.substance.code</field>                                                    
             <field name="arch" type="xml">                                                  
@@ -178,11 +178,9 @@
                     <field name="name"/>                                            
                     <field name="code"/>                                            
                     <field name="definition" invisible="1"/>
-                    <field name="contains_id"/>
-                    <field name="level"/>
-                    <field name="level_attribute"/>
-<!--                     <field name="parent_child_ids" widget="one2many_tags" invisible="1"/>
-                    <field name="child_ids" widget="one2many_tags" invisible="0"/>  -->                                                                                         
+                    <field name="contains_id" invisible="1"/>
+                    <field name="level" invisible="1"/>
+                    <field name="level_attribute"/>                                                                                       
                     <field name="source_id" invisible="0"/>                                         
                 </tree>                                             
             </field>                                                    
@@ -209,18 +207,21 @@
                         <notebook>
                             <page string="Parents">                             
                                 <field name="parent_child_ids" mode="tree">                         
-                                    <!-- <tree>                                      
+                                    <tree default_order="level">
+                                        <field name="name"/> 
+                                        <field name="level"/>                                       
                                     </tree>                     
                                     <form>                      
-                                        <sheet>                              
-                                            <h1>                    
-                                            </h1>                    
+                                        <sheet>                                                 
                                             <group>             
                                                 <group>
+                                                    <field name="name"/> 
+                                                    <field name="code"/>
+                                                    <field name="level_attribute"/>
                                                 </group>           
                                             </group>                
                                         </sheet>                    
-                                    </form> -->                     
+                                    </form>                     
                                 </field>
                             </page>
                         </notebook>                                         

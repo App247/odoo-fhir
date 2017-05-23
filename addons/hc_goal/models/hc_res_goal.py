@@ -144,20 +144,20 @@ class Goal(models.Model):
         inverse_name="goal_id", 
         string="Outcome References", 
         help="Observation that resulted from goal.")
-    target_ids = fields.One2many(
+    target_id = fields.Many2one(
         comodel_name="hc.goal.target", 
-        inverse_name="goal_id", 
-        string="Targets", 
+        string="Target", 
         help="Target outcome for the goal.")
+    acceptance_ids = fields.One2many(
+        comodel_name="hc.goal.acceptance", 
+        inverse_name="goal_id", 
+        string="Acceptances", 
+        help="Information about the acceptance and relative priority assigned to the goal by the patient, practitioners and other stake-holders.")
 
 class GoalTarget(models.Model): 
     _name = "hc.goal.target"    
     _description = "Goal Target"
 
-    goal_id = fields.Many2one(
-        comodel_name="hc.res.goal", 
-        string="Goal", 
-        help="Goal associated with this target.")
     measure_id = fields.Many2one(
         comodel_name="hc.vs.observation.code", 
         string="Measure", 
@@ -213,6 +213,53 @@ class GoalTarget(models.Model):
         string="Due Duration UOM", 
         domain="[('category_id','=','Time (UCUM)')]", 
         help="Due Duration unit of measure.") 
+
+class GoalAcceptance(models.Model):
+    _name = "hc.goal.acceptance"
+    _description = "Goal Acceptance"
+
+    goal_id = fields.Many2one(
+        comodel_name="hc.res.goal", 
+        string="Goal", 
+        help="Goal associated with this acceptance.")
+    individual_type = fields.Selection(
+        string="Individual Type",
+        required="True", 
+        selection=[
+            ("patient", "Patient"), 
+            ("practitioner", "Practitioner"), 
+            ("related_person", "Related Person")], 
+        help="Type of individual whose acceptance is reflected.")
+    individual_name = fields.Char(
+        string="Individual", 
+        compute="_compute_individual_name", 
+        help="Individual whose acceptance is reflected.")
+    individual_patient_id = fields.Many2one(
+        comodel_name="hc.res.patient", 
+        string="Individual Patient", 
+        help="Patient whose acceptance is reflected.")
+    individual_practitioner_id = fields.Many2one(
+        comodel_name="hc.res.practitioner", 
+        string="Individual Practitioner", 
+        help="Practitioner whose acceptance is reflected.")
+    individual_related_person_id = fields.Many2one(
+        comodel_name="hc.res.related.person", 
+        string="Individual Related Person",
+        help="Related Person whose acceptance is reflected.")
+    status = fields.Selection(
+        string="Acceptance Status", 
+        selection=[
+            ("agree", "Agree"), 
+            ("disagree", "Disagree"), 
+            ("pending", "Pending")], 
+        help="Code indicating whether the goal has been accepted by a stakeholder")
+    priority = fields.Selection(
+        string="Priority", 
+        selection=[
+            ("high-priority", "High Priority"), 
+            ("medium-priority", "Medium Priority"), 
+            ("low-priority", "Low Priority")], 
+        help="Priority of goal for individual.")
 
 class GoalIdentifier(models.Model):    
     _name = "hc.goal.identifier"    

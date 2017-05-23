@@ -1,4 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_hc_basic_hc_res_basic_user,hc.basic.hc.res.basic.user,model_hc_res_basic,hc_base.group_hc_base_user,1,0,0,0
+access_hc_basic_hc_basic_initiating_person_user,hc.basic.hc.basic.initiating.person.user,model_hc_basic_initiating_person,hc_base.group_hc_base_user,1,0,0,0
+access_hc_basic_hc_basic_receiving_person_user,hc.basic.hc.basic.receiving.person.user,model_hc_basic_receiving_person,hc_base.group_hc_base_user,1,0,0,0
 access_hc_basic_hc_basic_identifier_user,hc.basic.hc.basic.identifier.user,model_hc_basic_identifier,hc_base.group_hc_base_user,1,0,0,0
 access_hc_basic_hc_vs_basic_resource_type_manager,hc.basic.hc.vs.basic.resource.type.manager,model_hc_vs_basic_resource_type,hc_base.group_hc_base_manager,1,1,1,1

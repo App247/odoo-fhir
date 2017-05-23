@@ -248,6 +248,7 @@ class Patient(models.Model):
                                     'patient_id': res.id
                                     })
                     patient_name_obj.create(patient_name_vals)
+            
             # if person_id.identifier_ids:
             #     for person_name in person_id.identifier_ids:
             #         patient_name_vals.update({

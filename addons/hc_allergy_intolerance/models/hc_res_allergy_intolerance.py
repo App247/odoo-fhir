@@ -236,6 +236,54 @@ class AllergyIntolerance(models.Model):
             elif hc_res_allergy_intolerance.asserter_type == 'practitioner':
                 hc_res_allergy_intolerance.asserter_name = hc_res_allergy_intolerance.asserter_practitioner_id.name
 
+    @api.model
+    def create(self, vals):
+        clinical_status_history_obj = self.env['hc.allergy.intolerance.clinical.status.history']
+        res = super(AllergyIntolerance, self).create(vals)
+        if vals and vals.get('clinical_status'):
+            history_vals = {
+                        'allergy_intolerance_id': res.id,
+                        'clinical_status': res.clinical_status,
+                        'start_date': datetime.today()
+                        }
+            clinical_status_history_obj.create(history_vals)
+        return res
+
+    @api.multi
+    def write(self, vals):
+        clinical_status_history_obj = self.env['hc.allergy.intolerance.clinical.status.history']
+        res = super(AllergyIntolerance, self).write(vals)
+        clinical_history_record_ids = clinical_status_history_obj.search([('end_date','=', False)])
+        if clinical_history_record_ids:
+            for clinical_history in clinical_history_record_ids:
+                clinical_history.end_date = datetime.strftime(datetime.today(), DTF)
+        if vals and vals.get('clinical_status'):
+            history_vals = {
+                        'allergy_intolerance_id': self.id,
+                        'clinical_status': vals.get('clinical_status'),
+                        'start_date': datetime.today(),
+                        }
+            clinical_status_history_obj.create(history_vals)
+        return res
+
+    @api.multi
+    def write(self, vals):
+        clinical_status_history_obj = self.env['hc.allergy.intolerance.clinical.status.history']
+        res = super(AllergyIntolerance, self).write(vals)
+        clinical_history_record_ids = clinical_status_history_obj.search([('end_date','=', False)])
+        if clinical_history_record_ids:
+            for clinical_history in clinical_history_record_ids:
+                clinical_history.end_date = datetime.strftime(datetime.today(), DTF)
+                time_diff = datetime.today() - datetime.strptime(clinical_history.start_date, DTF)
+                print "time_diff>>>>>>>>>>>>",time_diff
+                if time_diff:
+                    days = str(time_diff).split(',')
+                    times = str(days[1]).split(':')
+                    clinical_history.time_diff_day = str(days[0])
+                    clinical_history.time_diff_hour = str(times[0])
+                    clinical_history.time_diff_min = str(times[1])
+                    clinical_history.time_diff_sec = str(times[2])
+
 class AllergyIntoleranceReaction(models.Model): 
     _name = "hc.allergy.intolerance.reaction"   
     _description = "Allergy Intolerance Reaction"
@@ -350,8 +398,8 @@ class AllergyIntoleranceClinicalStatusHistory(models.Model):
         help="Allergy Intolerance associated with this Allergy Intolerance Clinical Status History.")                                
     clinical_status = fields.Char(
         string="Clinical Status", 
-        compute="_compute_clinical_status", 
-        store="True", 
+        # compute="_compute_clinical_status", 
+        # store="True", 
         help="The clinical status of the allergy or intolerance.")
     start_date = fields.Datetime(
         string="Start Date", 
@@ -359,7 +407,20 @@ class AllergyIntoleranceClinicalStatusHistory(models.Model):
     end_date = fields.Datetime(
         string="End Date", 
         help="End of the period during which this clinical status is valid.")
-                                
+    time_diff_day = fields.Char(
+        string="Time Diff (days)",
+        help="Days duration of clinical status.")
+    time_diff_hour = fields.Char(
+        string="Time Diff (hours)",
+        help="Hours duration of clinical status.")
+    time_diff_min = fields.Char(
+        string="Time Diff (minutes)",
+        help="Minutes duration of clinical status.")
+    time_diff_sec = fields.Char(
+        string="Time Diff (seconds)",
+        help="Seconds duration of clinical status.")
+
+                               
 
 class AllergyIntoleranceVerificationStatusHistory(models.Model):
     _name = "hc.allergy.intolerance.verification.status.history"
@@ -380,6 +441,18 @@ class AllergyIntoleranceVerificationStatusHistory(models.Model):
     end_date = fields.Datetime(
         string="End Date", 
         help="End of the period during which this verification status is valid.")
+    time_diff_day = fields.Char(
+        string="Time Diff (days)",
+        help="Days duration of verification status.")
+    time_diff_hour = fields.Char(
+        string="Time Diff (hours)",
+        help="Hours duration of verification status.")
+    time_diff_min = fields.Char(
+        string="Time Diff (minutes)",
+        help="Minutes duration of verification status.")
+    time_diff_sec = fields.Char(
+        string="Time Diff (seconds)",
+        help="Seconds duration of verification status.")
                              
 class AllergyIntoleranceCode(models.Model): 
     _name = "hc.vs.allergy.intolerance.code"   

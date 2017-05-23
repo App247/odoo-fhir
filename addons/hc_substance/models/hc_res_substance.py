@@ -182,7 +182,7 @@ class SubstanceCode(models.Model):
         string="Parent", 
         help="Parent substance code.")
     level_attribute = fields.Char(
-        string="Level Attribute",
+        string="Level/Parent",
         help="Level associated with Parent concept.")
     parent_child_ids = fields.Many2many(
         comodel_name="hc.vs.substance.code",
@@ -208,12 +208,32 @@ class SubstanceCode(models.Model):
         res.level_attribute = level_attr or ''
         return res
 
+    # @api.multi
+    # def write(self, vals):
+    #     res = super(SubstanceCode, self).write(vals)
+    #     for rec in self:
+    #         if rec.parent_child_ids:
+    #             if rec.id in rec.parent_child_ids.ids:
+    #                 raise ValidationError(
+    #                     "Error! A code cannot be a child of itself.")
+    #             return res
+
     @api.multi
     def write(self, vals):
         res = super(SubstanceCode, self).write(vals)
+        level_attr = False
         for rec in self:
             if rec.parent_child_ids:
                 if rec.id in rec.parent_child_ids.ids:
                     raise ValidationError(
                         "Error! A code cannot be a child of itself.")
-                return res
+                for code in rec.parent_child_ids:
+                    vals.update({'level': code.level + 1})
+                    if not level_attr:
+                        level_attr = '(' + str(rec.level) + ',' + code.name +')'
+                    else:
+                        level_attr = level_attr + ',' + '(' + str(rec.level) + ',' + code.name +')'
+            else:
+                vals.update({'level': 1})
+            vals.update({'level_attribute' : level_attr or ''})
+        return super(SubstanceCode, self).write(vals)

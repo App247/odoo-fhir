@@ -87,7 +87,6 @@ class Person(models.Model):
     # vals['is_practitioner'] = self.env.context.get('is_practitioner', False)
     # vals['is_related_person'] = self.env.context.get('is_related_person', False)
 
-    
     _defaults = {
         "is_company": False,
         "customer": False,
@@ -184,7 +183,22 @@ class PersonName(models.Model):
     # start_date = fields.Datetime(
     #     default=person_id.birth_date)
 
+    @api.model
+    def create(self, vals):
+        person_obj = self.env['hc.res.person']
+        if vals and vals.get('is_preferred'):
+            person_ids = self.search([('person_id','=',vals.get('person_id'))])
+            for person in person_ids:
+                person.is_preferred = False
+        return super(PersonName, self).create(vals)
 
+    @api.multi
+    def write(self, vals):
+        if vals and vals.get('is_preferred'):
+            person_ids = self.search([('person_id','=',self.person_id.id),('id','!=',self.id)])
+            for person in person_ids:
+                person.is_preferred = False
+        return super(PersonName, self).write(vals)
 
 class PersonTelecom(models.Model):  
     _name = "hc.person.telecom" 
