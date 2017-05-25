@@ -249,22 +249,63 @@ class AllergyIntolerance(models.Model):
             clinical_status_history_obj.create(history_vals)
         return res
 
-    @api.multi
-    def write(self, vals):
-        clinical_status_history_obj = self.env['hc.allergy.intolerance.clinical.status.history']
-        res = super(AllergyIntolerance, self).write(vals)
-        clinical_history_record_ids = clinical_status_history_obj.search([('end_date','=', False)])
-        if clinical_history_record_ids:
-            for clinical_history in clinical_history_record_ids:
-                clinical_history.end_date = datetime.strftime(datetime.today(), DTF)
-        if vals and vals.get('clinical_status'):
-            history_vals = {
-                        'allergy_intolerance_id': self.id,
-                        'clinical_status': vals.get('clinical_status'),
-                        'start_date': datetime.today(),
-                        }
-            clinical_status_history_obj.create(history_vals)
-        return res
+    # @api.multi
+    # def write(self, vals):
+    #     clinical_status_history_obj = self.env['hc.allergy.intolerance.clinical.status.history']
+    #     res = super(AllergyIntolerance, self).write(vals)
+    #     clinical_history_record_ids = clinical_status_history_obj.search([('end_date','=', False)])
+    #     if clinical_history_record_ids:
+    #         for clinical_history in clinical_history_record_ids:
+    #             clinical_history.end_date = datetime.strftime(datetime.today(), DTF)
+    #     if vals and vals.get('clinical_status'):
+    #         history_vals = {
+    #                     'allergy_intolerance_id': self.id,
+    #                     'clinical_status': vals.get('clinical_status'),
+    #                     'start_date': datetime.today(),
+    #                     }
+    #         clinical_status_history_obj.create(history_vals)
+    #     return res
+
+    # @api.multi
+    # def write(self, vals):
+    #     clinical_status_history_obj = self.env['hc.allergy.intolerance.clinical.status.history']
+    #     res = super(AllergyIntolerance, self).write(vals)
+    #     clinical_history_record_ids = clinical_status_history_obj.search([('end_date','=', False)])
+    #     if clinical_history_record_ids:
+    #         for clinical_history in clinical_history_record_ids:
+    #             clinical_history.end_date = datetime.strftime(datetime.today(), DTF)
+    #             time_diff = datetime.today() - datetime.strptime(clinical_history.start_date, DTF)
+    #             if time_diff:
+    #                 days = str(time_diff).split(',')
+    #                 if len(days) > 1:
+    #                 times = str(days[1]).split(':')
+    #                 clinical_history.time_diff_days = str(days[0])
+    #             else:
+    #                 times = str(time_diff).split(':')
+    #                 if times:
+    #                     clinical_history.time_diff_hours = str(times[0])
+    #                     clinical_history.time_diff_mins = str(times[1])
+    #                     clinical_history.time_diff_sec = str(times[2])
+
+    # if vals and vals.get('clinical_status'):
+    #     history_vals = {
+    #                 'allergy_intolerance_id': self.id,
+    #                 'clinical_status': vals.get('clinical_status'),
+    #                 'start_date': datetime.today(),
+    #                 }
+    #     clinical_status_history_obj.create(history_vals)
+    # return res
+
+    #                 # if days:
+    #                 #     times = str(days[1]).split(':')
+    #                 #     clinical_history.time_diff_days = str(days[0])
+    #                 # else:
+    #                 #     times = str(time_diff).split(':')
+    #                 #     if times:
+    #                 #         clinical_history.time_diff_hours = str(times[0])
+    #                 #         clinical_history.time_diff_mins = str(times[1])
+    #                 #         clinical_history.time_diff_sec = str(times[2])
+
 
     @api.multi
     def write(self, vals):
@@ -275,15 +316,27 @@ class AllergyIntolerance(models.Model):
             for clinical_history in clinical_history_record_ids:
                 clinical_history.end_date = datetime.strftime(datetime.today(), DTF)
                 time_diff = datetime.today() - datetime.strptime(clinical_history.start_date, DTF)
-                print "time_diff>>>>>>>>>>>>",time_diff
                 if time_diff:
                     days = str(time_diff).split(',')
-                    times = str(days[1]).split(':')
-                    clinical_history.time_diff_day = str(days[0])
-                    clinical_history.time_diff_hour = str(times[0])
-                    clinical_history.time_diff_min = str(times[1])
-                    clinical_history.time_diff_sec = str(times[2])
+                    if len(days) > 1:
+                        times = str(days[1]).split(':')
+                        clinical_history.time_diff_day = str(days[0])
+                    else:
+                        times = str(time_diff).split(':')
+                        if times:
+                            clinical_history.time_diff_hour = str(times[0])
+                            clinical_history.time_diff_min = str(times[1])
+                            clinical_history.time_diff_sec = str(times[2])
 
+        if vals and vals.get('clinical_status'):
+            history_vals = {
+                        'allergy_intolerance_id': self.id,
+                        'clinical_status': vals.get('clinical_status'),
+                        'start_date': datetime.today(),
+                        }
+            clinical_status_history_obj.create(history_vals)
+        return res
+    
 class AllergyIntoleranceReaction(models.Model): 
     _name = "hc.allergy.intolerance.reaction"   
     _description = "Allergy Intolerance Reaction"
