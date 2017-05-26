@@ -239,6 +239,7 @@
                                         <field name="time_diff_hour"/>
                                         <field name="time_diff_min"/>
                                         <field name="time_diff_sec"/>
+                                        <field name="write_uid" invisible="0"/>
                                     </tree>
                                 </field>
                             </page>
@@ -252,6 +253,7 @@
                                         <field name="time_diff_hour"/>
                                         <field name="time_diff_min"/>
                                         <field name="time_diff_sec"/>
+                                        <field name="write_uid" invisible="0"/>
                                     </tree>
                                 </field>
                             </page>                                       
