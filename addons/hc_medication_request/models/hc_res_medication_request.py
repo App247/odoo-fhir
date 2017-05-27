@@ -487,4 +487,4 @@ class SubstanceAdminSubstitutionReason(models.Model):
     contains_id = fields.Many2one(
         comodel_name="hc.vs.substance.admin.substitution.reason", 
         string="Parent", 
-        help="Parent substance admin substitution reason.")
+        help="Parent substance admin substitution reason.")          

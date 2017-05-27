@@ -17,7 +17,7 @@ class Extension(models.Model):
             ("unsigned_int", "Unsigned Int"),
             ("positive_int", "Positive Int"), 
             ("decimal", "Decimal"),
-            ("date_time", "Datetime"),
+            ("date_time", "Date Time"),
             ("date", "Date"),
             ("time", "Time"),
             ("instant", "Instant"),
@@ -149,29 +149,30 @@ class Extension(models.Model):
         comodel_name="product.uom", 
         string="Value Period UOM", 
         help="Period unit of measure.")
-    value_ratio_numerator = fields.Float(
-        string="Value Ratio Numerator", 
-        help="Ratio value of extension.")
-    value_ratio_numerator_uom_id = fields.Many2one(
+    value_numerator = fields.Float(
+        string="Value Numerator", 
+        help="Numerator value of value of extension.")
+    value_numerator_uom_id = fields.Many2one(
         comodel_name="product.uom", 
-        string="Value Ratio Numerator UOM", 
-        help="Ratio unit of measure.")
+        string="Value Numerator UOM", 
+        help="Value numerator unit of measure.")
     value_denominator = fields.Float(
         string="Value Denominator", 
-        help="Ratio value of extension.")
+        help="Denominator value of value of extension.")
     value_denominator_uom_id = fields.Many2one(
         comodel_name="product.uom", 
         string="Value Denominator UOM", 
-        help="Ratio unit of measure.")
+        help="Value denominator unit of measure.")
     value_ratio = fields.Float(
         string="Value Ratio", 
         compute="_compute_value_ratio", 
         store="True", 
-        help="Ratio value of extension.")
-    value_ratio_uom_id = fields.Many2one(
-        comodel_name="product.uom", 
+        help="Ratio of value of extension.")
+    value_ratio_uom = fields.Char(
         string="Value Ratio UOM", 
-        help="Ratio unit of measure.")
+        compute="_compute_value_ratio_uom", 
+        store="True", 
+        help="Value Ratio unit of measure.")
     value_human_name_id = fields.Many2one(
         comodel_name="hc.extension.human.name", 
         string="Value Human Name", 

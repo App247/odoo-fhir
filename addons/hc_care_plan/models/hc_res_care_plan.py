@@ -829,3 +829,29 @@ class ProcedureBasedOn(models.Model):
         comodel_name="hc.res.referral.request", 
         string="Based On Referral Request", 
         help="Referral Request for this procedure.")
+
+class ObservationBasedOn(models.Model):
+    _inherit = "hc.observation.based.on"
+
+    based_on_type = fields.Selection(
+        selection_add=[
+            ("care_plan", "Care Plan"), 
+            ("device_request", "Device Request"), 
+            ("medication_request", "Medication Request"),
+            ("nutrition_order", "Nutrition Order")])
+    based_on_care_plan_id = fields.Many2one(
+        comodel_name="hc.res.care.plan", 
+        string="Based On Care Plan", 
+        help="Care Plan fulfills plan, proposal or order.")                               
+    based_on_device_request_id = fields.Many2one(
+        comodel_name="hc.res.device.request", 
+        string="Based On Device Request", 
+        help="Device Request fulfills plan, proposal or order.")                                                       
+    based_on_medication_request_id = fields.Many2one(
+        comodel_name="hc.res.medication.request", 
+        string="Based On Medication Request", 
+        help="Medication Request fulfills plan, proposal or order.")                               
+    based_on_nutrition_order_id = fields.Many2one(
+        comodel_name="hc.res.nutrition.order", 
+        string="Based On Nutrition Order", 
+        help="Nutrition Order fulfills plan, proposal or order.")                                  

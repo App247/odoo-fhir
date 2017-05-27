@@ -239,44 +239,95 @@ class AllergyIntolerance(models.Model):
     @api.model
     def create(self, vals):
         clinical_status_history_obj = self.env['hc.allergy.intolerance.clinical.status.history']
+        verification_status_history_obj = self.env['hc.allergy.intolerance.verification.status.history']
         res = super(AllergyIntolerance, self).create(vals)
+        
+        # For Clinical Status
         if vals and vals.get('clinical_status'):
-            history_vals = {
+            clinical_status_history_vals = {
                 'allergy_intolerance_id': res.id,
                 'clinical_status': res.clinical_status,
                 'start_date': datetime.today()
                 }
-            clinical_status_history_obj.create(history_vals)
+            clinical_status_history_obj.create(clinical_status_history_vals)
+        
+        # For Verification Status
+        if vals and vals.get('verification_status'):
+            verification_status_history_vals = {
+                'allergy_intolerance_id': res.id,
+                'verification_status': res.verification_status,
+                'start_date': datetime.today()
+                }
+            verification_status_history_obj.create(verification_status_history_vals)
+        
         return res
 
     @api.multi                  
     def write(self, vals):                  
-        clinical_status_history_obj = self.env['hc.allergy.intolerance.clinical.status.history']                
+        clinical_status_history_obj = self.env['hc.allergy.intolerance.clinical.status.history']
+        verification_status_history_obj = self.env['hc.allergy.intolerance.verification.status.history']                
         res = super(AllergyIntolerance, self).write(vals)               
+
+        # For Clinical Status
         clinical_status_history_record_ids = clinical_status_history_obj.search([('end_date','=', False)])              
         if clinical_status_history_record_ids:              
             for clinical_status_history in clinical_status_history_record_ids:          
                 clinical_status_history.end_date = datetime.strftime(datetime.today(), DTF)     
-        time_diff = datetime.today() - datetime.strptime(clinical_status_history.start_date, DTF)               
-        if time_diff:               
-            days = str(time_diff).split(',')            
-            if len(days) > 1:           
-                times = str(days[1]).split(':')     
-                clinical_status_history.time_diff_day = str(days[0])        
-            else:           
-                times = str(time_diff).split(':')       
-                if times:       
-                    clinical_status_history.time_diff_hour = str(times[0])  
-                    clinical_status_history.time_diff_min = str(times[1])   
-                    clinical_status_history.time_diff_sec = str(times[2])   
-                        
+                time_diff = datetime.today() - datetime.strptime(clinical_status_history.start_date, DTF)               
+                if time_diff:               
+                    days = str(time_diff).split(',')            
+                    if days and len(days) > 1:             
+                        clinical_status_history.time_diff_day = str(days[0])
+                        times = str(days[1]).split(':')
+                        if times and times > 1:
+                            clinical_status_history.time_diff_hour = str(times[0])
+                            clinical_status_history.time_diff_min = str(times[1])
+                            clinical_status_history.time_diff_sec = str(times[2])        
+                    else:           
+                        times = str(time_diff).split(':')       
+                        if times and times > 1:      
+                            clinical_status_history.time_diff_hour = str(times[0])  
+                            clinical_status_history.time_diff_min = str(times[1])   
+                            clinical_status_history.time_diff_sec = str(times[2])                  
+        
+        # For Verification Status
+        verification_status_history_record_ids = verification_status_history_obj.search([('end_date','=', False)])
+        if verification_status_history_record_ids:              
+            for verification_status_history in verification_status_history_record_ids:          
+                verification_status_history.end_date = datetime.strftime(datetime.today(), DTF)     
+                time_diff = datetime.today() - datetime.strptime(verification_status_history.start_date, DTF)               
+                if time_diff:               
+                    days = str(time_diff).split(',')            
+                    if days and len(days) > 1:          
+                        verification_status_history.time_diff_day = str(days[0])        
+                        times = str(days[1]).split(':')     
+                        if times and times > 1:     
+                            verification_status_history.time_diff_hour = str(times[0])  
+                            verification_status_history.time_diff_min = str(times[1])   
+                            verification_status_history.time_diff_sec = str(times[2])   
+                    else:                       
+                        times = str(time_diff).split(':')       
+                        if times and times > 1:     
+                            verification_status_history.time_diff_hour = str(times[0])  
+                            verification_status_history.time_diff_min = str(times[1])   
+                            verification_status_history.time_diff_sec = str(times[2])   
+
         if vals and vals.get('clinical_status'):                
-            history_vals = {            
+            clinical_status_history_vals = {            
                 'allergy_intolerance_id': self.id,      
                 'clinical_status': vals.get('clinical_status'),     
                 'start_date': datetime.today()      
                 }       
-            clinical_status_history_obj.create(history_vals)            
+            clinical_status_history_obj.create(clinical_status_history_vals)
+
+        if vals and vals.get('verification_status'):        
+            verification_status_history_vals = {    
+                'allergy_intolerance_id': self.id,
+                'verification_status': vals.get('verification_status'),
+                'start_date': datetime.today()
+                }
+            verification_status_history_obj.create(verification_status_history_vals)    
+          
         return res               
     
 class AllergyIntoleranceReaction(models.Model): 

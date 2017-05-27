@@ -64,7 +64,10 @@ class ImmunizationRecRecIdentifier(models.Model):
     _description = "Immunization Recommendation Recommendation Identifier"        
     _inherit = ["hc.basic.association", "hc.identifier"]
 
-    immunization_rec_rec_id = fields.Many2one(comodel_name="hc.immunization.rec.rec", string="Immunization Recommendation Recommendation", help="Recommendation associated with this immunization Recommendation Recommendation identifier.")                
+    immunization_rec_rec_id = fields.Many2one(
+        comodel_name="hc.immunization.rec.rec", 
+        string="Immunization Recommendation Recommendation",
+        elp="Recommendation associated with this Immunization Recommendation Recommendation Identifier.")                
 
 class ImmunizationRecDateCriterion(models.Model):    
     _name = "hc.vs.immunization.rec.date.criterion"    
@@ -75,3 +78,18 @@ class ImmunizationRecStatus(models.Model):
     _name = "hc.vs.immunization.rec.status"    
     _description = "Immunization Recommendation Status"        
     _inherit = ["hc.value.set.contains"]
+
+# External Reference
+
+class ObservationBasedOn(models.Model):
+    _inherit = "hc.observation.based.on"
+
+    based_on_type = fields.Selection(
+        string="Based On Type", 
+        selection_add=[
+            ("immunization_recommendation", "Immunization Recommendation")])
+    based_on_immunization_recommendation_id = fields.Many2one(
+        comodel_name="hc.res.immunization.recommendation", 
+        string="Based On Immunization Recommendation", 
+        help="Immunization Recommendation fulfills plan, proposal or order.")  
+

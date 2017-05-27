@@ -152,13 +152,30 @@ class ElementDefinition(models.Model):
         comodel_name="product.uom", 
         string="Default Value Period UOM", 
         help="Period unit of measure.")                        
+    default_value_numerator = fields.Float(
+        string="Default Value Numerator", 
+        help="Numerator value of specified value if missing from instance.")
+    default_value_numerator_uom_id = fields.Many2one(
+        comodel_name="product.uom", 
+        string="Default Value Numerator UOM", 
+        help="Default Value numerator unit of measure.")
+    default_value_denominator = fields.Float(
+        string="Default Value Denominator", 
+        help="Denominator value of specified value if missing from instance.")
+    default_value_denominator_uom_id = fields.Many2one(
+        comodel_name="product.uom", 
+        string="Default Value Denominator UOM", 
+        help="Default Value denominator unit of measure.")
     default_value_ratio = fields.Float(
         string="Default Value Ratio", 
-        help="Ratio specified value if missing from instance.")                        
-    default_value_ratio_uom_id = fields.Many2one(
-        comodel_name="product.uom", 
+        compute="_compute_default_value_ratio", 
+        store="True", 
+        help="Ratio of specified value if missing from instance.")
+    default_value_ratio_uom = fields.Char(
         string="Default Value Ratio UOM", 
-        help="Ratio unit of measure.")                        
+        compute="_compute_default_value_ratio_uom", 
+        store="True", 
+        help="Default Value Ratio unit of measure.")                  
     default_value_human_name = fields.Float(
         string="Default Value Human Name", 
         help="Human Name specified value if missing from instance.")                        
@@ -213,35 +230,114 @@ class ElementDefinition(models.Model):
         string="Fixed", 
         compute="_compute_fixed_name", 
         store="True", help="Value must be exactly this.")                        
-    fixed_integer = fields.Float(string="Fixed Integer", help="Integer value must be exactly this.")                        
-    fixed_decimal = fields.Float(string="Fixed Decimal", help="Decimal value must be exactly this.")                        
-    fixed_date_time = fields.Float(string="Fixed Date Time", help="Date Time value must be exactly this.")                        
-    fixed_date = fields.Float(string="Fixed Date", help="Date value must be exactly this.")                        
-    fixed_instant = fields.Float(string="Fixed Instant", help="Instant value must be exactly this.")                        
-    fixed_string = fields.Float(string="Fixed String", help="String value must be exactly this.")                        
-    fixed_uri = fields.Float(string="Fixed URI", help="URI value must be exactly this.")                        
-    fixed_boolean = fields.Float(string="Fixed Boolean", help="Boolean value must be exactly this.")                        
-    fixed_code = fields.Float(string="Fixed Code", help="Code value must be exactly this.")                        
-    fixed_markdown = fields.Float(string="Fixed Markdown", help="Markdown value must be exactly this.")                        
-    fixed_base_64_binary = fields.Float(string="Fixed Base 64 Binary", help="Base 64 Binary value must be exactly this.")                        
-    fixed_coding = fields.Float(string="Fixed Coding", help="Coding value must be exactly this.")                        
-    fixed_codeable_concept = fields.Float(string="Fixed Codeable Concept", help="Codeable Concept value must be exactly this.")                        
-    fixed_attachment = fields.Float(string="Fixed Attachment", help="Attachment value must be exactly this.")                        
-    fixed_identifier = fields.Float(string="Fixed Identifier", help="Identifier value must be exactly this.")                        
-    fixed_quantity = fields.Float(string="Fixed Quantity", help="Quantity value must be exactly this.")                        
-    fixed_quantity_uom_id = fields.Many2one(comodel_name="product.uom", string="Fixed Quantity UOM", help="Quantity unit of measure.")                        
-    fixed_range = fields.Float(string="Fixed Range", help="Range value must be exactly this.")                        
-    fixed_range_uom_id = fields.Many2one(comodel_name="product.uom", string="Fixed Range UOM", help="Range unit of measure.")                        
-    fixed_period = fields.Float(string="Fixed Period", help="Period value must be exactly this.")                        
-    fixed_period_uom_id = fields.Many2one(comodel_name="product.uom", string="Fixed Period UOM", help="Period unit of measure.")                        
-    fixed_ratio = fields.Float(string="Fixed Ratio", help="Ratio value must be exactly this.")                        
-    fixed_ratio_uom_id = fields.Many2one(comodel_name="product.uom", string="Fixed Ratio UOM", help="Ratio unit of measure.")                        
-    fixed_human_name = fields.Float(string="Fixed Human Name", help="Human Name value must be exactly this.")                        
-    fixed_address = fields.Float(string="Fixed Address", help="Address value must be exactly this.")                        
-    fixed_contact_point = fields.Float(string="Fixed Contact Point", help="Contact Point value must be exactly this.")                        
-    fixed_timing = fields.Float(string="Fixed Timing", help="Timing value must be exactly this.")                        
-    fixed_signature = fields.Float(string="Fixed Signature", help="Signature value must be exactly this.")                        
-    fixed_reference = fields.Float(string="Fixed Reference", help="Reference value must be exactly this.")                        
+    fixed_integer = fields.Float(
+        string="Fixed Integer", 
+        help="Integer value must be exactly this.")                        
+    fixed_decimal = fields.Float(
+        string="Fixed Decimal", 
+        help="Decimal value must be exactly this.")                        
+    fixed_date_time = fields.Float(
+        string="Fixed Date Time", 
+        help="Date Time value must be exactly this.")                        
+    fixed_date = fields.Float(
+        string="Fixed Date", 
+        help="Date value must be exactly this.")                        
+    fixed_instant = fields.Float(
+        string="Fixed Instant", 
+        help="Instant value must be exactly this.")                        
+    fixed_string = fields.Float(
+        string="Fixed String", 
+        help="String value must be exactly this.")                        
+    fixed_uri = fields.Float(
+        string="Fixed URI", 
+        help="URI value must be exactly this.")                        
+    fixed_boolean = fields.Float(
+        string="Fixed Boolean", 
+        help="Boolean value must be exactly this.")                        
+    fixed_code = fields.Float(
+        string="Fixed Code", 
+        help="Code value must be exactly this.")                        
+    fixed_markdown = fields.Float(
+        string="Fixed Markdown", 
+        help="Markdown value must be exactly this.")                        
+    fixed_base_64_binary = fields.Float(
+        string="Fixed Base 64 Binary", 
+        help="Base 64 Binary value must be exactly this.")                        
+    fixed_coding = fields.Float(
+        string="Fixed Coding", 
+        help="Coding value must be exactly this.")                        
+    fixed_codeable_concept = fields.Float(
+        string="Fixed Codeable Concept", 
+        help="Codeable Concept value must be exactly this.")                        
+    fixed_attachment = fields.Float(
+        string="Fixed Attachment", 
+        help="Attachment value must be exactly this.")                        
+    fixed_identifier = fields.Float(
+        string="Fixed Identifier", 
+        help="Identifier value must be exactly this.")                        
+    fixed_quantity = fields.Float(
+        string="Fixed Quantity", 
+        help="Quantity value must be exactly this.")                        
+    fixed_quantity_uom_id = fields.Many2one(
+        comodel_name="product.uom", 
+        string="Fixed Quantity UOM", 
+        help="Quantity unit of measure.")                        
+    fixed_range = fields.Float(
+        string="Fixed Range", 
+        help="Range value must be exactly this.")                        
+    fixed_range_uom_id = fields.Many2one(
+        comodel_name="product.uom", 
+        string="Fixed Range UOM", 
+        help="Range unit of measure.")                        
+    fixed_period = fields.Float(
+        string="Fixed Period", 
+        help="Period value must be exactly this.")                        
+    fixed_period_uom_id = fields.Many2one(
+        comodel_name="product.uom", 
+        string="Fixed Period UOM", 
+        help="Period unit of measure.")                        
+    fixed_numerator = fields.Float(
+        string="Fixed Numerator", 
+        help="Numerator value of value must be exactly this.")
+    fixed_numerator_uom_id = fields.Many2one(
+        comodel_name="product.uom", 
+        string="Fixed Numerator UOM", 
+        help="Fixed numerator unit of measure.")
+    fixed_denominator = fields.Float(
+        string="Fixed Denominator", 
+        help="Denominator value of value must be exactly this.")
+    fixed_denominator_uom_id = fields.Many2one(
+        comodel_name="product.uom", 
+        string="Fixed Denominator UOM", 
+        help="Fixed denominator unit of measure.")
+    fixed_ratio = fields.Float(
+        string="Fixed Ratio", 
+        compute="_compute_fixed_ratio", 
+        store="True", 
+        help="Ratio of value must be exactly this.")
+    fixed_ratio_uom = fields.Char(
+        string="Fixed Ratio UOM", 
+        compute="_compute_fixed_ratio_uom", 
+        store="True", 
+        help="Fixed Ratio unit of measure.")                      
+    fixed_human_name = fields.Float(
+        string="Fixed Human Name", 
+        help="Human Name value must be exactly this.")                        
+    fixed_address = fields.Float(
+        string="Fixed Address", 
+        help="Address value must be exactly this.")                        
+    fixed_contact_point = fields.Float(
+        string="Fixed Contact Point", 
+        help="Contact Point value must be exactly this.")                        
+    fixed_timing = fields.Float(
+        string="Fixed Timing", 
+        help="Timing value must be exactly this.")                        
+    fixed_signature = fields.Float(
+        string="Fixed Signature", 
+        help="Signature value must be exactly this.")                        
+    fixed_reference = fields.Float(
+        string="Fixed Reference", 
+        help="Reference value must be exactly this.")                        
     pattern_type = fields.Selection(
         string="Pattern Type", 
         selection=[
@@ -271,36 +367,118 @@ class ElementDefinition(models.Model):
             ("signature", "Signature"),
             ("reference", "Reference")],
         help="Type of value must have at least these property values.")                        
-    pattern_name = fields.Char(string="Pattern", compute="_compute_pattern_name", store="True", help="Value must have at least these property values.")                        
-    pattern_integer = fields.Float(string="Pattern Integer", help="Integer value must have at least these property values.")                        
-    pattern_decimal = fields.Float(string="Pattern Decimal", help="Decimal value must have at least these property values.")                        
-    pattern_date_time = fields.Float(string="Pattern Date Time", help="Date Time value must have at least these property values.")                        
-    pattern_date = fields.Float(string="Pattern Date", help="Date value must have at least these property values.")                        
-    pattern_instant = fields.Float(string="Pattern Instant", help="Instant value must have at least these property values.")                        
-    pattern_string = fields.Float(string="Pattern String", help="String value must have at least these property values.")                        
-    pattern_uri = fields.Float(string="Pattern URI", help="URI value must have at least these property values.")                        
-    pattern_boolean = fields.Float(string="Pattern Boolean", help="Boolean value must have at least these property values.")                        
-    pattern_code = fields.Float(string="Pattern Code", help="Code value must have at least these property values.")                        
-    pattern_markdown = fields.Float(string="Pattern Markdown", help="Markdown value must have at least these property values.")                        
-    pattern_base_64_binary = fields.Float(string="Pattern Base 64 Binary", help="Base 64 Binary value must have at least these property values.")                        
-    pattern_coding = fields.Float(string="Pattern Coding", help="Coding value must have at least these property values.")                        
-    pattern_codeable_concept = fields.Float(string="Pattern Codeable Concept", help="Codeable Concept value must have at least these property values.")                        
-    pattern_attachment = fields.Float(string="Pattern Attachment", help="Attachment value must have at least these property values.")                        
-    pattern_identifier = fields.Float(string="Pattern Identifier", help="Identifier value must have at least these property values.")                        
-    pattern_quantity = fields.Float(string="Pattern Quantity", help="Quantity value must have at least these property values.")                        
-    pattern_quantity_uom_id = fields.Many2one(comodel_name="product.uom", string="Pattern Quantity UOM", help="Quantity unit of measure.")                        
-    pattern_range = fields.Float(string="Pattern Range", help="Range value must have at least these property values.")                        
-    pattern_range_uom_id = fields.Many2one(comodel_name="product.uom", string="Pattern Range UOM", help="Range unit of measure.")                        
-    pattern_period = fields.Float(string="Pattern Period", help="Period value must have at least these property values.")                        
-    pattern_period_uom_id = fields.Many2one(comodel_name="product.uom", string="Pattern Period UOM", help="Period unit of measure.")                        
-    pattern_ratio = fields.Float(string="Pattern Ratio", help="Ratio value must have at least these property values.")                        
-    pattern_ratio_uom_id = fields.Many2one(comodel_name="product.uom", string="Pattern Ratio UOM", help="Ratio unit of measure.")                        
-    pattern_human_name = fields.Float(string="Pattern Human Name", help="Human Name value must have at least these property values.")                        
-    pattern_address = fields.Float(string="Pattern Address", help="Address value must have at least these property values.")                        
-    pattern_contact_point = fields.Float(string="Pattern Contact Point", help="Contact Point value must have at least these property values.")                        
-    pattern_timing = fields.Float(string="Pattern Timing", help="Timing value must have at least these property values.")                        
-    pattern_signature = fields.Float(string="Pattern Signature", help="Signature value must have at least these property values.")                        
-    pattern_reference = fields.Float(string="Pattern Reference", help="Reference value must have at least these property values.")                        
+    pattern_name = fields.Char(
+        string="Pattern", 
+        compute="_compute_pattern_name", 
+        store="True", 
+        help="Value must have at least these property values.")                        
+    pattern_integer = fields.Float(
+        string="Pattern Integer", 
+        help="Integer value must have at least these property values.")                        
+    pattern_decimal = fields.Float(
+        string="Pattern Decimal", 
+        help="Decimal value must have at least these property values.")                        
+    pattern_date_time = fields.Float(
+        string="Pattern Date Time", 
+        help="Date Time value must have at least these property values.")                        
+    pattern_date = fields.Float(
+        string="Pattern Date", 
+        help="Date value must have at least these property values.")                        
+    pattern_instant = fields.Float(
+        string="Pattern Instant", 
+        help="Instant value must have at least these property values.")                        
+    pattern_string = fields.Float(
+        string="Pattern String", 
+        help="String value must have at least these property values.")                        
+    pattern_uri = fields.Float(
+        string="Pattern URI", 
+        help="URI value must have at least these property values.")                        
+    pattern_boolean = fields.Float(
+        string="Pattern Boolean", 
+        help="Boolean value must have at least these property values.")                        
+    pattern_code = fields.Float(
+        string="Pattern Code", 
+        help="Code value must have at least these property values.")                        
+    pattern_markdown = fields.Float(
+        string="Pattern Markdown", 
+        help="Markdown value must have at least these property values.")                        
+    pattern_base_64_binary = fields.Float(
+        string="Pattern Base 64 Binary", 
+        help="Base 64 Binary value must have at least these property values.")                        
+    pattern_coding = fields.Float(
+        string="Pattern Coding", 
+        help="Coding value must have at least these property values.")                        
+    pattern_codeable_concept = fields.Float(
+        string="Pattern Codeable Concept", 
+        help="Codeable Concept value must have at least these property values.")                        
+    pattern_attachment = fields.Float(
+        string="Pattern Attachment", 
+        help="Attachment value must have at least these property values.")                        
+    pattern_identifier = fields.Float(
+        string="Pattern Identifier", 
+        help="Identifier value must have at least these property values.")                        
+    pattern_quantity = fields.Float(
+        string="Pattern Quantity", 
+        help="Quantity value must have at least these property values.")                        
+    pattern_quantity_uom_id = fields.Many2one(
+        comodel_name="product.uom", 
+        string="Pattern Quantity UOM", 
+        help="Quantity unit of measure.")                        
+    pattern_range = fields.Float(
+        string="Pattern Range", 
+        help="Range value must have at least these property values.")                        
+    pattern_range_uom_id = fields.Many2one(
+        comodel_name="product.uom", 
+        string="Pattern Range UOM", 
+        help="Range unit of measure.")                        
+    pattern_period = fields.Float(
+        string="Pattern Period", 
+        help="Period value must have at least these property values.")                        
+    pattern_period_uom_id = fields.Many2one(
+        comodel_name="product.uom", 
+        string="Pattern Period UOM", 
+        help="Period unit of measure.")                        
+    pattern_numerator = fields.Float(
+        string="Pattern Numerator", 
+        help="Numerator value of value must have at least these property values.")
+    pattern_numerator_uom_id = fields.Many2one(
+        comodel_name="product.uom", 
+        string="Pattern Numerator UOM", 
+        help="Pattern numerator unit of measure.")
+    pattern_denominator = fields.Float(
+        string="Pattern Denominator", 
+        help="Denominator value of value must have at least these property values.")
+    pattern_denominator_uom_id = fields.Many2one(
+        comodel_name="product.uom", 
+        string="Pattern Denominator UOM", 
+        help="Pattern denominator unit of measure.")
+    pattern_ratio = fields.Float(
+        string="Pattern Ratio", 
+        compute="_compute_pattern_ratio", 
+        store="True", 
+        help="Ratio of value must have at least these property values.")
+    pattern_ratio_uom = fields.Char(
+        string="Pattern Ratio UOM", 
+        compute="_compute_pattern_ratio_uom", 
+        store="True", help="Pattern Ratio unit of measure.")                      
+    pattern_human_name = fields.Float(
+        string="Pattern Human Name", 
+        help="Human Name value must have at least these property values.")                        
+    pattern_address = fields.Float(
+        string="Pattern Address", 
+        help="Address value must have at least these property values.")                        
+    pattern_contact_point = fields.Float(
+        string="Pattern Contact Point", 
+        help="Contact Point value must have at least these property values.")                        
+    pattern_timing = fields.Float(
+        string="Pattern Timing", 
+        help="Timing value must have at least these property values.")                        
+    pattern_signature = fields.Float(
+        string="Pattern Signature", 
+        help="Signature value must have at least these property values.")                        
+    pattern_reference = fields.Float(
+        string="Pattern Reference", 
+        help="Reference value must have at least these property values.")                        
     example_type = fields.Selection(
         string="Example Type", 
         selection=[
@@ -330,36 +508,118 @@ class ElementDefinition(models.Model):
             ("signature", "Signature"),
             ("reference", "Reference")],
         help="Type of example value (as defined for type).")                          
-    example_name = fields.Char(string="Example", compute="_compute_example_name", store="True", help="Example value (as defined for type).")                        
-    example_integer = fields.Float(string="Example Integer", help="Integer example value (as defined for type).")                        
-    example_decimal = fields.Float(string="Example Decimal", help="Decimal example value (as defined for type).")                        
-    example_date_time = fields.Float(string="Example Date Time", help="Date Time example value (as defined for type).")                        
-    example_date = fields.Float(string="Example Date", help="Date example value (as defined for type).")                        
-    example_instant = fields.Float(string="Example Instant", help="Instant example value (as defined for type).")                        
-    example_string = fields.Float(string="Example String", help="String example value (as defined for type).")                        
-    example_uri = fields.Float(string="Example URI", help="URI example value (as defined for type).")                        
-    example_boolean = fields.Float(string="Example Boolean", help="Boolean example value (as defined for type).")                        
-    example_code = fields.Float(string="Example Code", help="Code example value (as defined for type).")                        
-    example_markdown = fields.Float(string="Example Markdown", help="Markdown example value (as defined for type).")                        
-    example_base_64_binary = fields.Float(string="Example Base 64 Binary", help="Base 64 Binary example value (as defined for type).")                        
-    example_coding = fields.Float(string="Example Coding", help="Coding example value (as defined for type).")                        
-    example_codeable_concept = fields.Float(string="Example Codeable Concept", help="Codeable Concept example value (as defined for type).")                        
-    example_attachment = fields.Float(string="Example Attachment", help="Attachment example value (as defined for type).")                        
-    example_identifier = fields.Float(string="Example Identifier", help="Identifier example value (as defined for type).")                        
-    example_quantity = fields.Float(string="Example Quantity", help="Quantity example value (as defined for type).")                        
-    example_quantity_uom_id = fields.Many2one(comodel_name="product.uom", string="Example Quantity UOM", help="Quantity unit of measure.")                        
-    example_range = fields.Float(string="Example Range", help="Range example value (as defined for type).")                        
-    example_range_uom_id = fields.Many2one(comodel_name="product.uom", string="Example Range UOM", help="Range unit of measure.")                        
-    example_period = fields.Float(string="Example Period", help="Period example value (as defined for type).")                        
-    example_period_uom_id = fields.Many2one(comodel_name="product.uom", string="Example Period UOM", help="Period unit of measure.")                        
-    example_ratio = fields.Float(string="Example Ratio", help="Ratio example value (as defined for type).")                        
-    example_ratio_uom_id = fields.Many2one(comodel_name="product.uom", string="Example Ratio UOM", help="Ratio unit of measure.")                        
-    example_human_name = fields.Float(string="Example Human Name", help="Human Name example value (as defined for type).")                        
-    example_address = fields.Float(string="Example Address", help="Address example value (as defined for type).")                        
-    example_contact_point = fields.Float(string="Example Contact Point", help="Contact Point example value (as defined for type).")                        
-    example_timing = fields.Float(string="Example Timing", help="Timing example value (as defined for type).")                        
-    example_signature = fields.Float(string="Example Signature", help="Signature example value (as defined for type).")                        
-    example_reference = fields.Float(string="Example Reference", help="Reference example value (as defined for type).")                        
+    example_name = fields.Char(
+        string="Example", 
+        compute="_compute_example_name", 
+        store="True", 
+        help="Example value (as defined for type).")                        
+    example_integer = fields.Float(
+        string="Example Integer", 
+        help="Integer example value (as defined for type).")                        
+    example_decimal = fields.Float(
+        string="Example Decimal", 
+        help="Decimal example value (as defined for type).")                        
+    example_date_time = fields.Float(
+        string="Example Date Time", 
+        help="Date Time example value (as defined for type).")                        
+    example_date = fields.Float(
+        string="Example Date", 
+        help="Date example value (as defined for type).")                        
+    example_instant = fields.Float(
+        string="Example Instant", 
+        help="Instant example value (as defined for type).")                        
+    example_string = fields.Float(
+        string="Example String", 
+        help="String example value (as defined for type).")                        
+    example_uri = fields.Float(
+        string="Example URI", 
+        help="URI example value (as defined for type).")                        
+    example_boolean = fields.Float(
+        string="Example Boolean", 
+        help="Boolean example value (as defined for type).")                        
+    example_code = fields.Float(
+        string="Example Code", 
+        help="Code example value (as defined for type).")                        
+    example_markdown = fields.Float(
+        string="Example Markdown", 
+        help="Markdown example value (as defined for type).")                        
+    example_base_64_binary = fields.Float(
+        string="Example Base 64 Binary", 
+        help="Base 64 Binary example value (as defined for type).")                        
+    example_coding = fields.Float(
+        string="Example Coding", 
+        help="Coding example value (as defined for type).")                        
+    example_codeable_concept = fields.Float(
+        string="Example Codeable Concept", 
+        help="Codeable Concept example value (as defined for type).")                        
+    example_attachment = fields.Float(
+        string="Example Attachment", 
+        help="Attachment example value (as defined for type).")                        
+    example_identifier = fields.Float(
+        string="Example Identifier", 
+        help="Identifier example value (as defined for type).")                        
+    example_quantity = fields.Float(
+        string="Example Quantity", 
+        help="Quantity example value (as defined for type).")                        
+    example_quantity_uom_id = fields.Many2one(
+        comodel_name="product.uom", 
+        string="Example Quantity UOM", 
+        help="Quantity unit of measure.")                        
+    example_range = fields.Float(
+        string="Example Range", 
+        help="Range example value (as defined for type).")                        
+    example_range_uom_id = fields.Many2one(
+        comodel_name="product.uom", 
+        string="Example Range UOM", 
+        help="Range unit of measure.")                        
+    example_period = fields.Float(
+        string="Example Period", 
+        help="Period example value (as defined for type).")                        
+    example_period_uom_id = fields.Many2one(
+        comodel_name="product.uom", 
+        string="Example Period UOM", 
+        help="Period unit of measure.")                        
+    example_numerator = fields.Float(
+        string="Example Numerator", 
+        help="Numerator value of example value (as defined for type).")
+    example_numerator_uom_id = fields.Many2one(
+        comodel_name="product.uom", 
+        string="Example Numerator UOM", help="Example numerator unit of measure.")
+    example_denominator = fields.Float(
+        string="Example Denominator", 
+        help="Denominator value of example value (as defined for type).")
+    example_denominator_uom_id = fields.Many2one(
+        comodel_name="product.uom", 
+        string="Example Denominator UOM", 
+        help="Example denominator unit of measure.")
+    example_ratio = fields.Float(
+        string="Example Ratio", 
+        compute="_compute_example_ratio", 
+        store="True", 
+        help="Ratio of example value (as defined for type).")
+    example_ratio_uom = fields.Char(
+        string="Example Ratio UOM", 
+        compute="_compute_example_ratio_uom", 
+        store="True", 
+        help="Example Ratio unit of measure.")                      
+    example_human_name = fields.Float(
+        string="Example Human Name", 
+        help="Human Name example value (as defined for type).")                        
+    example_address = fields.Float(
+        string="Example Address", 
+        help="Address example value (as defined for type).")                        
+    example_contact_point = fields.Float(
+        string="Example Contact Point", 
+        help="Contact Point example value (as defined for type).")                        
+    example_timing = fields.Float(
+        string="Example Timing", 
+        help="Timing example value (as defined for type).")                        
+    example_signature = fields.Float(
+        string="Example Signature", 
+        help="Signature example value (as defined for type).")                        
+    example_reference = fields.Float(
+        string="Example Reference", 
+        help="Reference example value (as defined for type).")                        
     min_value_date = fields.Date(
         string="Min Value Date", 
         help="Minimum Allowed Value (for some types).")                        
@@ -609,13 +869,30 @@ class ElementDefinitionExample(models.Model):
         comodel_name="product.uom", 
         string="Value Period UOM", 
         help="Period unit of measure.")                        
+    value_numerator = fields.Float(
+        string="Value Numerator", 
+        help="Numerator value of value of example (one of allowed types).")
+    value_numerator_uom_id = fields.Many2one(
+        comodel_name="product.uom", 
+        string="Value Numerator UOM", 
+        help="Value numerator unit of measure.")
+    value_denominator = fields.Float(
+        string="Value Denominator", 
+        help="Denominator value of value of example (one of allowed types).")
+    value_denominator_uom_id = fields.Many2one(
+        comodel_name="product.uom", 
+        string="Value Denominator UOM", 
+        help="Value denominator unit of measure.")
     value_ratio = fields.Float(
         string="Value Ratio", 
-        help="Ratio value of example (one of allowed types).")                        
-    value_ratio_uom_id = fields.Many2one(
-        comodel_name="product.uom", 
+        compute="_compute_value_ratio", 
+        store="True", 
+        help="Ratio of value of example (one of allowed types).")
+    value_ratio_uom = fields.Char(
         string="Value Ratio UOM", 
-        help="Ratio unit of measure.")                        
+        compute="_compute_value_ratio_uom", 
+        store="True", 
+        help="Value Ratio unit of measure.")          
     value_human_name = fields.Float(
         string="Value Human Name", 
         help="Human Name value of example (one of allowed types).")                        
@@ -643,7 +920,8 @@ class ElementDefinitionConstraint(models.Model):
         comodel_name="hc.element.definition", 
         string="Element Definition", 
         help="Element Definition associated with this Element Definition Constraint.")                        
-    key = fields.Char(string="Key", 
+    key = fields.Char(
+        string="Key", 
         required="True", 
         help="Target of 'condition' reference above.")                        
     requirements = fields.Char(
