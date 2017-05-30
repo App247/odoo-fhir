@@ -43,9 +43,9 @@ class Specimen(models.Model):
         help="Type of who has the condition.")					
     subject_name = fields.Char(
         string="Subject", 
-        compute="compute_subject_name", 
+        compute="_compute_subject_name", 
         required="True", 
-        help="Where the specimen came from. This may be from the patient(s) or from the environment or a device")					
+        help="Where the specimen came from. This may be from the patient(s) or from the environment or a device.")					
     subject_patient_id = fields.Many2one(
         comodel_name="hc.res.patient", 
         string="Subject Patient", 
@@ -101,7 +101,8 @@ class SpecimenParent(models.Model):
     _inherit = ["hc.basic.association"] 
     _inherits = {"hc.res.specimen": "specimen_id"}
 
-    specimen_id = fields.Many2one(comodel_name="hc.res.specimen", 
+    specimen_id = fields.Many2one(
+        comodel_name="hc.res.specimen", 
         string="Specimen", 
         required="true", 
         ondelete="restrict", 
@@ -126,15 +127,15 @@ class SpecimenCollection(models.Model):
     collected_type = fields.Selection(
         string="Collected Type", 
         selection=[
-            ("dateTime", "Datetime"), 
-            ("Period", "Period")], 
+            ("date_time", "Date Time"), 
+            ("period", "Period")], 
         help="Type of collection time.")					
     collected_name = fields.Char(
         string="Collected", 
-        compute="compute_collected_name", 
-        help="Collection time")					
-    collected_datetime = fields.Datetime(
-        string="Collected Datetime Date", 
+        compute="_compute_collected_name", 
+        help="Collection time.")					
+    collected_date_time = fields.Datetime(
+        string="Collected Date Time", 
         help="Collection time.")					
     start_date = fields.Datetime(
         string="Start Date", 
@@ -156,13 +157,13 @@ class SpecimenCollection(models.Model):
     body_site_type = fields.Selection(
         string="Body Site Type", 
         selection=[
-            ("Code", "Code"), 
-            ("Body Site", "Body Site")], 
+            ("code", "Code"), 
+            ("body_site", "Body Site")], 
         help="Type of anatomical collection site.")					
     body_site_name = fields.Char(
         string="Body Site", 
-        compute="compute_body_site_name", 
-        help="Anatomical collection site")					
+        compute="_compute_body_site_name", 
+        help="Anatomical collection site.")					
     body_site_code_id = fields.Many2one(
         comodel_name="hc.vs.body.site", 
         string="Body Site Code", 
@@ -230,13 +231,13 @@ class SpecimenContainer(models.Model):
     additive_type = fields.Selection(
         string="Additive Type", 
         selection=[
-            ("Code", "Code"), 
-            ("Substance", "Substance")], 
+            ("code", "Code"), 
+            ("substance", "Substance")], 
         help="Type of additive associated with container.")					
     additive_name = fields.Char(
         string="Additive", 
-        compute="compute_additive_name", 
-        help="Additive associated with container")					
+        compute="_compute_additive_name", 
+        help="Additive associated with container.")					
     additive_code_id = fields.Many2one(
         comodel_name="hc.vs.v2.additive.preservative", 
         string="Additive Code", 
@@ -293,13 +294,13 @@ class SpecimenRequest(models.Model):
     request_type = fields.Selection(
         string="Request Type", 
         selection=[
-            ("Diagnostic Request", "Diagnostic Request"), 
-            ("Procedure Request", "Procedure Request")], 
+            ("diagnostic_request", "Diagnostic Request"), 
+            ("procedure_request", "Procedure Request")], 
         help="Type of additive associated with container.")			
     request_name = fields.Char(
         string="Request", 
-        compute="compute_request_name", 
-        help="Why the specimen was collected")					
+        compute="_compute_request_name", 
+        help="Why the specimen was collected.")					
     request_diagnostic_request_id = fields.Many2one(
         comodel_name="hc.res.diagnostic.request", 
         string="Request Diagnostic Request", 

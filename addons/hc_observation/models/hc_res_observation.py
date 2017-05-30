@@ -251,7 +251,7 @@ class Observation(models.Model):
         string="Components", 
         help="Component results.")                    
     
-    # Profile Attribute
+    # Extension Attribute
     id = fields.Char(
         string="Id", 
         help="Logical id of this artifact.")
@@ -380,7 +380,7 @@ class ObservationReferenceRange(models.Model):
         string="Text", 
         help="Text based reference range in an observation.")
 
-    # Profile attribute
+    # Extension attribute
     modifier_extension_ids = fields.One2many(
         comodel_name="hc.observation.reference.range.modifier.extension", 
         inverse_name="reference_range_id", 
@@ -433,7 +433,7 @@ class ObservationRelated(models.Model):
         string="Target Sequence", 
         help="Sequence resource that is related to this target.")                    
 
-    # Profile attribute
+    # Extension attribute
     modifier_extension_ids = fields.One2many(
         comodel_name="hc.observation.related.modifier.extension", 
         inverse_name="related_id", 
@@ -571,7 +571,7 @@ class ObservationComponent(models.Model):
         string="Reference Ranges", 
         help="Provides guide for interpretation.")                    
 
-    # Profile attribute
+    # Extension attribute
     modifier_extension_ids = fields.One2many(
         comodel_name="hc.observation.component.modifier.extension", 
         inverse_name="component_id", 
@@ -795,7 +795,7 @@ class ObservationValueSampledData(models.Model):
         required="True", 
         help="Observation associated with this Observation Value Sampled Data.")                    
 
-# Profile Association Class
+# Extension Association Class
 class ObservationMeta(models.Model):
     _name = "hc.observation.meta"
     _description = "Observation Meta"
