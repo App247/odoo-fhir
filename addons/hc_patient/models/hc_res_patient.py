@@ -28,7 +28,6 @@ class Patient(models.Model):
     animal_name = fields.Char(
         string="Animal Name",
         help="Name of the animal.")
-
     is_active = fields.Boolean(
         string="Active", 
         help="Whether this patient's record is in active use.")
@@ -58,9 +57,6 @@ class Patient(models.Model):
         related="person_id.birth_date",
         readonly="1",
         help="The date of birth for the patient.")
-    # birth_date = fields.Date(
-    #     string="Birth Date", 
-    #     help="The date of birth for the patient.")
     birth_time = fields.Char(
         string="Birth Time", 
         help="The time when the patient was born.")
@@ -140,7 +136,10 @@ class Patient(models.Model):
         comodel_name="hc.address", 
         string="Birth Place", 
         help="The registered place of birth of the patient.")
-    adoption_info_id = fields.Many2one(comodel_name="hc.vs.adoption.info", string="Adoption Info", help="Code indication the adoption status of the patient.")
+    adoption_info_id = fields.Many2one(
+        comodel_name="hc.vs.adoption.info", 
+        string="Adoption Info", 
+        help="Code indication the adoption status of the patient.")
     # birth_time = fields.Datetime(string="Birth Time", help="The time of day that the Patient was born.")
     is_cadaveric_donor = fields.Boolean(
         string="Cadaveric Donor", 
@@ -209,10 +208,10 @@ class Patient(models.Model):
         "is_patient": True,
         }
 
-    @api.model
-    def create(self, vals):
-        vals['is_patient'] = self.env.context.get('is_patient', False)
-        return super(Patient, self).create(vals)
+    # @api.model
+    # def create(self, vals):
+    #     vals['is_patient'] = self.env.context.get('is_patient', False)
+    #     return super(Patient, self).create(vals)
 
     # Inherit Person Addresses, Person Names, Person Identifiers, Person Telecom, Person Photos
 
@@ -280,7 +279,10 @@ class PatientCitizenship(models.Model):
         comodel_name="hc.res.patient", 
         string="Patient", 
         help="Patient associated with this Patient Citizenship.")     
-    code_id = fields.Many2one(comodel_name="res.country", string="Code", help="Nation code of citizenship.")        
+    code_id = fields.Many2one(
+        comodel_name="res.country", 
+        string="Code", 
+        help="Nation code of citizenship.")        
     start_date = fields.Datetime(
         string="Valid from", 
         help="Start of the time period of citizenship.")      

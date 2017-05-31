@@ -7,7 +7,7 @@
             <field name="model">hc.res.person</field>     
             <field name="arch" type="xml">      
                 <search string="Persons">   
-                    <field name="name"/>
+                    <field name="name_id"/>
                 </search>   
             </field>      
         </record>       
@@ -17,10 +17,10 @@
             <field name="model">hc.res.person</field>     
             <field name="arch" type="xml">      
                 <tree string="Persons">   
-                    <field name="name"/>  
+                    <field name="name_id"/>  
                     <field name="gender"/>  
                     <field name="birth_date"/>
-                    <field name="is_active_person" string="Active Record"/>  
+                    <field name="is_active" string="Active Record"/>  
                 </tree>   
             </field>      
         </record>       
@@ -45,7 +45,7 @@
                                 <field name="birth_date"/>
                             </group>          
                             <group>
-                                <field name="is_active_person" string="Active Record"/>         
+                                <field name="is_active" string="Active Record"/>         
                             </group>          
                         </group>            
                         <notebook colspan="4">           

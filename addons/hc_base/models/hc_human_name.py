@@ -189,6 +189,13 @@ class HumanName(models.Model):
         default="usual",
         help="The use of a human name.")
     
+    _sql_constraints = [    
+        ('name_uniq',
+        'UNIQUE (name)',
+        'Full Name must be unique.')
+        ]
+
+
     # Requirements
 
     # No mandatory fields

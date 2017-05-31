@@ -16,6 +16,7 @@ class Person(models.Model):
     name_id = fields.Many2one(
         comodel_name="hc.human.name",
         string="Full Name",
+        required="True",
         help="A full text representation of this Person's name.")
     identifier_ids = fields.One2many(
         comodel_name="hc.person.identifier", 
@@ -33,7 +34,8 @@ class Person(models.Model):
         string="Telecoms", 
         help="A contact detail for the person.")
     gender = fields.Selection(
-        string="Gender", 
+        string="Gender",
+        required="True", # Standard is False
         selection=[
             ("male", "Male"), 
             ("female", "Female"), 
@@ -41,7 +43,8 @@ class Person(models.Model):
             ("unknown", "Unknown")],          
         help="The gender of a person used for administrative purposes.")
     birth_date = fields.Date(
-        string="Birth Date", 
+        string="Birth Date",
+        required="True", # Standard is False
         help="The birth date for the person.")
     address_ids = fields.One2many(
         comodel_name="hc.person.address", 
@@ -57,10 +60,10 @@ class Person(models.Model):
 #         comodel_name="hc.res.organization", 
 #         string="Managing Organization", 
 #         help="The Organization that is the custodian of the person record.")
-    is_active_person = fields.Boolean(
+    is_active = fields.Boolean(
         string="Active",
         default="True", 
-        help="This person's record is in active use.")
+        help="Whether this person's record is in active use.")
     link_ids = fields.One2many(
         comodel_name="hc.person.link", 
         inverse_name="person_id", 
@@ -81,12 +84,13 @@ class Person(models.Model):
                         'person_id': res.id
                         })
             person_name_obj.create(names_vals)
-        return res   
-    
-    # vals['is_patient'] = self.env.context.get('is_patient', False)
-    # vals['is_practitioner'] = self.env.context.get('is_practitioner', False)
-    # vals['is_related_person'] = self.env.context.get('is_related_person', False)
 
+        return res
+
+        # vals['is_patient'] = self.env.context.get('is_patient', False)
+        # vals['is_practitioner'] = self.env.context.get('is_practitioner', False)
+        # vals['is_related_person'] = self.env.context.get('is_related_person', False)     
+    
     _defaults = {
         "is_company": False,
         "customer": False,
@@ -252,12 +256,12 @@ class Partner(models.Model):
     is_person = fields.Boolean(
         string="Is a person", 
         help="This partner is a health care person.")
-    is_patient = fields.Boolean(
-        string="Is a patient", 
-        help="This partner is a patient.")
-    is_practitioner = fields.Boolean(
-        string="Is a practitioner", 
-        help="This partner is a health care practitioner.")
-    is_related_person = fields.Boolean(
-        string="Is a related person", 
-        help="This partner is a health care related person.")
+    # is_patient = fields.Boolean(
+    #     string="Is a patient", 
+    #     help="This partner is a patient.")
+    # is_practitioner = fields.Boolean(
+    #     string="Is a practitioner", 
+    #     help="This partner is a health care practitioner.")
+    # is_related_person = fields.Boolean(
+    #     string="Is a related person", 
+    #     help="This partner is a health care related person.")

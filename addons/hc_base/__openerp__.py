@@ -45,7 +45,6 @@
         'data/data_base.xml',
         'data/data_identifier_type.xml',
         'data/data_language.xml',
-        'data/data_marital_status.xml',
         'data/data_timing.xml',
         'data/data_uom_basic.xml',
         # 'data/data_uom_advanced.xml',
@@ -85,6 +84,6 @@
         'demo/demo.xml',
         # 'demo/hc.vs.country.city.csv',
         'demo/hc.human.name.term.csv',
-        'demo/hc.human.name.csv',
+        # 'demo/hc.human.name.csv',
     ],
 }
