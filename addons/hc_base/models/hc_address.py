@@ -462,6 +462,7 @@ class AddressGeolocation(models.Model):
         selection=[
             ("+", "North"), 
             ("-", "South")], 
+        default="+",
         help="The latitude direction.")
     longitude = fields.Float(
         string="Longitude",
@@ -473,8 +474,18 @@ class AddressGeolocation(models.Model):
         required="True",
         selection=[
             ("+", "East"), 
-            ("-", "West")], 
+            ("-", "West")],
+        default="+", 
         help="Direction relative to the prime meridian.")
+
+    _sql_constraints = [
+        ('latitude_range',
+        'CHECK(latitude >= 0 and latitude <= 90)',
+        'Latitude should be 0 to 90'),
+
+        ('longitude_range',
+        'CHECK(longitude >= 0 and longitude <= 180)',
+        'Longitude should be 0 to 180')]
 
     @api.depends('latitude', 'longitude')           
     def _compute_name(self):            

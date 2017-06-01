@@ -70,7 +70,7 @@ class Patient(models.Model):
         string="Deceased Time", 
         help="The time when the patient died.")
     address_ids = fields.One2many(
-        comodel_name="hc.patient.address", 
+        comodel_name="hc.person.address", 
         inverse_name="patient_id", 
         string="Addresses", 
         help="One or more addresses for this patient.")
@@ -217,7 +217,7 @@ class Patient(models.Model):
     @api.model
     def create(self, vals):
         person_obj = self.env['hc.res.person']
-        patient_address_obj = self.env['hc.patient.address']
+        # patient_address_obj = self.env['hc.patient.address']
         patient_name_obj = self.env['hc.patient.name']
         # patient_identifier_obj = self.env['hc.patient.identifier']
         # patient_telecom_obj = self.env['hc.patient.telecom]
@@ -362,21 +362,21 @@ class PatientName(models.Model):
         string="Patient", 
         help="Patient associated with this Patient Name.")
 
-class PatientAddress(models.Model): 
-    _name = "hc.patient.address"    
-    _description = "Patient Address"        
-    _inherits = {"hc.person.address": "address_id"}
+# class PatientAddress(models.Model): 
+#     _name = "hc.patient.address"    
+#     _description = "Patient Address"        
+#     _inherits = {"hc.person.address": "address_id"}
 
-    address_id = fields.Many2one(
-        comodel_name="hc.person.address", 
-        string="Person Address", 
-        required="True", 
-        ondelete="restrict", 
-        help="Address associated with this Patient Address.")                 
-    patient_id = fields.Many2one(
-        comodel_name="hc.res.patient", 
-        string="Patient", 
-        help="Patient associated with this Patient Address.")                                  
+#     address_id = fields.Many2one(
+#         comodel_name="hc.person.address", 
+#         string="Person Address", 
+#         required="True", 
+#         ondelete="restrict", 
+#         help="Address associated with this Patient Address.")                 
+#     patient_id = fields.Many2one(
+#         comodel_name="hc.res.patient", 
+#         string="Patient", 
+#         help="Patient associated with this Patient Address.")                                  
 
 class PatientTelecom(models.Model): 
     _name = "hc.patient.telecom"    

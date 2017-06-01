@@ -268,7 +268,11 @@ class PersonAddress(models.Model):
     person_id = fields.Many2one(
         comodel_name="hc.res.person", 
         string="Person", 
-        help="Entity associated with this Person Address.")
+        help="Person associated with this Person Address.")
+    patient_id = fields.Many2one(
+        comodel_name="hc.res.patient", 
+        string="Person", 
+        help="Patient associated with this Person Address.")
 
 class PersonPhoto(models.Model):   
     _name = "hc.person.photo"  
