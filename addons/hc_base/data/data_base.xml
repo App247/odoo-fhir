@@ -172,6 +172,23 @@
             <field name="source_id" ref="base.oasis"/>
             <field name="system">https://www.oasis-open.org/committees/ubl/lcsc/doc/qateam/Comment%20work%20from%20HL7/datatypes-its-xml.html</field>
         </record>   
-    
+
+    <!-- Address Geolocation Decimal Precision -->
+
+        <record forcecreate="True" id="decimal_custom_geo" model="decimal.precision">
+            <field name="name">Geolocation</field>
+            <field name="digits">6</field>
+        </record>
+
+<!--         <record forcecreate="True" id="decimal_custom_lat" model="decimal.precision">
+            <field name="name">Latitude</field>
+            <field name="digits">6</field>
+        </record>
+
+        <record forcecreate="True" id="decimal_custom_long" model="decimal.precision">
+            <field name="name">Longitude</field>
+            <field name="digits">6</field>
+        </record> -->
+
     </data>
 </openerp>

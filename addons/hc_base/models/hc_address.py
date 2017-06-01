@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from openerp import models, fields, api
+import openerp.addons.decimal_precision as dp
+
 
 class CountryRegionType(models.Model):    
     _name = "hc.vs.country.region.type"    
@@ -389,22 +391,100 @@ class Address(models.Model):
         related="postal_code_id.country_id", 
         string="Country", 
         help="Country (can be ISO 3166 3 letter code).")
-    
-    @api.depends('line1','line2','line3','city_id','postal_code_id', 'district_id', 'state_id', 'division_id', 'region_id', 'country_id')
-    def _compute_full_address(self):
-        address = ''
-        lines = ''
-        line1 = self.line1 and self.line1 or ''
-        line2 = self.line2 and ', '+self.line2 or ''
-        line3 = self.line3 and ', '+self.line3 or ''
-        city = self.city_id and ', '+self.city_id.name or ''
-        postal = self.postal_code_id and ', '+self.postal_code_id.name or ''
-        district = self.district_id and ', '+self.district_id.name or ''
-        state = self.state_id and ', '+self.state_id.code or ''
-        division = self.division_id and ', '+self.division_id.name or ''
-        region = self.region_id and ', '+self.region_id.name or ''
-        country = self.country_id and ', '+self.country_id.name or ''
-        lines = line1+line2+line3+city+postal+district+state+division+region+country+lines
-        self.text = lines
 
-      
+    # Extension attribute
+    geolocation_id = fields.Many2one(
+        comodel_name="hc.address.geolocation", 
+        string="Geolocation", 
+        help="Geolocation associated with this Address.")
+
+    @api.depends('line1', 'line2', 'line3', 'city_id', 'postal_code_id', 'district_id', 'state_id', 'division_id', 'region_id', 'country_id')           
+    def _compute_full_address(self):            
+        comp_full_address = '/'     
+        for hc_address in self:     
+            if hc_address.line1:    
+                comp_full_address = hc_address.line1 or ''
+            if hc_address.line2:    
+                comp_full_address = comp_full_address + ", " + hc_address.line2 or ''
+            if hc_address.line3:    
+                comp_full_address = comp_full_address + ", " + hc_address.line3 or ''
+            if hc_address.city_id:  
+                comp_full_address = comp_full_address + ", " + hc_address.city_id.name or ''
+            if hc_address.postal_code_id:   
+                comp_full_address = comp_full_address + ", " + hc_address.postal_code_id.postal_code or ''
+            if hc_address.district_id:  
+                comp_full_address = comp_full_address + ", " + hc_address.district_id.name or ''
+            if hc_address.state_id: 
+                comp_full_address = comp_full_address + ", " + hc_address.state_id.code or ''
+            if hc_address.division_id:  
+                comp_full_address = comp_full_address + ", " + hc_address.division_id.name or ''
+            if hc_address.region_id:    
+                comp_full_address = comp_full_address + ", " + hc_address.region_id.name or ''
+            if hc_address.country_id:   
+                comp_full_address = comp_full_address + ", " + hc_address.country_id.name or ''
+            hc_address.text = comp_full_address 
+
+    # @api.depends('line1','line2','line3','city_id','postal_code_id', 'district_id', 'state_id', 'division_id', 'region_id', 'country_id')
+    # def _compute_full_address(self):
+    #     address = ''
+    #     lines = ''
+    #     line1 = self.line1 and self.line1 or ''
+    #     line2 = self.line2 and ', '+self.line2 or ''
+    #     line3 = self.line3 and ', '+self.line3 or ''
+    #     city = self.city_id and ', '+self.city_id.name or ''
+    #     postal = self.postal_code_id and ', '+self.postal_code_id.name or ''
+    #     district = self.district_id and ', '+self.district_id.name or ''
+    #     state = self.state_id and ', '+self.state_id.code or ''
+    #     division = self.division_id and ', '+self.division_id.name or ''
+    #     region = self.region_id and ', '+self.region_id.name or ''
+    #     country = self.country_id and ', '+self.country_id.name or ''
+    #     lines = line1+line2+line3+city+postal+district+state+division+region+country+lines
+    #     self.text = lines
+
+    
+class AddressGeolocation(models.Model):
+    _name = "hc.address.geolocation"
+    _description = "Address Geolocation"
+
+    name = fields.Char(
+        string="Name", 
+        compute="_compute_name", 
+        store="True", 
+        help="Text representation of the geolocation. Latitude + Longitude.")
+    latitude = fields.Float(
+        string="Latitude",
+        digits_compute=dp.get_precision('Geolocation'),
+        required="True", 
+        help="Latitude with WGS84 datum, aka north-south position. North latitude is positive. Format: Decimal. Example: +55.6124")
+    latitude_direction = fields.Selection(
+        string="Latitude Direction",
+        required="True",
+        selection=[
+            ("+", "North"), 
+            ("-", "South")], 
+        help="The latitude direction.")
+    longitude = fields.Float(
+        string="Longitude",
+        digits_compute=dp.get_precision('Geolocation'),
+        required="True", 
+        help="Longitude with WGS84 datum, aka east-west position. East longitude is positive. Format: Decimal. Example: -100.2345")
+    longitude_direction = fields.Selection(
+        string="Longitude Direction",
+        required="True",
+        selection=[
+            ("+", "East"), 
+            ("-", "West")], 
+        help="Direction relative to the prime meridian.")
+
+    @api.depends('latitude', 'longitude')           
+    def _compute_name(self):            
+        comp_name = '/'     
+        for hc_address_geolocation in self:     
+            if hc_address_geolocation.latitude:
+                comp_name = str(hc_address_geolocation.latitude_direction) + str(hc_address_geolocation.latitude)    
+                # comp_name = str(hc_address_geolocation.latitude) + "°" or ''
+            if hc_address_geolocation.longitude:
+                comp_name = comp_name + " " + str(hc_address_geolocation.longitude_direction) + str(hc_address_geolocation.longitude) 
+                # comp_name = comp_name + ", " + str(hc_address_geolocation.longitude) + "°" or ''
+            hc_address_geolocation.name = comp_name 
+

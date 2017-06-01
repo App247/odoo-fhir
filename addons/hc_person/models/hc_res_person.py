@@ -70,6 +70,8 @@ class Person(models.Model):
         string="Links", 
         help="Link to a resource that concerns the same actual person.")
 
+    # When creating a new record, add Person Name to the list of Person Names and mark it as preferred.
+
     @api.model
     def create(self, vals):
         person_name_obj = self.env['hc.person.name']
@@ -97,6 +99,35 @@ class Person(models.Model):
         "company_type": "person",
         "is_person": True,
         }
+
+    # _sql_constraints = [    
+    #     ('name_uniq',
+    #     'UNIQUE (name)',
+    #     'Book title must be unique.')
+    #     ]
+
+
+    # Display Person Name and Birth Date in Dropdown
+    
+    @api.model
+    def name_search(self, name='', args=None, operator='ilike', limit=100):
+        context = dict(self._context)
+        if context is None:
+            context = {}
+        if args is None:
+            args = []
+        if not operator:
+            operator = 'ilike'
+        if name:
+                args.append(('name_id', operator, name))
+        ids = self.search(args, limit=limit)
+        name_rec = []
+        for id in ids:
+            if id.birth_date:
+                name_rec.append((id.id, id.name_id.name + "("+id.birth_date+")"))
+            else:
+                name_rec.append((id.id, id.name_id.name))
+        return name_rec
 
 class PersonLink(models.Model): 
     _name = "hc.person.link"    
@@ -226,6 +257,7 @@ class PersonAddress(models.Model):
     _description = "Person Address"
     _inherit = ["hc.address.use"]
     _inherits = {"hc.address": "address_id"}
+    _rec_name = "text"
 
     address_id = fields.Many2one(
         comodel_name="hc.address", 

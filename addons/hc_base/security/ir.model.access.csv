@@ -1,6 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_hc_base_hc_address_manager,hc.base.hc.address.manager,model_hc_address,group_hc_base_manager,1,1,1,1
 access_hc_base_hc_address_user,hc.base.hc.address.user,model_hc_address,group_hc_base_user,1,0,0,0
+access_hc_base_hc_address_geolocation_user,hc.base.hc.address.geolocation.user,model_hc_address_geolocation,group_hc_base_user,1,0,0,0
 access_hc_base_hc_annotation_manager,hc.base.hc.annotation.manager,model_hc_annotation,group_hc_base_manager,1,1,1,1
 access_hc_base_hc_annotation_user,hc.base.hc.annotation.user,model_hc_annotation,group_hc_base_user,1,0,0,0
 access_hc_base_hc_attachment_manager,hc.base.hc.attachment.manager,model_hc_attachment,group_hc_base_manager,1,1,1,1

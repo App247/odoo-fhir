@@ -161,7 +161,6 @@ class Patient(models.Model):
         help="This Patient requires an interpreter to communicate healthcare information to the practitioner.")
     mothers_maiden_name = fields.Char(
         string="Mothers Maiden Name",
-        compute="_compute_mothers_maiden_name", 
         help="Mother's maiden (unmarried) name, commonly collected to help verify patient identity.")
     religion_ids = fields.Many2many(
         comodel_name="hc.vs.religion", 
@@ -239,14 +238,14 @@ class Patient(models.Model):
                                 'patient_id': res.id
                                 })
                     patient_address_obj.create(patient_address_vals)
-            if person_id.name_ids:
-                for person_name in person_id.name_ids:
-                    patient_name_vals.update({
-                                    # 'human_name_id': person_name.human_name_id.id,
-                                    'human_name_id': person_name.id,
-                                    'patient_id': res.id
-                                    })
-                    patient_name_obj.create(patient_name_vals)
+            # if person_id.name_ids:
+            #     for person_name in person_id.name_ids:
+            #         patient_name_vals.update({
+            #                         # 'human_name_id': person_name.human_name_id.id,
+            #                         'human_name_id': person_name.id,
+            #                         'patient_id': res.id
+            #                         })
+            #         patient_name_obj.create(patient_name_vals)
             
             # if person_id.identifier_ids:
             #     for person_name in person_id.identifier_ids:
