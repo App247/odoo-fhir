@@ -180,15 +180,5 @@
             <field name="digits">6</field>
         </record>
 
-<!--         <record forcecreate="True" id="decimal_custom_lat" model="decimal.precision">
-            <field name="name">Latitude</field>
-            <field name="digits">6</field>
-        </record>
-
-        <record forcecreate="True" id="decimal_custom_long" model="decimal.precision">
-            <field name="name">Longitude</field>
-            <field name="digits">6</field>
-        </record> -->
-
     </data>
 </openerp>

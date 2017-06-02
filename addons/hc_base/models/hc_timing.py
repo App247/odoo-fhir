@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from openerp import models, fields, api
+from openerp import _, exceptions
 
 class Timing(models.Model):    
     _name = "hc.timing"    
@@ -69,8 +70,14 @@ class TimingRepeat(models.Model):
     count = fields.Integer(
         string="Count", 
         help="Number of times to repeat.")       
+    
+    def _get_default_count_max(self):
+        for hc_timing_repeat in self:      
+            hc_timing_repeat.count_max = hc_timing_repeat.count
+        
     count_max = fields.Integer(
-        string="Count Max", 
+        string="Count Max",
+        default=_get_default_count_max, 
         help="Maximum number of times to repeat.")       
     duration = fields.Float(
         string="Duration", 
@@ -118,6 +125,16 @@ class TimingRepeat(models.Model):
     offset = fields.Integer(
         string="Offset Minutes", 
         help="Minutes from event (before or after).")                      
+
+    # @api.depends('count')
+
+    
+    # @api.multi
+    # @api.constrains('bounds_duration')
+    # def _check_bounds_duration(self):
+    #     for record in self:
+    #         if record < 0:
+    #             raise exceptions.ValidationError(_('Bounds Duration1 SHALL be a non-negative value.'))
 
     _sql_constraints = [    
         ('bounds_duration_gt_zero',

@@ -138,11 +138,11 @@ class Procedure(models.Model):
         string="Complications", 
         help="Complication following the procedure.")                  
     # Note: Causes UnicodeWarning: Unicode unequal comparison failed
-    # complication_detail_ids = fields.One2many(
-    #     comodel_name="hc.procedure.complication.detail", 
-    #     inverse_name="procedure_id", 
-    #     string="Complication Details", 
-    #     help="A condition that is a result of the procedure.")
+    complication_detail_ids = fields.One2many(
+        comodel_name="hc.procedure.complication.detail", 
+        inverse_name="procedure_id", 
+        string="Complication Details", 
+        help="A condition that is a result of the procedure.")
     follow_up_ids = fields.Many2many(
         comodel_name="hc.vs.procedure.follow.up", 
         string="Follow Ups", 
@@ -443,19 +443,19 @@ class ProcedureReport(models.Model):
     #     help="Diagnostic Report associated with this Procedure Report.")
                  
 # Note: Causes UnicodeWarning: Unicode unequal comparison failed
-# class ProcedureComplicationDetail(models.Model):
-#     _name = "hc.procedure.complication.detail"
-#     _description = "Procedure Complication Detail"
-#     _inherit = ["hc.basic.association"]
+class ProcedureComplicationDetail(models.Model):
+    _name = "hc.procedure.complication.detail"
+    _description = "Procedure Complication Detail"
+    _inherit = ["hc.basic.association"]
 
-#     procedure_id = fields.Many2one(
-#         comodel_name="hc.res.procedure",
-#         string="Procedure",
-#         help="Procedure associated with this Procedure Complication Detail.")
-#     complication_detail_id = fields.Many2one(
-#         comodel_name="hc.res.condition", 
-#         string="Complication Detail", 
-#         help="Condition associated with this Procedure Complication Detail.")                 
+    procedure_id = fields.Many2one(
+        comodel_name="hc.res.procedure",
+        string="Procedure",
+        help="Procedure associated with this Procedure Complication Detail.")
+    complication_detail_id = fields.Many2one(
+        comodel_name="hc.res.condition", 
+        string="Complication Detail", 
+        help="Condition associated with this Procedure Complication Detail.")                 
                                                     
 class ProcedureNote(models.Model): 
     _name = "hc.procedure.note"    

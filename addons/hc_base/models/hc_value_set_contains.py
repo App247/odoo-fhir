@@ -431,22 +431,6 @@ class EncounterReason(models.Model):
         string="Parent",
         help="Parent encounter reason.")
 
-class Ethnicity(models.Model):  
-    _name = "hc.vs.ethnicity"  
-    _description = "Ethnicity" 
-    _inherit = ["hc.value.set.contains"]
-
-    name = fields.Char(
-        string="Name", 
-        help="Name of this ethnicity.")
-    code = fields.Char(
-        string="Code", 
-        help="Code of this ethnicity.")
-    contains_id = fields.Many2one(
-        comodel_name="hc.vs.ethnicity",
-        string="Parent",
-        help="Parent ethnicity.")
-
 class FormatCode(models.Model): 
     _name = "hc.vs.format.code" 
     _description = "Format Code"        
@@ -653,23 +637,7 @@ class PurposeOfUse(models.Model):
     contains_id = fields.Many2one(
         comodel_name="hc.vs.purpose.of.use",
         string="Parent",
-        help="Parent purpose of use")
-
-class Race(models.Model):  
-    _name = "hc.vs.race"  
-    _description = "Race" 
-    _inherit = ["hc.value.set.contains"]
-
-    name = fields.Char(
-        string="Name", 
-        help="Name of this race.")
-    code = fields.Char(
-        string="Code", 
-        help="Code of this race.")
-    contains_id = fields.Many2one(
-        comodel_name="hc.vs.race",
-        string="Parent",
-        help="Parent race.")  
+        help="Parent purpose of use") 
 
 class RequestPriority(models.Model):    
     _name = "hc.vs.request.priority"    

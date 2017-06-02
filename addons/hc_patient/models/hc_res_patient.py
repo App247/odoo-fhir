@@ -118,18 +118,6 @@ class Patient(models.Model):
         relation="patient_ethnicity_rel", 
         string="Ethnicities", 
         help="General ethnicity category reported by the patient - subject may have more than one.")
-    animal_species_id = fields.Many2one(
-        comodel_name="hc.vs.animal.species", 
-        string="Animal Species", 
-        help="Identifies the high level taxonomic categorization of the kind of animal (e.g., dog, cow).")
-    animal_breed_id = fields.Many2one(
-        comodel_name="hc.vs.animal.breed", 
-        string="Animal Breed", 
-        help="Identifies the detailed categorization of the kind of animal (e.g., poodle, angus).")
-    animal_gender_status_id = fields.Many2one(
-        comodel_name="hc.vs.animal.gender.status", 
-        string="Animal Gender Status", 
-        help="Indicates the current state of the animal's reproductive organs (e.g., neutered, intact).")
     
     # Extension attribute
     birth_place_id = fields.Many2one(
@@ -159,7 +147,8 @@ class Patient(models.Model):
     is_interpreter_required = fields.Boolean(
         string="Interpreter Required", 
         help="This Patient requires an interpreter to communicate healthcare information to the practitioner.")
-    mothers_maiden_name = fields.Char(
+    mothers_maiden_name_id = fields.Many2one(
+        comodel_name="hc.human.name.term",
         string="Mothers Maiden Name",
         help="Mother's maiden (unmarried) name, commonly collected to help verify patient identity.")
     religion_ids = fields.Many2many(
@@ -169,6 +158,10 @@ class Patient(models.Model):
         help="The patient's professed religious affiliations.")
     
     # Backbone Element
+    animal_id = fields.Many2one(
+        comodel_name="hc.patient.animal", 
+        string="Animal", 
+        help="Animal associated with this Patient Resource.")
     link_ids = fields.One2many(
         comodel_name="hc.patient.link", 
         inverse_name="patient_id", 
@@ -186,7 +179,6 @@ class Patient(models.Model):
         help="A list of Languages which may be used to communicate with the patient about his or her health.")
 
     #Extension Backbone Element
-
     citizenship_ids = fields.One2many(
         comodel_name="hc.patient.citizenship", 
         inverse_name="patient_id", 
@@ -214,61 +206,61 @@ class Patient(models.Model):
 
     # Inherit Person Addresses, Person Names, Person Identifiers, Person Telecom, Person Photos
 
-    @api.model
-    def create(self, vals):
-        person_obj = self.env['hc.res.person']
-        # patient_address_obj = self.env['hc.patient.address']
-        patient_name_obj = self.env['hc.patient.name']
+    # @api.model
+    # def create(self, vals):
+    #     person_obj = self.env['hc.res.person']
+    #     patient_address_obj = self.env['hc.person.address']
+        # patient_name_obj = self.env['hc.patient.name']
         # patient_identifier_obj = self.env['hc.patient.identifier']
         # patient_telecom_obj = self.env['hc.patient.telecom]
         # patient_photo_obj = self.env['hc.patient.photo']
-        vals['is_patient'] = self.env.context.get('is_patient', False)
-        res = super(Patient, self).create(vals)
-        patient_address_vals = {}
-        patient_name_vals = {}
+        # vals['is_patient'] = self.env.context.get('is_patient', False)
+        # res = super(Patient, self).create(vals)
+        # person_address_vals = {}
+        # patient_name_vals = {}
         # patient_identifier_vals = {}
         # patient_telecom_vals = {}
         # patient_photo_vals = {}
-        if vals and vals.get('person_id'):
-            person_id = person_obj.browse(vals.get('person_id'))
-            if person_id.address_ids:
-                for person_add in person_id.address_ids:
-                    patient_address_vals.update({
-                                'address_id': person_add.id,
-                                'patient_id': res.id
-                                })
-                    patient_address_obj.create(patient_address_vals)
-            # if person_id.name_ids:
-            #     for person_name in person_id.name_ids:
-            #         patient_name_vals.update({
-            #                         # 'human_name_id': person_name.human_name_id.id,
-            #                         'human_name_id': person_name.id,
-            #                         'patient_id': res.id
-            #                         })
-            #         patient_name_obj.create(patient_name_vals)
+        # if vals and vals.get('person_id'):
+        #     person_id = person_obj.browse(vals.get('person_id'))
+        #     if person_id.address_ids:
+        #         for person_add in person_id.address_ids:
+        #             person_address_vals.update({
+        #                         'address_id': person_add.id,
+        #                         'patient_id': res.id
+        #                         })
+        #             patient_address_obj.create(person_address_vals)
+        #     if person_id.name_ids:
+        #         for person_name in person_id.name_ids:
+        #             patient_name_vals.update({
+        #                             # 'human_name_id': person_name.human_name_id.id,
+        #                             'human_name_id': person_name.id,
+        #                             'patient_id': res.id
+        #                             })
+        #             patient_name_obj.create(patient_name_vals)
             
-            # if person_id.identifier_ids:
-            #     for person_name in person_id.identifier_ids:
-            #         patient_name_vals.update({
-            #                         'identifier_id': person_name.identifier_id.id,
-            #                         'patient_id': res.id
-            #                         })
-            #         patient_identifier_obj.create(patient_identifier_vals)
-            # if person_id.telecom_ids:
-            #     for person_name in person_id.telecom_ids:
-            #         patient_name_vals.update({
-            #                         'telecom_id': person_name.telecom_id.id,
-            #                         'patient_id': res.id
-            #                         })
-            #         patient_telecom_obj.create(patient_telecom_vals)
-            # if person_id.photo_ids:
-            #     for person_name in person_id.photo_ids:
-            #         patient_name_vals.update({
-            #                         'photo_id': person_name.photo_id.id,
-            #                         'patient_id': res.id
-            #                         })
-            #         patient_photo_obj.create(patient_photo_vals)
-        return res
+        #     if person_id.identifier_ids:
+        #         for person_name in person_id.identifier_ids:
+        #             patient_name_vals.update({
+        #                             'identifier_id': person_name.identifier_id.id,
+        #                             'patient_id': res.id
+        #                             })
+        #             patient_identifier_obj.create(patient_identifier_vals)
+        #     if person_id.telecom_ids:
+        #         for person_name in person_id.telecom_ids:
+        #             patient_name_vals.update({
+        #                             'telecom_id': person_name.telecom_id.id,
+        #                             'patient_id': res.id
+        #                             })
+        #             patient_telecom_obj.create(patient_telecom_vals)
+        #     if person_id.photo_ids:
+        #         for person_name in person_id.photo_ids:
+        #             patient_name_vals.update({
+        #                             'photo_id': person_name.photo_id.id,
+        #                             'patient_id': res.id
+        #                             })
+        #             patient_photo_obj.create(patient_photo_vals)
+        # return res
 
 class PatientCitizenship(models.Model): 
     _name = "hc.patient.citizenship"    
@@ -428,43 +420,15 @@ class PatientPhoto(models.Model):
         string="Patient", 
         help="Patient associated with this Patient Photo.")      
 
-class PatientCareProviderPractitioner(models.Model):
-    _name = "hc.patient.care.provider.practitioner"    
-    _description = "Patient Care Provider Practitioner"
-    _inherit = ["hc.basic.association"]
+class PatientAnimal(models.Model):  
+    _name = "hc.patient.animal" 
+    _description = "Patient Animal"
 
-    patient_id = fields.Many2one(
-        comodel_name="hc.res.patient", 
-        string="Patient", 
-        help="Patient associated with this Patient Care Provider Practitioner.")
-    practitioner_id = fields.Many2one(
-        comodel_name="hc.res.practitioner", 
-        string="Care Provider Practitioner", 
-        help="Practitioner who is this Patient Care Provider Practitioner.")
-
-class PatientCareProviderOrganization(models.Model):
-    _name = "hc.patient.care.provider.organization"    
-    _description = "Patient Care Provider Organization"
-    _inherit = ["hc.basic.association"]
-
-    patient_id = fields.Many2one(
-        comodel_name="hc.res.patient", 
-        string="Patient", 
-        help="Patient associated with this Patient Care Provider Organization.")
-    organization_id = fields.Many2one(
-        comodel_name="hc.res.organization", 
-        string="Care Provider Organization", 
-        help="Organization that is this Patient Care Provider Organization.")
-
-# class PatientAnimal(models.Model):  
-#     _name = "hc.patient.animal" 
-#     _description = "Patient Animal"
-#     _rec_name = "animal" 
-
-#     animal = fields.Char(
-#         string="Animal", 
-#         relate="breed_id.name", 
-#         help= "Breed of animal.")
+    name = fields.Char(
+        string="Name", 
+        compute="_compute_name", 
+        store="True", 
+        help="Text representation of the animal. Species + Breed + Gender Status.")
     species_id = fields.Many2one(
         comodel_name="hc.vs.animal.species", 
         string="Species",
@@ -478,6 +442,18 @@ class PatientCareProviderOrganization(models.Model):
         comodel_name="hc.vs.animal.gender.status", 
         string="Gender Status", 
         help="Indicates the current state of the animal's reproductive organs (e.g., neutered, intact).")
+
+    @api.depends('species_id', 'gender_status_id', 'breed_id')          
+    def _compute_name(self):            
+        comp_name = '/'     
+        for hc_patient_animal in self:      
+            if hc_patient_animal.species_id:    
+                comp_name = hc_patient_animal.species_id.name or ''
+            if hc_patient_animal.breed_id:  
+                comp_name = comp_name + ", " + hc_patient_animal.breed_id.name or ''
+            if hc_patient_animal.gender_status_id:  
+                comp_name = comp_name + ", " + hc_patient_animal.gender_status_id.name or ''
+            hc_patient_animal.name = comp_name  
 
 class PatientCommunication(models.Model):
     _name = "hc.patient.communication"
@@ -687,76 +663,37 @@ class MaritalStatus(models.Model):
         string="Spouse",
         help="Spouse possible?")
 
-class ContactRelationship(models.Model):    
-    _name = "hc.vs.v2.contact.role"    
-    _description = "V2 Contact Role"   
-    _inherit = ["hc.value.set.contains"]    
-
-    name = fields.Char(
-        string="Name", 
-        help="Name of this v2 contact role.")
-    code = fields.Char(
-        string="Code", 
-        help="Code of this v2 contact role.")
-    contains_id = fields.Many2one(
-        comodel_name="hc.vs.v2.contact.role", 
-        string="Parent",
-        help="Parent contact relationship.")
-
-class AnimalBreed(models.Model):    
-    _name = "hc.vs.animal.breed"    
-    _description = "Animal Breed"   
+class Race(models.Model):  
+    _name = "hc.vs.race"  
+    _description = "Race" 
     _inherit = ["hc.value.set.contains"]
 
     name = fields.Char(
         string="Name", 
-        help="Name of this animal breed.")
+        help="Name of this race.")
     code = fields.Char(
         string="Code", 
-        help="Code of this animal breed.")
+        help="Code of this race.")
     contains_id = fields.Many2one(
-        comodel_name="hc.vs.animal.breed", 
+        comodel_name="hc.vs.race",
         string="Parent",
-        help="Parent breed.")
-    hierarchy_id = fields.Many2one(
-        comodel_name="hc.vs.animal.species", 
-        string="Hierarchy",
-        help="Hierarchy grouping of this animal breed.")
+        help="Parent race.") 
 
-class AnimalGenderStatus(models.Model): 
-    _name = "hc.vs.animal.gender.status"    
-    _description = "Animal Gender Status"   
+class Ethnicity(models.Model):  
+    _name = "hc.vs.ethnicity"  
+    _description = "Ethnicity" 
     _inherit = ["hc.value.set.contains"]
 
     name = fields.Char(
         string="Name", 
-        help="Name of this animal gender status.")
+        help="Name of this ethnicity.")
     code = fields.Char(
         string="Code", 
-        help="Code of this animal gender status.")
+        help="Code of this ethnicity.")
     contains_id = fields.Many2one(
-        comodel_name="hc.vs.animal.gender.status", 
+        comodel_name="hc.vs.ethnicity",
         string="Parent",
-        help="Parent gender status.")
-
-class AnimalSpecies(models.Model):  
-    _name = "hc.vs.animal.species"  
-    _description = "Animal Species" 
-    _inherit = ["hc.value.set.contains"]
-
-    name = fields.Char(
-        string="Name", 
-        help="Name of this animal species.")
-    code = fields.Char(
-        string="Code", 
-        help="Code of this animal species.")
-    contains_id = fields.Many2one(
-        comodel_name="hc.vs.animal.species", 
-        string="Parent",
-        help="Parent animal species.")
-    level_name = fields.Char(
-        string="Level Name",
-        help="Name of level (e.g., Species")
+        help="Parent ethnicity.")
 
 class AdoptionInfo(models.Model):
     _name = "hc.vs.adoption.info"
@@ -821,6 +758,77 @@ class Religion(models.Model):
         comodel_name="hc.vs.religion", 
         string="Parent", help="Parent religion.")                              
 
+class AnimalBreed(models.Model):    
+    _name = "hc.vs.animal.breed"    
+    _description = "Animal Breed"   
+    _inherit = ["hc.value.set.contains"]
+
+    name = fields.Char(
+        string="Name", 
+        help="Name of this animal breed.")
+    code = fields.Char(
+        string="Code", 
+        help="Code of this animal breed.")
+    contains_id = fields.Many2one(
+        comodel_name="hc.vs.animal.breed", 
+        string="Parent",
+        help="Parent breed.")
+    hierarchy_id = fields.Many2one(
+        comodel_name="hc.vs.animal.species", 
+        string="Hierarchy",
+        help="Hierarchy grouping of this animal breed.")
+
+class AnimalGenderStatus(models.Model): 
+    _name = "hc.vs.animal.gender.status"    
+    _description = "Animal Gender Status"   
+    _inherit = ["hc.value.set.contains"]
+
+    name = fields.Char(
+        string="Name", 
+        help="Name of this animal gender status.")
+    code = fields.Char(
+        string="Code", 
+        help="Code of this animal gender status.")
+    contains_id = fields.Many2one(
+        comodel_name="hc.vs.animal.gender.status", 
+        string="Parent",
+        help="Parent gender status.")
+
+class AnimalSpecies(models.Model):  
+    _name = "hc.vs.animal.species"  
+    _description = "Animal Species" 
+    _inherit = ["hc.value.set.contains"]
+
+    name = fields.Char(
+        string="Name", 
+        help="Name of this animal species.")
+    code = fields.Char(
+        string="Code", 
+        help="Code of this animal species.")
+    contains_id = fields.Many2one(
+        comodel_name="hc.vs.animal.species", 
+        string="Parent",
+        help="Parent animal species.")
+    level_name = fields.Char(
+        string="Level Name",
+        help="Name of level (e.g., Species")
+
+class V2ContactRole(models.Model):
+    _name = "hc.vs.v2.contact.role"    
+    _description = "V2 Contact Role"   
+    _inherit = ["hc.value.set.contains"]    
+
+    name = fields.Char(
+        string="Name", 
+        help="Name of this v2 contact role.")
+    code = fields.Char(
+        string="Code", 
+        help="Code of this v2 contact role.")
+    contains_id = fields.Many2one(
+        comodel_name="hc.vs.v2.contact.role", 
+        string="Parent",
+        help="Parent contact relationship.")
+
 class ClinicalTrialReason(models.Model):
     _name = "hc.vs.clinical.trial.reason"
     _description = "Clinical Trial Reason"
@@ -882,6 +890,14 @@ class PersonLink(models.Model):
             elif hc_person_link.target_type == 'patient':  
                 hc_person_link.target_name = hc_person_link.target_patient_id.name
 
+class PersonAddress(models.Model):
+    _inherit = "hc.person.address" 
+
+    patient_id = fields.Many2one(
+        comodel_name="hc.res.patient", 
+        string="Patient", 
+        help="Patient associated with this Person Address.")
+    
 class RelatedPersonPatient(models.Model): 
     _inherit = ["hc.related.person.patient"]
 

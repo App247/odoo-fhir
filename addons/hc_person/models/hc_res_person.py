@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from openerp import models, fields, api
+from datetime import datetime
+from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as DF
 
 class Person(models.Model): 
     _name = "hc.res.person" 
@@ -18,6 +20,11 @@ class Person(models.Model):
         string="Full Name",
         required="True",
         help="A full text representation of this Person's name.")
+    unique_person = fields.Char(
+        string="Unique Person", 
+        compute="_compute_unique_person", 
+        store="True", 
+        help="Unique identifier of a person. Full Name + Gender + Birth Date.")
     identifier_ids = fields.One2many(
         comodel_name="hc.person.identifier", 
         inverse_name="person_id", 
@@ -70,6 +77,31 @@ class Person(models.Model):
         string="Links", 
         help="Link to a resource that concerns the same actual person.")
 
+    _defaults = {
+        "is_company": False,
+        "customer": False,
+        "company_type": "person",
+        "is_person": True,
+        }
+
+    @api.depends('name_id', 'gender', 'birth_date')         
+    def _compute_unique_person(self):           
+        comp_unique_person = '/'        
+        for hc_person in self:      
+            if hc_person.name_id:   
+                comp_unique_person = hc_person.name_id.name or ''
+            if hc_person.gender:    
+                comp_unique_person = comp_unique_person + ", " + hc_person.gender or ''
+            if hc_person.birth_date:    
+                comp_unique_person = comp_unique_person + ", " + datetime.strftime(datetime.strptime(hc_person.birth_date, DF), "%Y-%m-%d")
+            hc_person.unique_person = comp_unique_person    
+
+    _sql_constraints = [    
+        ('person_uniq',
+        'UNIQUE (unique_person)',
+        'Person must be unique.')
+        ]  
+
     # When creating a new record, add Person Name to the list of Person Names and mark it as preferred.
 
     @api.model
@@ -93,19 +125,6 @@ class Person(models.Model):
         # vals['is_practitioner'] = self.env.context.get('is_practitioner', False)
         # vals['is_related_person'] = self.env.context.get('is_related_person', False)     
     
-    _defaults = {
-        "is_company": False,
-        "customer": False,
-        "company_type": "person",
-        "is_person": True,
-        }
-
-    # _sql_constraints = [    
-    #     ('name_uniq',
-    #     'UNIQUE (name)',
-    #     'Book title must be unique.')
-    #     ]
-
 
     # Display Person Name and Birth Date in Dropdown
     
@@ -218,6 +237,12 @@ class PersonName(models.Model):
     # start_date = fields.Datetime(
     #     default=person_id.birth_date)
 
+    # _sql_constraints = [    
+    #     ('human_name_uniq',
+    #     'UNIQUE (human_name_id)',
+    #     'Human name must be unique.')
+    #     ]
+
     @api.model
     def create(self, vals):
         person_obj = self.env['hc.res.person']
@@ -269,10 +294,10 @@ class PersonAddress(models.Model):
         comodel_name="hc.res.person", 
         string="Person", 
         help="Person associated with this Person Address.")
-    patient_id = fields.Many2one(
-        comodel_name="hc.res.patient", 
-        string="Person", 
-        help="Patient associated with this Person Address.")
+    # patient_id = fields.Many2one(
+    #     comodel_name="hc.res.patient", 
+    #     string="Patient", 
+    #     help="Patient associated with this Person Address.")
 
 class PersonPhoto(models.Model):   
     _name = "hc.person.photo"  
