@@ -1,10 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_hc_coverage_hc_res_coverage_user,hc.coverage.hc.res.coverage.user,model_hc_res_coverage,hc_base.group_hc_base_user,1,0,0,0
+access_hc_coverage_hc_coverage_grouping_user,hc.coverage.hc.coverage.grouping.user,model_hc_coverage_grouping,hc_base.group_hc_base_user,1,0,0,0
 access_hc_coverage_hc_coverage_identifier_user,hc.coverage.hc.coverage.identifier.user,model_hc_coverage_identifier,hc_base.group_hc_base_user,1,0,0,0
 access_hc_coverage_hc_coverage_contract_user,hc.coverage.hc.coverage.contract.user,model_hc_coverage_contract,hc_base.group_hc_base_user,1,0,0,0
-access_hc_coverage_hc_issuer_identifier_user,hc.coverage.hc.issuer.identifier.user,model_hc_issuer_identifier,hc_base.group_hc_base_user,1,0,0,0
-access_hc_coverage_hc_planholder_identifier_user,hc.coverage.hc.planholder.identifier.user,model_hc_planholder_identifier,hc_base.group_hc_base_user,1,0,0,0
-access_hc_coverage_hc_beneficiary_identifier_user,hc.coverage.hc.beneficiary.identifier.user,model_hc_beneficiary_identifier,hc_base.group_hc_base_user,1,0,0,0
-access_hc_coverage_hc_vs_act_coverage_type_code_manager,hc.coverage.hc.vs.act.coverage.type.code.manager,model_hc_vs_act_coverage_type_code,hc_base.group_hc_base_manager,1,1,1,1
+access_hc_coverage_hc_vs_coverage_type_manager,hc.coverage.hc.vs.coverage.type.manager,model_hc_vs_coverage_type,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_coverage_hc_vs_policyholder_relationship_manager,hc.coverage.hc.vs.policyholder.relationship.manager,model_hc_vs_policyholder_relationship,hc_base.group_hc_base_manager,1,1,1,1
-access_hc_coverage_hc_coverage_network_user,hc.coverage.hc.coverage.network.user,model_hc_coverage_network,hc_base.group_hc_base_user,1,0,0,0

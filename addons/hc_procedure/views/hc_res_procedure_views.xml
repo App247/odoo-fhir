@@ -280,7 +280,25 @@
                                     </form> -->                     
                                 </field>
                             </page>
-                            <page string="Complication Details"/> 
+                            <!-- <page string="Complication Details"/> -->
+                                <page string="Complication Details">                 
+                                    <field name="complication_detail_ids" mode="tree">               
+                                        <tree>
+                                            <field name="complication_detail_id"/>          
+                                        </tree>         
+                                        <form>          
+                                            <sheet>     
+                                                <group> 
+                                                    <group>
+                                                        <field name="complication_detail_id"/> 
+                                                    </group>
+                                                    <group>
+                                                    </group>
+                                                </group>    
+                                            </sheet>        
+                                        </form>         
+                                    </field>                
+                                </page>                 
                             <!-- <page string="Note"/>  -->
                             <page string="Note">                               
                                 <field name="notes_ids" mode="tree">                            
@@ -374,13 +392,13 @@
             </field>
         </record>
 
-        <!-- Parent Procedure Not Performed Reason Views -->
+        <!-- Procedure Code Views -->
 
-        <record id="hc_parent_procedure_not_performed_reason_view_search" model="ir.ui.view">                                   
-            <field name="name">Parent Procedure Not Performed Reason Search</field>                                
-            <field name="model">hc.parent.procedure.not.performed.reason</field>                                
+        <record id="hc_procedure_view_search" model="ir.ui.view">                                   
+            <field name="name">Procedure Search</field>                                
+            <field name="model">hc.vs.procedure.code</field>                                
             <field name="arch" type="xml">                              
-                <search string="Parent Procedure Not Performed Reasons">                           
+                <search string="Procedure Codes">                           
                     <field name="name"/>                        
                     <field name="code"/>                        
                     <field name="definition"/>                              
@@ -388,11 +406,11 @@
             </field>                                
         </record>                                   
                                             
-        <record id="hc_parent_procedure_not_performed_reason_view_tree" model="ir.ui.view">                                 
-            <field name="name">Parent Procedure Not Performed Reason Tree</field>                              
-            <field name="model">hc.parent.procedure.not.performed.reason</field>                                
+        <record id="hc_procedure_view_tree" model="ir.ui.view">                                 
+            <field name="name">Procedure Tree</field>                              
+            <field name="model">hc.vs.procedure.code</field>                                
             <field name="arch" type="xml">                              
-                <tree string="Parent Procedure Not Performed Reasons" default_order="name, code">                          
+                <tree string="Procedure Codes" default_order="name, code">                          
                     <field name="name"/>                        
                     <field name="code"/>                        
                     <field name="definition"/>                                           
@@ -401,11 +419,11 @@
             </field>                                
         </record>                                   
                                             
-        <record id="hc_parent_procedure_not_performed_reason_view_form" model="ir.ui.view">                                 
-            <field name="name">Parent Procedure Not Performed Reason Form</field>                              
-            <field name="model">hc.parent.procedure.not.performed.reason</field>                                
+        <record id="hc_procedure_view_form" model="ir.ui.view">                                 
+            <field name="name">Procedure Code Form</field>                              
+            <field name="model">hc.vs.procedure.code</field>                                
             <field name="arch" type="xml">                              
-                <form string="Parent Procedure Not Performed Reasons" >                            
+                <form string="Procedures" >                            
                     <sheet>                     
                         <h1>                    
                             <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>              
@@ -427,18 +445,18 @@
             </field>                                
         </record>                                   
 
-        <act_window id="hc_parent_procedure_not_performed_reason_action"            
-                    name="HC Parent Procedure Not Performed Reasons"
-                    res_model="hc.parent.procedure.not.performed.reason"
+        <act_window id="hc_procedure_action"            
+                    name="HC Procedure Codes"
+                    res_model="hc.vs.procedure.code"
                     view_mode="tree,form"
                     domain=""
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_procedure.menu_par_proc_not_rsn" 
-                  name="Parent Procedure Not Performed Reasons" 
+        <menuitem id="hc_procedure.menu_proc_code" 
+                  name="Procedure Codes" 
                   parent="hc_procedure.menu_proc" 
-                  action="hc_parent_procedure_not_performed_reason_action" 
+                  action="hc_procedure_action" 
                   groups="hc_base.group_hc_base_manager" 
                   sequence="5"/>
 

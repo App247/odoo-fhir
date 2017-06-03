@@ -1,8 +1,124 @@
 <openerp>
     <data>
 
-        <!-- Coverages Action and Menu -->      
-        
+        <!-- Coverage Views -->                                     
+                                        
+        <record id="hc_res_coverage_view_search" model="ir.ui.view">                                        
+            <field name="name">Coverage Search</field>                                  
+            <field name="model">hc.res.coverage</field>                                 
+            <field name="arch" type="xml">                                  
+                <search string="Coverages">
+                    <field name="name"/>                                 
+                </search>                               
+            </field>                                    
+        </record>                                       
+                                                
+        <record id="hc_res_coverage_view_tree" model="ir.ui.view">                                      
+            <field name="name">Coverage Tree</field>                                    
+            <field name="model">hc.res.coverage</field>                                 
+            <field name="arch" type="xml">                                  
+                <tree string="Coverages">
+                    <field name="name"/>                              
+                </tree>                             
+            </field>                                    
+        </record>                                       
+                                                
+        <record id="hc_res_coverage_view_form" model="ir.ui.view">                                      
+            <field name="name">Coverage Form</field>                                    
+            <field name="model">hc.res.coverage</field>                                 
+            <field name="arch" type="xml">                                  
+                <form string="Coverage">                                
+                    <sheet>                         
+                        <h1>                        
+                            <field name="name" default_focus="1" placeholder="Name"/>                   
+                        </h1>
+                        <group> 
+                            <group string="Event">
+                                <field name="network_id"/>
+                                <field name="policy_holder_name"/>
+                                <field name="policy_holder_type" class="oe_edit_only"/>
+                                <field name="policy_holder_patient_id" class="oe_edit_only" attrs="{'invisible': [('policy_holder_type','!=','patient')], 'required': [('policy_holder_type','=','patient')]}"/>
+                                <field name="policy_holder_related_person_id" class="oe_edit_only" attrs="{'invisible': [('policy_holder_type','!=','related_person')], 'required': [('policy_holder_type','=','related_person')]}"/>
+                                <field name="policy_holder_organization_id" class="oe_edit_only" attrs="{'invisible': [('policy_holder_type','!=','organization')], 'required': [('policy_holder_type','=','organization')]}"/>
+                                <field name="subscriber_name"/>
+                                <field name="subscriber_type" class="oe_edit_only"/>
+                                <field name="subscriber_patient_id" class="oe_edit_only" attrs="{'invisible': [('subscriber_type','!=','patient')], 'required': [('subscriber_type','=','patient')]}"/>
+                                <field name="subscriber_related_person_id" class="oe_edit_only" attrs="{'invisible': [('subscriber_type','!=','related_person')], 'required': [('subscriber_type','=','related_person')]}"/>
+                                <field name="beneficiary_id"/>
+                                <field name="relationship_id"/>
+                                <field name="type_id"/>
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                                <field name="status"/>
+                            </group>
+                            <group string="Grouping">
+                                <field name="grouping_id"/>
+                            </group>
+                            <group string="Context">
+                                <field name="payor_name"/>
+                                <field name="payor_type" class="oe_edit_only"/>
+                                <field name="payor_organization_id" class="oe_edit_only" attrs="{'invisible': [('payor_type','!=','organization')], 'required': [('payor_type','=','organization')]}"/>
+                                <field name="payor_patient_id" class="oe_edit_only" attrs="{'invisible': [('payor_type','!=','patient')], 'required': [('payor_type','=','patient')]}"/>
+                                <field name="payor_related_person_id" class="oe_edit_only" attrs="{'invisible': [('payor_type','!=','related_person')], 'required': [('payor_type','=','related_person')]}"/>
+                            </group>
+                            <group string="Miscl">
+                                <field name="dependent"/>
+                                <field name="sequence"/>
+                                <field name="order"/>
+                            </group>
+                        </group>                       
+                        <notebook>                      
+                            <page string="Identifiers">                 
+                                <field name="identifier_ids" mode="tree">               
+                                    <tree default_order="is_preferred">
+                                        <field name="is_preferred"/>
+                                        <field name="name"/>
+                                        <field name="value"/>
+                                        <field name="start_date"/>
+                                        <field name="end_date"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <h1>
+                                                <field name="name" placeholder="Identifier"/>
+                                            </h1>
+                                            <group col="4" colspan="4">
+                                                <group>
+                                                    <field name="value"/>
+                                                    <field name="is_preferred"/>
+                                                    <field name="is_active"/>
+                                                </group>
+                                                <group>
+                                                    <field name="start_date" placeholder="Valid From"/>
+                                                    <field name="end_date" placeholder="Valid To"/>
+                                               </group>
+                                            </group>
+                                        </sheet>
+                                    </form>             
+                                </field>                
+                            </page>
+                            <page string="Contracts">                 
+                                <field name="contract_ids" mode="tree">               
+                                    <tree>          
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group>                     
+                                                <group>                 
+                                                </group>                    
+                                                <group>                 
+                                                </group>                    
+                                            </group>    
+                                        </sheet>        
+                                    </form>         
+                                </field>                
+                            </page>                 
+                        </notebook>                     
+                    </sheet>                            
+                </form>                             
+            </field>                                    
+        </record>                                       
+   
         <act_window id="hc_res_coverage_action"     
                     name="HC Coverages" 
                     res_model="hc.res.coverage" 
@@ -17,6 +133,220 @@
                   action="hc_res_coverage_action" 
                   groups="hc_base.group_hc_base_manager" 
                   sequence="10"/>
+
+        <!-- Coverage Grouping Views -->                                        
+                                        
+        <record id="hc_coverage_grouping_view_search" model="ir.ui.view">                                       
+            <field name="name">Coverage Grouping Search</field>                                 
+            <field name="model">hc.coverage.grouping</field>                                    
+            <field name="arch" type="xml">                                  
+                <search string="Coverage Groupings">                                
+                </search>                               
+            </field>                                    
+        </record>                                       
+                                                
+        <record id="hc_coverage_grouping_view_tree" model="ir.ui.view">                                     
+            <field name="name">Coverage Grouping Tree</field>                                   
+            <field name="model">hc.coverage.grouping</field>                                    
+            <field name="arch" type="xml">                                  
+                <tree string="Rage Groupings">                              
+                </tree>                             
+            </field>                                    
+        </record>                                       
+                                                
+        <record id="hc_coverage_grouping_view_form" model="ir.ui.view">                                     
+            <field name="name">Coverage Grouping Form</field>                                   
+            <field name="model">hc.coverage.grouping</field>                                    
+            <field name="arch" type="xml">                                  
+                <form string="Rage Grouping">                               
+                    <sheet>                         
+                        <h1>                        
+                            <field name="name" default_focus="1" placeholder="Name"/>                   
+                        </h1>                       
+                        <group>                     
+                            <group string="Group">
+                                <field name="group"/>
+                                <field name="group_display"/>
+                                <field name="sub_group"/>
+                                <field name="sub_group_display"/>
+
+                            </group>
+                            <group string="Plan">
+                                <field name="plan"/>
+                                <field name="plan_display"/>
+                                <field name="sub_plan"/>
+                                <field name="sub_plan_display"/>
+                            </group>                    
+                            <group string="Class">
+                                <field name="coverage_class"/>
+                                <field name="class_display"/>
+                                <field name="sub_class"/>
+                                <field name="sub_class_display"/>
+                            </group>                    
+                        </group>                                             
+                    </sheet>                            
+                </form>                             
+            </field>                                    
+        </record>                                                                         
+                                                
+        <act_window id="hc_coverage_grouping_action"                                        
+                    name="HC Coverage Groupings"                            
+                    res_model="hc.coverage.grouping"                            
+                    view_mode="tree,form"                           
+                    domain=""                           
+                    context=""                          
+                    limit=""/>
+
+        <menuitem id="hc_coverage.menu_cov_grp" 
+                  name="Coverage Grouping" 
+                  parent="hc_coverage.menu_cov" 
+                  action="hc_coverage_grouping_action" 
+                  groups="hc_base.group_hc_base_manager" 
+                  sequence="5"/>
+
+        <!-- Coverage Type Views -->                        
+                        
+        <record id="hc_vs_coverage_type_view_search" model="ir.ui.view">                        
+            <field name="name">Coverage Type Search</field>                 
+            <field name="model">hc.vs.coverage.type</field>                 
+            <field name="arch" type="xml">                  
+                <search string="Coverage Types">                
+                    <field name="name"/>            
+                    <field name="code"/>            
+                    <field name="definition"/>          
+                    <group>         
+                        <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>      
+                    </group>            
+                </search>               
+            </field>                    
+        </record>                       
+                                
+        <record id="hc_vs_coverage_type_view_tree" model="ir.ui.view">                      
+            <field name="name">Coverage Type Tree</field>                   
+            <field name="model">hc.vs.coverage.type</field>                 
+            <field name="arch" type="xml">                  
+                <tree string="Coverage Types" default_order="name, code">               
+                    <field name="name"/>            
+                    <field name="code"/>            
+                    <field name="definition"/>          
+                    <field name="contains_id"/>         
+                    <field name="source_id" invisible="0"/>         
+                </tree>             
+            </field>                    
+        </record>                       
+                                
+        <record id="hc_vs_coverage_type_view_form" model="ir.ui.view">                      
+            <field name="name">Coverage Type Form</field>                   
+            <field name="model">hc.vs.coverage.type</field>                 
+            <field name="arch" type="xml">                  
+                <form string="Coverage Type">               
+                    <sheet>         
+                        <h1>        
+                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>  
+                        </h1>       
+                        <field name="code" placeholder="Code (e.g., biological)"/>      
+                        <field name="definition" placeholder="Definition"/>     
+                        <field name="comments" placeholder="Comments"/>     
+                        <group>     
+                            <group> 
+                                <field name="contains_id"/>
+                            </group>    
+                            <group> 
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
+                            </group>    
+                        </group>        
+                    </sheet>            
+                </form>             
+            </field>                    
+        </record>                       
+
+        <act_window id="hc_vs_coverage_type_action"         
+                    name="HC Coverage Types"
+                    res_model="hc.vs.coverage.type"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <menuitem id="hc_coverage.menu_cov_type" 
+                  name="Coverage Type" 
+                  parent="hc_coverage.menu_cov" 
+                  action="hc_vs_coverage_type_action" 
+                  groups="hc_base.group_hc_base_manager" 
+                  sequence="10"/>
+
+        <!-- Policyholder Relationship Views -->                        
+                        
+        <record id="hc_vs_policyholder_relationship_view_search" model="ir.ui.view">                        
+            <field name="name">Policyholder Relationship Search</field>                 
+            <field name="model">hc.vs.policyholder.relationship</field>                 
+            <field name="arch" type="xml">                  
+                <search string="Policyholder Relationships">                
+                    <field name="name"/>            
+                    <field name="code"/>            
+                    <field name="definition"/>          
+                    <group>         
+                        <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>      
+                    </group>            
+                </search>               
+            </field>                    
+        </record>                       
+                                
+        <record id="hc_vs_policyholder_relationship_view_tree" model="ir.ui.view">                      
+            <field name="name">Policyholder Relationship Tree</field>                   
+            <field name="model">hc.vs.policyholder.relationship</field>                 
+            <field name="arch" type="xml">                  
+                <tree string="Policyholder Relationships" default_order="name, code">               
+                    <field name="name"/>            
+                    <field name="code"/>            
+                    <field name="definition"/>          
+                    <field name="contains_id"/>         
+                    <field name="source_id" invisible="0"/>         
+                </tree>             
+            </field>                    
+        </record>                       
+                                
+        <record id="hc_vs_policyholder_relationship_view_form" model="ir.ui.view">                      
+            <field name="name">Policyholder Relationship Form</field>                   
+            <field name="model">hc.vs.policyholder.relationship</field>                 
+            <field name="arch" type="xml">                  
+                <form string="Policyholder Relationship">               
+                    <sheet>         
+                        <h1>        
+                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>  
+                        </h1>       
+                        <field name="code" placeholder="Code (e.g., biological)"/>      
+                        <field name="definition" placeholder="Definition"/>     
+                        <field name="comments" placeholder="Comments"/>     
+                        <group>     
+                            <group> 
+                                <field name="contains_id"/>
+                            </group>    
+                            <group> 
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
+                            </group>    
+                        </group>        
+                    </sheet>            
+                </form>             
+            </field>                    
+        </record>                       
+
+        <act_window id="hc_vs_policyholder_relationship_action"         
+                    name="HC Policyholder Relationships"
+                    res_model="hc.vs.policyholder.relationship"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <menuitem id="hc_coverage.menu_pol_rel" 
+                  name="Policyholder Relationship"
+                  parent="hc_coverage.menu_cov" 
+                  action="hc_vs_policyholder_relationship_action" 
+                  groups="hc_base.group_hc_base_manager" 
+                  sequence="20"/>
 
     </data>
 </openerp>

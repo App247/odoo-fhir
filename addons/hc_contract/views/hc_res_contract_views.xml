@@ -18,5 +18,18 @@
                   groups="hc_base.group_hc_base_manager" 
                   sequence="20"/>
 
+        <!-- External Reference -->
+
+        <record id="hc_res_coverage_view_form_inherit" model="ir.ui.view">
+            <field name="name">Coverage Form Inherit</field>
+            <field name="model">hc.res.coverage</field>
+            <field name="inherit_id" ref="hc_coverage.hc_res_coverage_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='contract_ids']//form//group//group" position="after">
+                    <field name="contract_id"/>
+                </xpath>
+            </field>
+        </record>
+
     </data>
 </openerp>
