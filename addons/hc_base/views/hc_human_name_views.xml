@@ -1,6 +1,11 @@
 <openerp>
     <data>
 
+        <menuitem id="hc_base.menu_human_name" 
+                  name="Human Name" 
+                  parent="hc_base.menu_datatype"
+                  groups="hc_base.group_hc_base_manager" 
+                  sequence="40"/>
 
         <!-- Human Name Term Type Views -->                     
                         
@@ -133,12 +138,6 @@
                         domain=""
                         context=""
                         limit=""/>
-                  
-            <menuitem id="hc_base.menu_human_name" 
-                      name="Human Name" 
-                      parent="hc_base.menu_datatype"
-                      groups="hc_base.group_hc_base_manager" 
-                      sequence="40"/>
 
                 <menuitem id="hc_base.menu_human_name_term" 
                           name="Terms" 

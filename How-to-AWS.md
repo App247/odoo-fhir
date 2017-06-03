@@ -1,5 +1,8 @@
 # Initialize
 
+Assign security group
+Assign fixed address - elastic IP
+
 # Update
 
 * Connect to server through PuTTY
