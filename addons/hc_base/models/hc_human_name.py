@@ -176,18 +176,10 @@ class HumanName(models.Model):
             ("maiden_last_first", "Last First (e.g., East Asian name)"),
             ("first_last_maiden", "First Last Maiden (e.g., Hispanic name)")],
         default="first_maiden_last",
-        help="The display order of this human name.")                 
-    use = fields.Selection(
-        string="Use", 
-        selection=[
-            ("usual", "Usual"), 
-            ("official", "Official"), 
-            ("temp", "Temp"), 
-            ("nickname", "Nickname"), 
-            ("anonymous", "Anonymous"), 
-            ("old", "Old"), ("maiden", "Maiden")], 
-        default="usual",
-        help="The use of a human name.")
+        help="The display order of this human name.")
+    is_animal_name = fields.Boolean(
+        string="Animal Name",
+        help="Indicates if this name is an animal name.")                 
     
     _sql_constraints = [    
         ('name_uniq',
