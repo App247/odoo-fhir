@@ -19,7 +19,12 @@ class Person(models.Model):
         comodel_name="hc.human.name",
         string="Full Name",
         required="True",
-        help="A full text representation of this Person's name.")
+        help="A full text representation of this Person's name when the record was created.")
+    preferred_name = fields.Char(
+        string="Preferred Name", 
+        compute="_compute_preferred_name", 
+        store="True", 
+        help="Preferred name of person.")
     unique_person = fields.Char(
         string="Unique Person", 
         compute="_compute_unique_person", 
@@ -113,12 +118,22 @@ class Person(models.Model):
         res = super(Person, self).create(vals)
         if name:
             names_vals.update({
-                        'is_preferred': True,
-                        'human_name_id': name.id,
-                        'person_id': res.id
-                        })
+                'is_preferred': True,
+                'human_name_id': name.id,
+                'person_id': res.id,
+                'start_date': res.birth_date,
+                })
             person_name_obj.create(names_vals)
+        return res
 
+    @api.multi
+    def write(self, vals):
+        if vals and vals.get('birth_date'):
+            for rec in self:
+                for name_id in rec.name_ids:
+                    if vals.get('birth_date') > name_id.start_date:
+                        name_id.start_date = vals.get('birth_date')
+        res = super(Person, self).write(vals)
         return res
 
         # vals['is_patient'] = self.env.context.get('is_patient', False)
@@ -234,14 +249,28 @@ class PersonName(models.Model):
         comodel_name="hc.res.person", 
         string="Person", 
         help="Person associated with this Person Name.")
-    # start_date = fields.Datetime(
-    #     default=person_id.birth_date)
+    person_name = fields.Char(
+        string="Person Name",
+        compute="_compute_name",
+        store="True",
+        help="Person ID + Human Name ID.")
 
-    # _sql_constraints = [    
-    #     ('human_name_uniq',
-    #     'UNIQUE (human_name_id)',
-    #     'Human name must be unique.')
-    #     ]
+    @api.depends('human_name_id', 'person_id')              
+    def _compute_name(self):                
+        comp_name = '/'         
+        for hc_person_name in self:         
+            if hc_person_name.human_name_id:        
+                comp_name = str(hc_person_name.human_name_id) or '' 
+            if hc_person_name.person_id:        
+                comp_name = comp_name + ", " + str(hc_person_name.person_id) or ''   
+    
+    _sql_constraints = [    
+        ('name_uniq',
+        'UNIQUE (name)',
+        'Person name must be unique.')
+        ]
+
+    # If new name is preferred, make old name not preferred and set its end date to the start date of the new preferred name.
 
     @api.model
     def create(self, vals):
@@ -250,6 +279,15 @@ class PersonName(models.Model):
             person_ids = self.search([('person_id','=',vals.get('person_id'))])
             for person in person_ids:
                 person.is_preferred = False
+        if vals:
+            person_ids = self.search([('person_id','=',vals.get('person_id')),('end_date','=',False)])
+            for person in person_ids:
+                if not vals.get('start_date'):
+                    person.end_date = datetime.today()
+                else:
+                    person.end_date = vals.get('start_date')
+            if not vals.get('start_date'):
+                vals.update({'start_date': datetime.today()})
         return super(PersonName, self).create(vals)
 
     @api.multi

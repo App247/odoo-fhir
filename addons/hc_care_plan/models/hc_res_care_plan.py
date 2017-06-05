@@ -169,10 +169,17 @@ class CarePlanActivity(models.Model):
         string="Progress", 
         help="Comments about the activity status/progress.")
     reference_type = fields.Selection(
-        string="Reference Type", 
+        string="Reference Type",
         selection=[
             ("appointment", "Appointment"), 
-            ("communication_request", "Communication Request")], 
+            ("communication_request", "Communication Request"), 
+            ("device_request", "Device Request"), 
+            ("medication_request", "Medication Request"), 
+            ("nutrition_order", "Nutrition Order"), 
+            ("task", "Task"), 
+            ("procedure_request", "Procedure Request"), 
+            ("referral_request", "Referral Request"), 
+            ("vision_prescription", "Vision Prescription") ],
         help="Type of activity details defined in specific resource.")
     reference_name = fields.Char(
         string="Reference", 

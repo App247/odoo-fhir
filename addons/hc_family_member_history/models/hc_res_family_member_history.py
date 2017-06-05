@@ -279,6 +279,14 @@ class FamilyMemberHistory(models.Model):
             elif hc_res_family_member_history.deceased_age_type == 'string': 
                 hc_res_family_member_history.deceased_age_name = hc_res_family_member_history.deceased_age_string
 
+# Constraints
+
+# fhs-1: Can have age[x] or born[x], but not both (expression : age.empty() or born.empty())
+# fhs-2: Can only have estimatedAge if age[x] is present (expression : age.exists() or estimatedAge.empty())
+
+
+
+
 class FamilyMemberHistoryCondition(models.Model):   
     _name = "hc.family.member.history.condition"    
     _description = "Family Member History Condition"            

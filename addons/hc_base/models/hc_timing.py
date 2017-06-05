@@ -182,6 +182,32 @@ class TimingRepeat(models.Model):
         'Maximum Period SHALL not be lower than Period.')  
         ]
 
+    # Default for max
+    
+    @api.onchange('count')
+    def _onchange_count(self):
+        for rec in self:
+            if rec.count and not rec.count_max > rec.count:
+                rec.count_max = rec.count
+
+    @api.onchange('duration')
+    def _onchange_duration(self):
+        for rec in self:
+            if rec.duration and not rec.duration_max > rec.duration:
+                rec.duration_max = rec.duration
+
+    @api.onchange('frequency')
+    def _onchange_frequency(self):
+        for rec in self:
+            if rec.frequency and not rec.frequency_max > rec.frequency:
+                rec.frequency_max = rec.frequency
+
+    @api.onchange('period')
+    def _onchange_period(self):
+        for rec in self:
+            if rec.period and not rec.period_max > rec.period:
+                rec.period_max = rec.period
+
     @api.depends('bounds_type')         
     def _compute_bounds_name(self):         
         for hc_timing_repeat in self:

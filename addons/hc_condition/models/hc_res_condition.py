@@ -369,7 +369,7 @@ class ConditionStageAssessment(models.Model):
         string="Assessment Type", 
         selection=[
             ("clinical_impression", "Clinical Impression"), 
-            ("diagnostic_report", "Diagnostic Report"), 
+            ("diagnostic_report", "Diagnostic Report"),
             ("observation", "Observation")], 
         help="Type of assessment.")                    
     assessment_name = fields.Char(
