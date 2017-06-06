@@ -54,7 +54,7 @@
                                 <field name="relationship_id"/>
                                 <field name="gender"/>
                                 <field name="date"/>
-                                <field name="type_id"/>
+                                <field name="type_id" placeholder="Purpose (e.g., For counseling)"/>
                                 <field name="severity_id"/>
                             </group>
                             <group string="Status">
@@ -319,8 +319,8 @@
                                         <sheet>               
                                             <group>     
                                                 <group>
-                                                    <field name="type_id"/>
-                                                    <field name="reference_id"/>
+                                                    <field name="type_id" placeholder="Relationship"/>
+                                                    <field name="reference_id" placeholder="Family Member History"/>
                                                 </group>    
                                                 <group> 
                                                 </group>    
@@ -339,8 +339,8 @@
                                         <sheet>              
                                             <group>     
                                                 <group>
-                                                    <field name="type_id"/>
-                                                    <field name="reference_id"/>
+                                                    <field name="type_id" placeholder="Relationship"/>
+                                                    <field name="reference_id" placeholder="Family Member History"/>
                                                 </group>    
                                                 <group> 
                                                 </group>    
@@ -447,7 +447,78 @@
                   action="hc_vs_v3_family_member_history_action" 
                   groups="hc_base.group_hc_base_manager" 
                   sequence="10"/>
-             
+        
+        <!-- Family Member History Type Views -->                       
+                        
+        <record id="hc_vs_family_member_history_type_view_search" model="ir.ui.view">                       
+            <field name="name">Family Member History Type Search</field>                    
+            <field name="model">hc.vs.family.member.history.type</field>                    
+            <field name="arch" type="xml">                  
+                <search string="Family Member History Types">               
+                    <field name="name"/>            
+                    <field name="code"/>            
+                    <field name="definition"/>          
+                    <group>         
+                        <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>      
+                    </group>            
+                </search>               
+            </field>                    
+        </record>                       
+                                
+        <record id="hc_vs_family_member_history_type_view_tree" model="ir.ui.view">                     
+            <field name="name">Family Member History Type Tree</field>                  
+            <field name="model">hc.vs.family.member.history.type</field>                    
+            <field name="arch" type="xml">                  
+                <tree string="Family Member History Types" default_order="name, code">              
+                    <field name="name"/>            
+                    <field name="code"/>            
+                    <field name="definition"/>          
+                    <field name="contains_id"/>         
+                    <field name="source_id" invisible="0"/>         
+                </tree>             
+            </field>                    
+        </record>                       
+                                
+        <record id="hc_vs_family_member_history_type_view_form" model="ir.ui.view">                     
+            <field name="name">Family Member History Type Form</field>                  
+            <field name="model">hc.vs.family.member.history.type</field>                    
+            <field name="arch" type="xml">                  
+                <form string="Family Member History Types" >                
+                    <sheet>         
+                        <h1>        
+                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>  
+                        </h1>       
+                        <field name="code" placeholder="Code (e.g., biological)"/>      
+                        <field name="definition" placeholder="Definition"/>     
+                        <field name="comments" placeholder="Comments"/>     
+                        <group>     
+                            <group> 
+                                <field name="contains_id"/>
+                            </group>    
+                            <group> 
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
+                            </group>    
+                        </group>        
+                    </sheet>            
+                </form>             
+            </field>                    
+        </record>                                             
+                                
+        <act_window id="hc_vs_family_member_history_type_action"                        
+                    name="HC Family Member History Types"            
+                    res_model="hc.vs.family.member.history.type"            
+                    view_mode="tree,form"           
+                    domain=""           
+                    context=""          
+                    limit=""/>          
+
+        <menuitem id="hc_family_member_history.menu_fam_mbr_hist_type" 
+                  name="History Type" 
+                  parent="hc_family_member_history.menu_fam_hist" 
+                  action="hc_vs_family_member_history_type_action" 
+                  groups="hc_base.group_hc_base_manager" 
+                  sequence="20"/>
 
     </data>
 </openerp>

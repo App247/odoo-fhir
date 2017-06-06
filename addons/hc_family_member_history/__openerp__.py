@@ -31,6 +31,7 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'data/data_family_member_history.xml',
         'data/hc.vs.v3.family.member.csv',
         'views/hc_res_family_member_history_views.xml',
         'views/hc_res_family_member_history_templates.xml',
