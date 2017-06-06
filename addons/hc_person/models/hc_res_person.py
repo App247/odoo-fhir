@@ -107,7 +107,7 @@ class Person(models.Model):
         'Person must be unique.')
         ]  
 
-    # When creating a new record, add Person Name to the list of Person Names and mark it as preferred.
+    # For a new record, add Person Name to the list of Person Names and mark it as preferred.
 
     @api.model
     def create(self, vals):
@@ -125,6 +125,8 @@ class Person(models.Model):
                 })
             person_name_obj.create(names_vals)
         return res
+
+    # For an existing record,
 
     @api.multi
     def write(self, vals):
@@ -249,11 +251,13 @@ class PersonName(models.Model):
         comodel_name="hc.res.person", 
         string="Person", 
         help="Person associated with this Person Name.")
+    
+    # technical field used to manage unique person name
     person_name = fields.Char(
         string="Person Name",
         compute="_compute_name",
         store="True",
-        help="Person ID + Human Name ID.")
+        help="Human Name ID + Person ID.")
 
     @api.depends('human_name_id', 'person_id')              
     def _compute_name(self):                
@@ -271,6 +275,7 @@ class PersonName(models.Model):
         ]
 
     # If new name is preferred, make old name not preferred and set its end date to the start date of the new preferred name.
+    # If new name is not preferred, don't change old name record.
 
     @api.model
     def create(self, vals):

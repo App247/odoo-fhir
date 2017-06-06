@@ -25,3 +25,13 @@ sudo service odoo-server restart
 ```
 <IP Address that looks like 99.99.999.999>:8069
 ```
+# Error: `remote: fatal error in commit_refs`
+
+`sudo git gc`
+
+if this does not work, try
+
+```
+sudo git fsck
+sudo git gc
+```

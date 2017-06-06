@@ -172,8 +172,7 @@ class FamilyMemberHistory(models.Model):
             ("age", "Age"), 
             ("range", "Range"), 
             ("date", "Date"), 
-            ("string", "String")], 
-        default="date",
+            ("string", "String")],
         help="Type of dead? how old/when?")                   
     deceased_age_name = fields.Char(
         string="Deceased Age", 
@@ -216,11 +215,46 @@ class FamilyMemberHistory(models.Model):
         inverse_name="family_member_history_id", 
         string="Notes", 
         help="General note about related person.")
+    
+    #Extension attribute
+    patient_record_ids = fields.One2many(
+        comodel_name="hc.family.member.history.patient.record", 
+        inverse_name="family_member_history_id", 
+        string="Patient Records", 
+        help="A link to one to more patient records for the relation.")
+    severity_id = fields.Many2one(
+        comodel_name="hc.vs.condition.severity", 
+        string="Severity", 
+        help="A qualification of the seriousness or impact on health of the family member condition.")
+    type_id = fields.Many2one(
+        comodel_name="hc.vs.family.member.history.type", 
+        string="Type", 
+        help="Purpose of the family member history or why it was created, such as when family member history is targeted for cardiovascular health, mental health, or genetic counseling.")
+    genetics_observation_ids = fields.One2many(
+        comodel_name="hc.family.member.history.genetics.observation", 
+        inverse_name="family_member_history_id", 
+        string="Genetics Observations", 
+        help="Allows capturing risk-relevant observations about the relative that aren't themselves a specific health condition; e.g. Certain ethnic ancestries that are disease-relevant, presence of particular genetic markers, etc..")
+
+    # Backbone element
     condition_ids = fields.One2many(
         comodel_name="hc.family.member.history.condition", 
         inverse_name="family_member_history_id", 
         string="Conditions", 
         help="Condition that the related person had.")
+
+    #Extension bacbone element
+    parent_ids = fields.One2many(
+        comodel_name="hc.family.member.history.parent", 
+        inverse_name="family_member_history_id", 
+        string="Parents", 
+        help="Identifies a parent of the relative.")
+    sibling_ids = fields.One2many(
+        comodel_name="hc.family.member.history.sibling", 
+        inverse_name="family_member_history_id", 
+        string="Siblings", 
+        help="Identifies a sibling of the relative.")
+
         
     @api.depends('patient_id', 'family_member_name', 'date')             
     def _compute_record_name(self):                
@@ -341,7 +375,37 @@ class FamilyMemberHistoryCondition(models.Model):
         comodel_name="hc.family.member.history.condition.note", 
         inverse_name="condition_id", 
         string="Notes", 
-        help="Extra information about condition.")              
+        help="Extra information about condition.")
+
+    # Extension attribute
+    abatement_type = fields.Selection(
+        string="Abatement Type", 
+        required="True", 
+        selection=[
+            ("date", "Date"), 
+            ("Age", "Age"), 
+            ("boolean", "Boolean")], 
+        help="Type of the approximate date, age, or flag indicating that the condition of the family member resolved.")
+    abatement_name = fields.Char(
+        string="Abatement", 
+        compute="_compute_abatement_name", store="True", 
+        help="The approximate date, age, or flag indicating that the condition of the family member resolved.")
+    abatement_date = fields.Date(
+        string="Abatement Date", 
+        help="The approximate date indicating that the condition of the family member resolved.")
+    abatement_age = fields.Integer(
+        string="Abatement Age", 
+        size=3, 
+        help="The approximate age indicating that the condition of the family member resolved.")
+    abatement_age_uom_id = fields.Many2one(
+        comodel_name="product.uom", 
+        string="Abatement Age UOM", 
+        domain="[('category_id','=','Time (UCUM)')]", 
+        default="a", 
+        help="Abatement age unit of measure.")
+    abatement_boolean = fields.Boolean(
+        string="Abatement Boolean", 
+        help="The flag indicating that the condition of the family member resolved.")
 
     @api.depends('onset_type')          
     def _compute_onset_name(self):          
@@ -352,6 +416,54 @@ class FamilyMemberHistoryCondition(models.Model):
                 hc_family_member_history_condition.onset_name = hc_family_member_history_condition.onset_string
             elif hc_family_member_history_condition.onset_type == 'range':  
                 hc_family_member_history_condition.onset_name = "Between " + str(hc_family_member_history_condition.onset_range_low) + " and " + str(hc_family_member_history_condition.onset_range_high)
+
+    @api.depends('abatement_type')          
+    def _compute_abatement_name(self):          
+        for hc_family_member_history_condition in self:     
+            if hc_family_member_history_condition.abatement_type == 'date': 
+                hc_family_member_history_condition.abatement_name = str(hc_family_member_history_condition.abatement_date)
+            elif hc_family_member_history_condition.abatement_type == 'age':    
+                hc_family_member_history_condition.abatement_name = str(hc_family_member_history_condition.abatement_age) + " " + str(hc_family_member_history_condition.abatement_age_uom_id.name) + "s old"
+            elif hc_family_member_history_condition.abatement_type == 'boolean':    
+                hc_family_member_history_condition.abatement_name = hc_family_member_history_condition.abatement_boolean
+
+# Extension class
+class FamilyMemberHistoryParent(models.Model):
+    _name = "hc.family.member.history.parent"
+    _description = "Family Member History Parent"
+
+    family_member_history_id = fields.Many2one(
+        comodel_name="hc.res.family.member.history", 
+        string="Family Member History", 
+        help="Family Member History associated with this Family Member History Parent.")        
+    type_id = fields.Many2one(
+        comodel_name="hc.vs.v3.family.member", 
+        string="Type",
+        domain="[('hierarchy_id','=','parent')]", 
+        help="mother | father | adoptive mother | etc..")
+    reference_id = fields.Many2one(
+        comodel_name="hc.res.family.member.history", 
+        string="Reference", 
+        help="Link to parent relative(s).")
+                 
+class FamilyMemberHistorySibling(models.Model):
+    _name = "hc.family.member.history.sibling"
+    _description = "Family Member History Sibling"
+
+    family_member_history_id = fields.Many2one(
+        comodel_name="hc.res.family.member.history", 
+        string="Family Member History", 
+        help="Family Member History associated with this Family Member History Sibling.")       
+    type_id = fields.Many2one(
+        comodel_name="hc.vs.v3.family.member", 
+        string="Type",
+        domain="[('hierarchy_id','=','sibling')]", 
+        help="sibling | brother | sister | etc..")
+    reference_id = fields.Many2one(
+        comodel_name="hc.res.family.member.history", 
+        string="Reference", 
+        help="Link to sibling relative(s).")
+          
 
 class FamilyMemberHistoryIdentifier(models.Model): 
     _name = "hc.family.member.history.identifier"   
@@ -501,6 +613,72 @@ class FamilyMemberHistoryConditionNote(models.Model):
             elif hc_family_member_history_note.author_type == 'related_person':
                 hc_family_member_history_note.author_name = hc_family_member_history_note.author_related_person_id.name
 
+# Extension association
+class FamilyMemberHistoryPatientRecord(models.Model):
+    _name = "hc.family.member.history.patient.record"
+    _description = "Family Member History Patient Record"
+    _inherit = ["hc.basic.association"]
+
+    family_member_history_id = fields.Many2one(
+        comodel_name="hc.res.family.member.history", 
+        string="Family Member History", 
+        help="Family Member History associated with this Family Member History Patient Record.")                                
+    patient_record_type = fields.Selection(
+        string="Patient Record Type", 
+        selection=[
+            ("person", "Person"), 
+            ("patient", "Patient"), 
+            ("practitioner", "Practitioner"), 
+            ("related_person", "Related Person")], 
+        help="Type of instantiates protocol or definition.")
+    patient_record_name = fields.Char(
+        string="Patient Record", 
+        compute="_compute_patient_record_name", 
+        store="True", 
+        help="A link to one to more patient records for the relation.")
+    patient_record_person_id = fields.Many2one(
+        comodel_name="hc.res.person", 
+        string="Patient Record Person", 
+        help="Person link to one to more patient records for the relation.")
+    patient_record_patient_id = fields.Many2one(
+        comodel_name="hc.res.patient", 
+        string="Patient Record Patient", 
+        help="Patient link to one to more patient records for the relation.")
+    patient_record_practitioner_id = fields.Many2one(
+        comodel_name="hc.res.practitioner", 
+        string="Patient Record Practitioner", 
+        help="Practitioner link to one to more patient records for the relation.")
+    patient_record_related_person_id = fields.Many2one(
+        comodel_name="hc.res.related.person", 
+        string="Patient Record Related Person", 
+        help="Related Person link to one to more patient records for the relation.")
+
+    @api.depends('patient_record_type')         
+    def _compute_patient_record_name(self):         
+        for hc_family_member_history_patient_record in self:        
+            if hc_family_member_history_patient_record.patient_record_type == 'person': 
+                hc_family_member_history_patient_record.patient_record_name = hc_family_member_history_patient_record.patient_record_person_id.name
+            elif hc_family_member_history_patient_record.patient_record_type == 'patient':  
+                hc_family_member_history_patient_record.patient_record_name = hc_family_member_history_patient_record.patient_record_patient_id.name
+            elif hc_family_member_history_patient_record.patient_record_type == 'practitioner': 
+                hc_family_member_history_patient_record.patient_record_name = hc_family_member_history_patient_record.patient_record_practitioner_id.name
+            elif hc_family_member_history_patient_record.patient_record_type == 'related_person':   
+                hc_family_member_history_patient_record.patient_record_name = hc_family_member_history_patient_record.patient_record_related_person_id.name
+
+class FamilyMemberHistoryGeneticsObservation(models.Model):
+    _name = "hc.family.member.history.genetics.observation"
+    _description = "Family Member History Genetics Observation"
+    _inherit = ["hc.basic.association"]
+
+    family_member_history_id = fields.Many2one(
+        comodel_name="hc.res.family.member.history", 
+        string="Family Member History", 
+        help="Family Member History associated with this Family Member History Genetics Observation.")                              
+    genetics_observation_id = fields.Many2one(
+        comodel_name="hc.res.observation", 
+        string="Genetics Observation", 
+        help="Allows capturing risk-relevant observations about the relative that aren't themselves a specific health condition; e.g. Certain ethnic ancestries that are disease-relevant, presence of particular genetic markers, etc..")
+
 class V3FamilyMember(models.Model): 
     _name = "hc.vs.v3.family.member"    
     _description = "V3 Family Member"       
@@ -516,15 +694,24 @@ class V3FamilyMember(models.Model):
         comodel_name="hc.vs.v3.family.member", 
         string="Parent", 
         help="Parent family member.")
+    hierarchy_id = fields.Many2one(
+        comodel_name="hc.vs.v3.family.member", 
+        string="Hierarchy", 
+        help="Hierarchy family member.")
 
+# Extension value set
+class FamilyMemberHistoryType(models.Model):
+    _name = "hc.vs.family.member.history.type"
+    _description = "Family Member History Type"
+    _inherit = ["hc.value.set.contains"]
 
-# External Reference
-
-# class Patient(models.Model):
-#     _inherit = ["hc.res.patient"]
-
-#     family_member_history_ids = fields.One2many(
-#         comodel_name="hc.res.family.member.history",
-#         inverse_name="patient_id", 
-#         string="Family Members", 
-#         help="Relation with this patient.")
+    name = fields.Char(
+        string="Name", 
+        help="Name of this family member history type.")                              
+    code = fields.Char(
+        string="Code", 
+        help="Code of this family member history type.")                              
+    contains_id = fields.Many2one(
+        comodel_name="hc.vs.family.member.history.type", 
+        string="Parent", 
+        help="Parent family member history type.")                              

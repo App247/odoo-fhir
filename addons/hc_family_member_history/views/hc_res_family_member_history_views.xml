@@ -46,42 +46,46 @@
                         </h1>                   
                         <group>                     
                             <group string="Entity">
-                            <field name="patient_id"/>
-                            <field name="family_member_name"/>
-                            <field name="family_member_name_type" class="oe_edit_only"/>
-                            <field name="family_member_name_string" class="oe_edit_only" attrs="{'invisible': [('family_member_name_type','!=','string')], 'required': [('family_member_name_type','=','string')]}"/>
-                            <field name="family_member_name_related_person_id" class="oe_edit_only" attrs="{'invisible': [('family_member_name_type','!=','related_person')], 'required': [('family_member_name_type','=','related_person')]}"/>
-                            <field name="relationship_id" attrs="{'invisible': [('family_member_name_type','!=','string')]}"/>
-                            <field name="gender" attrs="{'invisible': [('family_member_name_type','!=','string')]}"/>
-                            <field name="date"/>
+                                <field name="patient_id"/>
+                                <field name="family_member_name"/>
+                                <field name="family_member_name_type" class="oe_edit_only"/>
+                                <field name="family_member_name_string" class="oe_edit_only" attrs="{'invisible': [('family_member_name_type','!=','string')], 'required': [('family_member_name_type','=','string')]}"/>
+                                <field name="family_member_name_related_person_id" class="oe_edit_only" attrs="{'invisible': [('family_member_name_type','!=','related_person')], 'required': [('family_member_name_type','=','related_person')]}"/>
+                                <field name="relationship_id"/>
+                                <field name="gender"/>
+                                <field name="date"/>
+                                <field name="type_id"/>
+                                <field name="severity_id"/>
                             </group>
                             <group string="Status">
                                 <field name="status"/>
                                 <field name="data_absent_reason"/>
-                            </group>                    
+                            </group>                 
                             <group string="Timeline" attrs="{'invisible': [('family_member_name_type','!=','string')]}">
                                 <field name="born_name"/>
                                 <field name="born_type" class="oe_edit_only"/>
-                                <field name="earliest_born_date" class="oe_edit_only" attrs="{'invisible': [('born_type','!=','period')]}"/>
-                                <field name="latest_born_date" class="oe_edit_only" attrs="{'invisible': [('born_type','!=','period')]}"/>
-                                <field name="born_date" class="oe_edit_only" attrs="{'invisible': [('born_type','!=','date')]}"/>
-                                <field name="born_string" class="oe_edit_only" attrs="{'invisible': [('born_type','!=','string')]}"/>
+                                <field name="earliest_born_date" class="oe_edit_only" attrs="{'invisible': [('born_type','!=','period')], 'required': [('born_type','=','period')]}"/>
+                                <field name="latest_born_date" class="oe_edit_only" attrs="{'invisible': [('born_type','!=','period')], 'required': [('born_type','=','period')]}"/>
+                                <field name="born_date" class="oe_edit_only" attrs="{'invisible': [('born_type','!=','date')], 'required': [('born_type','=','date')]}"/>
+                                <field name="born_string" class="oe_edit_only" attrs="{'invisible': [('born_type','!=','string')], 'required': [('born_type','=','string')]}"/>
+                                
                                 <field name="age_name"/>
                                 <field name="age_type" class="oe_edit_only"/>
-                                <field name="age" class="oe_edit_only" attrs="{'invisible': [('age_type','!=','age')]}"/>
-                                <field name="age_uom_id" class="oe_edit_only" attrs="{'invisible': [('age_type','!=','age')]}"/>
-                                <field name="age_range_low" class="oe_edit_only" attrs="{'invisible': [('age_type','!=','range')]}"/>
-                                <field name="age_range_high" class="oe_edit_only" attrs="{'invisible': [('age_type','!=','range')]}"/>
-                                <field name="age_string" class="oe_edit_only" attrs="{'invisible': [('age_type','!=','string')]}"/>
+                                <field name="age" class="oe_edit_only" attrs="{'invisible': [('age_type','!=','age')], 'required': [('age_type','=','age')]}"/>     
+                                <field name="age_uom_id" class="oe_edit_only" attrs="{'invisible': [('age_type','!=','age')], 'required': [('age_type','=','age')]}"/>      
+                                <field name="age_range_low" class="oe_edit_only" attrs="{'invisible': [('age_type','!=','range')], 'required': [('age_type','=','range')]}"/>
+                                <field name="age_range_high" class="oe_edit_only" attrs="{'invisible': [('age_type','!=','range')], 'required': [('age_type','=','range')]}"/>
+                                <field name="age_string" class="oe_edit_only" attrs="{'invisible': [('age_type','!=','string')], 'required': [('age_type','=','string')]}"/>
                                 <field name="is_deceased"/>
                                 <field name="deceased_age_name" attrs="{'invisible': [('is_deceased','!=',True)]}"/>
                                 <field name="deceased_age_type" class="oe_edit_only" attrs="{'invisible': [('is_deceased','!=',True)]}"/>
-                                <field name="deceased_age" class="oe_edit_only" attrs="{'invisible': ['|', ('is_deceased','!=',True), ('deceased_age_type','!=','age')]}"/>
-                                <field name="deceased_age_uom_id" class="oe_edit_only" attrs="{'invisible': ['|', ('is_deceased','!=',True), ('deceased_age_type','!=','age')]}"/>
-                                <field name="deceased_age_range_low" class="oe_edit_only" attrs="{'invisible': ['|', ('is_deceased','!=',True), ('deceased_age_type','!=','range')]}"/>
-                                <field name="deceased_age_range_high" class="oe_edit_only" attrs="{'invisible': ['|', ('is_deceased','!=',True), ('deceased_age_type','!=','range')]}"/>
-                                <field name="deceased_age_string" class="oe_edit_only" attrs="{'invisible': ['|', ('is_deceased','!=',True), ('deceased_age_type','!=','string')]}" placeholder="e.g., Summer 1967"/>
-                                <field name="deceased_age_date" class="oe_edit_only" attrs="{'invisible': ['|', ('is_deceased','!=',True), ('deceased_age_type','!=','date')]}"/>                 
+                                <field name="deceased_age" class="oe_edit_only" attrs="{'invisible': [('deceased_age_type','!=','age')], 'required': [('deceased_age_type','=','age')]}"/>  
+                                <field name="deceased_age" class="oe_edit_only" attrs="{'invisible': [('deceased_age_type','!=','age')], 'required': [('deceased_age_type','=','age')]}"/>
+                                <field name="deceased_age_uom_id" class="oe_edit_only" attrs="{'invisible': [('deceased_age_type','!=','age')], 'required': [('deceased_age_type','=','age')]}"/>
+                                <field name="deceased_age_range_low" class="oe_edit_only" attrs="{'invisible': [('deceased_age_type','!=','range')], 'required': [('deceased_age_type','=','range')]}"/>
+                                <field name="deceased_age_range_high" class="oe_edit_only" attrs="{'invisible': [('deceased_age_type','!=','range')], 'required': [('deceased_age_type','=','range')]}"/>
+                                <field name="deceased_age_string" class="oe_edit_only" attrs="{'invisible': [('deceased_age_type','!=','string')], 'required': [('deceased_age_type','=','string')]}" placeholder="e.g., Summer 1967"/>
+                                <field name="deceased_age_date" class="oe_edit_only" attrs="{'invisible': [('deceased_age_type','!=','date')], 'required': [('deceased_age_type','=','date')]}"/>
                             </group>                    
                         </group>                        
                         <notebook>                      
@@ -100,14 +104,20 @@
                                                     <field name="code_id"/>
                                                     <field name="outcome"/>
                                                 </group>
-                                                <group>
+                                                <group string="Onset/Abatement">
                                                     <field name="onset_name"/>
                                                     <field name="onset_type" class="oe_edit_only"/>
-                                                    <field name="onset_age" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','age')]}"/>
-                                                    <field name="onset_age_uom_id" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','age')]}"/>
-                                                    <field name="onset_range_low" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','range')]}"/>
-                                                    <field name="onset_range_high" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','range')]}"/>
-                                                    <field name="onset_string" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','string')]}"/>
+                                                    <field name="onset_age" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','age')], 'required': [('onset_type','=','age')]}"/>
+                                                    <field name="onset_age_uom_id" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','age')], 'required': [('onset_type','=','age')]}"/>
+                                                    <field name="onset_range_low" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','range')], 'required': [('onset_type','=','range')]}"/>
+                                                    <field name="onset_range_high" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','range')], 'required': [('onset_type','=','range')]}"/>
+                                                    <field name="onset_string" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','string')], 'required': [('onset_type','=','string')]}"/>
+                                                    <field name="abatement_name"/>  
+                                                    <field name="abatement_type" class="oe_edit_only"/>
+                                                    <field name="abatement_date" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','date')], 'required': [('abatement_type','=','date')]}"/>     
+                                                    <field name="abatement_age" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','age')], 'required': [('abatement_type','=','age')]}"/>   
+                                                    <field name="abatement_age_uom_id" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','age')], 'required': [('abatement_type','=','age')]}"/>
+                                                    <field name="abatement_boolean" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','boolean')], 'required': [('abatement_type','=','boolean')]}"/>   
                                                 </group>
                                             </group>
                                             <notebook>                      
@@ -127,10 +137,10 @@
                                                                     <group>     
                                                                         <field name="author_name"/>
                                                                         <field name="author_type" class="oe_edit_only"/>
-                                                                        <field name="author_string" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','string')]}"/>
-                                                                        <field name="author_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','practitioner')]}"/>
-                                                                        <field name="author_patient_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','patient')]}"/>
-                                                                        <field name="author_related_person_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','related_person')]}"/> 
+                                                                        <field name="author_string" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','string')], 'required': [('author_type','=','string')]}"/>
+                                                                        <field name="author_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','practitioner')], 'required': [('author_type','=','practitioner')]}"/>
+                                                                        <field name="author_patient_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','patient')], 'required': [('author_type','=','patient')]}"/>
+                                                                        <field name="author_related_person_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','related_person')], 'required': [('author_type','=','related_person')]}"/> 
                                                                     </group>        
                                                                     <group>     
                                                                         <field name="recorded_date"/>   
@@ -190,8 +200,8 @@
                                             <group> 
                                                 <group>  
                                                     <field name="definition_type" class="oe_edit_only"/>
-                                                    <field name="definition_plan_definition_id" class="oe_edit_only" attrs="{'invisible': [('definition_type','!=','plan_definition')]}"/>
-                                                    <field name="definition_questionnaire_id" class="oe_edit_only" attrs="{'invisible': [('definition_type','!=','questionnaire')]}"/>
+                                                    <field name="definition_plan_definition_id" class="oe_edit_only" attrs="{'invisible': [('definition_type','!=','plan_definition')], 'required': [('definition_type','=','plan_definition')]}"/>
+                                                    <field name="definition_questionnaire_id" class="oe_edit_only" attrs="{'invisible': [('definition_type','!=','questionnaire')], 'required': [('definition_type','=','questionnaire')]}"/>
                                                 </group>
                                                 <group>
                                                 </group>
@@ -214,10 +224,10 @@
                                             <group> 
                                                 <group>
                                                     <field name="reason_reference_type" class="oe_edit_only"/>
-                                                    <field name="reason_reference_condition_id" class="oe_edit_only" attrs="{'invisible': [('reason_reference_type','!=','condition')]}"/>
-                                                    <field name="reason_reference_observation_id" class="oe_edit_only" attrs="{'invisible': [('reason_reference_type','!=','observation')]}"/>
-                                                    <field name="reason_reference_allergy_intolerance_id" class="oe_edit_only" attrs="{'invisible': [('reason_reference_type','!=','allergy_intolerance')]}"/>
-                                                    <field name="reason_reference_questionnaire_response_id" class="oe_edit_only" attrs="{'invisible': [('reason_reference_type','!=','questionnaire_response')]}"/>
+                                                    <field name="reason_reference_condition_id" class="oe_edit_only" attrs="{'invisible': [('reason_reference_type','!=','condition')], 'required': [('reason_reference_type','=','condition')]}"/> 
+                                                    <field name="reason_reference_observation_id" class="oe_edit_only" attrs="{'invisible': [('reason_reference_type','!=','observation')], 'required': [('reason_reference_type','=','observation')]}"/>   
+                                                    <field name="reason_reference_allergy_intolerance_id" class="oe_edit_only" attrs="{'invisible': [('reason_reference_type','!=','allergy_intolerance')], 'required': [('reason_reference_type','=','allergy_intolerance')]}"/>   
+                                                    <field name="reason_reference_questionnaire_response_id" class="oe_edit_only" attrs="{'invisible': [('reason_reference_type','!=','questionnaire_response')], 'required': [('reason_reference_type','=','questionnaire_response')]}"/>  
                                                 </group>
                                                 <group>
                                                 </group>
@@ -242,13 +252,97 @@
                                                 <group>
                                                     <field name="author_name"/>
                                                     <field name="author_type" class="oe_edit_only"/>
-                                                    <field name="author_string" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','string')]}"/>
-                                                    <field name="author_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','practitioner')]}"/>
-                                                    <field name="author_patient_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','patient')]}"/>
-                                                    <field name="author_related_person_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','related_person')]}"/>
+                                                    <field name="author_string" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','string')], 'required': [('author_type','=','string')]}"/>
+                                                    <field name="author_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','practitioner')], 'required': [('author_type','=','practitioner')]}"/>
+                                                    <field name="author_patient_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','patient')], 'required': [('author_type','=','patient')]}"/>
+                                                    <field name="author_related_person_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','related_person')], 'required': [('author_type','=','related_person')]}"/>
                                                 </group>    
                                                 <group> 
                                                     <field name="recorded_date"/>
+                                                </group>    
+                                            </group>        
+                                        </sheet>            
+                                    </form>             
+                                </field>                    
+                            </page>
+                            <page string="Patient Records">                       
+                                <field name="patient_record_ids" mode="tree">                 
+                                    <tree>
+                                        <field name="patient_record_name"/>
+                                        <field name="patient_record_type"/>              
+                                    </tree>             
+                                    <form>              
+                                        <sheet>         
+                                            <div>       
+                                                <field name="patient_record_name" placeholder="Annotation"/>   
+                                            </div>      
+                                            <group>     
+                                                <group>
+                                                    <field name="patient_record_type" class="oe_edit_only"/>
+                                                    <field name="patient_record_person_id" class="oe_edit_only" attrs="{'invisible': [('patient_record_type','!=','person')], 'required': [('patient_record_type','=','person')]}"/>
+                                                    <field name="patient_record_patient_id" class="oe_edit_only" attrs="{'invisible': [('patient_record_type','!=','patient')], 'required': [('patient_record_type','=','patient')]}"/>
+                                                    <field name="patient_record_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('patient_record_type','!=','practitioner')], 'required': [('patient_record_type','=','practitioner')]}"/>
+                                                    <field name="patient_record_related_person_id" class="oe_edit_only" attrs="{'invisible': [('patient_record_type','!=','related_person')], 'required': [('patient_record_type','=','related_person')]}"/>
+                                                </group>    
+                                                <group> 
+                                                </group>    
+                                            </group>        
+                                        </sheet>            
+                                    </form>             
+                                </field>                    
+                            </page>
+                            <page string="Genetics Observations">                       
+                                <field name="genetics_observation_ids" mode="tree">                 
+                                    <tree>
+                                        <field name="genetics_observation_id"/>            
+                                    </tree>             
+                                    <form>              
+                                        <sheet>         
+                                            <group>     
+                                                <group>
+                                                    <field name="genetics_observation_id"/>
+                                                </group>    
+                                                <group> 
+                                                </group>    
+                                            </group>        
+                                        </sheet>            
+                                    </form>             
+                                </field>                    
+                            </page>
+                            <page string="Parents">                       
+                                <field name="parent_ids" mode="tree">                 
+                                    <tree>
+                                        <field name="type_id"/>
+                                        <field name="reference_id"/>                
+                                    </tree>             
+                                    <form>              
+                                        <sheet>               
+                                            <group>     
+                                                <group>
+                                                    <field name="type_id"/>
+                                                    <field name="reference_id"/>
+                                                </group>    
+                                                <group> 
+                                                </group>    
+                                            </group>        
+                                        </sheet>            
+                                    </form>             
+                                </field>                    
+                            </page>
+                            <page string="Siblings">                       
+                                <field name="sibling_ids" mode="tree">                 
+                                    <tree>
+                                        <field name="type_id"/>
+                                        <field name="reference_id"/>              
+                                    </tree>             
+                                    <form>              
+                                        <sheet>              
+                                            <group>     
+                                                <group>
+                                                    <field name="type_id"/>
+                                                    <field name="reference_id"/>
+                                                </group>    
+                                                <group> 
                                                 </group>    
                                             </group>        
                                         </sheet>            
@@ -278,6 +372,82 @@
                   action="hc_res_family_member_history_action" 
                   groups="hc_base.group_hc_base_manager" 
                   sequence="40"/>
+
+
+        <!-- V3 Family Member Views -->                         
+                                    
+        <record id="hc_vs_v3_family_member_history_view_search" model="ir.ui.view">                         
+            <field name="name">Family Member Search</field>                      
+            <field name="model">hc.vs.v3.family.member</field>                      
+            <field name="arch" type="xml">                      
+                <search string="V3 Family Members">                 
+                    <field name="name"/>                
+                    <field name="code"/>                
+                    <field name="definition"/>              
+                    <group>             
+                        <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>          
+                    </group>                
+                </search>                   
+            </field>                        
+        </record>                           
+                                    
+        <record id="hc_vs_v3_family_member_history_view_tree" model="ir.ui.view">                           
+            <field name="name">Family Member Tree</field>                        
+            <field name="model">hc.vs.v3.family.member</field>                      
+            <field name="arch" type="xml">                      
+                <tree string="V3 Family Members" default_order="name, code">                    
+                    <field name="name"/>                
+                    <field name="code"/>                
+                    <field name="definition"/>              
+                    <field name="contains_id"/>
+                    <field name="level"/>             
+                    <field name="source_id" invisible="0"/>             
+                </tree>                 
+            </field>                        
+        </record>                           
+                                    
+        <record id="hc_vs_v3_family_member_history_view_form" model="ir.ui.view">                           
+            <field name="name">Family Member Form</field>                        
+            <field name="model">hc.vs.v3.family.member</field>                      
+            <field name="arch" type="xml">                      
+                <form string="V3 Family Members" >                  
+                    <sheet>             
+                        <h1>            
+                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>      
+                        </h1>           
+                        <field name="code" placeholder="Code (e.g., biological)"/>          
+                        <field name="definition" placeholder="Definition"/>         
+                        <field name="comments" placeholder="Comments"/>         
+                        <group>         
+                            <group>     
+                                <field name="contains_id"/>
+                                <field name="level"/> 
+                            </group>        
+                            <group>     
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>    
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/> 
+                            </group>        
+                        </group>            
+                    </sheet>                
+                </form>                 
+            </field>                        
+        </record>                                                      
+                                    
+        <act_window id="hc_vs_v3_family_member_history_action"                          
+                    name="HC Family Members"              
+                    res_model="hc.vs.v3.family.member"              
+                    view_mode="tree,form"               
+                    domain=""               
+                    context=""              
+                    limit=""/> 
+
+        <menuitem id="hc_family_member_history.menu_fam_mbr" 
+                  name="Family Member" 
+                  parent="hc_family_member_history.menu_fam_hist" 
+                  action="hc_vs_v3_family_member_history_action" 
+                  groups="hc_base.group_hc_base_manager" 
+                  sequence="10"/>
+             
 
     </data>
 </openerp>
