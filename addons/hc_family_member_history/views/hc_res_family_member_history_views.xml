@@ -54,7 +54,7 @@
                                 <field name="relationship_id"/>
                                 <field name="gender"/>
                                 <field name="date"/>
-                                <field name="type_id" placeholder="Purpose (e.g., For counseling)"/>
+                                <field name="type_id" placeholder="Purpose"/>
                                 <field name="severity_id"/>
                             </group>
                             <group string="Status">

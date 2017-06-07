@@ -339,12 +339,12 @@
                 </form>             
             </field>                    
         </record>                       
-
+<!-- 
         <menuitem id="hc_allergy_intolerance.menu_allergy_conf" 
                   name="Configuration" 
                   parent="hc_allergy_intolerance.menu_allergy" 
                   groups="hc_base.group_hc_base_manager" 
-                  sequence="10"/>
+                  sequence="10"/> -->
             
         <act_window id="hc_vs_allergy_intolerance_code_action"          
                     name="HC Allergy Intolerance Codes"
@@ -356,7 +356,7 @@
 
         <menuitem id="hc_allergy_intolerance.menu_allergy_code" 
                   name="Allergy Intolerance Codes" 
-                  parent="hc_allergy_intolerance.menu_allergy_conf" 
+                  parent="hc_allergy_intolerance.menu_allergy" 
                   action="hc_vs_allergy_intolerance_code_action" 
                   groups="hc_base.group_hc_base_manager" 
                   sequence="10"/>
@@ -428,7 +428,7 @@
 
         <menuitem id="hc_allergy_intolerance.menu_manif_code" 
                   name="Manifestation Codes" 
-                  parent="hc_allergy_intolerance.menu_allergy_conf" 
+                  parent="hc_allergy_intolerance.menu_allergy" 
                   action="hc_vs_manifestation_code_action" 
                   groups="hc_base.group_hc_base_manager" 
                   sequence="20"/>

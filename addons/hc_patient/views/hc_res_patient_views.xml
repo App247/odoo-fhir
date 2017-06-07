@@ -77,12 +77,12 @@
                         <notebook colspan="4">                      
                             <page string="Names">
                                 <field name="name_ids" mode="tree">
-                                    <tree>
-                                        <field name="is_preferred" widget="upgrade_boolean"/>
-                                        <field name="first_id"/>
-                                        <field name="surname_id"/>
-                                        <field name="given"/>
-                                        <field name="family"/>
+                                    <tree default_order="is_preferred">
+                                        <field name="is_preferred"/>
+                                        <field name="use"/>
+                                        <field name="name"/>
+                                        <field name="start_date"/>
+                                        <field name="end_date"/>
                                     </tree>
                                     <form>
                                         <sheet>
@@ -921,6 +921,20 @@
                 </xpath>
                 <xpath expr="//field[@name='link_ids']//form//field[@name='target_person_id']" position="after">
                     <field name="target_patient_id" class="oe_edit_only" attrs="{'invisible': [('target_type','!=','patient')], 'required': [('target_type','=','patient')]}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="hc_res_related_person_view_form_inherited" model="ir.ui.view">     
+            <field name="name">Related Person Form</field>   
+            <field name="model">hc.res.related.person</field>   
+            <field name="inherit_id" ref="hc_related_person.hc_res_related_person_view_form"/>   
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='patient_ids']//tree//field[@name='relationship_id']" position="before">
+                    <field name="patient_id"/>
+                </xpath>
+                <xpath expr="//field[@name='patient_ids']//form//field[@name='relationship_id']" position="before">
+                    <field name="patient_id"/>
                 </xpath>
             </field>
         </record>

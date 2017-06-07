@@ -48,14 +48,14 @@
                             </group>                    
                         </group>                        
                         <notebook colspan="4">                      
-                            <page string="Names"/>
+                            <page string="Names">
                                 <field name="name_ids" mode="tree">
-                                    <tree>
+                                    <tree default_order="is_preferred">
                                         <field name="is_preferred"/>
-                                        <field name="first_id"/>
-                                        <field name="surname_id"/>
-                                        <field name="given"/>
-                                        <field name="family"/>
+                                        <field name="use"/>
+                                        <field name="name"/>
+                                        <field name="start_date"/>
+                                        <field name="end_date"/>
                                     </tree>
                                     <form>
                                         <sheet>
@@ -74,35 +74,66 @@
                                             </group>
                                         </sheet>
                                     </form>
-                                </field>                  
-                            <page string="Identifiers"/>                    
-                            <page string="Addresses" autofocus="autofocus">                 
-                                <field name="address_ids" mode="tree">              
-                                    <tree>          
-                                        <field name="use" widget="radio"/>      
-                                        <field name="is_preferred"/>        
-                                        <field name="line1"/>       
-                                        <field name="line2"/>       
-                                        <field name="city_id"/>     
-                                        <field name="postal_code_id"/>      
-                                        <field name="country_id"/>      
-                                        <field name="start_date"/>      
-                                        <field name="end_date"/>        
-                                    </tree>         
-                                    <form>          
-                                        <sheet>     
-                                            <group col="4" colspan="4"> 
+                                </field>
+                            </page>                  
+                            <page string="Identifiers">
+                                <field name="identifier_ids" mode="tree">
+                                    <tree>
+                                        <field name="is_preferred"/>
+                                        <field name="name"/>
+                                        <field name="value"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <div>
+                                                <h1>
+                                                    <field name="name" placeholder="Identifier"/>
+                                                </h1>
+                                            </div>
+                                            <group col="4" colspan="4">
+                                                <group>
+                                                    <field name="value"/>
+                                                    <field name="is_preferred"/>
+                                                    <field name="is_active"/>
+                                                </group>
+                                                <group>
+                                                    <field name="start_date" placeholder="Valid From"/>
+                                                    <field name="end_date" placeholder="Valid To"/>
+                                               </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>                                                          
+                            <page string="Addresses">         
+                                <field name="address_ids" mode="tree">
+                                    <tree default_order="is_preferred">
+                                        <field name="is_preferred"/>       
+                                        <field name="use"/>    
+                                        <field name="line1"/>   
+                                        <field name="line2"/>   
+                                        <field name="city_id"/>   
+                                        <field name="postal_code_id"/>    
+                                        <field name="country_id"/>
+                                        <field name="start_date"/>    
+                                        <field name="end_date"/>
+                                    </tree>     
+                                    <form>      
+                                        <sheet>   
+                                            <group col="4" colspan="4">  
                                                 <field name="use" widget="radio" colspan="4"/>
                                                 <field name="address_id" class="oe_no_button"/>
+                                            </group>
+                                            <group>
                                                 <field name="is_preferred"/>
-                                                <field name="is_active" widget="boolean_button"/>
+                                                <field name="is_active"/>
                                                 <field name="start_date" placeholder="Valid From"/>
                                                 <field name="end_date" placeholder="Valid To"/>
-                                            </group>    
-                                        </sheet>        
-                                    </form>         
-                                </field>                
-                            </page>                                         
+                                            </group>  
+                                        </sheet>    
+                                    </form>     
+                                </field>
+                            </page>       
                             <page string="Telecom">
                                 <field name="telecom_ids" mode="tree">
                                     <tree>
@@ -116,6 +147,32 @@
                                                 <group>
                                                     <field name="telecom_id"/>
                                                     <field name="use"/>
+                                                </group>
+                                                <group>
+                                                    <field name="is_preferred"/>
+                                                    <field name="is_active"/>
+                                                    <field name="start_date" placeholder="Valid From"/>
+                                                    <field name="end_date" placeholder="Valid To"/>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Photos">
+                                <field name="photo_ids" mode="tree">
+                                    <tree default_order="is_preferred">
+                                        <field name="is_preferred"/>
+                                        <field name="name" string="Photo Name"/>
+                                        <field name="start_date"/>
+                                        <field name="end_date"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                    <field name="name" string="Photo Name"/>
+                                                    <field name="datas"/>
                                                 </group>
                                                 <group>
                                                     <field name="is_preferred"/>

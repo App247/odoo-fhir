@@ -37,18 +37,21 @@
                                 <field name="person_id" default_focus="1" placeholder="Person" context="{'is_related_person': True}"/>               
                             </h1>                   
                         </div>                      
-                        <div name="buttons" class="oe_right oe_button_box"></div>                       
-                        <group>                     
-                            <group>                               
-                            </group>                    
+                        <div name="buttons" class="oe_right oe_button_box"></div>                                           
+                        <group>
                             <group>                 
+                                <field name="gender"/>              
+                                <field name="birth_date"/>               
                             </group>                    
+                            <group>
+                                <field name="is_active" string="Active Record"/>              
+                            </group>
                         </group>                        
                         <notebook colspan="4">
-                            <!-- <page string="Patients" autofocus="autofocus">
+                            <page string="Patients">
                                 <field name="patient_ids" mode="tree">
                                     <tree>
-                                        <field name="patient_id"/>
+                                        <!-- <field name="patient_id"/> -->
                                         <field name="relationship_id"/>              
                                         <field name="start_date"/>
                                         <field name="end_date"/>
@@ -56,7 +59,7 @@
                                     <form>
                                         <sheet>
                                             <group>
-                                                <field name="patient_id"/>
+                                                <!-- <field name="patient_id"/> -->
                                                 <field name="relationship_id"/>              
                                                 <field name="start_date"/>
                                                 <field name="end_date"/>                                                
@@ -64,48 +67,84 @@
                                         </sheet>
                                     </form>
                                 </field>
-                            </page> -->                                     
-                            <page string="Identifiers"/>                    
-                            <!-- <page string="Addresses">                 
-                                <field name="address_ids" mode="tree">              
-                                    <tree>          
-                                        <field name="use" widget="radio"/>      
-                                        <field name="is_preferred"/>        
-                                        <field name="line1"/>       
-                                        <field name="line2"/>       
-                                        <field name="city_id"/>     
-                                        <field name="postal_code_id"/>      
-                                        <field name="country_id"/>      
-                                        <field name="start_date"/>      
-                                        <field name="end_date"/>        
-                                    </tree>         
-                                    <form>          
-                                        <sheet>     
-                                            <group col="4" colspan="4"> 
-                                                <field name="use" widget="radio" colspan="4"/>
-                                                <field name="address_id" class="oe_no_button"/>
+                            </page>                                     
+                            <page string="Names">
+                                <field name="name_ids" mode="tree">
+                                    <tree default_order="is_preferred">
+                                        <field name="is_preferred"/>
+                                        <field name="use"/>
+                                        <field name="name"/>
+                                        <field name="start_date"/>
+                                        <field name="end_date"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
                                                 <field name="is_preferred"/>
-                                                <field name="is_active" widget="boolean_button"/>
-                                                <field name="start_date" placeholder="Valid From"/>
-                                                <field name="end_date" placeholder="Valid To"/>
-                                            </group>    
-                                        </sheet>        
-                                    </form>         
-                                </field>                
-                            </page> -->                 
-                            <page string="Telecom">
-                                <field name="telecom_ids" mode="tree">
+                                                <field name="person_id"/>
+                                            </group>
+                                            <group>
+                                                <field name="first_id"/>
+                                                <field name="middle_ids"/>
+                                                <field name="initial_ids"/>
+                                                <field name="nickname_ids"/>
+                                                <field name="mother_maiden_id"/>
+                                                <field name="surname_id"/>
+                                                <field name="family"/>
+                                                <field name="given"/>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>                  
+                            <page string="Identifiers">
+                                <field name="identifier_ids" mode="tree">
                                     <tree>
                                         <field name="is_preferred"/>
-                                        <field name="telecom_id"/>
+                                        <field name="name"/>
+                                        <field name="value"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <div>
+                                                <h1>
+                                                    <field name="name" placeholder="Identifier"/>
+                                                </h1>
+                                            </div>
+                                            <group col="4" colspan="4">
+                                                <group>
+                                                    <field name="value"/>
+                                                    <field name="is_preferred"/>
+                                                    <field name="is_active"/>
+                                                </group>
+                                                <group>
+                                                    <field name="start_date" placeholder="Valid From"/>
+                                                    <field name="end_date" placeholder="Valid To"/>
+                                               </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>         
+                            <page string="Addresses">
+                            </page>         
+                            <page string="Telecom">
+                                <field name="telecom_ids" mode="tree">
+                                    <tree default_order="is_preferred">
+                                        <field name="is_preferred"/>
                                         <field name="use"/>
+                                        <field name="telecom_id"/>
+                                        <field name="rank"/>
+                                        <field name="start_date"/>
+                                        <field name="end_date"/>
                                     </tree>
                                     <form>
                                         <sheet>
                                             <group>
                                                 <group>
-                                                    <field name="telecom_id"/>
                                                     <field name="use"/>
+                                                    <field name="telecom_id"/>
+                                                    <field name="rank"/>
                                                 </group>
                                                 <group>
                                                     <field name="is_preferred"/>
@@ -117,8 +156,33 @@
                                         </sheet>
                                     </form>
                                 </field>
-                            </page>                    
-                            <page string="Photos"/>                      
+                            </page>          
+                            <page string="Photos">
+                                <field name="photo_ids" mode="tree">
+                                    <tree default_order="is_preferred">
+                                        <field name="is_preferred"/>
+                                        <field name="name" string="Photo Name"/>
+                                        <field name="start_date"/>
+                                        <field name="end_date"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                    <field name="name" string="Photo Name"/>
+                                                    <field name="datas"/>
+                                                </group>
+                                                <group>
+                                                    <field name="is_preferred"/>
+                                                    <field name="is_active"/>
+                                                    <field name="start_date" placeholder="Valid From"/>
+                                                    <field name="end_date" placeholder="Valid To"/>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>                      
                         </notebook>                     
                     </sheet>                            
                 </form>                             

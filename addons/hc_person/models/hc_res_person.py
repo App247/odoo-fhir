@@ -130,13 +130,29 @@ class Person(models.Model):
 
     @api.multi
     def write(self, vals):
+        person_name_obj = self.env['hc.person.name']
         if vals and vals.get('birth_date'):
             for rec in self:
                 for name_id in rec.name_ids:
                     if vals.get('birth_date') > name_id.start_date:
                         name_id.start_date = vals.get('birth_date')
+        if vals and vals.get('name_id'):
+            person_name_ids = person_name_obj.search([('person_id','=', self.id),('human_name_id','=',vals.get('name_id'))])
+            for person in person_name_ids:
+                person.is_preferred = True
         res = super(Person, self).write(vals)
         return res
+
+    # version 1
+    # @api.multi
+    # def write(self, vals):
+    #     if vals and vals.get('birth_date'):
+    #         for rec in self:
+    #             for name_id in rec.name_ids:
+    #                 if vals.get('birth_date') > name_id.start_date:
+    #                     name_id.start_date = vals.get('birth_date')
+    #     res = super(Person, self).write(vals)
+    #     return res
 
         # vals['is_patient'] = self.env.context.get('is_patient', False)
         # vals['is_practitioner'] = self.env.context.get('is_practitioner', False)
@@ -280,28 +296,56 @@ class PersonName(models.Model):
     @api.model
     def create(self, vals):
         person_obj = self.env['hc.res.person']
+        person_ids = self.search([('person_id','=',vals.get('person_id')),('end_date', '=', False)])
         if vals and vals.get('is_preferred'):
-            person_ids = self.search([('person_id','=',vals.get('person_id'))])
             for person in person_ids:
                 person.is_preferred = False
-        if vals:
-            person_ids = self.search([('person_id','=',vals.get('person_id')),('end_date','=',False)])
-            for person in person_ids:
                 if not vals.get('start_date'):
                     person.end_date = datetime.today()
+                    vals.update({'start_date': datetime.today()})
                 else:
                     person.end_date = vals.get('start_date')
-            if not vals.get('start_date'):
-                vals.update({'start_date': datetime.today()})
+        else:
+            vals.update({'start_date': datetime.today()})
         return super(PersonName, self).create(vals)
 
     @api.multi
     def write(self, vals):
+        person_name_obj = self.env['hc.person.name']
         if vals and vals.get('is_preferred'):
-            person_ids = self.search([('person_id','=',self.person_id.id),('id','!=',self.id)])
+            person_ids = self.search([('person_id','=',self.person_id.id),('id','!=',self.id), ('end_date', '=', False)])
             for person in person_ids:
                 person.is_preferred = False
+                person.end_date = datetime.today()
+            vals.update({'end_date': False})
         return super(PersonName, self).write(vals)
+
+    # version 1
+    # @api.model
+    # def create(self, vals):
+    #     person_obj = self.env['hc.res.person']
+    #     if vals and vals.get('is_preferred'):
+    #         person_ids = self.search([('person_id','=',vals.get('person_id'))])
+    #         for person in person_ids:
+    #             person.is_preferred = False
+    #     if vals:
+    #         person_ids = self.search([('person_id','=',vals.get('person_id')),('end_date','=',False)])
+    #         for person in person_ids:
+    #             if not vals.get('start_date'):
+    #                 person.end_date = datetime.today()
+    #             else:
+    #                 person.end_date = vals.get('start_date')
+    #         if not vals.get('start_date'):
+    #             vals.update({'start_date': datetime.today()})
+    #     return super(PersonName, self).create(vals)
+
+    # @api.multi
+    # def write(self, vals):
+    #     if vals and vals.get('is_preferred'):
+    #         person_ids = self.search([('person_id','=',self.person_id.id),('id','!=',self.id)])
+    #         for person in person_ids:
+    #             person.is_preferred = False
+    #     return super(PersonName, self).write(vals)
 
 class PersonTelecom(models.Model):  
     _name = "hc.person.telecom" 

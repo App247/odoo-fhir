@@ -14,19 +14,36 @@ class RelatedPerson(models.Model):
         ondelete="restrict",
         help="Person who is this related person.")
     identifier_ids = fields.One2many(
-        comodel_name="hc.related.person.identifier", 
-        inverse_name="related_person_id", 
+        related="person_id.identifier_ids",
         string="Identifiers", 
-        help="A human identifier for this related person.")     
-    name_id = fields.Many2one(
-        comodel_name="hc.human.name", 
-        string="Name", 
-        help="A name associated with this related person.")
+        help="A human identifier for this related person.")
+    # identifier_ids = fields.One2many(
+    #     comodel_name="hc.related.person.identifier", 
+    #     inverse_name="related_person_id", 
+    #     string="Identifiers", 
+    #     help="A human identifier for this related person.")
+    is_active = fields.Boolean(
+        string="Active",
+        default="True", 
+        help="Whether this related person's record is in active use.")
+    name_ids = fields.One2many(
+        related="person_id.name_ids", 
+        string="Names", 
+        help="A name associated with the related person.")     
+    # name_ids = fields.One2many(
+    #     comodel_name="hc.human.name",
+    #     inverse_name="related_person_id", 
+    #     string="Names", 
+    #     help="A name associated with this related person.")
     telecom_ids = fields.One2many(
-        comodel_name="hc.related.person.telecom", 
-        inverse_name="related_person_id", 
+        related="person_id.telecom_ids",  
         string="Telecoms", 
         help="A contact detail for this related person.")
+    # telecom_ids = fields.One2many(
+    #     comodel_name="hc.related.person.telecom", 
+    #     inverse_name="related_person_id", 
+    #     string="Telecoms", 
+    #     help="A contact detail for this related person.")
     gender = fields.Selection(
         related="person_id.gender",
         readonly="1",       
@@ -35,11 +52,19 @@ class RelatedPerson(models.Model):
         related="person_id.birth_date",
         readonly="1", 
         help="The birth date for the related person.")
+    address_ids = fields.One2many(
+        related="person_id.address_ids", 
+        string="Addresses", 
+        help="One or more addresses for this related person.")
     photo_ids = fields.One2many(
-        comodel_name="hc.related.person.photo", 
-        inverse_name="related_person_id", 
+        related="person_id.photo_ids", 
         string="Photos", 
         help="Image of the related person.")
+    # photo_ids = fields.One2many(
+    #     comodel_name="hc.related.person.photo", 
+    #     inverse_name="related_person_id", 
+    #     string="Photos", 
+    #     help="Image of the related person.")
     patient_ids = fields.One2many(
         comodel_name="hc.related.person.patient",
         inverse_name="related_person_id", 
@@ -56,88 +81,88 @@ class RelatedPerson(models.Model):
         vals['is_related_person'] = self.env.context.get('is_related_person', False)
         return super(RelatedPerson, self).create(vals)
 
-class RelatedPersonIdentifier(models.Model):  
-    _name = "hc.related.person.identifier" 
-    _description = "Related Person Identifier"         
-    _inherits = {"hc.person.identifier": "person_identifier_id"}
+# class RelatedPersonIdentifier(models.Model):  
+#     _name = "hc.related.person.identifier" 
+#     _description = "Related Person Identifier"         
+#     _inherits = {"hc.person.identifier": "person_identifier_id"}
 
-    person_identifier_id = fields.Many2one(
-        comodel_name="hc.person.identifier", 
-        string="Person Identifier",
-        required="True",
-        ondelete="restrict", 
-        help="Person identifier associated with this related person.")
-    related_person_id = fields.Many2one(
-        comodel_name="hc.res.related.person", 
-        string="Related Person", 
-        help="Related person associated with this person identifier.")
+#     person_identifier_id = fields.Many2one(
+#         comodel_name="hc.person.identifier", 
+#         string="Person Identifier",
+#         required="True",
+#         ondelete="restrict", 
+#         help="Person identifier associated with this related person.")
+#     related_person_id = fields.Many2one(
+#         comodel_name="hc.res.related.person", 
+#         string="Related Person", 
+#         help="Related person associated with this person identifier.")
 
-class RelatedPersonName(models.Model): 
-    _name = "hc.related.person.name"    
-    _description = "Related Person Name"
-    _inherit = ["hc.basic.association"]
-    _inherits = {"hc.human.name": "human_name_id"}
+# class RelatedPersonName(models.Model): 
+#     _name = "hc.related.person.name"    
+#     _description = "Related Person Name"
+#     _inherit = ["hc.basic.association"]
+#     _inherits = {"hc.human.name": "human_name_id"}
 
-    human_name_id = fields.Many2one(
-        comodel_name="hc.human.name",
-        string="Human Name",
-        required="True",
-        ondelete="restrict", 
-        help="Human name associated with this related person name.")
-    related_person_id = fields.Many2one(
-        comodel_name="hc.res.related.person", 
-        string="Related Person", 
-        help="Related Person associated with this human name.")
+#     human_name_id = fields.Many2one(
+#         comodel_name="hc.human.name",
+#         string="Human Name",
+#         required="True",
+#         ondelete="restrict", 
+#         help="Human name associated with this related person name.")
+#     related_person_id = fields.Many2one(
+#         comodel_name="hc.res.related.person", 
+#         string="Related Person", 
+#         help="Related Person associated with this human name.")
 
-class RelatedPersonTelecom(models.Model):   
-    _name = "hc.related.person.telecom" 
-    _description = "Related Person Telecom"     
-    _inherit = ["hc.contact.point.use"] 
-    _inherits = {"hc.contact.point": "telecom_id"}
+# class RelatedPersonTelecom(models.Model):   
+#     _name = "hc.related.person.telecom" 
+#     _description = "Related Person Telecom"     
+#     _inherit = ["hc.contact.point.use"] 
+#     _inherits = {"hc.contact.point": "telecom_id"}
 
-    telecom_id = fields.Many2one(
-        comodel_name="hc.contact.point", 
-        string="Telecom", 
-        ondelete="restrict", 
-        required="True", 
-        help="Telecom associated with this Related Person Telecom.")                  
-    related_person_id = fields.Many2one(
-        comodel_name="hc.res.related.person", 
-        string="Related Person", 
-        help="Related Person associated with this Related Person Telecom.")                  
+#     telecom_id = fields.Many2one(
+#         comodel_name="hc.contact.point", 
+#         string="Telecom", 
+#         ondelete="restrict", 
+#         required="True", 
+#         help="Telecom associated with this Related Person Telecom.")                  
+#     related_person_id = fields.Many2one(
+#         comodel_name="hc.res.related.person", 
+#         string="Related Person", 
+#         help="Related Person associated with this Related Person Telecom.")                  
         
-class RelatedPersonAddress(models.Model):
-    _name = "hc.related.person.address" 
-    _description = "Related Person Address"
-    _inherit = ["hc.address.use"]
-    _inherits = {"hc.address": "address_id"}
+# class RelatedPersonAddress(models.Model):
+#     _name = "hc.related.person.address" 
+#     _description = "Related Person Address"
+#     _inherit = ["hc.address.use"]
+#     _inherits = {"hc.address": "address_id"}
 
-    address_id = fields.Many2one(
-        comodel_name="hc.address", 
-        string="Address", 
-        required="True",
-        ondelete="restrict", 
-        help="Address associated with this Related Person Address.") 
-    related_person_id = fields.Many2one(
-        comodel_name="hc.res.related.person", 
-        string="Related Person", 
-        help="Related Person associated with this Related Person Address.")
+#     address_id = fields.Many2one(
+#         comodel_name="hc.address", 
+#         string="Address", 
+#         required="True",
+#         ondelete="restrict", 
+#         help="Address associated with this Related Person Address.") 
+#     related_person_id = fields.Many2one(
+#         comodel_name="hc.res.related.person", 
+#         string="Related Person", 
+#         help="Related Person associated with this Related Person Address.")
 
-class RelatedPersonPhoto(models.Model):   
-    _name = "hc.related.person.photo"  
-    _description = "Related Person Photo"
-    _inherits = {"hc.person.photo": "photo_id"}
+# class RelatedPersonPhoto(models.Model):   
+#     _name = "hc.related.person.photo"  
+#     _description = "Related Person Photo"
+#     _inherits = {"hc.person.photo": "photo_id"}
 
-    photo_id = fields.Many2one(
-        comodel_name="hc.person.photo", 
-        string="Photo",
-        required="True",
-        ondelete="restrict",  
-        help="Photo associated with this Related Person Photo.")
-    related_person_id = fields.Many2one(
-        comodel_name="hc.res.person", 
-        string="Related Person", 
-        help="Related Person associated with this Related Person Photo.")      
+#     photo_id = fields.Many2one(
+#         comodel_name="hc.person.photo", 
+#         string="Photo",
+#         required="True",
+#         ondelete="restrict",  
+#         help="Photo associated with this Related Person Photo.")
+#     related_person_id = fields.Many2one(
+#         comodel_name="hc.res.person", 
+#         string="Related Person", 
+#         help="Related Person associated with this Related Person Photo.")      
 
 class RelatedPersonPatient(models.Model): 
     _name = "hc.related.person.patient"    
