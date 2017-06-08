@@ -37,17 +37,22 @@
                     <sheet>     
                         <div class="oe_title oe_left">    
                             <h1>  
-                            <field name="name" default_focus="1" placeholder="Name (e.g., ADT Form)"/>
+                            <field name="name" default_focus="1" placeholder="Title (e.g., ADT Form)"/>
                             </h1> 
                         </div>    
                         <group>   
                             <group> 
                                 <field name="creation_date"/> 
-                                <field name="attachment_type_id" placeholder="(e.g., ADT Form)"/> 
-                                <field name="mimetype"/>
-                                <field name="language_id"/>
+                                <field name="attachment_type_id" placeholder="(e.g., ADT Form)"/>
+                                <field name="has_data" invisible="1"/>
+                                <field name="mimetype" attrs="{'required': [('has_data','=',True)]}"/>
+                                <field name="datas" attrs="{'required': [('mimetype','!=',False)]}"/>
                             </group>  
-                            <group> 
+                            <group>
+                                <field name="language_id"/>
+                                <field name="url"/>
+                                <field name="file_size"/>
+                                <field name="hash_attachment"/> 
                             </group>  
                         </group>    
                     </sheet>      

@@ -861,4 +861,19 @@ class ObservationBasedOn(models.Model):
     based_on_nutrition_order_id = fields.Many2one(
         comodel_name="hc.res.nutrition.order", 
         string="Based On Nutrition Order", 
-        help="Nutrition Order fulfills plan, proposal or order.")                                  
+        help="Nutrition Order fulfills plan, proposal or order.")
+
+    @api.depends('based_on_type')           
+    def _compute_based_on_name(self):           
+        for hc_observation_based_on in self:        
+            if hc_observation_based_on.based_on_type == 'care_plan':    
+                hc_observation_based_on.based_on_name = hc_observation_based_on.based_on_care_plan_id.name
+            elif hc_observation_based_on.based_on_type == 'device_request': 
+                hc_observation_based_on.based_on_name = hc_observation_based_on.based_on_device_request_id.name
+            elif hc_observation_based_on.based_on_type == 'medication_request': 
+                hc_observation_based_on.based_on_name = hc_observation_based_on.based_on_medication_request_id.name
+            elif hc_observation_based_on.based_on_type == 'nutrition_order':    
+                hc_observation_based_on.based_on_name = hc_observation_based_on.based_on_nutrition_order_id.name
+            # elif hc_observation_based_on.based_on_type == 'procedure_request':    
+            #     hc_observation_based_on.based_on_name = hc_observation_based_on.based_on_procedure_request_id.name
+                                  

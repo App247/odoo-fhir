@@ -82,17 +82,19 @@
                                                             <sheet>
                                                                 <group>
                                                                     <group>
-                                                                        <field name="item_type"/>
-                                                                        <field name="item_name" readonly="1"/>
-                                                                        <field name="item_code_id" attrs="{'invisible': [('item_type','!=','code')]}"/>
-                                                                        <field name="item_substance_id" attrs="{'invisible': [('item_type','!=','substance')]}"/>
-                                                                        <field name="item_medication_id" attrs="{'invisible': [('item_type','!=','medication')]}"/>
+                                                                        <field name="item_name"/>
+                                                                        <field name="item_type" class="oe_edit_only"/>
+                                                                        <field name="item_code_id" class="oe_edit_only" attrs="{'invisible': [('item_type','!=','code')], 'required': [('item_type','=','code')]}"/>
+                                                                        <field name="item_substance_id" class="oe_edit_only" attrs="{'invisible': [('item_type','!=','substance')], 'required': [('item_type','=','substance')]}"/>
+                                                                        <field name="item_medication_id" class="oe_edit_only" attrs="{'invisible': [('item_type','!=','medication')], 'required': [('item_type','=','medication')]}"/>
                                                                     </group>
                                                                     <group>
-                                                                        <field name="amount_numerator"/>
-                                                                        <field name="amount_numerator_uom_id"/>
-                                                                        <field name="amount_denominator"/>
-                                                                        <field name="amount_denominator_uom_id"/>
+                                                                        <!-- <field name="amount_numerator" attrs="{'required': [('amount_denominator','=',True)]}"/> -->
+                                                                        <field name="amount_numerator" attrs="{'required': [('amount_denominator','!=',False)]}"/>
+                                                                        <field name="amount_numerator_uom_id" attrs="{'required': [('amount_numerator','=',True)]}"/>
+                                                                        <field name="has_amount_numerator" invisible="1"/>
+                                                                        <field name="amount_denominator" attrs="{'required': [('amount_numerator','=',True)]}"/>
+                                                                        <field name="amount_denominator_uom_id" attrs="{'required': [('amount_denominator','=',True)]}"/>
                                                                         <field name="amount" readonly="1"/>
                                                                         <field name="amount_uom" readonly="1"/>
                                                                     </group>
@@ -129,14 +131,14 @@
                                                             <sheet>
                                                                 <group>
                                                                     <group>
-                                                                        <field name="item_type"/>
-                                                                        <field name="item_name" readonly="1"/>
-                                                                        <field name="item_code_id" attrs="{'invisible': [('item_type','!=','code')]}"/>
-                                                                        <field name="item_medication_id" attrs="{'invisible': [('item_type','!=','medication')]}"/>
+                                                                        <field name="item_name"/>
+                                                                        <field name="item_type" class="oe_edit_only"/>
+                                                                        <field name="item_code_id" class="oe_edit_only" attrs="{'invisible': [('item_type','!=','code')], 'required': [('item_type','=','code')]}"/>
+                                                                        <field name="item_medication_id" class="oe_edit_only" attrs="{'invisible': [('item_type','!=','medication')], 'required': [('item_type','=','medication')]}"/>
                                                                     </group>
                                                                     <group>
                                                                         <field name="amount"/>
-                                                                        <field name="amount_uom_id"/>
+                                                                       <field name="amount_uom_id"/>
                                                                     </group>
                                                                 </group>
                                                             </sheet>

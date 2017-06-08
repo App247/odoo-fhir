@@ -70,9 +70,9 @@
                                 <field name="type" widget="radio"/>
                                 <field name="criticality"/>               
                             </group>                    
-                            <group string="Status" name="status">                            
-                                <field name="clinical_status"/>
-                                <field name="verification_status"/>
+                            <group string="Status" name="status">
+                                <field name="verification_status"/>                            
+                                <field name="clinical_status" attrs="{'required': [('verification_status','in',['unconfirmed','confirmed','refuted'])], 'invisible': [('verification_status','=','entered-in-error')]}"/>
                             </group>
                             <group string = "Who, Where">
                                 <field name="recorder_name"/>
@@ -229,10 +229,10 @@
                                     </form>
                                 </field>
                             </page>
-                            <page string="Clinical Statuses">
-                                <field name="clinical_status_history_ids" mode="tree">
+                            <page string="Verification Statuses">
+                                <field name="verification_status_history_ids" mode="tree">
                                     <tree>
-                                        <field name="clinical_status" readonly="1"/>
+                                        <field name="verification_status" readonly="1"/>
                                         <field name="start_date" readonly="1"/>
                                         <field name="end_date" readonly="1"/>
                                         <field name="time_diff_day"/>
@@ -243,10 +243,10 @@
                                     </tree>
                                 </field>
                             </page>
-                            <page string="Verification Statuses">
-                                <field name="verification_status_history_ids" mode="tree">
+                            <page string="Clinical Statuses">
+                                <field name="clinical_status_history_ids" mode="tree">
                                     <tree>
-                                        <field name="verification_status" readonly="1"/>
+                                        <field name="clinical_status" readonly="1"/>
                                         <field name="start_date" readonly="1"/>
                                         <field name="end_date" readonly="1"/>
                                         <field name="time_diff_day"/>

@@ -327,6 +327,18 @@ class ConditionStage(models.Model):
         inverse_name="stage_id", 
         string="Assessments", 
         help="Formal record of assessment.")
+    has_assessment = fields.Boolean(
+        string='Has Assessment', 
+        invisible=True,
+        help="Indicates if assessment exists. Used to enforce constraint summary_id or assessment_ids.")
+
+    @api.onchange('assessment_ids')
+    def onchange_assessment_ids(self):
+        if self.assessment_ids:
+            self.summary_id = False
+            self.has_assessment = True
+        else:
+            self.has_assessment = False
 
 class ConditionEvidence(models.Model):    
     _name = "hc.condition.evidence"    

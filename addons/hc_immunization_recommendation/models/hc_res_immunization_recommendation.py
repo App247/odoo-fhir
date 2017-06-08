@@ -93,3 +93,8 @@ class ObservationBasedOn(models.Model):
         string="Based On Immunization Recommendation", 
         help="Immunization Recommendation fulfills plan, proposal or order.")  
 
+    @api.depends('based_on_type')           
+    def _compute_based_on_name(self):           
+        for hc_observation_based_on in self:        
+            if hc_observation_based_on.based_on_type == 'immunization_recommendation':    
+                hc_observation_based_on.based_on_name = hc_observation_based_on.based_on_immunization_recommendation_id.name

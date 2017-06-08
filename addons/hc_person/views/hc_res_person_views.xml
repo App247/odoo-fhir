@@ -2,55 +2,55 @@
 <openerp>
     <data>
       
-        <record id="hc_res_person_view_search" model="ir.ui.view">        
-            <field name="name">Person Search</field>      
-            <field name="model">hc.res.person</field>     
-            <field name="arch" type="xml">      
-                <search string="Persons">   
+        <record id="hc_res_person_view_search" model="ir.ui.view">
+            <field name="name">Person Search</field>
+            <field name="model">hc.res.person</field>
+            <field name="arch" type="xml">
+                <search string="Persons">
                     <field name="name_id"/>
-                </search>   
-            </field>      
-        </record>       
+                </search>
+            </field>
+        </record>
                 
-        <record id="hc_res_person_view_tree" model="ir.ui.view">        
-            <field name="name">Person Tree</field>      
-            <field name="model">hc.res.person</field>     
-            <field name="arch" type="xml">      
+        <record id="hc_res_person_view_tree" model="ir.ui.view">
+            <field name="name">Person Tree</field>
+            <field name="model">hc.res.person</field>
+            <field name="arch" type="xml">
                 <tree string="Persons">
-                    <field name="preferred_name"/>    
-                    <field name="name_id"/>  
-                    <field name="gender"/>  
+                    <field name="preferred_name"/>
+                    <field name="name_id"/>
+                    <field name="gender"/>
                     <field name="birth_date"/>
-                    <field name="is_active" string="Active Record"/>  
-                </tree>   
-            </field>      
-        </record>       
+                    <field name="is_active" string="Active Record"/>
+                </tree>
+            </field>
+        </record>
 
-        <record id="hc_res_person_view_form" model="ir.ui.view">                    
-            <field name="name">Person Form</field>                  
-            <field name="model">hc.res.person</field>                 
-            <field name="arch" type="xml">                  
-                <form string="Person">                
+        <record id="hc_res_person_view_form" model="ir.ui.view">
+            <field name="name">Person Form</field>
+            <field name="model">hc.res.person</field>
+            <field name="arch" type="xml">
+                <form string="Person">
                     <sheet>
                         <field name="image" widget="image" class="oe_left oe_avatar" options="{'preview_image': 'image_medium', 'size': [90, 90]}"/>
-                        <div class="oe_title">           
-                            <h1>          
-                                <field name="preferred_name" placeholder="Full Name"/>       
-                            </h1>         
-                        </div>            
+                        <div class="oe_title">
+                            <h1>
+                                <field name="preferred_name" placeholder="Full Name"/>
+                            </h1>
+                        </div>
                         <div name="buttons" class="oe_right oe_button_box">
-                        </div>           
-                        <group>           
+                        </div>
+                        <group>
                             <group>
-                                <field name="name_id"/>         
-                                <field name="gender"/>        
+                                <field name="name_id"/>
+                                <field name="gender"/>
                                 <field name="birth_date"/>
-                            </group>          
+                            </group>
                             <group>
-                                <field name="is_active" string="Active Record"/>         
-                            </group>          
-                        </group>            
-                        <notebook colspan="4">           
+                                <field name="is_active" string="Active Record"/>
+                            </group>
+                        </group>
+                        <notebook colspan="4">
                             <page string="Names">
                                 <field name="name_ids" mode="tree">
                                     <tree default_order="is_preferred">
@@ -87,7 +87,7 @@
                                         </sheet>
                                     </form>
                                 </field>
-                            </page>   
+                            </page>
                             <page string="Identifiers">
                                 <field name="identifier_ids" mode="tree">
                                     <tree default_order="is_preferred">
@@ -116,23 +116,23 @@
                                         </sheet>
                                     </form>
                                 </field>
-                            </page>         
-                            <page string="Addresses">         
+                            </page>
+                            <page string="Addresses">
                                 <field name="address_ids" mode="tree">
                                     <tree default_order="is_preferred">
-                                        <field name="is_preferred"/>       
-                                        <field name="use"/>    
-                                        <field name="line1"/>   
-                                        <field name="line2"/>   
-                                        <field name="city_id"/>   
-                                        <field name="postal_code_id"/>    
+                                        <field name="is_preferred"/>
+                                        <field name="use"/>
+                                        <field name="line1"/>
+                                        <field name="line2"/>
+                                        <field name="city_id"/>
+                                        <field name="postal_code_id"/>
                                         <field name="country_id"/>
-                                        <field name="start_date"/>    
+                                        <field name="start_date"/>
                                         <field name="end_date"/>
-                                    </tree>     
-                                    <form>      
-                                        <sheet>   
-                                            <group col="4" colspan="4">  
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group col="4" colspan="4">
                                                 <field name="use" widget="radio" colspan="4"/>
                                                 <field name="address_id" class="oe_no_button"/>
                                             </group>
@@ -141,11 +141,11 @@
                                                 <field name="is_active"/>
                                                 <field name="start_date" placeholder="Valid From"/>
                                                 <field name="end_date" placeholder="Valid To"/>
-                                            </group>  
-                                        </sheet>    
-                                    </form>     
-                                </field>        
-                            </page>         
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
                             <page string="Telecom">
                                 <field name="telecom_ids" mode="tree">
                                     <tree default_order="is_preferred">
@@ -174,7 +174,7 @@
                                         </sheet>
                                     </form>
                                 </field>
-                            </page>          
+                            </page>
                             <page string="Photos">
                                 <field name="photo_ids" mode="tree">
                                     <tree default_order="is_preferred">
@@ -185,16 +185,24 @@
                                     </tree>
                                     <form>
                                         <sheet>
+                                            <div class="oe_title oe_left">
+                                                <h1>
+                                                <field name="name" default_focus="1" placeholder="Title (e.g., ADT Form)"/>
+                                                </h1>
+                                            </div>
                                             <group>
                                                 <group>
-                                                    <field name="name" string="Photo Name"/>
-                                                    <field name="datas"/>
+                                                    <field name="creation_date"/>
+                                                    <field name="attachment_type_id" placeholder="(e.g., ADT Form)"/>
+                                                    <field name="has_data" invisible="1"/>
+                                                    <field name="mimetype" attrs="{'required': [('has_data','=',True)]}"/>
+                                                    <field name="datas" widget="image" class="oe_left oe_avatar" options="{'preview_image': 'image_medium', 'size': [90, 90]}" attrs="{'required': [('mimetype','!=',False)]}"/>
+                                                    <field name="hash_attachment" widget="image" class="oe_left oe_avatar" options="{'preview_image': 'image_medium', 'size': [90, 90]}"/>
                                                 </group>
                                                 <group>
-                                                    <field name="is_preferred"/>
-                                                    <field name="is_active"/>
-                                                    <field name="start_date" placeholder="Valid From"/>
-                                                    <field name="end_date" placeholder="Valid To"/>
+                                                    <field name="language_id"/>
+                                                    <field name="url" widget="url"/>
+                                                    <field name="file_size"/>
                                                 </group>
                                             </group>
                                         </sheet>
@@ -216,7 +224,7 @@
                                                     <field name="target_person_id" attrs="{'invisible': [('target_type','!=','person')]}"/>
                                                     <!-- <field name="target_patient_id" attrs="{'invisible': [('target_type','!=','Patient')]}"/>
                                                     <field name="target_practitioner_id" attrs="{'invisible': [('target_type','!=','Practitioner')]}"/>
-                                                    <field name="target_related_person_id" attrs="{'invisible': [('target_type','!=','Related Person')]}"/> -->
+                                                    <field name="target_related_person_id" attrs="{'invisible': [('target_type','!=','Related Person')]}"/>-->
                                                 </group>
                                                 <group>
                                                     <field name="assurance"/>
@@ -225,12 +233,12 @@
                                         </sheet>
                                     </form>
                                 </field>
-                            </page>         
-                        </notebook>           
-                    </sheet>              
-                </form>               
-            </field>                  
-        </record>                   
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
         <record id="hc_res_person_view_form_inherit" model="ir.ui.view">
             <field name="name">Person Form Inherit</field>
@@ -240,22 +248,22 @@
 <!--                 <xpath expr="//field[@name='name_ids']//form//field[@name='surname_id']" position="after">
                     <field name="first_id" invisible="1"/>
                     <field name="surname_id" invisible="1"/>
-                </xpath> -->
+                </xpath>-->
                 <xpath expr="//field[@name='address_ids']//form//field[@name='end_date']" position="after">
                     <!-- As the structure of model is something like that so we have to use the value of same address_id field but
                     for that we have added the fields value in form view with invisible=1 so their value will be available in one2many field-->
-                    <field name="line1" invisible="1"/>   
-                    <field name="line2" invisible="1"/>   
-                    <field name="city_id" invisible="1"/>   
-                    <field name="postal_code_id" invisible="1"/>    
+                    <field name="line1" invisible="1"/>
+                    <field name="line2" invisible="1"/>
+                    <field name="city_id" invisible="1"/>
+                    <field name="postal_code_id" invisible="1"/>
                     <field name="country_id" invisible="1"/>
                 </xpath>
             </field>
         </record>
 
-        <!-- Person Action and Menu --> 
+        <!-- Person Action and Menu -->
     
-        <act_window id="hc_res_person_action"   
+        <act_window id="hc_res_person_action"
                     name="HC Persons"
                     res_model="hc.res.person"
                     view_mode="tree,form"
@@ -273,23 +281,23 @@
         
         <!-- External Reference View -->
 
-        <!-- <record id="base.view_partner_form_inherited_person" model="ir.ui.view">     
-          <field name="name">res.partner.form</field>   
-          <field name="model">res.partner</field>   
-          <field name="inherit_id" ref="base.view_partner_form"/>   
+        <!-- <record id="base.view_partner_form_inherited_person" model="ir.ui.view">
+          <field name="name">res.partner.form</field>
+          <field name="model">res.partner</field>
+          <field name="inherit_id" ref="base.view_partner_form"/>
           <field name="arch" type="xml">
               <field name="parent_id" position="after">
-                <label for="is_person" string="HC Person"/>  
+                <label for="is_person" string="HC Person"/>
                 <field name="is_person"/>
-                <label for="is_patient" string="HC Patient"/>  
+                <label for="is_patient" string="HC Patient"/>
                 <field name="is_patient"/>
-                <label for="is_practitioner" string="HC Practitioner"/>  
+                <label for="is_practitioner" string="HC Practitioner"/>
                 <field name="is_practitioner"/>
-                <label for="is_related_person" string="HC Related Person"/>  
+                <label for="is_related_person" string="HC Related Person"/>
                 <field name="is_related_person"/>
               </field>
           </field>
-        </record> -->
+        </record>-->
 
     </data>
 </openerp>

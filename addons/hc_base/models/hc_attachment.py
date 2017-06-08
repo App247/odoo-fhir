@@ -32,9 +32,18 @@ class Attachment(models.Model):
     datas = fields.Binary(
         string="Data", 
         help="Data inline, base64ed.")
+    url = fields.Char(
+        string="URL",
+        help="Uri where the data can be found.")
+    file_size = fields.Integer(
+        string="Size",
+        help="Number of bytes of content (if url provided).")
     hash_attachment = fields.Binary(
         string="Hash", 
         help="Hash of the data (sha-1, base64ed ).")
+    name = fields.Char(
+        string="Title",
+        help="Label to display in place of the data.")
     creation_date = fields.Datetime(
         string="Creation Date", 
         help="Date attachment was first created.")
@@ -42,3 +51,16 @@ class Attachment(models.Model):
 # Constraints
 
 # If the Attachment has datas, it SHALL have a mimetype
+
+    has_data = fields.Boolean(      
+        string='Has Data',  
+        invisible=True, 
+        help="Indicates if data exists. Used to enforce constraint mimetype or data.")  
+            
+    @api.onchange('datas')      
+    def onchange_datas(self):       
+        if self.datas:  
+            self.mimetype = False
+            self.has_data = True
+        else:   
+            self.has_data = False

@@ -26,8 +26,7 @@ class AllergyIntolerance(models.Model):
         selection=[
             ("draft", "Draft"), 
             ("active", "Active"), 
-            ("resolved", "Resolved")],
-        default="draft", 
+            ("resolved", "Resolved")], 
         help="The clinical status of the allergy or intolerance.")
     clinical_status_history_ids = fields.One2many(
         comodel_name="hc.allergy.intolerance.clinical.status.history", 

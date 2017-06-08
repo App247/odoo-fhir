@@ -61,16 +61,17 @@
                                 <field name="status"/>
                                 <field name="data_absent_reason"/>
                             </group>                 
-                            <group string="Timeline" attrs="{'invisible': [('family_member_name_type','!=','string')]}">
-                                <field name="born_name"/>
-                                <field name="born_type" class="oe_edit_only"/>
+                            <group string="Timeline">
+                                <field name="born_name" attrs="{'invisible': ['|',('age_type','!=',False),('is_estimated_age','=',True)]}"/>
+                                <field name="born_type" class="oe_edit_only" attrs="{'invisible': ['|',('age_type','!=',False),('is_estimated_age','=',True)]}"/>                
                                 <field name="earliest_born_date" class="oe_edit_only" attrs="{'invisible': [('born_type','!=','period')], 'required': [('born_type','=','period')]}"/>
                                 <field name="latest_born_date" class="oe_edit_only" attrs="{'invisible': [('born_type','!=','period')], 'required': [('born_type','=','period')]}"/>
                                 <field name="born_date" class="oe_edit_only" attrs="{'invisible': [('born_type','!=','date')], 'required': [('born_type','=','date')]}"/>
                                 <field name="born_string" class="oe_edit_only" attrs="{'invisible': [('born_type','!=','string')], 'required': [('born_type','=','string')]}"/>
-                                
-                                <field name="age_name"/>
-                                <field name="age_type" class="oe_edit_only"/>
+                                <field name="has_born" invisible="1"/>
+                                <field name="is_estimated_age" attrs="{'invisible': [('has_born','=',True)]}"/>
+                                <field name="age_name" attrs="{'invisible': [('has_born','=',True)]}"/>
+                                <field name="age_type" class="oe_edit_only" attrs="{'invisible': [('has_born','=',True)], 'required': [('is_estimated_age','=',True)]}"/>
                                 <field name="age" class="oe_edit_only" attrs="{'invisible': [('age_type','!=','age')], 'required': [('age_type','=','age')]}"/>     
                                 <field name="age_uom_id" class="oe_edit_only" attrs="{'invisible': [('age_type','!=','age')], 'required': [('age_type','=','age')]}"/>      
                                 <field name="age_range_low" class="oe_edit_only" attrs="{'invisible': [('age_type','!=','range')], 'required': [('age_type','=','range')]}"/>

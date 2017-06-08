@@ -111,6 +111,19 @@ class MedicationProductIngredient(models.Model):
         store="True", 
         help="Amount unit of measure. For example, 250 mg per tablet.")
  
+    has_amount_numerator = fields.Boolean(      
+        string='Has Amount_Numerator',  
+        invisible=True, 
+        help="Indicates if amount_numerator exists. Used to enforce constraint amount_denominator and amount_numerator.")   
+        
+    @api.onchange('amount_numerator')       
+    def onchange_amount_numerator(self):        
+        if self.amount_numerator:   
+            self.amount_denominator = True
+            self.has_amount_numerator = True
+        else:   
+            self.has_amount_numerator = False
+
     @api.depends('amount_numerator', 'amount_denominator')        
     def _compute_amount(self):        
         if self.amount_numerator and self.amount_denominator:    
@@ -124,6 +137,16 @@ class MedicationProductIngredient(models.Model):
         if self.amount_denominator_uom_id:    
             amount_uom += (' per ' + self.amount_denominator_uom_id.name) if self.amount_numerator_uom_id else self.amount_denominator_uom_id.name
         self.amount_uom = amount_uom
+
+    @api.depends('item_type')           
+    def _compute_item_name(self):           
+        for hc_medication_product_ingredient in self:       
+            if hc_medication_product_ingredient.item_type == 'code':    
+                hc_medication_product_ingredient.item_name = hc_medication_product_ingredient.item_code_id.name
+            elif hc_medication_product_ingredient.item_type == 'substance': 
+                hc_medication_product_ingredient.item_name = hc_medication_product_ingredient.item_substance_id.name
+            elif hc_medication_product_ingredient.item_type == 'medication':    
+                hc_medication_product_ingredient.item_name = hc_medication_product_ingredient.item_medication_id.name
 
 class MedicationProductBatch(models.Model): 
     _name = "hc.medication.product.batch"   
@@ -193,6 +216,14 @@ class MedicationPackageContent(models.Model):
         comodel_name="product.uom", 
         string="Amount UOM", 
         help="Amount unit of measure.")                    
+
+    @api.depends('item_type')           
+    def _compute_item_name(self):           
+        for hc_medication_product_ingredient in self:       
+            if hc_medication_product_ingredient.item_type == 'code':    
+                hc_medication_product_ingredient.item_name = hc_medication_product_ingredient.item_code_id.name
+            elif hc_medication_product_ingredient.item_type == 'medication':    
+                hc_medication_product_ingredient.item_name = hc_medication_product_ingredient.item_medication_id.name
 
 class MedicationCode(models.Model):    
     _name = "hc.vs.medication.code"    

@@ -255,6 +255,19 @@ class FamilyMemberHistory(models.Model):
         string="Siblings", 
         help="Identifies a sibling of the relative.")
 
+    # technical attribute
+    has_born = fields.Boolean(
+        string='Has Born', 
+        invisible=True,
+        help="Indicates if born exists. Used to enforce constraint born or age.")
+    
+    @api.onchange('born_type')
+    def onchange_born_type(self):
+        if self.born_type:
+            self.age_type = True
+            self.has_born = True
+        else:
+            self.has_born = False
         
     @api.depends('patient_id', 'family_member_name', 'date')             
     def _compute_record_name(self):                

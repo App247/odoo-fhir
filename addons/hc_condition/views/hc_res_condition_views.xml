@@ -74,7 +74,7 @@
                             <field name="severity_id"/>
                         </group>
                         <group string = "Who, Where">
-                            <field name="asserter_name"/>
+                            <field name="asserter_name"/> 
                             <field name="asserter_type" class="oe_edit_only"/>
                             <field name="asserter_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('asserter_type','!=','practitioner')], 'required': [('asserter_type','=','practitioner')]}"/>
                             <field name="asserter_patient_id" class="oe_edit_only" attrs="{'invisible': [('asserter_type','!=','patient')], 'required': [('asserter_type','=','patient')]}"/>
@@ -93,7 +93,7 @@
                                 <field name="onset_range_high" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','range')], 'required': [('onset_type','=','range')]}"/>
                                 <field name="onset_string" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','string')], 'required': [('onset_type','=','string')]}"/>
                                 <field name="abatement_name"/>
-                                <field name="abatement_type" class="oe_edit_only"/>
+                                <field name="abatement_type" class="oe_edit_only" attrs="{'required': [('clinical_status','in',['inactive','remission','resolved'])]}"/>
                                 <field name="abatement_date_time" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','date_time')], 'required': [('abatement_type','=','date_time')]}"/>
                                 <field name="abatement_age" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','age')], 'required': [('abatement_type','=','age')]}"/>
                                 <field name="abatement_age_uom_id" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','age')], 'required': [('abatement_type','=','age')]}"/>
@@ -114,14 +114,15 @@
                                 <form>          
                                     <sheet>
                                         <group>
-                                            <group> 
-                                                <field name="summary_id"/>         
+                                            <group>
+                                                <field name="has_assessment" invisible="1"/> 
+                                                <field name="summary_id" attrs="{'invisible': [('has_assessment','=',True)]}"/>         
                                             </group>
                                             <group>
                                             </group>
                                         </group>
                                         <notebook>
-                                            <page string="Assessments">
+                                            <page string="Assessments" attrs="{'invisible': [('summary_id','!=',False)]}">
                                                 <field name="assessment_ids" mode="tree">
                                                     <tree>
                                                         <field name="assessment_name"/>
@@ -135,6 +136,7 @@
                                                                 <group>
                                                                     <field name="assessment_name" readonly="1"/>
                                                                     <field name="assessment_type" class="oe_edit_only"/>
+                                                                    <!-- In Clinical Impression -->
                                                                     <!-- <field name="assessment_observation_id" class="oe_edit_only" attrs="{'invisible': [('assessment_type','!=','observation')], 'required': [('assessment_type','=','observation')]}"/>
                                                                     <field name="assessment_clinical_impression_id" class="oe_edit_only" attrs="{'invisible': [('assessment_type','!=','clinical_impression')], 'required': [('assessment_type','=','clinical_impression')]}"/>
                                                                     <field name="assessment_diagnostic_report_id" class="oe_edit_only" attrs="{'invisible': [('assessment_type','!=','diagnostic_report')], 'required': [('assessment_type','=','diagnostic_report')]}"/> -->

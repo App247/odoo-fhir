@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+attrs="{'invisible': [('has_assessment','!=',True)]}"# -*- coding: utf-8 -*-
 
 from openerp import models, fields, api
 
@@ -772,6 +772,14 @@ class ObservationBasedOn(models.Model):
         comodel_name="hc.res.procedure.request", 
         string="Based On Procedure Request", 
         help="Procedure Request fulfills plan, proposal or order.")                               
+
+    @api.depends('based_on_type')           
+    def _compute_based_on_name(self):           
+        for hc_observation_based_on in self:        
+            if hc_observation_based_on.based_on_type == 'procedure_request':    
+                hc_observation_based_on.based_on_name = hc_observation_based_on.based_on_procedure_request_id.name
+
+
 
 class ObservationValueAttachment(models.Model):    
     _name = "hc.observation.value.attachment"    
