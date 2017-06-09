@@ -82,7 +82,6 @@
                                                     <field name="item_medication_id" class="oe_edit_only" attrs="{'invisible': [('item_type','!=','medication')], 'required': [('item_type','=','medication')]}"/>
                                                 </group>
                                                 <group>
-                                                    <!-- <field name="amount_numerator" attrs="{'required': [('amount_denominator','=',True)]}"/> -->
                                                     <field name="has_amount_numerator" invisible="1"/>
                                                     <field name="amount_numerator" attrs="{'required': [('has_amount_numerator','=',True)]}"/>
                                                     <field name="amount_numerator_uom_id" attrs="{'required': [('has_amount_numerator','=',True)]}"/>
