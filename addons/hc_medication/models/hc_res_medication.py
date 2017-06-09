@@ -13,55 +13,50 @@ class Medication(models.Model):
         comodel_name="hc.vs.medication.code", 
         string="Code", 
         help="Codes that identify this medication.")                    
+    status = fields.Selection(
+        string="Medication Status", 
+        selection=[
+            ("active", "Active"), 
+            ("inactive", "Inactive"), 
+            ("entered-in-error", "Entered-In-Error")], 
+        help="Indicates whether the account is presently used/useable or not.")
     is_brand = fields.Boolean(
         string="Is Brand", 
-        help="True if a brand.")                    
+        help="True if a brand.")
+    is_over_the_counter = fields.Boolean(
+        string="Is Over The Counter", 
+        help="True if medication does not require a prescription.")
     manufacturer_id = fields.Many2one(
         comodel_name="hc.res.organization", 
         string="Manufacturer", 
         help="Manufacturer of the item.")                    
-    product_ids = fields.One2many(
-        comodel_name="hc.medication.product", 
+    form_id = fields.Many2one(
+        comodel_name="hc.vs.medication.form.code", 
+        string="Medication Form", 
+        help="Describes the form of the item. Powder; tablets; carton.")
+    image_ids = fields.One2many(
+        comodel_name="hc.medication.image", 
         inverse_name="medication_id", 
-        string="Products", 
-        help="Administrable medication details.")                    
-    package_ids = fields.One2many(
+        string="Images", 
+        help="Picture of the medication.")
+    ingredient_ids = fields.One2many(
+        comodel_name="hc.medication.ingredient", 
+        inverse_name="medication_id", 
+        string="Ingredients", 
+        help="Active or inactive ingredient.")                 
+    package_id = fields.Many2one(
         comodel_name="hc.medication.package", 
-        inverse_name="medication_id", 
-        string="Packages", 
-        help="Details about packaged medications.")                    
-
-class MedicationProduct(models.Model):    
-    _name = "hc.medication.product"    
-    _description = "Medication Product"            
+        string="Package", 
+        help="Package associated with this Medication.")
+                    
+class MedicationIngredient(models.Model):
+    _name = "hc.medication.ingredient"
+    _description = "Medication Ingredient"      
 
     medication_id = fields.Many2one(
         comodel_name="hc.res.medication", 
-        string="Product Medication", 
-        help="Medication associated with this Product.")                    
-    form_id = fields.Many2one(
-        comodel_name="hc.vs.medication.form.code", 
-        string="Product Form", 
-        help="Describes the form of the item. Powder; tablets; carton.")                    
-    batch_ids = fields.One2many(
-        comodel_name="hc.medication.product.batch", 
-        inverse_name="medication_product_id", 
-        string="Batches", 
-        help="A group of medication produced or packaged from one production run.")                    
-    ingredient_ids = fields.One2many(
-        comodel_name="hc.medication.product.ingredient", 
-        inverse_name="medication_product_id", 
-        string="Ingredients", 
-        help="Active or inactive ingredient.")                    
-
-class MedicationProductIngredient(models.Model):    
-    _name = "hc.medication.product.ingredient"  
-    _description = "Medication Product Ingredient"      
-
-    medication_product_id = fields.Many2one(
-        comodel_name="hc.medication.product", 
-        string="Product", 
-        help="Product associated with this Ingredient.")                     
+        string="Medication", 
+        help="Medication associated with this Medication Ingredient.")
     item_type = fields.Selection(
         string="Item Type",
         required="True",
@@ -72,7 +67,8 @@ class MedicationProductIngredient(models.Model):
         help="Type of the product contained.")                    
     item_name = fields.Char(
         string="Item", 
-        compute="compute_item_name", 
+        compute="_compute_item_name",
+        store="True", 
         help="The product contained.")                    
     item_code_id = fields.Many2one(
         comodel_name="hc.vs.medication.ingredient.code", 
@@ -110,16 +106,25 @@ class MedicationProductIngredient(models.Model):
         compute="_compute_amount_uom", 
         store="True", 
         help="Amount unit of measure. For example, 250 mg per tablet.")
- 
+    
+    # technical attribute
     has_amount_numerator = fields.Boolean(      
         string='Has Amount_Numerator',  
         invisible=True, 
         help="Indicates if amount_numerator exists. Used to enforce constraint amount_denominator and amount_numerator.")   
         
+    _sql_constraints = [    
+        ('amount_numerator_gt_zero',
+        'CHECK(amount_numerator >= 0.0)',
+        'Amount Numerator SHALL be a non-negative value.'),
+
+        ('amount_denominator_gt_zero',              
+        'CHECK(amount_denominator >= 0.0)',                
+        'Amount Denominator SHALL be a non-negative value.')]
+
     @api.onchange('amount_numerator')       
     def onchange_amount_numerator(self):        
         if self.amount_numerator:   
-            self.amount_denominator = True
             self.has_amount_numerator = True
         else:   
             self.has_amount_numerator = False
@@ -131,61 +136,47 @@ class MedicationProductIngredient(models.Model):
         
     @api.depends('amount_numerator_uom_id', 'amount_denominator_uom_id')        
     def _compute_amount_uom(self):        
-        amount_uom = ''    
+        amount_uom = '/'    
         if self.amount_numerator_uom_id:    
-            amount_uom += self.amount_numerator_uom_id.name
+            amount_uom = self.amount_numerator_uom_id.name
         if self.amount_denominator_uom_id:    
-            amount_uom += (' per ' + self.amount_denominator_uom_id.name) if self.amount_numerator_uom_id else self.amount_denominator_uom_id.name
+            amount_uom = amount_uom + ' per ' + self.amount_denominator_uom_id.name
         self.amount_uom = amount_uom
 
     @api.depends('item_type')           
     def _compute_item_name(self):           
-        for hc_medication_product_ingredient in self:       
-            if hc_medication_product_ingredient.item_type == 'code':    
-                hc_medication_product_ingredient.item_name = hc_medication_product_ingredient.item_code_id.name
-            elif hc_medication_product_ingredient.item_type == 'substance': 
-                hc_medication_product_ingredient.item_name = hc_medication_product_ingredient.item_substance_id.name
-            elif hc_medication_product_ingredient.item_type == 'medication':    
-                hc_medication_product_ingredient.item_name = hc_medication_product_ingredient.item_medication_id.name
+        for hc_product_ingredient in self:       
+            if hc_product_ingredient.item_type == 'code':    
+                hc_product_ingredient.item_name = hc_product_ingredient.item_code_id.name
+            elif hc_product_ingredient.item_type == 'substance': 
+                hc_product_ingredient.item_name = hc_product_ingredient.item_substance_id.name
+            elif hc_product_ingredient.item_type == 'medication':    
+                hc_product_ingredient.item_name = hc_product_ingredient.item_medication_id.name
 
-class MedicationProductBatch(models.Model): 
-    _name = "hc.medication.product.batch"   
-    _description = "Medication Product Batch"
-
-    medication_product_id = fields.Many2one(
-        comodel_name="hc.medication.product", 
-        string="Product", 
-        help="Product associated with this Batch.")                    
-    lot_number = fields.Char(
-        string="Lot Number", 
-        help="The assigned lot number of a batch of the specified product.")                    
-    expiration_date = fields.Date(
-        string="Expiration Date", 
-        help="When this specific batch of product will expire.")                    
-
-class MedicationPackage(models.Model):    
-    _name = "hc.medication.package"    
+class MedicationPackage(models.Model):
+    _name = "hc.medication.package"
     _description = "Medication Package"
 
-    medication_id = fields.Many2one(
-        comodel_name="hc.res.medication", 
-        string="Medication", 
-        help="Medication associated with this Package.")                    
     container_id = fields.Many2one(
-        comodel_name="hc.vs.medication.package.container", 
+        comodel_name="hc.vs.medication.package.form.code", 
         string="Container", 
-        help="The kind of container that this package comes as (e.g., box, vial, blister-pack).")                    
+        help="The kind of container that this package comes as (e.g., box, vial, blister-pack).")     
     content_ids = fields.One2many(
-        comodel_name="hc.medication.package.content", 
-        inverse_name="medication_package_id", 
-        string="Contents", 
-        help="What is in the package?")                    
-
-class MedicationPackageContent(models.Model):   
-    _name = "hc.medication.package.content" 
+        comodel_name="hc.medication.package.content",
+        inverse_name="package_id",
+        string="Contents",
+        help="What is in the package?.")      
+    batch_ids = fields.One2many(
+        comodel_name="hc.medication.package.batch",
+        inverse_name="package_id",
+        string="Batches",
+        help="Identifies a single production run.")     
+        
+class MedicationPackageContent(models.Model):
+    _name = "hc.medication.package.content"
     _description = "Medication Package Content"
 
-    medication_package_id = fields.Many2one(
+    package_id = fields.Many2one(
         comodel_name="hc.medication.package", 
         string="Package", 
         help="Package associated with this Content.")                    
@@ -219,11 +210,36 @@ class MedicationPackageContent(models.Model):
 
     @api.depends('item_type')           
     def _compute_item_name(self):           
-        for hc_medication_product_ingredient in self:       
-            if hc_medication_product_ingredient.item_type == 'code':    
-                hc_medication_product_ingredient.item_name = hc_medication_product_ingredient.item_code_id.name
-            elif hc_medication_product_ingredient.item_type == 'medication':    
-                hc_medication_product_ingredient.item_name = hc_medication_product_ingredient.item_medication_id.name
+        for hc_medication_package_content in self:       
+            if hc_medication_package_content.item_type == 'code':    
+                hc_medication_package_content.item_name = hc_medication_package_content.item_code_id.name
+            elif hc_medication_package_content.item_type == 'medication':    
+                hc_medication_package_content.item_name = hc_medication_package_content.item_medication_id.name
+
+class MedicationPackageBatch(models.Model):
+    _name = "hc.medication.package.batch"
+    _description = "Medication Package Batch"
+
+    package_id = fields.Many2one(
+        comodel_name="hc.medication.package",
+        string="Package",
+        help="Package associated with this Medication Package Batch.")     
+    lot_number = fields.Char(
+        string="Lot Number",
+        help="The assigned lot number of a batch of the specified product.")      
+    expiration_date = fields.Date(
+        string="Expiration Date",
+        help="When this specific batch of product will expire.")        
+
+class MedicationImage(models.Model):
+    _name = "hc.medication.image"
+    _description = "Medication Image"
+    _inherit = ["hc.basic.association", "hc.attachment"]
+
+    medication_id = fields.Many2one(
+        comodel_name="hc.res.medication",
+        string="Medication",
+        help="Account associated with this Medication Image.")                              
 
 class MedicationCode(models.Model):    
     _name = "hc.vs.medication.code"    
@@ -294,18 +310,18 @@ class MedicationIngredientCode(models.Model):
         string="Parent",
         help="Parent concept.")
 
-class MedicationPackageContainer(models.Model):    
-    _name = "hc.vs.medication.package.container"    
-    _description = "Medication Package Container"        
+class MedicationPackageForm(models.Model):    
+    _name = "hc.vs.medication.package.form.code"    
+    _description = "Medication Package Form"        
     _inherit = ["hc.value.set.contains"]
 
     name = fields.Char(
         string="Name", 
-        help="Name of this medication package container.")
+        help="Name of this medication package form.")
     code = fields.Char(
         string="Code", 
-        help="Code of this medication package container.")
+        help="Code of this medication package form.")
     contains_id = fields.Many2one(
-        comodel_name="hc.vs.medication.package.container", 
+        comodel_name="hc.vs.medication.package.form.code", 
         string="Parent",
         help="Parent concept.")    

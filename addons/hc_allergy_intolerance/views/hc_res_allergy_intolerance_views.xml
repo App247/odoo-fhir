@@ -72,7 +72,7 @@
                             </group>                    
                             <group string="Status" name="status">
                                 <field name="verification_status"/>                            
-                                <field name="clinical_status" attrs="{'required': [('verification_status','in',['unconfirmed','confirmed','refuted'])], 'invisible': [('verification_status','=','entered-in-error')]}"/>
+                                <field name="clinical_status" attrs="{'required': [('verification_status','in',['unconfirmed','confirmed','refuted']),('verification_status','!=','entered-in-error')], 'invisible': [('verification_status','=','entered-in-error')]}"/>
                             </group>
                             <group string = "Who, Where">
                                 <field name="recorder_name"/>

@@ -51,60 +51,57 @@
                             </group>
                         </group>
                         <notebook>
-                            <page string="Products">
-                                <field name="product_ids" mode="tree">
+                            <page string="Images">
+                                <field name="image_ids" mode="tree">c
                                     <tree>
-                                        <field name="form_id"/>
                                     </tree>
                                     <form>
                                         <sheet>
                                             <group>
-                                                <field name="form_id"/>
                                             </group>
-                                            <notebook>
-                                                <page string="Batches">
-                                                    <field name="batch_ids" mode="tree">
-                                                        <tree editable="top">
-                                                            <field name="lot_number"/>
-                                                            <field name="expiration_date"/>
-                                                        </tree>
-                                                    </field>
-                                                </page>
-                                                <page string="Ingredients">
-                                                    <field name="ingredient_ids" mode="tree">
-                                                        <tree>
-                                                            <field name="item_name"/>
-                                                            <field name="item_type"/>
-                                                            <field name="amount"/>
-                                                            <field name="amount_uom"/>
-                                                        </tree>
-                                                        <form>
-                                                            <sheet>
-                                                                <group>
-                                                                    <group>
-                                                                        <field name="item_name"/>
-                                                                        <field name="item_type" class="oe_edit_only"/>
-                                                                        <field name="item_code_id" class="oe_edit_only" attrs="{'invisible': [('item_type','!=','code')], 'required': [('item_type','=','code')]}"/>
-                                                                        <field name="item_substance_id" class="oe_edit_only" attrs="{'invisible': [('item_type','!=','substance')], 'required': [('item_type','=','substance')]}"/>
-                                                                        <field name="item_medication_id" class="oe_edit_only" attrs="{'invisible': [('item_type','!=','medication')], 'required': [('item_type','=','medication')]}"/>
-                                                                    </group>
-                                                                    <group>
-                                                                        <!-- <field name="amount_numerator" attrs="{'required': [('amount_denominator','=',True)]}"/> -->
-                                                                        <field name="amount_numerator" attrs="{'required': [('amount_denominator','!=',False)]}"/>
-                                                                        <field name="amount_numerator_uom_id" attrs="{'required': [('amount_numerator','=',True)]}"/>
-                                                                        <field name="has_amount_numerator" invisible="1"/>
-                                                                        <field name="amount_denominator" attrs="{'required': [('amount_numerator','=',True)]}"/>
-                                                                        <field name="amount_denominator_uom_id" attrs="{'required': [('amount_denominator','=',True)]}"/>
-                                                                        <field name="amount" readonly="1"/>
-                                                                        <field name="amount_uom" readonly="1"/>
-                                                                    </group>
-                                                                </group>
-                                                            </sheet>
-                                                        </form>
-                                                    </field>
-                                                </page>
-                                            </notebook>
                                         </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Ingredients">
+                                <field name="ingredient_ids" mode="tree">
+                                    <tree>
+                                        <field name="item_name"/>
+                                        <field name="item_type"/>
+                                        <field name="amount"/>
+                                        <field name="amount_uom"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                    <field name="item_name"/>
+                                                    <field name="item_type" class="oe_edit_only"/>
+                                                    <field name="item_code_id" class="oe_edit_only" attrs="{'invisible': [('item_type','!=','code')], 'required': [('item_type','=','code')]}"/>
+                                                    <field name="item_substance_id" class="oe_edit_only" attrs="{'invisible': [('item_type','!=','substance')], 'required': [('item_type','=','substance')]}"/>
+                                                    <field name="item_medication_id" class="oe_edit_only" attrs="{'invisible': [('item_type','!=','medication')], 'required': [('item_type','=','medication')]}"/>
+                                                </group>
+                                                <group>
+                                                    <!-- <field name="amount_numerator" attrs="{'required': [('amount_denominator','=',True)]}"/> -->
+                                                    <field name="has_amount_numerator" invisible="1"/>
+                                                    <field name="amount_numerator" attrs="{'required': [('has_amount_numerator','=',True)]}"/>
+                                                    <field name="amount_numerator_uom_id" attrs="{'required': [('has_amount_numerator','=',True)]}"/>
+                                                    <field name="amount_denominator" attrs="{'required': [('has_amount_numerator','=',True)]}"/>
+                                                    <field name="amount_denominator_uom_id" attrs="{'required': [('has_amount_numerator','=',True)]}"/>
+                                                    <field name="amount" readonly="1"/>
+                                                    <field name="amount_uom" readonly="1"/>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+                                        <!-- </sheet>
                                     </form>
                                 </field>
                             </page> 
@@ -145,8 +142,25 @@
                                                         </form>
                                                     </field>
                                                 </page>
-                                            </notebook>
-                                        </sheet>
+                                            </notebook> -->
+                                        <!-- <notebook> -->
+                                                <!-- <page string="Contents">
+                                                    <field name="batch_ids" mode="tree">
+                                                        <tree editable="top">
+                                                            <field name="lot_number"/>
+                                                            <field name="expiration_date"/>
+                                                        </tree>
+                                                    </field>
+                                                </page>
+                                                <page string="Batches">
+                                                    <field name="batch_ids" mode="tree">
+                                                        <tree editable="top">
+                                                            <field name="lot_number"/>
+                                                            <field name="expiration_date"/>
+                                                        </tree>
+                                                    </field>
+                                                </page> -->
+          <!--                               </sheet>
                                     </form>
                                 </field>
                             </page>
@@ -154,7 +168,7 @@
                     </sheet>
                 </form>
             </field>
-        </record>
+        </record> -->
 
         <!-- Medication Action and Menu --> 
   
@@ -175,11 +189,11 @@
 
         <!-- Medication Value Set Action and Menu -->        
                 
-        <menuitem id="hc_medication.menu_med_med_conf" 
+<!--         <menuitem id="hc_medication.menu_med_med_conf" 
                   name="Configuration" 
                   parent="hc_medication.menu_med_med" 
                   groups="hc_base.group_hc_base_manager" 
-                  sequence="10"/>
+                  sequence="10"/> -->
 
         <act_window id="hc_vs_medication_code_action"       
                     name="HC Medication Codes"  
@@ -191,15 +205,14 @@
         
         <menuitem id="hc_medication.menu_med_code" 
                   name="Medication Codes" 
-                  parent="hc_medication.menu_med_med_conf" 
+                  parent="hc_medication.menu_med_med" 
                   action="hc_vs_medication_code_action" 
                   groups="hc_base.group_hc_base_manager" 
                   sequence="10"/>
 
         <record id="hc_vs_medication_code_view_search" model="ir.ui.view">                  
             <field name="name">Medication Code Search</field>               
-            <field name="model">hc.vs.medication.code</field>               
-<!--             <field name="inherit_id" ref="hc_base.hc_value_set_contains_view_search"/>       -->        
+            <field name="model">hc.vs.medication.code</field>                     
             <field name="arch" type="xml">              
                 <search string="Medication Codes">          
                     <field name="name"/>        
@@ -214,8 +227,7 @@
 
         <record id="hc_vs_medication_code_view_tree" model="ir.ui.view">                
             <field name="name">Medication Code Tree</field>         
-            <field name="model">hc.vs.medication.code</field>           
-            <!-- <field name="inherit_id" ref="hc_value_set_contains_view_tree"/>  -->           
+            <field name="model">hc.vs.medication.code</field>                     
             <field name="arch" type="xml">          
                 <tree string="Medication Codes" default_order="name, code">         
                     <field name="name"/>    
@@ -228,8 +240,7 @@
 
         <record id="hc_vs_medication_code_view_form" model="ir.ui.view">           
             <field name="name">Medication Code Form</field>         
-            <field name="model">hc.vs.medication.code</field>
-            <!-- <field name="inherit_id" ref="hc_value_set_contains_view_form"/>  -->        
+            <field name="model">hc.vs.medication.code</field>        
             <field name="arch" type="xml">          
                 <form string="Medication Codes">        
                     <sheet>     
@@ -266,15 +277,14 @@
 
         <menuitem id="hc_medication.menu_med_form" 
                   name="Medication Form Codes" 
-                  parent="hc_medication.menu_med_med_conf" 
+                  parent="hc_medication.menu_med_med" 
                   action="hc_vs_medication_form_code_action" 
                   groups="hc_base.group_hc_base_manager" 
                   sequence="20"/>
         
         <record id="hc_vs_medication_form_code_view_search" model="ir.ui.view">                                 
             <field name="name">Medication Form Code Search</field>                              
-            <field name="model">hc.vs.medication.form.code</field>                              
-<!--             <field name="inherit_id" ref="hc_value_set_contains_view_search"/>   -->                            
+            <field name="model">hc.vs.medication.form.code</field>                                                          
             <field name="arch" type="xml">                              
                 <search string="Medication Form Codes">                         
                     <field name="name"/>                        
@@ -290,8 +300,7 @@
 
         <record id="hc_vs_medication_form_code_view_tree" model="ir.ui.view">                                   
             <field name="name">Medication Form Code Tree</field>                                
-            <field name="model">hc.vs.medication.form.code</field>                              
-<!--             <field name="inherit_id" ref="hc_value_set_contains_view_tree"/>    -->                             
+            <field name="model">hc.vs.medication.form.code</field>                                                          
             <field name="arch" type="xml">                              
                 <tree string="Medication Form Codes" default_order="name, code">                            
                     <field name="name"/>                        
@@ -307,7 +316,7 @@
             <field name="name">Medication Form Code Form</field>                                
             <field name="model">hc.vs.medication.form.code</field>                              
             <field name="arch" type="xml">                              
-                <form string="Medication Form Codes" >                          
+                <form string="Medication Form Codes">                          
                     <sheet>                     
                         <h1>                
                             <field name="name" default_focus="1" placeholder="Name (e.g., United States)"/>         
@@ -343,7 +352,7 @@
 
         <menuitem id="hc_medication.menu_med_form_grp" 
                   name="Medication Form Group Codes" 
-                  parent="hc_medication.menu_med_med_conf" 
+                  parent="hc_medication.menu_med_med" 
                   action="hc_vs_medication_form_group_code_action" 
                   groups="hc_base.group_hc_base_manager" 
                   sequence="30"/>
@@ -351,7 +360,6 @@
         <record id="hc_vs_medication_form_group_code_view_search" model="ir.ui.view">
             <field name="name">Medication Form Group Code Search</field>
             <field name="model">hc.vs.medication.form.group.code</field>
-            <!-- <field name="inherit_id" ref="hc_value_set_contains_view_search"/> -->
             <field name="arch" type="xml">                                                      
                 <search string="Medication Form Group Codes">                                                   
                     <field name="name"/>                                                
@@ -367,7 +375,6 @@
         <record id="hc_vs_medication_form_group_code_view_tree" model="ir.ui.view">
             <field name="name">Medication Form Group Code Tree</field>
             <field name="model">hc.vs.medication.form.group.code</field>
-            <!-- <field name="inherit_id" ref="hc_value_set_contains_view_tree"/> -->
             <field name="arch" type="xml">                                                      
                 <tree string="Medication Form Group Codes" default_order="name, code">
                     <field name="name"/>                                                
@@ -382,7 +389,7 @@
             <field name="name">Medication Form Group Code Form</field>
             <field name="model">hc.vs.medication.form.group.code</field>
             <field name="arch" type="xml">                                                      
-                <form string="Medication Form Group Codes" >                                                    
+                <form string="Medication Form Group Codes">                                                    
                     <sheet>                                             
                         <h1>                                            
                             <field name="name" default_focus="1" placeholder="Name (e.g., United States)"/>
@@ -417,15 +424,14 @@
 
         <menuitem id="hc_medication.menu_med_ingr" 
                   name="Medication Ingredient Codes" 
-                  parent="hc_medication.menu_med_med_conf" 
+                  parent="hc_medication.menu_med_med" 
                   action="hc_vs_medication_ingredient_code_action" 
                   groups="hc_base.group_hc_base_manager" 
                   sequence="40"/>                                            
                                         
         <record id="hc_vs_medication_ingredient_code_view_search" model="ir.ui.view">
             <field name="name">Medication Ingredient Code Search</field>                                    
-            <field name="model">hc.vs.medication.ingredient.code</field>                                    
-            <!-- <field name="inherit_id" ref="hc_value_set_contains_view_search"/> -->                                  
+            <field name="model">hc.vs.medication.ingredient.code</field>                                                                     
             <field name="arch" type="xml">                                  
                 <search string="Medication Ingredient Codes">                               
                     <field name="name"/>                            
@@ -440,8 +446,7 @@
                                                 
         <record id="hc_vs_medication_ingredient_code_view_tree" model="ir.ui.view">                                     
             <field name="name">Medication Ingredient Code Tree</field>                                  
-            <field name="model">hc.vs.medication.ingredient.code</field>                                    
-            <!-- <field name="inherit_id" ref="hc_value_set_contains_view_tree"/> -->                                    
+            <field name="model">hc.vs.medication.ingredient.code</field>                                                                        
             <field name="arch" type="xml">                                  
                 <tree string="Medication Ingredient Codes" default_order="name, code">                              
                     <field name="name"/>                            
@@ -456,7 +461,7 @@
             <field name="name">Medication Ingredient Code Form</field>                                  
             <field name="model">hc.vs.medication.ingredient.code</field>                                    
             <field name="arch" type="xml">                                  
-                <form string="Medication Ingredient Codes" >                                
+                <form string="Medication Ingredient Codes">                                
                     <sheet>                         
                         <h1>                        
                             <field name="name" default_focus="1" placeholder="Name (e.g., United States)"/>
@@ -481,42 +486,40 @@
             </field>                                    
         </record>                                       
 
-        <act_window id="hc_vs_medication_package_container_action"                                 
-                    name="HC Medication Package Containers"                     
-                    res_model="hc.vs.medication.package.container"                      
+        <act_window id="hc_vs_medication_package_form_code_action"                                 
+                    name="HC Medication Package Form Codes"                     
+                    res_model="hc.vs.medication.package.form.code"                      
                     view_mode="tree,form"                       
                     domain=""                       
                     context=""                      
                     limit=""/> 
 
-        <menuitem id="hc_medication.menu_med_pkg" 
-                  name="Medication Package Containers" 
-                  parent="hc_medication.menu_med_med_conf" 
-                  action="hc_vs_medication_package_container_action" 
+        <menuitem id="hc_medication.menu_med_pkg_form_code" 
+                  name="Medication Package Form Codes" 
+                  parent="hc_medication.menu_med_med" 
+                  action="hc_vs_medication_package_form_code_action" 
                   groups="hc_base.group_hc_base_manager" sequence="50"/>
                          
-        <record id="hc_vs_medication_package_container_view_search" model="ir.ui.view">                                 
-            <field name="name">Medication Package Container Search</field>                              
-            <field name="model">hc.vs.medication.package.container</field>                              
-            <!-- <field name="inherit_id" ref="hc_value_set_contains_view_search"/> -->                              
+        <record id="hc_vs_medication_package_form_code_view_search" model="ir.ui.view">                                 
+            <field name="name">Medication Package Form Code Search</field>                              
+            <field name="model">hc.vs.medication.package.form.code</field>                                                            
             <field name="arch" type="xml">                              
-                <search string="Medication Package Containers">                         
+                <search string="Medication Package Form Codes">                         
                     <field name="name"/>                        
                     <field name="code"/>                        
                     <field name="definition"/>                      
                     <group>                     
                         <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}" />
                     </group>                        
-                </search>                           
+                </search>                       
             </field>                                
         </record>                                   
                                             
-        <record id="hc_vs_medication_package_container_view_tree" model="ir.ui.view">                                   
-            <field name="name">Medication Package Container Tree</field>                                
-            <field name="model">hc.vs.medication.package.container</field>                              
-            <!-- <field name="inherit_id" ref="hc_value_set_contains_view_tree"/> -->                                
+        <record id="hc_vs_medication_package_form_code_view_tree" model="ir.ui.view">                                   
+            <field name="name">Medication Package Form Code Tree</field>                                
+            <field name="model">hc.vs.medication.package.form.code</field>                                                              
             <field name="arch" type="xml">                              
-                <tree string="Medication Package Containers" default_order="name, code">                            
+                <tree string="Medication Package Form Codes" default_order="name, code">                            
                     <field name="name"/>                        
                     <field name="code"/>                        
                     <field name="definition"/>                      
@@ -525,11 +528,11 @@
             </field>                                
         </record>                                   
                                             
-        <record id="hc_vs_medication_package_container_view_form" model="ir.ui.view">                                   
-            <field name="name">Medication Package Container Form</field>                                
-            <field name="model">hc.vs.medication.package.container</field>                              
+        <record id="hc_vs_medication_package_form_code_view_form" model="ir.ui.view">                                   
+            <field name="name">Medication Package Form Code Form</field>                                
+            <field name="model">hc.vs.medication.package.form.code</field>                              
             <field name="arch" type="xml">                              
-                <form string="Medication Package Containers" >                          
+                <form string="Medication Package Form Codes">                          
                     <sheet>                     
                         <h1>                    
                             <field name="name" default_focus="1" placeholder="Name (e.g., United States)"/>             
