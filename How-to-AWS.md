@@ -1,7 +1,29 @@
 # Initialize
 
-Assign security group
-Assign fixed address - elastic IP
+1 Create instance
+
+* Go to [EC2 Instances Console](https://us-west-2.console.aws.amazon.com/ec2/v2/home)
+* **Launch Instance**
+
+2 Assign security group
+
+* Go to EC2 NETWORK & SECURITY>Security Groups
+* Create Security Group
+- Enter Security group name 
+- Select **Inbound** and **Add Rule**: Type = SSH, Protocol = TCP, Port Range = 22, Source = 67.188.133.71/32
+- Select **Outbound** and enter: Type = All traffic, Protocol = All, Port Range = All, Destination = 0.0.0.0/0
+* Assign Security Group
+- Go to INSTANCES>Instances>Actons>Networking>Change Security Groups
+- Select Security Group Name and click **Assign Security Groups**
+
+3 Assign fixed address - elastic IP
+
+* Go to EC2 NETWORK & SECURITY>Security Groups>Elastic IPs
+* Create address
+- Click **Allocate new address** to create a new address
+* Alternatively, select a existing Elastic IP
+- Go to Actions>Associated address
+- Enter **Instance** and click **Associate**
 
 # Update
 
