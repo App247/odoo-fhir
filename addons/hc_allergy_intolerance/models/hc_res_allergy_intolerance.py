@@ -357,7 +357,7 @@ class AllergyIntoleranceReaction(models.Model):
         string="Substance", 
         help="Type of the substance.")                  
     certainty = fields.Selection(
-        string="Reaction Certainty", 
+        string="Reaction Certainty", odoo
         selection=[
             ("unlikely", "Unlikely"), 
             ("likely", "Likely"), 
