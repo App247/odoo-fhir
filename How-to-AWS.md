@@ -11,6 +11,7 @@
 * Create Security Group
 - Enter Security group name 
 - Select **Inbound** and **Add Rule**: Type = SSH, Protocol = TCP, Port Range = 22, Source = 67.188.133.71/32
+- Select **Inbound** and **Add Rule**: Type = HTTP, Protocol = TCP, Port Range = 80, Source = 0.0.0.0/0
 - Select **Outbound** and enter: Type = All traffic, Protocol = All, Port Range = All, Destination = 0.0.0.0/0
 * Assign Security Group
 - Go to INSTANCES>Instances>Actons>Networking>Change Security Groups
@@ -68,7 +69,7 @@ sudo git gc
 * Documentation - [Amazon Route 53](https://aws.amazon.com/route53/)
 * Video - [Setting up AWS Route 53 DNS System](https://www.youtube.com/watch?time_continue=246&v=olEz_cTqGWM)
 * Video - [AWS Knowledge Center Videos: "How do I move my domain that is hosted with another registrar to AWS?"](https://www.youtube.com/watch?v=OxuqoqzjZYI#t=174.521)
-* Video - []()
+* Video - [How to create DNS entries on AWS Route 53](https://www.youtube.com/watch?v=dNlibHYABLU)
 
 ## Procedure
 
@@ -81,6 +82,11 @@ sudo git gc
 * Create **Record Set**
 - Enter **Type**: `A - IPv4 address` (default)
 - Enter **Value**: Type `IPv4 address` of instance found in [EC2 Dashboard](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#Instances:sort=instanceId) (eg, 52.26.227.152)
+- **Save Record Set**
+* Create **Record Set**
+- Enter **Name**: `www` **Type**: `A - IPv4 address` (default)
+- Enter **Value**: Type `IPv4 address` of instance found in [EC2 Dashboard](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#Instances:sort=instanceId) (eg, 52.26.227.152)
+- **Save Record Set**
 
 2 Point domain name to account
 * Go to Domain Service like [GoDaddy](www.godaddy.com)

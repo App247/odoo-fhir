@@ -157,6 +157,9 @@ class MedicationPackage(models.Model):
     _name = "hc.medication.package"
     _description = "Medication Package"
 
+    name = fields.Char(
+        string="Name", 
+        help="Package name.")
     container_id = fields.Many2one(
         comodel_name="hc.vs.medication.package.form.code", 
         string="Container", 

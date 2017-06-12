@@ -303,8 +303,7 @@ class AllergyIntolerance(models.Model):
         # For Clinical Status
         clinical_status_history_record_ids = clinical_status_history_obj.search([('end_date','=', False)])
         if clinical_status_history_record_ids:
-            if vals.get('verification_status') == 'entered-in-error' or (vals.get('clinical_status') and clinical_status_history_record_ids[0].clinical_status != vals.get('clinical_status')):            
-                
+            if vals.get('verification_status') == 'entered-in-error' or (vals.get('clinical_status') and clinical_status_history_record_ids[0].clinical_status != vals.get('clinical_status')):                
                 for clinical_status_history in clinical_status_history_record_ids:          
                     clinical_status_history.end_date = datetime.strftime(datetime.today(), DTF)     
                     time_diff = datetime.today() - datetime.strptime(clinical_status_history.start_date, DTF)               
@@ -357,7 +356,7 @@ class AllergyIntoleranceReaction(models.Model):
         string="Substance", 
         help="Type of the substance.")                  
     certainty = fields.Selection(
-        string="Reaction Certainty", odoo
+        string="Reaction Certainty",
         selection=[
             ("unlikely", "Unlikely"), 
             ("likely", "Likely"), 
