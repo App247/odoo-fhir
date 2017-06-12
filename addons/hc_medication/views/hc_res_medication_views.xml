@@ -240,13 +240,12 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_medication.menu_med_med_pkg" 
+        <menuitem id="hc_medication.menu_med_pkg" 
                   name="Medication Packages"
                   parent="hc_medication.menu_med_med"
                   action="hc_medication_package_action"
                   groups="hc_base.group_hc_base_manager"
                   sequence="5"/>
-
 
         <!-- Medication Value Set Action and Menu -->        
                 

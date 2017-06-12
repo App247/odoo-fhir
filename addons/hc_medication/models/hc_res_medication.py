@@ -168,7 +168,7 @@ class MedicationPackage(models.Model):
         comodel_name="hc.medication.package.content",
         inverse_name="package_id",
         string="Contents",
-        help="What is in the package?.")      
+        help="What is in the package?")      
     batch_ids = fields.One2many(
         comodel_name="hc.medication.package.batch",
         inverse_name="package_id",
