@@ -85,10 +85,10 @@ class Flag(models.Model):
     author_type = fields.Selection(
         string="Author Type", 
         selection=[
-            ("Device", "Device"), 
-            ("Organization", "Organization"), 
-            ("Patient", "Patient"), 
-            ("Practitioner", "Practitioner")], 
+            ("device", "Device"),
+            ("organization", "Organization"),
+            ("patient", "Patient"),
+            ("practitioner", "Practitioner")],
         help="Type of flag creator.")					
     author_name = fields.Char(
         string="Author", 

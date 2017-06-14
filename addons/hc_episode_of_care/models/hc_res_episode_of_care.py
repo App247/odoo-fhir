@@ -74,7 +74,12 @@ class EpisodeOfCare(models.Model):
         comodel_name="hc.episode.of.care.status.history", 
         inverse_name="episode_of_care_id", 
         string="Status Histories", 
-        help="The status history for the Episode of Care.")              
+        help="The status history for the Episode of Care.")
+    diagnosis_ids = fields.One2many(
+        comodel_name="hc.episode.of.care.diagnosis",
+        inverse_name="episode_of_care_id",
+        string="Diagnosis",
+        help="The list of diagnosis relevant to this episode of care.")              
 
 class EpisodeOfCareStatusHistory(models.Model): 
     _name = "hc.episode.of.care.status.history" 
@@ -104,6 +109,27 @@ class EpisodeOfCareStatusHistory(models.Model):
         string="End Date", 
         required="True", 
         help="End of the the period during this episode of care that the specific status applied.")                
+
+class EpisodeOfCareDiagnosis(models.Model):
+    _name = "hc.episode.of.care.diagnosis"
+    _description = "Episode Of Care Diagnosis"
+
+    episode_of_care_id = fields.Many2one(
+        comodel_name="hc.res.episode.of.care",
+        string="Episode Of Care",
+        help="Episode Of Care associated with this Episode Of Care Diagnosis.")          
+    condition_id = fields.Many2one(
+        comodel_name="hc.res.condition",
+        string="Condition",
+        required="True",
+        help="Conditions/problems/diagnoses this episode of care is for.")      
+    role_id = fields.Many2one(
+        comodel_name="hc.vs.diagnosis.role",
+        string="Role",
+        help="Role that this diagnosis has within the episode of care (e.g. admission, billing, discharge …).")       
+    rank = fields.Integer(
+        string="Rank",
+        help="Ranking of the diagnosis (for each role type).")     
 
 class EpisodeOfCareIdentifier(models.Model):    
     _name = "hc.episode.of.care.identifier" 
@@ -183,7 +209,10 @@ class EpisodeOfCareType(models.Model):
     _description = "Episode of Care Type"       
     _inherit = ["hc.value.set.contains"]
 
-
+class DiagnosisRole(models.Model):  
+    _name = "hc.vs.diagnosis.role"    
+    _description = "Diagnosis Role"       
+    _inherit = ["hc.value.set.contains"]
 
 # External Reference
 
@@ -193,7 +222,6 @@ class Condition(models.Model):
     context_type = fields.Selection(
         string="Condition Context Type",
         selection=[
-            # ("encounter", "Encounter"), 
             ("episode_of_care", "Episode of Care")], 
         help="Type of encounter when condition first asserted.")                    
     context_name = fields.Char(

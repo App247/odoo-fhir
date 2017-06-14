@@ -1,9 +1,11 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_hc_episode_of_care_hc_res_episode_of_care_user,hc.episode.of.care.hc.res.episode.of.care.user,model_hc_res_episode_of_care,hc_base.group_hc_base_user,1,0,0,0
 access_hc_episode_of_care_hc_episode_of_care_status_history_user,hc.episode.of.care.hc.episode.of.care.status.history.user,model_hc_episode_of_care_status_history,hc_base.group_hc_base_user,1,0,0,0
+access_hc_episode_of_care_hc_episode_of_care_diagnosis_user,hc.episode.of.care.hc.episode.of.care.diagnosis.user,model_hc_episode_of_care_diagnosis,hc_base.group_hc_base_user,1,0,0,0
 access_hc_episode_of_care_hc_episode_of_care_identifier_user,hc.episode.of.care.hc.episode.of.care.identifier.user,model_hc_episode_of_care_identifier,hc_base.group_hc_base_user,1,0,0,0
 access_hc_episode_of_care_hc_episode_of_care_condition_user,hc.episode.of.care.hc.episode.of.care.condition.user,model_hc_episode_of_care_condition,hc_base.group_hc_base_user,1,0,0,0
 access_hc_episode_of_care_hc_episode_of_care_account_user,hc.episode.of.care.hc.episode.of.care.account.user,model_hc_episode_of_care_account,hc_base.group_hc_base_user,1,0,0,0
 access_hc_episode_of_care_hc_episode_of_care_referral_request_user,hc.episode.of.care.hc.episode.of.care.referral.request.user,model_hc_episode_of_care_referral_request,hc_base.group_hc_base_user,1,0,0,0
 access_hc_episode_of_care_hc_episode_of_care_team_user,hc.episode.of.care.hc.episode.of.care.team.user,model_hc_episode_of_care_team,hc_base.group_hc_base_user,1,0,0,0
 access_hc_episode_of_care_hc_vs_episode_of_care_type_manager,hc.episode.of.care.hc.vs.episode.of.care.type.manager,model_hc_vs_episode_of_care_type,hc_base.group_hc_base_manager,1,1,1,1
+access_hc_episode_of_care_hc_vs_diagnosis_role_manager,hc.episode.of.care.hc.vs.diagnosis.role.manager,model_hc_vs_diagnosis_role,hc_base.group_hc_base_manager,1,1,1,1

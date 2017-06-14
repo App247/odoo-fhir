@@ -257,21 +257,21 @@ class ReferralType(models.Model):
 
 # External Reference
 
-class EncounterReferralRequest(models.Model):   
-    _inherit = "hc.encounter.referral.request" 
+# class EncounterReferralRequest(models.Model):   
+#     _inherit = "hc.encounter.referral.request" 
               
-    referral_request_id = fields.Many2one(
-        comodel_name="hc.res.referral.request", 
-        string="Referral Request", 
-        help="Referral Request associated with this Encounter Referral Request.")
+#     referral_request_id = fields.Many2one(
+#         comodel_name="hc.res.referral.request", 
+#         string="Referral Request", 
+#         help="Referral Request associated with this Encounter Referral Request.")
 
-class EpisodeOfCareReferralRequest(models.Model):   
-    _inherit = "hc.episode.of.care.referral.request"   
+# class EpisodeOfCareReferralRequest(models.Model):   
+#     _inherit = "hc.episode.of.care.referral.request"   
              
-    referral_request_id = fields.Many2one(
-        comodel_name="hc.res.referral.request", 
-        string="Referral Request", 
-        help="Referral Request associated with this Episode Of Care Referral Request.")
+#     referral_request_id = fields.Many2one(
+#         comodel_name="hc.res.referral.request", 
+#         string="Referral Request", 
+#         help="Referral Request associated with this Episode Of Care Referral Request.")
 
 class Claim(models.Model):    
     _inherit = "hc.res.claim"

@@ -19,9 +19,9 @@ class DocumentManifest(models.Model):
         string="Subject Type", 
         selection=[
             ("string", "String"), 
-            ("Encounter", "Encounter"), 
-            ("Episode of Care", "Episode Of Care"), 
-            ("Clinical Impression", "Clinical Impression")], 
+            ("encounter", "Encounter"), 
+            ("episode_of_care", "Episode Of Care"), 
+            ("clinical_impression", "Clinical Impression")],
         help="Type of the subject of the set of documents.")                
     subject_name = fields.Char(
         string="Subject", 
@@ -99,10 +99,10 @@ class DocumentManifestContent(models.Model):
         string="P Type", 
         required="True", 
         selection=[
-            ("string", "String"), 
-            ("Encounter", "Encounter"), 
-            ("Episode of Care", "Episode Of Care"), 
-            ("Clinical Impression", "Clinical Impression")], 
+            ("string", "String"),
+            ("encounter", "Encounter"),
+            ("episode_of_care", "Episode Of Care"),
+            ("clinical_impression", "Clinical Impression")],
         help="Type of contents of this set of documents.")                
     p_name = fields.Char(
         string="P", 
@@ -170,9 +170,9 @@ class DocumentManifestRecipient(models.Model):
         string="Recipient Type", 
         selection=[
             ("string", "String"), 
-            ("Encounter", "Encounter"), 
-            ("Episode of Care", "Episode Of Care"), 
-            ("Clinical Impression", "Clinical Impression")], 
+            ("encounter", "Encounter"), 
+            ("episode_of_care", "Episode Of Care"), 
+            ("clinical_impression", "Clinical Impression")],
         help="Type of intended to get notified about this set of documents.")                
     recipient_name = fields.Char(
         string="Recipient", 
@@ -204,10 +204,10 @@ class DocumentManifestAuthor(models.Model):
     author_type = fields.Selection(
         string="Author Type", 
         selection=[
-            ("string", "String"), 
-            ("Encounter", "Encounter"), 
-            ("Episode of Care", "Episode Of Care"), 
-            ("Clinical Impression", "Clinical Impression")], 
+            ("string", "String"),
+            ("encounter", "Encounter"),
+            ("episode_of_care", "Episode Of Care"),
+            ("clinical_impression", "Clinical Impression")], 
         help="Type of who and/or what authored the document.")                
     author_name = fields.Char(
         string="Author", 

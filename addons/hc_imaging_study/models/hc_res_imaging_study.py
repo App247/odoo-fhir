@@ -45,8 +45,8 @@ class ImagingStudy(models.Model):
     context_type = fields.Selection(
         string="Context Type", 
         selection=[
-            ("Encounter", "Encounter"), 
-            ("Episode Of Care", "Episode Of Care")], 
+            ("encounter", "Encounter"), 
+            ("episode_of_care", "Episode Of Care")], 
         help="Type of originating context.")                
     context_name = fields.Char(
         string="Context", 
@@ -241,10 +241,10 @@ class ImagingStudyBasedOn(models.Model):
     based_on_type = fields.Selection(
         string="Based On Type", 
         selection=[
-            ("Referral Request", "Referral Request"), 
-            ("Care Plan", "Care Plan"), 
-            ("Diagnostic Request", "Diagnostic Request"), 
-            ("Procedure Request", "Procedure Request")], 
+            ("referral_request", "Referral Request"),
+            ("care_plan", "Care Plan"),
+            ("diagnostic_request", "Diagnostic Request"),
+            ("procedure_request", "Procedure Request")],
         help="Type of originating context.")
     based_on_name = fields.Char(
         string="Based On", 

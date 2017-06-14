@@ -15,13 +15,15 @@ class DocumentReference(models.Model):
         inverse_name="document_reference_id", 
         string="Identifiers", 
         help="Other identifiers for the document.")                
+    
+
     subject_type = fields.Selection(
-        string="Subject Type", 
+        string="Subject Type",
         selection=[
-            ("Patient", "Patient"), 
-            ("Practitioner", "Practitioner"), 
-            ("Group", "Group"), 
-            ("Device", "Device")], 
+            ("patient", "Patient"),
+            ("practitioner", "Practitioner"),
+            ("group", "Group"),
+            ("device", "Device")],
         help="Type of who/what is the subject of the document.")
     subject_name = fields.Char(
         string="Subject", 
@@ -327,10 +329,10 @@ class DocumentReferenceContextRelatedRef(models.Model):
         string="Ref Type", 
         required="True", 
         selection=[
-            ("string", "String"), 
-            ("Encounter", "Encounter"), 
-            ("Episode of Care", "Episode Of Care"), 
-            ("Clinical Impression", "Clinical Impression")], 
+            ("string", "String"),
+            ("encounter", "Encounter"),
+            ("episode_of_care", "Episode Of Care"),
+            ("clinical_impression", "Clinical Impression")],
         help="Type of related resource.")              
     ref_name = fields.Char(
         string="Ref", 

@@ -294,10 +294,10 @@ class ContractSignatory(models.Model):
         string="Party Type", 
         required="True", 
         selection=[
-            ("Organization", "Organization"), 
-            ("Patient", "Patient"), 
-            ("Practitioner", "Practitioner"), 
-            ("Related Person", "Related Person")], 
+            ("organization", "Organization"), 
+            ("patient", "Patient"),
+            ("practitioner", "Practitioner"),
+            ("related_person", "Related Person")], 
         help="Type of Contract Signatory Party.")                
     party_name = fields.Char(
         string="Party", 
@@ -543,10 +543,10 @@ class ContractFriendlyLanguage(models.Model):
         string="Content Type", 
         required="True", 
         selection=[
-            ("Attachment", "Attachment"), 
-            ("Composition", "Composition"), 
-            ("Document Reference", "Document Reference"), 
-            ("Questionnaire Response", "Questionnaire Response")], 
+            ("attachment", "Attachment"),
+            ("composition", "Composition"),
+            ("document_reference", "Document Reference"),
+            ("questionnaire_response", "Questionnaire Response")],
         help="Type of easily comprehended representation of this Contract.")                
     content_name = fields.Char(
         string="Content", 
@@ -582,10 +582,10 @@ class ContractLegalLanguage(models.Model):
         string="Content Type", 
         required="True", 
         selection=[
-            ("Attachment", "Attachment"), 
-            ("Composition", "Composition"), 
-            ("Document Reference", "Document Reference"), 
-            ("Questionnaire Response", "Questionnaire Response")], 
+            ("attachment", "Attachment"),
+            ("composition", "Composition"),
+            ("document_reference", "Document Reference"),
+            ("questionnaire_response", "Questionnaire Response")],
         help="Type of Contract Legal Text.")                
     content_name = fields.Char(
         string="Content", 

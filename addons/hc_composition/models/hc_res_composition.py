@@ -44,7 +44,10 @@ class Composition(models.Model):
         string="Subject Type", 
         required="True", 
         selection=[
-            ("Patient", "Patient"), ("Practitioner", "Practitioner"), ("Group", "Group"), ("Device", "Device")], 
+            ("patient", "Patient"),
+            ("practitioner", "Practitioner"),
+            ("group", "Group"),
+            ("device", "Device")],
         help="Type of who and/or what the composition is about.")                
     subject_name = fields.Char(
         string="Subject", 
@@ -116,9 +119,9 @@ class CompositionAttester(models.Model):
     party_type = fields.Selection(
         string="Party Type", 
         selection=[
-            ("Patient", "Patient"), 
-            ("Practitioner", "Practitioner"), 
-            ("Organization", "Organization")], 
+            ("patient", "Patient"), 
+            ("practitioner", "Practitioner"), 
+            ("organization", "Organization")], 
         help="Type of who attested the composition.")                
     party_name = fields.Char(
         string="Party", 
@@ -218,10 +221,10 @@ class CompositionAuthor(models.Model):
     author_type = fields.Selection(
         string="Author Type", 
         selection=[
-            ("Practitioner", "Practitioner"), 
-            ("Device", "Device"), 
-            ("Patient", "Patient"), 
-            ("Related Person", "Related Person")], 
+            ("practitioner", "Practitioner"),
+            ("device", "Device"),
+            ("patient", "Patient"),
+            ("related_person", "Related Person")],
         help="Type of who and/or what authored the composition.")                
     author_name = fields.Char(
         string="Author", 
@@ -262,10 +265,10 @@ class CompositionEventDetail(models.Model):
     detail_type = fields.Selection(
         string="Detail Type", 
         selection=[
-            ("Practitioner", "Practitioner"), 
-            ("Device", "Device"), 
-            ("Patient", "Patient"), 
-            ("Related Person", "Related Person")], 
+            ("practitioner", "Practitioner"),
+            ("device", "Device"),
+            ("patient", "Patient"),
+            ("related_person", "Related Person")],
         help="Type of full details for the event(s) the composition consent.")                
     detail_name = fields.Char(
         string="Detail", 
@@ -301,10 +304,10 @@ class CompositionSectionEntry(models.Model):
     entry_type = fields.Selection(
         string="Entry Type", 
         selection=[
-            ("Encounter", "Encounter"), 
-            ("Episode of Care", "Episode Of Care"), 
-            ("Observation", "Observation"), 
-            ("Diagnostic Report", "Diagnostic Report")], 
+            ("encounter", "Encounter"),
+            ("episode_of_care", "Episode Of Care"),
+            ("observation", "Observation"),
+            ("diagnostic_report", "Diagnostic Report")],
         help="Type of reference to data that supports this section.")                
     entry_name = fields.Char(
         string="Entry", 

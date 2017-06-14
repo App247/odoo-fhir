@@ -457,8 +457,6 @@ class AllergyIntoleranceClinicalStatusHistory(models.Model):
         help="Allergy Intolerance associated with this Allergy Intolerance Clinical Status History.")                                
     clinical_status = fields.Char(
         string="Clinical Status", 
-        # compute="_compute_clinical_status", 
-        # store="True", 
         help="The clinical status of the allergy or intolerance.")
     start_date = fields.Datetime(
         string="Start Date", 
@@ -468,16 +466,16 @@ class AllergyIntoleranceClinicalStatusHistory(models.Model):
         help="End of the period during which this clinical status is valid.")
     time_diff_day = fields.Char(
         string="Time Diff (days)",
-        help="Days duration of clinical status.")
+        help="Days duration of the clinical status.")
     time_diff_hour = fields.Char(
         string="Time Diff (hours)",
-        help="Hours duration of clinical status.")
+        help="Hours duration of the clinical status.")
     time_diff_min = fields.Char(
         string="Time Diff (minutes)",
-        help="Minutes duration of clinical status.")
+        help="Minutes duration of the clinical status.")
     time_diff_sec = fields.Char(
         string="Time Diff (seconds)",
-        help="Seconds duration of clinical status.")
+        help="Seconds duration of the clinical status.")
                                
 class AllergyIntoleranceVerificationStatusHistory(models.Model):
     _name = "hc.allergy.intolerance.verification.status.history"
@@ -489,8 +487,6 @@ class AllergyIntoleranceVerificationStatusHistory(models.Model):
         help="Allergy Intolerance associated with this Allergy Intolerance Verification Status History.")                                
     verification_status = fields.Char(
         string="Verification Status", 
-        compute="_compute_verification_status", 
-        store="True", 
         help="The verification status of the allergy or intolerance.")                                
     start_date = fields.Datetime(
         string="Start Date", 
@@ -500,16 +496,16 @@ class AllergyIntoleranceVerificationStatusHistory(models.Model):
         help="End of the period during which this verification status is valid.")
     time_diff_day = fields.Char(
         string="Time Diff (days)",
-        help="Days duration of verification status.")
+        help="Days duration of the verification status.")
     time_diff_hour = fields.Char(
         string="Time Diff (hours)",
-        help="Hours duration of verification status.")
+        help="Hours duration of the verification status.")
     time_diff_min = fields.Char(
         string="Time Diff (minutes)",
-        help="Minutes duration of verification status.")
+        help="Minutes duration of the verification status.")
     time_diff_sec = fields.Char(
         string="Time Diff (seconds)",
-        help="Seconds duration of verification status.")
+        help="Seconds duration of the verification status.")
                              
 class AllergyIntoleranceCode(models.Model): 
     _name = "hc.vs.allergy.intolerance.code"   
