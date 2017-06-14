@@ -44,6 +44,11 @@ class Procedure(models.Model):
             ("entered-in-error", "Entered-In-Error")],
         default = "in-progress",
         help="State of the procedure.")
+    status_history_ids = fields.One2many(
+        comodel_name="hc.procedure.status.history",
+        inverse_name="procedure_id",
+        string="Status History",
+        help="The status of the procedure over time.")
     category_id = fields.Many2one(
         comodel_name="hc.vs.procedure.category",
         string="Category",
@@ -83,22 +88,49 @@ class Procedure(models.Model):
         required="True",
         selection=[
             ("date_time", "Date Time"),
-            ("period", "Period")],
-        help="Date/Period the procedure was performed.")
+            ("period", "Period"),
+            ("string", "String"),
+            ("age", "Age"),
+            ("range", "Range")],
+        help="Type of when the procedure was performed.")
     performed_date_name = fields.Char(
-        string="Performed Date/Period",
+        string="Performed Date",
         compute="_compute_performed_date_name",
         store="True",
-        help="Who the procedure was performed on.")
-    performed_date_time = fields.Datetime(
+        help="When the procedure was performed.")
+    performed_date_date_time = fields.Datetime(
         string="Performed Date Time",
-        help="Date the procedure was performed.")
-    performed_start_date = fields.Datetime(
-        string="Performed Start Date",
-        help="Start of the period when the procedure was performed.")
-    performed_end_date = fields.Datetime(
+        help="Date when the procedure was performed.")
+    performed_date_start_date = fields.Datetime(
+        string="Performed Date Start Date",
+        help="Start of the when the procedure was performed.")
+    performed_date_end_date = fields.Datetime(
         string="Performed End Date",
-        help="End of the period when the procedure was performed.")
+        help="End of the when the procedure was performed.")
+    performed_date_string = fields.Char(
+        string="Performed Date String",
+        help="String of when the procedure was performed.")
+    performed_date_age = fields.Integer(
+        string="Performed Date Age",
+        size=3,
+        help="Age when the procedure was performed.")
+    performed_date_age_uom_id = fields.Many2one(
+        comodel_name="product.uom",
+        string="Performed Date Age UOM",
+        domain="[('category_id','=','Time (UCUM)')]",
+        default="a",
+        help="Performed age unit of measure.")
+    performed_date_range_low = fields.Float(
+        string="Performed Date Range Low",
+        help="Low limit of performed date range.")
+    performed_date_range_high = fields.Float(
+        string="Performed Date Range High",
+        help="High limit of performed date range.")
+    performed_date_range_uom_id = fields.Many2one(
+        comodel_name="product.uom",
+        string="Perfomed Date Range UOM",
+        domain="[('category_id','=','Time (UCUM)')]",
+        help="Performed date range unit of measure.")
     location_id = fields.Many2one(
         comodel_name="hc.res.location",
         string="Location",
@@ -110,7 +142,7 @@ class Procedure(models.Model):
         help="Condition that is the reason the procedure performed.")
     reason_code_ids = fields.Many2many(
         comodel_name="hc.vs.procedure.reason",
-        # relation="procedure_reason_code_rel",
+        relation="procedure_reason_code_rel",
         string="Reason Codes",
         help="Coded reason procedure performed.")
     is_not_performed = fields.Boolean(
@@ -137,7 +169,6 @@ class Procedure(models.Model):
         comodel_name="hc.vs.condition.code",
         string="Complications",
         help="Complication following the procedure.")
-    # Note: Causes UnicodeWarning: Unicode unequal comparison failed
     complication_detail_ids = fields.One2many(
         comodel_name="hc.procedure.complication.detail",
         inverse_name="procedure_id",
@@ -172,7 +203,39 @@ class Procedure(models.Model):
         string="Focal Devices",
         help="Device changed in procedure.")
 
-    @api.depends('subject_patient_id', 'subject_group_id', 'code_id', 'performed_date_time', 'performed_start_date')
+    _sql_constraints = [
+        ('performed_date_age_gt_zero',
+        'CHECK(performed_date_age >= 0.0)',
+        'Age SHALL be a non-negative value.'),
+
+        ('performed_date_range_low_gt_zero',
+        'CHECK(performed_date_range_low >= 0.0)',
+        'Range Low SHALL be a non-negative value.'),
+
+        ('performed_date_range_high_gt_low',
+        'CHECK(performed_date_range_high >= performed_date_range_low)',
+        'Range High SHALL not be lower than Range Low.'),
+
+        ('performed_date_period_end_gt_start',
+        'CHECK(performed_date_end_date >= performed_date_start_date)',
+        'Period End Date SHALL not be before than Period Start Date.')
+        ]
+    
+    @api.depends('performed_date_type')
+    def _compute_performed_date_name(self):
+        for hc_res_procedure in self:
+            if hc_res_procedure.performed_date_type == 'date_time':
+                hc_res_procedure.performed_date_name = str(hc_res_procedure.performed_date_date_time)
+            elif hc_res_procedure.performed_date_type == 'period':
+                hc_res_procedure.performed_date_name = 'Between ' + str(hc_res_procedure.performed_date_start_date) + ' and ' + str(hc_res_procedure.performed_date_end_date)
+            elif hc_res_procedure.performed_date_type == 'string':
+                hc_res_procedure.performed_date_name = hc_res_procedure.performed_date_string
+            elif hc_res_procedure.performed_date_type == 'age':
+                hc_res_procedure.performed_date_name = str(hc_res_procedure.performed_date_age) + " " + str(hc_res_procedure.performed_date_age_uom_id.name) + "s old"
+            elif hc_res_procedure.performed_date_type == 'range':
+                hc_res_procedure.performed_date_name = "Between " + str(hc_res_procedure.performed_date_range_low) + " and " + str(hc_res_procedure.performed_date_range_high) + " " + str(hc_res_procedure.performed_date_range_uom_id.name) + "s ago"
+
+    @api.depends('subject_patient_id', 'subject_group_id', 'code_id', 'performed_date_name')
     def _compute_name(self):
         comp_name = '/'
         for hc_res_procedure in self:
@@ -185,12 +248,8 @@ class Procedure(models.Model):
                 comp_name = hc_res_procedure.subject_group_id.name
             if hc_res_procedure.code_id:
                 comp_name = comp_name + ", " + hc_res_procedure.code_id.name or ''
-            if hc_res_procedure.performed_date_type == 'date_time':
-                performed_date = datetime.strftime(datetime.strptime(hc_res_procedure.performed_date_time, DTF), "%Y-%m-%d")
-                comp_name = comp_name + ", " + performed_date
-            if hc_res_procedure.performed_date_type == 'period':
-                performed_date = datetime.strftime(datetime.strptime(hc_res_procedure.performed_start_date, DTF), "%Y-%m-%d")
-                comp_name = comp_name + ", " + performed_date
+            if hc_res_procedure.performed_date_name:
+                comp_name = comp_name + ", " + str(hc_res_procedure.performed_date_name) or ''
             hc_res_procedure.name = comp_name
 
     @api.depends('subject_type')
@@ -199,15 +258,7 @@ class Procedure(models.Model):
             if hc_res_procedure.subject_type == 'patient':
                 hc_res_procedure.subject_name = hc_res_procedure.subject_patient_id.name
             elif hc_res_procedure.subject_type == 'group':
-                hc_res_procedure.subject_name = hc_res_procedure.subject_group_id.name
-
-    @api.depends('performed_date_type')
-    def _compute_performed_date_name(self):
-        for hc_res_procedure in self:
-            if hc_res_procedure.performed_date_type == 'date_time':
-                hc_res_procedure.performed_date_name = str(hc_res_procedure.performed_date_time)
-            elif hc_res_procedure.performed_date_type == 'period':
-                hc_res_procedure.performed_date_name = 'Between ' + str(hc_res_procedure.performed_start_date) + ' and ' + str(hc_res_procedure.performed_end_date)
+                hc_res_procedure.subject_name = hc_res_procedure.subject_group_id.name   
 
 class ProcedurePerformer(models.Model):
     _name = "hc.procedure.performer"
@@ -293,6 +344,36 @@ class ProcedureFocalDevice(models.Model):
         string="Manipulated",
         required="True",
         help="Device that was changed.")
+
+class ProcedureStatusHistory(models.Model):
+    _name = "hc.procedure.status.history"
+    _description = "Procedure Status History"
+
+    procedure_id = fields.Many2one(
+        comodel_name="hc.res.procedure",
+        string="Procedure",
+        help="Procedure associated with this Procedure Status History.")
+    status = fields.Char(
+        string="Status",
+        help="The status of the procedure.")
+    start_date = fields.Datetime(
+        string="Start Date",
+        help="Start of the period during which this procedure status is valid.")
+    end_date = fields.Datetime(
+        string="End Date",
+        help="End of the period during which this procedure status is valid.")
+    time_diff_day = fields.Char(
+        string="Time Diff (days)",
+        help="Days duration of the status.")
+    time_diff_hour = fields.Char(
+        string="Time Diff (hours)",
+        help="Hours duration of the status.")
+    time_diff_min = fields.Char(
+        string="Time Diff (minutes)",
+        help="Minutes duration of the status.")
+    time_diff_sec = fields.Char(
+        string="Time Diff (seconds)",
+        help="Seconds duration of the status.")
 
 class ProcedureIdentifier(models.Model):
     _name = "hc.procedure.identifier"
@@ -442,7 +523,6 @@ class ProcedureReport(models.Model):
     #     string="Report",
     #     help="Diagnostic Report associated with this Procedure Report.")
 
-# Note: Causes UnicodeWarning: Unicode unequal comparison failed
 class ProcedureComplicationDetail(models.Model):
     _name = "hc.procedure.complication.detail"
     _description = "Procedure Complication Detail"

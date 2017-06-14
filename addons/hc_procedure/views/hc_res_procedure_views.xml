@@ -59,9 +59,15 @@
                                 <field name="code_id"/>
                                 <field name="performed_date_name"/>                         
                                 <field name="performed_date_type" class="oe_edit_only"/>
-                                <field name="performed_date_time" class="oe_edit_only" attrs="{'invisible': [('performed_date_type','!=','date_time')], 'required': [('performed_date_type','=','date_time')]}"/>
-                                <field name="performed_start_date" class="oe_edit_only" attrs="{'invisible': [('performed_date_type','!=','period')], 'required': [('performed_date_type','=','period')]}"/>
-                                <field name="performed_end_date" class="oe_edit_only" attrs="{'invisible': [('performed_date_type','!=','period')], 'required': [('performed_date_type','=','period')]}"/> 
+                                <field name="performed_date_date_time" class="oe_edit_only" attrs="{'invisible': [('performed_date_type','!=','date_time')], 'required': [('performed_date_type','=','date_time')]}"/>
+                                <field name="performed_date_start_date" class="oe_edit_only" attrs="{'invisible': [('performed_date_type','!=','period')], 'required': [('performed_date_type','=','period')]}"/>
+                                <field name="performed_date_end_date" class="oe_edit_only" attrs="{'invisible': [('performed_date_type','!=','period')], 'required': [('performed_date_type','=','period')]}"/>
+                                <field name="performed_date_string" class="oe_edit_only" attrs="{'invisible': [('performed_date_type','!=','string')], 'required': [('performed_date_type','=','string')]}"/>
+                                <field name="performed_date_age" class="oe_edit_only" attrs="{'invisible': [('performed_date_type','!=','age')], 'required': [('performed_date_type','=','age')]}"/>
+                                <field name="performed_date_age_uom_id" class="oe_edit_only" attrs="{'invisible': [('performed_date_type','!=','age')], 'required': [('performed_date_type','=','age')]}"/>
+                                <field name="performed_date_range_low" class="oe_edit_only" attrs="{'invisible': [('performed_date_type','!=','range')], 'required': [('performed_date_type','=','range')]}"/>
+                                <field name="performed_date_range_high" class="oe_edit_only" attrs="{'invisible': [('performed_date_type','!=','range')], 'required': [('performed_date_type','=','range')]}"/>
+                                <field name="performed_date_range_uom_id" class="oe_edit_only" attrs="{'invisible': [('performed_date_type','!=','range')], 'required': [('performed_date_type','=','range')]}"/>
                                 <field name="category_id"/>                                              
                             </group>                                    
                             <group string="Status" name="status">
@@ -190,7 +196,6 @@
                                     </form>                     
                                 </field>
                             </page>
- 
                             <!-- <page string="Based Ons"/> -->
                             <page string="Based Ons">                               
                                 <field name="based_on_ids" mode="tree">                         
@@ -357,6 +362,20 @@
                                             </group>                
                                         </sheet>
                                     </form>                     
+                                </field>                            
+                            </page>
+                            <page string="Status History">                             
+                                <field name="status_history_ids" mode="tree">                           
+                                    <tree>
+                                        <field name="status" readonly="1"/>
+                                        <field name="start_date"/>
+                                        <field name="end_date"/>
+                                        <field name="time_diff_day"/>
+                                        <field name="time_diff_hour"/>
+                                        <field name="time_diff_min"/>
+                                        <field name="time_diff_sec"/>
+                                        <field name="write_uid" invisible="0"/>
+                                    </tree>
                                 </field>                            
                             </page>                             
                         </notebook>                                 
