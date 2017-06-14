@@ -1,19 +1,19 @@
 <openerp>
   <data>
-    
-     <!-- Procedure Views -->            
-            
-        <record id="hc_res_procedure_view_search" model="ir.ui.view">           
-            <field name="name">Procedure Search</field>     
-            <field name="model">hc.res.procedure</field>        
-            <field name="arch" type="xml">      
-                <search string=" Procedures">   
+
+     <!-- Procedure Views -->
+
+        <record id="hc_res_procedure_view_search" model="ir.ui.view">
+            <field name="name">Procedure Search</field>
+            <field name="model">hc.res.procedure</field>
+            <field name="arch" type="xml">
+                <search string=" Procedures">
                     <field name="name"/>
                     <field name="status"/>
                     <field name="category_id"/>
                     <field name="code_id"/>
                     <field name="subject_name"/>
-                    <field name="encounter_id"/>
+                    <field name="context_name"/>
                     <field name="performed_date_name"/>
                     <field name="location_id"/>
                     <field name="reason_code_ids"/>
@@ -24,40 +24,40 @@
                     <field name="complication_ids"/>
                     <field name="follow_up_ids"/>
                     <field name="used_code_ids"/>
-                </search>   
-            </field>        
-        </record>           
-                    
-        <record id="hc_res_procedure_view_tree" model="ir.ui.view">         
-            <field name="name">Procedure Tree</field>       
-            <field name="model">hc.res.procedure</field>        
-            <field name="arch" type="xml">      
-                <tree string=" Procedures" default_order="name, code_id">  
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_res_procedure_view_tree" model="ir.ui.view">
+            <field name="name">Procedure Tree</field>
+            <field name="model">hc.res.procedure</field>
+            <field name="arch" type="xml">
+                <tree string=" Procedures" default_order="name, code_id">
                     <field name="name"/>
                     <field name="code_id"/>
                     <field name="performed_date_name"/>
                     <field name="status"/>
-                </tree> 
-            </field>        
-        </record>           
+                </tree>
+            </field>
+        </record>
 
-        <record id="hc_res_procedure_view_form" model="ir.ui.view">                                                     
-            <field name="name">Procedure Form</field>                                                   
-            <field name="model">hc.res.procedure</field>                                                    
-            <field name="arch" type="xml">                                                  
-                <form string="Procedure">                                               
-                    <sheet>                                                                            
-                        <h2>                                    
+        <record id="hc_res_procedure_view_form" model="ir.ui.view">
+            <field name="name">Procedure Form</field>
+            <field name="model">hc.res.procedure</field>
+            <field name="arch" type="xml">
+                <form string="Procedure">
+                    <sheet>
+                        <h2>
                             <field name="name" placeholder="Procedure Event Name (e.g., Subject Name + Code + Performed Date/Period)"/>
-                        </h2>                                                                   
-                        <group>                                     
-                            <group string="Event" name="event">                                 
+                        </h2>
+                        <group>
+                            <group string="Event" name="event">
                                 <field name="subject_name"/>
                                 <field name="subject_type" class="oe_edit_only"/>
                                 <field name="subject_patient_id" class="oe_edit_only" attrs="{'invisible': [('subject_type','!=','patient')], 'required': [('subject_type','=','patient')]}"/>
-                                <field name="subject_group_id" class="oe_edit_only" attrs="{'invisible': [('subject_type','!=','group')], 'required': [('subject_type','=','group')]}"/>                       
+                                <field name="subject_group_id" class="oe_edit_only" attrs="{'invisible': [('subject_type','!=','group')], 'required': [('subject_type','=','group')]}"/>
                                 <field name="code_id"/>
-                                <field name="performed_date_name"/>                         
+                                <field name="performed_date_name"/>
                                 <field name="performed_date_type" class="oe_edit_only"/>
                                 <field name="performed_date_date_time" class="oe_edit_only" attrs="{'invisible': [('performed_date_type','!=','date_time')], 'required': [('performed_date_type','=','date_time')]}"/>
                                 <field name="performed_date_start_date" class="oe_edit_only" attrs="{'invisible': [('performed_date_type','!=','period')], 'required': [('performed_date_type','=','period')]}"/>
@@ -68,262 +68,267 @@
                                 <field name="performed_date_range_low" class="oe_edit_only" attrs="{'invisible': [('performed_date_type','!=','range')], 'required': [('performed_date_type','=','range')]}"/>
                                 <field name="performed_date_range_high" class="oe_edit_only" attrs="{'invisible': [('performed_date_type','!=','range')], 'required': [('performed_date_type','=','range')]}"/>
                                 <field name="performed_date_range_uom_id" class="oe_edit_only" attrs="{'invisible': [('performed_date_type','!=','range')], 'required': [('performed_date_type','=','range')]}"/>
-                                <field name="category_id"/>                                              
-                            </group>                                    
+                                <field name="category_id"/>
+                            </group>
                             <group string="Status" name="status">
+                                <field name="is_not_done"/>
+                                <field name="not_done_reason_ids" widget="many2many_tags" attrs="{'invisible': [('is_not_done','!=','True')]}"/>
                                 <field name="status"/>
-                                <field name="complication_ids" widget="many2many_tags"/>                            
-                                <field name="follow_up_ids" widget="many2many_tags"/>                           
-                                <field name="used_code_ids" widget="many2many_tags"/>     
+                                <field name="complication_ids" widget="many2many_tags"/>
+                                <field name="follow_up_ids" widget="many2many_tags"/>
+                                <field name="used_code_ids" widget="many2many_tags"/>
                             </group>
                             <group string = "Who, Where">
-                                <field name="encounter_id"/>
+                                <field name="context_name"/>
+                                <field name="context_type" class="oe_edit_only"/>
+                                <field name="context_encounter_id" class="oe_edit_only" attrs="{'invisible': [('context_type','!=','encounter')], 'required': [('context_type','=','encounter')]}"/>
+                                <field name="context_episode_of_care_id" class="oe_edit_only" attrs="{'invisible': [('context_type','!=','episode_of_care')], 'required': [('context_type','=','episode_of_care')]}"/>
                                 <field name="outcome_id"/>
                                 <field name="body_site_ids" widget="many2many_tags"/>
                                 <field name="location_id"/>
                             </group>
                             <group string = "Why">
-                                <field name="reason_code_ids" widget="many2many_tags"/>  
-                                <field name="is_not_performed"/>                            
-                                <field name="reason_not_peformed_ids" widget="many2many_tags"/>                                                  
-                            </group>                                    
-                        </group>                                    
+                                <field name="reason_code_ids" widget="many2many_tags"/>
+                                <field name="is_not_performed"/>
+                                <field name="reason_not_peformed_ids" widget="many2many_tags"/>
+                            </group>
+                        </group>
                         <notebook colspan="4">
-                            <!-- <page string="Performers"/>  -->                                  
-                            <page string="Performers">                              
-                                <field name="performer_ids" mode="tree">                            
-                                    <tree>                      
-                                        <field name="actor_name"/>                  
-                                        <field name="actor_type"/>                  
-                                        <field name="role_id"/>                    
-                                        <field name="on_behalf_of_id"/>                  
-                                    </tree>                     
-                                    <form>                      
-                                        <sheet>                 
-                                            <h1>            
-                                                <field name="actor_name" readonly="1"/>     
-                                            </h1>                        
-                                            <group>             
-                                                <group>               
-                                                    <field name="actor_type"/>              
+                            <!-- <page string="Performers"/>  -->
+                            <page string="Performers">
+                                <field name="performer_ids" mode="tree">
+                                    <tree>
+                                        <field name="actor_name"/>
+                                        <field name="actor_type"/>
+                                        <field name="role_id"/>
+                                        <field name="on_behalf_of_id"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <h1>
+                                                <field name="actor_name" readonly="1"/>
+                                            </h1>
+                                            <group>
+                                                <group>
+                                                    <field name="actor_type"/>
                                                     <field name="actor_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('actor_type','!=','practitioner')], 'required': [('actor_type','=','practitioner')]}"/>
                                                     <field name="actor_organization_id" class="oe_edit_only" attrs="{'invisible': [('actor_type','!=','organization')], 'required': [('actor_type','=','organization')]}"/>
                                                     <field name="actor_patient_id" class="oe_edit_only" attrs="{'invisible': [('actor_type','!=','patient')], 'required': [('actor_type','=','patient')]}"/>
                                                 </group>
                                                 <group>
-                                                    <field name="role_id"/>                    
-                                                    <field name="on_behalf_of_id"/>  
-                                                </group>            
-                                            </group>                
-                                        </sheet>                    
-                                    </form>                     
-                                </field>                            
+                                                    <field name="role_id"/>
+                                                    <field name="on_behalf_of_id"/>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
                             </page>
-                            <!-- <page string="Focal Devices"/>  -->                            
-                            <page string="Focal Devices">                               
-                                <field name="focal_device_ids" mode="tree">                         
-                                    <tree>                      
-                                        <field name="action_id"/>                 
-                                        <field name="manipulated_id"/>                 
-                                    </tree>                     
-                                    <form>                      
-                                        <sheet>                               
-                                            <group>             
-                                                <group>         
+                            <!-- <page string="Focal Devices"/>  -->
+                            <page string="Focal Devices">
+                                <field name="focal_device_ids" mode="tree">
+                                    <tree>
+                                        <field name="action_id"/>
+                                        <field name="manipulated_id"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
                                                     <field name="action_id"/>
-                                                    <field name="manipulated_id"/>  
-                                                </group>                      
-                                            </group>                
-                                        </sheet>                    
-                                    </form>                     
-                                </field>                            
-                            </page>                             
+                                                    <field name="manipulated_id"/>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
                             <!-- <page string="Identifiers"/> -->
-                            <page string="Identifiers">                     
-                                <field name="identifier_ids" mode="tree">                   
-                                    <tree>              
-                                        <field name="is_preferred"/>            
-                                        <field name="name"/>            
-                                        <field name="value"/>           
-                                        <field name="type_id"/>         
-                                    </tree>             
-                                    <form>              
-                                        <sheet>         
-                                            <div class="oe_title oe_left">      
-                                                <h1>    
+                            <page string="Identifiers">
+                                <field name="identifier_ids" mode="tree">
+                                    <tree>
+                                        <field name="is_preferred"/>
+                                        <field name="name"/>
+                                        <field name="value"/>
+                                        <field name="type_id"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <div class="oe_title oe_left">
+                                                <h1>
                                                     <field name="name" placeholder="Identifier"/>
-                                                </h1>   
-                                            </div>      
-                                            <group>     
-                                                <group> 
+                                                </h1>
+                                            </div>
+                                            <group>
+                                                <group>
                                                     <field name="value"/>
                                                     <field name="type_id"/>
                                                     <field name="is_preferred"/>
                                                     <field name="is_active"/>
-                                                </group>    
-                                                <group> 
+                                                </group>
+                                                <group>
                                                     <field name="start_date" placeholder="Valid From"/>
                                                     <field name="end_date" placeholder="Valid To"/>
-                                                </group>    
-                                            </group>        
-                                        </sheet>            
-                                    </form>             
-                                </field>                    
-                            </page>                     
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
                             <!-- <page string="Definitions"/> -->
-                            <page string="Definitions">                               
-                                <field name="definition_ids" mode="tree">                         
+                            <page string="Definitions">
+                                <field name="definition_ids" mode="tree">
                                     <tree>
-                                        <field name="definition_name"/>                      
-                                        <field name="definition_type"/>                 
-                                    </tree>                     
-                                    <form>                      
-                                        <sheet>                 
-                                            <h1>            
-                                                <field name="definition_name" readonly="1"/>     
-                                            </h1>                        
-                                            <group>             
-                                                <group>               
-                                                    <field name="definition_type"/>              
+                                        <field name="definition_name"/>
+                                        <field name="definition_type"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <h1>
+                                                <field name="definition_name" readonly="1"/>
+                                            </h1>
+                                            <group>
+                                                <group>
+                                                    <field name="definition_type"/>
                                                     <field name="definition_plan_definition_id" class="oe_edit_only" attrs="{'invisible': [('definition_type','!=','plan_definition')], 'required': [('definition_type','=','plan_definition')]}"/>
                                                     <field name="definition_activity_definition_id" class="oe_edit_only" attrs="{'invisible': [('definition_type','!=','activity_definition')], 'required': [('definition_type','=','activity_definition')]}"/>
                                                     <field name="definition_healthcare_service_id" class="oe_edit_only" attrs="{'invisible': [('definition_type','!=','healthcare_service')], 'required': [('definition_type','=','healthcare_service')]}"/>
                                                 </group>
-                                                <group> 
-                                                </group>            
-                                            </group>                
+                                                <group>
+                                                </group>
+                                            </group>
                                         </sheet>
-                                    </form>                     
+                                    </form>
                                 </field>
                             </page>
                             <!-- <page string="Based Ons"/> -->
-                            <page string="Based Ons">                               
-                                <field name="based_on_ids" mode="tree">                         
+                            <page string="Based Ons">
+                                <field name="based_on_ids" mode="tree">
                                     <tree>
-                                        <field name="based_on_name"/>                      
-                                        <field name="based_on_type"/>                 
-                                    </tree>                     
-                                    <form>                      
-                                        <sheet>                 
-                                            <h1>            
-                                                <field name="based_on_name" readonly="1"/>     
-                                            </h1>                        
-                                            <group>             
-                                                <group>               
+                                        <field name="based_on_name"/>
+                                        <field name="based_on_type"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <h1>
+                                                <field name="based_on_name" readonly="1"/>
+                                            </h1>
+                                            <group>
+                                                <group>
                                                     <field name="based_on_type"/>
                                                     <field name="based_on_procedure_request_id" class="oe_edit_only" attrs="{'invisible': [('based_on_type','!=','procedure_request')], 'required': [('based_on_type','=','procedure_request')]}"/>
                                                     <!-- <field name="based_on_care_plan_id" class="oe_edit_only" attrs="{'invisible': [('based_on_type','!=','care_plan')], 'required': [('based_on_type','=','care_plan')]}"/>
                                                     <field name="based_on_referral_request_id" class="oe_edit_only" attrs="{'invisible': [('based_on_type','!=','referral_request')], 'required': [('based_on_type','=','referral_request')]}"/> -->
                                                 </group>
-                                                <group> 
-                                                </group>            
-                                            </group>                
+                                                <group>
+                                                </group>
+                                            </group>
                                         </sheet>
-                                    </form>                     
+                                    </form>
                                 </field>
                             </page>
                             <!-- <page string="Part Ofs"/> -->
-                            <page string="Part Ofs">                               
-                                <field name="part_of_ids" mode="tree">                         
+                            <page string="Part Ofs">
+                                <field name="part_of_ids" mode="tree">
                                     <tree>
-                                        <field name="part_of_name"/>                      
-                                        <field name="part_of_type"/>                 
-                                    </tree>                     
-                                    <form>                      
-                                        <sheet>                 
-                                            <h1>            
-                                                <field name="part_of_name" readonly="1"/>     
-                                            </h1>                        
-                                            <group>             
-                                                <group>               
+                                        <field name="part_of_name"/>
+                                        <field name="part_of_type"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <h1>
+                                                <field name="part_of_name" readonly="1"/>
+                                            </h1>
+                                            <group>
+                                                <group>
                                                     <field name="part_of_procedure_id" class="oe_edit_only" attrs="{'invisible': [('part_of_type','!=','procedure')], 'required': [('part_of_type','=','procedure')]}"/>
                                                     <field name="part_of_observation_id" class="oe_edit_only" attrs="{'invisible': [('part_of_type','!=','observation')], 'required': [('part_of_type','=','observation')]}"/>
                                                     <field name="part_of_medication_administration_id" class="oe_edit_only" attrs="{'invisible': [('part_of_type','!=','medication_administration')], 'required': [('part_of_type','=','medication_administration')]}"/>
                                                 </group>
-                                                <group> 
-                                                </group>            
-                                            </group>                
+                                                <group>
+                                                </group>
+                                            </group>
                                         </sheet>
-                                    </form>                     
+                                    </form>
                                 </field>
-                            </page>                            
+                            </page>
                             <!-- <page string="Reason Refs"/> -->
-                            <page string="Reason Refs">                               
-                                <field name="reason_reference_ids" mode="tree">                         
-                                    <tree>                      
-                                        <field name="reason_reference_id"/>                 
-                                    </tree>                     
-                                    <form>                      
-                                        <sheet>                              
-                                            <h1>            
-                                                <field name="reason_reference_id" placeholder="Reason Reference Condition"/>        
-                                            </h1>                    
-                                            <group>             
+                            <page string="Reason Refs">
+                                <field name="reason_reference_ids" mode="tree">
+                                    <tree>
+                                        <field name="reason_reference_id"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <h1>
+                                                <field name="reason_reference_id" placeholder="Reason Reference Condition"/>
+                                            </h1>
+                                            <group>
                                                 <group>
-                                                </group>           
-                                            </group>                
-                                        </sheet>                    
-                                    </form>                     
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
                                 </field>
-                            </page>                             
+                            </page>
                             <!-- <page string="Reports"/>   -->
-                            <page string="Reports">                               
-                                <field name="report_ids" mode="tree">                         
-                                    <!-- <tree>                      
-                                        <field name="report_id"/>                 
-                                    </tree>                     
-                                    <form>                      
-                                        <sheet>                              
-                                            <h1>            
-                                                <field name="report_id" placeholder="Diagnostic Report"/>        
-                                            </h1>                    
-                                            <group>             
+                            <page string="Reports">
+                                <field name="report_ids" mode="tree">
+                                    <!-- <tree>
+                                        <field name="report_id"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <h1>
+                                                <field name="report_id" placeholder="Diagnostic Report"/>
+                                            </h1>
+                                            <group>
                                                 <group>
-                                                </group>           
-                                            </group>                
-                                        </sheet>                    
-                                    </form> -->                     
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form> -->
                                 </field>
                             </page>
                             <!-- <page string="Complication Details"/> -->
-                                <page string="Complication Details">                 
-                                    <field name="complication_detail_ids" mode="tree">               
+                                <page string="Complication Details">
+                                    <field name="complication_detail_ids" mode="tree">
                                         <tree>
-                                            <field name="complication_detail_id"/>          
-                                        </tree>         
-                                        <form>          
-                                            <sheet>     
-                                                <group> 
+                                            <field name="complication_detail_id"/>
+                                        </tree>
+                                        <form>
+                                            <sheet>
+                                                <group>
                                                     <group>
-                                                        <field name="complication_detail_id"/> 
+                                                        <field name="complication_detail_id"/>
                                                     </group>
                                                     <group>
                                                     </group>
-                                                </group>    
-                                            </sheet>        
-                                        </form>         
-                                    </field>                
-                                </page>                 
+                                                </group>
+                                            </sheet>
+                                        </form>
+                                    </field>
+                                </page>
                             <!-- <page string="Note"/>  -->
-                            <page string="Note">                               
-                                <field name="notes_ids" mode="tree">                            
-                                    <tree>                      
+                            <page string="Note">
+                                <field name="notes_ids" mode="tree">
+                                    <tree>
                                         <field name="name"/>
                                         <field name="text"/>
                                         <field name="author_name"/>
-                                        <field name="author_type"/>       
-                                        <field name="recorded_date"/>                    
-                                    </tree>                     
-                                    <form>                      
-                                        <sheet>           
-                                            <div class="oe_title oe_left">          
-                                                <h1>        
+                                        <field name="author_type"/>
+                                        <field name="recorded_date"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <div class="oe_title oe_left">
+                                                <h1>
                                                     <field name="name" default_focus="1" placeholder="Note Name (e.g., Subject + Author + Date"/>
                                                 </h1>
-                                                <field name="text" placeholder="Note"/>     
-                                            </div>          
-                                            <group>         
-                                                <group>   
+                                                <field name="text" placeholder="Note"/>
+                                            </div>
+                                            <group>
+                                                <group>
                                                     <field name="author_type"/>
                                                     <field name="author_name"/>
                                                     <field name="author_string" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','string')], 'required': [('author_type','=','string')]}"/>
@@ -331,41 +336,41 @@
                                                     <field name="author_patient_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','patient')], 'required': [('author_type','=','patient')]}"/>
                                                     <field name="author_related_person_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','related_person')], 'required': [('author_type','=','related_person')]}"/>
                                                 </group>
-                                                <group>       
+                                                <group>
                                                 </group>
-                                            </group>         
-                                        </sheet>                    
-                                    </form>                     
-                                </field>                            
-                            </page>                             
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
                             <!-- <page string="Used Refs"/> -->
-                            <page string="Used Refs">                             
-                                <field name="used_reference_ids" mode="tree">                           
+                            <page string="Used Refs">
+                                <field name="used_reference_ids" mode="tree">
                                     <tree>
-                                        <field name="used_reference_name"/>                      
-                                        <field name="used_reference_type"/>                 
-                                    </tree>                     
-                                    <form>                      
-                                        <sheet>                 
-                                            <h1>            
-                                                <field name="used_reference_name" readonly="1"/>     
-                                            </h1>                        
-                                            <group>             
-                                                <group>               
-                                                    <field name="used_reference_type"/>              
+                                        <field name="used_reference_name"/>
+                                        <field name="used_reference_type"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <h1>
+                                                <field name="used_reference_name" readonly="1"/>
+                                            </h1>
+                                            <group>
+                                                <group>
+                                                    <field name="used_reference_type"/>
                                                     <field name="used_reference_device_id" class="oe_edit_only" attrs="{'invisible': [('used_reference_type','!=','device')], 'required': [('used_reference_type','=','device')]}"/>
                                                     <field name="used_reference_medication_id" class="oe_edit_only" attrs="{'invisible': [('used_reference_type','!=','medication')], 'required': [('used_reference_type','=','medication')]}"/>
                                                     <field name="used_reference_substance_id" class="oe_edit_only" attrs="{'invisible': [('used_reference_type','!=','substance')], 'required': [('used_reference_type','=','substance')]}"/>
                                                 </group>
-                                                <group> 
-                                                </group>            
-                                            </group>                
+                                                <group>
+                                                </group>
+                                            </group>
                                         </sheet>
-                                    </form>                     
-                                </field>                            
+                                    </form>
+                                </field>
                             </page>
-                            <page string="Status History">                             
-                                <field name="status_history_ids" mode="tree">                           
+                            <page string="Status History">
+                                <field name="status_history_ids" mode="tree">
                                     <tree>
                                         <field name="status" readonly="1"/>
                                         <field name="start_date"/>
@@ -376,15 +381,15 @@
                                         <field name="time_diff_sec"/>
                                         <field name="write_uid" invisible="0"/>
                                     </tree>
-                                </field>                            
-                            </page>                             
-                        </notebook>                                 
-                    </sheet>                                            
-                </form>                                             
-            </field>                                                    
-        </record>                                                       
-       
-        <act_window id="hc_res_procedure_action"    
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_res_procedure_action"
                     name="HC Procedures"
                     res_model="hc.res.procedure"
                     view_mode="tree,form"
@@ -392,11 +397,11 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_procedure.menu_proc" 
-                  name="Procedures" 
-                  parent="hc_base.menu_clinic_gen" 
-                  action="hc_res_procedure_action" 
-                  groups="hc_base.group_hc_base_manager" 
+        <menuitem id="hc_procedure.menu_proc"
+                  name="Procedures"
+                  parent="hc_base.menu_clinic_gen"
+                  action="hc_res_procedure_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="30"/>
 
         <record id="hc_res_appointment_view_form_inherit" model="ir.ui.view">
@@ -413,58 +418,58 @@
 
         <!-- Procedure Code Views -->
 
-        <record id="hc_procedure_view_search" model="ir.ui.view">                                   
-            <field name="name">Procedure Search</field>                                
-            <field name="model">hc.vs.procedure.code</field>                                
-            <field name="arch" type="xml">                              
-                <search string="Procedure Codes">                           
-                    <field name="name"/>                        
-                    <field name="code"/>                        
-                    <field name="definition"/>                              
-                </search>                           
-            </field>                                
-        </record>                                   
-                                            
-        <record id="hc_procedure_view_tree" model="ir.ui.view">                                 
-            <field name="name">Procedure Tree</field>                              
-            <field name="model">hc.vs.procedure.code</field>                                
-            <field name="arch" type="xml">                              
-                <tree string="Procedure Codes" default_order="name, code">                          
-                    <field name="name"/>                        
-                    <field name="code"/>                        
-                    <field name="definition"/>                                           
-                    <field name="source_id" invisible="0"/>                     
-                </tree>                         
-            </field>                                
-        </record>                                   
-                                            
-        <record id="hc_procedure_view_form" model="ir.ui.view">                                 
-            <field name="name">Procedure Code Form</field>                              
-            <field name="model">hc.vs.procedure.code</field>                                
-            <field name="arch" type="xml">                              
-                <form string="Procedures" >                            
-                    <sheet>                     
-                        <h1>                    
-                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>              
-                        </h1>                   
-                        <field name="code" placeholder="Code (e.g., biological)"/>                  
-                        <field name="definition" placeholder="Definition"/>                 
-                        <field name="comments" placeholder="Comments"/>                 
-                        <group>                 
-                            <group>             
-                                <field name="level"/>         
-                            </group>                
-                            <group>             
-                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>            
-                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>         
-                            </group>                
-                        </group>                    
-                    </sheet>                        
-                </form>                         
-            </field>                                
-        </record>                                   
+        <record id="hc_procedure_view_search" model="ir.ui.view">
+            <field name="name">Procedure Search</field>
+            <field name="model">hc.vs.procedure.code</field>
+            <field name="arch" type="xml">
+                <search string="Procedure Codes">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                </search>
+            </field>
+        </record>
 
-        <act_window id="hc_procedure_action"            
+        <record id="hc_procedure_view_tree" model="ir.ui.view">
+            <field name="name">Procedure Tree</field>
+            <field name="model">hc.vs.procedure.code</field>
+            <field name="arch" type="xml">
+                <tree string="Procedure Codes" default_order="name, code">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                    <field name="source_id" invisible="0"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_procedure_view_form" model="ir.ui.view">
+            <field name="name">Procedure Code Form</field>
+            <field name="model">hc.vs.procedure.code</field>
+            <field name="arch" type="xml">
+                <form string="Procedures" >
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>
+                        </h1>
+                        <field name="code" placeholder="Code (e.g., biological)"/>
+                        <field name="definition" placeholder="Definition"/>
+                        <field name="comments" placeholder="Comments"/>
+                        <group>
+                            <group>
+                                <field name="level"/>
+                            </group>
+                            <group>
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_procedure_action"
                     name="HC Procedure Codes"
                     res_model="hc.vs.procedure.code"
                     view_mode="tree,form"
@@ -472,92 +477,92 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_procedure.menu_proc_code" 
-                  name="Procedure Codes" 
-                  parent="hc_procedure.menu_proc" 
-                  action="hc_procedure_action" 
-                  groups="hc_base.group_hc_base_manager" 
+        <menuitem id="hc_procedure.menu_proc_code"
+                  name="Procedure Codes"
+                  parent="hc_procedure.menu_proc"
+                  action="hc_procedure_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="5"/>
 
-        <!-- Procedure Not Performed Reason Views -->                       
-                                
-        <record id="hc_vs_procedure_not_performed_reason_view_search" model="ir.ui.view">                       
-            <field name="name">Procedure Not Performed Reason Search</field>                    
-            <field name="model">hc.vs.procedure.not.performed.reason</field>                    
-            <field name="arch" type="xml">                  
-                <search string="Procedure Not Performed Reasons">               
-                    <field name="name"/>            
-                    <field name="code"/>            
-                    <field name="definition"/>          
-                    <group>         
-                        <!-- <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>  -->     
-                    </group>            
-                </search>               
-            </field>                    
-        </record>                       
-                                
-        <record id="hc_vs_procedure_not_performed_reason_view_tree" model="ir.ui.view">                     
-            <field name="name">Procedure Not Performed Reason Tree</field>                  
-            <field name="model">hc.vs.procedure.not.performed.reason</field>                    
-            <field name="arch" type="xml">                  
-                <tree string="Procedure Not Performed Reasons" default_order="name, code">              
-                    <field name="name"/>            
-                    <field name="code"/>            
-                    <field name="definition"/>                 
-                    <field name="source_id" invisible="0"/>         
-                </tree>             
-            </field>                    
-        </record>                       
-                                
-        <record id="hc_vs_procedure_not_performed_reason_view_form" model="ir.ui.view">                     
-            <field name="name">Procedure Not Performed Reason Form</field>                  
-            <field name="model">hc.vs.procedure.not.performed.reason</field>                    
-            <field name="arch" type="xml">                  
-                <form string="Procedure Not Performed Reasons" >                
-                    <sheet>         
-                        <h1>        
-                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>  
-                        </h1>       
-                        <field name="code" placeholder="Code (e.g., biological)"/>      
-                        <field name="definition" placeholder="Definition"/>     
-                        <field name="comments" placeholder="Comments"/>     
+        <!-- Procedure Not Performed Reason Views -->
+
+        <record id="hc_vs_procedure_not_performed_reason_view_search" model="ir.ui.view">
+            <field name="name">Procedure Not Performed Reason Search</field>
+            <field name="model">hc.vs.procedure.not.performed.reason</field>
+            <field name="arch" type="xml">
+                <search string="Procedure Not Performed Reasons">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                    <group>
+                        <!-- <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>  -->
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_vs_procedure_not_performed_reason_view_tree" model="ir.ui.view">
+            <field name="name">Procedure Not Performed Reason Tree</field>
+            <field name="model">hc.vs.procedure.not.performed.reason</field>
+            <field name="arch" type="xml">
+                <tree string="Procedure Not Performed Reasons" default_order="name, code">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                    <field name="source_id" invisible="0"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_vs_procedure_not_performed_reason_view_form" model="ir.ui.view">
+            <field name="name">Procedure Not Performed Reason Form</field>
+            <field name="model">hc.vs.procedure.not.performed.reason</field>
+            <field name="arch" type="xml">
+                <form string="Procedure Not Performed Reasons" >
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>
+                        </h1>
+                        <field name="code" placeholder="Code (e.g., biological)"/>
+                        <field name="definition" placeholder="Definition"/>
+                        <field name="comments" placeholder="Comments"/>
                         <group>
                             <group>
-                                <field name="level"/> 
-                            </group>         
-                            <group> 
+                                <field name="level"/>
+                            </group>
+                            <group>
                                 <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
                                 <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
                             </group>
                         </group>
                         <notebook>
-                            <page string="Parents">                               
-                                <field name="contains_ids" mode="tree">                         
-                                    <tree>                      
+                            <page string="Parents">
+                                <field name="contains_ids" mode="tree">
+                                    <tree>
                                         <field name="name"/>
-                                        <field name="child_level"/>                 
-                                    </tree>                     
-                                    <form>                      
-                                        <sheet>                              
-                                            <h1>            
-                                                <field name="name" placeholder="Name (e.g., Biological Substance)"/>        
-                                            </h1>                    
-                                            <group>             
+                                        <field name="child_level"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <h1>
+                                                <field name="name" placeholder="Name (e.g., Biological Substance)"/>
+                                            </h1>
+                                            <group>
                                                 <group>
                                                     <field name="child_level"/>
-                                                </group>           
-                                            </group>                
-                                        </sheet>                    
-                                    </form>                     
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
                                 </field>
                             </page>
-                        </notebook>        
-                    </sheet>            
-                </form>             
-            </field>                    
-        </record>                       
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
-        <act_window id="hc_vs_procedure_not_performed_reason_action"            
+        <act_window id="hc_vs_procedure_not_performed_reason_action"
                     name="HC Procedure Not Performed Reasons"
                     res_model="hc.vs.procedure.not.performed.reason"
                     view_mode="tree,form"
@@ -565,11 +570,11 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_procedure.menu_proc_not_rsn" 
-                  name="Procedure Not Performed Reasons" 
-                  parent="hc_procedure.menu_proc" 
-                  action="hc_vs_procedure_not_performed_reason_action" 
-                  groups="hc_base.group_hc_base_manager" 
+        <menuitem id="hc_procedure.menu_proc_not_rsn"
+                  name="Procedure Not Performed Reasons"
+                  parent="hc_procedure.menu_proc"
+                  action="hc_vs_procedure_not_performed_reason_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="10"/>
 
   </data>

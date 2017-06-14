@@ -49,6 +49,14 @@ class Procedure(models.Model):
         inverse_name="procedure_id",
         string="Status History",
         help="The status of the procedure over time.")
+    is_not_done = fields.Boolean(
+        string="Not Done",
+        help="True if procedure was not performed as scheduled.")
+    not_done_reason_ids = fields.Many2many(
+        comodel_name="hc.vs.procedure.not.performed.reason",
+        relation="procedure_not_done_reason_rel",
+        string="Reasons Not Performed",
+        help="Reason procedure was not performed.")
     category_id = fields.Many2one(
         comodel_name="hc.vs.procedure.category",
         string="Category",
@@ -79,10 +87,25 @@ class Procedure(models.Model):
         comodel_name="hc.res.group",
         string="Subject Group",
         help="Group who the procedure was performed on.")
-    encounter_id = fields.Many2one(
+    context_type = fields.Selection(
+        string="Context Type",
+        selection=[
+            ("encounter", "Encounter"),
+            ("episode_of_care", "Episode Of Care")],
+        help="Encounter or episode associated with the procedure.")
+    context_name = fields.Char(
+        string="Context",
+        compute="_compute_context_name",
+        store="True",
+        help="Encounter or episode associated with the procedure.")
+    context_encounter_id = fields.Many2one(
         comodel_name="hc.res.encounter",
-        string="Encounter",
-        help="The encounter associated with the procedure.")
+        string="Context Encounter",
+        help="Encounter associated with this procedure.")
+    context_episode_of_care_id = fields.Many2one(
+        comodel_name="hc.res.episode.of.care",
+        string="Context Episode Of Care",
+        help="Episode Of Care associated with this procedure.")
     performed_date_type = fields.Selection(
         string="Performed Date Type",
         required="True",
@@ -128,7 +151,7 @@ class Procedure(models.Model):
         help="High limit of performed date range.")
     performed_date_range_uom_id = fields.Many2one(
         comodel_name="product.uom",
-        string="Perfomed Date Range UOM",
+        string="Performed Date Range UOM",
         domain="[('category_id','=','Time (UCUM)')]",
         help="Performed date range unit of measure.")
     location_id = fields.Many2one(
@@ -259,6 +282,14 @@ class Procedure(models.Model):
                 hc_res_procedure.subject_name = hc_res_procedure.subject_patient_id.name
             elif hc_res_procedure.subject_type == 'group':
                 hc_res_procedure.subject_name = hc_res_procedure.subject_group_id.name   
+
+    @api.depends('context_type')
+    def _compute_context_name(self):
+        for hc_res_procedure in self:
+            if hc_res_procedure.context_type == 'encounter':
+                hc_res_procedure.context_name = hc_res_procedure.context_encounter_id.name
+            elif hc_res_procedure.context_type == 'episode_of_care':
+                hc_res_procedure.context_name = hc_res_procedure.context_episode_of_care_id.name
 
 class ProcedurePerformer(models.Model):
     _name = "hc.procedure.performer"
@@ -401,13 +432,6 @@ class ProcedureDefinition(models.Model):
             ("activity_definition", "Activity Definition"),
             ("healthcare_service", "Healthcare Service")],
         help="Type of instantiates protocol or definition.")
-    subject_type = fields.Selection(
-        string="Subject Type",
-        selection=[
-            ("plan_definition", "Plan Definition"),
-            ("activity_definition", "Activity Definition"),
-            ("healthcare_service", "Healthcare Service")],
-        help="Type of subject the procedure was performed on.")
     definition_name = fields.Char(
         string="Definition",
         compute="_compute_definition_name",
@@ -439,9 +463,7 @@ class ProcedureBasedOn(models.Model):
         string="Based On Type",
         selection=[
             # ("care_plan", "Care Plan"),
-            ("procedure_request", "Procedure Request"),
-            # ("referral_request", "Referral Request")
-            ],
+            ("procedure_request", "Procedure Request")],
         help="Type of request for this procedure.")
     based_on_name = fields.Char(
         string="Based On",
@@ -456,10 +478,6 @@ class ProcedureBasedOn(models.Model):
         comodel_name="hc.res.procedure.request",
         string="Based On Procedure Request",
         help="Procedure Request for this procedure.")
-    # based_on_referral_request_id = fields.Many2one(
-    #     comodel_name="hc.res.referral.request",
-    #     string="Based On Referral Request",
-    #     help="Referral Request for this procedure.")
 
 class ProcedurePartOf(models.Model):
     _name = "hc.procedure.part.of"
