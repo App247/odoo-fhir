@@ -76,6 +76,7 @@ access_hc_base_hc_vs_timing_event_manager,hc.base.hc.vs.timing.event.manager,mod
 access_hc_base_hc_available_time_user,hc.base.hc.available.time.user,model_hc_available_time,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_not_available_time_user,hc.base.hc.not.available.time.user,model_hc_not_available_time,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_vs_participant_role_manager,hc.base.hc.vs.participant.role.manager,model_hc_vs_participant_role,hc_base.group_hc_base_manager,1,1,1,1
+access_hc_base_hc_vs_publication_status_manager,hc.base.hc.vs.publication.status.manager,model_hc_vs_publication_status,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_sampled_data_user,hc.base.hc.sampled.data.user,model_hc_sampled_data,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_related_resource_user,hc.base.hc.related.resource.user,model_hc_related_resource,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_related_resource_document_user,hc.base.hc.related.resource.document.user,model_hc_related_resource_document,hc_base.group_hc_base_user,1,0,0,0

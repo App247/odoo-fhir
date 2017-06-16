@@ -2,4 +2,5 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_hc_account_hc_res_account_user,hc.account.hc.res.account.user,model_hc_res_account,hc_base.group_hc_base_user,1,0,0,0
 access_hc_account_hc_account_guarantor_user,hc.account.hc.account.guarantor.user,model_hc_account_guarantor,hc_base.group_hc_base_user,1,0,0,0
 access_hc_account_hc_account_identifier_user,hc.account.hc.account.identifier.user,model_hc_account_identifier,hc_base.group_hc_base_user,1,0,0,0
+access_hc_account_hc_account_status_history_user,hc.account.hc.account.status.history.user,model_hc_account_status_history,hc_base.group_hc_base_user,1,0,0,0
 access_hc_account_hc_account_coverage_user,hc.account.hc.account.coverage.user,model_hc_account_coverage,hc_base.group_hc_base_user,1,0,0,0

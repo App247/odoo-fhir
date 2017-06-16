@@ -623,6 +623,22 @@ class ParticipationType(models.Model):
         string="Parent",
         help="Parent participation type.")
 
+class PublicationStatus(models.Model):
+    _name = "hc.vs.publication.status"
+    _description = "Publication Status"
+    _inherit = ["hc.value.set.contains"]
+
+    name = fields.Char(
+        string="Name",
+        help="Name of this publication status.")                              
+    code = fields.Char(
+        string="Code", 
+        help="Code of this publication status.")                              
+    contains_id = fields.Many2one(
+        comodel_name="hc.vs.publication.status", 
+        string="Parent", 
+        help="Parent publication status.")                              
+
 class PurposeOfUse(models.Model):    
     _name = "hc.vs.purpose.of.use"    
     _description = "Purpose Of Use"        

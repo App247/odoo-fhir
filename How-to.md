@@ -450,5 +450,5 @@ ctrl-z to quit
 
 # Editing Tools
 
-* [Remove trailing spaces in Python code](http://www.mefancy.com/addremove/remove-leading-text.ph)
+* [Remove trailing spaces in Python code](http://www.mefancy.com/addremove/remove-leading-text.php)
 * [Remove/replace non ASCII characters](http://utils.paranoiaworks.org/diacriticsremover/) to fix `UnicodeWarning: Unicode unequal comparison failed to convert both arguments to Unicode - interpreting them as being unequalif cols[k][key] != vals[key]`

@@ -1,50 +1,50 @@
 <openerp>
     <data>
-    
+
         <!-- Clinical Impression Views -->
 
-        <record id="hc_res_clinical_impression_view_search" model="ir.ui.view">         
-            <field name="name">Clinical Impression Search</field>       
-            <field name="model">hc.res.clinical.impression</field>      
-            <field name="arch" type="xml">      
+        <record id="hc_res_clinical_impression_view_search" model="ir.ui.view">
+            <field name="name">Clinical Impression Search</field>
+            <field name="model">hc.res.clinical.impression</field>
+            <field name="arch" type="xml">
                 <search string="Clinical Impressions">
                     <field name="name"/>
                     <field name="subject_name"/>
                     <field name="code_id"/>
                     <field name="date"/>
                     <field name="status"/>
-                    <group string="Group By">   
+                    <group string="Group By">
                         <filter name="group_by_code" string="Code" context="{'group_by':'code'}"/>
-                    </group>    
-                </search>   
-            </field>        
-        </record>           
-                    
-        <record id="hc_res_clinical_impression_view_tree" model="ir.ui.view">           
-            <field name="name">Clinical Impression Tree</field>     
-            <field name="model">hc.res.clinical.impression</field>      
-            <field name="arch" type="xml">      
-                <tree string="Clinical Impressions">    
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_res_clinical_impression_view_tree" model="ir.ui.view">
+            <field name="name">Clinical Impression Tree</field>
+            <field name="model">hc.res.clinical.impression</field>
+            <field name="arch" type="xml">
+                <tree string="Clinical Impressions">
                     <field name="name"/>
                     <field name="subject_name"/>
                     <field name="code_id"/>
                     <field name="date"/>
                     <field name="status"/>
-                </tree> 
-            </field>        
-        </record>           
-    
-        <record id="hc_res_clinical_impression_view_form" model="ir.ui.view">                                     
-            <field name="name">Clinical Impression Form</field>                                   
-            <field name="model">hc.res.clinical.impression</field>                                    
-            <field name="arch" type="xml">                                  
-                <form string="Clinical Impression">                               
-                    <sheet>                         
-                        <h1>                    
-                            <field name="name" default_focus="1" placeholder="Event Name"/>             
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_res_clinical_impression_view_form" model="ir.ui.view">
+            <field name="name">Clinical Impression Form</field>
+            <field name="model">hc.res.clinical.impression</field>
+            <field name="arch" type="xml">
+                <form string="Clinical Impression">
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Event Name"/>
                         </h1>
-                        <field name="summary" placeholder="Summary of assessment"/>                   
-                        <group>                     
+                        <field name="summary" placeholder="Summary of assessment"/>
+                        <group>
                             <group string="Event">
                                 <field name="subject_name"/>
                                 <field name="subject_type" class="oe_edit_only"/>
@@ -53,27 +53,27 @@
                                 <field name="code_id" placeholder="Kind"/>
                                 <field name="description"/>
                                 <field name="date"/>
-                            </group>                    
+                            </group>
                             <group string="Status">
                                 <field name="status"/>
-                                <field name="prognosis_codeable_concept_ids" string="Prognosis" widget="many2many_tags"/>                 
+                                <field name="prognosis_codeable_concept_ids" string="Prognosis" widget="many2many_tags"/>
                             </group>
                             <group string="Who, What">
                                 <field name="assessor_id" placeholder="Practitioner"/>
                                 <field name="previous_id" placeholder="Clinical Impression"/>
-                            </group>                    
-                        </group>                        
+                            </group>
+                        </group>
                         <notebook>
-                            <page string="Investigations">                 
-                                <field name="investigation_ids" mode="tree">               
+                            <page string="Investigations">
+                                <field name="investigation_ids" mode="tree">
                                     <tree>
                                         <field name="code_id"/>
                                         <field name="item_name"/>
                                         <field name="item_type"/>
-                                    </tree>         
-                                    <form>          
-                                        <sheet>     
-                                            <group> 
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
                                                 <group>
                                                     <field name="code_id" placeholder="Investigation Set"/>
                                                 </group>
@@ -89,129 +89,129 @@
                                                     <field name="item_risk_assessment_id" class="oe_edit_only" attrs="{'invisible': [('item_type','!=','risk_assessment')], 'required': [('item_type','=','risk_assessment')]}"/>
                                                     <field name="item_imaging_study_id" class="oe_edit_only" attrs="{'invisible': [('item_type','!=','imaging_study')], 'required': [('item_type','=','imaging_study')]}"/>
                                                 </group>
-                                            </group>    
-                                        </sheet>        
-                                    </form>         
-                                </field>                
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
                             </page>
-                            <page string="Findings">                 
-                                <field name="finding_ids" mode="tree">               
+                            <page string="Findings">
+                                <field name="finding_ids" mode="tree">
                                     <tree>
-                                        <field name="cause"/>            
-                                    </tree>         
-                                    <form>          
+                                        <field name="cause"/>
+                                    </tree>
+                                    <form>
                                         <sheet>
-                                            <field name="cause" placeholder="Cause"/>       
-                                            <group> 
-                                                <group>                                                
+                                            <field name="cause" placeholder="Cause"/>
+                                            <group>
+                                                <group>
                                                 </group>
                                                 <group>
                                                 </group>
-                                            </group>    
-                                        </sheet>        
-                                    </form>         
-                                </field>                
-                            </page>                      
-                            <page string="Identifiers">                     
-                                <field name="identifier_ids" mode="tree">                   
-                                    <tree>              
-                                        <field name="is_preferred"/>            
-                                        <field name="name"/>            
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Identifiers">
+                                <field name="identifier_ids" mode="tree">
+                                    <tree>
+                                        <field name="is_preferred"/>
+                                        <field name="name"/>
                                         <field name="value"/>
-                                        <field name="code_id"/>           
-                                        <field name="type_id"/>         
-                                    </tree>             
-                                    <form>              
-                                        <sheet>         
-                                            <div class="oe_title oe_left">      
-                                                <h1>    
+                                        <field name="code_id"/>
+                                        <field name="type_id"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <div class="oe_title oe_left">
+                                                <h1>
                                                     <field name="name" placeholder="Identifier"/>
-                                                </h1>   
-                                            </div>      
-                                            <group>     
-                                                <group> 
+                                                </h1>
+                                            </div>
+                                            <group>
+                                                <group>
                                                     <field name="value"/>
                                                     <field name="code_id"/>
                                                     <field name="type_id" readonly="1"/>
                                                     <field name="is_preferred"/>
                                                     <field name="is_active"/>
-                                                </group>    
-                                                <group> 
+                                                </group>
+                                                <group>
                                                     <field name="start_date" placeholder="Valid From"/>
                                                     <field name="end_date" placeholder="Valid To"/>
-                                                </group>    
-                                            </group>        
-                                        </sheet>            
-                                    </form>             
-                                </field>                    
-                            </page>                     
-                            <page string="Problems">                 
-                                <field name="problem_ids" mode="tree">               
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Problems">
+                                <field name="problem_ids" mode="tree">
                                     <tree>
                                         <field name="problem_name"/>
-                                        <field name="problem_type"/>          
-                                    </tree>         
-                                    <form>          
-                                        <sheet>     
-                                            <group> 
+                                        <field name="problem_type"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
                                                 <group>
                                                     <field name="problem_name"/>
                                                     <field name="problem_type" class="oe_edit_only"/>
                                                     <field name="problem_condition_id" class="oe_edit_only" attrs="{'invisible': [('problem_type','!=','condition')], 'required': [('problem_type','=','condition')]}"/>
                                                     <field name="problem_allergy_intolerance_id" class="oe_edit_only" attrs="{'invisible': [('problem_type','!=','allergy_intolerance')], 'required': [('problem_type','=','allergy_intolerance')]}"/>
                                                 </group>
-                                                <group>                                                    
+                                                <group>
                                                 </group>
-                                            </group>    
-                                        </sheet>        
-                                    </form>         
-                                </field>                
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
                             </page>
-                            <page string="Protocols">                 
-                                <field name="protocol_ids" mode="tree">               
+                            <page string="Protocols">
+                                <field name="protocol_ids" mode="tree">
                                     <tree>
-                                        <field name="protocol"/>          
-                                    </tree>         
-                                    <form>          
+                                        <field name="protocol"/>
+                                    </tree>
+                                    <form>
                                         <sheet>
-                                            <field name="protocol" placeholder="Protocol URI"/>     
-                                            <group> 
-                                                <group>   
+                                            <field name="protocol" placeholder="Protocol URI"/>
+                                            <group>
+                                                <group>
                                                 </group>
                                                 <group>
                                                 </group>
-                                            </group>    
-                                        </sheet>        
-                                    </form>         
-                                </field>                
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
                             </page>
-                            <page string="Prognosis Refs">                 
-                                <field name="prognosis_reference_ids" mode="tree">               
+                            <page string="Prognosis Refs">
+                                <field name="prognosis_reference_ids" mode="tree">
                                     <tree>
-                                        <field name="prognosis_reference_id"/>          
-                                    </tree>         
-                                    <form>          
-                                        <sheet>     
-                                            <group> 
+                                        <field name="prognosis_reference_id"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
                                                 <group>
-                                                    <field name="prognosis_reference_id"/>                                                    
+                                                    <field name="prognosis_reference_id"/>
                                                 </group>
                                                 <group>
                                                 </group>
-                                            </group>    
-                                        </sheet>        
-                                    </form>         
-                                </field>                
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
                             </page>
-                             <page string="Actions">                 
-                                <field name="action_ids" mode="tree">               
+                             <page string="Actions">
+                                <field name="action_ids" mode="tree">
                                     <tree>
                                         <field name="action_name"/>
-                                        <field name="action_type"/>          
-                                    </tree>         
-                                    <form>          
-                                        <sheet>     
-                                            <group> 
+                                        <field name="action_type"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
                                                 <group>
                                                     <field name="action_name"/>
                                                     <field name="action_type" class="oe_edit_only"/>
@@ -223,47 +223,61 @@
                                                 </group>
                                                 <group>
                                                 </group>
-                                            </group>    
-                                        </sheet>        
-                                    </form>         
-                                </field>                
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
                             </page>
-                            <page string="Notes">                       
-                                <field name="note_ids" mode="tree">                 
-                                    <tree>              
-                                        <field name="text"/>            
-                                        <field name="author_type"/>         
-                                        <field name="recorded_date"/>           
-                                    </tree>             
-                                    <form>              
-                                        <sheet>         
-                                            <div>       
-                                                <field name="text" placeholder="Annotation"/>   
-                                            </div>      
-                                            <group>     
-                                                <group> 
+                            <page string="Notes">
+                                <field name="note_ids" mode="tree">
+                                    <tree>
+                                        <field name="text"/>
+                                        <field name="author_type"/>
+                                        <field name="recorded_date"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <div>
+                                                <field name="text" placeholder="Annotation"/>
+                                            </div>
+                                            <group>
+                                                <group>
                                                     <field name="author_name"/>
                                                     <field name="author_type" class="oe_edit_only"/>
                                                     <field name="author_string" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','string')], 'required': [('author_type','=','string')]}"/>
                                                     <field name="author_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','practitioner')], 'required': [('author_type','=','practitioner')]}"/>
                                                     <field name="author_patient_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','patient')], 'required': [('author_type','=','patient')]}"/>
                                                     <field name="author_related_person_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','related_person')], 'required': [('author_type','=','related_person')]}"/>
-                                                </group>    
-                                                <group> 
+                                                </group>
+                                                <group>
                                                     <field name="recorded_date"/>
-                                                </group>    
-                                            </group>        
-                                        </sheet>            
-                                    </form>             
-                                </field>                    
-                            </page>                     
-                        </notebook>                     
-                    </sheet>                            
-                </form>                             
-            </field>                                    
-        </record>                                       
- 
-        <act_window id="hc_res_clinical_impression_action"  
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Status History">
+                                <field name="status_history_ids" mode="tree">
+                                    <tree>
+                                        <field name="status" readonly="1"/>
+                                        <field name="start_date"/>
+                                        <field name="end_date"/>
+                                        <field name="time_diff_day"/>
+                                        <field name="time_diff_hour"/>
+                                        <field name="time_diff_min"/>
+                                        <field name="time_diff_sec"/>
+                                        <field name="write_uid" invisible="0"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_res_clinical_impression_action"
                     name="HC Clinical Impressions"
                     res_model="hc.res.clinical.impression"
                     view_mode="tree,form"
@@ -271,20 +285,20 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_clinical_impression.menu_clinic_imp" 
+        <menuitem id="hc_clinical_impression.menu_clinic_imp"
                   name="Clinical Impressions"
-                  web_icon="hc_clinical_impression,static/description/icon.png"  
-                  parent="hc_base.menu_clinic_gen" 
-                  action="hc_res_clinical_impression_action" 
-                  groups="hc_base.group_hc_base_manager" 
+                  web_icon="hc_clinical_impression,static/description/icon.png"
+                  parent="hc_base.menu_clinic_gen"
+                  action="hc_res_clinical_impression_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="50"/>
 
         <!-- External Reference -->
 
-        <record id="hc_res_condition_view_form_inherited" model="ir.ui.view">     
-            <field name="name">Condition Form Inherited</field>   
-            <field name="model">hc.res.condition</field>   
-            <field name="inherit_id" ref="hc_condition.hc_res_condition_view_form"/>   
+        <record id="hc_res_condition_view_form_inherited" model="ir.ui.view">
+            <field name="name">Condition Form Inherited</field>
+            <field name="model">hc.res.condition</field>
+            <field name="inherit_id" ref="hc_condition.hc_res_condition_view_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='assessment_ids']//form//group//field[@name='assessment_type']" position="after">
                     <field name="assessment_observation_id" class="oe_edit_only" attrs="{'invisible': [('assessment_type','!=','observation')], 'required': [('assessment_type','=','observation')]}"/>

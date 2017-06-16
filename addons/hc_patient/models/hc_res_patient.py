@@ -396,7 +396,7 @@ class PatientAnimal(models.Model):
         comodel_name="hc.vs.animal.gender.status", 
         string="Gender Status", 
         help="Indicates the current state of the animal's reproductive organs (e.g., neutered, intact).")
-
+    
     @api.depends('species_id', 'gender_status_id', 'breed_id')          
     def _compute_name(self):            
         comp_name = '/'     

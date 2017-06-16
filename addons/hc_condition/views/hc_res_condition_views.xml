@@ -1,16 +1,16 @@
 <openerp>
     <data>
 
-    <!-- Condition Views -->            
-            
-    <record id="hc_res_condition_view_search" model="ir.ui.view">           
-        <field name="name">Condition Search</field>     
-        <field name="model">hc.res.condition</field>        
-        <field name="arch" type="xml">      
+    <!-- Condition Views -->
+
+    <record id="hc_res_condition_view_search" model="ir.ui.view">
+        <field name="name">Condition Search</field>
+        <field name="model">hc.res.condition</field>
+        <field name="arch" type="xml">
             <search string="Conditions">
-                <field name="name"/> 
+                <field name="name"/>
                 <field name="code_id"/>
-                <field name="code"/>    
+                <field name="code"/>
                 <field name="identifier_ids"/>
                 <field name="clinical_status"/>
                 <field name="verification_status"/>
@@ -29,14 +29,14 @@
                 <field name="asserter_type"/>
                 <field name="asserter_name"/>
                 <field name="note_ids"/>
-            </search>   
-        </field>        
-    </record>           
-                   
-    <record id="hc_res_condition_view_tree" model="ir.ui.view">         
-        <field name="name">Condition Tree</field>       
-        <field name="model">hc.res.condition</field>        
-        <field name="arch" type="xml">      
+            </search>
+        </field>
+    </record>
+
+    <record id="hc_res_condition_view_tree" model="ir.ui.view">
+        <field name="name">Condition Tree</field>
+        <field name="model">hc.res.condition</field>
+        <field name="arch" type="xml">
             <tree string="Conditions">
                 <field name="name"/>
                 <field name="subject_name"/>
@@ -44,26 +44,26 @@
                 <field name="asserted_date"/>
                 <field name="clinical_status"/>
                 <field name="verification_status"/>
-            </tree> 
-        </field>        
+            </tree>
+        </field>
     </record>
 
-    <record id="hc_res_condition_view_form" model="ir.ui.view">                                                             
-        <field name="name">Condition Form</field>                                                           
-        <field name="model">hc.res.condition</field>                                                            
-        <field name="arch" type="xml">                                                          
-            <form string="Condition">                                                       
-                <sheet>                                                                                            
+    <record id="hc_res_condition_view_form" model="ir.ui.view">
+        <field name="name">Condition Form</field>
+        <field name="model">hc.res.condition</field>
+        <field name="arch" type="xml">
+            <form string="Condition">
+                <sheet>
                     <h1>
                         <field name="name" placeholder="Condition Event Name (e.g., Subject Name + Code + Asserted Date)"/>
-                    </h1>                                           
-                    <div name="buttons" class="oe_right oe_button_box"></div>                                               
-                    <group>                                             
-                        <group string="Event" name="event">                                         
+                    </h1>
+                    <div name="buttons" class="oe_right oe_button_box"></div>
+                    <group>
+                        <group string="Event" name="event">
                             <field name="subject_name"/>
                             <field name="subject_type" class="oe_edit_only"/>
                             <field name="subject_patient_id" class="oe_edit_only" attrs="{'invisible': [('subject_type','!=','patient')], 'required': [('subject_type','=','patient')]}"/>
-                            <field name="subject_group_id" class="oe_edit_only" attrs="{'invisible': [('subject_type','!=','group')], 'required': [('subject_type','=','group')]}"/>  
+                            <field name="subject_group_id" class="oe_edit_only" attrs="{'invisible': [('subject_type','!=','group')], 'required': [('subject_type','=','group')]}"/>
                             <field name="code_id"/>
                             <field name="asserted_date"/>
                             <field name="category_ids" widget="many2many_tags"/>
@@ -74,13 +74,13 @@
                             <field name="severity_id"/>
                         </group>
                         <group string = "Who, Where">
-                            <field name="asserter_name"/> 
+                            <field name="asserter_name"/>
                             <field name="asserter_type" class="oe_edit_only"/>
                             <field name="asserter_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('asserter_type','!=','practitioner')], 'required': [('asserter_type','=','practitioner')]}"/>
                             <field name="asserter_patient_id" class="oe_edit_only" attrs="{'invisible': [('asserter_type','!=','patient')], 'required': [('asserter_type','=','patient')]}"/>
                             <field name="asserter_related_person_id" class="oe_edit_only" attrs="{'invisible': [('asserter_type','!=','related_person')], 'required': [('asserter_type','=','related_person')]}"/>
                             <field name="body_site_ids" widget="many2many_tags"/>
-                        </group>                                          
+                        </group>
                         <group string = "Timeline">
                                 <field name="onset_name"/>
                                 <field name="onset_type" class="oe_edit_only"/>
@@ -102,21 +102,21 @@
                                 <field name="abatement_end_date" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','period')], 'required': [('abatement_type','=','period')]}"/>
                                 <field name="abatement_range_low" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','range')], 'required': [('abatement_type','=','range')]}"/>
                                 <field name="abatement_range_high" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','range')], 'required': [('abatement_type','=','range')]}"/>
-                                <field name="abatement_string" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','string')], 'required': [('abatement_type','=','string')]}"/>   
-                        </group>                                            
-                    </group>                                                
+                                <field name="abatement_string" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','string')], 'required': [('abatement_type','=','string')]}"/>
+                        </group>
+                    </group>
                     <notebook>
-                        <page string="Stages">                   
-                            <field name="stage_ids" mode="tree">             
-                                <tree>              
-                                    <field name="summary_id"/>     
-                                </tree>         
-                                <form>          
+                        <page string="Stages">
+                            <field name="stage_ids" mode="tree">
+                                <tree>
+                                    <field name="summary_id"/>
+                                </tree>
+                                <form>
                                     <sheet>
                                         <group>
                                             <group>
-                                                <field name="has_assessment" invisible="1"/> 
-                                                <field name="summary_id" attrs="{'invisible': [('has_assessment','=',True)]}"/>         
+                                                <field name="has_assessment" invisible="1"/>
+                                                <field name="summary_id" attrs="{'invisible': [('has_assessment','=',True)]}"/>
                                             </group>
                                             <group>
                                             </group>
@@ -148,96 +148,96 @@
                                                     </form>
                                                 </field>
                                             </page>
-                                        </notebook>    
-                                    </sheet>        
-                                </form>         
-                            </field>                
-                        </page>                                                                                
-                        <page string="Evidences">                                           
-                            <field name="evidence_ids" mode="tree">                                     
-                                <tree>                                  
-                                    <field name="code_id"/>                             
-                                </tree>                                 
-                                <form>                                  
-                                    <sheet>                             
-                                        <group>                         
-                                            <group>                     
-                                                <field name="code_id"/>                 
-                                            </group>                        
-                                        </group>                            
-                                        <notebook>                          
-                                            <page string="Details">                        
-                                                <field name="detail_ids" mode="tree">                  
-                                                    <tree>              
-                                                        <field name="detail_name"/>           
+                                        </notebook>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Evidences">
+                            <field name="evidence_ids" mode="tree">
+                                <tree>
+                                    <field name="code_id"/>
+                                </tree>
+                                <form>
+                                    <sheet>
+                                        <group>
+                                            <group>
+                                                <field name="code_id"/>
+                                            </group>
+                                        </group>
+                                        <notebook>
+                                            <page string="Details">
+                                                <field name="detail_ids" mode="tree">
+                                                    <tree>
+                                                        <field name="detail_name"/>
                                                         <field name="detail_type"/>
-                                                        <!-- <field name="reference_model"/> -->                    
-                                                    </tree>             
-                                                    <form>              
-                                                        <sheet>         
-                                                            <group>     
-                                                                <group> 
+                                                        <!-- <field name="reference_model"/> -->
+                                                    </tree>
+                                                    <form>
+                                                        <sheet>
+                                                            <group>
+                                                                <group>
                                                                     <!-- <field name="reference_model"/> -->
                                                                     <field name="detail_name"/>
                                                                     <field name="detail_type" class="oe_edit_only"/>
-                                                                </group>    
-                                                            </group>        
-                                                        </sheet>            
-                                                    </form>             
-                                                </field>                    
-                                            </page>                     
+                                                                </group>
+                                                            </group>
+                                                        </sheet>
+                                                    </form>
+                                                </field>
+                                            </page>
                                         </notebook>
-                                    </sheet>                                                         
-                                </form>                             
-                            </field>                                    
-                        </page>                                                                                                         
-                        <page string="Identifiers">                                         
-                            <field name="identifier_ids" mode="tree">                                       
-                                <tree>                                  
-                                    <field name="value"/>                               
-                                    <field name="is_preferred"/>                                
-                                    <field name="is_active"/>                               
-                                </tree>                                 
-                                <form>                                  
-                                    <sheet>                             
-                                        <group>                         
-                                            <group>                     
-                                                <field name="value"/>                   
-                                                <field name="is_preferred"/>                    
-                                                <field name="is_active"/>                   
-                                            </group>                        
-                                            <group>                     
-                                                <field name="start_date"/>                  
-                                                <field name="end_date"/>                    
-                                            </group>                        
-                                        </group>                            
-                                    </sheet>                                
-                                    </form>                             
-                                </field>                                    
-                        </page>                                         
-                        <page string="Notes">                                         
-                            <field name="note_ids" mode="tree">                                     
-                                <tree>                                  
-                                    <field name="text"/>                                
-                                    <field name="author_type"/>                             
-                                    <field name="recorded_date"/>                               
-                                </tree>                                 
-                                <form>                                  
-                                    <sheet>                             
-                                        <div>                           
-                                            <field name="text" placeholder="Annotation"/>                       
-                                        </div>                          
-                                        <group>                         
-                                            <group>                     
-                                                <field name="author_type"/>                 
-                                            </group>                        
-                                            <group>                     
-                                                <field name="recorded_date"/>                   
-                                            </group>                        
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Identifiers">
+                            <field name="identifier_ids" mode="tree">
+                                <tree>
+                                    <field name="value"/>
+                                    <field name="is_preferred"/>
+                                    <field name="is_active"/>
+                                </tree>
+                                <form>
+                                    <sheet>
+                                        <group>
+                                            <group>
+                                                <field name="value"/>
+                                                <field name="is_preferred"/>
+                                                <field name="is_active"/>
+                                            </group>
+                                            <group>
+                                                <field name="start_date"/>
+                                                <field name="end_date"/>
+                                            </group>
                                         </group>
-                                    </sheet>                                
-                                </form>                             
-                            </field>                                  
+                                    </sheet>
+                                    </form>
+                                </field>
+                        </page>
+                        <page string="Notes">
+                            <field name="note_ids" mode="tree">
+                                <tree>
+                                    <field name="text"/>
+                                    <field name="author_type"/>
+                                    <field name="recorded_date"/>
+                                </tree>
+                                <form>
+                                    <sheet>
+                                        <div>
+                                            <field name="text" placeholder="Annotation"/>
+                                        </div>
+                                        <group>
+                                            <group>
+                                                <field name="author_type"/>
+                                            </group>
+                                            <group>
+                                                <field name="recorded_date"/>
+                                            </group>
+                                        </group>
+                                    </sheet>
+                                </form>
+                            </field>
                         </page>
                         <page string="Verification Statuses">
                             <field name="verification_status_history_ids" mode="tree">
@@ -266,17 +266,17 @@
                                     <field name="write_uid" invisible="0"/>
                                 </tree>
                             </field>
-                        </page>                                                                 
-                    </notebook>                                             
-                </sheet>                                                    
-            </form>                                                     
-        </field>                                                            
-    </record>                                          
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
 
-   <!-- Condition Action and Menu -->   
-    
-    <act_window id="hc_res_condition_action"    
+   <!-- Condition Action and Menu -->
+
+    <act_window id="hc_res_condition_action"
                 name="HC Conditions"
                 res_model="hc.res.condition"
                 view_mode="tree,form"
@@ -284,15 +284,13 @@
                 context=""
                 limit=""/>
 
-    <menuitem id="hc_condition.menu_cond" 
+    <menuitem id="hc_condition.menu_cond"
               name="Conditions"
-              web_icon="hc_condition,static/description/icon.png"  
-              parent="hc_base.menu_clinic_gen" 
+              web_icon="hc_condition,static/description/icon.png"
+              parent="hc_base.menu_clinic_gen"
               action="hc_res_condition_action"
-              groups="hc_base.group_hc_base_manager" 
+              groups="hc_base.group_hc_base_manager"
               sequence="20"/>
-
-                                                                  
 
     </data>
 </openerp>

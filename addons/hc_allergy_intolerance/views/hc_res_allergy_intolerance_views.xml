@@ -2,12 +2,12 @@
 <openerp>
     <data>
 
-        <!-- Allergy Intolerance Views -->          
-                
-        <record id="hc_res_allergy_intolerance_view_search" model="ir.ui.view">         
-            <field name="name">Allergy Intolerance Search</field>       
-            <field name="model">hc.res.allergy.intolerance</field>      
-            <field name="arch" type="xml">      
+        <!-- Allergy Intolerance Views -->
+
+        <record id="hc_res_allergy_intolerance_view_search" model="ir.ui.view">
+            <field name="name">Allergy Intolerance Search</field>
+            <field name="model">hc.res.allergy.intolerance</field>
+            <field name="arch" type="xml">
                 <search string="Allergy Intolerances">
                     <field name="name"/>
                     <field name="code_id" string="Allergy/Intolerance"/>
@@ -28,17 +28,17 @@
                     <field name="recorder_type"/>
                     <field name="type"/>
                     <field name="verification_status"/>
-                    <group string="Group By" >  
+                    <group string="Group By" >
                         <filter name="group_by_asserter" string="Asserter" context="{'group_by':'asserter_name'}"/>
-                    </group>    
-                </search>   
-            </field>        
-        </record>           
-   
-        <record id="hc_res_allergy_intolerance_view_tree" model="ir.ui.view">            
-            <field name="name">Allergy Intolerance Tree</field>     
-            <field name="model">hc.res.allergy.intolerance</field>      
-            <field name="arch" type="xml">      
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_res_allergy_intolerance_view_tree" model="ir.ui.view">
+            <field name="name">Allergy Intolerance Tree</field>
+            <field name="model">hc.res.allergy.intolerance</field>
+            <field name="arch" type="xml">
                 <tree string="Allergy Intolerances">
                     <field name="name"/>
                     <field name="patient_id"/>
@@ -46,32 +46,32 @@
                     <field name="asserted_date"/>
                     <field name="clinical_status"/>
                     <field name="verification_status"/>
-                </tree> 
-            </field>        
+                </tree>
+            </field>
         </record>
 
-        <record id="hc_res_allergy_intolerance_view_form" model="ir.ui.view">                                       
-            <field name="name">Allergy Intolerance Form</field>                                 
-            <field name="model">hc.res.allergy.intolerance</field>                                  
-            <field name="arch" type="xml">                                  
-                <form string="Allergy Intolerance">                             
-                    <sheet>                                
-                        <div class="oe_title oe_left">                      
-                            <h1>                    
-                                <field name="name" placeholder="Allergy Intolerance Event Name (e.g., Patient + DOB + Allergy + Asserted Date)"/>              
-                            </h1>                   
-                        </div>                      
-                        <div name="buttons" class="oe_right oe_button_box"></div>                       
-                        <group>                     
-                            <group string="Event" name="event">                 
+        <record id="hc_res_allergy_intolerance_view_form" model="ir.ui.view">
+            <field name="name">Allergy Intolerance Form</field>
+            <field name="model">hc.res.allergy.intolerance</field>
+            <field name="arch" type="xml">
+                <form string="Allergy Intolerance">
+                    <sheet>
+                        <div class="oe_title oe_left">
+                            <h1>
+                                <field name="name" placeholder="Allergy Intolerance Event Name (e.g., Patient + DOB + Allergy + Asserted Date)"/>
+                            </h1>
+                        </div>
+                        <div name="buttons" class="oe_right oe_button_box"></div>
+                        <group>
+                            <group string="Event" name="event">
                                 <field name="patient_id"/>
                                 <field name="code_id" string="Allergy/Intolerance"/>
                                 <field name="asserted_date"/>
                                 <field name="type" widget="radio"/>
-                                <field name="criticality"/>               
-                            </group>                    
+                                <field name="criticality"/>
+                            </group>
                             <group string="Status" name="status">
-                                <field name="verification_status"/>                            
+                                <field name="verification_status"/>
                                 <field name="clinical_status" attrs="{'required': [('verification_status','in',['unconfirmed','confirmed','refuted']),('verification_status','!=','entered-in-error')], 'invisible': [('verification_status','=','entered-in-error')]}"/>
                             </group>
                             <group string = "Who, Where">
@@ -97,37 +97,37 @@
                                 <field name="onset_range_high" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','range')], 'required': [('onset_type','=','range')]}"/>
                                 <field name="onset_string" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','string')], 'required': [('onset_type','=','string')]}"/>
                                 <field name="last_occurence"/>
-                            </group>               
-                        </group>                        
-                        <notebook colspan="4">                                        
-                            <page string="Reactions">                   
-                                <field name="reaction_ids" mode="tree">             
-                                    <tree>              
+                            </group>
+                        </group>
+                        <notebook colspan="4">
+                            <page string="Reactions">
+                                <field name="reaction_ids" mode="tree">
+                                    <tree>
                                         <field name="substance_id"/>
-                                        <field name="description"/>      
-                                        <field name="onset"/>       
+                                        <field name="description"/>
+                                        <field name="onset"/>
                                         <field name="duration"/>
-                                        <field name="duration_uom_id"/>       
-                                        <field name="severity"/>     
-                                    </tree>         
-                                    <form>          
+                                        <field name="duration_uom_id"/>
+                                        <field name="severity"/>
+                                    </tree>
+                                    <form>
                                         <sheet>
-                                            <div class="oe_title oe_left">                      
-                                                <h1>                    
-                                                    <field name="substance_id" placeholder="Substance"/>              
+                                            <div class="oe_title oe_left">
+                                                <h1>
+                                                    <field name="substance_id" placeholder="Substance"/>
                                                 </h1>
-                                            </div>     
+                                            </div>
                                             <group col="4" colspan="4">
-                                                <group>   
-                                                    <field name="description"/>      
-                                                    <field name="onset"/>       
+                                                <group>
+                                                    <field name="description"/>
+                                                    <field name="onset"/>
                                                     <field name="duration"/>
-                                                    <field name="duration_uom_id"/>        
+                                                    <field name="duration_uom_id"/>
                                                 </group>
                                                 <group>
                                                     <field name="severity"/>
                                                     <field name="certainty"/>
-                                                    <field name="manifestation_ids" widget="many2many_tags"/>          
+                                                    <field name="manifestation_ids" widget="many2many_tags"/>
                                                     <field name="exposure_route_id"/>
                                                 </group>
                                             </group>
@@ -156,10 +156,10 @@
                                                         </form>
                                                     </field>
                                                 </page>
-                                            </notebook>    
-                                        </sheet>        
-                                    </form>         
-                                </field>                
+                                            </notebook>
+                                        </sheet>
+                                    </form>
+                                </field>
                             </page>
                             <!-- <page string="Identifiers"/> -->
                             <page string="Identifiers">
@@ -190,7 +190,7 @@
                                         </sheet>
                                     </form>
                                 </field>
-                            </page>                    
+                            </page>
                             <page string="Categories">
                                 <field name="category_ids" mode="tree" editable="top">
                                     <tree>
@@ -201,19 +201,19 @@
                             <page string="Annotations">
                                 <field name="note_ids" mode="tree">
                                     <tree>
-                                        <field name="text"/>    
+                                        <field name="text"/>
                                         <field name="author_name"/>
-                                        <field name="author_type"/>       
-                                        <field name="recorded_date"/> 
+                                        <field name="author_type"/>
+                                        <field name="recorded_date"/>
                                     </tree>
                                     <form>
                                         <sheet>
-                                            <div class="oe_title oe_left">          
-                                                <h1>        
+                                            <div class="oe_title oe_left">
+                                                <h1>
                                                     <field name="text" default_focus="1" placeholder="Annotation"/>
-                                                </h1>     
-                                            </div>          
-                                            <group>         
+                                                </h1>
+                                            </div>
+                                            <group>
                                                 <group>
                                                     <field name="author_name"/>
                                                     <field name="author_type" class="oe_edit_only"/>
@@ -222,7 +222,7 @@
                                                     <field name="author_patient_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','patient')], 'required': [('author_type','=','patient')]}"/>
                                                     <field name="author_related_person_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','related_person')], 'required': [('author_type','=','related_person')]}"/>
                                                 </group>
-                                                <group>       
+                                                <group>
                                                 </group>
                                             </group>
                                         </sheet>
@@ -256,16 +256,16 @@
                                         <field name="write_uid" invisible="0"/>
                                     </tree>
                                 </field>
-                            </page>                                       
-                        </notebook>                     
-                    </sheet>                            
-                </form>                             
-            </field>                                    
-        </record>                                       
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
-        <!-- Allergy Intolerance Action and Menu -->    
-        
-        <act_window id="hc_res_allergy_intolerance_action"  
+        <!-- Allergy Intolerance Action and Menu -->
+
+        <act_window id="hc_res_allergy_intolerance_action"
                     name="HC Allergy Intolerances"
                     res_model="hc.res.allergy.intolerance"
                     view_mode="tree,form"
@@ -273,80 +273,80 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_allergy_intolerance.menu_allergy" 
+        <menuitem id="hc_allergy_intolerance.menu_allergy"
                   name="Allergy Intolerances"
-                  web_icon="hc_allergy_intolerance,static/description/icon.png" 
-                  parent="hc_base.menu_clinic_gen" 
+                  web_icon="hc_allergy_intolerance,static/description/icon.png"
+                  parent="hc_base.menu_clinic_gen"
                   action="hc_res_allergy_intolerance_action"
                   groups="hc_base.group_hc_base_manager"
                   sequence="10"/>
- 
-        <!-- Allergy Intolerance Value Set Action and Menu -->           
-        
-        <record id="hc_vs_allergy_intolerance_code_view_search" model="ir.ui.view">                     
-            <field name="name">Allergy Intolerance Code Search</field>                  
-            <field name="model">hc.vs.allergy.intolerance.code</field>                                   
-            <field name="arch" type="xml">                  
-                <search string="Allergy Intolerance Codes">             
-                    <field name="name"/>            
-                    <field name="code"/>            
-                    <field name="definition"/>          
-                    <group>         
-                        <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}" />     
-                    </group>            
-                </search>               
-            </field>                    
-        </record>                       
-        
-        <record id="hc_vs_allergy_intolerance_code_view_tree" model="ir.ui.view">                       
-            <field name="name">Allergy Intolerance Code Tree</field>                    
-            <field name="model">hc.vs.allergy.intolerance.code</field>                                     
-            <field name="arch" type="xml">                  
-                <tree string="Allergy Intolerance Codes" default_order="name, code">                
-                    <field name="name"/>            
-                    <field name="code"/>            
-                    <field name="definition"/>          
-                    <field name="source_id" invisible="0"/>         
-                </tree>             
-            </field>                    
-        </record>                       
 
-        <record id="hc_vs_allergy_intolerance_code_view_form" model="ir.ui.view">                       
-            <field name="name">Allergy Intolerance Code Form</field>                    
-            <field name="model">hc.vs.allergy.intolerance.code</field>                  
-            <field name="arch" type="xml">                  
-                <form string="Allergy Intolerance Codes">              
-                    <sheet>         
-                        <h1>        
-                            <field name="name" default_focus="1" placeholder="Name (e.g., United States)"/> 
-                        </h1>       
-                        <field name="code" placeholder="Code (e.g., US)"/>      
-                        <field name="definition" placeholder="Definition"/>     
-                        <field name="comments" placeholder="Comments"/>     
-                        <group>     
-                            <group> 
+        <!-- Allergy Intolerance Value Set Action and Menu -->
+
+        <record id="hc_vs_allergy_intolerance_code_view_search" model="ir.ui.view">
+            <field name="name">Allergy Intolerance Code Search</field>
+            <field name="model">hc.vs.allergy.intolerance.code</field>
+            <field name="arch" type="xml">
+                <search string="Allergy Intolerance Codes">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                    <group>
+                        <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}" />
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_vs_allergy_intolerance_code_view_tree" model="ir.ui.view">
+            <field name="name">Allergy Intolerance Code Tree</field>
+            <field name="model">hc.vs.allergy.intolerance.code</field>
+            <field name="arch" type="xml">
+                <tree string="Allergy Intolerance Codes" default_order="name, code">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                    <field name="source_id" invisible="0"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_vs_allergy_intolerance_code_view_form" model="ir.ui.view">
+            <field name="name">Allergy Intolerance Code Form</field>
+            <field name="model">hc.vs.allergy.intolerance.code</field>
+            <field name="arch" type="xml">
+                <form string="Allergy Intolerance Codes">
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name (e.g., United States)"/>
+                        </h1>
+                        <field name="code" placeholder="Code (e.g., US)"/>
+                        <field name="definition" placeholder="Definition"/>
+                        <field name="comments" placeholder="Comments"/>
+                        <group>
+                            <group>
                                 <field name="contains_id" invisible="0"/>
                                 <field name="is_abstract" widget="upgrade_boolean"/>
                                 <field name="level" placeholder="An integer (e.g., 1, 2)"/>
                                 <field name="version" placeholder="e.g., v2.5"/>
-                            </group>    
-                            <group> 
+                            </group>
+                            <group>
                                 <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
                                 <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
-                            </group>    
-                        </group>        
-                    </sheet>            
-                </form>             
-            </field>                    
-        </record>                       
-<!-- 
-        <menuitem id="hc_allergy_intolerance.menu_allergy_conf" 
-                  name="Configuration" 
-                  parent="hc_allergy_intolerance.menu_allergy" 
-                  groups="hc_base.group_hc_base_manager" 
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+<!--
+        <menuitem id="hc_allergy_intolerance.menu_allergy_conf"
+                  name="Configuration"
+                  parent="hc_allergy_intolerance.menu_allergy"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="10"/> -->
-            
-        <act_window id="hc_vs_allergy_intolerance_code_action"          
+
+        <act_window id="hc_vs_allergy_intolerance_code_action"
                     name="HC Allergy Intolerance Codes"
                     res_model="hc.vs.allergy.intolerance.code"
                     view_mode="tree,form"
@@ -354,71 +354,71 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_allergy_intolerance.menu_allergy_code" 
-                  name="Allergy Intolerance Codes" 
-                  parent="hc_allergy_intolerance.menu_allergy" 
-                  action="hc_vs_allergy_intolerance_code_action" 
-                  groups="hc_base.group_hc_base_manager" 
+        <menuitem id="hc_allergy_intolerance.menu_allergy_code"
+                  name="Allergy Intolerance Codes"
+                  parent="hc_allergy_intolerance.menu_allergy"
+                  action="hc_vs_allergy_intolerance_code_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="10"/>
-        
-        <record id="hc_vs_manifestation_code_view_search" model="ir.ui.view">                       
-            <field name="name">Manifestation Code Search</field>                    
-            <field name="model">hc.vs.manifestation.code</field>                                     
-            <field name="arch" type="xml">                  
-                <search string="Manifestation Codes">               
-                    <field name="name"/>            
-                    <field name="code"/>            
-                    <field name="definition"/>          
-                    <group>         
-                        <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}" />     
-                    </group>            
-                </search>               
-            </field>                    
-        </record>                       
-        
-        <record id="hc_vs_manifestation_code_view_tree" model="ir.ui.view">                     
-            <field name="name">Manifestation Code Tree</field>                  
-            <field name="model">hc.vs.manifestation.code</field>                                        
-            <field name="arch" type="xml">                  
-                <tree string="Manifestation Codes" default_order="name, code">              
-                    <field name="name"/>            
-                    <field name="code"/>            
-                    <field name="definition"/>          
-                    <field name="source_id" invisible="0"/>         
-                </tree>             
-            </field>                    
-        </record>                       
-        
-        <record id="hc_vs_manifestation_code_view_form" model="ir.ui.view">                     
-            <field name="name">Manifestation Code Form</field>                  
-            <field name="model">hc.vs.manifestation.code</field>                    
-            <field name="arch" type="xml">                  
-                <form string="Manifestation Codes" >                
-                    <sheet>         
-                        <h1>        
-                            <field name="name" default_focus="1" placeholder="Name (e.g., United States)"/> 
-                        </h1>       
-                        <field name="code" placeholder="Code (e.g., US)"/>      
-                        <field name="definition" placeholder="Definition"/>     
-                        <field name="comments" placeholder="Comments"/>     
-                        <group>     
-                            <group> 
+
+        <record id="hc_vs_manifestation_code_view_search" model="ir.ui.view">
+            <field name="name">Manifestation Code Search</field>
+            <field name="model">hc.vs.manifestation.code</field>
+            <field name="arch" type="xml">
+                <search string="Manifestation Codes">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                    <group>
+                        <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}" />
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_vs_manifestation_code_view_tree" model="ir.ui.view">
+            <field name="name">Manifestation Code Tree</field>
+            <field name="model">hc.vs.manifestation.code</field>
+            <field name="arch" type="xml">
+                <tree string="Manifestation Codes" default_order="name, code">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                    <field name="source_id" invisible="0"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_vs_manifestation_code_view_form" model="ir.ui.view">
+            <field name="name">Manifestation Code Form</field>
+            <field name="model">hc.vs.manifestation.code</field>
+            <field name="arch" type="xml">
+                <form string="Manifestation Codes" >
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name (e.g., United States)"/>
+                        </h1>
+                        <field name="code" placeholder="Code (e.g., US)"/>
+                        <field name="definition" placeholder="Definition"/>
+                        <field name="comments" placeholder="Comments"/>
+                        <group>
+                            <group>
                                 <field name="contains_id" invisible="0"/>
                                 <field name="is_abstract" widget="upgrade_boolean"/>
                                 <field name="level" placeholder="An integer (e.g., 1, 2)"/>
                                 <field name="version" placeholder="e.g., v2.5"/>
-                            </group>    
-                            <group> 
+                            </group>
+                            <group>
                                 <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
                                 <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
-                            </group>    
-                        </group>        
-                    </sheet>            
-                </form>             
-            </field>                    
-        </record>                       
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
-        <act_window id="hc_vs_manifestation_code_action"            
+        <act_window id="hc_vs_manifestation_code_action"
                     name="HC Manifestation Codes"
                     res_model="hc.vs.manifestation.code"
                     view_mode="tree,form"
@@ -426,11 +426,11 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_allergy_intolerance.menu_manif_code" 
-                  name="Manifestation Codes" 
-                  parent="hc_allergy_intolerance.menu_allergy" 
-                  action="hc_vs_manifestation_code_action" 
-                  groups="hc_base.group_hc_base_manager" 
+        <menuitem id="hc_allergy_intolerance.menu_manif_code"
+                  name="Manifestation Codes"
+                  parent="hc_allergy_intolerance.menu_allergy"
+                  action="hc_vs_manifestation_code_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="20"/>
 
     </data>
