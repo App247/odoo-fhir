@@ -17,5 +17,3 @@
 
   Example: `fa-flask` icon and a simple example to use it, is available at http://fortawesome.github.io/Font-Awesome/icon/flask/
 
-  * [Remove Non-Ascii characters](http://utils.paranoiaworks.org/diacriticsremover/) to fix `UnicodeWarning: Unicode unequal comparison failed to convert both arguments to Unicode - interpreting them as being unequalif cols[k][key] != vals[key]`
-

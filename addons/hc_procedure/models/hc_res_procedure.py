@@ -108,7 +108,6 @@ class Procedure(models.Model):
         help="Episode Of Care associated with this procedure.")
     performed_date_type = fields.Selection(
         string="Performed Date Type",
-        required="True",
         selection=[
             ("date_time", "Date Time"),
             ("period", "Period"),
@@ -168,13 +167,6 @@ class Procedure(models.Model):
         relation="procedure_reason_code_rel",
         string="Reason Codes",
         help="Coded reason procedure performed.")
-    is_not_performed = fields.Boolean(
-        string="Not Performed",
-        help="True if procedure was not performed as scheduled.")
-    reason_not_peformed_ids = fields.Many2many(
-        comodel_name="hc.vs.procedure.not.performed.reason",
-        string="Reasons Not Peformed",
-        help="Reason procedure was not performed.")
     body_site_ids = fields.Many2many(
         comodel_name="hc.vs.body.site",
         string="Body Sites",
@@ -290,6 +282,56 @@ class Procedure(models.Model):
                 hc_res_procedure.context_name = hc_res_procedure.context_encounter_id.name
             elif hc_res_procedure.context_type == 'episode_of_care':
                 hc_res_procedure.context_name = hc_res_procedure.context_episode_of_care_id.name
+
+    @api.model
+    def create(self, vals):
+        status_history_obj = self.env['hc.procedure.status.history']
+        res = super(Procedure, self).create(vals)
+        if vals and vals.get('status'):
+            status_history_vals = {
+                'procedure_id': res.id,
+                'status': res.status,
+                'start_date': datetime.today()
+                }
+            if vals.get('status') == 'entered-in-error':
+                status_history_vals.update({'end_date': datetime.today()})
+            status_history_obj.create(status_history_vals)
+        return res
+
+    @api.multi                  
+    def write(self, vals):                  
+        status_history_obj = self.env['hc.procedure.status.history']                
+        res = super(Procedure, self).write(vals)               
+        status_history_record_ids = status_history_obj.search([('end_date','=', False)])
+        if status_history_record_ids:
+            if vals.get('status') and status_history_record_ids[0].status != vals.get('status'):
+                for status_history in status_history_record_ids:
+                    status_history.end_date = datetime.strftime(datetime.today(), DTF)              
+                    time_diff = datetime.today() - datetime.strptime(status_history.start_date, DTF)               
+                    if time_diff:               
+                        days = str(time_diff).split(',')            
+                        if days and len(days) > 1:          
+                            status_history.time_diff_day = str(days[0])        
+                            times = str(days[1]).split(':')     
+                            if times and times > 1:     
+                                status_history.time_diff_hour = str(times[0])  
+                                status_history.time_diff_min = str(times[1])   
+                                status_history.time_diff_sec = str(times[2])   
+                        else:                       
+                            times = str(time_diff).split(':')       
+                            if times and times > 1:     
+                                status_history.time_diff_hour = str(times[0])  
+                                status_history.time_diff_min = str(times[1])   
+                                status_history.time_diff_sec = str(times[2])   
+                status_history_vals = {    
+                    'procedure_id': self.id,
+                    'status': vals.get('status'),
+                    'start_date': datetime.today()
+                    }
+                if vals.get('status') == 'entered-in-error':
+                    status_history_vals.update({'end_date': datetime.today()})
+                status_history_obj.create(status_history_vals)    
+        return res
 
 class ProcedurePerformer(models.Model):
     _name = "hc.procedure.performer"

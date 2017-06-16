@@ -17,8 +17,6 @@
                     <field name="performed_date_name"/>
                     <field name="location_id"/>
                     <field name="reason_code_ids"/>
-                    <field name="is_not_performed"/>
-                    <field name="reason_not_peformed_ids"/>
                     <field name="body_site_ids"/>
                     <field name="outcome_id"/>
                     <field name="complication_ids"/>
@@ -57,8 +55,8 @@
                                 <field name="subject_patient_id" class="oe_edit_only" attrs="{'invisible': [('subject_type','!=','patient')], 'required': [('subject_type','=','patient')]}"/>
                                 <field name="subject_group_id" class="oe_edit_only" attrs="{'invisible': [('subject_type','!=','group')], 'required': [('subject_type','=','group')]}"/>
                                 <field name="code_id"/>
-                                <field name="performed_date_name"/>
-                                <field name="performed_date_type" class="oe_edit_only"/>
+                                <field name="performed_date_name" attrs="{'invisible': [('is_not_done','=',True)]}"/>
+                                <field name="performed_date_type" class="oe_edit_only" attrs="{'invisible': [('is_not_done','=',True)], 'required': [('is_not_done','=',False)]}"/>
                                 <field name="performed_date_date_time" class="oe_edit_only" attrs="{'invisible': [('performed_date_type','!=','date_time')], 'required': [('performed_date_type','=','date_time')]}"/>
                                 <field name="performed_date_start_date" class="oe_edit_only" attrs="{'invisible': [('performed_date_type','!=','period')], 'required': [('performed_date_type','=','period')]}"/>
                                 <field name="performed_date_end_date" class="oe_edit_only" attrs="{'invisible': [('performed_date_type','!=','period')], 'required': [('performed_date_type','=','period')]}"/>
@@ -72,30 +70,28 @@
                             </group>
                             <group string="Status" name="status">
                                 <field name="is_not_done"/>
-                                <field name="not_done_reason_ids" widget="many2many_tags" attrs="{'invisible': [('is_not_done','!=','True')]}"/>
+                                <field name="not_done_reason_ids" widget="many2many_tags" attrs="{'invisible': [('is_not_done','=',False)]}"/>
                                 <field name="status"/>
-                                <field name="complication_ids" widget="many2many_tags"/>
-                                <field name="follow_up_ids" widget="many2many_tags"/>
-                                <field name="used_code_ids" widget="many2many_tags"/>
+                                <field name="complication_ids" widget="many2many_tags" attrs="{'invisible': [('is_not_done','=',True)]}"/>
+                                <field name="follow_up_ids" widget="many2many_tags" attrs="{'invisible': [('is_not_done','=',True)]}"/>
+                                <field name="used_code_ids" widget="many2many_tags" attrs="{'invisible': [('is_not_done','=',True)]}"/>
                             </group>
                             <group string = "Who, Where">
                                 <field name="context_name"/>
                                 <field name="context_type" class="oe_edit_only"/>
                                 <field name="context_encounter_id" class="oe_edit_only" attrs="{'invisible': [('context_type','!=','encounter')], 'required': [('context_type','=','encounter')]}"/>
                                 <field name="context_episode_of_care_id" class="oe_edit_only" attrs="{'invisible': [('context_type','!=','episode_of_care')], 'required': [('context_type','=','episode_of_care')]}"/>
-                                <field name="outcome_id"/>
-                                <field name="body_site_ids" widget="many2many_tags"/>
-                                <field name="location_id"/>
+                                <field name="outcome_id" attrs="{'invisible': [('is_not_done','=',True)]}"/>
+                                <field name="body_site_ids" widget="many2many_tags" attrs="{'invisible': [('is_not_done','=',True)]}"/>
+                                <field name="location_id" attrs="{'invisible': [('is_not_done','=',True)]}"/>
                             </group>
                             <group string = "Why">
-                                <field name="reason_code_ids" widget="many2many_tags"/>
-                                <field name="is_not_performed"/>
-                                <field name="reason_not_peformed_ids" widget="many2many_tags"/>
+                                <field name="reason_code_ids" widget="many2many_tags" attrs="{'invisible': [('is_not_done','=',True)]}"/>
                             </group>
                         </group>
                         <notebook colspan="4">
                             <!-- <page string="Performers"/>  -->
-                            <page string="Performers">
+                            <page string="Performers" attrs="{'invisible': [('is_not_done','=',True)]}">
                                 <field name="performer_ids" mode="tree">
                                     <tree>
                                         <field name="actor_name"/>
@@ -125,7 +121,7 @@
                                 </field>
                             </page>
                             <!-- <page string="Focal Devices"/>  -->
-                            <page string="Focal Devices">
+                            <page string="Focal Devices" attrs="{'invisible': [('is_not_done','=',True)]}">
                                 <field name="focal_device_ids" mode="tree">
                                     <tree>
                                         <field name="action_id"/>
@@ -144,7 +140,7 @@
                                 </field>
                             </page>
                             <!-- <page string="Identifiers"/> -->
-                            <page string="Identifiers">
+                            <page string="Identifiers" attrs="{'invisible': [('is_not_done','=',True)]}">
                                 <field name="identifier_ids" mode="tree">
                                     <tree>
                                         <field name="is_preferred"/>
@@ -176,7 +172,7 @@
                                 </field>
                             </page>
                             <!-- <page string="Definitions"/> -->
-                            <page string="Definitions">
+                            <page string="Definitions" attrs="{'invisible': [('is_not_done','=',True)]}">
                                 <field name="definition_ids" mode="tree">
                                     <tree>
                                         <field name="definition_name"/>
@@ -202,7 +198,7 @@
                                 </field>
                             </page>
                             <!-- <page string="Based Ons"/> -->
-                            <page string="Based Ons">
+                            <page string="Based Ons" attrs="{'invisible': [('is_not_done','=',True)]}">
                                 <field name="based_on_ids" mode="tree">
                                     <tree>
                                         <field name="based_on_name"/>
@@ -228,7 +224,7 @@
                                 </field>
                             </page>
                             <!-- <page string="Part Ofs"/> -->
-                            <page string="Part Ofs">
+                            <page string="Part Ofs" attrs="{'invisible': [('is_not_done','=',True)]}">
                                 <field name="part_of_ids" mode="tree">
                                     <tree>
                                         <field name="part_of_name"/>
@@ -253,7 +249,7 @@
                                 </field>
                             </page>
                             <!-- <page string="Reason Refs"/> -->
-                            <page string="Reason Refs">
+                            <page string="Reason Refs" attrs="{'invisible': [('is_not_done','=',True)]}">
                                 <field name="reason_reference_ids" mode="tree">
                                     <tree>
                                         <field name="reason_reference_id"/>
@@ -272,7 +268,7 @@
                                 </field>
                             </page>
                             <!-- <page string="Reports"/>   -->
-                            <page string="Reports">
+                            <page string="Reports" attrs="{'invisible': [('is_not_done','=',True)]}">
                                 <field name="report_ids" mode="tree">
                                     <!-- <tree>
                                         <field name="report_id"/>
@@ -291,7 +287,7 @@
                                 </field>
                             </page>
                             <!-- <page string="Complication Details"/> -->
-                                <page string="Complication Details">
+                                <page string="Complication Details" attrs="{'invisible': [('is_not_done','=',True)]}">
                                     <field name="complication_detail_ids" mode="tree">
                                         <tree>
                                             <field name="complication_detail_id"/>
@@ -344,7 +340,7 @@
                                 </field>
                             </page>
                             <!-- <page string="Used Refs"/> -->
-                            <page string="Used Refs">
+                            <page string="Used Refs" attrs="{'invisible': [('is_not_done','=',True)]}">
                                 <field name="used_reference_ids" mode="tree">
                                     <tree>
                                         <field name="used_reference_name"/>

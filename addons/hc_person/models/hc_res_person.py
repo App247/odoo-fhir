@@ -107,7 +107,7 @@ class Person(models.Model):
         'Person must be unique.')
         ]  
 
-    # For a new record, add Person Name to the list of Person Names and mark it as preferred.
+    # For a new record, add Person Name to the list of Person Names and mark it as preferred with Start Date = Birth Date.
 
     @api.model
     def create(self, vals):
@@ -126,11 +126,12 @@ class Person(models.Model):
             person_name_obj.create(names_vals)
         return res
 
-    # For an existing record,
+    # For an existing record, if new Person Name is preferred, remove preferred from previous name.
 
     @api.multi
     def write(self, vals):
         person_name_obj = self.env['hc.person.name']
+        names_vals = {}
         if vals and vals.get('birth_date'):
             for rec in self:
                 for name_id in rec.name_ids:
@@ -138,10 +139,46 @@ class Person(models.Model):
                         name_id.start_date = vals.get('birth_date')
         if vals and vals.get('name_id'):
             person_name_ids = person_name_obj.search([('person_id','=', self.id),('human_name_id','=',vals.get('name_id'))])
-            for person in person_name_ids:
-                person.is_preferred = True
+            if person_name_ids:
+                for person in person_name_ids:
+                    person.is_preferred = True
+                    person.end_date = False
+            else:
+                names_vals.update({
+                'is_preferred': True,
+                'human_name_id': vals.get('name_id'),
+                'person_id': self.id,
+                'start_date': datetime.today(),
+                })
+            person_name_obj.create(names_vals)
         res = super(Person, self).write(vals)
+        if vals and vals.get('name_ids'):
+            for rec in self:
+                for name_id in rec.name_ids.search([('is_preferred','=',True),('person_id','=',self.id)]):
+                    self.name_id = name_id.human_name_id.id
         return res
+
+    @api.multi
+    def unlink(self):
+        res = super(Person, self).unlink()
+        return res
+
+    
+    # version 2
+    # @api.multi
+    # def write(self, vals):
+    #     person_name_obj = self.env['hc.person.name']
+    #     if vals and vals.get('birth_date'):
+    #         for rec in self:
+    #             for name_id in rec.name_ids:
+    #                 if vals.get('birth_date') > name_id.start_date:
+    #                     name_id.start_date = vals.get('birth_date')
+    #     if vals and vals.get('name_id'):
+    #         person_name_ids = person_name_obj.search([('person_id','=', self.id),('human_name_id','=',vals.get('name_id'))])
+    #         for person in person_name_ids:
+    #             person.is_preferred = True
+    #     res = super(Person, self).write(vals)
+    #     return res
 
     # version 1
     # @api.multi
@@ -290,8 +327,9 @@ class PersonName(models.Model):
         'Person name must be unique.')
         ]
 
-    # If new name is preferred, make old name not preferred and set its end date to the start date of the new preferred name.
-    # If new name is not preferred, don't change old name record.
+    # For a new person record, 
+    # Full Name = Person Name. 
+    # Add Person Name to the list of Person Names and mark it as preferred.
 
     @api.model
     def create(self, vals):
@@ -309,9 +347,14 @@ class PersonName(models.Model):
             vals.update({'start_date': datetime.today()})
         return super(PersonName, self).create(vals)
 
+    # For an existing person record,
+    # If new name is preferred, set old name not preferred and set its end date to the start date of the new preferred name.
+    # If new name is not preferred, don't change old name record.
+    
     @api.multi
     def write(self, vals):
         person_name_obj = self.env['hc.person.name']
+        # hc_person_obj = self.env['hc.res.person']
         if vals and vals.get('is_preferred'):
             person_ids = self.search([('person_id','=',self.person_id.id),('id','!=',self.id), ('end_date', '=', False)])
             for person in person_ids:
@@ -319,6 +362,30 @@ class PersonName(models.Model):
                 person.end_date = datetime.today()
             vals.update({'end_date': False})
         return super(PersonName, self).write(vals)
+
+    # When deleting a name,
+    # If name to be deleted is the only name remaining, raise error message and do nothing.
+    # If other names are remaining, delete the selected name and make the name with with the latest End Date become preferred and its End Date become blank.
+        
+    @api.multi
+    def unlink(self):
+        hc_person_obj = self.env['hc.res.person']
+        person_ids = self.search([('person_id','=',self.person_id.id),('id','!=',self.id)])
+        if not person_ids:
+            raise UserError(_('Person must have at least one Person Name.'))
+        return super(PersonName, self).unlink()
+
+    # version 2
+    # @api.multi
+    # def write(self, vals):
+    #     person_name_obj = self.env['hc.person.name']
+    #     if vals and vals.get('is_preferred'):
+    #         person_ids = self.search([('person_id','=',self.person_id.id),('id','!=',self.id), ('end_date', '=', False)])
+    #         for person in person_ids:
+    #             person.is_preferred = False
+    #             person.end_date = datetime.today()
+    #         vals.update({'end_date': False})
+    #     return super(PersonName, self).write(vals)
 
     # version 1
     # @api.model

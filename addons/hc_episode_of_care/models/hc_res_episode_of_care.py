@@ -126,7 +126,7 @@ class EpisodeOfCareDiagnosis(models.Model):
     role_id = fields.Many2one(
         comodel_name="hc.vs.diagnosis.role",
         string="Role",
-        help="Role that this diagnosis has within the episode of care (e.g. admission, billing, discharge …).")       
+        help="Role that this diagnosis has within the episode of care (e.g. admission, billing, discharge _).")       
     rank = fields.Integer(
         string="Rank",
         help="Ranking of the diagnosis (for each role type).")     

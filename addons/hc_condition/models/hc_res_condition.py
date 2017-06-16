@@ -18,20 +18,26 @@ class Condition(models.Model):
         comodel_name="hc.condition.identifier", 
         inverse_name="condition_id", 
         string="Identifiers", 
-        help="External Ids for this condition.")                    
+        help="External Ids for this condition.")
     clinical_status = fields.Selection(
         string="Clinical Status",
         selection=[
-            ("active", "Active"), 
-            ("recurrence", "Recurrence"), 
+            ("active", "Active"),
+            ("recurrence", "Recurrence"),
+            ("relapse", "Relapse"), 
+            ("well-controlled", "Well-Controlled"), 
+            ("poorly-controlled", "Poorly-Controlled"), 
             ("inactive", "Inactive"), 
             ("remission", "Remission"), 
-            ("resolved", "Resolved")],
-        default="active",
-        help="The clinical status of the condition.")                    
+            ("resolved", "Resolved")], 
+        help="The clinical status of the condition.")                                  
+    clinical_status_history_ids = fields.One2many(
+        comodel_name="hc.condition.clinical.status.history", 
+        inverse_name="condition_id", 
+        string="Clinical Status History", 
+        help="The clinical status of the condition over time.")
     verification_status = fields.Selection(
         string="Verification Status", 
-        required="True", 
         selection=[
             ("provisional", "Provisional"), 
             ("differential", "Differential"), 
@@ -41,6 +47,11 @@ class Condition(models.Model):
             ("unknown", "Unknown")],
         default="provisional", 
         help="The verification status to support the clinical status of the condition.")                    
+    verification_status_history_ids = fields.One2many(
+        comodel_name="hc.condition.verification.status.history", 
+        inverse_name="condition_id", 
+        string="Verification Status History", 
+        help="The verification status of the condition over time.")
     category_ids = fields.Many2many(
         comodel_name="hc.vs.condition.category", 
         # relation="condition_category_rel", 
@@ -310,6 +321,116 @@ class Condition(models.Model):
             elif hc_res_condition.asserter_type == 'related_person':   
                 hc_res_condition.asserter_name = hc_res_condition.asserter_related_person_id.name                 
 
+    @api.model
+    def create(self, vals):
+        clinical_status_history_obj = self.env['hc.condition.clinical.status.history']
+        verification_status_history_obj = self.env['hc.condition.verification.status.history']
+        res = super(Condition, self).create(vals)
+
+        # For Verification Status
+        if vals and vals.get('verification_status'):
+            verification_status_history_vals = {
+                'condition_id': res.id,
+                'verification_status': res.verification_status,
+                'start_date': datetime.today()
+                }
+            if vals.get('verification_status') == 'entered-in-error':
+                verification_status_history_vals.update({'end_date': datetime.today()})
+            verification_status_history_obj.create(verification_status_history_vals)
+        
+        # For Clinical Status
+        if vals.get('verification_status') != 'entered-in-error':
+            if vals and vals.get('clinical_status'):
+                clinical_status_history_vals = {
+                    'condition_id': res.id,
+                    'clinical_status': res.clinical_status,
+                    'start_date': datetime.today()
+                    }
+                clinical_status_history_obj.create(clinical_status_history_vals)        
+
+        return res
+
+    @api.multi                  
+    def write(self, vals):                  
+        clinical_status_history_obj = self.env['hc.condition.clinical.status.history']
+        verification_status_history_obj = self.env['hc.condition.verification.status.history']                
+        res = super(Condition, self).write(vals)               
+
+        # For Verification Status
+        verification_status_history_record_ids = verification_status_history_obj.search([('end_date','=', False)])
+        if verification_status_history_record_ids:
+            if vals.get('verification_status') and verification_status_history_record_ids[0].verification_status != vals.get('verification_status'):
+                for verification_status_history in verification_status_history_record_ids:
+                    verification_status_history.end_date = datetime.strftime(datetime.today(), DTF)              
+                    time_diff = datetime.today() - datetime.strptime(verification_status_history.start_date, DTF)               
+                    if time_diff:               
+                        days = str(time_diff).split(',')            
+                        if days and len(days) > 1:          
+                            verification_status_history.time_diff_day = str(days[0])        
+                            times = str(days[1]).split(':')     
+                            if times and times > 1:     
+                                verification_status_history.time_diff_hour = str(times[0])  
+                                verification_status_history.time_diff_min = str(times[1])   
+                                verification_status_history.time_diff_sec = str(times[2])   
+                        else:                       
+                            times = str(time_diff).split(':')       
+                            if times and times > 1:     
+                                verification_status_history.time_diff_hour = str(times[0])  
+                                verification_status_history.time_diff_min = str(times[1])   
+                                verification_status_history.time_diff_sec = str(times[2])   
+                verification_status_history_vals = {    
+                    'condition_id': self.id,
+                    'verification_status': vals.get('verification_status'),
+                    'start_date': datetime.today()
+                    }
+                if vals.get('verification_status') == 'entered-in-error':
+                    verification_status_history_vals.update({'end_date': datetime.today()})
+                verification_status_history_obj.create(verification_status_history_vals)    
+          
+        # For Clinical Status
+        clinical_status_history_record_ids = clinical_status_history_obj.search([('end_date','=', False)])
+        if clinical_status_history_record_ids:
+            if vals.get('verification_status') == 'entered-in-error' or (vals.get('clinical_status') and clinical_status_history_record_ids[0].clinical_status != vals.get('clinical_status')):                
+                for clinical_status_history in clinical_status_history_record_ids:          
+                    clinical_status_history.end_date = datetime.strftime(datetime.today(), DTF)     
+                    time_diff = datetime.today() - datetime.strptime(clinical_status_history.start_date, DTF)               
+                    if time_diff:               
+                        days = str(time_diff).split(',')            
+                        if days and len(days) > 1:             
+                            clinical_status_history.time_diff_day = str(days[0])
+                            times = str(days[1]).split(':')
+                            if times and times > 1:
+                                clinical_status_history.time_diff_hour = str(times[0])
+                                clinical_status_history.time_diff_min = str(times[1])
+                                clinical_status_history.time_diff_sec = str(times[2])        
+                        else:           
+                            times = str(time_diff).split(':')       
+                            if times and times > 1:      
+                                clinical_status_history.time_diff_hour = str(times[0])  
+                                clinical_status_history.time_diff_min = str(times[1])   
+                                clinical_status_history.time_diff_sec = str(times[2])
+                    clinical_status_history_vals = {            
+                        'condition_id': self.id,      
+                        'clinical_status': vals.get('clinical_status'),     
+                        'start_date': datetime.today()      
+                        }
+                    if vals.get('verification_status') == 'entered-in-error':
+                        clinical_status_history_vals.update({'end_date': datetime.today()})
+                    if vals.get('verification_status') != 'entered-in-error':
+                        clinical_status_history_obj.create(clinical_status_history_vals)
+        else:
+            clinical_status_history_vals = {            
+                    'condition_id': self.id,      
+                    'clinical_status': vals.get('clinical_status'),     
+                    'start_date': datetime.today()      
+                    }       
+            if vals.get('verification_status') == 'entered-in-error':
+                    clinical_status_history_vals.update({'end_date': datetime.today()})
+            clinical_status_history_obj.create(clinical_status_history_vals)
+
+        return res
+
+
 class ConditionStage(models.Model):    
     _name = "hc.condition.stage"
     _description = "Condition Stage"
@@ -319,7 +440,7 @@ class ConditionStage(models.Model):
         string="Condition", 
         help="Condition associated with this Condition Stage.")
     summary_id = fields.Many2one(
-        comodel_name="hc.vs.condition.stage.code", 
+        comodel_name="hc.vs.condition.stage", 
         string="Summary", 
         help="Simple summary (disease specific).")
     assessment_ids = fields.One2many(
@@ -327,6 +448,12 @@ class ConditionStage(models.Model):
         inverse_name="stage_id", 
         string="Assessments", 
         help="Formal record of assessment.")
+    type_id = fields.Many2one(
+        comodel_name="hc.vs.condition.stage.type", 
+        string="Type", 
+        help="Kind of staging.")
+
+    # technical attribute. Used to enforce constraint summary_id or assessment_ids
     has_assessment = fields.Boolean(
         string='Has Assessment', 
         invisible=True,
@@ -367,6 +494,66 @@ class ConditionIdentifier(models.Model):
         comodel_name="hc.res.condition", 
         string="Condition", 
         help="Condition associated with this Condition Identifier.")                                  
+
+class ConditionClinicalStatusHistory(models.Model):
+    _name = "hc.condition.clinical.status.history"
+    _description = "Allergy Intolerance Clinical Status History"
+
+    condition_id = fields.Many2one(
+        comodel_name="hc.res.condition", 
+        string="Condition", 
+        help="Conition associated with this Condtion Clinical Status History.")                                
+    clinical_status = fields.Char(
+        string="Clinical Status", 
+        help="The clinical status of the condition.")
+    start_date = fields.Datetime(
+        string="Start Date", 
+        help="Start of the period during which this clinical status is valid.")
+    end_date = fields.Datetime(
+        string="End Date", 
+        help="End of the period during which this clinical status is valid.")
+    time_diff_day = fields.Char(
+        string="Time Diff (days)",
+        help="Days duration of the clinical status.")
+    time_diff_hour = fields.Char(
+        string="Time Diff (hours)",
+        help="Hours duration of the clinical status.")
+    time_diff_min = fields.Char(
+        string="Time Diff (minutes)",
+        help="Minutes duration of the clinical status.")
+    time_diff_sec = fields.Char(
+        string="Time Diff (seconds)",
+        help="Seconds duration of the clinical status.")
+                               
+class ConditionVerificationStatusHistory(models.Model):
+    _name = "hc.condition.verification.status.history"
+    _description = "Condition Verification Status History"
+
+    condition_id = fields.Many2one(
+        comodel_name="hc.res.condition", 
+        string="Condition",  
+        help="Condition associated with this Condition Verification Status History.")                                
+    verification_status = fields.Char(
+        string="Verification Status", 
+        help="The verification status of the condition.")                                
+    start_date = fields.Datetime(
+        string="Start Date", 
+        help="Start of the period during which this verification status is valid.")
+    end_date = fields.Datetime(
+        string="End Date", 
+        help="End of the period during which this verification status is valid.")
+    time_diff_day = fields.Char(
+        string="Time Diff (days)",
+        help="Days duration of the verification status.")
+    time_diff_hour = fields.Char(
+        string="Time Diff (hours)",
+        help="Hours duration of the verification status.")
+    time_diff_min = fields.Char(
+        string="Time Diff (minutes)",
+        help="Minutes duration of the verification status.")
+    time_diff_sec = fields.Char(
+        string="Time Diff (seconds)",
+        help="Seconds duration of the verification status.")
 
 class ConditionStageAssessment(models.Model):    
     _name = "hc.condition.stage.assessment"    
@@ -487,7 +674,7 @@ class ConditionEvidenceCode(models.Model):
         help="Parent condition evidence code.")
 
 class ConditionStageCode(models.Model):
-    _name = "hc.vs.condition.stage.code"
+    _name = "hc.vs.condition.stage"
     _description = "Condition Stage Code"
     _inherit = ["hc.value.set.contains"]
 
@@ -498,9 +685,25 @@ class ConditionStageCode(models.Model):
         string="Code", 
         help="Code of this condition stage code.")                                
     contains_id = fields.Many2one(
-        comodel_name="hc.vs.condition.stage.code", 
+        comodel_name="hc.vs.condition.stage", 
         string="Parent", 
         help="Parent condition stage code.")                              
+
+class ConditionStageType(models.Model):
+    _name = "hc.vs.condition.stage.type"
+    _description = "Condition Stage Type"
+    _inherit = ["hc.value.set.contains"]
+
+    name = fields.Char(
+        string="Name", 
+        help="Name of this condition stage type.")                                
+    code = fields.Char(
+        string="Code", 
+        help="Code of this condition stage type.")                                
+    contains_id = fields.Many2one(
+        comodel_name="hc.vs.condition.stage.type", 
+        string="Parent", 
+        help="Parent condition stage type.")                              
 
 class ConditionCategory(models.Model):  
     _name = "hc.vs.condition.category"  

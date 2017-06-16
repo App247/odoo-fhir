@@ -17,7 +17,7 @@ class NutritionOrder(models.Model):
         string="Identifiers", 
         help="Identifiers assigned to this order.")
     status = fields.Selection(
-        string="Nutrition Order Status", 
+        string="Status", 
         selection=[
             ("proposed", "Proposed"), 
             ("draft", "Draft"), 

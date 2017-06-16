@@ -3,6 +3,7 @@ access_hc_procedure_hc_res_procedure_user,hc.procedure.hc.res.procedure.user,mod
 access_hc_procedure_hc_procedure_performer_user,hc.procedure.hc.procedure.performer.user,model_hc_procedure_performer,hc_base.group_hc_base_user,1,0,0,0
 access_hc_procedure_hc_procedure_focal_device_user,hc.procedure.hc.procedure.focal.device.user,model_hc_procedure_focal_device,hc_base.group_hc_base_user,1,0,0,0
 access_hc_procedure_hc_procedure_identifier_user,hc.procedure.hc.procedure.identifier.user,model_hc_procedure_identifier,hc_base.group_hc_base_user,1,0,0,0
+access_hc_procedure_hc_procedure_status_history_user,hc.procedure.hc.procedure.status.history.user,model_hc_procedure_status_history,hc_base.group_hc_base_user,1,0,0,0
 access_hc_procedure_hc_procedure_definition_user,hc.procedure.hc.procedure.definition.user,model_hc_procedure_definition,hc_base.group_hc_base_user,1,0,0,0
 access_hc_procedure_hc_procedure_based_on_user,hc.procedure.hc.procedure.based.on.user,model_hc_procedure_based_on,hc_base.group_hc_base_user,1,0,0,0
 access_hc_procedure_hc_procedure_part_of_user,hc.procedure.hc.procedure.part.of.user,model_hc_procedure_part_of,hc_base.group_hc_base_user,1,0,0,0
