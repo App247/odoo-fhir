@@ -4,7 +4,7 @@
 
         <!-- Days of Week -->
 
-        <record id="hc_base.day_week_mon" model="hc.vs.days.of.week">    
+        <record id="day_week_mon" model="hc.vs.days.of.week">    
             <field name="code">mon</field>
             <field name="name">Monday</field>
             <field name="definition">Monday</field>
@@ -12,7 +12,7 @@
             <field name="system">http://hl7.org/fhir/ValueSet/days-of-week</field>
         </record>    
             
-        <record id="hc_base.day_week_tue" model="hc.vs.days.of.week">    
+        <record id="day_week_tue" model="hc.vs.days.of.week">    
             <field name="code">tue</field>
             <field name="name">Tuesday</field>
             <field name="definition">Tuesday</field>
@@ -20,7 +20,7 @@
             <field name="system">http://hl7.org/fhir/ValueSet/days-of-week</field>
         </record>    
             
-        <record id="hc_base.day_week_wed" model="hc.vs.days.of.week">    
+        <record id="day_week_wed" model="hc.vs.days.of.week">    
             <field name="code">wed</field>
             <field name="name">Wednesday</field>
             <field name="definition">Wednesday</field>
@@ -28,7 +28,7 @@
             <field name="system">http://hl7.org/fhir/ValueSet/days-of-week</field>
         </record>    
             
-        <record id="hc_base.day_week_thu" model="hc.vs.days.of.week">    
+        <record id="day_week_thu" model="hc.vs.days.of.week">    
             <field name="code">thu</field>
             <field name="name">Thursday</field>
             <field name="definition">Thursday</field>
@@ -36,7 +36,7 @@
             <field name="system">http://hl7.org/fhir/ValueSet/days-of-week</field>
         </record>    
             
-        <record id="hc_base.day_week_fri" model="hc.vs.days.of.week">    
+        <record id="day_week_fri" model="hc.vs.days.of.week">    
             <field name="code">fri</field>
             <field name="name">Friday</field>
             <field name="definition">Friday</field>
@@ -44,7 +44,7 @@
             <field name="system">http://hl7.org/fhir/ValueSet/days-of-week</field>
         </record>    
             
-        <record id="hc_base.day_week_sat" model="hc.vs.days.of.week">    
+        <record id="day_week_sat" model="hc.vs.days.of.week">    
             <field name="code">sat</field>
             <field name="name">Saturday</field>
             <field name="definition">Saturday</field>
@@ -52,7 +52,7 @@
             <field name="system">http://hl7.org/fhir/ValueSet/days-of-week</field>
         </record>    
             
-        <record id="hc_base.day_week_sun" model="hc.vs.days.of.week">    
+        <record id="day_week_sun" model="hc.vs.days.of.week">    
             <field name="code">sun</field>
             <field name="name">Sunday</field>
             <field name="definition">Sunday</field>
@@ -157,6 +157,41 @@
             <field name="definition">A person to be contacted in case of an emergency during the encounter.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/participant-type</field>
+        </record>
+
+        
+        <!-- Publication Status --> 
+    
+        <record id="pub_status_draft" model="hc.vs.publication.status"> 
+            <field name="code">draft</field>
+            <field name="name">Draft</field>
+            <field name="definition">This resource is still under development and is not yet considered to be ready for normal use.</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/publication-status</field>
+        </record>   
+            
+        <record id="pub_status_active" model="hc.vs.publication.status">    
+            <field name="code">active</field>
+            <field name="name">Active</field>
+            <field name="definition">This resource is ready for normal use.</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/publication-status</field>
+        </record>   
+            
+        <record id="pub_status_retired" model="hc.vs.publication.status">   
+            <field name="code">retired</field>
+            <field name="name">Retired</field>
+            <field name="definition">This resource has been withdrawn or superseded and should no longer be used.</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/publication-status</field>
+        </record>   
+            
+        <record id="pub_status_unknown" model="hc.vs.publication.status">   
+            <field name="code">unknown</field>
+            <field name="name">Unknown</field>
+            <field name="definition">The authoring system does not know which of the status values currently applies for this resource. Note: This concept is not to be used for &quot;other&quot; - one of the listed statuses is presumed to apply, it's just not known which one.</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/publication-status</field>
         </record>   
 
     </data>

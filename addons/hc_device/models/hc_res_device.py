@@ -81,7 +81,7 @@ class Device(models.Model):
     udi_id = fields.Many2one(
         comodel_name="hc.device.udi", 
         string="UDI", 
-        help="UDI associated with this Device Resource.")                     
+        help="Unique Device Identifier (UDI) Barcode string.")                     
 
 class DeviceUDI(models.Model):  
     _name = "hc.device.udi"

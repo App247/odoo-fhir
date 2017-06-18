@@ -241,28 +241,18 @@ class ImagingStudyBasedOn(models.Model):
     based_on_type = fields.Selection(
         string="Based On Type", 
         selection=[
-            ("referral_request", "Referral Request"),
             ("care_plan", "Care Plan"),
-            ("diagnostic_request", "Diagnostic Request"),
             ("procedure_request", "Procedure Request")],
         help="Type of originating context.")
     based_on_name = fields.Char(
         string="Based On", 
         compute="_compute_based_on_name", 
         store="True", 
-        help="Request fulfilled.")                
-    based_on_referral_request_id = fields.Many2one(
-        comodel_name="hc.res.referral.request", 
-        string="Based On Referral Request", 
-        help="Referral Request fulfilled.")                
+        help="Request fulfilled.")                              
     based_on_care_plan_id = fields.Many2one(
         comodel_name="hc.res.care.plan", 
         string="Based On Care Plan", 
-        help="Care Plan request fulfilled.")                
-    based_on_diagnostic_request_id = fields.Many2one(
-        comodel_name="hc.res.diagnostic.request", 
-        string="Based On Diagnostic Request", 
-        help="Diagnostic Request fulfilled.")                
+        help="Care Plan request fulfilled.")                            
     based_on_procedure_request_id = fields.Many2one(
         comodel_name="hc.res.procedure.request", 
         string="Based On Procedure Request", 

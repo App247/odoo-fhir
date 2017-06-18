@@ -343,38 +343,31 @@ class QuestionnaireResponseBasedOn(models.Model):
     based_on_type = fields.Selection(
         string="Based On Type", 
         selection=[
-            ("diagnostic_request", "Diagnostic Request"), 
-            ("referral_request", "Referral Request"), 
-            ("care_plan", "Care Plan")], 
+            ("care_plan", "Care Plan"),
+            ("procedure_request", "Procedure Request")], 
         help="Type of request fulfilled by this Questionnaire.")                    
     based_on_name = fields.Char(
         string="Based On", 
         compute="_compute_based_on_name", 
         store="True", 
-        help="Request fulfilled by this Questionnaire.")                    
-    based_on_diagnostic_request_id = fields.Many2one(
-        comodel_name="hc.res.diagnostic.request", 
-        string="Based On Diagnostic Request", 
-        help="Diagnostic Request which was fulfilled by this questionnaire.")                    
-    based_on_referral_request_id = fields.Many2one(
-        comodel_name="hc.res.referral.request", 
-        string="Based On Referral Request", 
-        help="Referral Request which was fulfilled by this questionnaire.")                    
+        help="Request fulfilled by this Questionnaire.")                                  
     based_on_care_plan_id = fields.Many2one(
         comodel_name="hc.res.care.plan", 
         string="Based On Care Plan", 
-        help="Care Plan which was fulfilled by this questionnaire.")                    
+        help="Care Plan which was fulfilled by this questionnaire.")
+    based_on_procedure_request_id = fields.Many2one(
+        comodel_name="hc.res.procedure.request", 
+        string="Based On Procedure Request", 
+        help="Procedure Request which was fulfilled by this questionnaire.")                      
 
     @api.depends('based_on_type')           
     def _compute_based_on_name(self):           
-        for hc_questionnaire_response_based_on in self:     
-            if hc_questionnaire_response_based_on.based_on_type == 'diagnostic_request':    
-                hc_questionnaire_response_based_on.based_on_name = hc_questionnaire_response_based_on.based_on_diagnostic_request_id.name
-            elif hc_questionnaire_response_based_on.based_on_type == 'referral_request':    
-                hc_questionnaire_response_based_on.based_on_name = hc_questionnaire_response_based_on.based_on_referral_request_id.name
-            elif hc_questionnaire_response_based_on.based_on_type == 'care_plan':   
-                hc_questionnaire_response_based_on.based_on_name = hc_questionnaire_response_based_on.based_on_care_plan_id.name
-
+        for hc_questionnaire_response_based_on in self:
+            if hc_questionnaire_response_based_on.based_on_type == 'care_plan':   
+                hc_questionnaire_response_based_on.based_on_name = hc_questionnaire_response_based_on.based_on_care_plan_id.name     
+            elif hc_questionnaire_response_based_on.based_on_type == 'procedure_request':    
+                hc_questionnaire_response_based_on.based_on_name = hc_questionnaire_response_based_on.based_on_procedure_request_id.name
+            
 class QuestionnaireResponseParent(models.Model):    
     _name = "hc.questionnaire.response.parent"    
     _description = "Questionnaire Response Parent"        

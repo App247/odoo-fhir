@@ -84,7 +84,6 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='based_on_ids']//form//group//field[@name='based_on_type']" position="after">
                     <field name="based_on_care_plan_id" class="oe_edit_only" attrs="{'invisible': [('based_on_type','!=','care_plan')], 'required': [('based_on_type','=','care_plan')]}"/>
-                    <field name="based_on_referral_request_id" class="oe_edit_only" attrs="{'invisible': [('based_on_type','!=','referral_request')], 'required': [('based_on_type','=','referral_request')]}"/>
                 </xpath>
                 <!-- <xpath expr="//field[@name='report_ids']" position="after">
                     <tree>                      

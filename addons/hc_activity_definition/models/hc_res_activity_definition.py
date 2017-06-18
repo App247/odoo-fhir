@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from openerp import models, fields, api
+from datetime import datetime
+from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as DTF
 
 class ActivityDefinition(models.Model):    
     _name = "hc.res.activity.definition"    
@@ -191,12 +193,13 @@ class ActivityDefinition(models.Model):
     def create(self, vals):                         
         status_history_obj = self.env['hc.activity.definition.status.history']                      
         res = super(ActivityDefinition, self).create(vals)                      
-        if vals and vals.get('status'):                     
+        if vals and vals.get('status_id'):                      
             status_history_vals = {                 
                 'activity_definition_id': res.id,               
-                'status_id': res.status_id,             
+                'status': res.status_id.name,             
                 'start_date': datetime.today()              
                 }               
+            status_history_obj.create(status_history_vals)                  
         return res                      
                                 
     @api.multi                          
@@ -205,7 +208,7 @@ class ActivityDefinition(models.Model):
         res = super(ActivityDefinition, self).write(vals)                       
         status_history_record_ids = status_history_obj.search([('end_date','=', False)])                        
         if status_history_record_ids:                       
-            if vals.get('status_id') and status_history_record_ids[0].status_id != vals.get('status_id'):                   
+            if vals.get('status_id') and status_history_record_ids[0].status != vals.get('status_id'):                   
                 for status_history in status_history_record_ids:                
                     status_history.end_date = datetime.strftime(datetime.today(), DTF)          
                     time_diff = datetime.today() - datetime.strptime(status_history.start_date, DTF)            
@@ -226,10 +229,11 @@ class ActivityDefinition(models.Model):
                                 status_history.time_diff_sec = str(times[2])
                 status_history_vals = {             
                     'activity_definition_id': self.id,          
-                    'status_id': vals.get('status_id'),         
+                    'status': vals.get('status_id'),     
                     'start_date': datetime.today()          
                     }           
-        return res                      
+                status_history_obj.create(status_history_vals)              
+        return res                                            
 
 class ActivityDefinitionParticipant(models.Model):  
     _name = "hc.activity.definition.participant"    

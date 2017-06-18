@@ -1,6 +1,210 @@
 <openerp>
     <data>
 
+        <!-- Activity Definition Views -->                                      
+                                        
+        <record id="hc_res_activity_definition_view_search" model="ir.ui.view">                                     
+            <field name="name">Activity Definition Search</field>                                   
+            <field name="model">hc.res.activity.definition</field>                                  
+            <field name="arch" type="xml">                                  
+                <search string="Activity Definitions">                              
+                </search>                               
+            </field>                                    
+        </record>                                       
+                                                
+        <record id="hc_res_activity_definition_view_tree" model="ir.ui.view">                                       
+            <field name="name">Activity Definition Tree</field>                                 
+            <field name="model">hc.res.activity.definition</field>                                  
+            <field name="arch" type="xml">                                  
+                <tree string="Activity Definitions">
+                    <field name="name"/>
+                    <field name="status_id"/>
+                </tree>                             
+            </field>                                    
+        </record>                                       
+                                                
+        <record id="hc_res_activity_definition_view_form" model="ir.ui.view">                                       
+            <field name="name">Activity Definition Form</field>                                 
+            <field name="model">hc.res.activity.definition</field>                                  
+            <field name="arch" type="xml">                                  
+                <form string="Activity Definition">                             
+                    <sheet>                         
+                        <h1>                        
+                            <field name="name" default_focus="1" placeholder="Name"/>                   
+                        </h1>                       
+                        <group>                     
+                            <group>                 
+                            </group>                    
+                            <group string="Status">
+                                <field name="status_id"/>         
+                            </group>                    
+                        </group>                        
+                        <notebook>                      
+                            <page string="Identifiers">                 
+                                <field name="identifier_ids" mode="tree">               
+                                    <tree>          
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>    
+                                        </sheet>        
+                                    </form>         
+                                </field>                
+                            </page>
+                            <page string="Use Contexts">                 
+                                <field name="use_context_ids" mode="tree">               
+                                    <tree>          
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>    
+                                        </sheet>        
+                                    </form>         
+                                </field>                
+                            </page>
+                            <page string="Contributors">                 
+                                <field name="contributor_ids" mode="tree">               
+                                    <tree>          
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>    
+                                        </sheet>        
+                                    </form>         
+                                </field>                
+                            </page>
+                            <page string="Contacts">                 
+                                <field name="contact_ids" mode="tree">               
+                                    <tree>          
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>    
+                                        </sheet>        
+                                    </form>         
+                                </field>                
+                            </page>
+                            <page string="Related Artifacts">                 
+                                <field name="related_artifact_ids" mode="tree">               
+                                    <tree>          
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>    
+                                        </sheet>        
+                                    </form>         
+                                </field>                
+                            </page>
+                            <page string="Libraries">                 
+                                <field name="library_ids" mode="tree">               
+                                    <tree>          
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>    
+                                        </sheet>        
+                                    </form>         
+                                </field>                
+                            </page>
+                            <page string="Dosages">                 
+                                <field name="dosage_ids" mode="tree">               
+                                    <tree>          
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>    
+                                        </sheet>        
+                                    </form>         
+                                </field>                
+                            </page>
+                            <page string="Participants">                 
+                                <field name="participant_ids" mode="tree">               
+                                    <tree>          
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>    
+                                        </sheet>        
+                                    </form>         
+                                </field>                
+                            </page>
+                            <page string="Dynamic Values">                 
+                                <field name="dynamic_value_ids" mode="tree">               
+                                    <tree>          
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>    
+                                        </sheet>        
+                                    </form>         
+                                </field>                
+                            </page>
+                            <page string="Status History">
+                                <field name="status_history_ids" mode="tree">
+                                    <tree>
+                                        <field name="status" readonly="1"/>
+                                        <field name="start_date"/>
+                                        <field name="end_date"/>
+                                        <field name="time_diff_day"/>
+                                        <field name="time_diff_hour"/>
+                                        <field name="time_diff_min"/>
+                                        <field name="time_diff_sec"/>
+                                        <field name="write_uid" invisible="0"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>                     
+                    </sheet>                            
+                </form>                             
+            </field>                                    
+        </record>                                       
+
+
         <!-- Activity Definition Action and Menu --> 
   
         <act_window id="hc_res_activity_definition_action"  

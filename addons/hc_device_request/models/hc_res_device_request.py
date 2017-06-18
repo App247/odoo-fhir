@@ -221,7 +221,7 @@ class DeviceRequest(models.Model):
     requester_id = fields.Many2one(
         comodel_name="hc.device.request.requester", 
         string="Requester", 
-        help="Requester associated with this Device Request Resource.")
+        help="Who/what is requesting diagnostics.")
     
 class DeviceRequestRequester(models.Model):
     _name = "hc.device.request.requester"
