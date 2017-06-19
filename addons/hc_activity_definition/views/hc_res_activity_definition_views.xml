@@ -185,9 +185,9 @@
                                 </field>                
                             </page>
                             <page string="Status History">
-                                <field name="status_history_ids" mode="tree">
+                                <field name="status_history_ids" mode="tree" create="0">
                                     <tree>
-                                        <field name="status" readonly="1"/>
+                                        <field name="status"/>
                                         <field name="start_date"/>
                                         <field name="end_date"/>
                                         <field name="time_diff_day"/>

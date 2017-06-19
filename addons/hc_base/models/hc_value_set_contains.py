@@ -627,6 +627,7 @@ class PublicationStatus(models.Model):
     _name = "hc.vs.publication.status"
     _description = "Publication Status"
     _inherit = ["hc.value.set.contains"]
+    _order = "seq"
 
     name = fields.Char(
         string="Name",
@@ -637,7 +638,10 @@ class PublicationStatus(models.Model):
     contains_id = fields.Many2one(
         comodel_name="hc.vs.publication.status", 
         string="Parent", 
-        help="Parent publication status.")                              
+        help="Parent publication status.")
+    seq = fields.Integer(
+        string="Sequence",
+        help="Display order.")                              
 
 class PurposeOfUse(models.Model):    
     _name = "hc.vs.purpose.of.use"    
