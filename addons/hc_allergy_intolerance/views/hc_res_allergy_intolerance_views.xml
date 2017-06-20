@@ -55,6 +55,9 @@
             <field name="model">hc.res.allergy.intolerance</field>
             <field name="arch" type="xml">
                 <form string="Allergy Intolerance">
+                    <header>
+                        <field name="verification_status" widget="statusbar" clickable="True"/>
+                    </header>
                     <sheet>
                         <div class="oe_title oe_left">
                             <h1>
