@@ -40,7 +40,7 @@
         'data/hc.vs.medication.form.code.csv',
         'data/hc.vs.medication.form.group.code.csv',
         'data/hc.vs.medication.ingredient.code.csv',
-        'data/hc.vs.medication.package.form.code.csv',
+        # 'data/hc.vs.medication.package.form.code.csv',
     ],
     'css': [
         'static/src/css/hc_medication.css',
