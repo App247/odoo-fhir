@@ -12,13 +12,13 @@
             <field name="country_id" ref="base.au"/>
         </record>
 
-        <record id="hc_base.state_type_au_state" model="hc.vs.country.state.type">  
+        <record id="state_type_au_state" model="hc.vs.country.state.type">  
             <field name="name">State</field>
             <field name="source_id" ref="base.iso_3166_au"/field>
             <field name="country_id" ref="base.au"/>
         </record> 
 
-        <record id="hc_base.state_type_au_territory" model="hc.vs.country.state.type">  
+        <record id="state_type_au_territory" model="hc.vs.country.state.type">  
             <field name="name">Territory</field>
             <field name="source_id" ref="base.iso_3166_au"/field>
             <field name="country_id" ref="base.au"/>

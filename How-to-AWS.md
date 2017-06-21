@@ -97,7 +97,33 @@ sudo git gc
 - Enter `IPv4 address` in **Points to** box
 - Save
 
-3 Test
+3 Install Apache
+
+* Installation
+```
+sudo -i #Go to root
+apt-get install apache2 # Install Apache Server
+systemctl start apache2 # Start Apache Server
+systemctl status apache2 # Check Apache Server status
+netstat -l # Check network status. 
+           # `tcp6	0	0	[::]:http  [::]:* LISTEN` means that the server is running
+iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 8069 #Reroute from port 80 to port 8069
+iptables -t nat -L # Check status
+```
+* Troubleshooting
+
+- Find out if Odoo has errors
+```
+cd /var/log/odoo #Go to directory of Odoo Server Log
+tail -n 20 odoo-server.log # Display last 20 lines of Odoo Server Log
+```
+
+4 Test
 * Wait an hour for the servers to update
 * Test by typing the IPv4 address in your browser (like www.fioresoft.com)
 * Success if page of IPv4 address appears
+
+# Set up a mail server
+
+- [Request to Remove Email Sending Limitations](https://aws.amazon.com/forms/ec2-email-limit-rdns-request?catalog=true&isauthcode=true)
+- [odoo 9 email configuration](https://youtu.be/lvOq86Sqh5Y)

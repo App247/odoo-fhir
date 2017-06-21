@@ -63,7 +63,7 @@
         
         <!-- Encounter Participant Type --> 
             
-        <record id="hc_base.enc_part_type_adm" model="hc.vs.encounter.participant.type">    
+        <record id="enc_part_type_adm" model="hc.vs.encounter.participant.type">    
             <field name="code">ADM</field>
             <field name="name">admitter</field>
             <field name="definition">The practitioner who is responsible for admitting a patient to a patient encounter.</field>
@@ -71,7 +71,7 @@
             <field name="system">http://hl7.org/fhir/v3/ParticipationType</field>
         </record>   
             
-        <record id="hc_base.enc_part_type_atnd" model="hc.vs.encounter.participant.type">   
+        <record id="enc_part_type_atnd" model="hc.vs.encounter.participant.type">   
             <field name="code">ATND</field>
             <field name="name">attender</field>
             <field name="definition">The practitioner that has responsibility for overseeing a patient's care during a patient encounter.</field>
@@ -79,7 +79,7 @@
             <field name="system">http://hl7.org/fhir/v3/ParticipationType</field>
         </record>   
             
-        <record id="hc_base.enc_part_type_callbck" model="hc.vs.encounter.participant.type">    
+        <record id="enc_part_type_callbck" model="hc.vs.encounter.participant.type">    
             <field name="code">CALLBCK</field>
             <field name="name">callback contact</field>
             <field name="definition">A person or organization who should be contacted for follow-up questions about the act in place of the author.</field>
@@ -87,7 +87,7 @@
             <field name="system">http://hl7.org/fhir/v3/ParticipationType</field>
         </record>   
             
-        <record id="hc_base.enc_part_type_con" model="hc.vs.encounter.participant.type">    
+        <record id="enc_part_type_con" model="hc.vs.encounter.participant.type">    
             <field name="code">CON</field>
             <field name="name">consultant</field>
             <field name="definition">An advisor participating in the service by performing evaluations and making recommendations.</field>
@@ -95,7 +95,7 @@
             <field name="system">http://hl7.org/fhir/v3/ParticipationType</field>
         </record>   
             
-        <record id="hc_base.enc_part_type_dis" model="hc.vs.encounter.participant.type">    
+        <record id="enc_part_type_dis" model="hc.vs.encounter.participant.type">    
             <field name="code">DIS</field>
             <field name="name">discharger</field>
             <field name="definition">The practitioner who is responsible for the discharge of a patient from a patient encounter.</field>
@@ -103,7 +103,7 @@
             <field name="system">http://hl7.org/fhir/v3/ParticipationType</field>
         </record>   
             
-        <record id="hc_base.enc_part_type_esc" model="hc.vs.encounter.participant.type">    
+        <record id="enc_part_type_esc" model="hc.vs.encounter.participant.type">    
             <field name="code">ESC</field>
             <field name="name">escort</field>
             <field name="definition">Only with Transportation services. A person who escorts the patient.</field>
@@ -111,7 +111,7 @@
             <field name="system">http://hl7.org/fhir/v3/ParticipationType</field>
         </record>   
             
-        <record id="hc_base.enc_part_type_ref" model="hc.vs.encounter.participant.type">    
+        <record id="enc_part_type_ref" model="hc.vs.encounter.participant.type">    
             <field name="code">REF</field>
             <field name="name">referrer</field>
             <field name="definition">A person having referred the subject of the service to the performer (referring physician). Typically, a referring physician will receive a report.</field>
@@ -119,7 +119,7 @@
             <field name="system">http://hl7.org/fhir/v3/ParticipationType</field>
         </record>   
             
-        <record id="hc_base.enc_part_type_sprf" model="hc.vs.encounter.participant.type">   
+        <record id="enc_part_type_sprf" model="hc.vs.encounter.participant.type">   
             <field name="code">SPRF</field>
             <field name="name">secondary performer</field>
             <field name="definition">A person assisting in an act through his substantial presence and involvement This includes: assistants, technicians, associates, or whatever the job titles may be.</field>
@@ -127,7 +127,7 @@
             <field name="system">http://hl7.org/fhir/v3/ParticipationType</field>
         </record>   
             
-        <record id="hc_base.enc_part_type_pprf" model="hc.vs.encounter.participant.type">   
+        <record id="enc_part_type_pprf" model="hc.vs.encounter.participant.type">   
             <field name="code">PPRF</field>
             <field name="name">primary performer</field>
             <field name="definition">The principal or primary performer of the act.</field>
@@ -135,7 +135,7 @@
             <field name="system">http://hl7.org/fhir/v3/ParticipationType</field>
         </record>   
             
-        <record id="hc_base.enc_part_type_part" model="hc.vs.encounter.participant.type">   
+        <record id="enc_part_type_part" model="hc.vs.encounter.participant.type">   
             <field name="code">PART</field>
             <field name="name">Participation</field>
             <field name="definition">Indicates that the target of the participation is involved in some manner in the act, but does not qualify how.</field>
@@ -143,7 +143,7 @@
             <field name="system">http://hl7.org/fhir/v3/ParticipationType</field>
         </record>   
             
-        <record id="hc_base.enc_part_type_translator" model="hc.vs.encounter.participant.type"> 
+        <record id="enc_part_type_translator" model="hc.vs.encounter.participant.type"> 
             <field name="code">translator</field>
             <field name="name">Translator</field>
             <field name="definition">A translator who is facilitating communication with the patient during the encounter.</field>
@@ -151,7 +151,7 @@
             <field name="system">http://hl7.org/fhir/participant-type</field>
         </record>   
             
-        <record id="hc_base.enc_part_type_emergency" model="hc.vs.encounter.participant.type">  
+        <record id="enc_part_type_emergency" model="hc.vs.encounter.participant.type">  
             <field name="code">emergency</field>
             <field name="name">Emergency</field>
             <field name="definition">A person to be contacted in case of an emergency during the encounter.</field>

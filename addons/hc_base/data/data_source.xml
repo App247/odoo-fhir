@@ -9,7 +9,7 @@
             <field name="comment">Founded in 1987, Health Level Seven International (HL7) is a not-for-profit, ANSI-accredited standards developing organization dedicated to providing a comprehensive framework and related standards for the exchange, integration, sharing, and retrieval of electronic health information that supports clinical practice and the management, delivery and evaluation of health services. &#10;&#10;(Ref: http://www.hl7.org/)       
             </field>
             <field name="notify_email">none</field>
-            <field name="category_id" eval="[(6, 0, [ref('hc_base.partner_source'), ref('hc_base.partner_organization')])]"/>
+            <field name="category_id" eval="[(6, 0, [ref('partner_source'), ref('partner_organization')])]"/>
             <field name="country_id" ref="base.us"/>
         </record>
 
@@ -19,7 +19,7 @@
             <field name="website">www.hl7.org</field>
             <field name="comment">The Version 3 Normative Edition represents a new approach to clinical information exchange based on a model driven methodology that produces messages and electronic documents expressed in XML syntax. &#10;&#10;(Ref: http://www.hl7.org/implement/standards/product_brief.cfm?product_id=186)</field>
             <field name="notify_email">none</field>
-            <field name="category_id" eval="[(6, 0, [ref('hc_base.partner_source'), ref('hc_base.partner_document')])]"/>
+            <field name="category_id" eval="[(6, 0, [ref('partner_source'), ref('partner_document')])]"/>
             <field name="country_id" ref="base.us"/>
         </record>
 
@@ -29,7 +29,7 @@
             <field name="website">www.hl7.org</field>
             <field name="comment">HL7’s Version 2.x (V2) messaging standard is the workhorse of electronic data exchange in the clinical domain and arguably the most widely implemented standard for healthcare in the world. This messaging standard allows the exchange of clinical data between systems. It is designed to support a central patient care system as well as a more distributed environment where data resides in departmental systems. &#10;&#10;(ref: http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185)</field>
             <field name="notify_email">none</field>
-            <field name="category_id" eval="[(6, 0, [ref('hc_base.partner_source'), ref('hc_base.partner_document')])]"/>
+            <field name="category_id" eval="[(6, 0, [ref('partner_source'), ref('partner_document')])]"/>
             <field name="country_id" ref="base.us"/>
         </record>
 
@@ -41,7 +41,7 @@
             &#10;&#10;FHIR solutions are built from a set of modular components called &quot;Resources&quot;. These resources can easily be assembled into working systems that solve real world clinical and administrative problems at a fraction of the price of existing alternatives. FHIR is suitable for use in a wide variety of contexts – mobile phone apps, cloud communications, EHR-based data sharing, server communication in large institutional healthcare providers, and much more.  &#10;&#10;(Ref: http://www.hl7.org/fhir/summary.html)    
             </field>
             <field name="notify_email">none</field>
-            <field name="category_id" eval="[(6, 0, [ref('hc_base.partner_source'), ref('hc_base.partner_document')])]"/>
+            <field name="category_id" eval="[(6, 0, [ref('partner_source'), ref('partner_document')])]"/>
             <field name="country_id" ref="base.us"/>
         </record>
 
@@ -51,7 +51,7 @@
             <field name="website">www.ihtsdo.org/snomed-ct</field>
             <field name="comment">SNOMED CT is the most comprehensive and precise clinical health terminology product in the world, owned and distributed around the world by SNOMED International. &#10;&#10;(Ref: http://www.snomed.org/snomed-ct)</field>
             <field name="notify_email">none</field>
-            <field name="category_id" eval="[(6, 0, [ref('hc_base.partner_source'), ref('hc_base.partner_organization')])]"/>
+            <field name="category_id" eval="[(6, 0, [ref('partner_source'), ref('partner_organization')])]"/>
             <field name="country_id" ref="base.dk"/>
         </record>
 
@@ -68,7 +68,7 @@
 
             (ref: https://www.nlm.nih.gov/research/umls/rxnorm/overview.html)</field>
             <field name="notify_email">none</field>
-            <field name="category_id" eval="[(6, 0, [ref('hc_base.partner_source'), ref('hc_base.partner_document')])]"/>
+            <field name="category_id" eval="[(6, 0, [ref('partner_source'), ref('partner_document')])]"/>
             <field name="country_id" ref="base.us"/>
         </record>
 
@@ -80,7 +80,7 @@
             <field name="comment">A standards organization in the United States that maintains the code set for provider taxonomy.
             &#10;&#10;The National Uniform Claim Committee (NUCC) is a voluntary organization that develops a standardized data set for use by the non-institutional health care community to transmit claim and encounter information to and from all third-party payers. It is chaired by the American Medical Association (AMA), with the Centers for Medicare and Medicaid Services (CMS) as a critical partner. The committee includes representation from key provider and payer organizations, as well as designated standards maintenance organizations, public health organizations, and a vendor. &#10;&#10;(Ref: HIMMS http://www.himss.org/library/medical-banking/financial-systems/uniform-claims)</field>
             <field name="notify_email">none</field>
-            <field name="category_id" eval="[(6, 0, [ref('hc_base.partner_source'), ref('hc_base.partner_organization')])]"/>
+            <field name="category_id" eval="[(6, 0, [ref('partner_source'), ref('partner_organization')])]"/>
             <field name="country_id" ref="base.us"/>
         </record>
  
@@ -95,7 +95,7 @@
             &#10;&#10;FDA is responsible for advancing the public health by helping to speed innovations that make medical products more effective, safer, and more affordable and by helping the public get the accurate, science-based information they need to use medical products and foods to maintain and improve their health.
             &#10;&#10;FDA also plays a significant role in the Nation&apos;s counterterrorism capability. FDA fulfills this responsibility by ensuring the security of the food supply and by fostering development of medical products to respond to deliberate and naturally emerging public health threats.&#10;&#10;(ref: https://www.fda.gov/AboutFDA/WhatWeDo/default.htm)</field>
             <field name="notify_email">none</field>
-            <field name="category_id" eval="[(6, 0, [ref('hc_base.partner_source'), ref('hc_base.partner_organization')])]"/>
+            <field name="category_id" eval="[(6, 0, [ref('partner_source'), ref('partner_organization')])]"/>
             <field name="country_id" ref="base.us"/>
         </record>
 
@@ -105,7 +105,7 @@
             <field name="website">http://www.fda.gov/ForIndustry/DataStandards/StructuredProductLabeling/ucm168397.htm</field>
             <field name="comment"></field>
             <field name="notify_email">none</field>
-            <field name="category_id" eval="[(6, 0, [ref('hc_base.partner_source'), ref('hc_base.partner_document')])]"/>
+            <field name="category_id" eval="[(6, 0, [ref('partner_source'), ref('partner_document')])]"/>
             <field name="country_id" ref="base.us"/>
         </record>
 
@@ -133,7 +133,7 @@
             &#10;Part 14: Telebiometrics related to human physiology.
             &#10;&#10;Thus, UCUM support EDI protocols for the quantities and units in the domains of knowledge specified in ISO 80000 standards parts 2-14 above
             &#10;&#10;(Ref: http://unitsofmeasure.org/)</field>
-            <field name="category_id" eval="[(6, 0, [ref('hc_base.partner_source'), ref('hc_base.partner_document')])]"/>
+            <field name="category_id" eval="[(6, 0, [ref('partner_source'), ref('partner_document')])]"/>
             <field name="country_id" ref="base.us"/>
         </record>
 
@@ -143,7 +143,7 @@
             <field name="website">https://loinc.org/usage/units</field>
             <field name="notify_email">none</field>
             <field name="comment"></field>
-            <field name="category_id" eval="[(6, 0, [ref('hc_base.partner_source'), ref('hc_base.partner_document')])]"/>
+            <field name="category_id" eval="[(6, 0, [ref('partner_source'), ref('partner_document')])]"/>
             <field name="country_id" ref="base.us"/>
         </record>
 
@@ -154,7 +154,7 @@
             <field name="notify_email">none</field>
             <field name="comment">LOINC is a freely available international standard for tests, measurements, and observations. &#10;&#10;(Ref: https://loinc.org)   
             </field>
-            <field name="category_id" eval="[(6, 0, [ref('hc_base.partner_source'), ref('hc_base.partner_organization')])]"/>
+            <field name="category_id" eval="[(6, 0, [ref('partner_source'), ref('partner_organization')])]"/>
             <field name="country_id" ref="base.us"/>
         </record>
 
@@ -164,7 +164,7 @@
             <field name="website">https://uts.nlm.nih.gov//uts.html</field>
             <field name="notify_email">none</field>
             <field name="comment">A terminology service of the U.S. National Library of Medicine, National Institutes of Health.</field>
-            <field name="category_id" eval="[(6, 0, [ref('hc_base.partner_source'), ref('hc_base.partner_document')])]"/>
+            <field name="category_id" eval="[(6, 0, [ref('partner_source'), ref('partner_document')])]"/>
             <field name="country_id" ref="base.us"/>
         </record>
 
@@ -175,7 +175,7 @@
             <field name="comment">OASIS is the Organization for the Advancement of Structured Information Standards, a not-for-profit, international consortium that drives the development, convergence and adoption of open standards for the global information society. &#10;&#10;(Ref: https://www.oasis-open.org/org/faq)       
             </field>
             <field name="notify_email">none</field>
-            <field name="category_id" eval="[(6, 0, [ref('hc_base.partner_source'), ref('hc_base.partner_organization')])]"/>
+            <field name="category_id" eval="[(6, 0, [ref('partner_source'), ref('partner_organization')])]"/>
             <field name="country_id" ref="base.us"/>
         </record>
     

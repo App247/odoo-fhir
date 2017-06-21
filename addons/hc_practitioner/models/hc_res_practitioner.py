@@ -18,11 +18,15 @@ class Practitioner(models.Model):
         inverse_name="practitioner_id", 
         string="Identifiers", 
         help="A human identifier for this practitioner.")
-    name_ids = fields.One2many(
-        comodel_name="hc.practitioner.name", 
-        inverse_name="practitioner_id", 
+    name_ids = fields.Many2many(
+        related="person_id.name_ids", 
         string="Names", 
         help="A name associated with this practitioner.")
+    # name_ids = fields.One2many(
+    #     comodel_name="hc.practitioner.name", 
+    #     inverse_name="practitioner_id", 
+    #     string="Names", 
+    #     help="A name associated with this practitioner.")
     telecom_ids = fields.One2many(
         comodel_name="hc.practitioner.telecom", 
         inverse_name="practitioner_id", 
@@ -95,23 +99,23 @@ class PractitionerIdentifier(models.Model):
         string="Practitioner", 
         help="Practitioner associated with this Practitioner Identifier.")                     
 
-class PractitionerName(models.Model): 
-    _name = "hc.practitioner.name"    
-    _description = "Practitioner Name"
-    _inherit = ["hc.human.name.use"]
-    _inherits = {"hc.human.name": "name_id"}
+# class PractitionerName(models.Model): 
+#     _name = "hc.practitioner.name"    
+#     _description = "Practitioner Name"
+#     _inherit = ["hc.human.name.use"]
+#     _inherits = {"hc.human.name": "name_id"}
 
-    name_id = fields.Many2one(
-        comodel_name="hc.human.name", 
-        string="Name", 
-        ondelete="restrict", 
-        required="True", 
-        help="Human Name associated with this Practitioner Name.")
+#     name_id = fields.Many2one(
+#         comodel_name="hc.human.name", 
+#         string="Name", 
+#         ondelete="restrict", 
+#         required="True", 
+#         help="Human Name associated with this Practitioner Name.")
 
-    practitioner_id = fields.Many2one(
-        comodel_name="hc.res.practitioner", 
-        string="Practitioner", 
-        help="Practitioner associated with this human name.")
+#     practitioner_id = fields.Many2one(
+#         comodel_name="hc.res.practitioner", 
+#         string="Practitioner", 
+#         help="Practitioner associated with this human name.")
 
 class PractitionerTelecom(models.Model):    
     _name = "hc.practitioner.telecom"   

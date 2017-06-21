@@ -8,7 +8,7 @@
             <field name="name">U.S. Census Bureau</field>
             <field name="company_type">company</field>
             <field name="website">www.census.gov</field>
-            <field name="category_id" eval="[(6, 0, [ref('hc_base.partner_source'), ref('hc_base.partner_organization')])]"/>
+            <field name="category_id" eval="[(6, 0, [ref('partner_source'), ref('partner_organization')])]"/>
             <field name="country_id" ref="base.us"/>
         </record>
 
@@ -83,7 +83,7 @@
             <field name="type_id" ref="division_type_us_division"/>
             <field name="source_id" ref="base.us_census"/>
             <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
-            <field name="region_id" ref="hc_base.region_us_1"/>
+            <field name="region_id" ref="region_us_1"/>
             <field name="country_id" ref="base.us"/>
         </record>   
         
@@ -93,7 +93,7 @@
             <field name="type_id" ref="division_type_us_division"/>
             <field name="source_id" ref="base.us_census"/>
             <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
-            <field name="region_id" ref="hc_base.region_us_1"/>
+            <field name="region_id" ref="region_us_1"/>
             <field name="country_id" ref="base.us"/>
         </record>   
         
@@ -103,7 +103,7 @@
             <field name="type_id" ref="division_type_us_division"/>
             <field name="source_id" ref="base.us_census"/>
             <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
-            <field name="region_id" ref="hc_base.region_us_2"/>
+            <field name="region_id" ref="region_us_2"/>
             <field name="country_id" ref="base.us"/>
         </record>   
         
@@ -113,7 +113,7 @@
             <field name="type_id" ref="division_type_us_division"/>
             <field name="source_id" ref="base.us_census"/>
             <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
-            <field name="region_id" ref="hc_base.region_us_2"/>
+            <field name="region_id" ref="region_us_2"/>
             <field name="country_id" ref="base.us"/>
         </record>   
         
@@ -123,7 +123,7 @@
             <field name="type_id" ref="division_type_us_division"/>
             <field name="source_id" ref="base.us_census"/>
             <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
-            <field name="region_id" ref="hc_base.region_us_3"/>
+            <field name="region_id" ref="region_us_3"/>
             <field name="country_id" ref="base.us"/>
         </record>   
         
@@ -133,7 +133,7 @@
             <field name="type_id" ref="division_type_us_division"/>
             <field name="source_id" ref="base.us_census"/>
             <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
-            <field name="region_id" ref="hc_base.region_us_3"/>
+            <field name="region_id" ref="region_us_3"/>
             <field name="country_id" ref="base.us"/>
         </record>   
         
@@ -143,7 +143,7 @@
             <field name="type_id" ref="division_type_us_division"/>
             <field name="source_id" ref="base.us_census"/>
             <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
-            <field name="region_id" ref="hc_base.region_us_3"/>
+            <field name="region_id" ref="region_us_3"/>
             <field name="country_id" ref="base.us"/>
         </record>   
         
@@ -153,7 +153,7 @@
             <field name="type_id" ref="division_type_us_division"/>
             <field name="source_id" ref="base.us_census"/>
             <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
-            <field name="region_id" ref="hc_base.region_us_4"/>
+            <field name="region_id" ref="region_us_4"/>
             <field name="country_id" ref="base.us"/>
         </record>   
         
@@ -163,7 +163,7 @@
             <field name="type_id" ref="division_type_us_division"/>
             <field name="source_id" ref="base.us_census"/>
             <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
-            <field name="region_id" ref="hc_base.region_us_4"/>
+            <field name="region_id" ref="region_us_4"/>
             <field name="country_id" ref="base.us"/>
         </record>
 
@@ -173,7 +173,7 @@
             <field name="type_id" ref="division_type_us_division"/>
             <field name="source_id" ref="base.us_census"/>
             <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
-            <field name="region_id" ref="hc_base.region_us_5"/>
+            <field name="region_id" ref="region_us_5"/>
             <field name="country_id" ref="base.us"/>
         </record>
         

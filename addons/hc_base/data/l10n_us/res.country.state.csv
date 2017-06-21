@@ -1,63 +1,63 @@
 id,name,code,division_id/id,region_id/id,numeric_code,source_id/id,system,country_id/id,type_id/id
-base.state_us_1,Alabama,AL,hc_base.division_us_6,hc_base.region_us_3,1,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_2,Alaska,AK,hc_base.division_us_9,hc_base.region_us_4,2,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_3,Arizona,AZ,hc_base.division_us_8,hc_base.region_us_4,4,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_4,Arkansas,AR,hc_base.division_us_7,hc_base.region_us_3,5,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_5,California,CA,hc_base.division_us_9,hc_base.region_us_4,6,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_6,Colorado,CO,hc_base.division_us_8,hc_base.region_us_4,8,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_7,Connecticut,CT,hc_base.division_us_1,hc_base.region_us_1,9,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_8,Delaware,DE,hc_base.division_us_5,hc_base.region_us_3,10,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_9,District of Columbia,DC,hc_base.division_us_5,hc_base.region_us_3,11,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_district
-base.state_us_10,Florida,FL,hc_base.division_us_5,hc_base.region_us_3,12,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_11,Georgia,GA,hc_base.division_us_5,hc_base.region_us_3,13,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_12,Hawaii,HI,hc_base.division_us_9,hc_base.region_us_4,15,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_13,Idaho,ID,hc_base.division_us_8,hc_base.region_us_4,16,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_14,Illinois,IL,hc_base.division_us_3,hc_base.region_us_2,17,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_15,Indiana,IN,hc_base.division_us_3,hc_base.region_us_2,18,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_16,Iowa,IA,hc_base.division_us_4,hc_base.region_us_2,19,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_17,Kansas,KS,hc_base.division_us_4,hc_base.region_us_2,20,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_18,Kentucky,KY,hc_base.division_us_6,hc_base.region_us_3,21,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_19,Louisiana,LA,hc_base.division_us_7,hc_base.region_us_3,22,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_20,Maine,ME,hc_base.division_us_1,hc_base.region_us_1,23,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_21,Montana,MT,hc_base.division_us_5,hc_base.region_us_3,24,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_22,Nebraska,NE,hc_base.division_us_1,hc_base.region_us_1,25,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_23,Nevada,NV,hc_base.division_us_3,hc_base.region_us_2,26,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_24,New Hampshire,NH,hc_base.division_us_4,hc_base.region_us_2,27,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_25,New Jersey,NJ,hc_base.division_us_6,hc_base.region_us_3,28,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_26,New Mexico,NM,hc_base.division_us_4,hc_base.region_us_2,29,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_27,New York,NY,hc_base.division_us_8,hc_base.region_us_4,30,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_28,North Carolina,NC,hc_base.division_us_4,hc_base.region_us_2,31,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_29,North Dakota,ND,hc_base.division_us_8,hc_base.region_us_4,32,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_30,Ohio,OH,hc_base.division_us_1,hc_base.region_us_1,33,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_31,Oklahoma,OK,hc_base.division_us_2,hc_base.region_us_1,34,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_32,Oregon,OR,hc_base.division_us_8,hc_base.region_us_4,35,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_33,Maryland,MD,hc_base.division_us_2,hc_base.region_us_1,36,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_34,Massachusetts,MA,hc_base.division_us_5,hc_base.region_us_3,37,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_35,Michigan,MI,hc_base.division_us_4,hc_base.region_us_2,38,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_36,Minnesota,MN,hc_base.division_us_3,hc_base.region_us_2,39,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_37,Mississippi,MS,hc_base.division_us_7,hc_base.region_us_3,40,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_38,Missouri,MO,hc_base.division_us_9,hc_base.region_us_4,41,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_39,Pennsylvania,PA,hc_base.division_us_2,hc_base.region_us_1,42,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_40,Rhode Island,RI,hc_base.division_us_1,hc_base.region_us_1,44,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_41,South Carolina,SC,hc_base.division_us_5,hc_base.region_us_3,45,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_42,South Dakota,SD,hc_base.division_us_4,hc_base.region_us_2,46,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_43,Tennessee,TN,hc_base.division_us_6,hc_base.region_us_3,47,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_44,Texas,TX,hc_base.division_us_7,hc_base.region_us_3,48,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_45,Utah,UT,hc_base.division_us_8,hc_base.region_us_4,49,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_46,Vermont,VT,hc_base.division_us_1,hc_base.region_us_1,50,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_47,Virginia,VA,hc_base.division_us_5,hc_base.region_us_3,51,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_48,Washington,WA,hc_base.division_us_9,hc_base.region_us_4,53,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_49,West Virginia,WV,hc_base.division_us_5,hc_base.region_us_3,54,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_50,Wisconsin,WI,hc_base.division_us_3,hc_base.region_us_2,55,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_51,Wyoming,WY,hc_base.division_us_8,hc_base.region_us_4,56,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,hc_base.state_type_us_state
-base.state_us_52,American Samoa,AS,hc_base.division_us_10,hc_base.region_us_5,60,base.us_census,www.census.gov/geo/reference/ansi_statetables.html,base.us,hc_base.state_type_us_uuss
-base.state_us_53,Guam,GU,hc_base.division_us_10,hc_base.region_us_5,66,base.us_census,www.census.gov/geo/reference/ansi_statetables.html,base.us,hc_base.state_type_us_uuss
-base.state_us_54,Commonwealth of the Northern Mariana Islands,MP,hc_base.division_us_10,hc_base.region_us_5,69,base.us_census,www.census.gov/geo/reference/ansi_statetables.html,base.us,hc_base.state_type_us_uuss
-base.state_us_55,Puerto Rico,PR,hc_base.division_us_10,hc_base.region_us_5,72,base.us_census,www.census.gov/geo/reference/ansi_statetables.html,base.us,hc_base.state_type_us_uuss
-base.state_us_56,U.S. Minor Outlying Islands,UM,hc_base.division_us_10,hc_base.region_us_5,74,base.us_census,www.census.gov/geo/reference/ansi_statetables.html,base.us,hc_base.state_type_us_moit
-base.state_us_57,U.S. Virgin Islands,VI,hc_base.division_us_10,hc_base.region_us_5,78,base.us_census,www.census.gov/geo/reference/ansi_statetables.html,base.us,hc_base.state_type_us_uuss
-base.state_us_58,Federated States of Micronesia,FM,hc_base.division_us_10,hc_base.region_us_5,64,base.us_census,www.census.gov/geo/reference/ansi_statetables.html,base.us,hc_base.state_type_us_fas
-base.state_us_59,Marshall Islands,MH,hc_base.division_us_10,hc_base.region_us_5,68,base.us_census,www.census.gov/geo/reference/ansi_statetables.html,base.us,hc_base.state_type_us_fas
-base.state_us_60,Palau,PW,hc_base.division_us_10,hc_base.region_us_5,70,base.us_census,www.census.gov/geo/reference/ansi_statetables.html,base.us,hc_base.state_type_us_fas
+base.state_us_1,Alabama,AL,division_us_6,region_us_3,1,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_2,Alaska,AK,division_us_9,region_us_4,2,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_3,Arizona,AZ,division_us_8,region_us_4,4,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_4,Arkansas,AR,division_us_7,region_us_3,5,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_5,California,CA,division_us_9,region_us_4,6,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_6,Colorado,CO,division_us_8,region_us_4,8,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_7,Connecticut,CT,division_us_1,region_us_1,9,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_8,Delaware,DE,division_us_5,region_us_3,10,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_9,District of Columbia,DC,division_us_5,region_us_3,11,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_district
+base.state_us_10,Florida,FL,division_us_5,region_us_3,12,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_11,Georgia,GA,division_us_5,region_us_3,13,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_12,Hawaii,HI,division_us_9,region_us_4,15,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_13,Idaho,ID,division_us_8,region_us_4,16,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_14,Illinois,IL,division_us_3,region_us_2,17,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_15,Indiana,IN,division_us_3,region_us_2,18,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_16,Iowa,IA,division_us_4,region_us_2,19,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_17,Kansas,KS,division_us_4,region_us_2,20,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_18,Kentucky,KY,division_us_6,region_us_3,21,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_19,Louisiana,LA,division_us_7,region_us_3,22,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_20,Maine,ME,division_us_1,region_us_1,23,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_21,Montana,MT,division_us_5,region_us_3,24,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_22,Nebraska,NE,division_us_1,region_us_1,25,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_23,Nevada,NV,division_us_3,region_us_2,26,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_24,New Hampshire,NH,division_us_4,region_us_2,27,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_25,New Jersey,NJ,division_us_6,region_us_3,28,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_26,New Mexico,NM,division_us_4,region_us_2,29,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_27,New York,NY,division_us_8,region_us_4,30,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_28,North Carolina,NC,division_us_4,region_us_2,31,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_29,North Dakota,ND,division_us_8,region_us_4,32,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_30,Ohio,OH,division_us_1,region_us_1,33,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_31,Oklahoma,OK,division_us_2,region_us_1,34,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_32,Oregon,OR,division_us_8,region_us_4,35,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_33,Maryland,MD,division_us_2,region_us_1,36,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_34,Massachusetts,MA,division_us_5,region_us_3,37,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_35,Michigan,MI,division_us_4,region_us_2,38,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_36,Minnesota,MN,division_us_3,region_us_2,39,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_37,Mississippi,MS,division_us_7,region_us_3,40,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_38,Missouri,MO,division_us_9,region_us_4,41,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_39,Pennsylvania,PA,division_us_2,region_us_1,42,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_40,Rhode Island,RI,division_us_1,region_us_1,44,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_41,South Carolina,SC,division_us_5,region_us_3,45,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_42,South Dakota,SD,division_us_4,region_us_2,46,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_43,Tennessee,TN,division_us_6,region_us_3,47,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_44,Texas,TX,division_us_7,region_us_3,48,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_45,Utah,UT,division_us_8,region_us_4,49,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_46,Vermont,VT,division_us_1,region_us_1,50,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_47,Virginia,VA,division_us_5,region_us_3,51,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_48,Washington,WA,division_us_9,region_us_4,53,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_49,West Virginia,WV,division_us_5,region_us_3,54,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_50,Wisconsin,WI,division_us_3,region_us_2,55,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_51,Wyoming,WY,division_us_8,region_us_4,56,base.us_census,www.census.gov/geo/reference/gtc/gtc_census_divreg.html,base.us,state_type_us_state
+base.state_us_52,American Samoa,AS,division_us_10,region_us_5,60,base.us_census,www.census.gov/geo/reference/ansi_statetables.html,base.us,state_type_us_uuss
+base.state_us_53,Guam,GU,division_us_10,region_us_5,66,base.us_census,www.census.gov/geo/reference/ansi_statetables.html,base.us,state_type_us_uuss
+base.state_us_54,Commonwealth of the Northern Mariana Islands,MP,division_us_10,region_us_5,69,base.us_census,www.census.gov/geo/reference/ansi_statetables.html,base.us,state_type_us_uuss
+base.state_us_55,Puerto Rico,PR,division_us_10,region_us_5,72,base.us_census,www.census.gov/geo/reference/ansi_statetables.html,base.us,state_type_us_uuss
+base.state_us_56,U.S. Minor Outlying Islands,UM,division_us_10,region_us_5,74,base.us_census,www.census.gov/geo/reference/ansi_statetables.html,base.us,state_type_us_moit
+base.state_us_57,U.S. Virgin Islands,VI,division_us_10,region_us_5,78,base.us_census,www.census.gov/geo/reference/ansi_statetables.html,base.us,state_type_us_uuss
+base.state_us_58,Federated States of Micronesia,FM,division_us_10,region_us_5,64,base.us_census,www.census.gov/geo/reference/ansi_statetables.html,base.us,state_type_us_fas
+base.state_us_59,Marshall Islands,MH,division_us_10,region_us_5,68,base.us_census,www.census.gov/geo/reference/ansi_statetables.html,base.us,state_type_us_fas
+base.state_us_60,Palau,PW,division_us_10,region_us_5,70,base.us_census,www.census.gov/geo/reference/ansi_statetables.html,base.us,state_type_us_fas
 
 

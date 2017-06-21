@@ -56,7 +56,7 @@
             <field name="arch" type="xml">
                 <form string="Allergy Intolerance">
                     <header>
-                        <field name="verification_status" widget="statusbar" clickable="True"/>
+                        <field name="verification_status" string="Verification Status" widget="statusbar" clickable="True"/>
                     </header>
                     <sheet>
                         <div class="oe_title oe_left">

@@ -1,546 +1,546 @@
 id,name,code,numeric_code,state_id/id,type_id/id,division_id/id,region_id/id,country_id/id
-hc_base.city_us_ca_02462,Arcadia,ADA,02462,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_00296,Adelanto,ADEL,00296,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_00394,Agoura Hills,AGRH,00394,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_00562,Alameda,ALA,00562,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_00674,Albany,ALB,00674,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_00884,Alhambra,ALH,00884,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_00618,Alamo,ALMO,00618,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_01444,Alturas,ALT,01444,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_01290,Altadena,ALTA,01290,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_01514,Amador,AMA,01514,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_01640,American Canyon,AMCN,01640,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_02000,Anaheim,ANA,02000,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_02042,Anderson,AND,02042,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_01150,Alondra Park,ANDP,01150,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_02112,Angels,ANG,02112,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_02252,Antioch,ANT,02252,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_02364,Apple Valley,APLV,02364,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_02476,Arcata,ARC,02476,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_02553,Arden-Arcade,ARDN,02553,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_02868,Arroyo Grande,ARGD,02868,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_02896,Artesia,ART,02896,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_02924,Arvin,ARV,02924,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_02980,Ashland,ASHD,02980,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_03064,Atascadero,ATAS,03064,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_03092,Atherton,ATN,03092,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_03162,Atwater,ATW,03162,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_03204,Auburn,AUB,03204,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_03274,Avalon,AVA,03274,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_03344,Avocado Heights,AVDH,03344,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_03302,Avenal,AVNL,03302,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_03386,Azusa,AZU,03386,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_03820,Banning,BAN,03820,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_04758,Beaumont,BAU,04758,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_06392,Big Bear Lake,BBL,06392,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_07946,Bradbury,BBY,07946,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_04870,Bell,BELL,04870,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_05290,Benicia,BEN,05290,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_06000,Berkeley,BER,06000,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_04982,Bellflower,BFL,04982,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_04996,Bell Gardens,BGDN,04996,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_06560,Biggs,BIG,06560,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_06798,Bishop,BIS,06798,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_03526,Bakersfield,BKD,03526,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_07162,Blue Lake,BLK,07162,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_08758,Buellton,BLTN,08758,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_05164,Belvedere,BLV,05164,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_07218,Blythe,BLY,07218,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_05108,Belmont,BMT,05108,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_07064,Bloomington,BMTN,07064,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_07414,Bonita,BONT,07414,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_07624,Bostonia,BOST,07624,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_08786,Buena Park,BPK,08786,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_08954,Burbank,BRB,08954,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_08100,Brea,BRE,08100,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_08058,Brawley,BRW,08058,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_08310,Brisbane,BSBN,08310,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_04030,Barstow,BSW,04030,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_08142,Brentwood,BTWD,08142,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_09066,Burlingame,BURL,09066,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_06308,Beverly Hills,BVHS,06308,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_03666,Baldwin Park,BWP,03666,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_04541,Baywood-Los Osos,BYWD,04541,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_11691,Casa De Oro-Mount Helix,CADE,11691,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_11390,Carmichael,CAEL,11390,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_90310,Calabasas,CAL,90310,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_09780,California City,CALC,09780,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_10564,Camp Pendleton South,CAMA,10564,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_10559,Camp Pendleton North,CAMN,10559,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_10256,Cameron Park,CAPA,10256,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_11446,Carpinteria,CARP,11446,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_11964,Castro Valley,CAVA,11964,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_11194,Carlsbad,CBD,11194,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_17498,Cudahy,CDHY,17498,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_12524,Ceres,CER,12524,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_14498,Colfax,CFX,14498,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_13014,Chico,CHC,13014,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_12902,Cherryland,CHLD,12902,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_13210,Chino,CHN,13210,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_13214,Chino Hills,CHNH,13214,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_13588,Citrus Heights,CHTS,13588,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_13392,Chula Vista,CHV,13392,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_13294,Chowchilla,CHW,13294,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_13756,Claremont,CLA,13756,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_17568,Culver City,CLC,17568,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_13945,Clearlake,CLLK,13945,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_14736,Colma,CLM,14736,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_14274,Coalinga,CLNG,14274,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_14218,Clovis,CLO,14218,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_09878,Calipatria,CLP,09878,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_14946,Colusa,CLU,14946,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_14190,Cloverdale,CLVD,14190,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_09710,Calexico,CLX,09710,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_16462,Corte Madera,CMAD,16462,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_10340,Campbell,CMB,10340,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_11250,Carmel-By-The-Sea,CML,11250,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_14974,Commerce,CMRC,14974,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_10046,Camarillo,CMRL,10046,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_16532,Costa Mesa,CMS,16532,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_09864,Calimesa,CMSA,09864,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_16000,Concord,CND,16000,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_16322,Corning,CNG,16322,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_10928,Canyon Lake,CNLK,10928,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_14260,Coachella,COA,14260,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_14890,Colton,COL,14890,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_15044,Compton,COM,15044,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_16350,Corona,COR,16350,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_16378,Coronado,CORD,16378,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_16560,Cotati,COTI,16560,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_16742,Covina,COV,16742,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_17610,Cupertino,CPO,17610,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_11040,Capitola,CPTL,11040,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_17022,Crescent City,CRC,17022,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_16224,Corcoran,CRCN,16224,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_11530,Carson,CRSN,11530,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_12552,Cerritos,CRTS,12552,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_09892,Calistoga,CSTG,09892,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_12048,Cathedral City,CTHC,12048,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_17750,Cypress,CYP,17750,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_13882,Clayton,CYTN,13882,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_17946,Dana Point,DAPT,17946,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_19318,Dinuba,DBA,19318,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_20018,Dublin,DBLN,20018,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_18996,Desert Hot Springs,DHSP,18996,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_17918,Daly City,DLC,17918,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_18506,Del Mar,DLMR,18506,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_18394,Delano,DLN,18394,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_19192,Diamond Bar,DMBR,19192,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_20242,Dunsmuir,DMR,20242,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_17988,Danville,DNVL,17988,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_19766,Downey,DNY,19766,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_19612,Dos Palos,DPLS,19612,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_18688,Del Rey Oaks,DRO,18688,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_19584,Dorris,DRS,19584,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_19990,Duarte,DRT,19990,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_18100,Davis,DVS,18100,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_19402,Dixon,DXN,19402,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_20598,East Foothills,EAFH,20598,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_20697,East Hemet,EAHE,20697,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_20802,East Los Angeles,EALA,20802,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_20956,East Palo Alto,EAPA,20956,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_21096,East San Gabriel,EASA,21096,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_21712,El Cajon,ECJ,21712,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_21782,El Centro,ECN,21782,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_21796,El Cerrito,ECR,21796,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_22020,Elk Grove,ELKG,22020,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_22468,El Toro,ELTO,22468,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_22230,El Monte,EMTE,22230,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_22594,Emeryville,EMV,22594,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_22678,Encinitas,ENTS,22678,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_20970,East Palo Alto,EPAO,20970,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_22804,Escondido,ESD,22804,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_22412,El Segundo,ESEG,22412,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_22790,Escalon,ESL,22790,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_39486,Lake Elsinore,ESN,39486,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_22972,Etna,ETN,22972,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_23042,Eureka,EUR,23042,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_23126,Exeter,EXR,23126,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_23462,Fallbrook,FABK,23462,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_23294,Fair Oaks,FAOK,23294,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_25058,Fort Bragg,FBG,25058,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_23910,Ferndale,FER,23910,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_24092,Fillmore,FIL,24092,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_24134,Firebaugh,FIR,24134,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_25128,Fort Jones,FJN,25128,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_24477,Florence-Graham,FLGR,24477,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_24498,Florin,FLIN,24498,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_26000,Fremont,FMT,26000,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_23616,Farmersville,FMVL,23616,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_24680,Fontana,FNA,24680,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_25380,Fountain Valley,FNV,25380,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_24722,Foothill Farms,FOFA,24722,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_24638,Folsom,FOL,24638,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_25436,Fowler,FOW,25436,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_27000,Fresno,FRE,27000,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_23182,Fairfield,FRFD,23182,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_23168,Fairfax,FRFX,23168,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_25338,Foster City,FSTC,25338,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_25296,Fortuna,FTA,25296,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_28000,Fullerton,FUL,28000,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_28112,Galt,GAL,28112,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_28168,Gardena,GAR,28168,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_31414,Guadalupe,GDLP,31414,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_30014,Glendora,GDR,30014,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_29000,Garden Grove,GGR,29000,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_29504,Gilroy,GIL,29504,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_29644,Glen Avon,GLAV,29644,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_05481,Goleta,GLTA,05481,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_30000,Glendale,GNDL,30000,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_30994,Greenfield,GNFD,30994,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_30392,Gonzales,GNZ,30392,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_31400,Grover Beach,GRC,31400,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_31260,Gridley,GRD,31260,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_30658,Grand Terrace,GRTR,30658,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_31568,Gustine City,GUS,31568,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_30798,Grass Valley,GVY,30798,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_31596,Hacienda Heights,HAHE,31596,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_31960,Hanford,HAN,31960,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_32548,Hawthorne,HAW,32548,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_33000,Hayward,HAY,33000,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_33182,Hemet,HEM,33182,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_33308,Hercules,HER,33308,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_33434,Hesperia,HES,33434,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_32506,Hawaiian Gardens,HGDN,32506,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_33518,Hidden Hill,HIDH,33518,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_33588,Highland,HIGH,33588,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_33798,Hillsborough,HIL,33798,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_33056,Healdsburg,HLBG,33056,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_33364,Hermosa Beach,HMB,33364,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_31708,Half Moon Bay,HMBY,31708,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_36000,Huntington Beach,HNTB,36000,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_36056,Huntington Park,HNTP,36056,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_34246,Holtville,HOLT,34246,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_36084,Huron,HRN,36084,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_34120,Hollister,HST,34120,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_34904,Hughson,HUSN,34904,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_36490,Industry,IDY,36490,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_36294,Imperial Beach,IMB,36294,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_36280,Imperial,IMP,36280,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_36448,Indio,IND,36448,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_36434,Indian Wells,INDW,36434,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_36546,Inglewood,ING,36546,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_36672,Ione,ION,36672,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_36770,Irvine,IRVN,36770,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_36826,Irwindale,IRW,36826,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_36882,Isleton,IST,36882,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_36868,Isla Vista,ISVA,36868,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_36980,Jackson,JKN,36980,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_38226,Kerman,KMN,38226,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_38520,King City,KNC,38520,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_38562,Kingsburg,KNGB,38562,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_44000,Los Angeles,LA,44000,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_43294,Los Altos Hills,LAH,43294,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_43224,Los Alamitos,LALM,43224,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_40088,Lamont,LAMT,40088,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_40130,Lancaster,LAN,40130,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_40410,La Riviera,LARI,40410,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_39766,Lakeside,LASI,39766,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_43280,Los Altos,LATS,43280,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_43000,Long Beach,LBCH,43000,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_44028,Los Banos,LBNS,44028,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_39003,La Canada-Flintridge,LCF,39003,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_39045,La Crescenta-Montrose,LCMR,39045,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_41152,Lemoore,LEM,41152,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_41180,Lennox,LENX,41180,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_39122,Lafayette,LFYT,39122,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_39178,Laguna Beach,LGNB,39178,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_39248,Laguna Niguel,LGNG,39248,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_39220,Laguna Hills,LGNH,39220,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_44112,Los Gatos,LGTS,44112,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_39290,La Habra,LHB,39290,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_39304,La Habra Heights,LHHS,39304,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_41572,Linda,LIDA,41572,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_41936,Live Oak,LIO,41936,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_41922,Live Oak,LIOK,41922,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_39496,Lake Forest,LKFR,39496,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_39710,Lakeport,LKPT,39710,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_40438,Larkspur,LKSP,40438,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_39892,Lakewood,LKW,39892,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_41124,Lemon Grove,LMGR,41124,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_42370,Loma Linda,LMLN,42370,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_40032,La Mirada,LMRD,40032,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_43140,Loomis,LMS,43140,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_40004,La Mesa,LMSA,40004,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_42468,Lomita,LMTA,42468,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_41474,Lincoln,LNCN,41474,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_40886,Lawndale,LNDL,40886,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_41712,Lindsay,LNSY,41712,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_42202,Lodi,LOD,42202,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_42524,Lompoc,LOM,42524,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_44364,Loyalton,LOY,44364,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_40256,La Palma,LPMA,40256,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_40340,La Puente,LPU,40340,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_40354,La Quinta,LQNT,40354,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_40704,Lathrop,LTRP,40704,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_41992,Livermore,LVMR,41992,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_40830,La Verne,LVN,40830,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_42006,Livingston,LVTN,42006,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_44574,Lynwood,LYN,44574,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_45022,Madera,MAD,45022,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_45246,Malibu,MAL,45246,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_45400,Manhattan Beach,MANB,45400,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_44826,Mc Farland,MCF,44826,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_48788,Montclair,MCL,48788,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_45736,Maricopa,MCP,45736,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_46828,Mendota,MDA,46828,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_46898,Merced,MER,46898,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_49278,Morgan Hill,MGH,49278,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_47976,Mira Loma,MILO,47976,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_44910,Mckinleyville,MKVL,44910,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_47486,Millbrae,MLBR,47486,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_46870,Menlo Park,MLP,46870,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_47710,Mill Valley,MLV,47710,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_45358,Mammoth Lakes,MMLK,45358,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_48648,Monrovia,MNRO,48648,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_48690,Montague,MNTG,48690,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_49362,Morro Bay,MOBY,49362,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_48354,Modesto,MOD,48354,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_48872,Monterey,MON,48872,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_48914,Monterey Park,MONP,48914,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_49270,Moreno Valley,MORV,49270,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_47766,Milpitas,MPS,47766,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_49194,Moraga,MRGA,49194,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_45778,Marina,MRNA,45778,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_49138,Moorpark,MRPK,49138,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_50076,Murrieta,MRTA,50076,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_49852,Mount Shasta,MSHA,49852,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_48256,Mission Viejo,MSNV,48256,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_48956,Monte Sereno,MSO,48956,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_48816,Montebello,MTBL,48816,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_45484,Manteca,MTCA,45484,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_46114,Martinez,MTZ,46114,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_46170,Marysville,MVL,46170,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_49670,Mountain View,MVW,49670,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_46492,Maywood,MYD,46492,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_50258,Napa,NAP,50258,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_50398,National City,NATC,50398,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_50734,Needles,NED,50734,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_50874,Nevada City,NEVC,50874,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_51140,Newman,NEWM,51140,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_51637,North Auburn,NOAU,51637,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_51924,North Highlands,NOHI,51924,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_51182,Newport Beach,NPTB,51182,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_51560,Norco,NRCO,51560,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_52526,Norwalk,NRW,52526,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_52582,Novato,NVTO,52582,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_50916,Newark,NWK,50916,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_53000,Oakland,OAK,53000,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_53322,Oceanside,OCN,53322,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_53476,Ojai,OJI,53476,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_52694,Oakdale,OKDL,52694,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_53070,Oakley,OKLY,53070,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_53448,Oildale,OLDL,53448,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_53896,Ontario,ONT,53896,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_53980,Orange,ORA,53980,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_54008,Orange Cove,ORCV,54008,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_54232,Orinda,ORIN,54232,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_54274,Orland,ORL,54274,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_54092,Orangevale,ORVL,54092,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_54386,Oroville,OVL,54386,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_54652,Oxnard,OXN,54652,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_55282,Palo Alto,PA,55282,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_55856,Parlier,PAR,55856,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_56000,Pasadena,PAS,56000,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_56112,Patterson,PAT,56112,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_57414,Pismo Beach,PBCH,57414,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_56938,Piedmont,PDMT,56938,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_55184,Palm Desert,PDST,55184,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_56700,Perris,PER,56700,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_56784,Petaluma,PET,56784,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_54806,Pacifica,PFA,54806,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_54848,Pacific Grove,PGR,54848,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_58296,Port Hueneme,PHME,58296,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_57288,Pinole,PIN,57288,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_57456,Pittsburg,PIT,57456,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_55837,Parkway-South Sacramento,PKSH,55837,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_57526,Placentia,PLCN,57526,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_57540,Placerville,PLCR,57540,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_57792,Pleasanton,PLE,57792,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_57764,Pleasant Hill,PLHL,57764,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_57834,Plymouth,PLY,57834,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_55156,Palmdale,PMDL,55156,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_58072,Pomona,POM,58072,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_55520,Paradise,PRDS,55520,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_55618,Paramount,PRM,55618,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_58352,Portola,PRTL,58352,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_56924,Pico Rivera,PRV,56924,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_55254,Palm Springs,PSP,55254,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_22300,El Paso De Robles,PSRS,22300,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_57876,Point Arena,PTA,57876,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_58380,Portola Valley,PTLV,58380,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_58240,Porterville,PTRV,58240,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_55380,Palos Verdes Estates,PVE,55380,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_58520,Poway,PWY,58520,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_59444,Rancho Cordova,RACO,59444,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_59346,Ramona,RAMO,59346,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_59892,Red Bluff,RBL,59892,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_60620,Richmond,RCH,60620,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_59451,Rancho Cucamonga,RCUC,59451,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_60900,Rio Dell,RDEL,60900,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_59920,Redding,RDG,59920,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_59962,Redlands,RDL,59962,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_60018,Redondo Beach,RDOB,60018,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_60102,Redwood City,RDWC,60102,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_60242,Reedley,REED,60242,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_60704,Ridgecrest,RGCR,60704,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_62644,Rolling Hills Estates,RHE,62644,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_60466,Rialto,RIA,60466,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_61026,Ripon,RIP,61026,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_62000,Riverside,RIV,62000,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_62602,Rolling Hills,RLH,62602,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_59500,Rancho Mirage,RMIR,59500,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_62546,Rohnert Park,RNPK,62546,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_62364,Rocklin,ROC,62364,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_63218,Rowland Heights,ROHE,63218,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_59514,Rancho Palos Verdes,ROPV,59514,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_62980,Ross,ROS,62980,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_59587,Rancho Santa Margarita,RSM,59587,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_62896,Rosemead,RSMD,62896,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_62910,Rosemont,RSMT,62910,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_62938,Roseville,RSV,62938,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_63260,Rubidoux,RUDX,63260,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_61068,Riverbank,RVBK,61068,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_60984,Rio Vista,RVS,60984,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_69000,Santa Ana,SA,69000,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_64000,Sacramento,SAC,64000,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_64224,Salinas,SAL,64224,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_68112,San Lorenzo,SALR,68112,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_70280,Saratoga,SAR,70280,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_70364,Sausalito,SAUS,70364,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_69070,Santa Barbara,SB,69070,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_65000,San Bernardino,SBD,65000,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_65028,San Bruno,SBR,65028,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_65070,San Carlos,SCAR,65070,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_69084,Santa Clara,SCL,69084,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_65084,San Clemente,SCLE,65084,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_69112,Santa Cruz,SCR,69112,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_69088,Santa Clarita,SCTA,69088,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_70588,Scotts Valley,SCTV,70588,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_66000,San Diego,SD,66000,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_66070,San Dimas,SDMS,66070,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_70742,Seaside,SEA,70742,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_70770,Sebastopol,SEB,70770,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_70882,Selma,SEL,70882,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_72996,South El Monte,SEMT,72996,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_67000,San Francisco,SF,67000,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_66140,San Fernando,SFR,66140,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_69154,Santa Fe Springs,SFSP,69154,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_67042,San Gabriel,SGB,67042,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_67056,Sanger,SGR,67056,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_73080,South Gate,SGT,73080,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_71106,Shafter,SHF,71106,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_64140,Saint Helena,SHLA,64140,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_71225,Shasta Lake,SHLK,71225,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_71806,Sierra Madre,SIEM,71806,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_71876,Signal Hill,SIGH,71876,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_72016,Simi Valley,SIMV,72016,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_67126,San Joaquin,SJ,67126,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_68014,San Juan Bautista,SJB,68014,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_67112,San Jacinto,SJC,67112,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_68028,San Juan Capistrano,SJCP,68028,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_68000,San Jose,SJS,68000,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_70686,Seal Beach,SLB,70686,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_64434,San Anselmo,SLMO,64434,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_68084,San Leandro,SLN,68084,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_68154,San Luis Obispo,SLO,68154,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_73108,South Lake Tahoe,SLTO,73108,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_72576,Solvang,SLVG,72576,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_68252,San Mateo,SM,68252,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_70000,Santa Monica,SMCA,70000,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_68196,San Marcos,SMCS,68196,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_69196,Santa Maria,SMRA,69196,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_68224,San Marino,SMRO,68224,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_65112,Sand City,SNDC,65112,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_70224,Santee,SNT,70224,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_72520,Soledad,SOL,72520,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_72506,Solana Beach,SOLB,72506,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_72646,Sonoma,SON,72646,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_73430,South Whittier,SOWH,73430,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_70042,Santa Paula,SPA,70042,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_73220,South Pasadena,SPAS,73220,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_68294,San Pablo,SPB,68294,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_73696,Spring Valley,SPVA,73696,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_72674,Sonora,SRA,72674,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_68364,San Rafael,SRF,68364,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_68378,San Ramon,SRMN,68378,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_70098,Santa Rosa,SRO,70098,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_73262,South San Francisco,SSF,73262,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_73290,South San Jose Hills,SSJH,73290,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_77392,Sutter Creek,STCK,77392,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_73906,Stanford,STFD,73906,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_75000,Stockton,STKN,75000,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_73962,Stanton,STT,73962,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_75826,Sun City,SUCI,75826,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_75630,Suisun City,SUIS,75630,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_77000,Sunnyvale,SUNV,77000,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_77364,Susanville,SUSV,77364,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_77574,Taft,TAF,77574,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_78666,Tiburon,TBRN,78666,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_78106,Tehama,TEH,78106,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_78582,Thousand Oaks,THOK,78582,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_78092,Tehachapi,THPI,78092,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_80686,Tulelake,TLK,80686,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_78120,Temecula,TMCA,78120,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_78148,Temple City,TMPC,78148,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_80994,Twentynine Palms,TNP,80994,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_81008,Twentynine Palms Base,TNPB,81008,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_80000,Torrance,TOR,80000,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_80238,Tracy,TRA,80238,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_80588,Town Of Truckee,TRK,80588,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_80448,Trinidad,TRND,80448,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_80868,Tustin Foothills,TUFH,80868,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_80644,Tulare,TUL,80644,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_80812,Turlock,TUR,80812,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_80854,Tustin,TUS,80854,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_81134,Ukiah,UKI,81134,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_81204,Union City,UNC,81204,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_81344,Upland,UPL,81344,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_81554,Vacaville,VAC,81554,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_81666,Vallejo,VAL,81666,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_81638,Valinda,VALA,81638,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_82590,Victorville,VCTV,82590,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_65042,San Buenaventura,VEN,65042,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_82422,Vernon,VER,82422,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_82954,Visalia,VIS,82954,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_82744,Villa Park,VLPK,82744,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_82814,Vincent,VNCT,82814,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_82667,View Park-Windsor Hills,VPWH,82667,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_82996,Vista,VSTA,82996,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_83332,Walnut,WAL,83332,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_83542,Wasco,WAS,83542,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_83668,Watsonville,WAT,83668,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_84200,West Covina,WCOV,84200,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_84144,West Carson,WCRN,84144,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_86328,Woodland,WD,86328,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_86440,Woodside,WDS,86440,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_83850,Weed,WEED,83850,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_85012,Wheatland,WHT,85012,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_84410,West Hollywood,WHWD,84410,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_85614,Willowbrook,WIBK,85614,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_85446,Wildomar,WIMR,85446,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_86034,Winters,WIN,86034,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_85292,Whittier,WIT,85292,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_83346,Walnut Creek,WLC,83346,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_86300,Woodlake,WLK,86300,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_84438,Westlake Village,WLKV,84438,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_85684,Willows,WLOS,85684,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_83402,Walnut Park,WLPK,83402,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_85600,Willits,WLTS,85600,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_84606,Westmorland,WMD,84606,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_84592,Westmont,WMNT,84592,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_85586,Williams,WMS,85586,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_85922,Town Of Windsor,WNSR,85922,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_84704,West Pittsburg,WPBG,84704,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_84774,West Puente Valley,WPVY,84774,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_84816,West Sacramento,WSAC,84816,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_84550,Westminster,WTM,84550,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_83612,Waterford,WTRF,83612,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_84921,West Whittier-Los Nietos,WWLS,84921,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_86832,Yorba Linda,YBLN,86832,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_86972,Yuba City,YC,86972,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_93850,Yucaipa,YCPA,93850,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_86930,Yountville,YNTV,86930,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_86944,Yreka City,YRE,86944,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_87042,Yucaipa,YUCP,87042,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
-hc_base.city_us_ca_87056,Yucca Valley,YUCV,87056,base.state_us_5,hc_base.place_type_city,hc_base.division_us_9,hc_base.region_us_4,base.us
+city_us_ca_02462,Arcadia,ADA,02462,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_00296,Adelanto,ADEL,00296,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_00394,Agoura Hills,AGRH,00394,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_00562,Alameda,ALA,00562,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_00674,Albany,ALB,00674,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_00884,Alhambra,ALH,00884,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_00618,Alamo,ALMO,00618,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_01444,Alturas,ALT,01444,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_01290,Altadena,ALTA,01290,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_01514,Amador,AMA,01514,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_01640,American Canyon,AMCN,01640,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_02000,Anaheim,ANA,02000,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_02042,Anderson,AND,02042,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_01150,Alondra Park,ANDP,01150,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_02112,Angels,ANG,02112,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_02252,Antioch,ANT,02252,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_02364,Apple Valley,APLV,02364,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_02476,Arcata,ARC,02476,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_02553,Arden-Arcade,ARDN,02553,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_02868,Arroyo Grande,ARGD,02868,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_02896,Artesia,ART,02896,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_02924,Arvin,ARV,02924,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_02980,Ashland,ASHD,02980,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_03064,Atascadero,ATAS,03064,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_03092,Atherton,ATN,03092,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_03162,Atwater,ATW,03162,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_03204,Auburn,AUB,03204,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_03274,Avalon,AVA,03274,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_03344,Avocado Heights,AVDH,03344,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_03302,Avenal,AVNL,03302,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_03386,Azusa,AZU,03386,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_03820,Banning,BAN,03820,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_04758,Beaumont,BAU,04758,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_06392,Big Bear Lake,BBL,06392,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_07946,Bradbury,BBY,07946,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_04870,Bell,BELL,04870,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_05290,Benicia,BEN,05290,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_06000,Berkeley,BER,06000,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_04982,Bellflower,BFL,04982,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_04996,Bell Gardens,BGDN,04996,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_06560,Biggs,BIG,06560,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_06798,Bishop,BIS,06798,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_03526,Bakersfield,BKD,03526,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_07162,Blue Lake,BLK,07162,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_08758,Buellton,BLTN,08758,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_05164,Belvedere,BLV,05164,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_07218,Blythe,BLY,07218,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_05108,Belmont,BMT,05108,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_07064,Bloomington,BMTN,07064,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_07414,Bonita,BONT,07414,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_07624,Bostonia,BOST,07624,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_08786,Buena Park,BPK,08786,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_08954,Burbank,BRB,08954,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_08100,Brea,BRE,08100,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_08058,Brawley,BRW,08058,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_08310,Brisbane,BSBN,08310,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_04030,Barstow,BSW,04030,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_08142,Brentwood,BTWD,08142,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_09066,Burlingame,BURL,09066,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_06308,Beverly Hills,BVHS,06308,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_03666,Baldwin Park,BWP,03666,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_04541,Baywood-Los Osos,BYWD,04541,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_11691,Casa De Oro-Mount Helix,CADE,11691,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_11390,Carmichael,CAEL,11390,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_90310,Calabasas,CAL,90310,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_09780,California City,CALC,09780,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_10564,Camp Pendleton South,CAMA,10564,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_10559,Camp Pendleton North,CAMN,10559,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_10256,Cameron Park,CAPA,10256,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_11446,Carpinteria,CARP,11446,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_11964,Castro Valley,CAVA,11964,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_11194,Carlsbad,CBD,11194,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_17498,Cudahy,CDHY,17498,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_12524,Ceres,CER,12524,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_14498,Colfax,CFX,14498,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_13014,Chico,CHC,13014,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_12902,Cherryland,CHLD,12902,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_13210,Chino,CHN,13210,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_13214,Chino Hills,CHNH,13214,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_13588,Citrus Heights,CHTS,13588,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_13392,Chula Vista,CHV,13392,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_13294,Chowchilla,CHW,13294,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_13756,Claremont,CLA,13756,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_17568,Culver City,CLC,17568,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_13945,Clearlake,CLLK,13945,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_14736,Colma,CLM,14736,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_14274,Coalinga,CLNG,14274,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_14218,Clovis,CLO,14218,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_09878,Calipatria,CLP,09878,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_14946,Colusa,CLU,14946,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_14190,Cloverdale,CLVD,14190,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_09710,Calexico,CLX,09710,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_16462,Corte Madera,CMAD,16462,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_10340,Campbell,CMB,10340,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_11250,Carmel-By-The-Sea,CML,11250,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_14974,Commerce,CMRC,14974,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_10046,Camarillo,CMRL,10046,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_16532,Costa Mesa,CMS,16532,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_09864,Calimesa,CMSA,09864,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_16000,Concord,CND,16000,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_16322,Corning,CNG,16322,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_10928,Canyon Lake,CNLK,10928,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_14260,Coachella,COA,14260,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_14890,Colton,COL,14890,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_15044,Compton,COM,15044,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_16350,Corona,COR,16350,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_16378,Coronado,CORD,16378,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_16560,Cotati,COTI,16560,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_16742,Covina,COV,16742,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_17610,Cupertino,CPO,17610,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_11040,Capitola,CPTL,11040,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_17022,Crescent City,CRC,17022,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_16224,Corcoran,CRCN,16224,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_11530,Carson,CRSN,11530,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_12552,Cerritos,CRTS,12552,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_09892,Calistoga,CSTG,09892,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_12048,Cathedral City,CTHC,12048,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_17750,Cypress,CYP,17750,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_13882,Clayton,CYTN,13882,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_17946,Dana Point,DAPT,17946,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_19318,Dinuba,DBA,19318,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_20018,Dublin,DBLN,20018,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_18996,Desert Hot Springs,DHSP,18996,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_17918,Daly City,DLC,17918,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_18506,Del Mar,DLMR,18506,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_18394,Delano,DLN,18394,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_19192,Diamond Bar,DMBR,19192,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_20242,Dunsmuir,DMR,20242,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_17988,Danville,DNVL,17988,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_19766,Downey,DNY,19766,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_19612,Dos Palos,DPLS,19612,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_18688,Del Rey Oaks,DRO,18688,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_19584,Dorris,DRS,19584,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_19990,Duarte,DRT,19990,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_18100,Davis,DVS,18100,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_19402,Dixon,DXN,19402,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_20598,East Foothills,EAFH,20598,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_20697,East Hemet,EAHE,20697,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_20802,East Los Angeles,EALA,20802,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_20956,East Palo Alto,EAPA,20956,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_21096,East San Gabriel,EASA,21096,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_21712,El Cajon,ECJ,21712,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_21782,El Centro,ECN,21782,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_21796,El Cerrito,ECR,21796,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_22020,Elk Grove,ELKG,22020,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_22468,El Toro,ELTO,22468,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_22230,El Monte,EMTE,22230,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_22594,Emeryville,EMV,22594,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_22678,Encinitas,ENTS,22678,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_20970,East Palo Alto,EPAO,20970,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_22804,Escondido,ESD,22804,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_22412,El Segundo,ESEG,22412,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_22790,Escalon,ESL,22790,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_39486,Lake Elsinore,ESN,39486,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_22972,Etna,ETN,22972,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_23042,Eureka,EUR,23042,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_23126,Exeter,EXR,23126,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_23462,Fallbrook,FABK,23462,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_23294,Fair Oaks,FAOK,23294,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_25058,Fort Bragg,FBG,25058,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_23910,Ferndale,FER,23910,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_24092,Fillmore,FIL,24092,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_24134,Firebaugh,FIR,24134,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_25128,Fort Jones,FJN,25128,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_24477,Florence-Graham,FLGR,24477,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_24498,Florin,FLIN,24498,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_26000,Fremont,FMT,26000,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_23616,Farmersville,FMVL,23616,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_24680,Fontana,FNA,24680,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_25380,Fountain Valley,FNV,25380,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_24722,Foothill Farms,FOFA,24722,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_24638,Folsom,FOL,24638,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_25436,Fowler,FOW,25436,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_27000,Fresno,FRE,27000,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_23182,Fairfield,FRFD,23182,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_23168,Fairfax,FRFX,23168,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_25338,Foster City,FSTC,25338,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_25296,Fortuna,FTA,25296,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_28000,Fullerton,FUL,28000,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_28112,Galt,GAL,28112,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_28168,Gardena,GAR,28168,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_31414,Guadalupe,GDLP,31414,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_30014,Glendora,GDR,30014,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_29000,Garden Grove,GGR,29000,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_29504,Gilroy,GIL,29504,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_29644,Glen Avon,GLAV,29644,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_05481,Goleta,GLTA,05481,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_30000,Glendale,GNDL,30000,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_30994,Greenfield,GNFD,30994,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_30392,Gonzales,GNZ,30392,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_31400,Grover Beach,GRC,31400,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_31260,Gridley,GRD,31260,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_30658,Grand Terrace,GRTR,30658,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_31568,Gustine City,GUS,31568,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_30798,Grass Valley,GVY,30798,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_31596,Hacienda Heights,HAHE,31596,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_31960,Hanford,HAN,31960,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_32548,Hawthorne,HAW,32548,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_33000,Hayward,HAY,33000,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_33182,Hemet,HEM,33182,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_33308,Hercules,HER,33308,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_33434,Hesperia,HES,33434,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_32506,Hawaiian Gardens,HGDN,32506,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_33518,Hidden Hill,HIDH,33518,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_33588,Highland,HIGH,33588,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_33798,Hillsborough,HIL,33798,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_33056,Healdsburg,HLBG,33056,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_33364,Hermosa Beach,HMB,33364,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_31708,Half Moon Bay,HMBY,31708,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_36000,Huntington Beach,HNTB,36000,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_36056,Huntington Park,HNTP,36056,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_34246,Holtville,HOLT,34246,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_36084,Huron,HRN,36084,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_34120,Hollister,HST,34120,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_34904,Hughson,HUSN,34904,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_36490,Industry,IDY,36490,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_36294,Imperial Beach,IMB,36294,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_36280,Imperial,IMP,36280,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_36448,Indio,IND,36448,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_36434,Indian Wells,INDW,36434,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_36546,Inglewood,ING,36546,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_36672,Ione,ION,36672,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_36770,Irvine,IRVN,36770,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_36826,Irwindale,IRW,36826,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_36882,Isleton,IST,36882,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_36868,Isla Vista,ISVA,36868,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_36980,Jackson,JKN,36980,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_38226,Kerman,KMN,38226,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_38520,King City,KNC,38520,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_38562,Kingsburg,KNGB,38562,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_44000,Los Angeles,LA,44000,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_43294,Los Altos Hills,LAH,43294,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_43224,Los Alamitos,LALM,43224,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_40088,Lamont,LAMT,40088,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_40130,Lancaster,LAN,40130,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_40410,La Riviera,LARI,40410,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_39766,Lakeside,LASI,39766,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_43280,Los Altos,LATS,43280,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_43000,Long Beach,LBCH,43000,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_44028,Los Banos,LBNS,44028,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_39003,La Canada-Flintridge,LCF,39003,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_39045,La Crescenta-Montrose,LCMR,39045,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_41152,Lemoore,LEM,41152,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_41180,Lennox,LENX,41180,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_39122,Lafayette,LFYT,39122,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_39178,Laguna Beach,LGNB,39178,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_39248,Laguna Niguel,LGNG,39248,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_39220,Laguna Hills,LGNH,39220,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_44112,Los Gatos,LGTS,44112,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_39290,La Habra,LHB,39290,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_39304,La Habra Heights,LHHS,39304,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_41572,Linda,LIDA,41572,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_41936,Live Oak,LIO,41936,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_41922,Live Oak,LIOK,41922,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_39496,Lake Forest,LKFR,39496,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_39710,Lakeport,LKPT,39710,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_40438,Larkspur,LKSP,40438,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_39892,Lakewood,LKW,39892,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_41124,Lemon Grove,LMGR,41124,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_42370,Loma Linda,LMLN,42370,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_40032,La Mirada,LMRD,40032,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_43140,Loomis,LMS,43140,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_40004,La Mesa,LMSA,40004,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_42468,Lomita,LMTA,42468,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_41474,Lincoln,LNCN,41474,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_40886,Lawndale,LNDL,40886,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_41712,Lindsay,LNSY,41712,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_42202,Lodi,LOD,42202,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_42524,Lompoc,LOM,42524,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_44364,Loyalton,LOY,44364,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_40256,La Palma,LPMA,40256,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_40340,La Puente,LPU,40340,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_40354,La Quinta,LQNT,40354,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_40704,Lathrop,LTRP,40704,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_41992,Livermore,LVMR,41992,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_40830,La Verne,LVN,40830,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_42006,Livingston,LVTN,42006,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_44574,Lynwood,LYN,44574,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_45022,Madera,MAD,45022,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_45246,Malibu,MAL,45246,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_45400,Manhattan Beach,MANB,45400,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_44826,Mc Farland,MCF,44826,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_48788,Montclair,MCL,48788,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_45736,Maricopa,MCP,45736,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_46828,Mendota,MDA,46828,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_46898,Merced,MER,46898,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_49278,Morgan Hill,MGH,49278,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_47976,Mira Loma,MILO,47976,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_44910,Mckinleyville,MKVL,44910,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_47486,Millbrae,MLBR,47486,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_46870,Menlo Park,MLP,46870,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_47710,Mill Valley,MLV,47710,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_45358,Mammoth Lakes,MMLK,45358,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_48648,Monrovia,MNRO,48648,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_48690,Montague,MNTG,48690,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_49362,Morro Bay,MOBY,49362,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_48354,Modesto,MOD,48354,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_48872,Monterey,MON,48872,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_48914,Monterey Park,MONP,48914,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_49270,Moreno Valley,MORV,49270,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_47766,Milpitas,MPS,47766,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_49194,Moraga,MRGA,49194,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_45778,Marina,MRNA,45778,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_49138,Moorpark,MRPK,49138,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_50076,Murrieta,MRTA,50076,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_49852,Mount Shasta,MSHA,49852,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_48256,Mission Viejo,MSNV,48256,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_48956,Monte Sereno,MSO,48956,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_48816,Montebello,MTBL,48816,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_45484,Manteca,MTCA,45484,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_46114,Martinez,MTZ,46114,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_46170,Marysville,MVL,46170,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_49670,Mountain View,MVW,49670,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_46492,Maywood,MYD,46492,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_50258,Napa,NAP,50258,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_50398,National City,NATC,50398,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_50734,Needles,NED,50734,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_50874,Nevada City,NEVC,50874,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_51140,Newman,NEWM,51140,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_51637,North Auburn,NOAU,51637,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_51924,North Highlands,NOHI,51924,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_51182,Newport Beach,NPTB,51182,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_51560,Norco,NRCO,51560,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_52526,Norwalk,NRW,52526,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_52582,Novato,NVTO,52582,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_50916,Newark,NWK,50916,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_53000,Oakland,OAK,53000,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_53322,Oceanside,OCN,53322,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_53476,Ojai,OJI,53476,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_52694,Oakdale,OKDL,52694,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_53070,Oakley,OKLY,53070,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_53448,Oildale,OLDL,53448,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_53896,Ontario,ONT,53896,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_53980,Orange,ORA,53980,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_54008,Orange Cove,ORCV,54008,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_54232,Orinda,ORIN,54232,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_54274,Orland,ORL,54274,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_54092,Orangevale,ORVL,54092,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_54386,Oroville,OVL,54386,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_54652,Oxnard,OXN,54652,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_55282,Palo Alto,PA,55282,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_55856,Parlier,PAR,55856,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_56000,Pasadena,PAS,56000,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_56112,Patterson,PAT,56112,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_57414,Pismo Beach,PBCH,57414,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_56938,Piedmont,PDMT,56938,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_55184,Palm Desert,PDST,55184,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_56700,Perris,PER,56700,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_56784,Petaluma,PET,56784,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_54806,Pacifica,PFA,54806,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_54848,Pacific Grove,PGR,54848,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_58296,Port Hueneme,PHME,58296,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_57288,Pinole,PIN,57288,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_57456,Pittsburg,PIT,57456,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_55837,Parkway-South Sacramento,PKSH,55837,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_57526,Placentia,PLCN,57526,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_57540,Placerville,PLCR,57540,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_57792,Pleasanton,PLE,57792,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_57764,Pleasant Hill,PLHL,57764,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_57834,Plymouth,PLY,57834,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_55156,Palmdale,PMDL,55156,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_58072,Pomona,POM,58072,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_55520,Paradise,PRDS,55520,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_55618,Paramount,PRM,55618,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_58352,Portola,PRTL,58352,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_56924,Pico Rivera,PRV,56924,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_55254,Palm Springs,PSP,55254,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_22300,El Paso De Robles,PSRS,22300,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_57876,Point Arena,PTA,57876,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_58380,Portola Valley,PTLV,58380,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_58240,Porterville,PTRV,58240,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_55380,Palos Verdes Estates,PVE,55380,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_58520,Poway,PWY,58520,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_59444,Rancho Cordova,RACO,59444,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_59346,Ramona,RAMO,59346,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_59892,Red Bluff,RBL,59892,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_60620,Richmond,RCH,60620,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_59451,Rancho Cucamonga,RCUC,59451,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_60900,Rio Dell,RDEL,60900,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_59920,Redding,RDG,59920,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_59962,Redlands,RDL,59962,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_60018,Redondo Beach,RDOB,60018,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_60102,Redwood City,RDWC,60102,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_60242,Reedley,REED,60242,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_60704,Ridgecrest,RGCR,60704,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_62644,Rolling Hills Estates,RHE,62644,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_60466,Rialto,RIA,60466,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_61026,Ripon,RIP,61026,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_62000,Riverside,RIV,62000,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_62602,Rolling Hills,RLH,62602,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_59500,Rancho Mirage,RMIR,59500,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_62546,Rohnert Park,RNPK,62546,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_62364,Rocklin,ROC,62364,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_63218,Rowland Heights,ROHE,63218,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_59514,Rancho Palos Verdes,ROPV,59514,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_62980,Ross,ROS,62980,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_59587,Rancho Santa Margarita,RSM,59587,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_62896,Rosemead,RSMD,62896,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_62910,Rosemont,RSMT,62910,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_62938,Roseville,RSV,62938,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_63260,Rubidoux,RUDX,63260,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_61068,Riverbank,RVBK,61068,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_60984,Rio Vista,RVS,60984,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_69000,Santa Ana,SA,69000,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_64000,Sacramento,SAC,64000,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_64224,Salinas,SAL,64224,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_68112,San Lorenzo,SALR,68112,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_70280,Saratoga,SAR,70280,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_70364,Sausalito,SAUS,70364,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_69070,Santa Barbara,SB,69070,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_65000,San Bernardino,SBD,65000,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_65028,San Bruno,SBR,65028,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_65070,San Carlos,SCAR,65070,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_69084,Santa Clara,SCL,69084,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_65084,San Clemente,SCLE,65084,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_69112,Santa Cruz,SCR,69112,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_69088,Santa Clarita,SCTA,69088,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_70588,Scotts Valley,SCTV,70588,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_66000,San Diego,SD,66000,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_66070,San Dimas,SDMS,66070,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_70742,Seaside,SEA,70742,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_70770,Sebastopol,SEB,70770,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_70882,Selma,SEL,70882,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_72996,South El Monte,SEMT,72996,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_67000,San Francisco,SF,67000,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_66140,San Fernando,SFR,66140,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_69154,Santa Fe Springs,SFSP,69154,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_67042,San Gabriel,SGB,67042,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_67056,Sanger,SGR,67056,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_73080,South Gate,SGT,73080,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_71106,Shafter,SHF,71106,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_64140,Saint Helena,SHLA,64140,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_71225,Shasta Lake,SHLK,71225,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_71806,Sierra Madre,SIEM,71806,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_71876,Signal Hill,SIGH,71876,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_72016,Simi Valley,SIMV,72016,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_67126,San Joaquin,SJ,67126,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_68014,San Juan Bautista,SJB,68014,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_67112,San Jacinto,SJC,67112,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_68028,San Juan Capistrano,SJCP,68028,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_68000,San Jose,SJS,68000,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_70686,Seal Beach,SLB,70686,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_64434,San Anselmo,SLMO,64434,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_68084,San Leandro,SLN,68084,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_68154,San Luis Obispo,SLO,68154,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_73108,South Lake Tahoe,SLTO,73108,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_72576,Solvang,SLVG,72576,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_68252,San Mateo,SM,68252,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_70000,Santa Monica,SMCA,70000,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_68196,San Marcos,SMCS,68196,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_69196,Santa Maria,SMRA,69196,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_68224,San Marino,SMRO,68224,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_65112,Sand City,SNDC,65112,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_70224,Santee,SNT,70224,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_72520,Soledad,SOL,72520,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_72506,Solana Beach,SOLB,72506,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_72646,Sonoma,SON,72646,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_73430,South Whittier,SOWH,73430,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_70042,Santa Paula,SPA,70042,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_73220,South Pasadena,SPAS,73220,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_68294,San Pablo,SPB,68294,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_73696,Spring Valley,SPVA,73696,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_72674,Sonora,SRA,72674,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_68364,San Rafael,SRF,68364,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_68378,San Ramon,SRMN,68378,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_70098,Santa Rosa,SRO,70098,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_73262,South San Francisco,SSF,73262,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_73290,South San Jose Hills,SSJH,73290,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_77392,Sutter Creek,STCK,77392,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_73906,Stanford,STFD,73906,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_75000,Stockton,STKN,75000,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_73962,Stanton,STT,73962,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_75826,Sun City,SUCI,75826,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_75630,Suisun City,SUIS,75630,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_77000,Sunnyvale,SUNV,77000,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_77364,Susanville,SUSV,77364,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_77574,Taft,TAF,77574,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_78666,Tiburon,TBRN,78666,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_78106,Tehama,TEH,78106,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_78582,Thousand Oaks,THOK,78582,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_78092,Tehachapi,THPI,78092,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_80686,Tulelake,TLK,80686,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_78120,Temecula,TMCA,78120,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_78148,Temple City,TMPC,78148,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_80994,Twentynine Palms,TNP,80994,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_81008,Twentynine Palms Base,TNPB,81008,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_80000,Torrance,TOR,80000,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_80238,Tracy,TRA,80238,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_80588,Town Of Truckee,TRK,80588,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_80448,Trinidad,TRND,80448,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_80868,Tustin Foothills,TUFH,80868,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_80644,Tulare,TUL,80644,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_80812,Turlock,TUR,80812,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_80854,Tustin,TUS,80854,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_81134,Ukiah,UKI,81134,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_81204,Union City,UNC,81204,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_81344,Upland,UPL,81344,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_81554,Vacaville,VAC,81554,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_81666,Vallejo,VAL,81666,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_81638,Valinda,VALA,81638,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_82590,Victorville,VCTV,82590,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_65042,San Buenaventura,VEN,65042,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_82422,Vernon,VER,82422,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_82954,Visalia,VIS,82954,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_82744,Villa Park,VLPK,82744,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_82814,Vincent,VNCT,82814,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_82667,View Park-Windsor Hills,VPWH,82667,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_82996,Vista,VSTA,82996,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_83332,Walnut,WAL,83332,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_83542,Wasco,WAS,83542,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_83668,Watsonville,WAT,83668,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_84200,West Covina,WCOV,84200,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_84144,West Carson,WCRN,84144,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_86328,Woodland,WD,86328,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_86440,Woodside,WDS,86440,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_83850,Weed,WEED,83850,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_85012,Wheatland,WHT,85012,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_84410,West Hollywood,WHWD,84410,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_85614,Willowbrook,WIBK,85614,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_85446,Wildomar,WIMR,85446,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_86034,Winters,WIN,86034,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_85292,Whittier,WIT,85292,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_83346,Walnut Creek,WLC,83346,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_86300,Woodlake,WLK,86300,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_84438,Westlake Village,WLKV,84438,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_85684,Willows,WLOS,85684,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_83402,Walnut Park,WLPK,83402,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_85600,Willits,WLTS,85600,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_84606,Westmorland,WMD,84606,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_84592,Westmont,WMNT,84592,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_85586,Williams,WMS,85586,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_85922,Town Of Windsor,WNSR,85922,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_84704,West Pittsburg,WPBG,84704,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_84774,West Puente Valley,WPVY,84774,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_84816,West Sacramento,WSAC,84816,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_84550,Westminster,WTM,84550,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_83612,Waterford,WTRF,83612,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_84921,West Whittier-Los Nietos,WWLS,84921,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_86832,Yorba Linda,YBLN,86832,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_86972,Yuba City,YC,86972,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_93850,Yucaipa,YCPA,93850,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_86930,Yountville,YNTV,86930,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_86944,Yreka City,YRE,86944,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_87042,Yucaipa,YUCP,87042,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us
+city_us_ca_87056,Yucca Valley,YUCV,87056,base.state_us_5,place_type_city,division_us_9,region_us_4,base.us

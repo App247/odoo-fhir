@@ -61,7 +61,7 @@
                                         <sheet>
                                             <group>
                                                 <field name="is_preferred"/>
-                                                <field name="name_id"/>
+                                                <field name="person_id"/>
                                             </group>
                                             <group>
                                                 <field name="first_id"/>

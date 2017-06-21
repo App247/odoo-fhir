@@ -95,29 +95,29 @@
         
         <!--Human Name Term Type -->    
     
-        <record id="hc_base.human_name_term_type_uc" model="hc.vs.human.name.term.type">    
+        <record id="human_name_term_type_uc" model="hc.vs.human.name.term.type">    
             <field name="code">uc</field>
             <field name="name">Use Case</field>
         </record>   
             
-        <record id="hc_base.human_name_term_type_i" model="hc.vs.human.name.term.type"> 
+        <record id="human_name_term_type_i" model="hc.vs.human.name.term.type"> 
             <field name="code">i</field>
             <field name="name">Initials</field>
         </record>   
             
-        <record id="hc_base.human_name_term_type_hc" model="hc.vs.human.name.term.type">    
+        <record id="human_name_term_type_hc" model="hc.vs.human.name.term.type">    
             <field name="code">hc</field>
             <field name="name">Health Care</field>
         </record>
 
-        <record id="hc_base.human_name_term_type_abbr" model="hc.vs.human.name.term.type">  
+        <record id="human_name_term_type_abbr" model="hc.vs.human.name.term.type">  
             <field name="code">abbr</field>
             <field name="name">Abbreviation</field>
         </record>   
 
         <!-- Entity Name Use -->
 
-        <record id="hc_base.name_use_l" model="hc.vs.entity.name.use">  
+        <record id="name_use_l" model="hc.vs.entity.name.use">  
             <field name="code">L</field>
             <field name="name">Legal</field>
             <field name="definition">"known as/conventional/the one you use"</field>
@@ -125,7 +125,7 @@
             <field name="system">https://www.oasis-open.org/committees/ubl/lcsc/doc/qateam/Comment%20work%20from%20HL7/datatypes-its-xml.html</field>
         </record>   
             
-        <record id="hc_base.name_use_a" model="hc.vs.entity.name.use">  
+        <record id="name_use_a" model="hc.vs.entity.name.use">  
             <field name="code">A</field>
             <field name="name">Artist/Stage</field>
             <field name="definition">"Includes writer's pseudonym, stage name, etc"</field>
@@ -133,7 +133,7 @@
             <field name="system">https://www.oasis-open.org/committees/ubl/lcsc/doc/qateam/Comment%20work%20from%20HL7/datatypes-its-xml.html</field>
         </record>   
             
-        <record id="hc_base.name_use_i" model="hc.vs.entity.name.use">  
+        <record id="name_use_i" model="hc.vs.entity.name.use">  
             <field name="code">I</field>
             <field name="name">Indigenous/Tribal</field>
             <field name="definition">"e.g. Chief Red Cloud"</field>
@@ -141,7 +141,7 @@
             <field name="system">https://www.oasis-open.org/committees/ubl/lcsc/doc/qateam/Comment%20work%20from%20HL7/datatypes-its-xml.html</field>
         </record>   
             
-        <record id="hc_base.name_use_r" model="hc.vs.entity.name.use">  
+        <record id="name_use_r" model="hc.vs.entity.name.use">  
             <field name="code">R</field>
             <field name="name">Religious</field>
             <field name="definition">"e.g. Sister Mary Francis, Brother John"</field>
@@ -149,7 +149,7 @@
             <field name="system">https://www.oasis-open.org/committees/ubl/lcsc/doc/qateam/Comment%20work%20from%20HL7/datatypes-its-xml.html</field>
         </record>   
             
-        <record id="hc_base.name_use_abc" model="hc.vs.entity.name.use">    
+        <record id="name_use_abc" model="hc.vs.entity.name.use">    
             <field name="code">ABC</field>
             <field name="name">Alphabetic</field>
             <field name="definition">"Alphabetic transcription of name (Japanese: romaji)"</field>
@@ -157,7 +157,7 @@
             <field name="system">https://www.oasis-open.org/committees/ubl/lcsc/doc/qateam/Comment%20work%20from%20HL7/datatypes-its-xml.html</field>
         </record>   
             
-        <record id="hc_base.name_use_syl" model="hc.vs.entity.name.use">    
+        <record id="name_use_syl" model="hc.vs.entity.name.use">    
             <field name="code">SYL</field>
             <field name="name">Syllabic</field>
             <field name="definition">"Syllabic transcription of name (e.g., Japanese kana, Korean hangul)"</field>
@@ -165,7 +165,7 @@
             <field name="system">https://www.oasis-open.org/committees/ubl/lcsc/doc/qateam/Comment%20work%20from%20HL7/datatypes-its-xml.html</field>
         </record>   
             
-        <record id="hc_base.name_use_ide" model="hc.vs.entity.name.use">    
+        <record id="name_use_ide" model="hc.vs.entity.name.use">    
             <field name="code">IDE</field>
             <field name="name">Ideographic</field>
             <field name="definition">"Ideographic representation of name (e.g., Japanese kanji, Chinese characters)"</field>

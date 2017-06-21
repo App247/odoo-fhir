@@ -4,7 +4,7 @@
 
     <!--Timing Abbreviation -->
 
-        <record id="hc_base.timing_abbr_bid" model="hc.vs.timing.abbreviation">
+        <record id="timing_abbr_bid" model="hc.vs.timing.abbreviation">
             <field name="code">BID</field>
             <field name="name">BID</field>
             <field name="definition">Two times a day at institution specified time.</field>
@@ -12,7 +12,7 @@
             <field name="system">http://build.fhir.org/valueset-timing-abbreviation.html</field>
         </record>
 
-        <record id="hc_base.timing_abbr_tid" model="hc.vs.timing.abbreviation">
+        <record id="timing_abbr_tid" model="hc.vs.timing.abbreviation">
             <field name="code">TID</field>
             <field name="name">TID</field>
             <field name="definition">Three times a day at institution specified time.</field>
@@ -20,7 +20,7 @@
             <field name="system">http://build.fhir.org/valueset-timing-abbreviation.html</field>
         </record>
 
-        <record id="hc_base.timing_abbr_qid" model="hc.vs.timing.abbreviation">
+        <record id="timing_abbr_qid" model="hc.vs.timing.abbreviation">
             <field name="code">QID</field>
             <field name="name">QID</field>
             <field name="definition">Four times a day at institution specified time</field>
@@ -28,7 +28,7 @@
             <field name="system">http://build.fhir.org/valueset-timing-abbreviation.html</field>
         </record>
 
-        <record id="hc_base.timing_abbr_am" model="hc.vs.timing.abbreviation">
+        <record id="timing_abbr_am" model="hc.vs.timing.abbreviation">
             <field name="code">AM</field>
             <field name="name">AM</field>
             <field name="definition">Every morning at institution specified times.</field>
@@ -36,7 +36,7 @@
             <field name="system">http://build.fhir.org/valueset-timing-abbreviation.html</field>
         </record>
 
-        <record id="hc_base.timing_abbr_pm" model="hc.vs.timing.abbreviation">
+        <record id="timing_abbr_pm" model="hc.vs.timing.abbreviation">
             <field name="code">PM</field>
             <field name="name">PM</field>
             <field name="definition">Every afternoon at institution specified times.</field>
@@ -44,7 +44,7 @@
             <field name="system">http://build.fhir.org/valueset-timing-abbreviation.html</field>
         </record>
 
-        <record id="hc_base.timing_abbr_qd" model="hc.vs.timing.abbreviation">
+        <record id="timing_abbr_qd" model="hc.vs.timing.abbreviation">
             <field name="code">QD</field>
             <field name="name">QD</field>
             <field name="definition">Every Day at institution specified times.</field>
@@ -52,7 +52,7 @@
             <field name="system">http://build.fhir.org/valueset-timing-abbreviation.html</field>
         </record>
 
-        <record id="hc_base.timing_abbr_qod" model="hc.vs.timing.abbreviation">
+        <record id="timing_abbr_qod" model="hc.vs.timing.abbreviation">
             <field name="code">QOD</field>
             <field name="name">QOD</field>
             <field name="definition">Every Other Day at institution specified times.</field>
@@ -60,7 +60,7 @@
             <field name="system">http://build.fhir.org/valueset-timing-abbreviation.html</field>
         </record>
 
-        <record id="hc_base.timing_abbr_q4h" model="hc.vs.timing.abbreviation">
+        <record id="timing_abbr_q4h" model="hc.vs.timing.abbreviation">
             <field name="code">Q4H</field>
             <field name="name">Q4H</field>
             <field name="definition">Every 4 hours at institution specified times</field>
@@ -68,7 +68,7 @@
             <field name="system">http://build.fhir.org/valueset-timing-abbreviation.html</field>
         </record>
 
-        <record id="hc_base.timing_abbr_q6h" model="hc.vs.timing.abbreviation">
+        <record id="timing_abbr_q6h" model="hc.vs.timing.abbreviation">
             <field name="code">Q6H</field>
             <field name="name">Q6H</field>
             <field name="definition">Every 6 Hours at institution specified times</field>

@@ -9,11 +9,11 @@ class PartnerTitle(models.Model):
         string="Description",
         help="Describes a title/prefix.")
     type = fields.Selection(
-        string="Type", 
+        string="Type",
         selection=[
             ("academic", "Academic"),
             ("generational", "Generational"),
-            ("practitioner", "Healthcare Practitioner"), 
+            ("practitioner", "Healthcare Practitioner"),
             ("honorary", "Honorary"),
             ("legal", "Legal"),
             ("organizational", "Organizational"),
@@ -28,28 +28,28 @@ class HumanNameTermType(models.Model):
     _inherit = ["hc.value.set.contains"]
 
     name = fields.Char(
-        string="Name", 
-        help="Name of this human name term type.")                                
+        string="Name",
+        help="Name of this human name term type.")
     code = fields.Char(
-        string="Code", 
-        help="Code of this human name term type.")                                
+        string="Code",
+        help="Code of this human name term type.")
     contains_id = fields.Many2one(
-        comodel_name="hc.vs.human.name.term.type", 
-        string="Parent", 
-        help="Parent human name term type.")                              
+        comodel_name="hc.vs.human.name.term.type",
+        string="Parent",
+        help="Parent human name term type.")
 
-class HumanNameTerm(models.Model):  
-    _name = "hc.human.name.term" 
-    _description = "Human Name Term"       
+class HumanNameTerm(models.Model):
+    _name = "hc.human.name.term"
+    _description = "Human Name Term"
 
     name = fields.Char(
         string="Human Name Term",
-        required="True", 
+        required="True",
         help="A single term of a human name (e.g., John, Smith).")
     type_ids = fields.Many2many(
-        comodel_name="hc.vs.human.name.term.type", 
-        relation="human_name_term_type_rel", 
-        string="Types", 
+        comodel_name="hc.vs.human.name.term.type",
+        relation="human_name_term_type_rel",
+        string="Types",
         help="Type of human name term.")
 
     _sql_constraints = [
@@ -58,18 +58,18 @@ class HumanNameTerm(models.Model):
         "The term must be unique.")
         ]
 
-class HumanNameSuffix(models.Model):    
-    _name = "hc.human.name.suffix"   
+class HumanNameSuffix(models.Model):
+    _name = "hc.human.name.suffix"
     _description = "Human Name Suffix"
-    _inherit = ["res.partner.title"] 
-    _order = "long_name"       
+    _inherit = ["res.partner.title"]
+    _order = "long_name"
 
-    name = fields.Char( 
+    name = fields.Char(
         string="Suffix",
         required = "True",
         help="Characters that come after the given and last names. Aka post-nominal letters. May be a generational term (e.g., Jr.) a credential (e.g., RN), an honorary title (.e.g., OBE), or an academic degree (e.g., PhD).")
     long_name = fields.Char(
-        string="Suffix Name", 
+        string="Suffix Name",
         help="Full text of suffix abbreviation (e.g., Junior for Jr.)")
     description = fields.Text(
         string="Description",
@@ -77,34 +77,34 @@ class HumanNameSuffix(models.Model):
     type = fields.Selection(
         help="Category of suffix.")
 
-class HumanNameUse(models.Model):   
-    _name = "hc.human.name.use" 
-    _description = "Human Name Use"         
+class HumanNameUse(models.Model):
+    _name = "hc.human.name.use"
+    _description = "Human Name Use"
     _inherit = ["hc.basic.association"]
 
     use = fields.Selection(
-        string="Use", 
+        string="Use",
         selection=[
-            ("usual", "Usual"), 
-            ("official", "Official"), 
-            ("temp", "Temp"), 
-            ("nickname", "Nickname"), 
-            ("anonymous", "Anonymous"), 
-            ("old", "Old"), 
-            ("maiden", "Maiden")], 
+            ("usual", "Usual"),
+            ("official", "Official"),
+            ("temp", "Temp"),
+            ("nickname", "Nickname"),
+            ("anonymous", "Anonymous"),
+            ("old", "Old"),
+            ("maiden", "Maiden")],
         default="usual",
-        help="The use of a human name.")                   
+        help="The use of a human name.")
     start_date = fields.Datetime(
-        string="Start Date", 
-        help="Start of the time period when name was/is in use.")                 
+        string="Start Date",
+        help="Start of the time period when name was/is in use.")
     end_date = fields.Datetime(
-        string="End Date", 
+        string="End Date",
         help="End of the time period when name was/is in use.")
-    
+
 class HumanName(models.Model):
     _name = "hc.human.name"
     _description = "Human Name"
-    
+
     name = fields.Char(
         compute='_compute_full_name',
         store="True",
@@ -112,81 +112,80 @@ class HumanName(models.Model):
         help="A full text representation of the human name.")
     family = fields.Char(
         store="True",
-        string="Family Name", 
+        string="Family Name",
         readonly="True",
         help="The terms of a name that links to the genealogy. (e.g., surname, birth last name).")
     given = fields.Char(
         store="True",
-        string="Given Name", 
+        string="Given Name",
         readonly="True",
         help="Terms that identify a specific person (not always 'first'). Includes middle names.")
     prefix_ids = fields.Many2many(
         comodel_name="res.partner.title",
-        relation="human_name_prefix_rel", 
-        string="Prefix Names", 
+        relation="human_name_prefix_rel",
+        string="Prefix Names",
         help="Terms that come before the full name.")
     suffix_ids = fields.Many2many(
         comodel_name="hc.human.name.suffix",
-        relation="human_name_suffix_rel", 
-        string="Suffix Names", 
+        relation="human_name_suffix_rel",
+        string="Suffix Names",
         help="Terms that come after the full name.")
     first_id = fields.Many2one(
-        comodel_name="hc.human.name.term", 
-        string="First Name", 
+        comodel_name="hc.human.name.term",
+        string="First Name",
         help="First term of a given name.")
     middle_ids = fields.Many2many(
-        comodel_name="hc.human.name.term", 
-        relation="middle_name_human_term_rel", 
-        string="Middle Names", 
+        comodel_name="hc.human.name.term",
+        relation="middle_name_human_term_rel",
+        string="Middle Names",
         help="Middle term of a given name.")
     initial_ids = fields.Many2many(
-        comodel_name="hc.human.name.term", 
-        relation="initial_name_human_term_rel", 
-        string="Initial Names", 
+        comodel_name="hc.human.name.term",
+        relation="initial_name_human_term_rel",
+        string="Initial Names",
         help="First letter of a term in a given name.")
     nickname_ids = fields.Many2many(
-        comodel_name="hc.human.name.term", 
-        relation="nickname_human_term_rel", 
-        string="Nicknames", 
+        comodel_name="hc.human.name.term",
+        relation="nickname_human_term_rel",
+        string="Nicknames",
         help="Familiar term of a given name.")
     surname_id = fields.Many2one(
-        comodel_name="hc.human.name.term", 
-        string="Surname", 
+        comodel_name="hc.human.name.term",
+        string="Surname",
         help="Hereditary name common to all members of a famly. Also known as family name, last name and patronymic.")
     previous_surname_ids = fields.Many2many(
-        comodel_name="hc.human.name.term", 
-        relation="human_name_previous_surname_rel", 
-        string="Previous Married Last Names", 
+        comodel_name="hc.human.name.term",
+        relation="human_name_previous_surname_rel",
+        string="Previous Married Last Names",
         help="Previous married last name.")
     preferred_name = fields.Char(
-        string="Preferred Name", 
+        string="Preferred Name",
         help="How the person prefers to be addressed in a conversation (e.g., John, Mr. Smith).")
     mother_maiden_id = fields.Many2one(
-        comodel_name="hc.human.name.term", 
-        string="Mother Maiden Family Name", 
+        comodel_name="hc.human.name.term",
+        string="Mother Maiden Family Name",
         help="Mother's surname at birth. Part of the family name.")
     birth_surname_id = fields.Many2one(
-        comodel_name="hc.human.name.term", 
-        string="Birth Last Name", 
+        comodel_name="hc.human.name.term",
+        string="Birth Last Name",
         help="Person's surname at birth.")
     display_order = fields.Selection(
-        string="Display Name Order", 
+        string="Display Name Order",
         selection=[
-            ("first_maiden_last", "First Last (default)"), 
+            ("first_maiden_last", "First Last (default)"),
             ("maiden_last_first", "Last First (e.g., East Asian name)"),
             ("first_last_maiden", "First Last Maiden (e.g., Hispanic name)")],
         default="first_maiden_last",
         help="The display order of this human name.")
     is_animal_name = fields.Boolean(
         string="Animal Name",
-        help="Indicates if this name is an animal name.")                 
-    
-    _sql_constraints = [    
+        help="Indicates if this name is an animal name.")
+
+    _sql_constraints = [
         ('name_uniq',
         'UNIQUE (name)',
         'Full Name must be unique.')
         ]
-
 
     # Requirements
 
@@ -227,10 +226,10 @@ class HumanName(models.Model):
             rec.family = family
 
             family_reverse = birth_surname + ' ' + surname + ' ' + mother_maiden
-            
+
             prefix = " ".join([prefix.name for prefix in rec.prefix_ids]) if rec.prefix_ids else ''
             suffix = " ".join([suffix.name for suffix in rec.suffix_ids]) if rec.suffix_ids else ''
-            
+
             if rec.display_order == 'first_maiden_last':
                 full = prefix + ' ' + given + ' ' + family + ' ' + suffix
                 rec.name = full
@@ -242,6 +241,3 @@ class HumanName(models.Model):
             if rec.display_order == 'first_last_maiden':
                 full_family_reverse = prefix + ' ' + given + ' ' + family_reverse + ' ' + suffix
                 rec.name = full_family_reverse
-
-            # if not first and not middle and not initial and not mother_maiden and not birth_surname and nickname:
-            #     rec.name = nickname
