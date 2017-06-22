@@ -35,17 +35,16 @@ class Person(models.Model):
         string="Full Name",
         required="True",
         help="A full text representation of this Person's name when the record was created.")
-    name_ids = fields.Many2many(
-        comodel_name="hc.person.name", 
-        relation="person_person_name_rel", 
-        string="Names", 
-        help="A name associated with the person.")
-    # name_ids = fields.One2many(
+    # name_ids = fields.Many2many(
     #     comodel_name="hc.person.name", 
-    #     inverse_name="person_id", 
-    #     string="Names",
-    #     help="A name associated with this Person.")
-
+    #     relation="person_person_name_rel", 
+    #     string="Names", 
+    #     help="A name associated with the person.")
+    name_ids = fields.One2many(
+        comodel_name="hc.person.name", 
+        inverse_name="person_id", 
+        string="Names",
+        help="A name associated with this Person.")
     telecom_ids = fields.One2many(
         comodel_name="hc.person.telecom", 
         inverse_name="person_id", 
@@ -327,31 +326,31 @@ class PersonName(models.Model):
             if hc_person_name.person_id:        
                 comp_name = comp_name + ", " + str(hc_person_name.person_id) or ''   
     
-    _sql_constraints = [    
-        ('name_uniq',
-        'UNIQUE (name)',
-        'Person name must be unique.')
-        ]
+    # _sql_constraints = [    
+    #     ('name_uniq',
+    #     'UNIQUE (name)',
+    #     'Person name must be unique.')
+    #     ]
 
     # For a new person record, 
     # Full Name = Person Name. 
     # Add Person Name to the list of Person Names and mark it as preferred.
 
-    # @api.model
-    # def create(self, vals):
-    #     person_obj = self.env['hc.res.person']
-    #     person_ids = self.search([('person_id','=',vals.get('person_id')),('end_date', '=', False)])
-    #     if vals and vals.get('is_preferred'):
-    #         for person in person_ids:
-    #             person.is_preferred = False
-    #             if not vals.get('start_date'):
-    #                 person.end_date = datetime.today()
-    #                 vals.update({'start_date': datetime.today()})
-    #             else:
-    #                 person.end_date = vals.get('start_date')
-    #     else:
-    #         vals.update({'start_date': datetime.today()})
-    #     return super(PersonName, self).create(vals)
+    @api.model
+    def create(self, vals):
+        person_obj = self.env['hc.res.person']
+        person_ids = self.search([('person_id','=',vals.get('person_id')),('end_date', '=', False)])
+        if vals and vals.get('is_preferred'):
+            for person in person_ids:
+                person.is_preferred = False
+                if not vals.get('start_date'):
+                    person.end_date = datetime.today()
+                    vals.update({'start_date': datetime.today()})
+                else:
+                    person.end_date = vals.get('start_date')
+        else:
+            vals.update({'start_date': datetime.today()})
+        return super(PersonName, self).create(vals)
 
     # For an existing person record,
     # If new name is preferred, set old name not preferred and set its end date to the start date of the new preferred name.
