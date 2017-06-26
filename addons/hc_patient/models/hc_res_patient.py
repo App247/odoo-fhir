@@ -201,7 +201,7 @@ class Patient(models.Model):
     # Display Patient Name and Birth Date in Dropdown
     
     @api.model
-    def name_search(self, name='', args=None, operator='ilike', limit=100):
+    def _name_search(self, name='', args=None, operator='ilike', limit=100):
         context = dict(self._context)
         if context is None:
             context = {}
@@ -210,12 +210,12 @@ class Patient(models.Model):
         if not operator:
             operator = 'ilike'
         if name:
-                args.append(('name_id', operator, name))
+            args.append(('name_id', operator, name))
         ids = self.search(args, limit=limit)
         name_rec = []
         for id in ids:
             if id.birth_date:
-                name_rec.append((id.id, id.name_id.name + "("+id.birth_date+")"))
+                name_rec.append((id.id, id.name_id.name + "(" + id.birth_date + ")"))
             else:
                 name_rec.append((id.id, id.name_id.name))
         return name_rec
