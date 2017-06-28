@@ -1,3 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_hc_appointment_response_hc_res_appointment_response_user,hc.appointment.response.hc.res.appointment.response.user,model_hc_res_appointment_response,hc_base.group_hc_base_user,1,0,0,0
 access_hc_appointment_response_hc_appointment_response_identifier_user,hc.appointment.response.hc.appointment.response.identifier.user,model_hc_appointment_response_identifier,hc_base.group_hc_base_user,1,0,0,0
+access_hc_appointment_response_hc_appointment_response_participant_status_history_user,hc.appointment.response.hc.appointment.response.participant.status.history.user,model_hc_appointment_response_participant_status_history,hc_base.group_hc_base_user,1,0,0,0

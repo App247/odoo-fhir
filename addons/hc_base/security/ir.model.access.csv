@@ -178,6 +178,8 @@ access_hc_base_hc_vs_goal_category_manager,hc.base.hc.vs.goal.category.manager,m
 access_hc_base_hc_vs_goal_start_event_manager,hc.base.hc.vs.goal.start.event.manager,model_hc_vs_goal_start_event,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_vs_observation_code_manager,hc.base.hc.vs.observation.code.manager,model_hc_vs_observation_code,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_vs_action_participant_role_manager,hc.base.hc.vs.action.participant.role.manager,model_hc_vs_action_participant_role,hc_base.group_hc_base_manager,1,1,1,1
+access_hc_base_hc_vs_participation_type_manager,hc.base.hc.vs.participation.type.manager,model_hc_vs_participation_type,hc_base.group_hc_base_manager,1,1,1,1
+access_hc_base_hc_vs_participation_type_subset_manager,hc.base.hc.vs.participation.type.subset.manager,model_hc_vs_participation_type_subset,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_extension_user,hc.base.hc.extension.user,model_hc_extension,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_extension_attachment_user,hc.base.hc.extension.attachment.user,model_hc_extension_attachment,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_extension_identifier_user,hc.base.hc.extension.identifier.user,model_hc_extension_identifier,hc_base.group_hc_base_user,1,0,0,0

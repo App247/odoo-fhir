@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from openerp import models, fields, api
+from datetime import datetime
+from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as DTF
 
 class Appointment(models.Model):    
     _name = "hc.res.appointment"    
@@ -30,7 +32,12 @@ class Appointment(models.Model):
             ("cancelled", "Cancelled"), 
             ("noshow", "No Show")],
         default="proposed", 
-        help="The overall status of the Appointment.")                
+        help="The overall status of the Appointment.")
+    status_history_ids = fields.One2many(
+        comodel_name="hc.appointment.status.history", 
+        inverse_name="appointment_id", 
+        string="Status History",
+        help="The status of the appointment over time.")
     service_category_id = fields.Many2one(
         comodel_name="hc.vs.service.category", 
         string="Service Category", 
@@ -109,6 +116,52 @@ class Appointment(models.Model):
         required="True", 
         help="List of participants involved in the appointment.")                
 
+    @api.model                          
+    def create(self, vals):                         
+        status_history_obj = self.env['hc.appointment.status.history']                      
+        res = super(Appointment, self).create(vals)                     
+        if vals and vals.get('status'):                      
+            status_history_vals = {                 
+                'appointment_id': res.id,               
+                'status' : res.status,              
+                'start_date': datetime.today()              
+                }               
+            status_history_obj.create(status_history_vals)                  
+        return res                      
+                                
+    @api.multi                          
+    def write(self, vals):                          
+        status_history_obj = self.env['hc.appointment.status.history']                      
+        res = super(Appointment, self).write(vals)                      
+        status_history_record_ids = status_history_obj.search([('end_date','=', False)])                        
+        if status_history_record_ids:                       
+            if vals.get('status') and status_history_record_ids[0].status != vals.get('status'):                  
+                for status_history in status_history_record_ids:                
+                    status_history.end_date = datetime.strftime(datetime.today(), DTF)          
+                    time_diff = datetime.today() - datetime.strptime(status_history.start_date, DTF)            
+                    if time_diff:           
+                        days = str(time_diff).split(',')        
+                        if days and len(days) > 1:      
+                            status_history.time_diff_day = str(days[0]) 
+                            times = str(days[1]).split(':') 
+                            if times and times > 1: 
+                                status_history.time_diff_hour = str(times[0])
+                                status_history.time_diff_min = str(times[1])
+                                status_history.time_diff_sec = str(times[2])
+                        else:       
+                            times = str(time_diff).split(':')   
+                            if times and times > 1: 
+                                status_history.time_diff_hour = str(times[0])
+                                status_history.time_diff_min = str(times[1])
+                                status_history.time_diff_sec = str(times[2])
+                status_history_vals = {             
+                    'appointment_id': self.id,          
+                    'status': vals.get('status'),           
+                    'start_date': datetime.today()          
+                    }           
+                status_history_obj.create(status_history_vals)              
+        return res                      
+
 class AppointmentParticipant(models.Model):    
     _name = "hc.appointment.participant"    
     _description = "Appointment Participant"        
@@ -180,7 +233,58 @@ class AppointmentParticipant(models.Model):
             ("needs-action", "Needs Action")],
         default="tentative",
         help="Participation status of the Patient.")                
-        
+    status_history_ids = fields.One2many(   
+        comodel_name="hc.appointment.participant.status.history",
+        inverse_name="participant_id",
+        string="Status History",
+        help="The status of the appointment participant over time.")
+
+    @api.model                          
+    def create(self, vals):                         
+        status_history_obj = self.env['hc.appointment.participant.status.history']                      
+        res = super(AppointmentParticipant, self).create(vals)                      
+        if vals and vals.get('status'):                      
+            status_history_vals = {                 
+                'participant_id': res.id,               
+                'status' : res.status,              
+                'start_date': datetime.today()              
+                }               
+            status_history_obj.create(status_history_vals)                  
+        return res                      
+                                
+    @api.multi                          
+    def write(self, vals):                          
+        status_history_obj = self.env['hc.appointment.participant.status.history']                                             
+        res = super(AppointmentParticipant, self).write(vals)                       
+        status_history_record_ids = status_history_obj.search([('end_date','=', False)])                        
+        if status_history_record_ids:                       
+            if vals.get('status') and status_history_record_ids[0].status != vals.get('status'):                  
+                for status_history in status_history_record_ids:                
+                    status_history.end_date = datetime.strftime(datetime.today(), DTF)          
+                    time_diff = datetime.today() - datetime.strptime(status_history.start_date, DTF)            
+                    if time_diff:           
+                        days = str(time_diff).split(',')        
+                        if days and len(days) > 1:      
+                            status_history.time_diff_day = str(days[0]) 
+                            times = str(days[1]).split(':') 
+                            if times and times > 1: 
+                                status_history.time_diff_hour = str(times[0])
+                                status_history.time_diff_min = str(times[1])
+                                status_history.time_diff_sec = str(times[2])
+                        else:       
+                            times = str(time_diff).split(':')   
+                            if times and times > 1: 
+                                status_history.time_diff_hour = str(times[0])
+                                status_history.time_diff_min = str(times[1])
+                                status_history.time_diff_sec = str(times[2])               
+                status_history_vals = {             
+                    'participant_id': self.id,          
+                    'status': vals.get('status'),                     
+                    'start_date': datetime.today()          
+                    }           
+                status_history_obj.create(status_history_vals)              
+        return res                      
+
     @api.depends('actor_type')           
     def _compute_actor_name(self):          
         for hc_appointment_participant in self:       
@@ -206,6 +310,36 @@ class AppointmentIdentifier(models.Model):
         comodel_name="hc.res.appointment", 
         string="Appointment", 
         help="Appointment associated with this Appointment Identifier.")                
+
+class appointmentStatusHistory(models.Model):       
+    _name = "hc.appointment.status.history" 
+    _description = "Appointment Status History" 
+        
+    appointment_id = fields.Many2one(   
+        comodel_name="hc.res.appointment",
+        string="Appointment",
+        help="Appointment associated with this Appointment Status History.")
+    status = fields.Char(   
+        string="Status",
+        help="The status of the appointment.")
+    start_date = fields.Datetime(   
+        string="Start Date",
+        help="Start of the period during which this appointment status is valid.")
+    end_date = fields.Datetime( 
+        string="End Date",
+        help="End of the period during which this appointment status is valid.")
+    time_diff_day = fields.Char(    
+        string="Time Diff (days)",
+        help="Days duration of the status.")
+    time_diff_hour = fields.Char(   
+        string="Time Diff (hours)",
+        help="Hours duration of the status.")
+    time_diff_min = fields.Char(    
+        string="Time Diff (minutes)",
+        help="Minutes duration of the status.")
+    time_diff_sec = fields.Char(    
+        string="Time Diff (seconds)",
+        help="Seconds duration of the status.")
 
 class AppointmentIndication(models.Model):  
     _name = "hc.appointment.indication" 
@@ -319,3 +453,33 @@ class AppointmentRequestedPeriod(models.Model):
     end_date = fields.Datetime(
         string="End Date", 
         help="End of the potential date/time interval(s) requested to allocate the appointment during.")                
+
+    class AppointmentParticipantStatusHistory(models.Model):        
+        _name = "hc.appointment.participant.status.history" 
+        _description = "Appointment Participant Status History" 
+            
+        participant_id = fields.Many2one(   
+            comodel_name="hc.appointment.participant",
+            string="Appointment Participant",
+            help="Appointment Participant associated with this Appointment Participant Status History.")
+        status = fields.Char(   
+            string="Status",
+            help="The status of the appointment participant.")
+        start_date = fields.Datetime(   
+            string="Start Date",
+            help="Start of the period during which this appointment participant status is valid.")
+        end_date = fields.Datetime( 
+            string="End Date",
+            help="End of the period during which this appointment participant status is valid.")
+        time_diff_day = fields.Char(    
+            string="Time Diff (days)",
+            help="Days duration of the status.")
+        time_diff_hour = fields.Char(   
+            string="Time Diff (hours)",
+            help="Hours duration of the status.")
+        time_diff_min = fields.Char(    
+            string="Time Diff (minutes)",
+            help="Minutes duration of the status.")
+        time_diff_sec = fields.Char(    
+            string="Time Diff (seconds)",
+            help="Seconds duration of the status.")

@@ -622,6 +622,27 @@ class ParticipationType(models.Model):
         comodel_name="hc.vs.participation.type", 
         string="Parent",
         help="Parent participation type.")
+    subset_ids = fields.Many2many(
+        comodel_name="hc.vs.participation.type.subset", 
+        relation="base_participation_type_subset_rel", 
+        string="Subsets", 
+        help="Subset where this code is used.")
+
+class ParticipationTypeSubset(models.Model):
+    _name = "hc.vs.participation.type.subset"
+    _description = "Participation Type Subset"
+    _inherit = ["hc.value.set.contains"]
+
+    name = fields.Char(
+        string="Name", 
+        help="Name of this participation type subset.")                               
+    code = fields.Char(
+        string="Code", 
+        help="Code of this participation type subset.")                               
+    contains_id = fields.Many2one(
+        comodel_name="hc.vs.participation.type.subset", 
+        string="Parent", 
+        help="Parent participation type subset.")                             
 
 class PublicationStatus(models.Model):
     _name = "hc.vs.publication.status"

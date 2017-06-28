@@ -95,6 +95,20 @@
                                     </form>
                                 </field>
                             </page>
+                            <page string="Participant Status History">          
+                                <field name="participant_status_history_ids" mode="tree">       
+                                    <tree>  
+                                        <field name="participant_status" readonly="1"/>
+                                        <field name="start_date"/>
+                                        <field name="end_date"/>
+                                        <field name="time_diff_day"/>
+                                        <field name="time_diff_hour"/>
+                                        <field name="time_diff_min"/>
+                                        <field name="time_diff_sec"/>
+                                        <field name="write_uid" invisible="0"/>
+                                    </tree> 
+                                </field>        
+                            </page>         
                         </notebook>
                     </sheet>
                 </form>

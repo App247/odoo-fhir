@@ -1,6 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_hc_practitioner_hc_practitioner_identifier_user,hc.practitioner.hc.practitioner.identifier.user,model_hc_practitioner_identifier,hc_base.group_hc_base_user,1,0,0,0
-access_hc_practitioner_hc_practitioner_name_user,hc.practitioner.hc.practitioner.name.user,model_hc_practitioner_name,hc_base.group_hc_base_user,1,0,0,0
 access_hc_practitioner_hc_practitioner_photo_user,hc.practitioner.hc.practitioner.photo.user,model_hc_practitioner_photo,hc_base.group_hc_base_user,1,0,0,0
 access_hc_practitioner_hc_practitioner_telecom_user,hc.practitioner.hc.practitioner.telecom.user,model_hc_practitioner_telecom,hc_base.group_hc_base_user,1,0,0,0
 access_hc_practitioner_hc_practitioner_address_user,hc.practitioner.hc.practitioner.address.user,model_hc_practitioner_address,hc_base.group_hc_base_user,1,0,0,0
