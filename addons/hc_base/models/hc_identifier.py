@@ -66,9 +66,12 @@ class IdentifierCode(models.Model):
 
     name = fields.Char(
         string="Name", 
-        compute="_compute_name", 
-        store="True", 
-        help="Name of this identifier (e.g., CA Driver's License Number).")                                
+        help="Name of this identifier (e.g., CA Driver's License Number).")
+    # name = fields.Char(
+    #     string="Name", 
+    #     compute="_compute_name", 
+    #     store="True", 
+    #     help="Name of this identifier (e.g., CA Driver's License Number).")                                
     code = fields.Char(
         string="Code", 
         help="Code of this identifier (e.g., CA DL).")                             

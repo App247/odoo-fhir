@@ -271,8 +271,7 @@
         
         <record id="hc_vs_practitioner_specialty_view_search" model="ir.ui.view">                       
             <field name="name">Practitioner Specialty Search</field>                    
-            <field name="model">hc.vs.practitioner.specialty</field>                    
-            <!-- <field name="inherit_id" ref="hc_value_set_contains_view_search"/> -->                  
+            <field name="model">hc.vs.practitioner.specialty</field>                                    
             <field name="arch" type="xml">                  
                 <search string="Practitioner Specialties">               
                     <field name="name"/>            
@@ -287,8 +286,7 @@
                                 
         <record id="hc_vs_practitioner_specialty_view_tree" model="ir.ui.view">                     
             <field name="name">Practitioner Specialty Tree</field>                  
-            <field name="model">hc.vs.practitioner.specialty</field>                    
-            <!-- <field name="inherit_id" ref="hc_value_set_contains_view_tree"/>  -->                   
+            <field name="model">hc.vs.practitioner.specialty</field>                                     
             <field name="arch" type="xml">                  
                 <tree string="Practitioner Specialties" default_order="name, code">              
                     <field name="name"/>            
@@ -313,9 +311,9 @@
                         <field name="comments" placeholder="Comments"/>     
                         <group>     
                             <group> 
-                                <field name="contains_id" invisible="0"/>
-                                <field name="is_abstract" widget="upgrade_boolean"/>
+                                <field name="contains_id"/>
                                 <field name="level" placeholder="An integer (e.g., 1, 2)"/>
+                                <field name="is_abstract"/>
                                 <field name="version" placeholder="e.g., v2.5"/>
                             </group>    
                             <group> 

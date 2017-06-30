@@ -38,6 +38,9 @@ class CodeSystem(models.Model):
     is_experimental = fields.Boolean(
         string="Experimental",
         help="If for testing purposes, not real usage.")
+    date = fields.Datetime(
+        string="Date",
+        help="Date this was last changed.")    
     publisher = fields.Char(
         string="Publisher",
         help="Name of the publisher (organization or individual).")
@@ -46,9 +49,6 @@ class CodeSystem(models.Model):
         inverse_name="code_system_id",
         string="Contacts",
         help="Contact details for the publisher.")
-    date = fields.Datetime(
-        string="Date",
-        help="Date for given status.")
     description = fields.Text(
         string="Description",
         help="Human language description of the code system.")

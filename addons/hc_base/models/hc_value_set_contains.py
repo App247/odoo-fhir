@@ -18,7 +18,8 @@ class ValueSetContains(models.AbstractModel):
         string="Abstract", 
         help="If user cannot select this entry.")
     name = fields.Char(
-        string="Name", 
+        string="Name",
+        required="True", 
         help="User display for the concept.")
     level = fields.Integer(
         string="Level", 
@@ -478,6 +479,22 @@ class Forms(models.Model):
         comodel_name="hc.vs.forms",
         string="Parent",
         help="Parent form.")
+
+class FMStatus(models.Model):   
+    _name = "hc.vs.fm.status"   
+    _description = "Financial Management Status"                      
+    _inherit = ["hc.value.set.contains"]
+
+    name = fields.Char(
+        string="Name", 
+        help="Name of this financial management status.")                               
+    code = fields.Char(
+        string="Code", 
+        help="Code of this financial management status.")                               
+    contains_id = fields.Many2one(
+        comodel_name="hc.vs.fm.status", 
+        string="Parent", 
+        help="Parent financial management status.")                                
 
 class GoalCategory(models.Model):    
     _name = "hc.vs.goal.category"    

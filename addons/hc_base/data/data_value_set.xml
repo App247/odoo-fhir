@@ -159,6 +159,41 @@
             <field name="system">http://hl7.org/fhir/participant-type</field>
         </record>
 
+        <!-- FM Status -->  
+            
+        <record id="fm_status_active" model="hc.vs.fm.status">  
+            <field name="code">active</field>
+            <field name="name">Active</field>
+            <field name="definition">The instance is currently in-force.</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/fm-status</field>
+        </record>   
+            
+        <record id="fm_status_cancelled" model="hc.vs.fm.status">   
+            <field name="code">cancelled</field>
+            <field name="name">Cancelled</field>
+            <field name="definition">The instance is withdrawn, rescinded or reversed.</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/fm-status</field>
+        </record>   
+            
+        <record id="fm_status_draft" model="hc.vs.fm.status">   
+            <field name="code">draft</field>
+            <field name="name">Draft</field>
+            <field name="definition">A new instance the contents of which is not complete.</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/fm-status</field>
+        </record>   
+            
+        <record id="fm_status_entered-in-error" model="hc.vs.fm.status">    
+            <field name="code">entered-in-error</field>
+            <field name="name">Entered in Error</field>
+            <field name="definition">The instance was entered in error.</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/fm-status</field>
+        </record>   
+
+
         
         <!-- Publication Status --> 
     

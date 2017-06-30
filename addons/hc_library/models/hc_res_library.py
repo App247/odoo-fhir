@@ -19,10 +19,21 @@ class Library(models.Model):
         help="The version of the library, if any.")                    
     name = fields.Char(
         string="Name", 
-        help="A machine-friendly name for the library.")                    
+        help="Name for this library (computer friendly).")                    
     title = fields.Char(
         string="Title", 
-        help="A user-friendly title for the library.")                    
+        help="Name for this library (human friendly).")                    
+    status = fields.Selection(
+        string="Status", 
+        required="True", 
+        selection=[
+            ("draft", "Draft"), 
+            ("active", "Active"), 
+            ("inactive", "Inactive")], 
+        help="The status of the library.")  
+    is_experimental = fields.Boolean(
+        string="Experimental", 
+        help="If for testing purposes, not real usage.")    
     type = fields.Selection(
         string="Type", 
         required="True", 
@@ -32,26 +43,18 @@ class Library(models.Model):
             ("asset-collection", "Asset Collection"), 
             ("module-definition", "Module Definition")], 
         help="Identifies the type of library such as a Logic Library, Model Definition, Asset Collection, or Module Definition.")                    
-    status = fields.Selection(
-        string="Status", 
-        required="True", 
-        selection=[
-            ("draft", "Draft"), 
-            ("active", "Active"), 
-            ("inactive", "Inactive")], 
-        help="The status of the library.")                    
-    is_experimental = fields.Boolean(
-        string="Experimental", 
-        help="If for testing purposes, not real usage.")                    
     date = fields.Datetime(
         string="Date", 
-        help="Date this was last changed.")                    
+        help="Date this was last changed.")
+    publisher = fields.Char(
+        string="Publisher", 
+        help="Name of the publisher (organization or individual).")      
     description = fields.Text(
         string="Description", 
         help="Natural language description of the library.")                    
     purpose = fields.Text(
         string="Purpose", 
-        help="Describes the purpose of the library.")                    
+        help="Why this library is defined.")                    
     usage = fields.Text(
         string="Usage", 
         help="Describes the clinical usage of the library.")                    
@@ -63,14 +66,15 @@ class Library(models.Model):
         help="Last review date for the library.")                    
     effective_period_start_date = fields.Datetime(
         string="Effective Period Start Date", 
-        help="Start of the the effective date range for the library.")                    
+        help="Start of the period when the library is expected to be used.")                    
     effective_period_end_date = fields.Datetime(
         string="Effective Period End Date", 
-        help="End of the effective date range for the library.")                    
+        help="End of the period when the library is expected to be used.")                    
     use_context_ids = fields.One2many(
         comodel_name="hc.library.use.context", 
         inverse_name="library_id", 
-        string="Use Contexts", help="Content intends to support these contexts.")                    
+        string="Use Contexts", 
+        help="Context the content is intended to support.")                    
     jurisdiction_ids = fields.Many2many(
         comodel_name="hc.vs.jurisdiction", 
         relation="library_jurisdiction_rel", 
@@ -80,15 +84,12 @@ class Library(models.Model):
         comodel_name="hc.vs.library.topic", 
         relation="library_topic_rel", 
         string="Topics", 
-        help="Descriptional topics for the library.")                    
+        help="E.g. Education, Treatment, Assessment, etc.")                    
     contributor_ids = fields.One2many(
         comodel_name="hc.library.contributor", 
         inverse_name="library_id", 
         string="Contributors", 
-        help="A content contributor.")                    
-    publisher = fields.Char(
-        string="Publisher", 
-        help="Name of the publisher (Organization or individual).")                    
+        help="A content contributor.")                                       
     contact_ids = fields.One2many(
         comodel_name="hc.library.contact", 
         inverse_name="library_id", 
@@ -101,7 +102,7 @@ class Library(models.Model):
         comodel_name="hc.library.related.artifact", 
         inverse_name="library_id", 
         string="Related Artifacts", 
-        help="Related artifacts for the library.")                    
+        help="Additional documentation, citations, etc.")                    
     parameter_ids = fields.One2many(
         comodel_name="hc.library.parameter", 
         inverse_name="library_id", 
@@ -111,12 +112,12 @@ class Library(models.Model):
         comodel_name="hc.library.data.requirement", 
         inverse_name="library_id", 
         string="Data Requirements", 
-        help="Data requirements of the library.")                    
-    content_id = fields.Many2one(
+        help="What data is referenced by this library.")                    
+    content_ids = fields.One2many(
         comodel_name="hc.library.content", 
-        string="Content", 
-        required="True", 
-        help="The content of the library.")                    
+        inverse_name="library_id",
+        string="Contents",  
+        help="Contents of the library, either embedded or referenced.")                    
 
 class LibraryIdentifier(models.Model):    
     _name = "hc.library.identifier"    
@@ -205,7 +206,12 @@ class LibraryDataRequirement(models.Model):
 class LibraryContent(models.Model):    
     _name = "hc.library.content"    
     _description = "Library Content"        
-    _inherit = ["hc.basic.association", "hc.attachment"]                    
+    _inherit = ["hc.basic.association", "hc.attachment"]
+
+    library_id = fields.Many2one(
+        comodel_name="hc.res.library", 
+        string="Library", 
+        help="Library associated with this Library Content.")   
 
 class LibraryTopic(models.Model):    
     _name = "hc.vs.library.topic"    

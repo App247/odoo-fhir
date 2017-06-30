@@ -129,6 +129,9 @@
                                 <field name="snomed_code" placeholder="SNOMED Code (e.g., 115668003)"/>     
                                 <field name="snomed_definition" placeholder="SNOMED Definition (e.g., Biological substance (substance))"/>      
                                 <field name="contains_id"/>
+                                <field name="level" placeholder="An integer (e.g., 1, 2)"/>
+                                <field name="is_abstract"/>
+                                <field name="version" placeholder="e.g., v2.5"/>
                             </group>    
                             <group> 
                                 <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
@@ -198,7 +201,13 @@
                         <field name="code" placeholder="Code (e.g., biological)"/>                                      
                         <field name="definition" placeholder="Definition"/>                                     
                         <field name="comments" placeholder="Comments"/>                                     
-                        <group>                                                                         
+                        <group>
+                            <group> 
+                                <field name="contains_id"/>
+                                <field name="level" placeholder="An integer (e.g., 1, 2)"/>
+                                <field name="is_abstract"/>
+                                <field name="version" placeholder="e.g., v2.5"/>
+                            </group>                                                                          
                             <group>                                 
                                 <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
                                 <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>

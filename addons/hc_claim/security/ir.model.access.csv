@@ -14,6 +14,7 @@ access_hc_claim_hc_claim_item_detail_sub_detail_user,hc.claim.hc.claim.item.deta
 access_hc_claim_hc_claim_item_care_team_user,hc.claim.hc.claim.item.care.team.user,model_hc_claim_item_care_team,hc_base.group_hc_base_user,1,0,0,0
 access_hc_claim_hc_claim_item_prosthesis_user,hc.claim.hc.claim.item.prosthesis.user,model_hc_claim_item_prosthesis,hc_base.group_hc_base_user,1,0,0,0
 access_hc_claim_hc_claim_identifier_user,hc.claim.hc.claim.identifier.user,model_hc_claim_identifier,hc_base.group_hc_base_user,1,0,0,0
+access_hc_claim_hc_claim_status_history_user,hc.claim.hc.claim.status.history.user,model_hc_claim_status_history,hc_base.group_hc_base_user,1,0,0,0
 access_hc_claim_hc_claim_coverage_pre_auth_ref_user,hc.claim.hc.claim.coverage.pre.auth.ref.user,model_hc_claim_coverage_pre_auth_ref,hc_base.group_hc_base_user,1,0,0,0
 access_hc_claim_hc_claim_item_diagnosis_link_id_user,hc.claim.hc.claim.item.diagnosis.link.id.user,model_hc_claim_item_diagnosis_link_id,hc_base.group_hc_base_user,1,0,0,0
 access_hc_claim_hc_claim_related_claim_reference_user,hc.claim.hc.claim.related.claim.reference.user,model_hc_claim_related_claim_reference,hc_base.group_hc_base_user,1,0,0,0

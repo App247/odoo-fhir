@@ -49,12 +49,12 @@
                                 <field name="type_id"/>
                                 <field name="start_date"/>
                                 <field name="end_date"/>
-                                <field name="status"/>
                             </group>
-                            <group string="Grouping">
-                                <field name="grouping_id"/>
+                            <group string="Status">
+                                <field name="status_id"/>
                             </group>
                             <group string="Context">
+                                <field name="grouping_id"/>
                                 <field name="payor_name"/>
                                 <field name="payor_type" class="oe_edit_only"/>
                                 <field name="payor_organization_id" class="oe_edit_only" attrs="{'invisible': [('payor_type','!=','organization')], 'required': [('payor_type','=','organization')]}"/>
@@ -112,7 +112,21 @@
                                         </sheet>        
                                     </form>         
                                 </field>                
-                            </page>                 
+                            </page>
+                            <page string="Status History">          
+                                <field name="status_history_ids" mode="tree">       
+                                    <tree>  
+                                        <field name="status" readonly="1"/>
+                                        <field name="start_date"/>
+                                        <field name="end_date"/>
+                                        <field name="time_diff_day"/>
+                                        <field name="time_diff_hour"/>
+                                        <field name="time_diff_min"/>
+                                        <field name="time_diff_sec"/>
+                                        <field name="write_uid" invisible="0"/>
+                                    </tree> 
+                                </field>        
+                            </page>         
                         </notebook>                     
                     </sheet>                            
                 </form>                             
@@ -149,7 +163,11 @@
             <field name="name">Coverage Grouping Tree</field>                                   
             <field name="model">hc.coverage.grouping</field>                                    
             <field name="arch" type="xml">                                  
-                <tree string="Rage Groupings">                              
+                <tree string="Coverage Groupings">
+                    <field name="name"/>
+                    <field name="group"/>
+                    <field name="plan"/>
+                    <field name="coverage_class"/>
                 </tree>                             
             </field>                                    
         </record>                                       
@@ -158,7 +176,7 @@
             <field name="name">Coverage Grouping Form</field>                                   
             <field name="model">hc.coverage.grouping</field>                                    
             <field name="arch" type="xml">                                  
-                <form string="Rage Grouping">                               
+                <form string="Coverage Grouping">                               
                     <sheet>                         
                         <h1>                        
                             <field name="name" default_focus="1" placeholder="Name"/>                   
@@ -169,7 +187,6 @@
                                 <field name="group_display"/>
                                 <field name="sub_group"/>
                                 <field name="sub_group_display"/>
-
                             </group>
                             <group string="Plan">
                                 <field name="plan"/>
@@ -250,6 +267,9 @@
                         <group>     
                             <group> 
                                 <field name="contains_id"/>
+                                <field name="level" placeholder="An integer (e.g., 1, 2)"/>
+                                <field name="is_abstract"/>
+                                <field name="version" placeholder="e.g., v2.5"/>
                             </group>    
                             <group> 
                                 <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
@@ -322,6 +342,9 @@
                         <group>     
                             <group> 
                                 <field name="contains_id"/>
+                                <field name="level" placeholder="An integer (e.g., 1, 2)"/>
+                                <field name="is_abstract"/>
+                                <field name="version" placeholder="e.g., v2.5"/>
                             </group>    
                             <group> 
                                 <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>

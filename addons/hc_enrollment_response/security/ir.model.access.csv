@@ -1,3 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_hc_enrollment_response_hc_res_enrollment_response_user,hc.enrollment.response.hc.res.enrollment.response.user,model_hc_res_enrollment_response,hc_base.group_hc_base_user,1,0,0,0
 access_hc_enrollment_response_hc_enrollment_response_identifier_user,hc.enrollment.response.hc.enrollment.response.identifier.user,model_hc_enrollment_response_identifier,hc_base.group_hc_base_user,1,0,0,0
+access_hc_enrollment_response_hc_enrollment_response_status_history_user,hc.enrollment.response.hc.enrollment.response.status.history.user,model_hc_enrollment_response_status_history,hc_base.group_hc_base_user,1,0,0,0

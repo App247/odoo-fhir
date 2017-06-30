@@ -75,12 +75,6 @@
                   action="hc_res_healthcare_service_action" 
                   groups="hc_base.group_hc_base_manager" 
                   sequence="20"/>
-             
-        <menuitem id="hc_healthcare_service.menu_hc_service_conf" 
-                  name="Configuration" 
-                  parent="hc_healthcare_service.menu_hc_service" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="10"/>
         
         <!-- Service Category Views -->                         
                                         
@@ -127,7 +121,10 @@
                         <field name="comments" placeholder="Comments"/>             
                         <group>             
                             <group>         
-                                <field name="contains_id"/>     
+                                <field name="contains_id"/>
+                                <field name="level" placeholder="An integer (e.g., 1, 2)"/>
+                                <field name="is_abstract"/>
+                                <field name="version" placeholder="e.g., v2.5"/>
                             </group>            
                             <group>         
                                 <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>        
@@ -149,7 +146,7 @@
             
         <menuitem id="hc_healthcare_service.menu_serv_cat" 
                   name="Service Categories" 
-                  parent="hc_healthcare_service.menu_hc_service_conf" 
+                  parent="hc_healthcare_service.menu_hc_service" 
                   action="hc_vs_service_category_action" 
                   groups="hc_base.group_hc_base_manager" 
                   sequence="10"/>
@@ -198,8 +195,11 @@
                         <field name="definition" placeholder="Definition"/>                     
                         <field name="comments" placeholder="Comments"/>                     
                         <group>                     
-                            <group>                 
-                                <field name="contains_id"/>             
+                            <group>         
+                                <field name="contains_id"/>
+                                <field name="level" placeholder="An integer (e.g., 1, 2)"/>
+                                <field name="is_abstract"/>
+                                <field name="version" placeholder="e.g., v2.5"/>
                             </group>                    
                             <group>                 
                                 <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>                
@@ -221,7 +221,7 @@
 
         <menuitem id="hc_healthcare_service.menu_serv_prov_cond" 
                   name="Service Provision Conditions" 
-                  parent="hc_healthcare_service.menu_hc_service_conf" 
+                  parent="hc_healthcare_service.menu_hc_service" 
                   action="hc_vs_service_provision_condition_action" 
                   groups="hc_base.group_hc_base_manager" 
                   sequence="20"/>
@@ -270,8 +270,11 @@
                         <field name="definition" placeholder="Definition"/>                                             
                         <field name="comments" placeholder="Comments"/>                                             
                         <group>                                             
-                            <group>                                         
-                                <field name="contains_id"/>                                     
+                            <group>         
+                                <field name="contains_id"/>
+                                <field name="level" placeholder="An integer (e.g., 1, 2)"/>
+                                <field name="is_abstract"/>
+                                <field name="version" placeholder="e.g., v2.5"/>
                             </group>                                            
                             <group>                                         
                                 <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>                                        
@@ -293,7 +296,7 @@
 
         <menuitem id="hc_healthcare_service.menu_serv_ref_meth" 
                   name="Service Referral Methods" 
-                  parent="hc_healthcare_service.menu_hc_service_conf" 
+                  parent="hc_healthcare_service.menu_hc_service" 
                   action="hc_vs_service_referral_method_action" 
                   groups="hc_base.group_hc_base_manager" 
                   sequence="30"/>
@@ -343,9 +346,11 @@
                         <field name="definition" placeholder="Definition"/>                                             
                         <field name="comments" placeholder="Comments"/>                                             
                         <group>                                             
-                            <group>                                         
+                            <group>         
                                 <field name="contains_id"/>
-                                <field name="level"/>                                     
+                                <field name="level" placeholder="An integer (e.g., 1, 2)"/>
+                                <field name="is_abstract"/>
+                                <field name="version" placeholder="e.g., v2.5"/>
                             </group>                                            
                             <group>                                         
                                 <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>                                        
@@ -367,7 +372,7 @@
 
         <menuitem id="hc_healthcare_service.menu_serv_type" 
                   name="Service Types" 
-                  parent="hc_healthcare_service.menu_hc_service_conf" 
+                  parent="hc_healthcare_service.menu_hc_service" 
                   action="hc_vs_service_type_action" 
                   groups="hc_base.group_hc_base_manager" 
                   sequence="40"/>

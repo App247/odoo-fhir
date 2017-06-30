@@ -32,6 +32,7 @@ class Coding(models.AbstractModel):
         help="Version of the system - if relevant.")        
     code = fields.Char(
         string="Code",
+        required="True",
         index="True", 
         help="Symbol in syntax defined by the system.")        
     # display = fields.Char(

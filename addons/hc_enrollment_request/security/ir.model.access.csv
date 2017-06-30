@@ -1,4 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_hc_enrollment_request_hc_res_enrollment_request_user,hc.enrollment.request.hc.res.enrollment.request.user,model_hc_res_enrollment_request,hc_base.group_hc_base_user,1,0,0,0
 access_hc_enrollment_request_hc_enrollment_request_identifier_user,hc.enrollment.request.hc.enrollment.request.identifier.user,model_hc_enrollment_request_identifier,hc_base.group_hc_base_user,1,0,0,0
+access_hc_enrollment_request_hc_enrollment_request_status_history_user,hc.enrollment.request.hc.enrollment.request.status.history.user,model_hc_enrollment_request_status_history,hc_base.group_hc_base_user,1,0,0,0
 access_hc_enrollment_request_hc_vs_enrollment_relationship_manager,hc.enrollment.request.hc.vs.enrollment.relationship.manager,model_hc_vs_enrollment_relationship,hc_base.group_hc_base_manager,1,1,1,1

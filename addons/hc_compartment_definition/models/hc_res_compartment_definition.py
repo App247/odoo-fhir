@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from openerp import models, fields, api
+from datetime import datetime
+from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as DTF
 
 class CompartmentDefinition(models.Model):    
     _name = "hc.res.compartment.definition"    
@@ -18,13 +20,16 @@ class CompartmentDefinition(models.Model):
     title = fields.Char(
         string="Title", 
         help="Name for this compartment definition (Human friendly).")                        
-    status = fields.Selection(
-        string="Status", 
-        selection=[
-            ("draft", "Draft"), 
-            ("active", "Active"), 
-            ("retired", "Retired")], 
-        help="The status of this message definition. Enables tracking the life-cycle of the content.")                        
+    status_id = fields.Many2one(
+        comodel_name="hc.vs.publication.status",
+        string="Status",
+        required="True",
+        help="The status of this message definition. Enables tracking the life-cycle of the content.")
+    status_history_ids = fields.One2many(   
+        comodel_name="hc.compartment.definition.status.history",
+        inverse_name="compartment_definition_id",
+        string="Status History",
+        help="The status of the compartment definition over time.")                       
     is_experimental = fields.Boolean(
         string="Experimental", 
         help="If for testing purposes, not real usage.")
@@ -75,6 +80,54 @@ class CompartmentDefinition(models.Model):
         string="Software", 
         help="How resource is related to the compartment.")                        
 
+    @api.model                          
+    def create(self, vals):                         
+        status_history_obj = self.env['hc.compartment.definition.status.history']                       
+        res = super(CompartmentDefinition, self).create(vals)                       
+        if vals and vals.get('status_id'):                      
+            status_history_vals = {                 
+                'compartment_definition_id': res.id,                
+                'status' : res.status_id.name,                                              
+                'start_date': datetime.today()              
+                }               
+            status_history_obj.create(status_history_vals)                  
+        return res                      
+                                
+    @api.multi                          
+    def write(self, vals):                          
+        status_history_obj = self.env['hc.compartment.definition.status.history']                       
+        publication_status_obj = self.env['hc.vs.publication.status']                       
+        res = super(CompartmentDefinition, self).write(vals)                        
+        status_history_record_ids = status_history_obj.search([('end_date','=', False)])                        
+        if status_history_record_ids:                       
+            if vals.get('status_id') and status_history_record_ids[0].status != vals.get('status_id'):                  
+                for status_history in status_history_record_ids:                
+                    status_history.end_date = datetime.strftime(datetime.today(), DTF)          
+                    time_diff = datetime.today() - datetime.strptime(status_history.start_date, DTF)            
+                    if time_diff:           
+                        days = str(time_diff).split(',')        
+                        if days and len(days) > 1:      
+                            status_history.time_diff_day = str(days[0]) 
+                            times = str(days[1]).split(':') 
+                            if times and times > 1: 
+                                status_history.time_diff_hour = str(times[0])
+                                status_history.time_diff_min = str(times[1])
+                                status_history.time_diff_sec = str(times[2])
+                        else:       
+                            times = str(time_diff).split(':')   
+                            if times and times > 1: 
+                                status_history.time_diff_hour = str(times[0])
+                                status_history.time_diff_min = str(times[1])
+                                status_history.time_diff_sec = str(times[2])
+                publication_status = publication_status_obj.browse(vals.get('status_id'))               
+                status_history_vals = {             
+                    'compartment_definition_id': self.id,           
+                    'status': publication_status.name,          
+                    'start_date': datetime.today()          
+                    }           
+                status_history_obj.create(status_history_vals)              
+        return res                      
+
 class CompartmentDefinitionResource(models.Model):    
     _name = "hc.compartment.definition.resource"    
     _description = "Compartment Definition Resource"                
@@ -96,6 +149,36 @@ class CompartmentDefinitionResource(models.Model):
     documentation = fields.Text(
         string="Documentation", 
         help="Additional documentation about the resource and compartment.")
+
+class CompartmentDefinitionStatusHistory(models.Model):     
+    _name = "hc.compartment.definition.status.history"  
+    _description = "Compartment Definition Status History"  
+        
+    compartment_definition_id = fields.Many2one(    
+        comodel_name="hc.res.compartment.definition",
+        string="Compartment Definition",
+        help="Compartment Definition associated with this Compartment Definition Status History.")
+    status = fields.Char(   
+        string="Status",
+        help="The status of the compartment definition.")
+    start_date = fields.Datetime(   
+        string="Start Date",
+        help="Start of the period during which this compartment definition status is valid.")
+    end_date = fields.Datetime( 
+        string="End Date",
+        help="End of the period during which this compartment definition status is valid.")
+    time_diff_day = fields.Char(    
+        string="Time Diff (days)",
+        help="Days duration of the status.")
+    time_diff_hour = fields.Char(   
+        string="Time Diff (hours)",
+        help="Hours duration of the status.")
+    time_diff_min = fields.Char(    
+        string="Time Diff (minutes)",
+        help="Minutes duration of the status.")
+    time_diff_sec = fields.Char(    
+        string="Time Diff (seconds)",
+        help="Seconds duration of the status.")
 
 class CompartmentDefinitionContact(models.Model):    
     _name = "hc.compartment.definition.contact"    

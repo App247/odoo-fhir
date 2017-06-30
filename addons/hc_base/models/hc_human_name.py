@@ -181,11 +181,11 @@ class HumanName(models.Model):
         string="Animal Name",
         help="Indicates if this name is an animal name.")
 
-    _sql_constraints = [
-        ('name_uniq',
-        'UNIQUE (name)',
-        'Full Name must be unique.')
-        ]
+    # _sql_constraints = [
+    #     ('name_uniq',
+    #     'UNIQUE (name)',
+    #     'Full Name must be unique.')
+    #     ]
 
     # Requirements
 

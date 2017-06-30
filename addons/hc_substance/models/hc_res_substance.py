@@ -176,6 +176,7 @@ class SubstanceCode(models.Model):
         help="Name of this substance code.")
     code = fields.Char(
         string="Code",
+        required=True,
         help="Code of this substance code.")
     contains_id = fields.Many2one(
         comodel_name="hc.vs.substance.code",
@@ -235,38 +236,38 @@ class SubstanceCode(models.Model):
     #             return res
 
 
-    # @api.model
-    # def create(self, vals):
-    #     res = super(SubstanceCode, self).create(vals)
-    #     level_attr = False
-    #     if res.parent_child_ids:
-    #         for code in res.parent_child_ids:
-    #             res.level = code.level + 1
-    #             if not level_attr:
-    #                 level_attr = '(' + str(res.level) + ',' + code.name +')'
-    #             else:
-    #                 level_attr = level_attr + ',' + '(' + str(res.level) + ',' + code.name +')'
-    #     else:
-    #         res.level = 1
-    #     res.level_attribute = level_attr or ''
-    #     return res
+    @api.model
+    def create(self, vals):
+        res = super(SubstanceCode, self).create(vals)
+        level_attr = False
+        if res.parent_child_ids:
+            for code in res.parent_child_ids:
+                res.level = code.level + 1
+                if not level_attr:
+                    level_attr = '(' + str(res.level) + ',' + code.name +')'
+                else:
+                    level_attr = level_attr + ',' + '(' + str(res.level) + ',' + code.name +')'
+        else:
+            res.level = 1
+        res.level_attribute = level_attr or ''
+        return res
 
-    # @api.multi
-    # def write(self, vals):
-    #     res = super(SubstanceCode, self).write(vals)
-    #     level_attr = False
-    #     for rec in self:
-    #         if rec.parent_child_ids:
-    #             if rec.id in rec.parent_child_ids.ids:
-    #                 raise ValidationError(
-    #                     "Error! A code cannot be a child of itself.")
-    #             for code in rec.parent_child_ids:
-    #                 vals.update({'level': code.level + 1})
-    #                 if not level_attr:
-    #                     level_attr = '(' + str(rec.level) + ',' + code.name +')'
-    #                 else:
-    #                     level_attr = level_attr + ',' + '(' + str(rec.level) + ',' + code.name +')'
-    #         else:
-    #             vals.update({'level': 1})
-    #         vals.update({'level_attribute' : level_attr or ''})
-    #     return super(SubstanceCode, self).write(vals)
+    @api.multi
+    def write(self, vals):
+        res = super(SubstanceCode, self).write(vals)
+        level_attr = False
+        for rec in self:
+            if rec.parent_child_ids:
+                if rec.id in rec.parent_child_ids.ids:
+                    raise ValidationError(
+                        "Error! A code cannot be a child of itself.")
+                for code in rec.parent_child_ids:
+                    vals.update({'level': code.level + 1})
+                    if not level_attr:
+                        level_attr = '(' + str(rec.level) + ',' + code.name +')'
+                    else:
+                        level_attr = level_attr + ',' + '(' + str(rec.level) + ',' + code.name +')'
+            else:
+                vals.update({'level': 1})
+            vals.update({'level_attribute' : level_attr or ''})
+        return super(SubstanceCode, self).write(vals)

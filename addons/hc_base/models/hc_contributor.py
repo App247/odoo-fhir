@@ -6,21 +6,24 @@ class Contributor(models.Model):
     _name = "hc.contributor"    
     _description = "Contributor"        
 
-type = fields.Selection(
-    string="Type", 
-    required="True", 
-    selection=[
-        ("author", "Author"), 
-        ("editor", "Editor")], 
-    help="The type of contributor.")                
-name = fields.Char(
-    string="Name", 
-    required="True", help="Name of the contributor.")             
-contact_ids = fields.One2many(
-    comodel_name="hc.contributor.contact", 
-    inverse_name="contributor_id", 
-    string="Contacts", 
-    help="Contact details of the contributor.")              
+    type = fields.Selection(
+        string="Type", 
+        required="True",
+        selection=[
+            ("author", "Author"), 
+            ("editor", "Editor"), 
+            ("reviewer", "Reviewer"), 
+            ("endorser", "Endorser")],
+        help="The type of contributor.")                
+    name = fields.Char(
+        string="Name", 
+        required="True", 
+        help="Who contributed the content.")             
+    contact_ids = fields.One2many(
+        comodel_name="hc.contributor.contact", 
+        inverse_name="contributor_id", 
+        string="Contacts", 
+        help="Contact details of the contributor.")              
 
 class ContributorContact(models.Model): 
     _name = "hc.contributor.contact"    

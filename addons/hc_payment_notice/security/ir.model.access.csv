@@ -1,4 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_hc_payment_notice_hc_res_payment_notice_user,hc.payment.notice.hc.res.payment.notice.user,model_hc_res_payment_notice,hc_base.group_hc_base_user,1,0,0,0
 access_hc_payment_notice_hc_payment_notice_identifier_user,hc.payment.notice.hc.payment.notice.identifier.user,model_hc_payment_notice_identifier,hc_base.group_hc_base_user,1,0,0,0
+access_hc_payment_notice_hc_payment_notice_status_history_user,hc.payment.notice.hc.payment.notice.status.history.user,model_hc_payment_notice_status_history,hc_base.group_hc_base_user,1,0,0,0
 access_hc_payment_notice_hc_vs_payment_status_manager,hc.payment.notice.hc.vs.payment.status.manager,model_hc_vs_payment_status,hc_base.group_hc_base_manager,1,1,1,1

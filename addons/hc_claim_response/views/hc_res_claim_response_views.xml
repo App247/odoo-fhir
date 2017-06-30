@@ -1,6 +1,22 @@
 <openerp>
     <data>
 
+<!--         <page string="Status History">          
+            <field name="status_history_ids" mode="tree">       
+                <tree>  
+                    <field name="status" readonly="1"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="time_diff_day"/>
+                    <field name="time_diff_hour"/>
+                    <field name="time_diff_min"/>
+                    <field name="time_diff_sec"/>
+                    <field name="write_uid" invisible="0"/>
+                </tree> 
+            </field>        
+        </page>    -->      
+
+
      <!-- Claim Response Action and Menu -->    
     
     <act_window id="hc_res_claim_response_action"   

@@ -266,8 +266,6 @@
             </field>
         </record>
 
-        <!-- Allergy Intolerance Action and Menu -->
-
         <act_window id="hc_res_allergy_intolerance_action"
                     name="HC Allergy Intolerances"
                     res_model="hc.res.allergy.intolerance"
@@ -329,8 +327,8 @@
                         <group>
                             <group>
                                 <field name="contains_id" invisible="0"/>
-                                <field name="is_abstract" widget="upgrade_boolean"/>
                                 <field name="level" placeholder="An integer (e.g., 1, 2)"/>
+                                <field name="is_abstract"/>
                                 <field name="version" placeholder="e.g., v2.5"/>
                             </group>
                             <group>
@@ -363,6 +361,8 @@
                   action="hc_vs_allergy_intolerance_code_action"
                   groups="hc_base.group_hc_base_manager"
                   sequence="10"/>
+
+        <!-- Manifestation Code Value Set Action and Menu -->
 
         <record id="hc_vs_manifestation_code_view_search" model="ir.ui.view">
             <field name="name">Manifestation Code Search</field>
@@ -407,8 +407,8 @@
                         <group>
                             <group>
                                 <field name="contains_id" invisible="0"/>
-                                <field name="is_abstract" widget="upgrade_boolean"/>
                                 <field name="level" placeholder="An integer (e.g., 1, 2)"/>
+                                <field name="is_abstract"/>
                                 <field name="version" placeholder="e.g., v2.5"/>
                             </group>
                             <group>

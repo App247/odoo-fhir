@@ -76,12 +76,6 @@
                   action="hc_res_encounter_action" 
                   groups="hc_base.group_hc_base_manager" 
                   sequence="10"/>
-
-        <menuitem id="hc_encounter.menu_enc_conf" 
-                  name="Configuration" 
-                  parent="hc_encounter.menu_enc" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="10"/>
         
         <!-- Encounter Participant Type Views -->                     
                         
@@ -129,6 +123,9 @@
                         <group>     
                             <group> 
                                 <field name="contains_id"/>
+                                <field name="level" placeholder="An integer (e.g., 1, 2)"/>
+                                <field name="is_abstract"/>
+                                <field name="version" placeholder="e.g., v2.5"/>
                             </group>    
                             <group> 
                                 <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
@@ -150,7 +147,7 @@
  
         <menuitem id="hc_encounter.menu_enc_part_type" 
                   name="Encounter Participant Types" 
-                  parent="hc_encounter.menu_enc_conf" 
+                  parent="hc_encounter.menu_enc" 
                   action="hc_vs_encounter_particpant_type_action" 
                   groups="hc_base.group_hc_base_manager" 
                   sequence="5"/>
@@ -202,6 +199,9 @@
                         <group>     
                             <group> 
                                 <field name="contains_id"/>
+                                <field name="level" placeholder="An integer (e.g., 1, 2)"/>
+                                <field name="is_abstract"/>
+                                <field name="version" placeholder="e.g., v2.5"/>
                             </group>    
                             <group> 
                                 <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
@@ -223,7 +223,7 @@
 
         <menuitem id="hc_encounter.menu_enc_rsn" 
                   name="Encounter Reasons" 
-                  parent="hc_encounter.menu_enc_conf" 
+                  parent="hc_encounter.menu_enc" 
                   action="hc_vs_encounter_reason_action" 
                   groups="hc_base.group_hc_base_manager" 
                   sequence="10"/>

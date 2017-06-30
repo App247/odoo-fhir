@@ -241,13 +241,7 @@
             </field>
         </record>
 
-    <!-- Related Person Value Set Action and Menu -->   
-
-    <menuitem id="hc_related_person.menu_rel_pers_conf" 
-              name="Configuration" 
-              parent="hc_related_person.menu_rel_pers" 
-              groups="hc_base.group_hc_base_manager" 
-              sequence="10"/>  
+    <!-- Related Person Value Set Action and Menu -->    
             
     <record id="hc_vs_related_person_relationship_type_view_tree" model="ir.ui.view">                       
         <field name="name">Related Person Relationship Type Tree</field>                    
@@ -277,9 +271,9 @@
                     <field name="comments" placeholder="Comments"/>     
                     <group>     
                         <group> 
-                            <field name="contains_id" invisible="0"/>
-                            <field name="is_abstract" widget="upgrade_boolean"/>
+                            <field name="contains_id"/>
                             <field name="level" placeholder="An integer (e.g., 1, 2)"/>
+                            <field name="is_abstract"/>
                             <field name="version" placeholder="e.g., v2.5"/>
                         </group>    
                         <group> 
@@ -302,11 +296,10 @@
 
     <menuitem id="hc_related_person.menu_rel_pers_rel" 
               name="Related Person Relationship Types" 
-              parent="hc_related_person.menu_rel_pers_conf" 
+              parent="hc_related_person.menu_rel_pers" 
               action="hc_vs_related_person_relationship_type_action" 
               groups="hc_base.group_hc_base_manager" 
               sequence="10"/>
-
 
     </data>
 </openerp>

@@ -2,5 +2,6 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_hc_process_response_hc_res_process_response_user,hc.process.response.hc.res.process.response.user,model_hc_res_process_response,hc_base.group_hc_base_user,1,0,0,0
 access_hc_process_response_hc_process_response_process_note_user,hc.process.response.hc.process.response.process.note.user,model_hc_process_response_process_note,hc_base.group_hc_base_user,1,0,0,0
 access_hc_process_response_hc_process_response_identifier_user,hc.process.response.hc.process.response.identifier.user,model_hc_process_response_identifier,hc_base.group_hc_base_user,1,0,0,0
+access_hc_process_response_hc_process_response_status_history_user,hc.process.response.hc.process.response.status.history.user,model_hc_process_response_status_history,hc_base.group_hc_base_user,1,0,0,0
 access_hc_process_response_hc_process_response_communication_request_user,hc.process.response.hc.process.response.communication.request.user,model_hc_process_response_communication_request,hc_base.group_hc_base_user,1,0,0,0
 access_hc_process_response_hc_vs_process_outcome_manager,hc.process.response.hc.vs.process.outcome.manager,model_hc_vs_process_outcome,hc_base.group_hc_base_manager,1,1,1,1

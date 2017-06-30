@@ -1,6 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_hc_eligibility_request_hc_res_eligibility_request_user,hc.eligibility.request.hc.res.eligibility.request.user,model_hc_res_eligibility_request,hc_base.group_hc_base_user,1,0,0,0
 access_hc_eligibility_request_hc_eligibility_request_identifier_user,hc.eligibility.request.hc.eligibility.request.identifier.user,model_hc_eligibility_request_identifier,hc_base.group_hc_base_user,1,0,0,0
+access_hc_eligibility_request_hc_eligibility_request_status_history_user,hc.eligibility.request.hc.eligibility.request.status.history.user,model_hc_eligibility_request_status_history,hc_base.group_hc_base_user,1,0,0,0
 access_hc_eligibility_request_hc_vs_process_priority_manager,hc.eligibility.request.hc.vs.process.priority.manager,model_hc_vs_process_priority,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_eligibility_request_hc_vs_benefit_category_manager,hc.eligibility.request.hc.vs.benefit.category.manager,model_hc_vs_benefit_category,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_eligibility_request_hc_vs_benefit_sub_category_manager,hc.eligibility.request.hc.vs.benefit.sub.category.manager,model_hc_vs_benefit_sub_category,hc_base.group_hc_base_manager,1,1,1,1

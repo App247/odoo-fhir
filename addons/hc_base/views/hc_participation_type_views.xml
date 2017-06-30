@@ -48,9 +48,9 @@
                         <group>   
                             <group> 
                                 <field name="contains_id"/>
+                                <field name="level" placeholder="An integer (e.g., 1, 2)"/>
                                 <field name="subset_ids" widget="many2many_tags"/>
                                 <field name="is_abstract" widget="upgrade_boolean"/>
-                                <field name="level" placeholder="An integer (e.g., 1, 2)"/>
                                 <field name="version" placeholder="e.g., v2.5"/>
                             </group>  
                             <group> 
