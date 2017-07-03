@@ -183,30 +183,35 @@
 
         <record id="state_type_us_district" model="hc.vs.country.state.type">  
             <field name="name">District</field>
+            <field name="code">district</field>
             <field name="source_id" ref="base.us_census"/>
             <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
             <field name="country_id" ref="base.us"/>
         </record>   
         <record id="state_type_us_fas" model="hc.vs.country.state.type">   
             <field name="name">Freely Associated State</field>
+            <field name="code">freely associated state</field>
             <field name="source_id" ref="base.us_census"/>
             <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
             <field name="country_id" ref="base.us"/>
         </record>   
         <record id="state_type_us_moit" model="hc.vs.country.state.type">  
             <field name="name">Minor Outlying Island Territory</field>
+            <field name="code">minoroutlying island territory</field>
             <field name="source_id" ref="base.us_census"/>
             <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
             <field name="country_id" ref="base.us"/>
         </record>   
         <record id="state_type_us_state" model="hc.vs.country.state.type"> 
             <field name="name">State</field>
+            <field name="code">state</field>
             <field name="source_id" ref="base.us_census"/>
             <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
             <field name="country_id" ref="base.us"/>
         </record>   
         <record id="state_type_us_uuss" model="hc.vs.country.state.type">  
             <field name="name">Under U.S Sovereignty</field>
+            <field name="code">under us sovereignty</field>
             <field name="source_id" ref="base.us_census"/>
             <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
             <field name="country_id" ref="base.us"/>
