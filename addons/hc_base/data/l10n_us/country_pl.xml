@@ -16,6 +16,7 @@
 
         <record id="region_type_us_region" model="hc.vs.country.region.type">  
             <field name="name">Region</field>
+            <field name="code">region</field>
             <field name="source_id" ref="base.us_census"/>
             <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
             <field name="country_id" ref="base.us"/>
@@ -25,6 +26,7 @@
 
         <record id="division_type_us_division" model="hc.vs.country.division.type">  
             <field name="name">Division</field>
+            <field name="code">division</field>
             <field name="source_id" ref="base.us_census"/>
             <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
             <field name="country_id" ref="base.us"/>
