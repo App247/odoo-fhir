@@ -67,6 +67,7 @@
         'data/l10n_us/hc.vs.country.city.type.csv',
         'views/hc_value_set_views.xml',
         'views/views.xml',
+        'views/hc_act_code_views.xml',
         'views/hc_address_views.xml',
         'views/hc_annotation_views.xml',
         'views/hc_attachment_views.xml',

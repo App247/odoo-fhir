@@ -83,6 +83,7 @@ access_hc_base_hc_related_resource_document_user,hc.base.hc.related.resource.doc
 access_hc_base_hc_vs_resource_list_manager,hc.base.hc.vs.resource.list.manager,model_hc_vs_resource_list,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_parameter_definition_user,hc.base.hc.parameter.definition.user,model_hc_parameter_definition,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_vs_fhir_all_type_manager,hc.base.hc.vs.fhir.all.type.manager,model_hc_vs_fhir_all_type,hc_base.group_hc_base_manager,1,1,1,1
+access_hc_base_hc_vs_fm_status_manager,hc.base.hc.vs.fm.status.manager,model_hc_vs_fm_status,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_coding_user,hc.base.hc.coding.user,model_hc_coding,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_codeable_concept_user,hc.base.hc.codeable.concept.user,model_hc_codeable_concept,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_codeable_concept_coding_user,hc.base.hc.codeable.concept.coding.user,model_hc_codeable_concept_coding,hc_base.group_hc_base_user,1,0,0,0

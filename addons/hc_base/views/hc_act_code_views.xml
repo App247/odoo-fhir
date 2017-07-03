@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Act Code Views -->                     
+                                
+        <record id="hc_vs_act_code_view_search" model="ir.ui.view">                     
+            <field name="name">Act Code Search</field>                  
+            <field name="model">hc.vs.act.code</field>                  
+            <field name="arch" type="xml">                  
+                <search string="Act Codes">             
+                    <field name="name"/>            
+                    <field name="code"/>            
+                    <field name="definition"/>          
+                    <group>         
+                        <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>      
+                    </group>            
+                </search>               
+            </field>                    
+        </record>                       
+                                
+        <record id="hc_vs_act_code_view_tree" model="ir.ui.view">                       
+            <field name="name">Act Code Tree</field>                    
+            <field name="model">hc.vs.act.code</field>                  
+            <field name="arch" type="xml">                  
+                <tree string="Act Codes" default_order="name, code">                
+                    <field name="name"/>            
+                    <field name="code"/>            
+                    <field name="definition"/>          
+                    <field name="contains_id"/>         
+                    <field name="source_id" invisible="0"/>         
+                </tree>             
+            </field>                    
+        </record>                       
+                                
+        <record id="hc_vs_act_code_view_form" model="ir.ui.view">                       
+            <field name="name">Act Code Form</field>                    
+            <field name="model">hc.vs.act.code</field>                  
+            <field name="arch" type="xml">                  
+                <form string="Act Code">                
+                    <sheet>         
+                        <h1>        
+                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>  
+                        </h1>       
+                        <field name="code" placeholder="Code (e.g., biological)"/>      
+                        <field name="definition" placeholder="Definition"/>     
+                        <field name="comments" placeholder="Comments"/>     
+                        <group>     
+                            <group> 
+                                <field name="contains_id"/>
+                                <field name="level" placeholder="An integer (e.g., 1, 2)"/>
+                                <field name="is_abstract"/>
+                                <field name="version" placeholder="e.g., v2.5"/>
+                            </group>    
+                            <group> 
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
+                            </group>    
+                        </group>        
+                    </sheet>            
+                </form>             
+            </field>                    
+        </record>                       
+
+        <act_window id="hc_vs_act_code_action"          
+                    name="HC Act Codes"
+                    res_model="hc.vs.act.code"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+        
+        <menuitem id="hc_base.menu_act_code" 
+                  name="Act Code" 
+                  parent="hc_base.menu_vs" 
+                  action="hc_vs_act_code_action" 
+                  groups="hc_base.group_hc_base_manager" 
+                  sequence="25"/>
+
+        <!-- Act Code Subset Views -->                        
+                                
+        <record id="hc_vs_act_code_subset_view_search" model="ir.ui.view">                        
+            <field name="name">Act Code Subset Search</field>                    
+            <field name="model">hc.vs.act.code.subset</field>                    
+            <field name="arch" type="xml">                    
+                <search string="Act Code Subsets">                
+                    <field name="name"/>            
+                    <field name="code"/>            
+                    <field name="definition"/>            
+                    <group>            
+                        <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>        
+                    </group>            
+                </search>                
+            </field>                    
+        </record>                        
+                                
+        <record id="hc_vs_act_code_subset_view_tree" model="ir.ui.view">                        
+            <field name="name">Act Code Subset Tree</field>                    
+            <field name="model">hc.vs.act.code.subset</field>                    
+            <field name="arch" type="xml">                    
+                <tree string="Act Code Subsets" default_order="name, code">                
+                    <field name="name"/>            
+                    <field name="code"/>            
+                    <field name="definition"/>            
+                    <field name="contains_id"/>            
+                    <field name="source_id" invisible="0"/>            
+                </tree>                
+            </field>                    
+        </record>                        
+                                
+        <record id="hc_vs_act_code_subset_view_form" model="ir.ui.view">                        
+            <field name="name">Act Code Subset Form</field>                    
+            <field name="model">hc.vs.act.code.subset</field>                    
+            <field name="arch" type="xml">                    
+                <form string="Act Code Subset">                
+                    <sheet>            
+                        <h1>        
+                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>    
+                        </h1>        
+                        <field name="code" placeholder="Code (e.g., biological)"/>        
+                        <field name="definition" placeholder="Definition"/>        
+                        <field name="comments" placeholder="Comments"/>        
+                        <group>        
+                            <group>    
+                                <field name="contains_id"/>
+                                <field name="level" placeholder="An integer (e.g., 1, 2)"/>
+                                <field name="is_abstract"/>
+                                <field name="version" placeholder="e.g., v2.5"/>
+                            </group>    
+                            <group>    
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
+                            </group>    
+                        </group>        
+                    </sheet>            
+                </form>                
+            </field>                    
+        </record>                        
+
+        <act_window id="hc_vs_act_code_subset_action"           
+                    name="HC Act Code Subsets"
+                    res_model="hc.vs.act.code.subset"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <menuitem id="hc_base.menu_act_code_sub" 
+                  name="Act Code Subset" 
+                  parent="hc_base.menu_vs" 
+                  action="hc_vs_act_code_subset_action" 
+                  groups="hc_base.group_hc_base_manager" 
+                  sequence="26"/>
+
+        <!-- Act Code Value Set Views -->                       
+                                
+        <record id="hc_vs_act_code_value_set_view_search" model="ir.ui.view">                       
+            <field name="name">Act Code Value Set Search</field>                    
+            <field name="model">hc.vs.act.code.value.set</field>                    
+            <field name="arch" type="xml">                  
+                <search string="Act Code Value Sets">               
+                    <field name="name"/>            
+                    <field name="code"/>            
+                    <field name="definition"/>          
+                    <group>         
+                        <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>      
+                    </group>            
+                </search>               
+            </field>                    
+        </record>                       
+                                
+        <record id="hc_vs_act_code_value_set_view_tree" model="ir.ui.view">                     
+            <field name="name">Act Code Value Set Tree</field>                  
+            <field name="model">hc.vs.act.code.value.set</field>                    
+            <field name="arch" type="xml">                  
+                <tree string="Act Code Value Sets" default_order="name, code">              
+                    <field name="name"/>            
+                    <field name="code"/>            
+                    <field name="definition"/>          
+                    <field name="contains_id"/>         
+                    <field name="source_id" invisible="0"/>         
+                </tree>             
+            </field>                    
+        </record>                       
+                                
+        <record id="hc_vs_act_code_value_set_view_form" model="ir.ui.view">                     
+            <field name="name">Act Code Value Set Form</field>                  
+            <field name="model">hc.vs.act.code.value.set</field>                    
+            <field name="arch" type="xml">                  
+                <form string="Act Code Value Set">              
+                    <sheet>         
+                        <h1>        
+                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>  
+                        </h1>       
+                        <field name="code" placeholder="Code (e.g., biological)"/>      
+                        <field name="definition" placeholder="Definition"/>     
+                        <field name="comments" placeholder="Comments"/>     
+                        <group>     
+                            <group> 
+                                <field name="contains_id"/>
+                                <field name="level" placeholder="An integer (e.g., 1, 2)"/>
+                                <field name="is_abstract"/>
+                                <field name="version" placeholder="e.g., v2.5"/>
+                            </group>    
+                            <group> 
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
+                            </group>    
+                        </group>        
+                    </sheet>            
+                </form>             
+            </field>                    
+        </record>
+
+        <act_window id="hc_vs_act_code_value_set_action"            
+                    name="HC Act Code Value Sets"
+                    res_model="hc.vs.act.code.value.set"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <menuitem id="hc_base.menu_act_code_val" 
+                  name="Act Code Value Set" 
+                  parent="hc_base.menu_vs" 
+                  action="hc_vs_act_code_value_set_action" 
+                  groups="hc_base.group_hc_base_manager" 
+                  sequence="27"/>
+
+    </data>
+</odoo>
