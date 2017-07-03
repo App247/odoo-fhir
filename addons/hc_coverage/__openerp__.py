@@ -32,6 +32,7 @@
         'security/ir.model.access.csv',
         'views/hc_res_coverage_views.xml',
         'views/hc_res_coverage_templates.xml',
+        'data/data_coverage.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

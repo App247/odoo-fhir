@@ -214,7 +214,7 @@ class Coverage(models.Model):
                     status_id_history_vals.update({'end_date': datetime.today()})           
                 status_history_obj.create(status_history_vals)              
         return res                      
-                     
+
     @api.depends('policy_holder_type')          
     def _compute_policy_holder_name(self):          
         for hc_res_coverage in self:        
@@ -224,6 +224,24 @@ class Coverage(models.Model):
                 hc_res_coverage.policy_holder_name = hc_res_coverage.policy_holder_related_person_id.name
             elif hc_res_coverage.policy_holder_type == 'organization':  
                 hc_res_coverage.policy_holder_name = hc_res_coverage.policy_holder_organization_id.name
+
+    @api.depends('subscriber_type')         
+    def _compute_subscriber_name(self):         
+        for hc_res_coverage in self:        
+            if hc_res_coverage.subscriber_type == 'patient':    
+                hc_res_coverage.subscriber_name = hc_res_coverage.subscriber_patient_id.name
+            elif hc_res_coverage.subscriber_type == 'related_person':   
+                hc_res_coverage.subscriber_name = hc_res_coverage.subscriber_related_person_id.name
+
+    @api.depends('payor_type')          
+    def _compute_payor_name(self):          
+        for hc_res_coverage in self:        
+            if hc_res_coverage.payor_type == 'organization':    
+                hc_res_coverage.payor_name = hc_res_coverage.payor_organization_id.name
+            elif hc_res_coverage.payor_type == 'patient':   
+                hc_res_coverage.payor_name = hc_res_coverage.payor_patient_id.name
+            elif hc_res_coverage.payor_type == 'related_person':    
+                hc_res_coverage.payor_name = hc_res_coverage.payor_related_person_id.name
 
 class coverage_grouping(models.Model):
     _name = "hc.coverage.grouping"

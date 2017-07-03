@@ -422,7 +422,7 @@
 
         <record id="part_type_sbj" model="hc.vs.participation.type">
             <field name="code">SBJ</field>
-            <field name="name"></field>
+            <field name="name">subject</field>
             <field name="definition">The principle target on which the action happens.</field>
             <field name="level">3</field>
             <field name="contains_id" ref="part_type_dir"/>

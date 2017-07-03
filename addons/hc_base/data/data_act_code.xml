@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+    <!-- Act Code Value Set --> 
+   
+    <record id="act_code_value_set_4" model="hc.vs.act.code.value.set"> 
+        <field name="code">AccountCode</field>
+        <field name="name">Account Code</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">An account represents a grouping of financial transactions that are tracked and reported together with a single balance.</field>
+        <field name="comments">Examples of account codes (types) are Patient billing accounts (collection of charges), Cost centers; Cash.</field>
+    </record> 
+        
+    <record id="act_code_value_set_14" model="hc.vs.act.code.value.set">    
+        <field name="code">AdjudicationCode</field>
+        <field name="name">Adjudication Code</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">Includes coded responses that will occur as a result of the adjudication of an electronic invoice at a summary level and provides guidance on interpretation of the referenced adjudication results.</field>
+    </record>   
+        
+    <record id="act_code_value_set_42" model="hc.vs.act.code.value.set">    
+        <field name="code">AdjudicationResultActionCode</field>
+        <field name="name">Adjudication Result Action Code</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">Actions to be carried out by the recipient of the Adjudication Result information.</field>
+    </record>   
+        
+    <record id="act_code_value_set_45" model="hc.vs.act.code.value.set">    
+        <field name="code">BillableModifierCode</field>
+        <field name="name">Billable Modifier Code</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">An identifying modifier code for healthcare interventions or procedures.</field>
+    </record>   
+        
+    <record id="act_code_value_set_48" model="hc.vs.act.code.value.set">    
+        <field name="code">BillingArrangementCode</field>
+        <field name="name">Billing Arrangement Cde</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">The type of provision(s) made for reimbursing for the deliver of healthcare services and/or goods provided by a Provider, over a specified period.</field>
+    </record>   
+  
+
+    <record id="act_code_value_set_61" model="hc.vs.act.code.value.set">    
+        <field name="code">BoundedROICode</field>
+        <field name="name">Bounded ROI Code</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">Type of bounded ROI.</field>
+    </record>   
+        
+    <record id="act_code_value_set_64" model="hc.vs.act.code.value.set">    
+        <field name="code">CareProvisionCode</field>
+        <field name="name">Care Provision Code</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">The type and scope of responsibility taken-on by the performer of the Act for a specific subject of care.</field>
+    </record>   
+        
+    <record id="act_code_value_set_174" model="hc.vs.act.code.value.set">   
+        <field name="code">ClaimAttachmentCategoryCode</field>
+        <field name="name">Claim Attachment Category Code</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">Coded types of attachments included to support a healthcare claim.</field>
+    </record>   
+        
+    <record id="act_code_value_set_183" model="hc.vs.act.code.value.set">   
+        <field name="code">ConsentType</field>
+        <field name="name">Consent Type</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">The type of consent directive, e.g., to consent or dissent to collect, access, or use in specific ways within an EHRS or for health information exchange; or to disclose health information for purposes such as research.</field>
+    </record>   
+        
+    <record id="act_code_value_set_195" model="hc.vs.act.code.value.set">   
+        <field name="code">ContainerRegistrationCode</field>
+        <field name="name">Container Registration Code</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">Constrains the ActCode to the domain of Container Registration</field>
+    </record>   
+        
+    <record id="act_code_value_set_203" model="hc.vs.act.code.value.set">   
+        <field name="code">ControlVariable</field>
+        <field name="name">Control Variable</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">An observation form that determines parameters or attributes of an Act. &#10;&#10;Examples are the settings of a ventilator machine as parameters of a ventilator treatment act; the controls on dillution factors of a chemical analyzer as a parameter of a laboratory observation act; the settings of a physiologic measurement assembly (e.g., time skew) or the position of the body while measuring blood pressure.</field>
+        <field name="comments">Control variables are forms of observations because just as with clinical observations, the Observation.code determines the parameter and the Observation.value assigns the value. While control variables sometimes can be observed (by noting the control settings or an actually measured feedback loop) they are not primary observations, in the sense that a control variable without a primary act is of no use (e.g., it makes no sense to record a blood pressure position without recording a blood pressure, whereas it does make sense to record a systolic blood pressure without a diastolic blood pressure).</field>
+    </record>   
+        
+    <record id="act_code_value_set_208" model="hc.vs.act.code.value.set">   
+        <field name="code">CoverageConfirmationCode</field>
+        <field name="name">Coverage Confirmation Code</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">Response to an insurance coverage eligibility query or authorization request.</field>
+    </record>   
+        
+    <record id="act_code_value_set_215" model="hc.vs.act.code.value.set">   
+        <field name="code">CoverageLimitCode</field>
+        <field name="name">Coverage Limit Code</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">Criteria that are applicable to the authorized coverage.</field>
+    </record>   
+        
+    <record id="act_code_value_set_227" model="hc.vs.act.code.value.set">   
+        <field name="code">CoverageTypeCode</field>
+        <field name="name">Coverage Type Code</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">Set of codes indicating the type of insurance policy or program that pays for the cost of benefits provided to covered parties.</field>
+    </record>   
+        
+    <record id="act_code_value_set_321" model="hc.vs.act.code.value.set">   
+        <field name="code">DetectedIssueManagementCode</field>
+        <field name="name">Detected Issue Management Code</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">Codes dealing with the management of Detected Issue observations</field>
+    </record>   
+        
+    <record id="act_code_value_set_348" model="hc.vs.act.code.value.set">   
+        <field name="code">ExposureCode</field>
+        <field name="name">Exposure Code</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">Concepts that identify the type or nature of exposure interaction. &#10;&#10;Examples include &quot;household&quot;, &quot;care giver&quot;, &quot;intimate partner&quot;, &quot;common space&quot;, &quot;common substance&quot;, etc. to further describe the nature of interaction.</field>
+    </record>   
+        
+    <record id="act_code_value_set_366" model="hc.vs.act.code.value.set">   
+        <field name="code">FinancialTransactionCode</field>
+        <field name="name">Financial Transaction Code</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+    </record>   
+        
+    <record id="act_code_value_set_369" model="hc.vs.act.code.value.set">   
+        <field name="code">IncidentCode</field>
+        <field name="name">Incident Code</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">Set of codes indicating the type of incident or accident.</field>
+    </record>   
+        
+    <record id="act_code_value_set_374" model="hc.vs.act.code.value.set">   
+        <field name="code">InformationAccessCode</field>
+        <field name="name">Information Access Code</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">The type of health information to which the subject of the information or the subject&apos;s delegate consents or dissents.</field>
+    </record>   
+        
+    <record id="act_code_value_set_399" model="hc.vs.act.code.value.set">   
+        <field name="code">InformationCategoryCode</field>
+        <field name="name">Information Category Cde</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">Indicates the set of information types which may be manipulated or referenced, such as for recommending access restrictions.</field>
+    </record>   
+        
+    <record id="act_code_value_set_412" model="hc.vs.act.code.value.set">   
+        <field name="code">InvoiceElementCode</field>
+        <field name="name">Invoice Element Code</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">Type of invoice element that is used to assist in describing an Invoice that is either submitted for adjudication or for which is returned on adjudication results.</field>
+    </record>   
+        
+    <record id="act_code_value_set_522" model="hc.vs.act.code.value.set">   
+        <field name="code">InvoiceElementSummaryCode</field>
+        <field name="name">Invoice Element Summary Code</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">Identifies the different types of summary information that can be reported by queries dealing with Statement of Financial Activity (SOFA). The summary information is generally used to help resolve balance discrepancies between providers and payors.</field>
+    </record>   
+        
+    <record id="act_code_value_set_588" model="hc.vs.act.code.value.set">   
+        <field name="code">InvoiceOverrideCode</field>
+        <field name="name">Invoice Override Code</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">Includes coded responses that will occur as a result of the adjudication of an electronic invoice at a summary level and provides guidance on interpretation of the referenced adjudication results.</field>
+    </record>   
+        
+    <record id="act_code_value_set_604" model="hc.vs.act.code.value.set">   
+        <field name="code">ListCode</field>
+        <field name="name">List Code</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">Provides codes associated with ActClass value of LIST (working list)</field>
+    </record>   
+        
+    <record id="act_code_value_set_623" model="hc.vs.act.code.value.set">   
+        <field name="code">MonitoringProtocolCode</field>
+        <field name="name">Monitoring Protocol Code</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">Identifies types of monitoring programs</field>
+    </record>   
+        
+    <record id="act_code_value_set_631" model="hc.vs.act.code.value.set">   
+        <field name="code">NonObservationIndicationCode</field>
+        <field name="name">Observation Indication Code</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">Concepts representing indications (reasons for clinical action) other than diagnosis and symptoms. </field>
+    </record>   
+        
+    <record id="act_code_value_set_637" model="hc.vs.act.code.value.set">   
+        <field name="code">ObservationVerificationType</field>
+        <field name="name">Observation Verification Type</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">Identifies the type of verification investigation being undertaken with respect to the subject of the verification activity.</field>
+        <field name="comments">Examples:  &#10;&#10;Verification of eligibility for coverage under a policy or program - aka enrolled/covered by a policy or program &#10;&#10;Verification of record - e.g., person has record in an immunization registry &#10;&#10;Verification of enumeration - e.g. NPI &#10;&#10;Verification of Board Certification - provider specific &#10;&#10;Verification of Certification - e.g. JAHCO, NCQA, URAC &#10;&#10;Verification of Conformance - e.g. entity use with HIPAA, conformant to the CCHIT EHR system criteria &#10;&#10;Verification of Provider Credentials &#10;&#10;Verification of no adverse findings - e.g. on National Provider Data Bank, Health Integrity Protection Data Base (HIPDB)</field>
+    </record>   
+        
+    <record id="act_code_value_set_648" model="hc.vs.act.code.value.set">   
+        <field name="code">PaymentCode</field>
+        <field name="name">Payment Code</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">Code identifying the method or the movement of payment instructions.</field>
+    </record>   
+        
+    <record id="act_code_value_set_654" model="hc.vs.act.code.value.set">   
+        <field name="code">PharmacySupplyType</field>
+        <field name="name">Pharmacy Supply Type</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">Identifies types of dispensing events</field>
+    </record>   
+        
+    <record id="act_code_value_set_686" model="hc.vs.act.code.value.set">   
+        <field name="code">PolicyType</field>
+        <field name="name">Policy Type</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">Types of policies that further specify the ActClassPolicy value set.</field>
+    </record>   
+        
+    <record id="act_code_value_set_908" model="hc.vs.act.code.value.set">   
+        <field name="code">ProductAcquisitionCode</field>
+        <field name="name">Product Acquisition Code</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">The method that a product is obtained for use by the subject of the supply act (e.g. patient). Product examples are consumable or durable goods.</field>
+    </record>   
+        
+    <record id="act_code_value_set_913" model="hc.vs.act.code.value.set">   
+        <field name="code">SpecimenTransportCode</field>
+        <field name="name">Specimen Transport Code</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">Transportation of a specimen.</field>
+    </record>   
+        
+    <record id="act_code_value_set_917" model="hc.vs.act.code.value.set">   
+        <field name="code">SpecimenTreatmentCode</field>
+        <field name="name">Specimen Treatment Code</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">Set of codes related to specimen treatments</field>
+    </record>   
+        
+    <record id="act_code_value_set_926" model="hc.vs.act.code.value.set">   
+        <field name="code">SubstanceAdministrationCode</field>
+        <field name="name">Substance Administration Code</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">Describes the type of substance administration being performed. This should not be used to carry codes for identification of products. Use an associated role or entity to carry such information.</field>
+    </record>   
+        
+    <record id="act_code_value_set_932" model="hc.vs.act.code.value.set">   
+        <field name="code">TaskCode</field>
+        <field name="name">Task Code</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">A task or action that a user may perform in a clinical information system (e.g., medication order entry, laboratory test results review, problem list entry).</field>
+    </record>   
+        
+    <record id="act_code_value_set_970" model="hc.vs.act.code.value.set">   
+        <field name="code">TransportationModeCode</field>
+        <field name="name">Transportation Model Code</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">Characterizes how a transportation act was or will be carried out.</field>
+        <field name="comments">Examples: Via private transport, via public transit, via courier.</field>
+    </record>   
+        
+    <record id="act_code_value_set_982" model="hc.vs.act.code.value.set">   
+        <field name="code">ObservationType</field>
+        <field name="name">Observation Type</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">Identifies the kinds of observations that can be performed.</field>
+    </record>   
+        
+    <record id="act_code_value_set_1284" model="hc.vs.act.code.value.set">  
+        <field name="code">ROIOverlayShape</field>
+        <field name="name">ROI Overlay Shape</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">Shape of the region on the object being referenced.</field>
+    </record>   
+        
+    <record id="act_code_value_set_1289" model="hc.vs.act.code.value.set">  
+        <field name="code">C</field>
+        <field name="name">corrected</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">Indicates that result data has been corrected.</field>
+    </record>   
+        
+    <record id="act_code_value_set_1290" model="hc.vs.act.code.value.set">  
+        <field name="code">DIET</field>
+        <field name="name">Diet</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">Code set to define specialized/allowed diets.</field>
+    </record>   
+        
+    <record id="act_code_value_set_1309" model="hc.vs.act.code.value.set">  
+        <field name="code">DRUGPRG</field>
+        <field name="name">drug program</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">A public or government health program that administers and funds coverage for prescription drugs to assist program eligible who meet financial and health status criteria.</field>
+    </record>   
+        
+    <record id="act_code_value_set_1310" model="hc.vs.act.code.value.set">  
+        <field name="code">F</field>
+        <field name="name">final</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">Indicates that a result is complete. No further results are to come. This maps to the &apos;complete&apos; state in the observation result status code.</field>
+    </record>   
+        
+    <record id="act_code_value_set_1311" model="hc.vs.act.code.value.set">  
+        <field name="code">PRLMN</field>
+        <field name="name">preliminary</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">Indicates that a result is incomplete. There are further results to come. This maps to the &apos;active&apos; state in the observation result status code. </field>
+    </record>   
+       
+    <record id="act_code_value_set_1312" model="hc.vs.act.code.value.set">  
+        <field name="code">SECOBS</field>
+        <field name="name">SECOBS</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">An observation identifying security metadata about an IT resource (data, information object, service, or system capability), which may be used to make access control decisions. Security metadata are used to name security labels. </field>
+        <field name="comments">Rationale: According to ISO/TS 22600-3:2009(E) A.9.1.7 SECURITY LABEL MATCHING, Security label matching compares the initiator&apos;s clearance to the target&apos;s security label. All of the following must be true for authorization to be granted: &#10;&#10;The security policy identifiers shall be identical The classification level of the initiator shall be greater than or equal to that of the target (that is, there shall be at least one value in the classification list of the clearance greater than or equal to the classification of the target), and For each security category in the target label, there shall be a security category of the same type in the initiator&apos;s clearance and the initiator&apos;s classification level shall dominate that of the target. &#10;&#10;Examples: SecurityObservationType security label fields include: &#10;&#10;Confidentiality classification Compartment category Sensitivity category Security mechanisms used to ensure data integrity or to perform authorized data transformation Indicators of an IT resource completeness, veracity, reliability, trustworthiness, or provenance. Usage Note: SecurityObservationType codes designate security label field types, which are valued with an applicable SecurityObservationValue code as the &quot;security label tag&quot;.</field>
+    </record>   
+         
+    <record id="act_code_value_set_1360" model="hc.vs.act.code.value.set">  
+        <field name="code">SUBSIDFFS</field>
+        <field name="name">subsidized fee for service program</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">A government health program that provides coverage on a fee for service basis for health services to persons meeting eligibility criteria such as income, location of residence, access to other coverages, health condition, and age, the cost of which is to some extent subsidized by public funds.</field>
+        <field name="comments">Discussion: The structure and business processes for underwriting and administering a subsidized fee for service program is further specified by the Underwriter and Payer Role.class and Role.code.</field>
+    </record>   
+        
+    <record id="act_code_value_set_1362" model="hc.vs.act.code.value.set">  
+        <field name="code">WRKCOMP</field>
+        <field name="name">workers compensation program</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">Government mandated program providing coverage, disability income, and vocational rehabilitation for injuries sustained in the work place or in the course of employment. Employers may either self-fund the program, purchase commercial coverage, or pay a premium to a government entity that administers the program. Employees may be required to pay premiums toward the cost of coverage as well.</field>
+    </record>   
+        
+    <record id="act_code_value_set_1363" model="hc.vs.act.code.value.set">  
+        <field name="code">ProcedureCode</field>
+        <field name="name">Procedure Code</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">An identifying code for healthcare interventions/procedures.</field>
+    </record>   
+        
+    <record id="act_code_value_set_1365" model="hc.vs.act.code.value.set">  
+        <field name="code">HL7DefinedActCodes</field>
+        <field name="name">HL7 Defined Act Codes</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">Domain provides the root for HL7-defined detailed or rich codes for the Act classes.</field>
+    </record>   
+        
+    <record id="act_code_value_set_1366" model="hc.vs.act.code.value.set">  
+        <field name="code">COPAY</field>
+        <field name="name">Copay</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+    </record>   
+        
+    <record id="act_code_value_set_1367" model="hc.vs.act.code.value.set">  
+        <field name="code">DEDUCT</field>
+        <field name="name">Deduct</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+    </record>   
+        
+    <record id="act_code_value_set_1368" model="hc.vs.act.code.value.set">  
+        <field name="code">DOSEIND</field>
+        <field name="name">Dose Indicator</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+    </record>   
+       
+    <record id="act_code_value_set_1369" model="hc.vs.act.code.value.set">  
+        <field name="code">PRA</field>
+        <field name="name">PRA</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+    </record>   
+        
+    <record id="act_code_value_set_1370" model="hc.vs.act.code.value.set">  
+        <field name="code">STORE</field>
+        <field name="name">Storage</field>
+        <field name="source_id" ref="base.hl7v3"/>
+        <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        <field name="definition">The act of putting something away for safe keeping. The &quot;something&quot; may be physical object such as a specimen, or information, such as observations regarding a specimen.</field>
+    </record>   
+
+    <!-- Act Code Subset -->
+
+        <record id="act_code_subset_4" model="hc.vs.act.code.subset">
+            <field name="code">AccountCode</field>
+            <field name="name">Account Code</field>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">An account represents a grouping of financial transactions that are tracked and reported together with a single balance. &#10;&#10;Examples of account codes (types) are Patient billing accounts (collection of charges), Cost centers; Cash.</field>
+        </record>
+
+        <record id="act_code_subset_146" model="hc.vs.act.code.subset">
+            <field name="code">EncounterCode</field>
+            <field name="name">Encounter Code</field>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">Domain provides codes that qualify the ActEncounterClass (ENC)</field>
+        </record>
+
+        <record id="act_code_subset_183" model="hc.vs.act.code.subset">
+            <field name="code">ConsentType</field>
+            <field name="name">Consent Type</field>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The type of consent directive, e.g., to consent or dissent to collect, access, or use in specific ways within an EHRS or for health information exchange; or to disclose health information for purposes such as research.</field>
+        </record>
+
+        <record id="act_code_subset_227" model="hc.vs.act.code.subset">
+            <field name="code">CoverageTypeCode</field>
+            <field name="name">Coverage Type Code</field>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">Set of codes indicating the type of insurance policy or program that pays for the cost of benefits provided to covered parties.</field>
+        </record>
+
+        <record id="act_code_subset_321" model="hc.vs.act.code.subset">
+            <field name="code">DetectedIssueManagementCode</field>
+            <field name="name">Detected Issue Management Code</field>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">Codes dealing with the management of Detected Issue observations</field>
+        </record>
+
+        <record id="act_code_subset_369" model="hc.vs.act.code.subset">
+            <field name="code">IncidentCode</field>
+            <field name="name">Incident Code</field>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">Set of codes indicating the type of incident or accident.</field>
+        </record>
+
+        <record id="act_code_subset_486" model="hc.vs.act.code.subset">
+            <field name="code">InvoiceGroupCode</field>
+            <field name="name">Invoice Group Code</field>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">Type of invoice element that is used to assist in describing an Invoice that is either submitted for adjudication or for which is returned on adjudication results.</field>
+            <field name="comments">Invoice elements of this type signify a grouping of one or more children (detail) invoice elements. They do not have intrinsic costing associated with them, but merely reflect the sum of all costing for it&apos;s immediate children invoice elements.</field>
+        </record>
+
+        <record id="act_code_subset_654" model="hc.vs.act.code.subset">
+            <field name="code">PharmacySupplyType</field>
+            <field name="name">Pharmacy Supply Type</field>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">Identifies types of dispensing events</field>
+        </record>
+
+        <record id="act_code_subset_691" model="hc.vs.act.code.subset">
+            <field name="code">ConsentDirective</field>
+            <field name="name">Consent Directive</field>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">Specifies the type of agreement between one or more grantor and grantee in which rights and obligations related to one or more shared items of interest are allocated.</field>
+            <field name="comments">Usage Note: Such agreements may be considered &quot;consent directives&quot; or &quot;contracts&quot; depending on the context, and are considered closely related or synonymous from a legal perspective. &#10;&#10;Examples: &#10;&#10;Healthcare Privacy Consent Directive permitting or restricting in whole or part the collection, access, use, and disclosure of health information, and any associated handling caveats. &#10;&#10;Healthcare Medical Consent Directive to receive medical procedures after being informed of risks and benefits, thereby reducing the grantee&apos;s liability. &#10;&#10;Research Informed Consent for participation in clinical trials and disclosure of health information after being informed of risks and benefits, thereby reducing the grantee&apos;s liability. &#10;&#10;Substitute decision maker delegation in which the grantee assumes responsibility to act on behalf of the grantor. &#10;&#10;Contracts in which the agreement requires assent/dissent by the grantor of terms offered by a grantee, a consumer opts out of an &quot;award&quot; system for use of a retailer&apos;s marketing or credit card vendor&apos;s point collection cards in exchange for allowing purchase tracking and profiling. &#10;&#10;A mobile device or App privacy policy and terms of service to which a user must agree in whole or in part in order to utilize the service. &#10;&#10;Agreements between a client and an authorization server or between an authorization server and a resource operator and/or resource owner permitting or restricting e.g., collection, access, use, and disclosure of information, and any associated handling caveats.</field>
+        </record>
+
+        <record id="act_code_subset_761" model="hc.vs.act.code.subset">
+            <field name="code">InformationSensitivityPolicy</field>
+            <field name="name">Information Sensitivity Policy</field>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">A mandate, obligation, requirement, rule, or expectation characterizing the value or importance of a resource and may include its vulnerability. (Based on ISO7498-2:1989.</field>
+            <field name="comments">Note: The vulnerability of personally identifiable sensitive information may be based on concerns that the unauthorized disclosure may result in social stigmatization or discrimination.) &#10;&#10;Description: Types of Sensitivity policy that apply to Acts or Roles. &#10;&#10;A sensitivity policy is adopted by an enterprise or group of enterprises (a &apos;policy domain&apos;) through a formal data use agreement that stipulates the value, importance, and vulnerability of information. &#10;&#10;A sensitivity code representing a sensitivity policy may be associated with criteria such as categories of information or sets of information identifiers (e.g., a value set of clinical codes or branch in a code system hierarchy). These criteria may in turn be used for the Policy Decision Point in a Security Engine. &#10;&#10;A sensitivity code may be used to set the confidentiality code used on information about Acts and Roles to trigger the security mechanisms required to control how security principals (i.e., a person, a machine, a software application) may act on the information (e.g., collection, access, use, or disclosure). &#10;&#10;Sensitivity codes are never assigned to the transport or business envelope containing patient specific information being exchanged outside of a policy domain as this would disclose the information intended to be protected by the policy. &#10;&#10;When sensitive information is exchanged with others outside of a policy domain, the confidentiality code on the transport or business envelope conveys the receiver&apos;s responsibilities and indicates the how the information is to be safeguarded without unauthorized disclosure of the sensitive information. This ensures that sensitive information is treated by receivers as the sender intends, accomplishing interoperability without point to point negotiations. &#10;&#10;Usage Note: Sensitivity codes are not useful for interoperability outside of a policy domain because sensitivity policies are typically localized and vary drastically across policy domains even for the same information category because of differing organizational business rules, security policies, and jurisdictional requirements. &#10;&#10;For example, an employee&apos;s sensitivity code would make little sense for use outside of a policy domain. &apos;Taboo&apos; would rarely be useful outside of a policy domain unless there are jurisdictional requirements requiring that a provider disclose sensitive information to a patient directly. &#10;&#10;Sensitivity codes may be more appropriate in a legacy system&apos;s Master Files in order to notify those who access a patient&apos;s orders and observations about the sensitivity policies that apply. &#10;&#10;Newer systems may have a security engine that uses a sensitivity policy&apos;s criteria directly. The specializable InformationSensitivityPolicy Act.code may be useful in some scenarios if used in combination with a sensitivity identifier and/or Act.title.</field>
+        </record>
+
+        <record id="act_code_subset_848" model="hc.vs.act.code.subset">
+            <field name="code">SecurityPolicy</field>
+            <field name="name">security policy</field>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">Types of security policies that further specify the ActClassPolicy value set.</field>
+            <field name="comments">Examples:  obligation to encrypt refrain from redisclosure without consent</field>
+        </record>
+
+        <record id="act_code_subset_851" model="hc.vs.act.code.subset"> 
+            <field name="code">ObligationPolicy</field>
+            <field name="name">obligation policy</field>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">Conveys the mandated workflow action that an information custodian, receiver, or user must perform.</field>
+            <field name="comments">Usage Notes: &#10;&#10;Per ISO 22600-2, ObligationPolicy instances &apos;are event-triggered and define actions to be performed by manager agent&apos;. &#10;&#10;Per HL7 Composite Security and Privacy Domain Analysis Model: This value set refers to the action required to receive the permission specified in the privacy rule. &#10;&#10;Per OASIS XACML, an obligation is an operation specified in a policy or policy that is performed in conjunction with the enforcement of an access control decision.</field>
+        </record>   
+
+        <record id="act_code_subset_932" model="hc.vs.act.code.subset">
+            <field name="code">TaskCode</field>
+            <field name="name">Task Code</field>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">A task or action that a user may perform in a clinical information system (e.g., medication order entry, laboratory test results review, problem list entry).</field>
+        </record>
+
+        <record id="act_code_subset_982" model="hc.vs.act.code.subset">
+            <field name="code">ObservationType</field>
+            <field name="name">Observation Type</field>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">Identifies the kinds of observations that can be performed.</field>
+        </record>
+
+        <record id="act_code_subset_act_code" model="hc.vs.act.code.subset">
+            <field name="code">ActCode</field>
+            <field name="name">Act Code</field>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system"></field>
+            <field name="definition">A code specifying the particular kind of Act that the Act-instance represents within its class.</field>
+            <field name="comments">Constraints: The kind of Act (e.g. physical examination, serum potassium, inpatient encounter, charge financial transaction, etc.) is specified with a code from one of several, typically external, coding systems. &#10;&#10;The coding system will depend on the class of Act, such as LOINC for observations, etc. &#10;&#10;Conceptually, the Act.code must be a specialization of the Act.classCode. This is why the structure of ActClass domain should be reflected in the superstructure of the ActCode domain and then individual codes or externally referenced vocabularies subordinated under these domains that reflect the ActClass structure.&#10;&#10;Act.classCode and Act.code are not modifiers of each other but the Act.code concept should really imply the Act.classCode concept. &#10;&#10;For a negative example, it is not appropriate to use an Act.code &quot;potassium&quot; together with and Act.classCode for &quot;laboratory observation&quot; to somehow mean &quot;potassium laboratory observation&quot; and then use the same Act.code for &quot;potassium&quot; together with Act.classCode for &quot;medication&quot; to mean &quot;substitution of potassium&quot;. This mutually modifying use of Act.code and Act.classCode is not permitted.)</field>
+        </record>
+
+        <record id="act_code_subset_act_code_det_issue_cat" model="hc.vs.act.code.subset">
+            <field name="code">DetectedIssueCategory</field>
+            <field name="name">Detected Issue Category</field>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system"></field>
+            <field name="definition">Kinds of issues or contraindications, such as &apos;drug-drug interaction&apos;, &apos;duplicate therapy&apos;, etc.</field>
+        </record>
+
+    </data>
+</odoo>

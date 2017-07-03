@@ -94,7 +94,91 @@ class ActCode(models.Model):
     contains_id = fields.Many2one(
         comodel_name="hc.vs.act.code", 
         string="Parent",
-        help="Parent art code.")
+        help="Parent act code.")
+    level_attribute = fields.Char(
+        compute="_get_level",
+        string="Level/Parent",
+        store=True,
+        help="Level associated with Parent concept.")
+    level = fields.Integer(
+        compute="_get_level",
+        string="Level",
+        store=True,
+        help="Level as a parent in a hierarchy of codes.")
+    parent_child_ids = fields.Many2many(
+        comodel_name="hc.vs.act.code",
+        relation="base_act_code_parent_child_rel",
+        column1="parent_id",
+        column2="child_id",
+        string="Parents",
+        help="Parent act code.")
+    value_set_ids = fields.Many2many(
+        comodel_name="hc.vs.act.code.value.set",
+        relation="base_act_code_value_set_rel",
+        string="Value Sets",
+        help="Value Set where this act belongs to.")
+    subset_ids = fields.Many2many(
+        comodel_name="hc.vs.act.code.subset", 
+        relation="base_act_code_subset_rel", 
+        string="Subsets", 
+        help="Subset where this act is used.")
+
+    @api.constrains('parent_child_ids')
+    def _check_recursive_parent_child(self):
+        for rec in self:
+            if rec.id in rec.parent_child_ids.ids:
+                raise ValidationError('Error! A code cannot be a child of itself.')
+        return True
+
+    @api.depends('parent_child_ids')
+    def _get_level(self):
+        for rec in self:
+            if not rec.parent_child_ids:
+                rec.level = 1
+                rec.level_attribute = ''
+            else:
+                high = 1
+                attr_str = False
+                for parent in rec.parent_child_ids:
+                    if not attr_str:
+                        attr_str = '(' + str(parent.level + 1) + ',' + parent.name +')'
+                    else:
+                        attr_str = attr_str + ',' + '(' + str(parent.level + 1) + ',' + parent.name + ')'
+                    if parent.level > high:
+                        high = parent.level
+                rec.level = high + 1
+
+class ActCodeSubset(models.Model):
+    _name = "hc.vs.act.code.subset"
+    _description = "Act Code Subset"
+    _inherit = ["hc.value.set.contains"]
+
+    name = fields.Char(
+        string="Name", 
+        help="Name of this act code subset.")                               
+    code = fields.Char(
+        string="Code", 
+        help="Code of this act code subset.")                               
+    contains_id = fields.Many2one(
+        comodel_name="hc.vs.act.code.subset", 
+        string="Parent", 
+        help="Parent act code subset.")     
+
+class ActCodeValueSet(models.Model):
+    _name = "hc.vs.act.code.value.set"
+    _description = "Act Code Value Set"
+    _inherit = ["hc.value.set.contains"]
+
+    name = fields.Char(
+        string="Name", 
+        help="Name of this act code value set.")                               
+    code = fields.Char(
+        string="Code", 
+        help="Code of this act code value set.")                               
+    contains_id = fields.Many2one(
+        comodel_name="hc.vs.act.code.value.set", 
+        string="Parent", 
+        help="Parent act code value set.") 
 
 class ActionCode(models.Model):    
     _name = "hc.vs.action.code"    
@@ -484,6 +568,7 @@ class FMStatus(models.Model):
     _name = "hc.vs.fm.status"   
     _description = "Financial Management Status"                      
     _inherit = ["hc.value.set.contains"]
+    _order = "seq"
 
     name = fields.Char(
         string="Name", 
@@ -494,7 +579,10 @@ class FMStatus(models.Model):
     contains_id = fields.Many2one(
         comodel_name="hc.vs.fm.status", 
         string="Parent", 
-        help="Parent financial management status.")                                
+        help="Parent financial management status.")
+    seq = fields.Integer(
+        string="Sequence",
+        help="Display order.")                                 
 
 class GoalCategory(models.Model):    
     _name = "hc.vs.goal.category"    

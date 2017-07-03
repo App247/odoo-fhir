@@ -18,7 +18,8 @@
             <field name="model">hc.res.coverage</field>                                 
             <field name="arch" type="xml">                                  
                 <tree string="Coverages">
-                    <field name="name"/>                              
+                    <field name="name" string="Network/Policy Holder/Subscriber/Beneficiary/Coverage Type/Start Date"/>
+                    <field name="status_id"/>                              
                 </tree>                             
             </field>                                    
         </record>                                       

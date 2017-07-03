@@ -67,7 +67,7 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_substance.menu_substance" 
+        <menuitem id="hc_substance.menu_subs" 
                   name="Substances"
                   web_icon="hc_substance,static/description/icon.png"  
                   parent="hc_base.menu_entity" 
@@ -77,7 +77,7 @@
 
         <menuitem id="hc_substance.menu_substance_conf" 
                   name="Configuration" 
-                  parent="hc_substance.menu_substance" 
+                  parent="hc_substance.menu_subs" 
                   groups="hc_base.group_hc_base_manager" 
                   sequence="10"/>
 
@@ -151,10 +151,10 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_substance.menu_substance_cat" 
+        <menuitem id="hc_substance.menu_subs_cat" 
                   name="Substance Categories" 
-                  parent="hc_substance.menu_substance_conf" 
-                  action="hc_vs_substance_category_action" 
+                  parent="hc_substance.menu_subs"
+                  action="hc_vs_substance_category_action"
                   groups="hc_base.group_hc_base_manager" 
                   sequence="10"/>
 
@@ -249,10 +249,10 @@
 
         <menuitem id="hc_substance.menu_subs_code" 
                   name="Substance Code" 
-                  parent="hc_substance.menu_substance_conf" 
+                  parent="hc_substance.menu_subs"
                   action="hc_vs_substance_code_action" 
                   groups="hc_base.group_hc_base_manager" 
-                  sequence="14"/>
+                  sequence="20"/>
    
         <!-- Parent Substance Code Views -->                                
                                 

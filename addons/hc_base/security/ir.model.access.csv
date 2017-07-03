@@ -123,6 +123,8 @@ access_hc_base_hc_vs_purpose_of_use_manager,hc.base.hc.vs.purpose.of.use.manager
 access_hc_base_hc_vs_security_label_manager,hc.base.hc.vs.security.label.manager,model_hc_vs_security_label,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_vs_c80_practice_code_manager,hc.base.hc.vs.c80.practice.code.manager,model_hc_vs_c80_practice_code,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_vs_act_code_manager,hc.base.hc.vs.act.code.manager,model_hc_vs_act_code,hc_base.group_hc_base_manager,1,1,1,1
+access_hc_base_hc_vs_act_code_subset_manager,hc.base.hc.vs.act.code.subset.manager,model_hc_vs_act_code_subset,hc_base.group_hc_base_manager,1,1,1,1
+access_hc_base_hc_vs_act_code_value_set_manager,hc.base.hc.vs.act.code.value.set.manager,model_hc_vs_act_code_value_set,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_vs_format_code_manager,hc.base.hc.vs.format.code.manager,model_hc_vs_format_code,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_vs_c80_doc_type_code_manager,hc.base.hc.vs.c80.doc.type.code.manager,model_hc_vs_c80_doc_type_code,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_vs_c80_doc_class_code_manager,hc.base.hc.vs.c80.doc.class.code.manager,model_hc_vs_c80_doc_class_code,hc_base.group_hc_base_manager,1,1,1,1

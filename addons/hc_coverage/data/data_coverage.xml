@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!--Policyholder Relationship -->    
+
+        <record id="pholder_rel_child" model="hc.vs.policyholder.relationship">    
+            <field name="code">child</field>
+            <field name="name">Child</field>
+            <field name="definition">The Beneficiary is a child of the Policyholder.</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/policyholder-relationship</field>
+        </record>    
+            
+        <record id="pholder_rel_parent" model="hc.vs.policyholder.relationship">    
+            <field name="code">parent</field>
+            <field name="name">Parent</field>
+            <field name="definition">The Beneficiary is a parent of the Policyholder.</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/policyholder-relationship</field>
+        </record>    
+            
+        <record id="pholder_rel_spouse" model="hc.vs.policyholder.relationship">    
+            <field name="code">spouse</field>
+            <field name="name">Spouse</field>
+            <field name="definition">The Beneficiary is a spouse or equivalent of the Policyholder.</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/policyholder-relationship</field>
+        </record>    
+            
+        <record id="pholder_rel_common" model="hc.vs.policyholder.relationship">    
+            <field name="code">common</field>
+            <field name="name">Common Law Spouse</field>
+            <field name="definition">The Beneficiary is a common law spouse or equivalent of the Policyholder.</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/policyholder-relationship</field>
+        </record>    
+            
+        <record id="pholder_rel_other" model="hc.vs.policyholder.relationship">    
+            <field name="code">other</field>
+            <field name="name">Other</field>
+            <field name="definition">The Beneficiary has some other relationship the Policyholder.</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/policyholder-relationship</field>
+        </record>    
+            
+        <record id="pholder_rel_self" model="hc.vs.policyholder.relationship">    
+            <field name="code">self</field>
+            <field name="name">Self</field>
+            <field name="definition">The Beneficiary is the Policyholder.</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/policyholder-relationship</field>
+        </record>    
+    
+    </data>
+</odoo>
