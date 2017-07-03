@@ -754,6 +754,7 @@ class AnimalGenderStatus(models.Model):
     _name = "hc.vs.animal.gender.status"    
     _description = "Animal Gender Status"   
     _inherit = ["hc.value.set.contains"]
+    _order = "seq"
 
     name = fields.Char(
         string="Name", 
@@ -765,6 +766,9 @@ class AnimalGenderStatus(models.Model):
         comodel_name="hc.vs.animal.gender.status", 
         string="Parent",
         help="Parent gender status.")
+    seq = fields.Integer(
+        string="Sequence",
+        help="Display order.")
 
 class AnimalSpecies(models.Model):  
     _name = "hc.vs.animal.species"  

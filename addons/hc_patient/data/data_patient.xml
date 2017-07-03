@@ -402,6 +402,35 @@
             <field name="source_id" ref="base.hl7v2"/>
             <field name="system">http://hl7.org/fhir/ValueSet/v2-0131</field>
         </record>   
-    
+
+        <!--Animal Gender Status -->    
+            
+        <record id="an_gen_stat_neutered" model="hc.vs.animal.gender.status">   
+            <field name="code">neutered</field>
+            <field name="name">Neutered</field>
+            <field name="definition">The animal has been sterilized, castrated or otherwise made infertile.</field>
+            <field name="seq">2</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/animal-genderstatus</field>
+        </record>   
+            
+        <record id="an_gen_stat_intact" model="hc.vs.animal.gender.status"> 
+            <field name="code">intact</field>
+            <field name="name">Intact</field>
+            <field name="definition">The animal's reproductive organs are intact.</field>
+            <field name="seq">1</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/animal-genderstatus</field>
+        </record>   
+            
+        <record id="an_gen_stat_unknown" model="hc.vs.animal.gender.status">    
+            <field name="code">unknown</field>
+            <field name="name">Unknown</field>
+            <field name="definition">Unable to determine whether the animal has been neutered.</field>
+            <field name="seq">3</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/animal-genderstatus</field>
+        </record>   
+       
     </data>
 </openerp>
