@@ -43,6 +43,7 @@
         'data/data_partner_category.xml',
         'data/data_source.xml',
         'data/data_act_code.xml',
+        'data/data_act_code_observation.xml',
         'data/data_base.xml',
         'data/data_identifier_type.xml',
         'data/data_language.xml',

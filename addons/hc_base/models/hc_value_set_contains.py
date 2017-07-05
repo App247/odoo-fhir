@@ -114,12 +114,12 @@ class ActCode(models.Model):
         help="Parent act code.")
     value_set_ids = fields.Many2many(
         comodel_name="hc.vs.act.code.value.set",
-        relation="base_act_code_value_set_rel",
+        # relation="base_act_code_value_set_rel",
         string="Value Sets",
         help="Value Set where this act belongs to.")
     subset_ids = fields.Many2many(
         comodel_name="hc.vs.act.code.subset", 
-        relation="base_act_code_subset_rel", 
+        # relation="base_act_code_subset_rel", 
         string="Subsets", 
         help="Subset where this act is used.")
 
