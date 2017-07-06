@@ -830,6 +830,14 @@ class EncounterDiagnosis(models.Model):
         string="Condition Procedure",
         help="Procedure reason the encounter takes place (resource).")
 
+    @api.depends('condition_type')          
+    def _compute_condition_name(self):          
+        for hc_encounter_diagnosis in self:     
+            if hc_encounter_diagnosis.condition_type == 'condition':    
+                hc_encounter_diagnosis.condition_name = hc_encounter_diagnosis.condition_condition_id.name
+            elif hc_encounter_diagnosis.condition_type == 'procedure':  
+                hc_encounter_diagnosis.condition_name = hc_encounter_diagnosis.condition_procedure_id.name    
+
 class AppointmentIndication(models.Model):
     _inherit = "hc.appointment.indication"
 

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ClinicalDocument xmlns="urn:hl7-org:v3">
+    <id docId="1234"/>
+    <patient birthDate="19461028" gender="2" patientId="11223344">
+        <address>
+            <city>Leicester</city>
+            <streetAddressLine>3 Oadby Road</streetAddressLine>
+            <state>Leics</state>
+        </address>
+        <email address="aperson@me.com"/>
+        <name>
+            <prefix>Mrs.</prefix>
+            <given>Alice</given>
+            <family>Person</family>
+        </name>
+    </patient>
+    <author dateTime="20120531">
+        <id authorId="11223344"/>
+    </author>
+    <body>        
+        <consentSection purpose="Treatment">
+            <title>Consent Directive Details</title>
+            <receivers>
+                <receiver>
+                    <address>
+                        <city>Leicester</city>
+                        <streetAddressLine>3 Memory Lane</streetAddressLine>
+                    </address>
+                    <email address="bob@gppractice.com"/>
+                    <name>
+                        <prefix>Dr.</prefix>
+                        <given>Bob</given>
+                        <family>Hippocrates</family>
+                    </name>
+                </receiver>
+            </receivers>
+            <informationTypes>
+                <informationType code="GAIN" displayName="Global Appraisal of Individual Needs(GAIN)"/>
+            </informationTypes>
+        </consentSection>
+    </body>
+</ClinicalDocument>

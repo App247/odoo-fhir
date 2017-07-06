@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 
 from openerp import models, fields, api
+from datetime import datetime
+from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as DF
+from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as DTF
 
 class Encounter(models.Model):
     _name = "hc.res.encounter"
@@ -10,7 +13,7 @@ class Encounter(models.Model):
         string="Name",
         compute="_compute_name",
         store="True",
-        help="Text representation of the encounter event. Patient Name + Encounter Type + Start Date.")
+        help="Text representation of the encounter event. Subject Name + Class + Start Date.")
     identifier_ids = fields.One2many(
         comodel_name="hc.encounter.identifier",
         inverse_name="encounter_id",
@@ -29,10 +32,12 @@ class Encounter(models.Model):
             ("cancelled", "Cancelled"),
             ("entered-in-error", "Entered-In-Error"),
             ("unknown", "Unknown")],
-        help="Current state of the encounter.")
+        help="Current state of the encounter.")    
     class_id = fields.Many2one(
-        comodel_name="hc.vs.act.encounter.code",
+        comodel_name="hc.vs.act.code",
         string="Class",
+        required="True",
+        domain="[('subset_ids.name','=','Encounter Code')]",
         help="Classification of the encounter.")
     type_ids = fields.Many2many(
         comodel_name="hc.vs.encounter.type",
@@ -45,6 +50,7 @@ class Encounter(models.Model):
         help="Indicates the urgency of the encounter.")
     subject_type = fields.Selection(
         string="Subject Type",
+        required="True",
         selection=[
             ("patient", "Patient"),
             ("group", "Group")],
@@ -78,6 +84,7 @@ class Encounter(models.Model):
         help="The appointment that scheduled this encounter.")
     start_date = fields.Datetime(
         string="Start Date",
+        required="True",
         help="Start of the encounter.")
     end_date = fields.Datetime(
         string="End Date",
@@ -90,9 +97,9 @@ class Encounter(models.Model):
         string="Length UOM",
         domain="[('category_id','=','Time (UCUM)')]",
         help="Length unit of measure.")
-    reason_ids = fields.Many2many(
-        comodel_name="hc.vs.encounter.reason",
-        relation="encounter_reason_rel",
+    reason_ids = fields.One2many(
+        comodel_name="hc.encounter.reason",
+        inverse_name="encounter_id",
         string="Reasons",
         help="Reason the encounter takes place (code).")
     account_ids = fields.One2many(
@@ -104,6 +111,21 @@ class Encounter(models.Model):
         comodel_name="hc.res.organization",
         string="Service Provider",
         help="The custodian organization of this Encounter record.")
+    
+    # Extension attribute
+    associated_encounter_id = fields.Many2one(
+        comodel_name="hc.res.encounter", 
+        string="Associated Encounter", 
+        help="This encounter occurs within the scope of the referenced encounter.")
+    mode_of_arrival_id = fields.Many2one(
+        comodel_name="hc.vs.v2.mode.of.arrival", 
+        string="Mode Of Arrival", 
+        help="Identifies whether a patient arrives at the reporting facility via ambulance and the type of ambulance that was used.")
+    reason_cancelled_id = fields.Many2one(
+        comodel_name="hc.vs.encounter.reason.cancelled", 
+        string="Reason Cancelled", 
+        help="If the encountered was cancelled after it was planned, why? Applies only if the status is cancelled.")
+
     part_of_id = fields.Many2one(
         comodel_name="hc.res.encounter",
         string="Part Of",
@@ -128,9 +150,8 @@ class Encounter(models.Model):
         inverse_name="encounter_id",
         string="Diagnosis",
         help="The list of diagnosis relevant to this encounter.")
-    hospitalization_ids = fields.One2many(
+    hospitalization_id = fields.Many2one(
         comodel_name="hc.encounter.hospitalization",
-        inverse_name="encounter_id",
         string="Hospitalizations",
         help="Details about an admission to a clinic.")
     location_ids = fields.One2many(
@@ -138,6 +159,141 @@ class Encounter(models.Model):
         inverse_name="encounter_id",
         string="Locations",
         help="List of locations the patient has been at.")
+
+    @api.model                          
+    def create(self, vals):                         
+        status_history_obj = self.env['hc.encounter.status.history']                        
+        class_history_obj = self.env['hc.encounter.class.history']                      
+        res = super(Encounter, self).create(vals)                       
+                                
+        # For Status                        
+        if vals and vals.get('status'):                     
+            status_history_vals = {                 
+                'encounter_id': res.id,             
+                'status': res.status,               
+                'start_date': datetime.today()              
+                }               
+            if vals.get('status') == 'entered-in-error':                    
+                status_history_vals.update({'end_date': datetime.today()})              
+            status_history_obj.create(status_history_vals)                  
+                                
+        # For Class                     
+        if vals.get('status') != 'entered-in-error':                        
+            if vals and vals.get('class_id'):                   
+                class_history_vals = {              
+                    'encounter_id': res.id,         
+                    'encounter_class': res.class_id.name,           
+                    'start_date': datetime.today()          
+                    }           
+                class_history_obj.create(class_history_vals)                
+                                
+        return res                      
+                                
+    @api.multi                          
+    def write(self, vals):                          
+        status_history_obj = self.env['hc.encounter.status.history']                        
+        class_history_obj = self.env['hc.encounter.class.history']                      
+        res = super(Encounter, self).write(vals)                        
+                                
+        # For Status                        
+        status_history_record_ids = status_history_obj.search([('end_date','=', False)])                        
+        if status_history_record_ids:                       
+            if vals.get('status') and status_history_record_ids[0].status != vals.get('status'):                    
+                for status_history in status_history_record_ids:                
+                    status_history.end_date = datetime.strftime(datetime.today(), DTF)          
+                    time_diff = datetime.today() - datetime.strptime(status_history.start_date, DTF)            
+                    if time_diff:           
+                        days = str(time_diff).split(',')        
+                        if days and len(days) > 1:      
+                            status_history.time_diff_day = str(days[0]) 
+                            times = str(days[1]).split(':') 
+                            if times and times > 1: 
+                                status_history.time_diff_hour = str(times[0])
+                                status_history.time_diff_min = str(times[1])
+                                status_history.time_diff_sec = str(times[2])
+                        else:       
+                            times = str(time_diff).split(':')   
+                            if times and times > 1: 
+                                status_history.time_diff_hour = str(times[0])
+                                status_history.time_diff_min = str(times[1])
+                                status_history.time_diff_sec = str(times[2])
+                status_history_vals = {             
+                    'encounter_id': self.id,            
+                    'status': vals.get('status'),           
+                    'start_date': datetime.today()          
+                    }           
+                if vals.get('status') == 'entered-in-error':                
+                    status_history_vals.update({'end_date': datetime.today()})          
+                status_history_obj.create(status_history_vals)              
+                                
+        # For Class                     
+        class_history_record_ids = class_history_obj.search([('end_date','=', False)])                      
+        if class_history_record_ids:                        
+            if vals.get('status') == 'entered-in-error' or (vals.get('class_id') and class_history_record_ids[0].encounter_class != vals.get('class_id')):                 
+                for class_history in class_history_record_ids:              
+                    class_history.end_date = datetime.strftime(datetime.today(), DTF)           
+                    time_diff = datetime.today() - datetime.strptime(class_history.start_date, DTF)         
+                    if time_diff:           
+                        days = str(time_diff).split(',')        
+                        if days and len(days) > 1:      
+                            class_history.time_diff_day = str(days[0])  
+                            times = str(days[1]).split(':') 
+                            if times and times > 1: 
+                                class_history.time_diff_hour = str(times[0])
+                                class_history.time_diff_min = str(times[1])
+                                class_history.time_diff_sec = str(times[2])
+                        else:       
+                            times = str(time_diff).split(':')   
+                            if times and times > 1: 
+                                class_history.time_diff_hour = str(times[0])
+                                class_history.time_diff_min = str(times[1])
+                                class_history.time_diff_sec = str(times[2])
+                    class_history_vals = {          
+                        'encounter_id': self.id,        
+                        'encounter_class': vals.get('class_id'),       
+                        'start_date': datetime.today()      
+                        }       
+                    if vals.get('status') == 'entered-in-error':            
+                        class_history_vals.update({'end_date': datetime.today()})       
+                    if vals.get('status') != 'entered-in-error':            
+                        class_history_obj.create(class_history_vals)        
+        else:                       
+            class_history_vals = {                  
+                    'encounter_id': self.id,            
+                    'encounter_class': vals.get('class_id'),           
+                    'start_date': datetime.today()          
+                    }           
+            if vals.get('status') == 'entered-in-error':                    
+                    class_history_vals.update({'end_date': datetime.today()})           
+            class_history_obj.create(class_history_vals)                    
+                                
+        return res                      
+                      
+    @api.depends('subject_type')            
+    def _compute_subject_name(self):            
+        for hc_res_encounter in self:       
+            if hc_res_encounter.subject_type == 'patient':  
+                hc_res_encounter.subject_name = hc_res_encounter.subject_patient_id.name
+            elif hc_res_encounter.subject_type == 'group':  
+                hc_res_encounter.subject_name = hc_res_encounter.subject_group_id.name
+ 
+    @api.depends('subject_name', 'start_date')          
+    def _compute_name(self):            
+        comp_name = '/'     
+        for hc_res_encounter in self:
+            if hc_res_encounter.subject_type == 'patient':
+                comp_name = hc_res_encounter.subject_patient_id.name
+                if hc_res_encounter.subject_patient_id.birth_date:
+                    subject_patient_birth_date = datetime.strftime(datetime.strptime(hc_res_encounter.subject_patient_id.birth_date, DF), "%Y-%m-%d")
+                    comp_name = comp_name + "("+ subject_patient_birth_date + ")"
+            if hc_res_encounter.subject_type == 'group':
+                    comp_name = hc_res_encounter.subject_group_id.name
+            # if hc_res_encounter.type_id:   
+            #     comp_name = comp_name + ", " + hc_res_encounter.type_id.name or ''
+            if hc_res_encounter.start_date:
+                subject_start_date =  datetime.strftime(datetime.strptime(hc_res_encounter.start_date, DTF), "%Y-%m-%d")
+                comp_name = comp_name + ", " + subject_start_date
+            hc_res_encounter.name = comp_name   
 
 class EncounterStatusHistory(models.Model):
     _name = "hc.encounter.status.history"
@@ -242,6 +398,14 @@ class EncounterParticipant(models.Model):
         string="Individual Related Person",
         help="Related Person involved in the encounter other than the patient.")
 
+    @api.depends('individual_type')         
+    def _compute_individual_name(self):         
+        for hc_encounter_participant in self:       
+            if hc_encounter_participant.individual_type == 'practitioner':  
+                hc_encounter_participant.individual_name = hc_encounter_participant.individual_practitioner_id.name
+            elif hc_encounter_participant.individual_type == 'related_person':  
+                hc_encounter_participant.individual_name = hc_encounter_participant.individual_related_person_id.name
+
 class EncounterDiagnosis(models.Model):
     _name = "hc.encounter.diagnosis"
     _description = "Encounter Diagnosis"
@@ -277,14 +441,23 @@ class EncounterDiagnosis(models.Model):
         string="Rank",
         help="Ranking of the diagnosis (for each role type).")
 
+    @api.depends('condition_type')          
+    def _compute_condition_name(self):          
+        for hc_encounter_diagnosis in self:     
+            if hc_encounter_diagnosis.condition_type == 'condition':    
+                hc_encounter_diagnosis.condition_name = hc_encounter_diagnosis.condition_condition_id.name
+            # elif hc_encounter_diagnosis.condition_type == 'procedure':  
+            #     hc_encounter_diagnosis.condition_name = hc_encounter_diagnosis.condition_procedure_id.name
+
 class EncounterHospitalization(models.Model):
     _name = "hc.encounter.hospitalization"
     _description = "Encounter Hospitalization"
 
-    encounter_id = fields.Many2one(
-        comodel_name="hc.res.encounter",
-        string="Encounter",
-        help="Encounter associated with this Encounter Hospitalization.")
+    name = fields.Char(
+        string="Name",
+        compute="_compute_name",
+        store="True",
+        help="Text representation of the encounter event. Admit Source + Pre-Admission Identifier + Origin.")
     pre_admission_identifier_id = fields.Many2one(
         comodel_name="hc.encounter.hospitalization.pre.admission.identifier",
         string="Encounter Hospitalization Pre-Admission Identifier",
@@ -324,6 +497,18 @@ class EncounterHospitalization(models.Model):
         comodel_name="hc.vs.encounter.discharge.disposition",
         string="Discharge Disposition",
         help="Category or kind of location after discharge.")
+
+    @api.depends('admit_source_id', 'origin_id', 'pre_admission_identifier_id')         
+    def _compute_name(self):            
+        comp_name = '/'     
+        for hc_encounter_hospitalization in self:       
+            if hc_encounter_hospitalization.admit_source_id:    
+                comp_name = hc_encounter_hospitalization.admit_source_id.name or ''
+            if hc_encounter_hospitalization.pre_admission_identifier_id:    
+                comp_name = comp_name + ", " + hc_encounter_hospitalization.pre_admission_identifier_id.name or ''
+            if hc_encounter_hospitalization.origin_id:  
+                comp_name = comp_name + ", " + hc_encounter_hospitalization.origin_id.name or ''
+            hc_encounter_hospitalization.name = comp_name   
 
 class EncounterLocation(models.Model):
     _name = "hc.encounter.location"
@@ -426,6 +611,23 @@ class EncounterIncomingReferral(models.Model):
     #     string="Incoming Referral",
     #     help="Procedure Request associated with this Encounter Incoming Referral.")
 
+class EncounterReason(models.Model):
+    _name = "hc.encounter.reason"
+    _description = "Encounter Reason"
+    _inherit = ["hc.basic.association"]
+
+    encounter_id = fields.Many2one(
+        comodel_name="hc.res.encounter",
+        string="Encounter",
+        help="Encounter associated with this Encounter Reason.")
+    reason_id = fields.Many2one(
+        comodel_name="hc.vs.encounter.reason",
+        string="Reason",
+        help="Reason associated with this Encounter Reason.")
+    primary_diagnosis = fields.Integer(
+        string="Primary Diagnosis", 
+        help="The order of diagnosis importance (1 = highest in importance), from the clinical perspective, may be used in billing.")
+
 class EncounterAccount(models.Model):
     _name = "hc.encounter.account"
     _description = "Encounter Account"
@@ -494,6 +696,38 @@ class EncounterDischargeDisposition(models.Model):
     _name = "hc.vs.encounter.discharge.disposition"
     _description = "Encounter Discharge Disposition"
     _inherit = ["hc.value.set.contains"]
+
+class V2ModeOfArrival(models.Model):
+    _name = "hc.vs.v2.mode.of.arrival"
+    _description = "V2 Mode Of Arrival"
+    _inherit = ["hc.value.set.contains"]
+
+    name = fields.Char(
+        string="Name", 
+        help="Name of this v2 mode of arrival.")                              
+    code = fields.Char(
+        string="Code", 
+        help="Code of this v2 mode of arrival.")                              
+    contains_id = fields.Many2one(
+        comodel_name="hc.vs.v2.mode.of.arrival", 
+        string="Parent", 
+        help="Parent v2 mode of arrival.")                              
+
+class EncounterReasonCancelled(models.Model):
+    _name = "hc.vs.encounter.reason.cancelled"
+    _description = "Encounter Reason Cancelled"
+    _inherit = ["hc.value.set.contains"]
+
+    name = fields.Char(
+        string="Name", 
+        help="Name of this encounter reason cancelled.")                              
+    code = fields.Char(
+        string="Code", 
+        help="Code of this encounter reason cancelled.")                              
+    contains_id = fields.Many2one(
+        comodel_name="hc.vs.encounter.reason.cancelled", 
+        string="Parent", 
+        help="Parent encounter reason cancelled.")                              
 
 # External Reference
 

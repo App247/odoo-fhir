@@ -12,8 +12,26 @@
                     <field name="name"/>            
                     <field name="code"/>            
                     <field name="definition"/>          
-                    <group>         
-                        <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>      
+                    <group>
+                        <filter name="account_code" string="Account Type" domain="[('subset_ids.name','=','Account Code')]"/>
+                        <filter name="act_code" string="Act Code" domain="[('subset_ids.name','=','Act Code')]"/>
+                        <filter name="compartment" string="Compartment" domain="[('subset_ids.name','=','Compartment')]"/>
+                        <filter name="consent_directive" string="Consent Directive" domain="[('subset_ids.name','=','Consent Directive')]"/>
+                        <filter name="consent_type" string="Consent Type" domain="[('subset_ids.name','=','Consent Type')]"/>
+                        <filter name="coverage_type_code" string="Coverage Type Code" domain="[('subset_ids.name','=','Coverage Type Code')]"/>
+                        <filter name="detected_issue_category" string="Detected Issue Category" domain="[('subset_ids.name','=','Detected Issue Category')]"/>
+                        <filter name="detected_issue_management_code" string="Detected Issue Mitigation Action" domain="[('subset_ids.name','=','Detected Issue Management Code')]"/>
+                        <filter name="encounter_code" string="Encounter Code" domain="[('subset_ids.name','=','Encounter Code')]"/>
+                        <filter name="incident_code" string="Incident Code" domain="[('subset_ids.name','=','Incident Code')]"/>
+                        <filter name="information_sensitivity_policy" string="Information Sensitivity Policy" domain="[('subset_ids.name','=','Information Sensitivity Policy')]"/>
+                        <filter name="invoice_group_code" string="Invoice Group Code" domain="[('subset_ids.name','=','Invoice Group Code')]"/>
+                        <filter name="obligation_policy" string="Obligation Policy" domain="[('subset_ids.name','=','obligation policy')]"/>
+                        <filter name="observation_type" string="Observation Type" domain="[('subset_ids.name','=','Observation Type')]"/>
+                        <filter name="pharmacy_supply_type" string="Pharmacy Supply Type" domain="[('subset_ids.name','=','Pharmacy Supply Type')]"/>
+                        <filter name="refrain_policy" string="Refrain Policy" domain="[('subset_ids.name','=','Refrain Policy')]"/>
+                        <filter name="security_policy" string="Security Policy" domain="[('subset_ids.name','=','security policy')]"/>
+                        <filter name="task_code" string="Task Code" domain="[('subset_ids.name','=','Task Code')]"/>
+                        <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>               
                     </group>            
                 </search>               
             </field>                    
@@ -23,12 +41,16 @@
             <field name="name">Act Code Tree</field>                    
             <field name="model">hc.vs.act.code</field>                  
             <field name="arch" type="xml">                  
-                <tree string="Act Codes" default_order="name, code">                
+                <tree string="Act Codes" default_order="id">                
                     <field name="name"/>            
                     <field name="code"/>            
-                    <field name="definition"/>          
-                    <field name="contains_id"/>         
-                    <field name="source_id" invisible="0"/>         
+                    <field name="definition"/>
+                    <field name="level"/>
+                    <field name="level_attribute"/>          
+                    <field name="parent_child_ids" widget="many2many_tags"/>
+                    <field name="value_set_ids" widget="many2many_tags"/>
+                    <field name="subset_ids" widget="many2many_tags"/>         
+                    <field name="source_id" invisible="1"/>         
                 </tree>             
             </field>                    
         </record>                       
@@ -44,14 +66,17 @@
                         </h1>       
                         <field name="code" placeholder="Code (e.g., biological)"/>      
                         <field name="definition" placeholder="Definition"/>     
-                        <field name="comments" placeholder="Comments"/>     
+                        <field name="comments" placeholder="Comments"/>
                         <group>     
-                            <group> 
-                                <field name="contains_id"/>
+                            <group>               
+                                <field name="parent_child_ids" widget="many2many_tags"/>
+                                <field name="value_set_ids" widget="many2many_tags"/>
+                                <field name="subset_ids" widget="many2many_tags"/>
                                 <field name="level" placeholder="An integer (e.g., 1, 2)"/>
+                                <field name="level_attribute"/>
                                 <field name="is_abstract"/>
                                 <field name="version" placeholder="e.g., v2.5"/>
-                            </group>    
+                            </group>                                                                    
                             <group> 
                                 <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
                                 <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>

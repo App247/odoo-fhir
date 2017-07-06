@@ -499,15 +499,6 @@
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>        
         </record>
 
-        <record id="act_code_subset_488" model="hc.vs.act.code.subset">
-            <field name="code">InvoiceInterGroupCode</field>
-            <field name="name">Invoice Inter Group Code</field>
-            <field name="definition">Type of invoice element that is used to assist in describing an Invoice that is either submitted for adjudication or for which is returned on adjudication results.</field>
-            <field name="comments">Invoice elements of this type signify a grouping of one or more children (detail) invoice elements. They do not have intrinsic costing associated with them, but merely reflect the sum of all costing for it&apos;s immediate children invoice elements. &#10;&#10;The domain is only specified for an intermediate invoice element group (non-root or non-top level) for an Invoice.</field>
-            <field name="source_id" ref="base.hl7v3"/>
-            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
-        </record>
-
         <record id="act_code_subset_654" model="hc.vs.act.code.subset">
             <field name="code">PharmacySupplyType</field>
             <field name="name">Pharmacy Supply Type</field>
@@ -534,6 +525,15 @@
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
         </record>
 
+        <record id="act_code_subset_828" model="hc.vs.act.code.subset">   
+            <field name="code">COMPT</field>
+            <field name="name">compartment</field>
+            <field name="definition">This is the healthcare analog to the US Intelligence Community&apos;s concept of a Special Access Program. Compartment codes may be used in as a field value in an initiator&apos;s clearance to indicate permission to access and use an IT Resource with a security label having the same compartment value in security category label field.</field>
+            <field name="comments">Map: Aligns with ISO 2382-8 definition of Compartment - &quot;A division of data into isolated blocks with separate security controls for the purpose of reducing risk.&quot;</field>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        </record> 
+
         <record id="act_code_subset_848" model="hc.vs.act.code.subset">
             <field name="code">SecurityPolicy</field>
             <field name="name">security policy</field>
@@ -550,7 +550,16 @@
             <field name="comments">Usage Notes: &#10;&#10;Per ISO 22600-2, ObligationPolicy instances &apos;are event-triggered and define actions to be performed by manager agent&apos;. &#10;&#10;Per HL7 Composite Security and Privacy Domain Analysis Model: This value set refers to the action required to receive the permission specified in the privacy rule. &#10;&#10;Per OASIS XACML, an obligation is an operation specified in a policy or policy that is performed in conjunction with the enforcement of an access control decision.</field>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
-        </record>   
+        </record>
+
+        <record id="act_code_subset_885" model="hc.vs.act.code.subset">   
+            <field name="code">RefrainPolicy</field>
+            <field name="name">refrain policy</field>
+            <field name="definition">Conveys prohibited actions which an information custodian, receiver, or user is not permitted to perform unless otherwise authorized or permitted under specified circumstances.</field>
+            <field name="comments">Usage Notes: ISO 22600-2 species that a Refrain Policy &quot;defines actions the subjects must refrain from performing&quot;. Per HL7 Composite Security and Privacy Domain Analysis Model: May be used to indicate that a specific action is prohibited based on specific access control attributes e.g., purpose of use, information type, user role, etc.</field>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        </record>    
 
         <record id="act_code_subset_932" model="hc.vs.act.code.subset">
             <field name="code">TaskCode</field>
@@ -1547,7 +1556,7 @@
             <field name="definition">A grouping of invoice element groups and details including the ones specifying the compound ingredients being invoiced. It may also contain generic detail items such as markup.</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_488')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_488')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_486')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_412')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -1559,7 +1568,7 @@
             <field name="definition">A grouping of invoice element details including the one specifying an ingredient drug being invoiced. It may also contain generic detail items such as tax or markup.</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_488')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_488')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_486')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_412')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -1571,7 +1580,7 @@
             <field name="definition">A grouping of invoice element groups and details including the ones specifying the compound supplies being invoiced. It may also contain generic detail items such as markup.</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_488')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_488')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_486')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_412')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -1583,7 +1592,7 @@
             <field name="definition">A grouping of invoice element details including the one specifying the drug being invoiced. It may also contain generic detail items such as markup.</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_488')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_488')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_486')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_412')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -1595,7 +1604,7 @@
             <field name="definition">A grouping of invoice element details including the ones specifying the frame fee and the frame dispensing cost that are being invoiced.</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_488')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_488')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_486')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_412')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -1607,7 +1616,7 @@
             <field name="definition">A grouping of invoice element details including the ones specifying the lens fee and the lens dispensing cost that are being invoiced.</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_488')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_488')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_486')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_412')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -1619,7 +1628,7 @@
             <field name="definition">A grouping of invoice element details including the one specifying the product (good or supply) being invoiced. It may also contain generic detail items such as tax or discount.</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_488')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_488')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_486')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_412')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -1646,7 +1655,7 @@
             <field name="comments">&#10;&#10;For example, a crutch or a wheelchair.</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_498')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_488')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_486')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_412')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -1659,7 +1668,7 @@
             <field name="comments">[1] Single Clinical services invoice where the Invoice Grouping contains one billable item and is supported by one clinical service. &#10;&#10;&#10;&#10;For example, a single service for an office visit or simple clinical procedure (e.g. knee mobilization). &#10;&#10;[2] Multiple Clinical services invoice where the Invoice Grouping contains more than one billable item, supported by one or more clinical services. The services can be distinct and over multiple dates, but for the same patient. This type of invoice includes a series of treatments which must be adjudicated together. &#10;&#10;&#10;&#10;For example, an adjustment and ultrasound for a chiropractic session where fees are associated for each of the services and adjudicated (invoiced) together. &#10;&#10;[3] Repeated Clinical services invoice where the Invoice Grouping contains one or more billable item, supported by the same clinical service repeated over a period of time. &#10;&#10;&#10;&#10;For example, the same Chiropractic adjustment (service or treatment) delivered on 3 separate occasions over a period of time at the discretion of the provider (e.g. month).</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_498')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_488')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_486')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_412')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -1672,7 +1681,7 @@
             <field name="comments">All items in the Invoice Grouping must be adjudicated together to be acceptable to the Adjudicator. &#10;&#10;&#10;&#10;For example , a brace (product) invoiced together with the fitting (service).</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_498')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_488')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_486')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_412')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -1685,7 +1694,7 @@
             <field name="comments">Examples are interest charges and mileage.</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_498')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_488')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_486')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_412')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -1698,7 +1707,7 @@
             <field name="comments">All items in the Invoice Grouping must be adjudicated together to be acceptable to the Adjudicator.</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_498')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_488')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_486')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_412')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -1710,7 +1719,7 @@
             <field name="definition">HealthCare facility preferred accommodation invoice.</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_498')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_488')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_486')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_412')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -1722,7 +1731,7 @@
             <field name="definition">Pharmacy dispense invoice for a compound.</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_498')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_488')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_486')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_412')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -1734,7 +1743,7 @@
             <field name="definition">Pharmacy dispense invoice not involving a compound</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_498')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_488')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_486')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_412')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -1746,7 +1755,7 @@
             <field name="definition">Clinical services invoice where the Invoice Group contains one billable item for multiple clinical services in one or more sessions.</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_498')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_488')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_486')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_412')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -1758,7 +1767,7 @@
             <field name="definition">Vision dispense invoice for up to 2 lens (left and right), frame and optional discount. Eye exams are invoiced as a clinical service invoice.</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_498')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_488')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_486')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_412')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -3460,7 +3469,7 @@
         <record id="act_code_147" model="hc.vs.act.code">   
             <field name="code">AMB</field>
             <field name="name">ambulatory</field>
-            <field name="definition">A comprehensive term for health care provided in a healthcare facility (e.g. a practitioneraTMs office, clinic setting, or hospital) on a nonresident basis. The term ambulatory usually implies that the patient has come to the location and is not assigned to a bed. Sometimes referred to as an outpatient encounter.</field>
+            <field name="definition">A comprehensive term for health care provided in a healthcare facility (e.g. a practitioner&apos;s office, clinic setting, or hospital) on a nonresident basis. The term ambulatory usually implies that the patient has come to the location and is not assigned to a bed. Sometimes referred to as an outpatient encounter.</field>
             <field name="level">3</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_146')])]"/>
             <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_146')])]"/>
@@ -3472,7 +3481,7 @@
         <record id="act_code_148" model="hc.vs.act.code">   
             <field name="code">EMER</field>
             <field name="name">emergency</field>
-            <field name="definition">A patient encounter that takes place at a dedicated healthcare service delivery location where the patient receives immediate evaluation and treatment, provided until the patient can be discharged or responsibility for the patient&apos;s care is transferred elsewhere (&#10;&#10;For example, the patient could be admitted as an inpatient or transferred to another facility.).</field>
+            <field name="definition">A patient encounter that takes place at a dedicated healthcare service delivery location where the patient receives immediate evaluation and treatment, provided until the patient can be discharged or responsibility for the patient&apos;s care is transferred elsewhere. &#10;&#10;For example, the patient could be admitted as an inpatient or transferred to another facility.</field>
             <field name="level">3</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_146')])]"/>
             <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_146')])]"/>
@@ -4892,7 +4901,7 @@
         <record id="act_code_294" model="hc.vs.act.code">   
             <field name="code">ULIFE</field>
             <field name="name">universal life insurance policy</field>
-            <field name="definition">Life insurance under which the benefit is payable upon the insuredaTMs death or diagnosis of a terminal illness. If an insured dies during that period, the beneficiary receives the death payments. If the insured survives, the policy ends and the beneficiary receives nothing.</field>
+            <field name="definition">Life insurance under which the benefit is payable upon the insured&apos;s death or diagnosis of a terminal illness. If an insured dies during that period, the beneficiary receives the death payments. If the insured survives, the policy ends and the beneficiary receives nothing.</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_289')])]"/>
             <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_227')])]"/>
@@ -8368,7 +8377,7 @@
             <field name="comments">Map: Aligns with ISO 2382-8 definition of Compartment - &quot;A division of data into isolated blocks with separate security controls for the purpose of reducing risk.&quot;</field>
             <field name="level">3</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_687')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_828')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_686')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -8380,7 +8389,7 @@
             <field name="definition">A security category label field value, which indicates that access and use of an IT resource is restricted to members of human resources department or workflow.</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_828')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_828')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_686')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -8392,7 +8401,7 @@
             <field name="definition">A security category label field value, which indicates that access and use of an IT resource is restricted to members of a research project.</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_828')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_828')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_686')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -8404,7 +8413,7 @@
             <field name="definition">A security category label field value, which indicates that access and use of an IT resource is restricted to members of records management department or workflow.</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_828')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_828')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_686')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -8881,7 +8890,7 @@
             <field name="comments">Usage Notes: ISO 22600-2 species that a Refrain Policy &quot;defines actions the subjects must refrain from performing&quot;. Per HL7 Composite Security and Privacy Domain Analysis Model: May be used to indicate that a specific action is prohibited based on specific access control attributes e.g., purpose of use, information type, user role, etc.</field>
             <field name="level">3</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_848')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_848')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_848'),ref('act_code_subset_885')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_686')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -8893,7 +8902,7 @@
             <field name="definition">Prohibition on disclosure without information subject&apos;s authorization.</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_885')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_848')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_848'),ref('act_code_subset_885')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_686')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -8905,7 +8914,7 @@
             <field name="definition">Prohibition on collection or storage of the information.</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_885')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_848')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_848'),ref('act_code_subset_885')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_686')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -8917,7 +8926,7 @@
             <field name="definition">Prohibition on disclosure without organizational approved patient restriction.</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_885')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_848')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_848'),ref('act_code_subset_885')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_686')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -8929,7 +8938,7 @@
             <field name="definition">Prohibition on disclosure without a consent directive from the information subject.</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_885')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_848')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_848'),ref('act_code_subset_885')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_686')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -8941,7 +8950,7 @@
             <field name="definition">Prohibition on Integration into other records.</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_885')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_848')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_848'),ref('act_code_subset_885')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_686')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -8953,7 +8962,7 @@
             <field name="definition">Prohibition on disclosure except to entities on specific access list.</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_885')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_848')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_848'),ref('act_code_subset_885')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_686')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -8965,7 +8974,7 @@
             <field name="definition">Prohibition on disclosure without an interagency service agreement or memorandum of understanding (MOU).</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_885')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_848')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_848'),ref('act_code_subset_885')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_686')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -8977,7 +8986,7 @@
             <field name="definition">Prohibition on disclosure without organizational authorization.</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_885')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_848')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_848'),ref('act_code_subset_885')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_686')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -8990,7 +8999,7 @@
             <field name="comments">Usage Note: The information may be labeled with the ActInformationSensitivity TBOO code, triggering application of this RefrainPolicy code as a handling caveat controlling access. &#10;&#10;Maps to FHIR NOPAT: Typically, this is used on an Alert resource, when the alert records information on patient abuse or non-compliance. &#10;&#10;FHIR print name is &quot;keep information from patient&quot;. Maps to the French realm - code: INVISIBLE_PATIENT. &#10;&#10;displayName: Document non visible par le patient codingScheme: 1.2.250.1.213.1.1.4.13 &#10;&#10;French use case: A label for documents that the author chose to hide from the patient until the content can be disclose to the patient in a face to face meeting between a healthcare professional and the patient (in French law some results like cancer diagnosis or AIDS diagnosis must be announced to the patient by a healthcare professional and should not be find out by the patient alone).</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_885')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_848')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_848'),ref('act_code_subset_885')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_686')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -9002,7 +9011,7 @@
             <field name="definition">Prohibition on collection of the information beyond time necessary to accomplish authorized purpose of use is prohibited.</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_885')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_848')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_848'),ref('act_code_subset_885')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_686')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -9014,7 +9023,7 @@
             <field name="definition">Prohibition on redisclosure without patient consent directive.</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_885')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_848')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_848'),ref('act_code_subset_885')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_686')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -9026,7 +9035,7 @@
             <field name="definition">Prohibition on redisclosure without a consent directive from the information subject.</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_885')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_848')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_848'),ref('act_code_subset_885')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_686')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -9038,7 +9047,7 @@
             <field name="definition">Prohibition on disclosure without authorization under jurisdictional law.</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_885')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_848')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_848'),ref('act_code_subset_885')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_686')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -9050,7 +9059,7 @@
             <field name="definition">Prohibition on associating de-identified or pseudonymized information with other information in a manner that could or does result in disclosing information intended to be masked.</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_885')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_848')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_848'),ref('act_code_subset_885')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_686')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -9062,7 +9071,7 @@
             <field name="definition">Prohibition on use of the information beyond the purpose of use initially authorized.</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_885')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_848')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_848'),ref('act_code_subset_885')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_686')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -9074,7 +9083,7 @@
             <field name="definition">Prohibition on disclosure except to principals with access permission to specific VIP information.</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_885')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_848')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_848'),ref('act_code_subset_885')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_686')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>
@@ -9086,7 +9095,7 @@
             <field name="definition">Prohibition on disclosure except as permitted by the information originator.</field>
             <field name="level">4</field>
             <field name="parent_child_ids" eval="[(6,0,[ref('act_code_885')])]"/>
-            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_848')])]"/>
+            <field name="subset_ids" eval="[(6,0,[ref('act_code_subset_act_code'),ref('act_code_subset_848'),ref('act_code_subset_885')])]"/>
             <field name="value_set_ids" eval="[(6,0,[ref('act_code_value_set_686')])]"/>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://hl7.org/fhir/v3/ActCode</field>

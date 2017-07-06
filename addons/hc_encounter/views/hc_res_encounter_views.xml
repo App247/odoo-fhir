@@ -32,10 +32,31 @@
                             <field name="name" default_focus="1" placeholder="Name"/>                   
                         </h1>                       
                         <group>                     
-                            <group>                 
+                            <group string="Event">
+                                <field name="subject_name"/>
+                                <field name="subject_type" class="oe_edit_only"/>
+                                <field name="subject_patient_id" class="oe_edit_only" attrs="{'invisible': [('subject_type','!=','patient')], 'required': [('subject_type','=','patient')]}"/>
+                                <field name="subject_group_id" class="oe_edit_only" attrs="{'invisible': [('subject_type','!=','group')], 'required': [('subject_type','=','group')]}"/>
+                                <field name="class_id"/>
+                                <field name="type_ids" widget="many2many_tags"/>
+                                <field name="priority_id"/>                                
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                                <field name="length"/>
+                                <field name="length_uom_id"/>                  
                             </group>                    
-                            <group>                 
-                            </group>                    
+                            <group string="Status">
+                                <field name="status"/>
+                                <field name="reason_cancelled_id" attrs="{'invisible': [('status','!=','cancelled')]}"/>                 
+                            </group>
+                            <group string="Context">
+                                <field name="appointment_id"/>
+                                <field name="service_provider_id"/>
+                                <field name="part_of_id"/>
+                                <field name="hospitalization_id"/>
+                                <field name="associated_encounter_id"/>
+                                <field name="mode_of_arrival_id"/>
+                            </group>                     
                         </group>                        
                         <notebook>                      
                             <page string="Identifiers">                 
@@ -53,10 +74,121 @@
                                         </sheet>        
                                     </form>         
                                 </field>                
-                            </page>                 
+                            </page>
+                            <page string="Episodes Of Care">                 
+                                <field name="episode_of_care_ids" mode="tree">               
+                                    <tree>          
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>    
+                                        </sheet>        
+                                    </form>         
+                                </field>                
+                            </page>                            
+                            <page string="Reasons">                 
+                                <field name="reason_ids" mode="tree">               
+                                    <tree>
+                                        <field name="primary_diagnosis"/>          
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                    <field name="reason_id"/>
+                                                    <field name="primary_diagnosis"/>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>    
+                                        </sheet>        
+                                    </form>         
+                                </field>                
+                            </page>
+                            <page string="Accounts">                 
+                                <field name="account_ids" mode="tree">               
+                                    <tree>          
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>    
+                                        </sheet>        
+                                    </form>         
+                                </field>                
+                            </page>
+                            <page string="Participants">                 
+                                <field name="participant_ids" mode="tree">               
+                                    <tree>          
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>    
+                                        </sheet>        
+                                    </form>         
+                                </field>                
+                            </page>
+                            <page string="Diagnosis">                 
+                                <field name="diagnosis_ids" mode="tree">               
+                                    <tree>          
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>    
+                                        </sheet>        
+                                    </form>         
+                                </field>                
+                            </page>
+                            <page string="Class History">                 
+                                <field name="class_history_ids" mode="tree">               
+                                    <tree>          
+                                        <field name="encounter_class" readonly="1"/>
+                                        <field name="start_date"/>
+                                        <field name="end_date"/>
+                                        <field name="time_diff_day"/>
+                                        <field name="time_diff_hour"/>
+                                        <field name="time_diff_min"/>
+                                        <field name="time_diff_sec"/>
+                                        <field name="write_uid" invisible="0"/>
+                                    </tree>         
+                                </field>                
+                            </page>
+                            <page string="Status History">          
+                                <field name="status_history_ids" mode="tree">       
+                                    <tree>  
+                                        <field name="status" readonly="1"/>
+                                        <field name="start_date"/>
+                                        <field name="end_date"/>
+                                        <field name="time_diff_day"/>
+                                        <field name="time_diff_hour"/>
+                                        <field name="time_diff_min"/>
+                                        <field name="time_diff_sec"/>
+                                        <field name="write_uid" invisible="0"/>
+                                    </tree> 
+                                </field>        
+                            </page>         
                         </notebook>                     
                     </sheet>                            
-                </form>                             
+                </form>                           
             </field>                                    
         </record>                                       
   
@@ -77,6 +209,63 @@
                   groups="hc_base.group_hc_base_manager" 
                   sequence="10"/>
         
+
+        <!-- Encounter Hospitalization Views -->                                        
+                                        
+        <record id="hc_encounter_hospitalization_view_search" model="ir.ui.view">                                       
+            <field name="name">Encounter Hospitalization Search</field>                                 
+            <field name="model">hc.encounter.hospitalization</field>                                    
+            <field name="arch" type="xml">                                  
+                <search string="Encounter Hospitalizations">                                
+                </search>                               
+            </field>                                    
+        </record>                                       
+                                                
+        <record id="hc_encounter_hospitalization_view_tree" model="ir.ui.view">                                     
+            <field name="name">Encounter Hospitalization Tree</field>                                   
+            <field name="model">hc.encounter.hospitalization</field>                                    
+            <field name="arch" type="xml">                                  
+                <tree string="Encounter Hospitalizations">                              
+                </tree>                             
+            </field>                                    
+        </record>                                       
+                                                
+        <record id="hc_encounter_hospitalization_view_form" model="ir.ui.view">                                     
+            <field name="name">Encounter Hospitalization Form</field>                                   
+            <field name="model">hc.encounter.hospitalization</field>                                    
+            <field name="arch" type="xml">                                  
+                <form string="Encounter Hospitalizations">                              
+                    <sheet>                         
+                        <h1>                        
+                            <field name="name" default_focus="1" placeholder="Name"/>                   
+                        </h1>                       
+                        <group>                     
+                            <group>                 
+                            </group>                    
+                            <group>                 
+                            </group>                    
+                        </group>                                             
+                    </sheet>                            
+                </form>                             
+            </field>                                    
+        </record>                                       
+
+        <act_window id="hc_encounter_hospitalization_action"            
+                    name="HC Encounter Hospitalizations"
+                    res_model="hc.encounter.hospitalization"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <menuitem id="hc_encounter.menu_enc_hosp" 
+                  name="Encounter Hospitalizations" 
+                  parent="hc_encounter.menu_enc"
+                  action="hc_encounter_hospitalization_action" 
+                  groups="hc_base.group_hc_base_manager" 
+                  sequence="1"/>
+
+
         <!-- Encounter Participant Type Views -->                     
                         
         <record id="hc_vs_encounter_particpant_type_view_search" model="ir.ui.view">                     
