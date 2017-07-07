@@ -28,6 +28,7 @@ class ActivityDefinition(models.Model):
     status_id = fields.Many2one(
         comodel_name="hc.vs.publication.status",
         string="Status",
+        default="True",
         required="True",
         help="The status of this activity definition. Enables tracking the life-cycle of the content.")
     status_history_ids = fields.One2many(

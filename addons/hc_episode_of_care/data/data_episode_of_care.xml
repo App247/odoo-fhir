@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+    	<!-- Diagnosis Role --> 
+            
+        <record id="diag_role_ad" model="hc.vs.diagnosis.role"> 
+            <field name="code">AD</field>
+            <field name="name">Admission diagnosis</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/diagnosis-role</field>
+            <field name="version"></field>
+        </record>   
+            
+        <record id="diag_role_dd" model="hc.vs.diagnosis.role"> 
+            <field name="code">DD</field>
+            <field name="name">Discharge diagnosis</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/diagnosis-role</field>
+            <field name="version"></field>
+        </record>   
+            
+        <record id="diag_role_cc" model="hc.vs.diagnosis.role"> 
+            <field name="code">CC</field>
+            <field name="name">Chief complaint</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/diagnosis-role</field>
+            <field name="version"></field>
+        </record>   
+            
+        <record id="diag_role_cm" model="hc.vs.diagnosis.role"> 
+            <field name="code">CM</field>
+            <field name="name">Comorbidity diagnosis</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/diagnosis-role</field>
+            <field name="version"></field>
+        </record>   
+            
+        <record id="diag_role_pre_op" model="hc.vs.diagnosis.role"> 
+            <field name="code">pre-op</field>
+            <field name="name">pre-op diagnosis</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/diagnosis-role</field>
+            <field name="version"></field>
+        </record>   
+            
+        <record id="diag_role_post_op" model="hc.vs.diagnosis.role">    
+            <field name="code">post-op</field>
+            <field name="name">post-op diagnosis</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/diagnosis-role</field>
+            <field name="version"></field>
+        </record>   
+            
+        <record id="diag_role_billing" model="hc.vs.diagnosis.role">    
+            <field name="code">billing</field>
+            <field name="name">Billing</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/diagnosis-role</field>
+            <field name="version"></field>
+        </record>   
+
+    </data>
+</odoo>

@@ -38,7 +38,7 @@ class Identifier(models.Model):
         string="Name",
         compute="_compute_name",
         store="True",
-        help="Name of this identifier record. Value + Code Name.")                             
+        help="Name of this identifier record. Code Name + Value.")                             
     code_id = fields.Many2one(
         comodel_name="hc.vs.identifier.code", 
         string="Code", 
@@ -59,6 +59,15 @@ class Identifier(models.Model):
         related="code_id.type_id", 
         help="Description of identifier.")                                                      
 
+    @api.depends('code_id', 'value')            
+    def _compute_name(self):            
+        comp_name = '/'     
+        for hc_identifier in self:
+            if hc_identifier.code_id:
+                comp_name = hc_identifier.code_id.name or '' 
+            if hc_identifier.value:        
+                comp_name = comp_name + ", " + hc_identifier.value or '' 
+                
 class IdentifierCode(models.Model):
     _name = "hc.vs.identifier.code"
     _description = "Identifier Code"

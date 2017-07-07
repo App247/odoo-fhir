@@ -76,5 +76,18 @@
                   groups="hc_base.group_hc_base_manager" 
                   sequence="50"/>
 
+        <!-- External Reference -->
+
+        <record id="hc_res_encounter_view_form_incoming_referral_inherit" model="ir.ui.view">
+            <field name="name">Encounter Form Incoming Referral Inherit</field>
+            <field name="model">hc.res.encounter</field>
+            <field name="inherit_id" ref="hc_encounter.hc_res_encounter_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='incoming_referral_ids']//tree" position="after">
+                    <field name="incoming_referral_id" editable="bottom"/>
+                </xpath>
+            </field>
+        </record>
+
     </data>
 </openerp>

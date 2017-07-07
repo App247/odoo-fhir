@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+   <data>
+
+       <!-- Encounter Type -->
+
+
+       <record id="enc_type_adms" model="hc.vs.encounter.type">    
+           <field name="code">ADMS</field>
+           <field name="name">Annual diabetes mellitus screening</field>
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-type</field>
+       </record>    
+            
+       <record id="enc_type_bd_bm_clin" model="hc.vs.encounter.type">    
+           <field name="code">BD/BM-clin</field>
+           <field name="name">Bone drilling/bone marrow punction in clinic</field>
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-type</field>
+       </record>    
+            
+       <record id="enc_type_ccs60" model="hc.vs.encounter.type">    
+           <field name="code">CCS60</field>
+           <field name="name">Infant colon screening - 60 minutes</field>
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-type</field>
+       </record>    
+            
+       <record id="enc_type_oki" model="hc.vs.encounter.type">    
+           <field name="code">OKI</field>
+           <field name="name">Outpatient Kenacort injection</field>
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-type</field>
+       </record>
+
+       <!-- Act Priority -->   
+
+       <record id="act_prior_a" model="hc.vs.act.priority">    
+           <field name="code">A</field>
+           <field name="name">ASAP</field>
+           <field name="definition">As soon as possible, next highest priority after stat.</field>  
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/v3-ActPriority</field>
+       </record>   
+            
+       <record id="act_prior_cr" model="hc.vs.act.priority">   
+           <field name="code">CR</field>
+           <field name="name">callback results</field>
+           <field name="definition">Filler should contact the placer as soon as results are available, even for preliminary results. (was &quot;C&quot; in HL7 version 2.3&apos;s reporting priority.)</field>  
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/v3-ActPriority</field>
+       </record>   
+            
+       <record id="act_prior_cs" model="hc.vs.act.priority">   
+           <field name="code">CS</field>
+           <field name="name">callback for scheduling</field>
+           <field name="definition">Filler should contact the placer (or target) to schedule the service. (was &quot;C&quot; in HL7 version 2.3&apos;s TQ-priority component.)</field>  
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/v3-ActPriority</field>
+       </record>   
+            
+       <record id="act_prior_csp" model="hc.vs.act.priority">  
+           <field name="code">CSP</field>
+           <field name="name">callback placer for scheduling</field>
+           <field name="definition">Filler should contact the placer to schedule the service. (was &quot;C&quot; in HL7 version 2.3&apos;s TQ-priority component.)</field>  
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/v3-ActPriority</field>
+       </record>   
+            
+       <record id="act_prior_csr" model="hc.vs.act.priority">  
+           <field name="code">CSR</field>
+           <field name="name">contact recipient for scheduling</field>
+           <field name="definition">Filler should contact the service recipient (target) to schedule the service. (was &quot;C&quot; in HL7 version 2.3&apos;s TQ-priority component.)</field>  
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/v3-ActPriority</field>
+       </record>   
+            
+       <record id="act_prior_el" model="hc.vs.act.priority">   
+           <field name="code">EL</field>
+           <field name="name">elective</field>
+           <field name="definition">Beneficial to the patient but not essential for survival.</field>  
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/v3-ActPriority</field>
+       </record>   
+            
+       <record id="act_prior_em" model="hc.vs.act.priority">   
+           <field name="code">EM</field>
+           <field name="name">emergency</field>
+           <field name="definition">An unforeseen combination of circumstances or the resulting state that calls for immediate action.</field>  
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/v3-ActPriority</field>
+       </record>   
+            
+       <record id="act_prior_p" model="hc.vs.act.priority">    
+           <field name="code">P</field>
+           <field name="name">preop</field>
+           <field name="definition">Used to indicate that a service is to be performed prior to a scheduled surgery. When ordering a service and using the pre-op priority, a check is done to see the amount of time that must be allowed for performance of the service. When the order is placed, a message can be generated indicating the time needed for the service so that it is not ordered in conflict with a scheduled operation.</field>  
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/v3-ActPriority</field>
+       </record>   
+            
+       <record id="act_prior_prn" model="hc.vs.act.priority">  
+           <field name="code">PRN</field>
+           <field name="name">as needed</field>
+           <field name="definition">An &quot;as needed&quot; order should be accompanied by a description of what constitutes a need. This description is represented by an observation service predicate as a precondition.</field>  
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/v3-ActPriority</field>
+       </record>   
+            
+       <record id="act_prior_r" model="hc.vs.act.priority">    
+           <field name="code">R</field>
+           <field name="name">routine</field>
+           <field name="definition">Routine service, do at usual work hours.</field>  
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/v3-ActPriority</field>
+       </record>   
+            
+       <record id="act_prior_rr" model="hc.vs.act.priority">   
+           <field name="code">RR</field>
+           <field name="name">rush reporting</field>
+           <field name="definition">A report should be prepared and sent as quickly as possible.</field>  
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/v3-ActPriority</field>
+       </record>   
+            
+       <record id="act_prior_s" model="hc.vs.act.priority">    
+           <field name="code">S</field>
+           <field name="name">stat</field>
+           <field name="definition">With highest priority (e.g., emergency).</field>  
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/v3-ActPriority</field>
+       </record>   
+            
+       <record id="act_prior_t" model="hc.vs.act.priority">    
+           <field name="code">T</field>
+           <field name="name">timing critical</field>
+           <field name="definition">It is critical to come as close as possible to the requested time (e.g., for a through antimicrobial level).</field>  
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/v3-ActPriority</field>
+       </record>   
+            
+       <record id="act_prior_ud" model="hc.vs.act.priority">   
+           <field name="code">UD</field>
+           <field name="name">use as directed</field>
+           <field name="definition">Drug is to be used as directed by the prescriber.</field>  
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/v3-ActPriority</field>
+       </record>   
+            
+       <record id="act_prior_ur" model="hc.vs.act.priority">   
+           <field name="code">UR</field>
+           <field name="name">urgent</field>
+           <field name="definition">Calls for prompt action.</field>  
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/v3-ActPriority</field>
+       </record> 
+    
+       <!-- Encounter Admit Source --> 
+            
+       <record id="adm_src_hosp_trans" model="hc.vs.encounter.admit.source">   
+           <field name="code">hosp-trans</field>
+           <field name="name">Transferred from other hospital</field>
+           <field name="definition">The Patient has been transferred from another hospital for this encounter.</field>  
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-admit-source</field>
+       </record>   
+            
+       <record id="adm_src_emd" model="hc.vs.encounter.admit.source">  
+           <field name="code">emd</field>
+           <field name="name">From accident/emergency department</field>
+           <field name="definition">The patient has been transferred from the emergency department within the hospital. This is typically used in the transition to an inpatient encounter</field>  
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-admit-source</field>
+       </record>   
+            
+       <record id="adm_src_outp" model="hc.vs.encounter.admit.source"> 
+           <field name="code">outp</field>
+           <field name="name">From outpatient department</field>
+           <field name="definition">The patient has been transferred from an outpatient department within the hospital.</field>  
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-admit-source</field>
+       </record>   
+            
+       <record id="adm_src_born" model="hc.vs.encounter.admit.source"> 
+           <field name="code">born</field>
+           <field name="name">Born in hospital</field>
+           <field name="definition">The patient is a newborn and the encounter will track the baby related activities (as opposed to the Mothers encounter - that may be associated using the newborn encounters partof property)</field>  
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-admit-source</field>
+       </record>   
+            
+       <record id="adm_src_gp" model="hc.vs.encounter.admit.source">   
+           <field name="code">gp</field>
+           <field name="name">General Practitioner referral</field>
+           <field name="definition">The patient has been admitted due to a referred from a General Practitioner.</field>  
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-admit-source</field>
+       </record>   
+            
+       <record id="adm_src_mp" model="hc.vs.encounter.admit.source">   
+           <field name="code">mp</field>
+           <field name="name">Medical Practitioner/physician referral</field>
+           <field name="definition">The patient has been admitted due to a referred from a Specialist (as opposed to a General Practitioner).</field>  
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-admit-source</field>
+       </record>   
+            
+       <record id="adm_src_nursing" model="hc.vs.encounter.admit.source">  
+           <field name="code">nursing</field>
+           <field name="name">From nursing home</field>
+           <field name="definition">The patient has been transferred from a nursing home.</field>  
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-admit-source</field>
+       </record>   
+            
+       <record id="adm_src_psych" model="hc.vs.encounter.admit.source">    
+           <field name="code">psych</field>
+           <field name="name">From psychiatric hospital</field>
+           <field name="definition">The patient has been transferred from a psychiatric facility.</field>  
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-admit-source</field>
+       </record>   
+            
+       <record id="adm_src_rehab" model="hc.vs.encounter.admit.source">    
+           <field name="code">rehab</field>
+           <field name="name">From rehabilitation facility</field>
+           <field name="definition">The patient has been transferred from a rehabilitiation facility or clinic.</field>  
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-admit-source</field>
+       </record>   
+            
+       <record id="adm_src_other" model="hc.vs.encounter.admit.source">    
+           <field name="code">other</field>
+           <field name="name">Other</field>
+           <field name="definition">The patient has been admitted from a source otherwise not specified here.</field>  
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-admit-source</field>
+       </record>   
+   
+    
+       <!-- Encounter Diet --> 
+            
+       <record id="enc_diet_vegetarian" model="hc.vs.encounter.diet">  
+           <field name="code">vegetarian</field>
+           <field name="name">Vegetarian</field>
+           <field name="definition">Food without meat, poultry or seafood.</field>  
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-diet</field>
+       </record>   
+            
+       <record id="enc_diet_dairy_free" model="hc.vs.encounter.diet">  
+           <field name="code">dairy-free</field>
+           <field name="name">Dairy Free</field>
+           <field name="definition">Excludes dairy products.</field>  
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-type</field>
+       </record>   
+            
+       <record id="enc_diet_nut_free" model="hc.vs.encounter.diet">    
+           <field name="code">nut-free</field>
+           <field name="name">Nut Free</field>
+           <field name="definition">Excludes ingredients containing nuts.</field>  
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-type</field>
+       </record>   
+            
+       <record id="enc_diet_gluten_free" model="hc.vs.encounter.diet"> 
+           <field name="code">gluten-free</field>
+           <field name="name">Gluten Free</field>
+           <field name="definition">Excludes ingredients containing gluten.</field>  
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-type</field>
+       </record>   
+            
+       <record id="enc_diet_vegan" model="hc.vs.encounter.diet">   
+           <field name="code">vegan</field>
+           <field name="name">Vegan</field>
+           <field name="definition">Food without meat, poultry, seafood, eggs, dairy products and other animal-derived substances.</field>  
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-type</field>
+       </record>   
+            
+       <record id="enc_diet_halal" model="hc.vs.encounter.diet">   
+           <field name="code">halal</field>
+           <field name="name">Halal</field>
+           <field name="definition">Foods that conform to Islamic law.</field>  
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-type</field>
+       </record>   
+            
+       <record id="enc_diet_kosher" model="hc.vs.encounter.diet">  
+           <field name="code">kosher</field>
+           <field name="name">Kosher</field>
+           <field name="definition">Foods that conform to Jewish dietary law.</field>  
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-type</field>
+       </record>       
+
+       <!-- Encounter Special Courtesy --> 
+            
+       <record id="spl_court_ext" model="hc.vs.encounter.special.courtesy"> 
+           <field name="code">EXT</field>
+           <field name="name">extended courtesy</field>
+           <field name="definition">extended courtesy</field>
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-type</field>
+       </record>   
+            
+       <record id="spl_court_nrm" model="hc.vs.encounter.special.courtesy"> 
+           <field name="code">NRM</field>
+           <field name="name">normal courtesy</field>
+           <field name="definition">normal courtesy</field>
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-type</field>
+       </record>   
+            
+       <record id="spl_court_prf" model="hc.vs.encounter.special.courtesy"> 
+           <field name="code">PRF</field>
+           <field name="name">professional courtesy</field>
+           <field name="definition">professional courtesy</field>
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-type</field>
+       </record>   
+            
+       <record id="spl_court_stf" model="hc.vs.encounter.special.courtesy"> 
+           <field name="code">STF</field>
+           <field name="name">staff</field>
+           <field name="definition">Courtesies extended to the staff of the entity providing service.</field>
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-type</field>
+       </record>   
+            
+       <record id="spl_court_vip" model="hc.vs.encounter.special.courtesy"> 
+           <field name="code">VIP</field>
+           <field name="name">very important person</field>
+           <field name="definition">very important</field>
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-type</field>
+       </record>   
+            
+       <record id="spl_court_unk" model="hc.vs.encounter.special.courtesy"> 
+           <field name="code">UNK</field>
+           <field name="name">unknown</field>
+           <field name="definition">A proper value is applicable, but not known.</field>
+           <field name="comments">Usage Notes: This means the actual value is not known. If the only thing that is unknown is how to properly express the value in the necessary constraints (value set, datatype, etc.), then the OTH or UNC flavor should be used. &#10;&#10;No properties should be included for a datatype with this property unless: &#10;Those properties themselves directly translate to a semantic of &quot;unknown&quot;. (E.g. a local code sent as a translation that conveys &apos;unknown&apos;) &#10;Those properties further qualify the nature of what is unknown. (E.g. specifying a use code of &quot;H&quot; and a URL prefix of &quot;tel:&quot; to convey that it is the home phone number that is unknown.)</field>
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-type</field>
+       </record>   
+
+       <!-- Encounter Special Arrangements --> 
+
+       <record id="spl_arr_wheel" model="hc.vs.encounter.special.arrangements">
+           <field name="code">wheel</field>
+           <field name="name">Wheelchair</field>
+           <field name="definition">The patient requires a wheelchair to be made available for the encounter.</field>
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-special-arrangements</field>
+       </record>   
+            
+       <record id="spl_arr_add_bed" model="hc.vs.encounter.special.arrangements">   
+           <field name="code">add-bed</field>
+           <field name="name">Additional bedding</field>
+           <field name="definition">An additional bed made available for a person accompanying the patient, for example a parent accompanying a child.</field>
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-special-arrangements</field>
+       </record>
+
+       <record id="spl_arr_int" model="hc.vs.encounter.special.arrangements">   
+           <field name="code">int</field>
+           <field name="name">Interpreter</field>
+           <field name="definition">The patient is not fluent in the local language and requires an interpreter to be available. Refer to the Patient.Language property for the type of interpreter required.</field>
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-special-arrangements</field>
+       </record>
+
+       <record id="spl_arr_att" model="hc.vs.encounter.special.arrangements">   
+           <field name="code">att</field>
+           <field name="name">Attendant</field>
+           <field name="definition">A person who accompanies a patient to provide assistive services necessary for the patient's care during the encounter.</field>
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-special-arrangements</field>
+       </record>
+
+       <record id="spl_arr_dog" model="hc.vs.encounter.special.arrangements">   
+           <field name="code">dog</field>
+           <field name="name">Guide dog</field>
+           <field name="definition">The patient has a guide-dog and the location used for the encounter should be able to support the presence of the service animal.</field>
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-special-arrangements</field>
+       </record>
+
+       <!-- Encounter Discharge Disposition -->    
+    
+       <record id="dis_disp_home" model="hc.vs.encounter.discharge.disposition">   
+           <field name="code">home</field>
+           <field name="name">Home</field>
+           <field name="definition">The patient was dicharged and has indicated that they are going to return home afterwards.</field>
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-discharge-disposition</field>
+       </record>   
+            
+       <record id="dis_disp_other_hcf" model="hc.vs.encounter.discharge.disposition">  
+           <field name="code">other-hcf</field>
+           <field name="name">Other healthcare facility</field>
+           <field name="definition">The patient was transferred to another healthcare facility.</field>
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-discharge-disposition</field>
+       </record>   
+            
+       <record id="dis_disp_hosp" model="hc.vs.encounter.discharge.disposition">   
+           <field name="code">hosp</field>
+           <field name="name">Hospice</field>
+           <field name="definition">The patient has been discharged into palliative care.</field>
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-discharge-disposition</field>
+       </record>   
+            
+       <record id="dis_disp_long" model="hc.vs.encounter.discharge.disposition">   
+           <field name="code">long</field>
+           <field name="name">Long-term care</field>
+           <field name="definition">The patient has been discharged into long-term care where is likely to be monitored through an ongoing episode-of-care.</field>
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-discharge-disposition</field>
+       </record>   
+            
+       <record id="dis_disp_aadvice" model="hc.vs.encounter.discharge.disposition">    
+           <field name="code">aadvice</field>
+           <field name="name">Left against advice</field>
+           <field name="definition">The patient self discharged against medical advice.</field>
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-discharge-disposition</field>
+       </record>   
+            
+       <record id="dis_disp_exp" model="hc.vs.encounter.discharge.disposition">    
+           <field name="code">exp</field>
+           <field name="name">Expired</field>
+           <field name="definition">The patient has deceased during this encounter.</field>
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-discharge-disposition</field>
+       </record>   
+            
+       <record id="dis_disp_psy" model="hc.vs.encounter.discharge.disposition">    
+           <field name="code">psy</field>
+           <field name="name">Psychiatric hospital</field>
+           <field name="definition">The patient has been transferred to a psychiatric facility.</field>
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-discharge-disposition</field>
+       </record>   
+            
+       <record id="dis_disp_rehab" model="hc.vs.encounter.discharge.disposition">  
+           <field name="code">rehab</field>
+           <field name="name">Rehabilitation</field>
+           <field name="definition">The patient was discharged and is to receive post acute care rehabilitation services.</field>
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-discharge-disposition</field>
+       </record>   
+            
+       <record id="dis_disp_snf" model="hc.vs.encounter.discharge.disposition">    
+           <field name="code">snf</field>
+           <field name="name">Skilled nursing facility</field>
+           <field name="definition">The patient has been discharged to a skilled nursing facility for the patient to receive additional care.</field>
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-discharge-disposition</field>
+       </record>   
+            
+       <record id="dis_disp_oth" model="hc.vs.encounter.discharge.disposition">    
+           <field name="code">oth</field>
+           <field name="name">Other</field>
+           <field name="definition">The discharge disposition has not otherwise defined.</field>
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/ValueSet/encounter-discharge-disposition</field>
+       </record>   
+
+       <!-- V2 Mode Of Arrival --> 
+            
+       <record id="mod_arr_a" model="hc.vs.v2.mode.of.arrival">   
+           <field name="code">A</field>
+           <field name="name">Ambulance</field>
+           <field name="definition">The patient was dicharged and has indicated that they are going to return home afterwards.</field>
+           <field name="version">added v2.4</field>
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/v2/0430</field>
+       </record>   
+            
+       <record id="mod_arr_c" model="hc.vs.v2.mode.of.arrival">   
+           <field name="code">C</field>
+           <field name="name">Car</field>
+           <field name="definition">The patient was transferred to another healthcare facility.</field>
+           <field name="version">added v2.4</field>
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/v2/0430</field>
+       </record>   
+            
+       <record id="mod_arr_f" model="hc.vs.v2.mode.of.arrival">   
+           <field name="code">F</field>
+           <field name="name">On foot</field>
+           <field name="definition">The patient has been discharged into palliative care.</field>
+           <field name="version">added v2.4</field>
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/v2/0430</field>
+       </record>   
+            
+       <record id="mod_arr_h" model="hc.vs.v2.mode.of.arrival">   
+           <field name="code">H</field>
+           <field name="name">Helicopter</field>
+           <field name="definition">The patient has been discharged into long-term care where is likely to be monitored through an ongoing episode-of-care.</field>
+           <field name="version">added v2.4</field>
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/v2/0430</field>
+       </record>   
+            
+       <record id="mod_arr_o" model="hc.vs.v2.mode.of.arrival">   
+           <field name="code">O</field>
+           <field name="name">Other</field>
+           <field name="definition">The patient self discharged against medical advice.</field>
+           <field name="version">added v2.4</field>
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/v2/0430</field>
+       </record>   
+            
+       <record id="mod_arr_p" model="hc.vs.v2.mode.of.arrival">   
+           <field name="code">P</field>
+           <field name="name">Public Transport</field>
+           <field name="definition">The patient has deceased during this encounter.</field>
+           <field name="version">added v2.4</field>
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/v2/0430</field>
+       </record>   
+            
+       <record id="mod_arr_u" model="hc.vs.v2.mode.of.arrival">   
+           <field name="code">U</field>
+           <field name="name">Unknown</field>
+           <field name="definition">The patient has been transferred to a psychiatric facility.</field>
+           <field name="version">added v2.4</field>
+           <field name="source_id" ref="base.hl7fhir"/>
+           <field name="system">http://hl7.org/fhir/v2/0430</field>
+       </record>   
+    
+   </data>
+</openerp>

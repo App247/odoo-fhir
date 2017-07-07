@@ -40,6 +40,7 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'data/data_episode_of_care.xml',
         'views/hc_res_episode_of_care_views.xml',
         'views/hc_res_episode_of_care_templates.xml',
     ],

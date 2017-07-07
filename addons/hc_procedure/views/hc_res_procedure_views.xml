@@ -388,17 +388,7 @@
                   groups="hc_base.group_hc_base_manager"
                   sequence="30"/>
 
-        <record id="hc_res_appointment_view_form_inherit" model="ir.ui.view">
-            <field name="name">Appointment Form Inherit</field>
-            <field name="model">hc.res.appointment</field>
-            <field name="inherit_id" ref="hc_appointment.hc_res_appointment_view_form"/>
-            <field name="arch" type="xml">
-                <xpath expr="//field[@name='indication_ids']//form//field[@name='indication_type']" position="after">
-                    <field name="indication_condition_id" class="oe_edit_only" attrs="{'invisible': [('indication_type','!=','condition')], 'required': [('indication_type','=','condition')]}"/>
-                    <field name="indication_procedure_id" class="oe_edit_only" attrs="{'invisible': [('indication_type','!=','procedure')], 'required': [('indication_type','=','procedure')]}"/>
-                </xpath>
-            </field>
-        </record>
+
 
         <!-- Procedure Code Views -->
 
@@ -566,6 +556,31 @@
                   action="hc_vs_procedure_not_performed_reason_action"
                   groups="hc_base.group_hc_base_manager"
                   sequence="10"/>
+
+        <!-- External Reference -->
+
+        <record id="hc_res_appointment_view_form_inherit" model="ir.ui.view">
+            <field name="name">Appointment Form Inherit</field>
+            <field name="model">hc.res.appointment</field>
+            <field name="inherit_id" ref="hc_appointment.hc_res_appointment_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='indication_ids']//form//field[@name='indication_type']" position="after">
+                    <field name="indication_condition_id" class="oe_edit_only" attrs="{'invisible': [('indication_type','!=','condition')], 'required': [('indication_type','=','condition')]}"/>
+                    <field name="indication_procedure_id" class="oe_edit_only" attrs="{'invisible': [('indication_type','!=','procedure')], 'required': [('indication_type','=','procedure')]}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="hc_res_encounter_view_form_inherit" model="ir.ui.view">
+            <field name="name">Encounter Form Inherit</field>
+            <field name="model">hc.res.encounter</field>
+            <field name="inherit_id" ref="hc_encounter.hc_res_encounter_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='diagnosis_ids']//form//field[@name='condition_condition_id']" position="after">
+                    <field name="condition_procedure_id" class="oe_edit_only" attrs="{'invisible': [('condition_type','!=','procedure')], 'required': [('condition_type','=','procedure')]}"/>
+                </xpath>
+            </field>
+        </record>
 
   </data>
 </openerp>

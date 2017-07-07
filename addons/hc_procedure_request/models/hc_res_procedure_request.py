@@ -332,3 +332,13 @@ class ProcedureRequestAsNeeded(models.Model):
     _name = "hc.vs.procedure.request.as.needed"    
     _description = "Procedure Request As Needed"        
     _inherit = ["hc.value.set.contains"]
+
+# External Reference
+
+class EncounterIncomingReferral(models.Model):
+    _inherit = "hc.encounter.incoming.referral"
+
+    incoming_referral_id = fields.Many2one(
+        comodel_name="hc.res.procedure.request",
+        string="Incoming Referral",
+        help="Procedure Request associated with this Encounter Incoming Referral.")

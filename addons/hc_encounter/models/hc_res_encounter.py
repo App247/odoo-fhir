@@ -227,7 +227,7 @@ class Encounter(models.Model):
                 status_history_obj.create(status_history_vals)              
                                 
         # For Class                     
-        class_history_record_ids = class_history_obj.search([('end_date','=', False)])                      
+        class_history_record_ids = class_history_obj.search([('end_date','=', False)])
         if class_history_record_ids:                        
             if vals.get('status') == 'entered-in-error' or (vals.get('class_id') and class_history_record_ids[0].encounter_class != vals.get('class_id')):                 
                 for class_history in class_history_record_ids:              
@@ -250,7 +250,7 @@ class Encounter(models.Model):
                                 class_history.time_diff_sec = str(times[2])
                     class_history_vals = {          
                         'encounter_id': self.id,        
-                        'encounter_class': vals.get('class_id'),       
+                        'encounter_class': self.class_id.name,       
                         'start_date': datetime.today()      
                         }       
                     if vals.get('status') == 'entered-in-error':            
@@ -260,7 +260,7 @@ class Encounter(models.Model):
         else:                       
             class_history_vals = {                  
                     'encounter_id': self.id,            
-                    'encounter_class': vals.get('class_id'),           
+                    'encounter_class': self.class_id.name,           
                     'start_date': datetime.today()          
                     }           
             if vals.get('status') == 'entered-in-error':                    
@@ -272,8 +272,9 @@ class Encounter(models.Model):
     @api.depends('subject_type')            
     def _compute_subject_name(self):            
         for hc_res_encounter in self:       
-            if hc_res_encounter.subject_type == 'patient':  
-                hc_res_encounter.subject_name = hc_res_encounter.subject_patient_id.name
+            if hc_res_encounter.subject_type == 'patient':
+                subject_patient_birth_date = datetime.strftime(datetime.strptime(hc_res_encounter.subject_patient_id.birth_date, DF), "%Y-%m-%d")  
+                hc_res_encounter.subject_name = hc_res_encounter.subject_patient_id.name + "("+ subject_patient_birth_date + ")"
             elif hc_res_encounter.subject_type == 'group':  
                 hc_res_encounter.subject_name = hc_res_encounter.subject_group_id.name
  
@@ -368,7 +369,8 @@ class EncounterParticipant(models.Model):
         string="Encounter",
         help="Encounter associated with this Encounter Participant.")
     type_ids = fields.Many2many(
-        comodel_name="hc.vs.encounter.participant.type",
+        comodel_name="hc.vs.participation.type",
+        domain="[('subset_ids.name','=','Participation')]",
         relation="encounter_participant_type_rel",
         string="Types",
         help="Role of participant in encounter.")
@@ -646,11 +648,6 @@ class EncounterHospitalizationPreAdmissionIdentifier(models.Model):
     _name = "hc.encounter.hospitalization.pre.admission.identifier"
     _description = "Encounter Hospitalization Pre-Admission Identifier"
     _inherit = ["hc.basic.association", "hc.identifier"]
-
-class ActEncounterCode(models.Model):
-    _name = "hc.vs.act.encounter.code"
-    _description = "Act Encounter Code"
-    _inherit = ["hc.value.set.contains"]
 
 class EncounterType(models.Model):
     _name = "hc.vs.encounter.type"

@@ -476,21 +476,57 @@ class Partner(models.Model):
     is_person = fields.Boolean(
         string="Is a person", 
         help="This partner is a health care person.")
-    # is_patient = fields.Boolean(
-    #     string="Is a patient", 
-    #     help="This partner is a patient.")
-    # is_practitioner = fields.Boolean(
-    #     string="Is a practitioner", 
-    #     help="This partner is a health care practitioner.")
-    # is_related_person = fields.Boolean(
-    #     string="Is a related person", 
-    #     help="This partner is a health care related person.")
+    is_patient = fields.Boolean(
+        string="Is a patient", 
+        help="This partner is a patient.")
+    is_practitioner = fields.Boolean(
+        string="Is a practitioner", 
+        help="This partner is a health care practitioner.")
+    is_related_person = fields.Boolean(
+        string="Is a related person", 
+        help="This partner is a health care related person.")
+    link_ids = fields.One2many(
+        comodel_name="hc.partner.link", 
+        inverse_name="partner_id", 
+        string="Links", 
+        help="Link to a resource that concerns the same actual partner.")
 
-# class HumanName(models.Model):
-#     _inherit = "hc.human.name"
+class PartnerLink(models.Model): 
+    _name = "hc.partner.link"    
+    _description = "Partner Link"
 
-#     person_ids = fields.Many2many(
-#         comodel_name="hc.res.person",
-#         inverse_name="person_id",
-#         string="Person",
-#         help="A Person associated with this Human Name.")
+    partner_id = fields.Many2one(
+        comodel_name="hc.res.partner", 
+        string="Partner", 
+        help="Partner associated with this Partner Link.")
+    target_type = fields.Selection(
+        string="Target Type", 
+        required="True", 
+        selection=[
+            ("person", "Person"),
+            ("practitioner", "Practitioner"), 
+            ("related_person", "Related Person"), 
+            ("patient", "Patient")], 
+        help="Type of resource to which this actual partner is associated.")                
+    target_name = fields.Char(
+        string="Target",
+        compute="_compute_target_name", 
+        store="True", 
+        help="The resource to which this actual partner is associated.")
+    target_person_id = fields.Many2one(
+        comodel_name="hc.res.person", 
+        string="Target Person", 
+        help="Person who is the resource to which this actual partner is associated.")
+    # target_patient_id = fields.Many2one(
+    #     comodel_name="hc.res.patient", 
+    #     string="Target Patient", 
+    #     help="Patient who is the resource to which this actual partner is associated.")
+    # target_practitioner_id = fields.Many2one(
+    #     comodel_name="hc.res.practitioner", 
+    #     string="Target Practitioner", 
+    #     help="Practitioner who is the resource to which this actual partner is associated.")
+    # target_related_person_id = fields.Many2one(
+    #     comodel_name="hc.res.related.person", 
+    #     string="Target Related Person", 
+    #     help="Related Person who is the resource to which this actual partner is associated.")    
+

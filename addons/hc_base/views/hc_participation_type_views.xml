@@ -11,7 +11,16 @@
                     <field name="name"/>
                     <field name="code"/>
                     <field name="definition"/>
-                    <group> 
+                    <group>
+                        <filter name="Participation" string="Participation" domain="[('subset_ids.name','=','Participation')]"/>
+                        <filter name="author_originator" string="author (originator)" domain="[('subset_ids.name','=','author (originator)')]"/>
+                        <filter name="Transcriber" string="Transcriber" domain="[('subset_ids.name','=','Transcriber')]"/>
+                        <filter name="direct_target" string="direct target" domain="[('subset_ids.name','=','direct target')]"/>
+                        <filter name="subject" string="subject" domain="[('subset_ids.name','=','subject')]"/>
+                        <filter name="indirect_target" string="indirect target" domain="[('subset_ids.name','=','indirect target')]"/>
+                        <filter name="location" string="location" domain="[('subset_ids.name','=','location')]"/>
+                        <filter name="performer" string="performer" domain="[('subset_ids.name','=','performer')]"/>
+                        <filter name="verifier" string="verifier" domain="[('subset_ids.name','=','verifier')]"/>
                         <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>
                     </group>
                 </search>   

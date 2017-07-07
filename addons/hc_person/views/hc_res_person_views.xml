@@ -45,6 +45,7 @@
                                 <field name="name_id"/>
                                 <field name="gender"/>
                                 <field name="birth_date"/>
+                                <field name="partner_id"/>
                             </group>
                             <group>
                                 <field name="is_active" string="Active Record"/>
@@ -281,23 +282,23 @@
         
         <!-- External Reference View -->
 
-        <!-- <record id="base.view_partner_form_inherited_person" model="ir.ui.view">
+         <record id="base.view_partner_form_inherited_person" model="ir.ui.view">
           <field name="name">res.partner.form</field>
           <field name="model">res.partner</field>
           <field name="inherit_id" ref="base.view_partner_form"/>
           <field name="arch" type="xml">
-              <field name="parent_id" position="after">
-                <label for="is_person" string="HC Person"/>
-                <field name="is_person"/>
-                <label for="is_patient" string="HC Patient"/>
+            <xpath expr="//page[@name='accounting']" position="after">
+                <page string="Health Care"/>
+            </xpath>
+<!--                 <label for="is_patient" string="HC Patient"/>
                 <field name="is_patient"/>
                 <label for="is_practitioner" string="HC Practitioner"/>
                 <field name="is_practitioner"/>
                 <label for="is_related_person" string="HC Related Person"/>
                 <field name="is_related_person"/>
-              </field>
+              </field> -->
           </field>
-        </record>-->
+        </record>
 
     </data>
 </openerp>
