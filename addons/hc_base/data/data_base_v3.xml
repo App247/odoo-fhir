@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+         <!-- V3 Confidentiality Value Set -->    
+   
+        <record id="conf_value_set_1" model="hc.vs.v3.confidentiality.value.set">   
+            <field name="code">_Confidentiality</field>
+            <field name="name">Confidentiality</field>
+            <field name="definition">A specializable code and its leaf codes used in Confidentiality value sets to value the Act.Confidentiality and Role. Confidentiality attribute in accordance with the definition for concept domain &quot;Confidentiality&quot;.</field>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/v3-Confidentiality</field>
+        </record>   
+            
+        <record id="conf_value_set_8" model="hc.vs.v3.confidentiality.value.set">   
+            <field name="code">_ConfidentialityByAccessKind</field>
+            <field name="name">ConfidentialityByAccessKind</field>
+            <field name="definition">By accessing subject / role and relationship based rights (These concepts are mutually exclusive, one and only one is required for a valid confidentiality coding.).</field>
+            <field name="comments">Deprecation Comment:  Deprecated due to updated confidentiality codes under ActCode.</field>
+            <field name="is_active">False</field>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/v3-Confidentiality</field>
+        </record>   
+            
+        <record id="conf_value_set_12" model="hc.vs.v3.confidentiality.value.set">  
+            <field name="code">_ConfidentialityByInfoType</field>
+            <field name="name">ConfidentialityByInfoType</field>
+            <field name="definition">By information type, only for service catalog entries (multiples allowed). Not to be used with actual patient data!</field>
+            <field name="comments">Deprecation Comment:  Deprecated due to updated confidentiality codes under ActCode.</field>
+            <field name="is_active">False</field>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/v3-Confidentiality</field>
+        </record>   
+            
+        <record id="conf_value_set_17" model="hc.vs.v3.confidentiality.value.set">  
+            <field name="code">_ConfidentialityModifiers</field>
+            <field name="name">ConfidentialityModifiers</field>
+            <field name="definition">Modifiers of role based access rights (multiple allowed).</field>
+            <field name="comments">Deprecation Comment: Deprecated due to updated confidentiality codes under ActCode.</field>
+            <field name="is_active">False</field>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/v3-Confidentiality</field>
+        </record>   
+
+
+        <!--V3 Confidentiality -->
+    
+        <record id="conf_1" model="hc.vs.v3.confidentiality">   
+            <field name="code">_Confidentiality</field>
+            <field name="name">Confidentiality</field>
+            <field name="definition">A specializable code and its leaf codes used in Confidentiality value sets to value the Act.Confidentiality and Role. Confidentiality attribute in accordance with the definition for concept domain &quot;Confidentiality&quot;.</field>
+            <field name="level">1</field>
+            <field name="value_set_ids" eval="[(6,0,[ref('conf_value_set_1')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/v3-Confidentiality</field>
+        </record>   
+            
+        <record id="conf_2" model="hc.vs.v3.confidentiality">   
+            <field name="code">L</field>
+            <field name="name">low</field>
+            <field name="definition">Privacy metadata indicating that the information has been de-identified, and there are mitigating circumstances that prevent re-identification, which minimize risk of harm from unauthorized disclosure. The information requires protection to maintain low sensitivity.</field>
+            <field name="comments">Examples: Includes anonymized, pseudonymized, or non-personally identifiable information such as HIPAA limited data sets. &#10;&#10;Map: No clear map to ISO 13606-4 Sensitivity Level (1) &#10;&#10;Care Management: RECORD_COMPONENTs that might need to be accessed by a wide range of administrative staff to manage the subject of care&apos;s access to health services. &#10;&#10;Usage Note: This metadata indicates the receiver may have an obligation to comply with a data use agreement.</field>
+            <field name="level">2</field>
+            <field name="contains_id" ref="conf_1"/>
+            <field name="value_set_ids" eval="[(6,0,[ref('conf_value_set_1')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/v3-Confidentiality</field>
+        </record>   
+            
+        <record id="conf_3" model="hc.vs.v3.confidentiality">   
+            <field name="code">M</field>
+            <field name="name">moderate</field>
+            <field name="definition">Privacy metadata indicating moderately sensitive information, which presents moderate risk of harm if disclosed without authorization.</field>
+            <field name="comments">Examples: Includes allergies of non-sensitive nature used inform food service; health information a patient authorizes to be used for marketing, released to a bank for a health credit card or savings account; or information in personal health record systems that are not governed under health privacy laws. &#10;&#10;Map: Partial Map to ISO 13606-4 Sensitivity Level (2) &#10;&#10;Clinical Management: Less sensitive RECORD_COMPONENTs that might need to be accessed by a wider range of personnel not all of whom are actively caring for the patient (e.g. radiology staff). &#10;&#10;Usage Note: This metadata indicates that the receiver may be obligated to comply with the receiver&apos;s terms of use or privacy policies.</field>
+            <field name="level">2</field>
+            <field name="contains_id" ref="conf_1"/>
+            <field name="value_set_ids" eval="[(6,0,[ref('conf_value_set_1')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/v3-Confidentiality</field>
+        </record>   
+            
+        <record id="conf_4" model="hc.vs.v3.confidentiality">   
+            <field name="code">N</field>
+            <field name="name">normal</field>
+            <field name="definition">Privacy metadata indicating that the information is typical, non-stigmatizing health information, which presents typical risk of harm if disclosed without authorization.</field>
+            <field name="comments">Examples: In the US, this includes what HIPAA identifies as the minimum necessary protected health information (PHI) given a covered purpose of use (treatment, payment, or operations). Includes typical, non-stigmatizing health information disclosed in an application for health, workers compensation, disability, or life insurance. &#10;&#10;Map: Partial Map to ISO 13606-4 Sensitivity Level (3) &#10;&#10;Clinical Care: Default for normal clinical care access (i.e. most clinical staff directly caring for the patient should be able to access nearly all of the EHR). Maps to normal confidentiality for treatment information but not to ancillary care, payment and operations. &#10;&#10;Usage Note: This metadata indicates that the receiver may be obligated to comply with applicable jurisdictional privacy law or disclosure authorization.</field>
+            <field name="level">2</field>
+            <field name="contains_id" ref="conf_1"/>
+            <field name="value_set_ids" eval="[(6,0,[ref('conf_value_set_1')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/v3-Confidentiality</field>
+        </record>   
+            
+        <record id="conf_5" model="hc.vs.v3.confidentiality">   
+            <field name="code">R</field>
+            <field name="name">restricted</field>
+            <field name="definition">Privacy metadata indicating highly sensitive, potentially stigmatizing information, which presents a high risk to the information subject if disclosed without authorization. May be pre-empted by jurisdictional law, e.g., for public health reporting or emergency treatment.</field>
+            <field name="comments">Examples: Includes information that is additionally protected such as sensitive conditions mental health, HIV, substance abuse, domestic violence, child abuse, genetic disease, and reproductive health; or sensitive demographic information such as a patient&apos;s standing as an employee or a celebrity. May be used to indicate proprietary or classified information that is not related to an individual, e.g., secret ingredients in a therapeutic substance; or the name of a manufacturer. &#10;&#10;Map: Partial Map to ISO 13606-4 Sensitivity Level (3) &#10;&#10;Clinical Care: Default for normal clinical care access (i.e. most clinical staff directly caring for the patient should be able to access nearly all of the EHR). Maps to normal confidentiality for treatment information but not to ancillary care, payment and operations. &#10;&#10;Usage Note: This metadata indicates that the receiver may be obligated to comply with applicable, prevailing (default) jurisdictional privacy law or disclosure authorization.</field>
+            <field name="level">2</field>
+            <field name="contains_id" ref="conf_1"/>
+            <field name="value_set_ids" eval="[(6,0,[ref('conf_value_set_1')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/v3-Confidentiality</field>
+        </record>   
+            
+        <record id="conf_6" model="hc.vs.v3.confidentiality">   
+            <field name="code">U</field>
+            <field name="name">unrestricted</field>
+            <field name="definition">Privacy metadata indicating that the information is not classified as sensitive.</field>
+            <field name="comments">Examples: Includes publicly available information, e.g., business name, phone, email or physical address. &#10;&#10;Usage Note: This metadata indicates that the receiver has no obligation to consider additional policies when making access control decisions. Note that in some jurisdictions, personally identifiable information must be protected as confidential, so it would not be appropriate to assign a confidentiality code of &quot;unrestricted&quot; to that information even if it is publicly available.</field>
+            <field name="level">2</field>
+            <field name="contains_id" ref="conf_1"/>
+            <field name="value_set_ids" eval="[(6,0,[ref('conf_value_set_1')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/v3-Confidentiality</field>
+        </record>   
+            
+        <record id="conf_7" model="hc.vs.v3.confidentiality">   
+            <field name="code">V</field>
+            <field name="name">very restricted</field>
+            <field name="definition">Privacy metadata indicating that the information is extremely sensitive and likely stigmatizing health information that presents a very high risk if disclosed without authorization. This information must be kept in the highest confidence.</field>
+            <field name="comments">Examples: Includes information about a victim of abuse, patient requested information sensitivity, and taboo subjects relating to health status that must be discussed with the patient by an attending provider before sharing with the patient. May also include information held under &quot;legal lock&quot; or attorney-client privilege &#10;&#10;Map: This metadata indicates that the receiver may not disclose this information except as directed by the information custodian, who may be the information subject. &#10;&#10;Usage Note: This metadata indicates that the receiver may not disclose this information except as directed by the information custodian, who may be the information subject.</field>
+            <field name="level">2</field>
+            <field name="contains_id" ref="conf_1"/>
+            <field name="value_set_ids" eval="[(6,0,[ref('conf_value_set_1')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/v3-Confidentiality</field>
+        </record>   
+            
+        <record id="conf_8" model="hc.vs.v3.confidentiality">   
+            <field name="code">_ConfidentialityByAccessKind</field>
+            <field name="name">ConfidentialityByAccessKind</field>
+            <field name="definition">By accessing subject / role and relationship based rights (These concepts are mutually exclusive, one and only one is required for a valid confidentiality coding.).</field>
+            <field name="comments">Deprecation Comment:  Deprecated due to updated confidentiality codes under ActCode.</field>
+            <field name="level">1</field>
+            <field name="value_set_ids" eval="[(6,0,[ref('conf_value_set_8')])]"/>
+            <field name="is_active">False</field>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/v3-Confidentiality</field>
+        </record>   
+            
+        <record id="conf_9" model="hc.vs.v3.confidentiality">   
+            <field name="code">B</field>
+            <field name="name">business</field>
+            <field name="definition">Since the service class can represent knowledge structures that may be considered a trade or business secret, there is sometimes (though rarely) the need to flag those items as of business level confidentiality. However, no patient related information may ever be of this confidentiality level.</field>
+            <field name="comments">Deprecation Comment:  Replaced by ActCode.B.</field>
+            <field name="level">2</field>
+            <field name="contains_id" ref="conf_8"/>
+            <field name="value_set_ids" eval="[(6,0,[ref('conf_value_set_8')])]"/>
+            <field name="is_active">False</field>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/v3-Confidentiality</field>
+        </record>   
+            
+        <record id="conf_10" model="hc.vs.v3.confidentiality">  
+            <field name="code">D</field>
+            <field name="name">clinician</field>
+            <field name="definition">Only clinicians may see this item, billing and administration persons can not access this item without special permission.</field>
+            <field name="comments">Deprecation Comment :Deprecated due to updated confidentiality codes under ActCode.</field>
+            <field name="level">2</field>
+            <field name="contains_id" ref="conf_8"/>
+            <field name="value_set_ids" eval="[(6,0,[ref('conf_value_set_8')])]"/>
+            <field name="is_active">False</field>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/v3-Confidentiality</field>
+        </record>   
+            
+        <record id="conf_11" model="hc.vs.v3.confidentiality">  
+            <field name="code">I</field>
+            <field name="name">individual</field>
+            <field name="definition">Access only to individual persons who are mentioned explicitly as actors of this service and whose actor type warrants that access (cf. to actor type code).</field>
+            <field name="comments">Deprecation Comment:  Deprecated due to updated confidentiality codes under ActCode.</field>
+            <field name="level">2</field>
+            <field name="contains_id" ref="conf_8"/>
+            <field name="value_set_ids" eval="[(6,0,[ref('conf_value_set_8')])]"/>
+            <field name="is_active">False</field>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/v3-Confidentiality</field>
+        </record>   
+            
+        <record id="conf_12" model="hc.vs.v3.confidentiality">  
+            <field name="code">_ConfidentialityByInfoType</field>
+            <field name="name">ConfidentialityByInfoType</field>
+            <field name="definition">By information type, only for service catalog entries (multiples allowed). Not to be used with actual patient data!.</field>
+            <field name="comments">Deprecation Comment:  Deprecated due to updated confidentiality codes under ActCode.</field>
+            <field name="level">1</field>
+            <field name="value_set_ids" eval="[(6,0,[ref('conf_value_set_12')])]"/>
+            <field name="is_active">False</field>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/v3-Confidentiality</field>
+        </record>   
+            
+        <record id="conf_13" model="hc.vs.v3.confidentiality">  
+            <field name="code">ETH</field>
+            <field name="name">substance abuse related</field>
+            <field name="definition">Alcohol/drug-abuse related item.</field>
+            <field name="comments">Deprecation Comment:  Replaced by ActCode.ETH.</field>
+            <field name="level">2</field>
+            <field name="contains_id" ref="conf_12"/>
+            <field name="value_set_ids" eval="[(6,0,[ref('conf_value_set_12')])]"/>
+            <field name="is_active">False</field>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/v3-Confidentiality</field>
+        </record>   
+            
+        <record id="conf_14" model="hc.vs.v3.confidentiality">  
+            <field name="code">HIV</field>
+            <field name="name">HIV related</field>
+            <field name="definition">HIV and AIDS related item.</field>
+            <field name="comments">Deprecation Comment: Replaced by ActCode.HIV.</field>
+            <field name="level">2</field>
+            <field name="contains_id" ref="conf_12"/>
+            <field name="value_set_ids" eval="[(6,0,[ref('conf_value_set_12')])]"/>
+            <field name="is_active">False</field>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/v3-Confidentiality</field>
+        </record>   
+            
+        <record id="conf_15" model="hc.vs.v3.confidentiality">  
+            <field name="code">PSY</field>
+            <field name="name">psychiatry relate</field>
+            <field name="definition">Psychiatry related item.</field>
+            <field name="comments">Deprecation Comment: Replaced by ActCode.PSY.</field>
+            <field name="level">2</field>
+            <field name="contains_id" ref="conf_12"/>
+            <field name="value_set_ids" eval="[(6,0,[ref('conf_value_set_12')])]"/>
+            <field name="is_active">False</field>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/v3-Confidentiality</field>
+        </record>   
+            
+        <record id="conf_16" model="hc.vs.v3.confidentiality">  
+            <field name="code">SDV</field>
+            <field name="name">sexual and domestic violence related</field>
+            <field name="definition">Sexual assault / domestic violence related item.</field>
+            <field name="comments">Deprecation Comment: Replaced by ActCode.SDV.</field>
+            <field name="level">2</field>
+            <field name="contains_id" ref="conf_12"/>
+            <field name="value_set_ids" eval="[(6,0,[ref('conf_value_set_12')])]"/>
+            <field name="is_active">False</field>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/v3-Confidentiality</field>
+        </record>   
+            
+        <record id="conf_17" model="hc.vs.v3.confidentiality">  
+            <field name="code">_ConfidentialityModifiers</field>
+            <field name="name">ConfidentialityModifiers</field>
+            <field name="definition">Modifiers of role based access rights (multiple allowed).</field>
+            <field name="comments">Deprecation Comment: Deprecated due to updated confidentiality codes under ActCode.</field>
+            <field name="level">1</field>
+            <field name="value_set_ids" eval="[(6,0,[ref('conf_value_set_17')])]"/>
+            <field name="is_active">False</field>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/v3-Confidentiality</field>
+        </record>   
+            
+        <record id="conf_18" model="hc.vs.v3.confidentiality">  
+            <field name="code">C</field>
+            <field name="name">celebrity</field>
+            <field name="definition">Celebrities are people of public interest (VIP) including employees, whose information require special protection.</field>
+            <field name="comments">Deprecation Comment: Replaced by ActCode.CEL.</field>
+            <field name="level">2</field>
+            <field name="contains_id" ref="conf_17"/>
+            <field name="value_set_ids" eval="[(6,0,[ref('conf_value_set_17')])]"/>
+            <field name="is_active">False</field>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/v3-Confidentiality</field>
+        </record>   
+            
+        <record id="conf_19" model="hc.vs.v3.confidentiality">  
+            <field name="code">S</field>
+            <field name="name">sensitive</field>
+            <field name="definition">Information for which the patient seeks heightened confidentiality. Sensitive information is not to be shared with family members. Information reported by the patient about family members is sensitive by default. Flag can be set or cleared on patient&apos;s request.</field>
+            <field name="comments">Deprecation Comment: Deprecated due to updated confidentiality codes under ActCode.</field>
+            <field name="level">2</field>
+            <field name="contains_id" ref="conf_17"/>
+            <field name="value_set_ids" eval="[(6,0,[ref('conf_value_set_17')])]"/>
+            <field name="is_active">False</field>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/v3-Confidentiality</field>
+        </record>   
+            
+        <record id="conf_20" model="hc.vs.v3.confidentiality">  
+            <field name="code">T</field>
+            <field name="name">taboo</field>
+            <field name="definition">Information not to be disclosed or discussed with patient except through physician assigned to patient in this case. This is usually a temporary constraint only, example use is a new fatal diagnosis or finding, such as malignancy or HIV.</field>
+            <field name="comments">Deprecation Note: Replaced by ActCode.TBOO.</field>
+            <field name="level">2</field>
+            <field name="contains_id" ref="conf_17"/>
+            <field name="value_set_ids" eval="[(6,0,[ref('conf_value_set_17')])]"/>
+            <field name="is_active">False</field>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/v3-Confidentiality</field>
+        </record>   
+
+    </data>
+</odoo>

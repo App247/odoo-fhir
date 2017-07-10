@@ -462,7 +462,7 @@ class EncounterHospitalization(models.Model):
         help="Text representation of the encounter event. Admit Source + Pre-Admission Identifier + Origin.")
     pre_admission_identifier_id = fields.Many2one(
         comodel_name="hc.encounter.hospitalization.pre.admission.identifier",
-        string="Encounter Hospitalization Pre-Admission Identifier",
+        string="Pre-Admission Identifier",
         help="Pre-admission identifier.")
     origin_id = fields.Many2one(
         comodel_name="hc.res.location",

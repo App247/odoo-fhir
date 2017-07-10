@@ -1,0 +1,7 @@
+id,code,name,country_ids/id,source_id/id,system
+race_value_set_1,1002-5,"American Indian or Alaska Native",base.us,base.hl7v3,http://hl7.org/fhir/v3/Race
+race_value_set_829,2028-9,"Asian",base.us,base.hl7v3,http://hl7.org/fhir/v3/Race
+race_value_set_854,2054-5,"Black or African American",base.us,base.hl7v3,http://hl7.org/fhir/v3/Race
+race_value_set_873,2076-8,"Native Hawaiian or Other Pacific Islander",base.us,base.hl7v3,http://hl7.org/fhir/v3/Race
+race_value_set_900,2106-3,"White",base.us,base.hl7v3,http://hl7.org/fhir/v3/Race
+race_value_set_921,2131-1,"Other Race",base.us,base.hl7v3,http://hl7.org/fhir/v3/Rac

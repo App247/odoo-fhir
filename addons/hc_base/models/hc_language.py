@@ -37,7 +37,12 @@ class lang(models.Model):
     country_id = fields.Many2one(
         comodel_name="res.country", 
         string="Country", 
-        help="Country that the ISO language belongs to.")
+        help="Country that the ISO language is spoken in.")
+    # country_ids = fields.Many2many(
+    #     comodel_name="res.country", 
+    #     string="Country", 
+    #     help="Country that the ISO language is spoken in.") 
     language = fields.Char(
         string="Language",
         help="A human language.")
+

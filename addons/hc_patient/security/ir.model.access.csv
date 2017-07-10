@@ -16,10 +16,13 @@ access_hc_patient_hc_vs_ethnicity_manager,hc.patient.hc.vs.ethnicity.manager,mod
 access_hc_patient_hc_vs_adoption_info_manager,hc.patient.hc.vs.adoption.info.manager,model_hc_vs_adoption_info,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_patient_hc_vs_disability_manager,hc.patient.hc.vs.disability.manager,model_hc_vs_disability,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_patient_hc_vs_importance_manager,hc.patient.hc.vs.importance.manager,model_hc_vs_importance,hc_base.group_hc_base_manager,1,1,1,1
-access_hc_patient_hc_vs_religion_manager,hc.patient.hc.vs.religion.manager,model_hc_vs_religion,hc_base.group_hc_base_manager,1,1,1,1
+access_hc_patient_hc_vs_v3_religious_affiliation_manager,hc.patient.hc.vs.v3.religious.affiliation.manager,model_hc_vs_v3_religious_affiliation,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_patient_hc_vs_animal_species_manager,hc.patient.hc.vs.animal.species.manager,model_hc_vs_animal_species,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_patient_hc_vs_animal_breed_manager,hc.patient.hc.vs.animal.breed.manager,model_hc_vs_animal_breed,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_patient_hc_vs_animal_gender_status_manager,hc.patient.hc.vs.animal.gender.status.manager,model_hc_vs_animal_gender_status,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_patient_hc_vs_v2_contact_role_manager,hc.patient.hc.vs.v2.contact.role.manager,model_hc_vs_v2_contact_role,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_patient_hc_vs_clinical_trial_reason_manager,hc.patient.hc.vs.clinical.trial.reason.manager,model_hc_vs_clinical_trial_reason,hc_base.group_hc_base_manager,1,1,1,1
+access_hc_patient_hc_vs_v3_race_manager,hc.patient.hc.vs.v3.race.manager,model_hc_vs_v3_race,hc_base.group_hc_base_manager,1,1,1,1
+access_hc_patient_hc_vs_v3_race_value_set_manager,hc.patient.hc.vs.v3.race.value.set.manager,model_hc_vs_v3_race_value_set,hc_base.group_hc_base_manager,1,1,1,1
+
 

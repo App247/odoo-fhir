@@ -69,9 +69,11 @@
                                 <field name="importance_id" attrs="{'invisible': [('type','=','animal')]}"/>
                                 <field name="is_interpreter_required" attrs="{'invisible': [('type','=','animal')]}"/>
                                 <field name="mothers_maiden_name_id" attrs="{'invisible': [('type','=','animal')]}"/>
+                                <field name="partner_id"/>
                             </group>
                             <group string = "Animal">
-                                <field name="animal_id" attrs="{'invisible': [('type','!=','animal')], 'required': [('type','=','animal')]}"/>
+                                <field name="animal_id" attrs="{'invisible': [('type','!=','animal')], 'required': [('
+                                    type','=','animal')]}"/>
                             </group>                    
                         </group>                        
                         <notebook colspan="4">                      
@@ -900,6 +902,218 @@
                   action="hc_vs_animal_breed_action" 
                   groups="hc_base.group_hc_base_manager" 
                   sequence="30"/>
+
+        <!-- V3 Religious Affiliation Views -->                     
+                                
+        <record id="hc_vs_v3_religious_affiliation_view_search" model="ir.ui.view">                     
+            <field name="name">V3 Religious Affiliation Search</field>                  
+            <field name="model">hc.vs.v3.religious.affiliation</field>                  
+            <field name="arch" type="xml">                  
+                <search string="V3 Religious Affiliations">             
+                    <field name="name"/>            
+                    <field name="code"/>                     
+                    <group>           
+                    </group>            
+                </search>               
+            </field>                    
+        </record>                       
+                                
+        <record id="hc_vs_v3_religious_affiliation_view_tree" model="ir.ui.view">                       
+            <field name="name">V3 Religious Affiliation Tree</field>                    
+            <field name="model">hc.vs.v3.religious.affiliation</field>                  
+            <field name="arch" type="xml">                  
+                <tree string="V3 Religious Affiliations" default_order="name">                
+                    <field name="name"/>            
+                    <field name="code"/>                  
+                    <field name="source_id" invisible="0"/>         
+                </tree>             
+            </field>                    
+        </record>                       
+                                
+        <record id="hc_vs_v3_religious_affiliation_view_form" model="ir.ui.view">                       
+            <field name="name">V3 Religious Affiliation Form</field>                    
+            <field name="model">hc.vs.v3.religious.affiliation</field>                  
+            <field name="arch" type="xml">                  
+                <form string="V3 Religious Affiliation">                
+                    <sheet>         
+                        <h1>        
+                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>  
+                        </h1>       
+                        <field name="code" placeholder="Code (e.g., biological)"/>          
+                        <group>         
+                            <group> 
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
+                            </group>    
+                        </group>        
+                    </sheet>            
+                </form>             
+            </field>                    
+        </record>                       
+
+        <act_window id="hc_vs_v3_religious_affiliation_action"          
+                    name="HC V3 Religious Affiliations"
+                    res_model="hc.vs.v3.religious.affiliation"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <menuitem id="hc_patient.menu_rel_aff" 
+                  name="Religious Affiliations" 
+                  parent="hc_patient.menu_pat" 
+                  action="hc_vs_v3_religious_affiliation_action" 
+                  groups="hc_base.group_hc_base_manager" 
+                  sequence="30"/>
+            
+<!-- V3 Race Views -->          
+
+        <record id="hc_vs_v3_race_view_search" model="ir.ui.view">                      
+            <field name="name">V3 Race Search</field>                   
+            <field name="model">hc.vs.v3.race</field>                   
+            <field name="arch" type="xml">                  
+                <search string="V3 Races">              
+                    <field name="name"/>            
+                    <field name="code"/>            
+                    <field name="definition"/>          
+                    <group>         
+                        <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>      
+                    </group>            
+                </search>               
+            </field>                    
+        </record>                       
+                                
+        <record id="hc_vs_v3_race_view_tree" model="ir.ui.view">                        
+            <field name="name">V3 Race Tree</field>                 
+            <field name="model">hc.vs.v3.race</field>                   
+            <field name="arch" type="xml">                  
+                <tree string="V3 Races" default_order="name, code">             
+                    <field name="name"/>            
+                    <field name="code"/>            
+                    <field name="definition"/>          
+                    <field name="contains_id"/>         
+                    <field name="source_id" invisible="0"/>         
+                </tree>             
+            </field>                    
+        </record>                       
+                                
+        <record id="hc_vs_v3_race_view_form" model="ir.ui.view">                        
+            <field name="name">V3 Race Form</field>                 
+            <field name="model">hc.vs.v3.race</field>                   
+            <field name="arch" type="xml">                  
+                <form string="V3 Race">             
+                    <sheet>         
+                        <h1>        
+                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>  
+                        </h1>       
+                        <field name="code" placeholder="Code (e.g., biological)"/>      
+                        <field name="definition" placeholder="Definition"/>     
+                        <field name="comments" placeholder="Comments"/>     
+                        <group>     
+                            <group> 
+                                <field name="contains_id"/>
+                                <field name="level" placeholder="An integer (e.g., 1, 2)"/>
+                                <field name="is_abstract"/>
+                                <field name="version" placeholder="e.g., v2.5"/>
+                            </group>    
+                            <group> 
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
+                            </group>    
+                        </group>        
+                    </sheet>            
+                </form>             
+            </field>                    
+        </record>
+
+        <act_window id="hc_vs_v3_race_action"           
+                    name="HC V3 Races"
+                    res_model="hc.vs.v3.race"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>                       
+        
+        <menuitem id="hc_patient.menu_race" 
+                  name="Races" 
+                  parent="hc_patient.menu_pat" 
+                  action="hc_vs_v3_race_action" 
+                  groups="hc_base.group_hc_base_manager" 
+                  sequence="35"/>
+
+
+        <!-- V3 Race Value Set Views -->                        
+                                
+        <record id="hc_vs_v3_race_value_set_view_search" model="ir.ui.view">                        
+            <field name="name">V3 Race Value Set Search</field>                 
+            <field name="model">hc.vs.v3.race.value.set</field>                 
+            <field name="arch" type="xml">                  
+                <search string="V3 Race Value Sets">                
+                    <field name="name"/>            
+                    <field name="code"/>            
+                    <field name="definition"/>          
+                    <group>              
+                    </group>            
+                </search>               
+            </field>                    
+        </record>                       
+                                
+        <record id="hc_vs_v3_race_value_set_view_tree" model="ir.ui.view">                      
+            <field name="name">V3 Race Value Set Tree</field>                   
+            <field name="model">hc.vs.v3.race.value.set</field>                 
+            <field name="arch" type="xml">                  
+                <tree string="V3 Race Value Sets" default_order="name, code">               
+                    <field name="name"/>            
+                    <field name="code"/>            
+                    <field name="definition"/>                   
+                    <field name="source_id" invisible="0"/>         
+                </tree>             
+            </field>                    
+        </record>                       
+                                
+        <record id="hc_vs_v3_race_value_set_view_form" model="ir.ui.view">                      
+            <field name="name">V3 Race Value Set Form</field>                   
+            <field name="model">hc.vs.v3.race.value.set</field>                 
+            <field name="arch" type="xml">                  
+                <form string="V3 Race Value Set">               
+                    <sheet>         
+                        <h1>        
+                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>  
+                        </h1>       
+                        <field name="code" placeholder="Code (e.g., biological)"/>      
+                        <field name="definition" placeholder="Definition"/>     
+                        <field name="comments" placeholder="Comments"/>     
+                        <group>     
+                            <group> 
+                                <field name="contains_id"/>
+                                <field name="level" placeholder="An integer (e.g., 1, 2)"/>
+                                <field name="is_abstract"/>
+                                <field name="version" placeholder="e.g., v2.5"/>
+                            </group>    
+                            <group> 
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
+                            </group>    
+                        </group>        
+                    </sheet>            
+                </form>             
+            </field>                    
+        </record>                       
+
+        <act_window id="hc_vs_v3_race_value_set_action"         
+                    name="HC V3 Race Value Sets"
+                    res_model="hc.vs.v3.race.value.set"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <menuitem id="hc_patient.menu_race_vs" 
+                  name="Race Value Sets" 
+                  parent="hc_patient.menu_pat" 
+                  action="hc_vs_v3_race_value_set_action" 
+                  groups="hc_base.group_hc_base_manager" 
+                  sequence="36"/>
 
 
         <!-- External Reference View -->

@@ -1,0 +1,162 @@
+<openerp>
+    <data>
+
+        <menuitem id="hc_base.menu_v3_vs"
+                  name="V3 Value Set" 
+                  parent="hc_base.menu_datatype" 
+                  groups="hc_base.group_hc_base_manager" 
+                  sequence="80"/>
+
+
+        <!-- V3 Confidentiality Value Set Views -->                     
+                        
+        <record id="hc_vs_v3_confidentiality_value_set_view_search" model="ir.ui.view">                     
+            <field name="name">V3 Confidentiality Value Set Search</field>                  
+            <field name="model">hc.vs.v3.confidentiality.value.set</field>                  
+            <field name="arch" type="xml">                  
+                <search string="V3 Confidentiality Value Sets">             
+                    <field name="name"/>            
+                    <field name="code"/>            
+                    <field name="definition"/>          
+                    <group>
+                    </group>            
+                </search>               
+            </field>                    
+        </record>                       
+                                
+        <record id="hc_vs_v3_confidentiality_value_set_view_tree" model="ir.ui.view">                       
+            <field name="name">V3 Confidentiality Value Set Tree</field>                    
+            <field name="model">hc.vs.v3.confidentiality.value.set</field>                  
+            <field name="arch" type="xml">                  
+                <tree string="V3 Confidentiality Value Sets" default_order="id">                
+                    <field name="is_active"/>
+                    <field name="name"/>            
+                    <field name="code"/>            
+                    <field name="definition"/>          
+                    <field name="contains_id"/>         
+                    <field name="source_id" invisible="0"/>         
+                </tree>             
+            </field>                    
+        </record>                       
+                                
+        <record id="hc_vs_v3_confidentiality_value_set_view_form" model="ir.ui.view">                       
+            <field name="name">V3 Confidentiality Value Set Form</field>                    
+            <field name="model">hc.vs.v3.confidentiality.value.set</field>                  
+            <field name="arch" type="xml">                  
+                <form string="V3 Confidentiality Value Set">                
+                    <sheet>         
+                        <h1>        
+                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>  
+                        </h1>       
+                        <field name="code" placeholder="Code (e.g., biological)"/>      
+                        <field name="definition" placeholder="Definition"/>     
+                        <field name="comments" placeholder="Comments"/>     
+                        <group>     
+                            <group> 
+                                <field name="contains_id"/>
+                            </group>    
+                            <group>
+                                <field name="is_active"/>                             
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
+                            </group>    
+                        </group>        
+                    </sheet>            
+                </form>             
+            </field>                    
+        </record>                       
+
+        <act_window id="hc_vs_v3_confidentiality_value_set_action"          
+                    name="HC V3 Confidentiality Value Sets"
+                    res_model="hc.vs.v3.confidentiality.value.set"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <menuitem id="hc_base.menu_v3_cont_val" 
+                  name="V3 Confidentiality Value Set" 
+                  parent="hc_base.menu_v3_vs" 
+                  action="hc_vs_v3_confidentiality_value_set_action" 
+                  groups="hc_base.group_hc_base_manager" 
+                  sequence="1"/>
+
+        <!-- V3 Confidentiality Views -->                        
+                                
+        <record id="hc_vs_v3_confidentiality_view_search" model="ir.ui.view">                        
+            <field name="name">V3 Confidentiality Search</field>                    
+            <field name="model">hc.vs.v3.confidentiality</field>                    
+            <field name="arch" type="xml">                    
+                <search string="V3 Confidentiality">                
+                    <field name="name"/>            
+                    <field name="code"/>            
+                    <field name="definition"/>            
+                    <group>            
+                        <filter name="confidentiality" string="Confidentiality" domain="[('value_set_ids.name','=','Confidentiality')]"/>
+                        <filter name="confidentiality_by_access_kind" string="Confidentiality By Access Kind" domain="[('value_set_ids.name','=','ConfidentialityByAccessKind')]"/>
+                        <filter name="confidentiality_by_info_type" string="Confidentiality By Info Type" domain="[('value_set_ids.name','=','ConfidentialityByInfoType')]"/>
+                        <filter name="confidentiality_modifiers" string="Confidentiality Modifiers" domain="[('value_set_ids.name','=','ConfidentialityModifiers')]"/>        
+                    </group>            
+                </search>                
+            </field>                    
+        </record>                        
+                                
+        <record id="hc_vs_v3_confidentiality_view_tree" model="ir.ui.view">                        
+            <field name="name">V3 Confidentiality Tree</field>                    
+            <field name="model">hc.vs.v3.confidentiality</field>                    
+            <field name="arch" type="xml">                    
+                <tree string="V3 Confidentiality" default_order="id">                
+                    <field name="name"/>            
+                    <field name="code"/>            
+                    <field name="definition"/>            
+                    <field name="contains_id"/>
+                    <field name="value_set_ids" widget="many2many_tags"/>            
+                    <field name="source_id" invisible="0"/>            
+                </tree>                
+            </field>                    
+        </record>                        
+                                
+        <record id="hc_vs_v3_confidentiality_view_form" model="ir.ui.view">                        
+            <field name="name">V3 Confidentiality Form</field>                    
+            <field name="model">hc.vs.v3.confidentiality</field>                    
+            <field name="arch" type="xml">                    
+                <form string="V3 Confidentiality">                
+                    <sheet>            
+                        <h1>        
+                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>    
+                        </h1>        
+                        <field name="code" placeholder="Code (e.g., biological)"/>        
+                        <field name="definition" placeholder="Definition"/>        
+                        <field name="comments" placeholder="Comments"/>        
+                        <group>        
+                            <group>    
+                                <field name="contains_id"/>
+                                <field name="value_set_ids" widget="many2many_tags"/>
+                            </group>    
+                            <group>
+                                <field name="is_active"/>                                
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
+                            </group>    
+                        </group>        
+                    </sheet>            
+                </form>                
+            </field>                    
+        </record>                        
+                            
+        <act_window id="hc_vs_v3_confidentiality_action"            
+                    name="HC V3 Confidentiality"
+                    res_model="hc.vs.v3.confidentiality"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+        
+        <menuitem id="hc_base.menu_v3_cont" 
+            name="V3 Confidentiality Value" 
+            parent="hc_base.menu_v3_vs" 
+            action="hc_vs_v3_confidentiality_action" 
+            groups="hc_base.group_hc_base_manager" sequence="2"/>
+
+    </data>
+</openerp>

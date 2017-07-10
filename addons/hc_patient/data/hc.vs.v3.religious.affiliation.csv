@@ -1,0 +1,82 @@
+id,code,name,source_id/id,system
+rel_aff_1001,1001,"Adventist",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1002,1002,"African Religions",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1003,1003,"Afro-Caribbean Religions",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1004,1004,"Agnosticism",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1005,1005,"Anglican",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1006,1006,"Animism",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1007,1007,"Atheism",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1008,1008,"Babi & Baha'I faiths",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1009,1009,"Baptist",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1010,1010,"Bon",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1011,1011,"Cao Dai",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1012,1012,"Celticism",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1013,1013,"Christian (non-Catholic, non-specific)",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1014,1014,"Confucianism",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1015,1015,"Cyberculture Religions",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1016,1016,"Divination",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1017,1017,"Fourth Way",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1018,1018,"Free Daism",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1019,1019,"Gnosis",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1020,1020,"Hinduism",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1021,1021,"Humanism",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1022,1022,"Independent",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1023,1023,"Islam",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1024,1024,"Jainism",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1025,1025,"Jehovah's Witnesses",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1026,1026,"Judaism",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1027,1027,"Latter Day Saints",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1028,1028,"Lutheran",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1029,1029,"Mahayana",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1030,1030,"Meditation",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1031,1031,"Messianic Judaism",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1032,1032,"Mitraism",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1033,1033,"New Age",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1034,1034,"non-Roman Catholic",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1035,1035,"Occult",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1036,1036,"Orthodox",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1037,1037,"Paganism",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1038,1038,"Pentecostal",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1039,1039,"Process, The",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1040,1040,"Reformed/Presbyterian",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1041,1041,"Roman Catholic Church",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1042,1042,"Satanism",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1043,1043,"Scientology",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1044,1044,"Shamanism",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1045,1045,"Shiite (Islam)",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1046,1046,"Shinto",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1047,1047,"Sikism",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1048,1048,"Spiritualism",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1049,1049,"Sunni (Islam)",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1050,1050,"Taoism",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1051,1051,"Theravada",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1052,1052,"Unitarian-Universalism",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1053,1053,"Universal Life Church",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1054,1054,"Vajrayana (Tibetan)",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1055,1055,"Veda",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1056,1056,"Voodoo",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1057,1057,"Wicca",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1058,1058,"Yaohushua",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1059,1059,"Zen Buddhism",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1060,1060,"Zoroastrianism",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1061,1061,"Assembly of God",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1062,1062,"Brethren",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1063,1063,"Christian Scientist",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1064,1064,"Church of Christ",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1065,1065,"Church of God",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1066,1066,"Congregational",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1067,1067,"Disciples of Christ",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1068,1068,"Eastern Orthodox",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1069,1069,"Episcopalian",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1070,1070,"Evangelical Covenant",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1071,1071,"Friends",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1072,1072,"Full Gospel",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1073,1073,"Methodist",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1074,1074,"Native American",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1075,1075,"Nazarene",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1076,1076,"Presbyterian",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1077,1077,"Protestant",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1078,1078,"Protestant, No Denomination",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1079,1079,"Reformed",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1080,1080,"Salvation Army",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation
+rel_aff_1081,1081,"Unitarian Universalist",base.hl7v3,http://hl7.org/fhir/v3/ReligiousAffiliation

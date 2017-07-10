@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-    <data noupdate="0">  
+<odoo>
+    <data noupdate="1">  
 
         <!-- Country Group -->
 
@@ -175,10 +175,10 @@
 
     <!-- Address Geolocation Decimal Precision -->
 
-        <record forcecreate="True" id="decimal_custom_geo" model="decimal.precision">
+        <record id="decimal_custom_geo" model="decimal.precision" forcecreate="True">
             <field name="name">Geolocation</field>
             <field name="digits">6</field>
         </record>
 
     </data>
-</openerp>
+</odoo>

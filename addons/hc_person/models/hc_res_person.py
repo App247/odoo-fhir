@@ -496,7 +496,7 @@ class PartnerLink(models.Model):
     _description = "Partner Link"
 
     partner_id = fields.Many2one(
-        comodel_name="hc.res.partner", 
+        comodel_name="res.partner", 
         string="Partner", 
         help="Partner associated with this Partner Link.")
     target_type = fields.Selection(

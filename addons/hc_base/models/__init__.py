@@ -35,3 +35,4 @@ import product_uom
 import hc_extension
 import hc_element
 import hc_domain_resource
+import hc_value_set_contains_v3

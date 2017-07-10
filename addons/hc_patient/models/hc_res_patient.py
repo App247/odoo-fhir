@@ -13,6 +13,10 @@ class Patient(models.Model):
         ondelete="restrict", 
         required="True", 
         help="Person associated with this Patient.")
+    partner_id = fields.Many2one(
+        string="Partner",
+        related="person_id.partner_id",
+        help="Partner associated with this Patient.")
     identifier_ids = fields.One2many(
         related="person_id.identifier_ids",
         string="Identifiers", 
@@ -151,8 +155,8 @@ class Patient(models.Model):
         string="Mothers Maiden Name",
         help="Mother's maiden (unmarried) name, commonly collected to help verify patient identity.")
     religion_ids = fields.Many2many(
-        comodel_name="hc.vs.religion", 
-        relation="patient_religion_rel", 
+        comodel_name="hc.vs.v3.religious.affiliation", 
+        relation="patient_religious_affiliation_rel", 
         string="Religions", 
         help="The patient's professed religious affiliations.")
     
@@ -197,6 +201,27 @@ class Patient(models.Model):
     _defaults = {
         "is_patient": True,
         }
+
+    # Indicate that associated Person is a Patient.
+    @api.model
+    def create(self, vals):
+        person_obj = self.env['hc.res.person']
+        if vals and vals.get('person_id'):
+            person_id = person_obj.browse(vals.get('person_id'))
+            if person_id:
+                person_id.is_patient = True
+        return super(Patient, self).create(vals)
+
+    # When this Patient record is inactivated and there are no other active Patient records associated with the Person record, indicate that the Person is not a Patient.    
+    @api.multi
+    def unlink(self):
+        for rec in self:
+            if rec.person_id:
+                person_rec = self.search([('person_id', '=', rec.person_id.id),
+                                          ('id','!=', self.id)])
+                if not person_rec:
+                    rec.person_id.is_patient = False
+        return super(Patient, self).unlink()    
 
     # Display Patient Name and Birth Date in Dropdown
     
@@ -715,20 +740,69 @@ class Importance(models.Model):
         string="Parent", 
         help="Parent importance.")                              
 
-class Religion(models.Model):
-    _name = "hc.vs.religion"
-    _description = "Religion"
+class V3ReligiousAffiliation(models.Model):
+    _name = "hc.vs.v3.religious.affiliation"
+    _description = "V3 Religious Affiliation"
     _inherit = ["hc.value.set.contains"]
 
     name = fields.Char(
         string="Name", 
-        help="Name of this religion.")                                
+        help="Name of this religious affiliation.")                                
     code = fields.Char(
         string="Code", 
-        help="Code of this religion.")                                
+        help="Code of this religious affiliation.")                                
     contains_id = fields.Many2one(
-        comodel_name="hc.vs.religion", 
-        string="Parent", help="Parent religion.")                              
+        comodel_name="hc.vs.v3.religious.affiliation", 
+        string="Parent", 
+        help="Parent religious affiliation.")
+
+class V3Race(models.Model): 
+    _name = "hc.vs.v3.race" 
+    _description = "V3 Race"                        
+    _inherit = ["hc.value.set.contains"]
+
+    name = fields.Char(
+        string="Name", 
+        help="Name of this race.")                             
+    code = fields.Char(
+        string="Code", 
+        help="Code of this race.")                             
+    contains_id = fields.Many2one(
+        comodel_name="hc.vs.v3.race", 
+        string="Parent", 
+        help="Parent race.")                                
+    value_set_ids = fields.Many2many(
+        comodel_name="hc.vs.v3.race.value.set", 
+        relation="patient_race_value_set_rel", 
+        string="Value Sets", 
+        help="Value Set where this code is used.")
+    country_ids = fields.Many2many(
+        comodel_name="res.country", 
+        relation="patient_race_country_rel", 
+        string="Countries", 
+        help="Country where this code is used.")
+                              
+
+class V3RaceValueSet(models.Model): 
+    _name = "hc.vs.v3.race.value.set"   
+    _description = "V3 Race Value Set"                      
+    _inherit = ["hc.value.set.contains"]
+
+    name = fields.Char(
+        string="Name", 
+        help="Name of this race value set.")                               
+    code = fields.Char(
+        string="Code", 
+        help="Code of this race value set.")                               
+    contains_id = fields.Many2one(
+        comodel_name="hc.vs.v3.race.value.set", 
+        string="Parent",
+        help="Parent race value set.")
+    country_ids = fields.Many2many(
+        comodel_name="res.country", 
+        relation="patient_race_value_set_country_rel", 
+        string="Countries", 
+        help="Country where this race value set is used.")                                
 
 class AnimalBreed(models.Model):    
     _name = "hc.vs.animal.breed"    

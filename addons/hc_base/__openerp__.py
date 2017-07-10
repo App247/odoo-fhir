@@ -45,6 +45,7 @@
         'data/data_act_code.xml',
         'data/data_act_code_observation.xml',
         'data/data_base.xml',
+        'data/data_base_v3.xml',
         'data/data_identifier_type.xml',
         'data/data_language.xml',
         'data/data_timing.xml',
@@ -80,6 +81,7 @@
         'views/hc_timing_views.xml',
         'views/hc_route_code_views.xml',
         'views/hc_uom_views.xml',
+        'views/hc_value_set_v3_views.xml',
         'views/templates.xml',    
     ],
     # only loaded in demonstration mode
