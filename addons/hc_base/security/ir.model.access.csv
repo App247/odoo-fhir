@@ -61,6 +61,8 @@ access_hc_base_hc_vs_identifier_code_manager,hc.base.hc.vs.identifier.code.manag
 access_hc_base_hc_vs_identifier_type_class_user,hc.base.hc.vs.identifier.type.class.user,model_hc_vs_identifier_type_class,group_hc_base_user,1,0,0,0
 access_hc_base_hc_vs_language_manager,hc.base.hc.vs.language.manager,model_hc_vs_language,group_hc_base_manager,1,1,1,1
 access_hc_base_hc_vs_language_user,hc.base.hc.vs.language.user,model_hc_vs_language,group_hc_base_user,1,0,0,0
+access_hc_base_hc_vs_language_ability_proficiency_manager,hc.base.hc.vs.language.ability.proficiency.manager,model_hc_vs_language_ability_proficiency,hc_base.group_hc_base_manager,1,1,1,1
+access_hc_base_hc_vs_language_skill_manager,hc.base.hc.vs.language.skill.manager,model_hc_vs_language_skill,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_vs_mime_type_manager,hc.base.hc.vs.mime.type.manager,model_hc_vs_mime_type,group_hc_base_manager,1,1,1,1
 access_hc_base_hc_vs_mime_type_user,hc.base.hc.vs.mime.type.user,model_hc_vs_mime_type,group_hc_base_user,1,0,0,0
 access_hc_base_hc_vs_condition_code_manager,hc.base.hc.vs.condition.code.manager,model_hc_vs_condition_code,hc_base.group_hc_base_manager,1,1,1,1

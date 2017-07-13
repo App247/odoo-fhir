@@ -15,10 +15,12 @@ class Language(models.Model):
         ondelete="restrict", 
         help="Human Language based on ISO-639.")
 
-class LanguageProficiency(models.Model): 
-    _name = "hc.vs.language.proficiency"   
-    _description = "Language Proficiency"
+class LanguageAbilityProficiency(models.Model): 
+    _name = "hc.vs.language.ability.proficiency"   
+    _description = "Language Ability Proficiency"
     _inherit = ["hc.value.set.contains"]
+
+    
 
 class LanguageSkill(models.Model): 
     _name = "hc.vs.language.skill"   

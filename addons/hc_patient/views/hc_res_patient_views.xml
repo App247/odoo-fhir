@@ -72,8 +72,7 @@
                                 <field name="partner_id"/>
                             </group>
                             <group string = "Animal">
-                                <field name="animal_id" attrs="{'invisible': [('type','!=','animal')], 'required': [('
-                                    type','=','animal')]}"/>
+                                <field name="animal_id" attrs="{'invisible': [('type','!=','animal')], 'required': [('type','=','animal')]}"/>
                             </group>                    
                         </group>                        
                         <notebook colspan="4">                      

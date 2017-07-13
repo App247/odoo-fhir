@@ -33,8 +33,8 @@ class ElementDefinition(models.Model):
     definition = fields.Text(
         string="Definition", 
         help="Full formal definition as narrative text.")                        
-    comments = fields.Text(
-        string="Comments", 
+    comment = fields.Text(
+        string="Comment", 
         help="Comments about the use of this element.")                        
     requirements = fields.Text(
         string="Requirements", 
@@ -42,7 +42,7 @@ class ElementDefinition(models.Model):
     alias_ids = fields.One2many(
         comodel_name="hc.element.definition.alias", 
         inverse_name="element_definition_id", 
-        string="Aliass", 
+        string="Aliases", 
         help="Other names.")          
     min = fields.Integer(
         string="Min", 
@@ -196,7 +196,10 @@ class ElementDefinition(models.Model):
         help="Reference specified value if missing from instance.")                        
     meaning_when_missing = fields.Text(
         string="Meaning When Missing", 
-        help="Implicit meaning when this element is missing.")                        
+        help="Implicit meaning when this element is missing.")
+    order_meaning = fields.Text(
+        string="Order Meaning", 
+        help="What the order of the elements means.")                            
     fixed_type = fields.Selection(
         string="Fixed Type",
         selection=[
@@ -478,157 +481,92 @@ class ElementDefinition(models.Model):
         help="Signature value must have at least these property values.")                        
     pattern_reference = fields.Float(
         string="Pattern Reference", 
-        help="Reference value must have at least these property values.")                        
-    example_type = fields.Selection(
-        string="Example Type", 
+        help="Reference value must have at least these property values.")                                                  
+    min_value_type = fields.Selection(
+        string="Minimum Value Type", 
         selection=[
-            ("integer", "Integer"), 
-            ("decimal", "Decimal"),
+            ("date", "Date"), 
             ("date_time", "Date Time"),
-            ("date", "Date"),
             ("instant", "Instant"),
-            ("string", "String"),
-            ("uri", "URI"), 
-            ("boolean", "Boolean"),
-            ("code", "Code"),
-            ("markdown", "Markdown"),
-            ("base_64_binary", "Base 64 Binary"),
-            ("coding", "Coding"),
-            ("codeable_concept", "Codeable Concept"), 
-            ("attachment", "Attachment"),
-            ("identifier", "Identifier"),
-            ("quantity", "Quantity"),
-            ("range", "Range"),
-            ("period", "Period"),
-            ("ratio", "Ratio"), 
-            ("human_name", "Human Name"),
-            ("address", "Address"),
-            ("contact_point", "Contact Point"),
-            ("timing", "Timing"),
-            ("signature", "Signature"),
-            ("reference", "Reference")],
-        help="Type of example value (as defined for type).")                          
-    example_name = fields.Char(
-        string="Example", 
-        compute="_compute_example_name", 
+            ("decimal", "Decimal"),
+            ("integer", "Integer"),
+            ("positiveInt", "Positive Integer"),
+            ("unsignedInt", "Unsigned Integer"),
+            ("quantity", "Quantity")],
+        help="Type of Minimum Allowed Value (for some types).")
+    min_value_name = fields.Char(
+        string="Minimum Value", 
+        compute="_compute_min_value_name", 
         store="True", 
-        help="Example value (as defined for type).")                        
-    example_integer = fields.Float(
-        string="Example Integer", 
-        help="Integer example value (as defined for type).")                        
-    example_decimal = fields.Float(
-        string="Example Decimal", 
-        help="Decimal example value (as defined for type).")                        
-    example_date_time = fields.Float(
-        string="Example Date Time", 
-        help="Date Time example value (as defined for type).")                        
-    example_date = fields.Float(
-        string="Example Date", 
-        help="Date example value (as defined for type).")                        
-    example_instant = fields.Float(
-        string="Example Instant", 
-        help="Instant example value (as defined for type).")                        
-    example_string = fields.Float(
-        string="Example String", 
-        help="String example value (as defined for type).")                        
-    example_uri = fields.Float(
-        string="Example URI", 
-        help="URI example value (as defined for type).")                        
-    example_boolean = fields.Float(
-        string="Example Boolean", 
-        help="Boolean example value (as defined for type).")                        
-    example_code = fields.Float(
-        string="Example Code", 
-        help="Code example value (as defined for type).")                        
-    example_markdown = fields.Float(
-        string="Example Markdown", 
-        help="Markdown example value (as defined for type).")                        
-    example_base_64_binary = fields.Float(
-        string="Example Base 64 Binary", 
-        help="Base 64 Binary example value (as defined for type).")                        
-    example_coding = fields.Float(
-        string="Example Coding", 
-        help="Coding example value (as defined for type).")                        
-    example_codeable_concept = fields.Float(
-        string="Example Codeable Concept", 
-        help="Codeable Concept example value (as defined for type).")                        
-    example_attachment = fields.Float(
-        string="Example Attachment", 
-        help="Attachment example value (as defined for type).")                        
-    example_identifier = fields.Float(
-        string="Example Identifier", 
-        help="Identifier example value (as defined for type).")                        
-    example_quantity = fields.Float(
-        string="Example Quantity", 
-        help="Quantity example value (as defined for type).")                        
-    example_quantity_uom_id = fields.Many2one(
-        comodel_name="product.uom", 
-        string="Example Quantity UOM", 
-        help="Quantity unit of measure.")                        
-    example_range = fields.Float(
-        string="Example Range", 
-        help="Range example value (as defined for type).")                        
-    example_range_uom_id = fields.Many2one(
-        comodel_name="product.uom", 
-        string="Example Range UOM", 
-        help="Range unit of measure.")                        
-    example_period = fields.Float(
-        string="Example Period", 
-        help="Period example value (as defined for type).")                        
-    example_period_uom_id = fields.Many2one(
-        comodel_name="product.uom", 
-        string="Example Period UOM", 
-        help="Period unit of measure.")                        
-    example_numerator = fields.Float(
-        string="Example Numerator", 
-        help="Numerator value of example value (as defined for type).")
-    example_numerator_uom_id = fields.Many2one(
-        comodel_name="product.uom", 
-        string="Example Numerator UOM", help="Example numerator unit of measure.")
-    example_denominator = fields.Float(
-        string="Example Denominator", 
-        help="Denominator value of example value (as defined for type).")
-    example_denominator_uom_id = fields.Many2one(
-        comodel_name="product.uom", 
-        string="Example Denominator UOM", 
-        help="Example denominator unit of measure.")
-    example_ratio = fields.Float(
-        string="Example Ratio", 
-        compute="_compute_example_ratio", 
-        store="True", 
-        help="Ratio of example value (as defined for type).")
-    example_ratio_uom = fields.Char(
-        string="Example Ratio UOM", 
-        compute="_compute_example_ratio_uom", 
-        store="True", 
-        help="Example Ratio unit of measure.")                      
-    example_human_name = fields.Float(
-        string="Example Human Name", 
-        help="Human Name example value (as defined for type).")                        
-    example_address = fields.Float(
-        string="Example Address", 
-        help="Address example value (as defined for type).")                        
-    example_contact_point = fields.Float(
-        string="Example Contact Point", 
-        help="Contact Point example value (as defined for type).")                        
-    example_timing = fields.Float(
-        string="Example Timing", 
-        help="Timing example value (as defined for type).")                        
-    example_signature = fields.Float(
-        string="Example Signature", 
-        help="Signature example value (as defined for type).")                        
-    example_reference = fields.Float(
-        string="Example Reference", 
-        help="Reference example value (as defined for type).")                        
+        help="Minimum Allowed Value (for some types).")                        
     min_value_date = fields.Date(
         string="Min Value Date", 
-        help="Minimum Allowed Value (for some types).")                        
-    max_value_date = fields.Date(
-        string="Max Value Date", 
-        help="Maximum Allowed Value (for some types).")                        
+        help="Date Minimum Allowed Value (for some types).")
+    min_value_date_time = fields.Datetime(
+        string="Min Value Date Time", 
+        help="Date Time Minimum Allowed Value (for some types).")
+    min_value_instant = fields.Float(
+        string="Min Value Instant", 
+        help="Instant Minimum Allowed Value (for some types).")    
+    min_value_decimal = fields.Float(
+        string="Min Value Decimal", 
+        help="Decimal Minimum Allowed Value (for some types).")   
+    min_value_integer = fields.Integer(
+        string="Min Value Integer", 
+        help="Integer Minimum Allowed Value (for some types).")
+    min_value_positive_int = fields.Integer(
+        string="Min Value Positive Integer", 
+        help="Positive integer Minimum Allowed Value (for some types).") 
+    min_value_unsigned_int = fields.Integer(
+        string="Min Value Unsigned Integer", 
+        help="Unsigned integer Minimum Allowed Value (for some types).")
+    min_value_quantity = fields.Float(
+        string="Min Value Quantity", 
+        help="Quantity Minimum Allowed Value (for some types).")                                               
     max_length = fields.Integer(
         string="Max Length", 
         help="Max length for strings.")                        
+    max_value_type = fields.Selection(
+        string="Maximum Value Type", 
+        selection=[
+            ("date", "Date"), 
+            ("date_time", "Date Time"),
+            ("instant", "Instant"),
+            ("decimal", "Decimal"),
+            ("integer", "Integer"),
+            ("positiveInt", "Positive Integer"),
+            ("unsignedInt", "Unsigned Integer"),
+            ("quantity", "Quantity")],
+        help="Type of Maximum Allowed Value (for some types).")
+    max_value_name = fields.Char(
+        string="Maximum Value", 
+        compute="_compute_max_value_name", 
+        store="True", 
+        help="Maximum Allowed Value (for some types).")                        
+    max_value_date = fields.Date(
+        string="Min Value Date", 
+        help="Date Maximum Allowed Value (for some types).")
+    max_value_date_time = fields.Datetime(
+        string="Min Value Date Time", 
+        help="Date Time Maximum Allowed Value (for some types).")
+    max_value_instant = fields.Float(
+        string="Min Value Instant", 
+        help="Instant Maximum Allowed Value (for some types).")    
+    max_value_decimal = fields.Float(
+        string="Min Value Decimal", 
+        help="Decimal Maximum Allowed Value (for some types).")   
+    max_value_integer = fields.Integer(
+        string="Min Value Integer", 
+        help="Integer Maximum Allowed Value (for some types).")
+    max_value_positive_int = fields.Integer(
+        string="Min Value Positive Integer", 
+        help="Positive integer Maximum Allowed Value (for some types).") 
+    max_value_unsigned_int = fields.Integer(
+        string="Min Value Unsigned Integer", 
+        help="Unsigned integer Maximum Allowed Value (for some types).")
+    max_value_quantity = fields.Float(
+        string="Min Value Quantity", 
+        help="Quantity Maximum Allowed Value (for some types).")
     condition_ids = fields.One2many(
         comodel_name="hc.element.definition.condition", 
         inverse_name="element_definition_id", 
@@ -643,15 +581,14 @@ class ElementDefinition(models.Model):
     is_summary = fields.Boolean(
         string="Summary", 
         help="Include when _summary = true?.")                        
-    slicing_ids = fields.One2many(
+    slicing_id = fields.Many2one(
         comodel_name="hc.element.definition.slicing", 
         inverse_name="element_definition_id", 
-        string="Slicings", 
+        string="Slicing", 
         help="This element is sliced - slices follow.")                        
-    base_ids = fields.One2many(
+    base_id = fields.Many2one(
         comodel_name="hc.element.definition.base", 
-        inverse_name="element_definition_id", 
-        string="Bases", 
+        string="Base", 
         help="Base definition information for tools.")                        
     type_ids = fields.One2many(
         comodel_name="hc.element.definition.type", 
@@ -668,10 +605,9 @@ class ElementDefinition(models.Model):
         inverse_name="element_definition_id", 
         string="Constraints", 
         help="Condition that must evaluate to true.")                        
-    binding_ids = fields.One2many(
+    binding_id = fields.Many2one(
         comodel_name="hc.element.definition.binding", 
-        inverse_name="element_definition_id", 
-        string="Bindings", 
+        string="Binding", 
         help="ValueSet details if this is coded.")                        
     mapping_ids = fields.One2many(
         comodel_name="hc.element.definition.mapping", 
@@ -683,10 +619,9 @@ class ElementDefinitionSlicing(models.Model):
     _name = "hc.element.definition.slicing"    
     _description = "Element Definition Slicing"                
 
-    element_definition_id = fields.Many2one(
-        comodel_name="hc.element.definition", 
-        string="Element Definition", 
-        help="Element Definition associated with this Element Definition Slicing.")                        
+    name = fields.Char(
+        string="Name", 
+        help="Text representation of the slicing.")                    
     discriminator_ids = fields.One2many(
         comodel_name="hc.element.definition.slicing.discriminator", 
         inverse_name="slicing_id", 
@@ -704,17 +639,16 @@ class ElementDefinitionSlicing(models.Model):
         selection=[
             ("closed", "Closed"), 
             ("open", "Open"), 
-            ("openatend", "Open At End")], 
+            ("openAtEnd", "Open At End")], 
         help="Whether additional slices are allowed or not. When the slices are ordered, profile authors can also say that additional slices are only allowed at the end.")                        
 
 class ElementDefinitionBase(models.Model):    
     _name = "hc.element.definition.base"    
     _description = "Element Definition Base"                
 
-    element_definition_id = fields.Many2one(
-        comodel_name="hc.element.definition", 
-        string="Element Definition", 
-        help="Element Definition associated with this Element Definition Base.")                        
+    name = fields.Char(
+        string="Name", 
+        help="Text representation of the binding.")                       
     path = fields.Char(
         string="Path", 
         required="True", 
@@ -737,7 +671,9 @@ class ElementDefinitionType(models.Model):
         string="Element Definition", 
         help="Element Definition associated with this Element Definition Type.")                        
     code = fields.Char(
-        string="Code URI", required="True", help="Data type or Resource (reference to definition).")                        
+        string="Code URI", 
+        required="True", 
+        help="Data type or Resource (reference to definition).")                        
     profile = fields.Char(
         string="Profile URI", 
         help="Profile (StructureDefinition) to apply (or IG).")                        
@@ -802,7 +738,8 @@ class ElementDefinitionExample(models.Model):
     value_name = fields.Char(
         string="Value",
         compute="_compute_value_name", 
-        store="True", help="Value of Example (one of allowed types).")                        
+        store="True", 
+        help="Value of Example (one of allowed types).")                        
     value_integer = fields.Float(
         string="Value Integer", 
         help="Integer value of example (one of allowed types).")                        
@@ -953,10 +890,9 @@ class ElementDefinitionBinding(models.Model):
     _name = "hc.element.definition.binding"    
     _description = "Element Definition Binding"                
 
-    element_definition_id = fields.Many2one(
-        comodel_name="hc.element.definition", 
-        string="Element Definition", 
-        help="Element Definition associated with this Element Definition Binding.")                        
+    name = fields.Char(
+        string="Name", 
+        help="Text representation of the binding.")                      
     strength = fields.Selection(
         string="Strength", 
         required="True", 
@@ -1057,14 +993,25 @@ class ElementDefinitionSlicingDiscriminator(models.Model):
     _name = "hc.element.definition.slicing.discriminator"   
     _description = "Element Definition Slicing Discriminator"           
     _inherit = ["hc.basic.association"]
+    _rec_name = "path"
 
     slicing_id = fields.Many2one(
         comodel_name="hc.element.definition.slicing", 
         string="Slicing", 
         help="Slicing associated with this Element Definition Slicing Discriminator.")                 
-    discriminator = fields.Char(
-        string="Discriminator", 
-        help="Discriminator associated with this Element Definition Slicing Discriminator.")                    
+    type = fields.Selection(
+        string="Type", 
+        selection=[
+            ("value", "Value"), 
+            ("exists", "Exists"), 
+            ("pattern", "Pattern"), 
+            ("type", "Type"), 
+            ("profile", "Profile")], 
+        help="How the element value is interpreted when discrimination is evaluated.")
+    path = fields.Char(
+        string="Path",
+        required="True", 
+        help="A FHIRPath expression, using a restricted subset of FHIRPath, that is used to identify the element on which discrimination is based.")              
 
 class ElementDefinitionTypeAggregation(models.Model):   
     _name = "hc.element.definition.type.aggregation"    
