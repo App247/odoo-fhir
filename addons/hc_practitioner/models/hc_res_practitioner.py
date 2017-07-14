@@ -196,7 +196,7 @@ class PractitionerLanguageProficiency(models.Model):
         string="Communication",
         help="Communication associated with this Practitioner Language Proficiency.")
     language_proficiency_id = fields.Many2one(
-        comodel_name="hc.vs.language.proficiency",
+        comodel_name="hc.vs.language.ability.proficiency",
         string="Language Proficiency",
         help="Language Proficiency associated with this Practitioner Language Proficiency.")
     language_skill_id = fields.Many2one(

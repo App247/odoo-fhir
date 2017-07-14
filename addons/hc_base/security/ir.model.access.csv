@@ -165,6 +165,7 @@ access_hc_base_hc_vs_defined_type_manager,hc.base.hc.vs.defined.type.manager,mod
 access_hc_base_hc_element_manager,hc.base.hc.element.manager,model_hc_element,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_element_extension_manager,hc.base.hc.element.extension.manager,model_hc_element_extension,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_element_definition_user,hc.base.hc.element.definition.user,model_hc_element_definition,hc_base.group_hc_base_user,1,0,0,0
+access_hc_base_hc_element_definition_example_value_user,hc.base.hc.element.definition.example.value.user,model_hc_element_definition_example_value,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_element_definition_slicing_user,hc.base.hc.element.definition.slicing.user,model_hc_element_definition_slicing,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_element_definition_base_user,hc.base.hc.element.definition.base.user,model_hc_element_definition_base,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_element_definition_type_user,hc.base.hc.element.definition.type.user,model_hc_element_definition_type,hc_base.group_hc_base_user,1,0,0,0
@@ -177,6 +178,18 @@ access_hc_base_hc_element_definition_alias_user,hc.base.hc.element.definition.al
 access_hc_base_hc_element_definition_condition_user,hc.base.hc.element.definition.condition.user,model_hc_element_definition_condition,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_element_definition_slicing_discriminator_user,hc.base.hc.element.definition.slicing.discriminator.user,model_hc_element_definition_slicing_discriminator,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_element_definition_type_aggregation_user,hc.base.hc.element.definition.type.aggregation.user,model_hc_element_definition_type_aggregation,hc_base.group_hc_base_user,1,0,0,0
+access_hc_base_hc_element_definition_address_user,hc.base.hc.element.definition.address.user,model_hc_element_definition_address,hc_base.group_hc_base_user,1,0,0,0
+access_hc_base_hc_element_definition_annotation_user,hc.base.hc.element.definition.annotation.user,model_hc_element_definition_annotation,hc_base.group_hc_base_user,1,0,0,0
+access_hc_base_hc_element_definition_attachment_user,hc.base.hc.element.definition.attachment.user,model_hc_element_definition_attachment,hc_base.group_hc_base_user,1,0,0,0
+access_hc_base_hc_element_definition_telecom_user,hc.base.hc.element.definition.telecom.user,model_hc_element_definition_telecom,hc_base.group_hc_base_user,1,0,0,0
+access_hc_base_hc_element_definition_human_name_user,hc.base.hc.element.definition.human.name.user,model_hc_element_definition_human_name,hc_base.group_hc_base_user,1,0,0,0
+access_hc_base_hc_element_definition_identifier_user,hc.base.hc.element.definition.identifier.user,model_hc_element_definition_identifier,hc_base.group_hc_base_user,1,0,0,0
+access_hc_base_hc_element_definition_meta_user,hc.base.hc.element.definition.meta.user,model_hc_element_definition_meta,hc_base.group_hc_base_user,1,0,0,0
+access_hc_base_hc_element_definition_reference_user,hc.base.hc.element.definition.reference.user,model_hc_element_definition_reference,hc_base.group_hc_base_user,1,0,0,0
+access_hc_base_hc_element_definition_sampled_data_user,hc.base.hc.element.definition.sampled.data.user,model_hc_element_definition_sampled_data,hc_base.group_hc_base_user,1,0,0,0
+access_hc_base_hc_element_definition_signature_user,hc.base.hc.element.definition.signature.user,model_hc_element_definition_signature,hc_base.group_hc_base_user,1,0,0,0
+access_hc_base_hc_element_definition_timing_user,hc.base.hc.element.definition.timing.user,model_hc_element_definition_timing,hc_base.group_hc_base_user,1,0,0,0
+access_hc_base_hc_element_definition_value_set_user,hc.base.hc.element.definition.value.set.user,model_hc_element_definition_value_set,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_vs_element_definition_code_manager,hc.base.hc.vs.element.definition.code.manager,model_hc_vs_element_definition_code,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_vs_clinical_finding_manager,hc.base.hc.vs.clinical.finding.manager,model_hc_vs_clinical_finding,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_vs_goal_category_manager,hc.base.hc.vs.goal.category.manager,model_hc_vs_goal_category,hc_base.group_hc_base_manager,1,1,1,1

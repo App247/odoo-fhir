@@ -13,7 +13,6 @@ import hc_contributor
 import hc_data_requirement
 import hc_timing
 import hc_dosage
-import hc_element_definition
 import hc_human_name
 import hc_identifier
 import hc_language
@@ -35,4 +34,5 @@ import product_uom
 import hc_extension
 import hc_element
 import hc_domain_resource
+import hc_element_definition
 import hc_value_set_contains_v3

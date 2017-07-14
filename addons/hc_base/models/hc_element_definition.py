@@ -80,120 +80,142 @@ class ElementDefinition(models.Model):
             ("contact_point", "Contact Point"),
             ("timing", "Timing"),
             ("signature", "Signature"),
-            ("reference", "Reference")],
+            ("reference", "Reference"),
+            ("time", "Time"), 
+            ("oid", "OID"), 
+            ("id", "ID"), 
+            ("unsigned_int", "Unsigned Integer"), 
+            ("positive_int", "Positive Integer"), 
+            ("annotation", "Annotation"), 
+            ("sampled_data", "Sampled Data"), 
+            ("meta", "Meta")],
         help="Type of specified value if missing from instance.")                        
     default_value_name = fields.Char(
         string="Default Value", 
         compute="_compute_default_value_name", 
         store="True", 
         help="Specified value if missing from instance.")                        
-    default_value_integer = fields.Float(
+    default_value_integer = fields.Integer(
         string="Default Value Integer", 
-        help="Integer specified value if missing from instance.")                        
+        help="Integer value if missing from instance.")
     default_value_decimal = fields.Float(
         string="Default Value Decimal", 
-        help="Decimal specified value if missing from instance.")                        
-    default_value_date_time = fields.Float(
+        help="Decimal value if missing from instance.")
+    default_value_date_time = fields.Datetime(
         string="Default Value Date Time", 
-        help="Date Time specified value if missing from instance.")                        
-    default_value_date = fields.Float(
+        help="Date Time value if missing from instance.")
+    default_value_date = fields.Date(
         string="Default Value Date", 
-        help="Date specified value if missing from instance.")                        
-    default_value_instant = fields.Float(
+        help="Date value if missing from instance.")
+    default_value_instant = fields.Datetime(
         string="Default Value Instant", 
-        help="Instant specified value if missing from instance.")                        
-    default_value_string = fields.Float(
+        help="Instant value if missing from instance.")
+    default_value_string = fields.Char(
         string="Default Value String", 
-        help="String specified value if missing from instance.")                        
-    default_value_uri = fields.Float(
-        string="Default Value URI", help="URI specified value if missing from instance.")                        
-    default_value_boolean = fields.Float(
+        help="String value if missing from instance.")
+    default_value_uri = fields.Char(
+        string="Default Value URI", 
+        help="URI value if missing from instance.")
+    default_value_boolean = fields.Boolean(
         string="Default Value Boolean", 
-        help="Boolean specified value if missing from instance.")                        
-    default_value_code = fields.Float(
+        help="Boolean value if missing from instance.")
+    default_value_code_id = fields.Many2one(
+        comodel_name="hc.element.definition.value.set", 
         string="Default Value Code", 
-        help="Code specified value if missing from instance.")                        
-    default_value_markdown = fields.Float(
+        help="Code value if missing from instance.")
+    default_value_markdown = fields.Text(
         string="Default Value Markdown", 
-        help="Markdown specified value if missing from instance.")                        
-    default_value_base_64_binary = fields.Float(
+        help="Markdown value if missing from instance.")
+    default_value_base_64_binary = fields.Binary(
         string="Default Value Base 64 Binary", 
-        help="Base 64 Binary specified value if missing from instance.")                        
-    default_value_coding = fields.Float(
+        help="Base 64 Binary value if missing from instance.")
+    default_value_coding_id = fields.Many2one(
+        comodel_name="hc.element.definition.value.set", 
         string="Default Value Coding", 
-        help="Coding specified value if missing from instance.")                        
-    default_value_codeable_concept = fields.Float(
+        help="Coding value if missing from instance.")
+    default_value_codeable_concept_id = fields.Many2one(
+        comodel_name="hc.element.definition.value.set", 
         string="Default Value Codeable Concept", 
-        help="Codeable Concept specified value if missing from instance.")                        
-    default_value_attachment = fields.Float(
+        help="Codeable Concept value if missing from instance.")
+    default_value_attachment_id = fields.Many2one(
+        comodel_name="hc.element.definition.attachment", 
         string="Default Value Attachment", 
-        help="Attachment specified value if missing from instance.")                        
-    default_value_identifier = fields.Float(
+        help="Attachment value if missing from instance.")
+    default_value_identifier_id = fields.Many2one(
+        comodel_name="hc.element.definition.identifier", 
         string="Default Value Identifier", 
-        help="Identifier specified value if missing from instance.")                        
+        help="Identifier value if missing from instance.")
     default_value_quantity = fields.Float(
         string="Default Value Quantity", 
-        help="Quantity specified value if missing from instance.")                        
+        help="Quantity value if missing from instance.")
     default_value_quantity_uom_id = fields.Many2one(
         comodel_name="product.uom", 
         string="Default Value Quantity UOM", 
-        help="Quantity unit of measure.")                        
-    default_value_range = fields.Float(
+        help="Quantity unit of measure.")
+    default_value_range = fields.Char(
         string="Default Value Range", 
-        help="Range specified value if missing from instance.")                        
-    default_value_range_uom_id = fields.Many2one(
-        comodel_name="product.uom", 
-        string="Default Value Range UOM", 
-        help="Range unit of measure.")                        
-    default_value_period = fields.Float(
+        help="Range value if missing from instance.")
+    default_value_period = fields.Char(
         string="Default Value Period", 
-        help="Period specified value if missing from instance.")                        
+        help="Period value if missing from instance.")
     default_value_period_uom_id = fields.Many2one(
         comodel_name="product.uom", 
         string="Default Value Period UOM", 
-        help="Period unit of measure.")                        
-    default_value_numerator = fields.Float(
-        string="Default Value Numerator", 
-        help="Numerator value of specified value if missing from instance.")
-    default_value_numerator_uom_id = fields.Many2one(
-        comodel_name="product.uom", 
-        string="Default Value Numerator UOM", 
-        help="Default Value numerator unit of measure.")
-    default_value_denominator = fields.Float(
-        string="Default Value Denominator", 
-        help="Denominator value of specified value if missing from instance.")
-    default_value_denominator_uom_id = fields.Many2one(
-        comodel_name="product.uom", 
-        string="Default Value Denominator UOM", 
-        help="Default Value denominator unit of measure.")
-    default_value_ratio = fields.Float(
-        string="Default Value Ratio", 
-        compute="_compute_default_value_ratio", 
-        store="True", 
-        help="Ratio of specified value if missing from instance.")
-    default_value_ratio_uom = fields.Char(
-        string="Default Value Ratio UOM", 
-        compute="_compute_default_value_ratio_uom", 
-        store="True", 
-        help="Default Value Ratio unit of measure.")                  
-    default_value_human_name = fields.Float(
+        help="Period unit of measure.")
+    default_value_ratio = fields.Char(
+        string="Default Value Ratio",  
+        help="Ratio of value if missing from instance.")
+    default_value_human_name_id = fields.Many2one(
+        comodel_name="hc.element.definition.human.name", 
         string="Default Value Human Name", 
-        help="Human Name specified value if missing from instance.")                        
-    default_value_address = fields.Float(
+        help="Human Name value if missing from instance.")
+    default_value_address_id = fields.Many2one(
+        comodel_name="hc.element.definition.address", 
         string="Default Value Address", 
-        help="Address specified value if missing from instance.")                        
-    default_value_contact_point = fields.Float(
+        help="Address value if missing from instance.")
+    default_value_contact_point_id = fields.Many2one(
+        comodel_name="hc.element.definition.telecom", 
         string="Default Value Contact Point", 
-        help="Contact Point specified value if missing from instance.")                        
-    default_value_timing = fields.Float(
+        help="Contact Point value if missing from instance.")
+    default_value_timing_id = fields.Many2one(
+        comodel_name="hc.element.definition.timing", 
         string="Default Value Timing", 
-        help="Timing specified value if missing from instance.")                        
-    default_value_signature = fields.Float(
+        help="Timing value if missing from instance.")
+    default_value_signature_id = fields.Many2one(
+        comodel_name="hc.element.definition.signature", 
         string="Default Value Signature", 
-        help="Signature specified value if missing from instance.")                        
-    default_value_reference = fields.Float(
+        help="Signature value if missing from instance.")
+    default_value_reference_id = fields.Many2one(
+        comodel_name="hc.element.definition.reference", 
         string="Default Value Reference", 
-        help="Reference specified value if missing from instance.")                        
+        help="Reference value if missing from instance.")
+    default_value_time = fields.Float(
+        string="Default Value Time", 
+        help="Time value if missing from instance.")
+    default_value_oid = fields.Char(
+        string="Default Value OID", 
+        help="OID value if missing from instance.")
+    default_value_id = fields.Char(
+        string="Default Value ID", 
+        help="ID value if missing from instance.")
+    default_value_unsigned_int = fields.Integer(
+        string="Default Value Unsigned Integer", 
+        help="Unsigned Integer value if missing from instance.")
+    default_value_positive_int = fields.Integer(
+        string="Default Value Positive Integer", 
+        help="Positive Integer value if missing from instance.")
+    default_value_annotation_id = fields.Many2one(
+        comodel_name="hc.element.definition.annotation", 
+        string="Default Value Annotation", 
+        help="Annotation value if missing from instance.")
+    default_value_sampled_data_id = fields.Many2one(
+        comodel_name="hc.element.definition.sampled.data", 
+        string="Default Value Sampled Data", 
+        help="Sampled Data value if missing from instance.")
+    default_value_meta_id = fields.Many2one(
+        comodel_name="hc.element.definition.meta", 
+        string="Default Value Meta", 
+        help="Meta value if missing from instance.")
     meaning_when_missing = fields.Text(
         string="Meaning When Missing", 
         help="Implicit meaning when this element is missing.")
@@ -227,120 +249,142 @@ class ElementDefinition(models.Model):
             ("contact_point", "Contact Point"),
             ("timing", "Timing"),
             ("signature", "Signature"),
-            ("reference", "Reference")],
+            ("reference", "Reference"),
+            ("time", "Time"), 
+            ("oid", "OID"), 
+            ("id", "ID"), 
+            ("unsigned_int", "Unsigned Integer"), 
+            ("positive_int", "Positive Integer"), 
+            ("annotation", "Annotation"), 
+            ("sampled_data", "Sampled Data"), 
+            ("meta", "Meta")],
         help="Type of value must be exactly this.")                        
     fixed_name = fields.Char(
         string="Fixed", 
         compute="_compute_fixed_name", 
-        store="True", help="Value must be exactly this.")                        
-    fixed_integer = fields.Float(
+        store="True", 
+        help="Value must be exactly this.")
+    fixed_integer = fields.Integer(
         string="Fixed Integer", 
-        help="Integer value must be exactly this.")                        
+        help="Integer value must be exactly this.")
     fixed_decimal = fields.Float(
         string="Fixed Decimal", 
-        help="Decimal value must be exactly this.")                        
-    fixed_date_time = fields.Float(
+        help="Decimal value must be exactly this.")
+    fixed_date_time = fields.Datetime(
         string="Fixed Date Time", 
-        help="Date Time value must be exactly this.")                        
-    fixed_date = fields.Float(
+        help="Date Time value must be exactly this.")
+    fixed_date = fields.Date(
         string="Fixed Date", 
-        help="Date value must be exactly this.")                        
-    fixed_instant = fields.Float(
+        help="Date value must be exactly this.")
+    fixed_instant = fields.Datetime(
         string="Fixed Instant", 
-        help="Instant value must be exactly this.")                        
-    fixed_string = fields.Float(
+        help="Instant value must be exactly this.")
+    fixed_string = fields.Char(
         string="Fixed String", 
-        help="String value must be exactly this.")                        
-    fixed_uri = fields.Float(
+        help="String value must be exactly this.")
+    fixed_uri = fields.Char(
         string="Fixed URI", 
-        help="URI value must be exactly this.")                        
-    fixed_boolean = fields.Float(
+        help="URI value must be exactly this.")
+    fixed_boolean = fields.Boolean(
         string="Fixed Boolean", 
-        help="Boolean value must be exactly this.")                        
-    fixed_code = fields.Float(
+        help="Boolean value must be exactly this.")
+    fixed_code_id = fields.Many2one(
+        comodel_name="hc.element.definition.value.set",
         string="Fixed Code", 
-        help="Code value must be exactly this.")                        
-    fixed_markdown = fields.Float(
+        help="Code value must be exactly this.")
+    fixed_markdown = fields.Text(
         string="Fixed Markdown", 
-        help="Markdown value must be exactly this.")                        
-    fixed_base_64_binary = fields.Float(
+        help="Markdown value must be exactly this.")
+    fixed_base_64_binary = fields.Binary(
         string="Fixed Base 64 Binary", 
-        help="Base 64 Binary value must be exactly this.")                        
-    fixed_coding = fields.Float(
+        help="Base 64 Binary value must be exactly this.")
+    fixed_coding_id = fields.Many2one(
+        comodel_name="hc.element.definition.value.set", 
         string="Fixed Coding", 
-        help="Coding value must be exactly this.")                        
-    fixed_codeable_concept = fields.Float(
+        help="Coding value must be exactly this.")
+    fixed_codeable_concept_id = fields.Many2one(
+        comodel_name="hc.element.definition.value.set", 
         string="Fixed Codeable Concept", 
-        help="Codeable Concept value must be exactly this.")                        
-    fixed_attachment = fields.Float(
+        help="Codeable Concept value must be exactly this.")
+    fixed_attachment_id = fields.Many2one(
+        comodel_name="hc.element.definition.attachment", 
         string="Fixed Attachment", 
-        help="Attachment value must be exactly this.")                        
-    fixed_identifier = fields.Float(
+        help="Attachment value must be exactly this.")
+    fixed_identifier_id = fields.Many2one(
+        comodel_name="hc.element.definition.identifier", 
         string="Fixed Identifier", 
-        help="Identifier value must be exactly this.")                        
+        help="Identifier value must be exactly this.")
     fixed_quantity = fields.Float(
         string="Fixed Quantity", 
-        help="Quantity value must be exactly this.")                        
+        help="Quantity value must be exactly this.")
     fixed_quantity_uom_id = fields.Many2one(
         comodel_name="product.uom", 
         string="Fixed Quantity UOM", 
-        help="Quantity unit of measure.")                        
-    fixed_range = fields.Float(
+        help="Quantity unit of measure.")
+    fixed_range = fields.Char(
         string="Fixed Range", 
-        help="Range value must be exactly this.")                        
-    fixed_range_uom_id = fields.Many2one(
-        comodel_name="product.uom", 
-        string="Fixed Range UOM", 
-        help="Range unit of measure.")                        
-    fixed_period = fields.Float(
+        help="Range value must be exactly this.")
+    fixed_period = fields.Char(
         string="Fixed Period", 
-        help="Period value must be exactly this.")                        
+        help="Period value must be exactly this.")
     fixed_period_uom_id = fields.Many2one(
         comodel_name="product.uom", 
         string="Fixed Period UOM", 
-        help="Period unit of measure.")                        
-    fixed_numerator = fields.Float(
-        string="Fixed Numerator", 
-        help="Numerator value of value must be exactly this.")
-    fixed_numerator_uom_id = fields.Many2one(
-        comodel_name="product.uom", 
-        string="Fixed Numerator UOM", 
-        help="Fixed numerator unit of measure.")
-    fixed_denominator = fields.Float(
-        string="Fixed Denominator", 
-        help="Denominator value of value must be exactly this.")
-    fixed_denominator_uom_id = fields.Many2one(
-        comodel_name="product.uom", 
-        string="Fixed Denominator UOM", 
-        help="Fixed denominator unit of measure.")
-    fixed_ratio = fields.Float(
+        help="Period unit of measure.")
+    fixed_ratio = fields.Char(
         string="Fixed Ratio", 
-        compute="_compute_fixed_ratio", 
-        store="True", 
         help="Ratio of value must be exactly this.")
-    fixed_ratio_uom = fields.Char(
-        string="Fixed Ratio UOM", 
-        compute="_compute_fixed_ratio_uom", 
-        store="True", 
-        help="Fixed Ratio unit of measure.")                      
-    fixed_human_name = fields.Float(
+    fixed_human_name_id = fields.Many2one(
+        comodel_name="hc.element.definition.human.name", 
         string="Fixed Human Name", 
-        help="Human Name value must be exactly this.")                        
-    fixed_address = fields.Float(
+        help="Human Name value must be exactly this.")
+    fixed_address_id = fields.Many2one(
+        comodel_name="hc.element.definition.address", 
         string="Fixed Address", 
-        help="Address value must be exactly this.")                        
-    fixed_contact_point = fields.Float(
+        help="Address value must be exactly this.")
+    fixed_contact_point_id = fields.Many2one(
+        comodel_name="hc.element.definition.telecom", 
         string="Fixed Contact Point", 
-        help="Contact Point value must be exactly this.")                        
-    fixed_timing = fields.Float(
+        help="Contact Point value must be exactly this.")
+    fixed_timing_id = fields.Many2one(
+        comodel_name="hc.element.definition.timing", 
         string="Fixed Timing", 
-        help="Timing value must be exactly this.")                        
-    fixed_signature = fields.Float(
+        help="Timing value must be exactly this.")
+    fixed_signature_id = fields.Many2one(
+        comodel_name="hc.element.definition.signature", 
         string="Fixed Signature", 
-        help="Signature value must be exactly this.")                        
-    fixed_reference = fields.Float(
+        help="Signature value must be exactly this.")
+    fixed_reference_id = fields.Many2one(
+        comodel_name="hc.element.definition.reference", 
         string="Fixed Reference", 
-        help="Reference value must be exactly this.")                        
+        help="Reference value must be exactly this.")
+    fixed_time = fields.Float(
+        string="Fixed Time", 
+        help="Time value must be exactly this.")
+    fixed_oid = fields.Char(
+        string="Fixed OID", 
+        help="OID value must be exactly this.")
+    fixed_id = fields.Char(
+        string="Fixed ID", 
+        help="ID value must be exactly this.")
+    fixed_unsigned_int = fields.Integer(
+        string="Fixed Unsigned Integer", 
+        help="Unsigned Integer value must be exactly this.")
+    fixed_positive_int = fields.Integer(
+        string="Fixed Positive Integer", 
+        help="Positive Integer value must be exactly this.")
+    fixed_annotation_id = fields.Many2one(
+        comodel_name="hc.element.definition.annotation", 
+        string="Fixed Annotation", 
+        help="Annotation value must be exactly this.")
+    fixed_sampled_data_id = fields.Many2one(
+        comodel_name="hc.element.definition.sampled.data", 
+        string="Fixed Sampled Data", 
+        help="Sampled Data value must be exactly this.")
+    fixed_meta_id = fields.Many2one(
+        comodel_name="hc.element.definition.meta", 
+        string="Fixed Meta", 
+        help="Meta value must be exactly this.")        
     pattern_type = fields.Selection(
         string="Pattern Type", 
         selection=[
@@ -368,120 +412,142 @@ class ElementDefinition(models.Model):
             ("contact_point", "Contact Point"),
             ("timing", "Timing"),
             ("signature", "Signature"),
-            ("reference", "Reference")],
+            ("reference", "Reference"),
+            ("time", "Time"), 
+            ("oid", "OID"), 
+            ("id", "ID"), 
+            ("unsigned_int", "Unsigned Integer"), 
+            ("positive_int", "Positive Integer"), 
+            ("annotation", "Annotation"), 
+            ("sampled_data", "Sampled Data"), 
+            ("meta", "Meta")],
         help="Type of value must have at least these property values.")                        
     pattern_name = fields.Char(
         string="Pattern", 
         compute="_compute_pattern_name", 
         store="True", 
-        help="Value must have at least these property values.")                        
-    pattern_integer = fields.Float(
+        help="Value must have at least these property values.")
+    pattern_integer = fields.Integer(
         string="Pattern Integer", 
-        help="Integer value must have at least these property values.")                        
+        help="Integer value must have at least these property values.")
     pattern_decimal = fields.Float(
         string="Pattern Decimal", 
-        help="Decimal value must have at least these property values.")                        
-    pattern_date_time = fields.Float(
+        help="Decimal value must have at least these property values.")
+    pattern_date_time = fields.Datetime(
         string="Pattern Date Time", 
-        help="Date Time value must have at least these property values.")                        
-    pattern_date = fields.Float(
+        help="Date Time value must have at least these property values.")
+    pattern_date = fields.Date(
         string="Pattern Date", 
-        help="Date value must have at least these property values.")                        
-    pattern_instant = fields.Float(
+        help="Date value must have at least these property values.")
+    pattern_instant = fields.Datetime(
         string="Pattern Instant", 
-        help="Instant value must have at least these property values.")                        
-    pattern_string = fields.Float(
+        help="Instant value must have at least these property values.")
+    pattern_string = fields.Char(
         string="Pattern String", 
-        help="String value must have at least these property values.")                        
-    pattern_uri = fields.Float(
+        help="String value must have at least these property values.")
+    pattern_uri = fields.Char(
         string="Pattern URI", 
-        help="URI value must have at least these property values.")                        
-    pattern_boolean = fields.Float(
+        help="URI value must have at least these property values.")
+    pattern_boolean = fields.Boolean(
         string="Pattern Boolean", 
-        help="Boolean value must have at least these property values.")                        
-    pattern_code = fields.Float(
+        help="Boolean value must have at least these property values.")
+    pattern_code_id = fields.Many2one(
+        comodel_name="hc.element.definition.value.set", 
         string="Pattern Code", 
-        help="Code value must have at least these property values.")                        
-    pattern_markdown = fields.Float(
+        help="Code value must have at least these property values.")
+    pattern_markdown = fields.Text(
         string="Pattern Markdown", 
-        help="Markdown value must have at least these property values.")                        
-    pattern_base_64_binary = fields.Float(
+        help="Markdown value must have at least these property values.")
+    pattern_base_64_binary = fields.Binary(
         string="Pattern Base 64 Binary", 
-        help="Base 64 Binary value must have at least these property values.")                        
-    pattern_coding = fields.Float(
+        help="Base 64 Binary value must have at least these property values.")
+    pattern_coding_id = fields.Many2one(
+        comodel_name="hc.element.definition.value.set", 
         string="Pattern Coding", 
-        help="Coding value must have at least these property values.")                        
-    pattern_codeable_concept = fields.Float(
+        help="Coding value must have at least these property values.")
+    pattern_codeable_concept_id = fields.Many2one(
+        comodel_name="hc.element.definition.value.set", 
         string="Pattern Codeable Concept", 
-        help="Codeable Concept value must have at least these property values.")                        
-    pattern_attachment = fields.Float(
+        help="Codeable Concept value must have at least these property values.")
+    pattern_attachment_id = fields.Many2one(
+        comodel_name="hc.element.definition.attachment", 
         string="Pattern Attachment", 
-        help="Attachment value must have at least these property values.")                        
-    pattern_identifier = fields.Float(
+        help="Attachment value must have at least these property values.")
+    pattern_identifier_id = fields.Many2one(
+        comodel_name="hc.element.definition.identifier", 
         string="Pattern Identifier", 
-        help="Identifier value must have at least these property values.")                        
+        help="Identifier value must have at least these property values.")
     pattern_quantity = fields.Float(
         string="Pattern Quantity", 
-        help="Quantity value must have at least these property values.")                        
+        help="Quantity value must have at least these property values.")
     pattern_quantity_uom_id = fields.Many2one(
         comodel_name="product.uom", 
         string="Pattern Quantity UOM", 
-        help="Quantity unit of measure.")                        
-    pattern_range = fields.Float(
+        help="Quantity unit of measure.")
+    pattern_range = fields.Char(
         string="Pattern Range", 
-        help="Range value must have at least these property values.")                        
-    pattern_range_uom_id = fields.Many2one(
-        comodel_name="product.uom", 
-        string="Pattern Range UOM", 
-        help="Range unit of measure.")                        
-    pattern_period = fields.Float(
+        help="Range value must have at least these property values.")
+    pattern_period = fields.Char(
         string="Pattern Period", 
-        help="Period value must have at least these property values.")                        
+        help="Period value must have at least these property values.")
     pattern_period_uom_id = fields.Many2one(
         comodel_name="product.uom", 
         string="Pattern Period UOM", 
-        help="Period unit of measure.")                        
-    pattern_numerator = fields.Float(
-        string="Pattern Numerator", 
-        help="Numerator value of value must have at least these property values.")
-    pattern_numerator_uom_id = fields.Many2one(
-        comodel_name="product.uom", 
-        string="Pattern Numerator UOM", 
-        help="Pattern numerator unit of measure.")
-    pattern_denominator = fields.Float(
-        string="Pattern Denominator", 
-        help="Denominator value of value must have at least these property values.")
-    pattern_denominator_uom_id = fields.Many2one(
-        comodel_name="product.uom", 
-        string="Pattern Denominator UOM", 
-        help="Pattern denominator unit of measure.")
-    pattern_ratio = fields.Float(
+        help="Period unit of measure.")
+    pattern_ratio = fields.Char(
         string="Pattern Ratio", 
-        compute="_compute_pattern_ratio", 
-        store="True", 
         help="Ratio of value must have at least these property values.")
-    pattern_ratio_uom = fields.Char(
-        string="Pattern Ratio UOM", 
-        compute="_compute_pattern_ratio_uom", 
-        store="True", help="Pattern Ratio unit of measure.")                      
-    pattern_human_name = fields.Float(
+    pattern_human_name_id = fields.Many2one(
+        comodel_name="hc.element.definition.human.name", 
         string="Pattern Human Name", 
-        help="Human Name value must have at least these property values.")                        
-    pattern_address = fields.Float(
+        help="Human Name value must have at least these property values.")
+    pattern_address_id = fields.Many2one(
+        comodel_name="hc.element.definition.address", 
         string="Pattern Address", 
-        help="Address value must have at least these property values.")                        
-    pattern_contact_point = fields.Float(
+        help="Address value must have at least these property values.")
+    pattern_contact_point_id = fields.Many2one(
+        comodel_name="hc.element.definition.telecom", 
         string="Pattern Contact Point", 
-        help="Contact Point value must have at least these property values.")                        
-    pattern_timing = fields.Float(
+        help="Contact Point value must have at least these property values.")
+    pattern_timing_id = fields.Many2one(
+        comodel_name="hc.element.definition.timing", 
         string="Pattern Timing", 
-        help="Timing value must have at least these property values.")                        
-    pattern_signature = fields.Float(
+        help="Timing value must have at least these property values.")
+    pattern_signature_id = fields.Many2one(
+        comodel_name="hc.element.definition.signature", 
         string="Pattern Signature", 
-        help="Signature value must have at least these property values.")                        
-    pattern_reference = fields.Float(
+        help="Signature value must have at least these property values.")
+    pattern_reference_id = fields.Many2one(
+        comodel_name="hc.element.definition.reference", 
         string="Pattern Reference", 
-        help="Reference value must have at least these property values.")                                                  
+        help="Reference value must have at least these property values.")
+    pattern_time = fields.Float(
+        string="Pattern Time", 
+        help="Time value must have at least these property values.")
+    pattern_oid = fields.Char(
+        string="Pattern OID", 
+        help="OID value must have at least these property values.")
+    pattern_id = fields.Char(
+        string="Pattern ID", 
+        help="ID value must have at least these property values.")
+    pattern_unsigned_int = fields.Integer(
+        string="Pattern Unsigned Integer", 
+        help="Unsigned Integer value must have at least these property values.")
+    pattern_positive_int = fields.Integer(
+        string="Pattern Positive Integer", 
+        help="Positive Integer value must have at least these property values.")
+    pattern_annotation_id = fields.Many2one(
+        comodel_name="hc.element.definition.annotation", 
+        string="Pattern Annotation", 
+        help="Annotation value must have at least these property values.")
+    pattern_sampled_data_id = fields.Many2one(
+        comodel_name="hc.element.definition.sampled.data", 
+        string="Pattern Sampled Data", 
+        help="Sampled Data value must have at least these property values.")
+    pattern_meta_id = fields.Many2one(
+        comodel_name="hc.element.definition.meta", 
+        string="Pattern Meta", 
+        help="Meta value must have at least these property values.")                        
     min_value_type = fields.Selection(
         string="Minimum Value Type", 
         selection=[
@@ -490,8 +556,8 @@ class ElementDefinition(models.Model):
             ("instant", "Instant"),
             ("decimal", "Decimal"),
             ("integer", "Integer"),
-            ("positiveInt", "Positive Integer"),
-            ("unsignedInt", "Unsigned Integer"),
+            ("positive_int", "Positive Integer"),
+            ("unsigned_int", "Unsigned Integer"),
             ("quantity", "Quantity")],
         help="Type of Minimum Allowed Value (for some types).")
     min_value_name = fields.Char(
@@ -500,32 +566,32 @@ class ElementDefinition(models.Model):
         store="True", 
         help="Minimum Allowed Value (for some types).")                        
     min_value_date = fields.Date(
-        string="Min Value Date", 
+        string="Minimum Value Date", 
         help="Date Minimum Allowed Value (for some types).")
     min_value_date_time = fields.Datetime(
-        string="Min Value Date Time", 
+        string="Minimum Value Date Time", 
         help="Date Time Minimum Allowed Value (for some types).")
     min_value_instant = fields.Float(
-        string="Min Value Instant", 
+        string="Minimum Value Instant", 
         help="Instant Minimum Allowed Value (for some types).")    
     min_value_decimal = fields.Float(
-        string="Min Value Decimal", 
+        string="Minimum Value Decimal", 
         help="Decimal Minimum Allowed Value (for some types).")   
     min_value_integer = fields.Integer(
-        string="Min Value Integer", 
+        string="Minimum Value Integer", 
         help="Integer Minimum Allowed Value (for some types).")
     min_value_positive_int = fields.Integer(
-        string="Min Value Positive Integer", 
-        help="Positive integer Minimum Allowed Value (for some types).") 
+        string="Minimum Value Positive Integer", 
+        help="Positive Integer Minimum Allowed Value (for some types).") 
     min_value_unsigned_int = fields.Integer(
-        string="Min Value Unsigned Integer", 
-        help="Unsigned integer Minimum Allowed Value (for some types).")
+        string="Minimum Value Unsigned Integer", 
+        help="Unsigned Integer Minimum Allowed Value (for some types).")
     min_value_quantity = fields.Float(
-        string="Min Value Quantity", 
+        string="Minimum Value Quantity", 
         help="Quantity Minimum Allowed Value (for some types).")                                               
     max_length = fields.Integer(
-        string="Max Length", 
-        help="Max length for strings.")                        
+        string="Maximum Length", 
+        help="Maximum Length for strings.")                        
     max_value_type = fields.Selection(
         string="Maximum Value Type", 
         selection=[
@@ -534,8 +600,8 @@ class ElementDefinition(models.Model):
             ("instant", "Instant"),
             ("decimal", "Decimal"),
             ("integer", "Integer"),
-            ("positiveInt", "Positive Integer"),
-            ("unsignedInt", "Unsigned Integer"),
+            ("positive_int", "Positive Integer"),
+            ("unsigned_int", "Unsigned Integer"),
             ("quantity", "Quantity")],
         help="Type of Maximum Allowed Value (for some types).")
     max_value_name = fields.Char(
@@ -544,28 +610,28 @@ class ElementDefinition(models.Model):
         store="True", 
         help="Maximum Allowed Value (for some types).")                        
     max_value_date = fields.Date(
-        string="Min Value Date", 
+        string="Maximum Value Date", 
         help="Date Maximum Allowed Value (for some types).")
     max_value_date_time = fields.Datetime(
-        string="Min Value Date Time", 
+        string="Maximum Value Date Time", 
         help="Date Time Maximum Allowed Value (for some types).")
     max_value_instant = fields.Float(
-        string="Min Value Instant", 
+        string="Maximum Value Instant", 
         help="Instant Maximum Allowed Value (for some types).")    
     max_value_decimal = fields.Float(
-        string="Min Value Decimal", 
+        string="Maximum Value Decimal", 
         help="Decimal Maximum Allowed Value (for some types).")   
     max_value_integer = fields.Integer(
-        string="Min Value Integer", 
+        string="Maximum Value Integer", 
         help="Integer Maximum Allowed Value (for some types).")
     max_value_positive_int = fields.Integer(
-        string="Min Value Positive Integer", 
-        help="Positive integer Maximum Allowed Value (for some types).") 
+        string="Maximum Value Positive Integer", 
+        help="Positive Integer Maximum Allowed Value (for some types).") 
     max_value_unsigned_int = fields.Integer(
-        string="Min Value Unsigned Integer", 
-        help="Unsigned integer Maximum Allowed Value (for some types).")
+        string="Maximum Value Unsigned Integer", 
+        help="Unsigned Integer Maximum Allowed Value (for some types).")
     max_value_quantity = fields.Float(
-        string="Min Value Quantity", 
+        string="Maximum Value Quantity", 
         help="Quantity Maximum Allowed Value (for some types).")
     condition_ids = fields.One2many(
         comodel_name="hc.element.definition.condition", 
@@ -648,7 +714,7 @@ class ElementDefinitionBase(models.Model):
 
     name = fields.Char(
         string="Name", 
-        help="Text representation of the binding.")                       
+        help="Text representation of the base element.")                       
     path = fields.Char(
         string="Path", 
         required="True", 
@@ -705,9 +771,23 @@ class ElementDefinitionExample(models.Model):
         string="Label", 
         required="True", 
         help="Describes the purpose of this example.")                        
+    value_ids = fields.One2many(
+        comodel_name="hc.element.definition.example.value",
+        inverse_name="example_id",
+        string="Values",
+        required="True",
+        help="Value of Example (one of allowed types).")
+    
+class ElementDefinitionExampleValue(models.Model):
+    _name = "hc.element.definition.example.value"
+    _description = "Element Definition Example Value"
+
+    example_id = fields.Many2one(
+        comodel_name="hc.element.definition.example",
+        string="Element Definition Example",
+        help="Element Definition Exaple associated with this Element Definition Example Value.")
     value_type = fields.Selection(
-        string="Value Type", 
-        required="True", 
+        string="Value Type",
         selection=[
             ("integer", "Integer"), 
             ("decimal", "Decimal"),
@@ -733,122 +813,143 @@ class ElementDefinitionExample(models.Model):
             ("contact_point", "Contact Point"),
             ("timing", "Timing"),
             ("signature", "Signature"),
-            ("reference", "Reference")], 
-        help="Type of value of Example (one of allowed types).")                        
+            ("reference", "Reference"),
+            ("time", "Time"), 
+            ("oid", "OID"), 
+            ("id", "ID"), 
+            ("unsigned_int", "Unsigned Integer"), 
+            ("positive_int", "Positive Integer"), 
+            ("annotation", "Annotation"), 
+            ("sampled_data", "Sampled Data"), 
+            ("meta", "Meta")],
+        help="Type of example value (as defined for type).")                       
     value_name = fields.Char(
-        string="Value",
+        string="Value", 
         compute="_compute_value_name", 
         store="True", 
-        help="Value of Example (one of allowed types).")                        
-    value_integer = fields.Float(
+        help="Value of Example (one of allowed types).")
+    value_integer = fields.Integer(
         string="Value Integer", 
-        help="Integer value of example (one of allowed types).")                        
+        help="Integer value of example (one of allowed types).")
     value_decimal = fields.Float(
         string="Value Decimal", 
-        help="Decimal value of example (one of allowed types).")                        
-    value_date_time = fields.Float(
+        help="Decimal value of example (one of allowed types).")
+    value_date_time = fields.Datetime(
         string="Value Date Time", 
-        help="Date Time value of example (one of allowed types).")                        
-    value_date = fields.Float(
+        help="Date Time value of example (one of allowed types).")
+    value_date = fields.Date(
         string="Value Date", 
-        help="Date value of example (one of allowed types).")                        
-    value_instant = fields.Float(
+        help="Date value of example (one of allowed types).")
+    value_instant = fields.Datetime(
         string="Value Instant", 
-        help="Instant value of example (one of allowed types).")                        
-    value_string = fields.Float(
+        help="Instant value of example (one of allowed types).")
+    value_string = fields.Char(
         string="Value String", 
-        help="String value of example (one of allowed types).")                        
-    value_uri = fields.Float(
+        help="String value of example (one of allowed types).")
+    value_uri = fields.Char(
         string="Value URI", 
-        help="URI value of example (one of allowed types).")                        
-    value_boolean = fields.Float(
+        help="URI value of example (one of allowed types).")
+    value_boolean = fields.Boolean(
         string="Value Boolean", 
-        help="Boolean value of example (one of allowed types).")                        
-    value_code = fields.Float(
+        help="Boolean value of example (one of allowed types).")
+    value_code_id = fields.Many2one(
+        comodel_name="hc.element.definition.value.set",
         string="Value Code", 
-        help="Code value of example (one of allowed types).")                        
-    value_markdown = fields.Float(
+        help="Code value of example (one of allowed types).")
+    value_markdown = fields.Text(
         string="Value Markdown", 
-        help="Markdown value of example (one of allowed types).")                        
-    value_base_64_binary = fields.Float(
-        string="Value Base 64 Binary",
-         help="Base 64 Binary value of example (one of allowed types).")                        
-    value_coding = fields.Float(
+        help="Markdown value of example (one of allowed types).")
+    value_base_64_binary = fields.Binary(
+        string="Value Base 64 Binary", 
+        help="Base 64 Binary value of example (one of allowed types).")
+    value_coding_id = fields.Many2one(
+        comodel_name="hc.element.definition.value.set", 
         string="Value Coding", 
-        help="Coding value of example (one of allowed types).")                        
-    value_codeable_concept = fields.Float(
+        help="Coding value of example (one of allowed types).")
+    value_codeable_concept_id = fields.Many2one(
+        comodel_name="hc.element.definition.value.set", 
         string="Value Codeable Concept", 
-        help="Codeable Concept value of example (one of allowed types).")                        
-    value_attachment = fields.Float(
+        help="Codeable Concept value of example (one of allowed types).")
+    value_attachment_id = fields.Many2one(
+        comodel_name="hc.element.definition.attachment", 
         string="Value Attachment", 
-        help="Attachment value of example (one of allowed types).")                        
-    value_identifier = fields.Float(
+        help="Attachment value of example (one of allowed types).")
+    value_identifier_id = fields.Many2one(
+        comodel_name="hc.element.definition.identifier", 
         string="Value Identifier", 
-        help="Identifier value of example (one of allowed types).")                        
+        help="Identifier value of example (one of allowed types).")
     value_quantity = fields.Float(
         string="Value Quantity", 
-        help="Quantity value of example (one of allowed types).")                        
+        help="Quantity value of example (one of allowed types).")
     value_quantity_uom_id = fields.Many2one(
         comodel_name="product.uom", 
         string="Value Quantity UOM", 
-        help="Quantity unit of measure.")                        
-    value_range = fields.Float(
+        help="Quantity unit of measure.")
+    value_range = fields.Char(
         string="Value Range", 
-        help="Range value of example (one of allowed types).")                        
-    value_range_uom_id = fields.Many2one(
-        comodel_name="product.uom", 
-        string="Value Range UOM", 
-        help="Range unit of measure.")                        
-    value_period = fields.Float(
+        help="Range value of example (one of allowed types).")
+    value_period = fields.Char(
         string="Value Period", 
-        help="Period value of example (one of allowed types).")                        
+        help="Period value of example (one of allowed types).")
     value_period_uom_id = fields.Many2one(
         comodel_name="product.uom", 
         string="Value Period UOM", 
-        help="Period unit of measure.")                        
-    value_numerator = fields.Float(
-        string="Value Numerator", 
-        help="Numerator value of value of example (one of allowed types).")
-    value_numerator_uom_id = fields.Many2one(
-        comodel_name="product.uom", 
-        string="Value Numerator UOM", 
-        help="Value numerator unit of measure.")
-    value_denominator = fields.Float(
-        string="Value Denominator", 
-        help="Denominator value of value of example (one of allowed types).")
-    value_denominator_uom_id = fields.Many2one(
-        comodel_name="product.uom", 
-        string="Value Denominator UOM", 
-        help="Value denominator unit of measure.")
-    value_ratio = fields.Float(
+        help="Period unit of measure.")
+    value_ratio = fields.Char(
         string="Value Ratio", 
-        compute="_compute_value_ratio", 
-        store="True", 
         help="Ratio of value of example (one of allowed types).")
-    value_ratio_uom = fields.Char(
-        string="Value Ratio UOM", 
-        compute="_compute_value_ratio_uom", 
-        store="True", 
-        help="Value Ratio unit of measure.")          
-    value_human_name = fields.Float(
+    value_human_name_id = fields.Many2one(
+        comodel_name="hc.element.definition.human.name", 
         string="Value Human Name", 
-        help="Human Name value of example (one of allowed types).")                        
-    value_address = fields.Float(
+        help="Human Name value of example (one of allowed types).")
+    value_address_id = fields.Many2one(
+        comodel_name="hc.element.definition.address", 
         string="Value Address", 
-        help="Address value of example (one of allowed types).")                        
-    value_contact_point = fields.Float(
+        help="Address value of example (one of allowed types).")
+    value_contact_point_id = fields.Many2one(
+        comodel_name="hc.element.definition.telecom", 
         string="Value Contact Point", 
-        help="Contact Point value of example (one of allowed types).")                        
-    value_timing = fields.Float(
+        help="Contact Point value of example (one of allowed types).")
+    value_timing_id = fields.Many2one(
+        comodel_name="hc.element.definition.timing", 
         string="Value Timing", 
-        help="Timing value of example (one of allowed types).")                        
-    value_signature = fields.Float(
+        help="Timing value of example (one of allowed types).")
+    value_signature_id = fields.Many2one(
+        comodel_name="hc.element.definition.signature", 
         string="Value Signature", 
-        help="Signature value of example (one of allowed types).")                        
-    value_reference = fields.Float(
+        help="Signature value of example (one of allowed types).")
+    value_reference_id = fields.Many2one(
+        comodel_name="hc.element.definition.reference", 
         string="Value Reference", 
-        help="Reference value of example (one of allowed types).")                        
-
+        help="Reference value of example (one of allowed types).")
+    value_time = fields.Float(
+        string="Value Time", 
+        help="Time value of example (one of allowed types).")
+    value_oid = fields.Char(
+        string="Value OID", 
+        help="OID value of example (one of allowed types).")
+    value_id = fields.Char(
+        string="Value ID", 
+        help="ID value of example (one of allowed types).")
+    value_unsigned_int = fields.Integer(
+        string="Value Unsigned Integer", 
+        help="Unsigned Integer value of example (one of allowed types).")
+    value_positive_int = fields.Integer(
+        string="Value Positive Integer", 
+        help="Positive Integer value of example (one of allowed types).")
+    value_annotation_id = fields.Many2one(
+        comodel_name="hc.element.definition.annotation", 
+        string="Value Annotation", 
+        help="Annotation value of example (one of allowed types).")
+    value_sampled_data_id = fields.Many2one(
+        comodel_name="hc.element.definition.sampled.data", 
+        string="Value Sampled Data", 
+        help="Sampled Data value of example (one of allowed types).")
+    value_meta_id = fields.Many2one(
+        comodel_name="hc.element.definition.meta", 
+        string="Value Meta", 
+        help="Meta value of example (one of allowed types).")
+ 
 class ElementDefinitionConstraint(models.Model):    
     _name = "hc.element.definition.constraint"    
     _description = "Element Definition Constraint"                
@@ -876,11 +977,11 @@ class ElementDefinitionConstraint(models.Model):
         required="True", 
         help="Human description of constraint.")                        
     expression = fields.Char(
-        string="Expression", 
+        string="FHIRPath", 
         required="True", 
-        help="FluentPath expression of constraint.")                        
+        help="FHIRPath expression of constraint.")                        
     xpath = fields.Char(
-        string="Xpath", 
+        string="XPath", 
         help="XPath expression of constraint.")                        
     source = fields.Char(
         string="Source URI", 
@@ -935,14 +1036,16 @@ class ElementDefinitionMapping(models.Model):
         string="Identity", 
         required="True", 
         help="Reference to mapping declaration.")                        
-    language_id = fields.Many2one(
-        comodel_name="hc.vs.language", 
+    language = fields.Char( 
         string="Language", 
         help="Computable language of mapping.")                        
     map = fields.Char(
         string="Map", 
         required="True", 
-        help="Details of the mapping.")                        
+        help="Details of the mapping.")
+    comment = fields.Text(
+        string="Comment", 
+        help="Comments about the mapping or its use.")                        
 
 class ElementDefinitionRepresentation(models.Model):    
     _name = "hc.element.definition.representation"    
@@ -1030,8 +1133,112 @@ class ElementDefinitionTypeAggregation(models.Model):
             ("bundled", "Bundled")], 
         help="If the type is a reference to another resource, how the resource is or can be aggregated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle.")                 
 
-class ElementDefinitionCode(models.Model):    
-    _name = "hc.vs.element.definition.code"    
-    _description = "Element Definition Code"            
-    _inherit = ["hc.value.set.contains"]    
+class ElementDefinitionAddress(models.Model):
+    _name = "hc.element.definition.address"
+    _description = "Element Definition Address"
+    _inherit = ["hc.address.use"]
+    _inherits = {"hc.address": "address_id"}
+
+    address_id = fields.Many2one(
+        comodel_name="hc.address", 
+        string="Address", 
+        ondelete="restrict", 
+        required="True", 
+        help="Address associated with this Element Definition Address.")                                    
+
+class ElementDefinitionAnnotation(models.Model):
+    _name = "hc.element.definition.annotation"
+    _description = "Element Definition Annotation" 
+    _inherit = ["hc.basic.association", "hc.annotation"]    
+
+class ElementDefinitionAttachment(models.Model):
+    _name = "hc.element.definition.attachment"
+    _description = "Element Definition Attachment" 
+    _inherit = ["hc.basic.association", "hc.attachment"]
+
+class ElementDefinitionTelecom(models.Model):
+    _name = "hc.element.definition.telecom"
+    _description = "Element Definition Telecom"
+    _inherit = ["hc.contact.point.use"]
+    _inherits = {"hc.contact.point": "telecom_id"}
+
+    telecom_id = fields.Many2one(
+        comodel_name="hc.contact.point", 
+        string="Telecom", 
+        ondelete="restrict", 
+        required="True", 
+        help="Telecom associated with this Element Definition Telecom.")                                  
+
+class ElementDefinitionHumanName(models.Model):
+    _name = "hc.element.definition.human.name"
+    _description = "Element Definition Human Name"
+    _inherit = ["hc.human.name.use"]
+    _inherits = {"hc.human.name": "name_id"}
+
+    name_id = fields.Many2one(
+        comodel_name="hc.human.name", 
+        string="Name", 
+        ondelete="restrict", 
+        required="True", 
+        help="Name associated with this Element Definition Human Name.")                                   
+
+class ElementDefinitionIdentifier(models.Model):
+    _name = "hc.element.definition.identifier"
+    _description = "Element Definition Identifier"
+    _inherit = ["hc.basic.association", "hc.identifier"] 
+
+class ElementDefinitionMeta(models.Model):
+    _name = "hc.element.definition.meta"
+    _description = "Element Definition Meta"
+    _inherit = ["hc.basic.association", "hc.meta"]
+
+class ElementDefinitionReference(models.Model):
+    _name = "hc.element.definition.reference"
+    _description = "Element Definition Reference"
+    _inherit = ["hc.basic.association", "hc.reference"]
+
+class ElementDefinitionSampledData(models.Model):
+    _name = "hc.element.definition.sampled.data"
+    _description = "Element Definition Sampled Data"
+    _inherit = ["hc.basic.association", "hc.sampled.data"]
+
+class ElementDefinitionSignature(models.Model):
+    _name = "hc.element.definition.signature"
+    _description = "Element Definition Signature"
+    _inherit = ["hc.basic.association", "hc.signature"]
+
+class ElementDefinitionTiming(models.Model):
+    _name = "hc.element.definition.timing"
+    _description = "Element Definition Timing"
+    _inherit = ["hc.basic.association", "hc.timing"]
+
+class ElementDefinitionValueSet(models.Model):
+    _name = "hc.element.definition.value.set"
+    _description = "Element Definition Value Set"
+    _inherit = ["hc.basic.association"]
+
+    name = fields.Char(
+        string="Name",
+        help="Name of this element definition value set.") 
+
+class ElementDefinitionCode(models.Model):
+    _name = "hc.vs.element.definition.code"
+    _description = "Element Definition Code"
+    inherit = ["hc.value.set.contains"]    
+
+    name = fields.Char(
+        string="Name",
+        help="Name of this element definition code.")                                 
+    code = fields.Char(
+        string="Code",
+        help="Code of this element definition code.")                                 
+    contains_id = fields.Many2one(
+        comodel_name="hc.vs.element.definition.code",
+        string="Parent",
+        help="Parent element definition code.")                                    
+                                    
+
+
+
+
 

@@ -1,15 +1,6 @@
 <openerp>
     <data>
 
-header
-
-
-
-
-
-    
-
-
         <!-- Structure Definition Views -->                                     
                                                 
         <record id="hc_res_structure_definition_view_search" model="ir.ui.view">                                        
@@ -54,7 +45,7 @@ header
                                 <field name="date"/>
                                 <field name="publisher"/>
                             </group>
-                            <group>
+                            <group string="Element Definition">
                                 <field name="snapshot_id"/>
                                 <field name="differential_id"/>
                             </group>                    
@@ -248,7 +239,6 @@ header
                                                 <group>
                                                     <field name="path"/>
                                                     <field name="slice_name"/>
-                                                    <field name="label"/>
                                                     <field name="code_ids" widget="many2many_tags"/>
                                                     <field name="short"/>
                                                     <field name="definition"/>
@@ -270,14 +260,14 @@ header
                                             <notebook>
                                                 <page string="Representations">                 
                                                     <field name="representation_ids" mode="tree">               
-                                                        <tree>          
+                                                        <tree>
+                                                            <field name="representation"/>          
                                                         </tree>         
                                                         <form>          
                                                             <sheet>     
                                                                 <group> 
                                                                     <group>
-                                                                    </group>
-                                                                    <group>
+                                                                        <field name="representation"/>
                                                                     </group>
                                                                 </group>    
                                                             </sheet>        
@@ -286,14 +276,14 @@ header
                                                 </page>
                                                 <page string="Aliases">                 
                                                     <field name="alias_ids" mode="tree">               
-                                                        <tree>          
+                                                        <tree>
+                                                            <field name="alias"/>          
                                                         </tree>         
                                                         <form>          
                                                             <sheet>     
                                                                 <group> 
                                                                     <group>
-                                                                    </group>
-                                                                    <group>
+                                                                        <field name="alias"/>
                                                                     </group>
                                                                 </group>    
                                                             </sheet>        
@@ -302,14 +292,14 @@ header
                                                 </page>
                                                 <page string="Conditions">                 
                                                     <field name="condition_ids" mode="tree">               
-                                                        <tree>          
+                                                        <tree>
+                                                            <field name="condition"/>          
                                                         </tree>         
                                                         <form>          
                                                             <sheet>     
                                                                 <group> 
                                                                     <group>
-                                                                    </group>
-                                                                    <group>
+                                                                        <field name="condition"/>
                                                                     </group>
                                                                 </group>    
                                                             </sheet>        
@@ -318,46 +308,108 @@ header
                                                 </page>
                                                 <page string="Types">                 
                                                     <field name="type_ids" mode="tree">               
-                                                        <tree>          
+                                                        <tree>
+                                                             <field name="code"/> 
+                                                             <field name="profile"/> 
+                                                             <field name="target_profile"/>
+                                                             <field name="versioning"/>       
                                                         </tree>         
                                                         <form>          
                                                             <sheet>     
                                                                 <group> 
                                                                     <group>
+                                                                        <field name="code"/> 
+                                                                        <field name="profile"/> 
+                                                                        <field name="target_profile"/>
+                                                                        <field name="versioning"/>
                                                                     </group>
                                                                     <group>
                                                                     </group>
-                                                                </group>    
+                                                                </group>
+                                                                <notebook>
+                                                                    <page string="Aggregations">                 
+                                                                        <field name="aggregation_ids" mode="tree">               
+                                                                            <tree>
+                                                                                <field name="aggregation"/>            
+                                                                            </tree>         
+                                                                            <form>          
+                                                                                <sheet>     
+                                                                                    <group> 
+                                                                                        <group>
+                                                                                            <field name="aggregation"/>    
+                                                                                        </group>
+                                                                                    </group>    
+                                                                                </sheet>        
+                                                                            </form>         
+                                                                        </field>                
+                                                                    </page>    
+                                                                </notebook>    
                                                             </sheet>        
                                                         </form>         
                                                     </field>                
                                                 </page>
                                                 <page string="Examples">                 
                                                     <field name="example_ids" mode="tree">               
-                                                        <tree>          
+                                                        <tree>
+                                                            <field name="label"/>            
                                                         </tree>         
                                                         <form>          
                                                             <sheet>     
                                                                 <group> 
                                                                     <group>
+                                                                        <field name="label"/>
                                                                     </group>
                                                                     <group>
                                                                     </group>
-                                                                </group>    
+                                                                </group>
+                                                                <notebook>
+                                                                    <page string="Values">                 
+                                                                        <field name="value_ids" mode="tree">               
+                                                                            <tree>
+                                                                                <field name="value_name"/>
+                                                                                <field name="value_type"/>             
+                                                                            </tree>         
+                                                                            <form>          
+                                                                                <sheet>     
+                                                                                    <group> 
+                                                                                        <group>
+                                                                                            <field name="value_name"/>
+                                                                                            <field name="value_type"/>
+                                                                                        </group>
+                                                                                    </group>    
+                                                                                </sheet>        
+                                                                            </form>         
+                                                                        </field>                
+                                                                    </page>    
+                                                                </notebook>    
                                                             </sheet>        
                                                         </form>         
                                                     </field>                
                                                 </page>
                                                 <page string="Constraints">                 
                                                     <field name="constraint_ids" mode="tree">               
-                                                        <tree>          
+                                                        <tree>
+                                                            <field name="key"/>
+                                                            <field name="requirements"/>
+                                                            <field name="severity"/> 
+                                                            <field name="human"/> 
+                                                            <field name="expression"/> 
+                                                            <field name="xpath"/> 
+                                                            <field name="source"/>           
                                                         </tree>         
                                                         <form>          
                                                             <sheet>     
                                                                 <group> 
                                                                     <group>
+                                                                        <field name="key"/>
+                                                                        <field name="requirements"/>
+                                                                        <field name="severity"/>
+                                                                        <field name="human"/>  
+                                                                        <field name="source"/> 
                                                                     </group>
-                                                                    <group>
+                                                                    <group string="Expressions">
+                                                                        <field name="expression"/> 
+                                                                        <field name="xpath"/>                                                                           
                                                                     </group>
                                                                 </group>    
                                                             </sheet>        
@@ -366,14 +418,20 @@ header
                                                 </page>
                                                 <page string="Mappings">                 
                                                     <field name="mapping_ids" mode="tree">               
-                                                        <tree>          
+                                                        <tree>
+                                                            <field name="identity"/>
+                                                            <field name="language"/>
+                                                            <field name="map"/>
+                                                            <field name="comment"/>          
                                                         </tree>         
                                                         <form>          
                                                             <sheet>     
                                                                 <group> 
                                                                     <group>
-                                                                    </group>
-                                                                    <group>
+                                                                        <field name="identity"/>
+                                                                        <field name="language"/>
+                                                                        <field name="map"/>
+                                                                        <field name="comment"/>                                                                         
                                                                     </group>
                                                                 </group>    
                                                             </sheet>        
@@ -431,11 +489,280 @@ header
                                 <field name="element_ids" mode="tree">               
                                     <tree>          
                                     </tree>         
-                                    <form>          
+                                    <form>
+                                        <h1>
+                                            <field name="label"/>
+                                        </h1>
                                         <sheet>     
                                             <group> 
                                                 <group>
-                                                    <!-- <field name="element_definition_id"/> -->
+                                                    <field name="path"/>
+                                                    <field name="slice_name"/>
+                                                    <field name="code_ids" widget="many2many_tags"/>
+                                                    <field name="short"/>
+                                                    <field name="definition"/>
+                                                    <field name="comment"/>
+                                                    <field name="requirements"/>
+                                                    <field name="min"/>
+                                                    <field name="max"/>
+                                                    <field name="content_reference"/>
+                                                    <field name="meaning_when_missing"/>
+                                                    <field name="order_meaning"/>
+                                                    <field name="max_length"/>
+                                                </group>
+                                                <group>
+                                                    <field name="slicing_id"/>
+                                                    <field name="base_id"/>
+                                                    <field name="binding_id"/>
+                                                </group>
+                                            </group>
+                                            <notebook>
+                                                <page string="Representations">                 
+                                                    <field name="representation_ids" mode="tree">               
+                                                        <tree>
+                                                            <field name="representation"/>          
+                                                        </tree>         
+                                                        <form>          
+                                                            <sheet>     
+                                                                <group> 
+                                                                    <group>
+                                                                        <field name="representation"/>
+                                                                    </group>
+                                                                </group>    
+                                                            </sheet>        
+                                                        </form>         
+                                                    </field>                
+                                                </page>
+                                                <page string="Aliases">                 
+                                                    <field name="alias_ids" mode="tree">               
+                                                        <tree>
+                                                            <field name="alias"/>          
+                                                        </tree>         
+                                                        <form>          
+                                                            <sheet>     
+                                                                <group> 
+                                                                    <group>
+                                                                        <field name="alias"/>
+                                                                    </group>
+                                                                </group>    
+                                                            </sheet>        
+                                                        </form>         
+                                                    </field>                
+                                                </page>
+                                                <page string="Conditions">                 
+                                                    <field name="condition_ids" mode="tree">               
+                                                        <tree>
+                                                            <field name="condition"/>          
+                                                        </tree>         
+                                                        <form>          
+                                                            <sheet>     
+                                                                <group> 
+                                                                    <group>
+                                                                        <field name="condition"/>
+                                                                    </group>
+                                                                </group>    
+                                                            </sheet>        
+                                                        </form>         
+                                                    </field>                
+                                                </page>
+                                                <page string="Types">                 
+                                                    <field name="type_ids" mode="tree">               
+                                                        <tree>
+                                                             <field name="code"/> 
+                                                             <field name="profile"/> 
+                                                             <field name="target_profile"/>
+                                                             <field name="versioning"/>       
+                                                        </tree>         
+                                                        <form>          
+                                                            <sheet>     
+                                                                <group> 
+                                                                    <group>
+                                                                        <field name="code"/> 
+                                                                        <field name="profile"/> 
+                                                                        <field name="target_profile"/>
+                                                                        <field name="versioning"/>
+                                                                    </group>
+                                                                    <group>
+                                                                    </group>
+                                                                </group>
+                                                                <notebook>
+                                                                    <page string="Aggregations">                 
+                                                                        <field name="aggregation_ids" mode="tree">               
+                                                                            <tree>
+                                                                                <field name="aggregation"/>            
+                                                                            </tree>         
+                                                                            <form>          
+                                                                                <sheet>     
+                                                                                    <group> 
+                                                                                        <group>
+                                                                                            <field name="aggregation"/>    
+                                                                                        </group>
+                                                                                    </group>    
+                                                                                </sheet>        
+                                                                            </form>         
+                                                                        </field>                
+                                                                    </page>    
+                                                                </notebook>    
+                                                            </sheet>        
+                                                        </form>         
+                                                    </field>                
+                                                </page>
+                                                <page string="Examples">                 
+                                                    <field name="example_ids" mode="tree">               
+                                                        <tree>
+                                                            <field name="label"/>            
+                                                        </tree>         
+                                                        <form>          
+                                                            <sheet>     
+                                                                <group> 
+                                                                    <group>
+                                                                        <field name="label"/>
+                                                                    </group>
+                                                                    <group>
+                                                                    </group>
+                                                                </group>
+                                                                <notebook>
+                                                                    <page string="Values">                 
+                                                                        <field name="value_ids" mode="tree">               
+                                                                            <tree>
+                                                                                <field name="value_name"/>
+                                                                                <field name="value_type"/>             
+                                                                            </tree>         
+                                                                            <form>          
+                                                                                <sheet>     
+                                                                                    <group> 
+                                                                                        <group>
+                                                                                            <field name="value_name"/>
+                                                                                            <field name="value_type"/>
+                                                                                        </group>
+                                                                                    </group>    
+                                                                                </sheet>        
+                                                                            </form>         
+                                                                        </field>                
+                                                                    </page>    
+                                                                </notebook>    
+                                                            </sheet>        
+                                                        </form>         
+                                                    </field>                
+                                                </page>
+                                                <page string="Constraints">                 
+                                                    <field name="constraint_ids" mode="tree">               
+                                                        <tree>
+                                                            <field name="key"/>
+                                                            <field name="requirements"/>
+                                                            <field name="severity"/> 
+                                                            <field name="human"/> 
+                                                            <field name="expression"/> 
+                                                            <field name="xpath"/> 
+                                                            <field name="source"/>           
+                                                        </tree>         
+                                                        <form>          
+                                                            <sheet>     
+                                                                <group> 
+                                                                    <group>
+                                                                        <field name="key"/>
+                                                                        <field name="requirements"/>
+                                                                        <field name="severity"/>
+                                                                        <field name="human"/>  
+                                                                        <field name="source"/> 
+                                                                    </group>
+                                                                    <group string="Expressions">
+                                                                        <field name="expression"/> 
+                                                                        <field name="xpath"/>                                                                           
+                                                                    </group>
+                                                                </group>    
+                                                            </sheet>        
+                                                        </form>         
+                                                    </field>                
+                                                </page>
+                                                <page string="Mappings">                 
+                                                    <field name="mapping_ids" mode="tree">               
+                                                        <tree>
+                                                            <field name="identity"/>
+                                                            <field name="language"/>
+                                                            <field name="map"/>
+                                                            <field name="comment"/>          
+                                                        </tree>         
+                                                        <form>          
+                                                            <sheet>     
+                                                                <group> 
+                                                                    <group>
+                                                                        <field name="identity"/>
+                                                                        <field name="language"/>
+                                                                        <field name="map"/>
+                                                                        <field name="comment"/>                                                                         
+                                                                    </group>
+                                                                </group>    
+                                                            </sheet>        
+                                                        </form>         
+                                                    </field>                
+                                                </page>  
+                                            </notebook>      
+                                        </sheet>
+                                    </form>         
+                                </field>                
+                            </page>                 
+                        </notebook>                     
+                    </sheet>                            
+                </form>                             
+            </field>                                    
+        </record>
+
+        <!-- Element Definition Slicing Views -->                                       
+                                                
+        <record id="hc_element_definition_slicing_view_search" model="ir.ui.view">                                      
+            <field name="name">Element Definition Slicing Search</field>                                    
+            <field name="model">hc.element.definition.slicing</field>                                   
+            <field name="arch" type="xml">                                  
+                <search string="Element Definition Slicings">                               
+                </search>                               
+            </field>                                    
+        </record>                                       
+                                                
+        <record id="hc_element_definition_slicing_view_tree" model="ir.ui.view">                                        
+            <field name="name">Element Definition Slicing Tree</field>                                  
+            <field name="model">hc.element.definition.slicing</field>                                   
+            <field name="arch" type="xml">                                  
+                <tree string="Element Definition Slicings">
+                    <field name="is_ordered"/>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="rules"/>                              
+                </tree>                             
+            </field>                                    
+        </record>                                       
+                                                
+        <record id="hc_element_definition_slicing_view_form" model="ir.ui.view">                                        
+            <field name="name">Element Definition Slicing Form</field>                                  
+            <field name="model">hc.element.definition.slicing</field>                                   
+            <field name="arch" type="xml">                                  
+                <form string="Element Definition Slicing">                              
+                    <sheet>                         
+                        <h1>                        
+                            <field name="name" default_focus="1" placeholder="Name"/>                   
+                        </h1>                       
+                        <group>
+                            <field name="description"/>                     
+                            <group>
+                                <field name="is_ordered"/>
+                                <field name="rules"/>                  
+                            </group>                    
+                            <group>                 
+                            </group>                    
+                        </group>                        
+                        <notebook>                      
+                            <page string="Discriminators">                 
+                                <field name="discriminator_ids" mode="tree">               
+                                    <tree>
+                                        <field name="type"/>
+                                        <field name="path"/>          
+                                    </tree>         
+                                    <form>       
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                    <field name="type"/>
+                                                    <field name="path"/>                                                      
                                                 </group>
                                                 <group>
                                                 </group>
@@ -448,7 +775,129 @@ header
                     </sheet>                            
                 </form>                             
             </field>                                    
-        </record>
+        </record>                                       
+                                                
+<!--         <act_window id="hc_element_definition_slicing_action"                                       
+                    name="HC Element Definition Slicings"                           
+                    res_model="hc.element.definition.slicing"                           
+                    view_mode="tree,form"                           
+                    domain=""                           
+                    context=""                          
+                    limit=""/>                          
+ -->
+
+        <!-- Element Definition Base Views -->                                      
+                                                
+        <record id="hc_element_definition_base_view_search" model="ir.ui.view">                                     
+            <field name="name">Element Definition Base Search</field>                                   
+            <field name="model">hc.element.definition.base</field>                                  
+            <field name="arch" type="xml">                                  
+                <search string="Element Definition Bases">                              
+                </search>                               
+            </field>                                    
+        </record>                                       
+                                                
+        <record id="hc_element_definition_base_view_tree" model="ir.ui.view">                                       
+            <field name="name">Element Definition Base Tree</field>                                 
+            <field name="model">hc.element.definition.base</field>                                  
+            <field name="arch" type="xml">                                  
+                <tree string="Element Definition Bases">          
+                    <field name="name"/>                
+                    <field name="path"/>
+                    <field name="min"/>
+                    <field name="max"/>                                                   
+                </tree>                             
+            </field>                                    
+        </record>                                       
+                                                
+        <record id="hc_element_definition_base_view_form" model="ir.ui.view">                                       
+            <field name="name">Element Definition Base Form</field>                                 
+            <field name="model">hc.element.definition.base</field>                                  
+            <field name="arch" type="xml">                                  
+                <form string="Element Definition Base">                             
+                    <sheet>                         
+                        <h1>                        
+                            <field name="name" default_focus="1" placeholder="Name"/>                   
+                        </h1>                       
+                        <group>
+                            <field name="path"/>                     
+                            <group>
+                                <field name="min"/>
+                                <field name="max"/>                   
+                            </group>                  
+                            <group>                 
+                            </group>                    
+                        </group>                                            
+                    </sheet>                            
+                </form>                             
+            </field>                                    
+        </record>                                       
+                                                
+        <act_window id="hc_element_definition_base_action"                                      
+                    name="HC Element Definition Bases"                          
+                    res_model="hc.element.definition.base"                          
+                    view_mode="tree,form"                           
+                    domain=""                           
+                    context=""                          
+                    limit=""/>                          
+
+        <!-- Element Definition Binding Views -->                                       
+                                                
+        <record id="hc_element_definition_binding_view_search" model="ir.ui.view">                                      
+            <field name="name">Element Definition Binding Search</field>                                    
+            <field name="model">hc.element.definition.binding</field>                                   
+            <field name="arch" type="xml">                                  
+                <search string="Element Definition Bindings">                               
+                </search>                               
+            </field>                                    
+        </record>                                       
+                                                
+        <record id="hc_element_definition_binding_view_tree" model="ir.ui.view">                                        
+            <field name="name">Element Definition Binding Tree</field>                                  
+            <field name="model">hc.element.definition.binding</field>                                   
+            <field name="arch" type="xml">                                  
+                <tree string="Element Definition Bindings">
+                    <field name="name"/>
+                    <field name="strength"/> 
+                    <field name="description"/> 
+                    <field name="value_set_name"/> 
+                    <field name="value_set_type"/>                             
+                </tree>                             
+            </field>                                    
+        </record>                                       
+                                                
+        <record id="hc_element_definition_binding_view_form" model="ir.ui.view">                                        
+            <field name="name">Element Definition Binding Form</field>                                  
+            <field name="model">hc.element.definition.binding</field>                                   
+            <field name="arch" type="xml">                                  
+                <form string="Element Definition Binding">                              
+                    <sheet>                         
+                        <h1>                        
+                            <field name="name" default_focus="1" placeholder="Name"/>                   
+                        </h1>                       
+                        <group>                     
+                            <group>
+                                <field name="description"/>
+                                <group> 
+                                <field name="strength"/> 
+                                <field name="value_set_name"/> 
+                                <field name="value_set_type"/>
+                                </group>                 
+                            </group>                                   
+                        </group>                                           
+                    </sheet>                            
+                </form>                             
+            </field>                                    
+        </record>                                       
+                                                
+        <act_window id="hc_element_definition_binding_action"                                       
+                    name="HC Element Definition Bindings"                           
+                    res_model="hc.element.definition.binding"                           
+                    view_mode="tree,form"                           
+                    domain=""                           
+                    context=""                          
+                    limit=""/>                          
+
 
     </data>
 </openerp>
