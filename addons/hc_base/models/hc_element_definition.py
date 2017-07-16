@@ -20,7 +20,8 @@ class ElementDefinition(models.Model):
         string="Slice Name", 
         help="Name for this particular element (in a set of slices).")                        
     label = fields.Char(
-        string="Label", 
+        string="Label",
+        required="True", 
         help="Name for element to display with or prompt for element.")                        
     code_ids = fields.Many2many(
         comodel_name="hc.vs.element.definition.code", 
@@ -548,6 +549,27 @@ class ElementDefinition(models.Model):
         comodel_name="hc.element.definition.meta", 
         string="Pattern Meta", 
         help="Meta value must have at least these property values.")                        
+
+    @api.depends('min_value_type')              
+    def _compute_min_value_name(self):              
+        for hc_element_definition in self:          
+            if hc_element_definition.min_value_type == 'date':      
+                hc_element_definition.min_value_name = str(hc_element_definition.min_value_date)    
+            elif hc_element_definition.min_value_type == 'date_time':      
+                hc_element_definition.min_value_name = str(hc_element_definition.min_value_date_time) 
+            elif hc_element_definition.min_value_type == 'instant':      
+                hc_element_definition.min_value_name = str(hc_element_definition.min_value_instant) 
+            elif hc_element_definition.min_value_type == 'decimal':      
+                hc_element_definition.min_value_name = str(hc_element_definition.min_value_decimal) 
+            elif hc_element_definition.min_value_type == 'integer':      
+                hc_element_definition.min_value_name = str(hc_element_definition.min_value_integer) 
+            elif hc_element_definition.min_value_type == 'positive_int':      
+                hc_element_definition.min_value_name = str(hc_element_definition.min_value_positive_int) 
+            elif hc_element_definition.min_value_type == 'unsigned_int':      
+                hc_element_definition.min_value_name = str(hc_element_definition.min_value_unsigned_int) 
+            elif hc_element_definition.min_value_type == 'quantity':      
+                hc_element_definition.min_value_name = str(hc_element_definition.min_value_quantity) 
+
     min_value_type = fields.Selection(
         string="Minimum Value Type", 
         selection=[
@@ -592,6 +614,27 @@ class ElementDefinition(models.Model):
     max_length = fields.Integer(
         string="Maximum Length", 
         help="Maximum Length for strings.")                        
+    
+    @api.depends('max_value_type')              
+    def _compute_max_value_name(self):              
+        for hc_element_definition in self:          
+            if hc_element_definition.max_value_type == 'date':      
+                hc_element_definition.max_value_name = str(hc_element_definition.max_value_date)    
+            elif hc_element_definition.max_value_type == 'date_time':      
+                hc_element_definition.max_value_name = str(hc_element_definition.max_value_date_time) 
+            elif hc_element_definition.max_value_type == 'instant':      
+                hc_element_definition.max_value_name = str(hc_element_definition.max_value_instant) 
+            elif hc_element_definition.max_value_type == 'decimal':      
+                hc_element_definition.max_value_name = str(hc_element_definition.max_value_decimal) 
+            elif hc_element_definition.max_value_type == 'integer':      
+                hc_element_definition.max_value_name = str(hc_element_definition.max_value_integer) 
+            elif hc_element_definition.max_value_type == 'positive_int':      
+                hc_element_definition.max_value_name = str(hc_element_definition.max_value_positive_int) 
+            elif hc_element_definition.max_value_type == 'unsigned_int':      
+                hc_element_definition.max_value_name = str(hc_element_definition.max_value_unsigned_int) 
+            elif hc_element_definition.max_value_type == 'quantity':      
+                hc_element_definition.max_value_name = str(hc_element_definition.max_value_quantity)
+
     max_value_type = fields.Selection(
         string="Maximum Value Type", 
         selection=[
@@ -680,6 +723,210 @@ class ElementDefinition(models.Model):
         inverse_name="element_definition_id", 
         string="Mappings", 
         help="Map element to another set of definitions.")                        
+         
+    @api.depends('default_value_type')              
+    def _compute_default_value_name(self):              
+        for hc_element_definition in self:
+            if hc_element_definition.default_value_type == 'integer':       
+                hc_element_definition.default_value_name = str(hc_element_definition.default_value_integer)
+            if hc_element_definition.default_value_type == 'decimal':   
+                hc_element_definition.default_value_name = str(hc_element_definition.default_value_decimal)
+            elif hc_element_definition.default_value_type == 'date_time':  
+                hc_element_definition.default_value_type = str(hc_element_definition.default_value_date_time)
+            elif hc_element_definition.default_value_type == 'date':      
+                hc_element_definition.default_value_name = str(hc_element_definition.default_value_date)
+            elif hc_element_definition.default_value_type == 'instant':   
+                hc_element_definition.default_value_name = str(hc_element_definition.default_value_instant)
+            elif hc_element_definition.default_value_type == 'string':      
+                hc_element_definition.default_value_name = hc_element_definition.default_value_string
+            elif hc_element_definition.default_value_type == 'uri': 
+                hc_element_definition.default_value_name = hc_element_definition.default_value_uri
+            elif hc_element_definition.default_value_type == 'boolean': 
+                hc_element_definition.default_value_name = hc_element_definition.default_value_boolean
+            elif hc_element_definition.default_value_type == 'code':    
+                hc_element_definition.default_value_name = hc_element_definition.default_value_code_id.name
+            elif hc_element_definition.default_value_type == 'markdown':    
+                hc_element_definition.default_value_name = hc_element_definition.default_value_markdown
+            elif hc_element_definition.default_value_type == 'coding':    
+                hc_element_definition.default_value_name = hc_element_definition.default_value_coding_id.name
+            elif hc_element_definition.default_value_type == 'codeable_concept':  
+                hc_element_definition.default_value_name = hc_element_definition.default_value_codeable_concept_id.name
+            elif hc_element_definition.default_value_type == 'attachment':    
+                hc_element_definition.default_value_name = hc_element_definition.default_value_attachment_id.name
+            elif hc_element_definition.default_value_type == 'identifier':    
+                hc_element_definition.default_value_name = hc_element_definition.default_value_identifier_id.name
+            elif hc_element_definition.default_value_type == 'quantity':
+                hc_element_definition.default_value_name = str(hc_element_definition.default_value_quantity)
+            elif hc_element_definition.default_value_type == 'range':
+                hc_element_definition.default_value_name = hc_element_definition.default_value_range
+            elif hc_element_definition.default_value_type == 'period':
+                hc_element_definition.default_value_name = hc_element_definition.default_value_period
+            elif hc_element_definition.default_value_type == 'ratio':
+                hc_element_definition.default_value_name = hc_element_definition.default_value_ratio
+            elif hc_element_definition.default_value_type == 'human_name':    
+                hc_element_definition.default_value_name = hc_element_definition.default_value_human_name_id.name
+            elif hc_element_definition.default_value_type == 'address':   
+                hc_element_definition.default_value_name = hc_element_definition.default_value_address_id.name   
+            elif hc_element_definition.default_value_type == 'contact_point':  
+                hc_element_definition.default_value_name = hc_element_definition.default_value_contact_point_id.name
+            elif hc_element_definition.default_value_type == 'timing':   
+                hc_element_definition.default_value_name = hc_element_definition.default_value_timing_id.name
+            elif hc_element_definition.default_value_type == 'signature':    
+                hc_element_definition.default_value_name = hc_element_definition.default_value_signature_id.name
+            elif hc_element_definition.default_value_type == 'reference':    
+                hc_element_definition.default_value_name = hc_element_definition.default_value_reference_id.name
+            elif hc_element_definition.default_value_type == 'time':   
+                hc_element_definition.default_value_type = str(hc_element_definition.default_value_time)                
+            elif hc_element_definition.default_value_type == 'oid': 
+                hc_element_definition.default_value_name = hc_element_definition.default_value_oid
+            elif hc_element_definition.default_value_type == 'id':  
+                hc_element_definition.default_value_name = hc_element_definition.default_value_id
+            elif hc_element_definition.default_value_type == 'unsigned_int':   
+                hc_element_definition.default_value_type = str(hc_element_definition.default_value_unsigned_int)                 
+            elif hc_element_definition.default_value_type == 'positive_int':   
+                hc_element_definition.default_value_type = str(hc_element_definition.default_value_positive_int)                
+            elif hc_element_definition.default_value_type == 'annotation':  
+                hc_element_definition.default_value_name = hc_element_definition.default_value_annotation_id.name
+            elif hc_element_definition.default_value_type == 'sampled_data':    
+                hc_element_definition.default_value_name = hc_element_definition.default_value_sampled_data_id.name
+            elif hc_element_definition.default_value_type == 'meta':    
+                hc_element_definition.default_value_name = hc_element_definition.default_value_meta_id.name
+
+    @api.depends('fixed_type')              
+    def _compute_fixed_name(self):              
+        for hc_element_definition in self:
+            if hc_element_definition.fixed_type == 'integer':       
+                hc_element_definition.fixed_name = str(hc_element_definition.fixed_integer)
+            if hc_element_definition.fixed_type == 'decimal':   
+                hc_element_definition.fixed_name = str(hc_element_definition.fixed_decimal)
+            elif hc_element_definition.fixed_type == 'date_time':  
+                hc_element_definition.fixed_type = str(hc_element_definition.fixed_date_time)
+            elif hc_element_definition.fixed_type == 'date':      
+                hc_element_definition.fixed_name = str(hc_element_definition.fixed_date)
+            elif hc_element_definition.fixed_type == 'instant':   
+                hc_element_definition.fixed_name = str(hc_element_definition.fixed_instant)
+            elif hc_element_definition.fixed_type == 'string':      
+                hc_element_definition.fixed_name = hc_element_definition.fixed_string
+            elif hc_element_definition.fixed_type == 'uri': 
+                hc_element_definition.fixed_name = hc_element_definition.fixed_uri
+            elif hc_element_definition.fixed_type == 'boolean': 
+                hc_element_definition.fixed_name = hc_element_definition.fixed_boolean
+            elif hc_element_definition.fixed_type == 'code':    
+                hc_element_definition.fixed_name = hc_element_definition.fixed_code_id.name
+            elif hc_element_definition.fixed_type == 'markdown':    
+                hc_element_definition.fixed_name = hc_element_definition.fixed_markdown
+            elif hc_element_definition.fixed_type == 'coding':    
+                hc_element_definition.fixed_name = hc_element_definition.fixed_coding_id.name
+            elif hc_element_definition.fixed_type == 'codeable_concept':  
+                hc_element_definition.fixed_name = hc_element_definition.fixed_codeable_concept_id.name
+            elif hc_element_definition.fixed_type == 'attachment':    
+                hc_element_definition.fixed_name = hc_element_definition.fixed_attachment_id.name
+            elif hc_element_definition.fixed_type == 'identifier':    
+                hc_element_definition.fixed_name = hc_element_definition.fixed_identifier_id.name
+            elif hc_element_definition.fixed_type == 'quantity':
+                hc_element_definition.fixed_name = str(hc_element_definition.fixed_quantity)
+            elif hc_element_definition.fixed_type == 'range':
+                hc_element_definition.fixed_name = hc_element_definition.fixed_range
+            elif hc_element_definition.fixed_type == 'period':
+                hc_element_definition.fixed_name = hc_element_definition.fixed_period
+            elif hc_element_definition.fixed_type == 'ratio':
+                hc_element_definition.fixed_name = hc_element_definition.fixed_ratio
+            elif hc_element_definition.fixed_type == 'human_name':    
+                hc_element_definition.fixed_name = hc_element_definition.fixed_human_name_id.name
+            elif hc_element_definition.fixed_type == 'address':   
+                hc_element_definition.fixed_name = hc_element_definition.fixed_address_id.name   
+            elif hc_element_definition.fixed_type == 'contact_point':  
+                hc_element_definition.fixed_name = hc_element_definition.fixed_contact_point_id.name
+            elif hc_element_definition.fixed_type == 'timing':   
+                hc_element_definition.fixed_name = hc_element_definition.fixed_timing_id.name
+            elif hc_element_definition.fixed_type == 'signature':    
+                hc_element_definition.fixed_name = hc_element_definition.fixed_signature_id.name
+            elif hc_element_definition.fixed_type == 'reference':    
+                hc_element_definition.fixed_name = hc_element_definition.fixed_reference_id.name
+            elif hc_element_definition.fixed_type == 'time':   
+                hc_element_definition.fixed_type = str(hc_element_definition.fixed_time)                
+            elif hc_element_definition.fixed_type == 'oid': 
+                hc_element_definition.fixed_name = hc_element_definition.fixed_oid
+            elif hc_element_definition.fixed_type == 'id':  
+                hc_element_definition.fixed_name = hc_element_definition.fixed_id
+            elif hc_element_definition.fixed_type == 'unsigned_int':   
+                hc_element_definition.fixed_type = str(hc_element_definition.fixed_unsigned_int)                 
+            elif hc_element_definition.fixed_type == 'positive_int':   
+                hc_element_definition.fixed_type = str(hc_element_definition.fixed_positive_int)                
+            elif hc_element_definition.fixed_type == 'annotation':  
+                hc_element_definition.fixed_name = hc_element_definition.fixed_annotation_id.name
+            elif hc_element_definition.fixed_type == 'sampled_data':    
+                hc_element_definition.fixed_name = hc_element_definition.fixed_sampled_data_id.name
+            elif hc_element_definition.fixed_type == 'meta':    
+                hc_element_definition.fixed_name = hc_element_definition.fixed_meta_id.name
+
+    @api.depends('pattern_type')              
+    def _compute_pattern_name(self):              
+        for hc_element_definition in self:
+            if hc_element_definition.pattern_type == 'integer':       
+                hc_element_definition.pattern_name = str(hc_element_definition.pattern_integer)
+            if hc_element_definition.pattern_type == 'decimal':   
+                hc_element_definition.pattern_name = str(hc_element_definition.pattern_decimal)
+            elif hc_element_definition.pattern_type == 'date_time':  
+                hc_element_definition.pattern_type = str(hc_element_definition.pattern_date_time)
+            elif hc_element_definition.pattern_type == 'date':      
+                hc_element_definition.pattern_name = str(hc_element_definition.pattern_date)
+            elif hc_element_definition.pattern_type == 'instant':   
+                hc_element_definition.pattern_name = str(hc_element_definition.pattern_instant)
+            elif hc_element_definition.pattern_type == 'string':      
+                hc_element_definition.pattern_name = hc_element_definition.pattern_string
+            elif hc_element_definition.pattern_type == 'uri': 
+                hc_element_definition.pattern_name = hc_element_definition.pattern_uri
+            elif hc_element_definition.pattern_type == 'boolean': 
+                hc_element_definition.pattern_name = hc_element_definition.pattern_boolean
+            elif hc_element_definition.pattern_type == 'code':    
+                hc_element_definition.pattern_name = hc_element_definition.pattern_code_id.name
+            elif hc_element_definition.pattern_type == 'markdown':    
+                hc_element_definition.pattern_name = hc_element_definition.pattern_markdown
+            elif hc_element_definition.pattern_type == 'coding':    
+                hc_element_definition.pattern_name = hc_element_definition.pattern_coding_id.name
+            elif hc_element_definition.pattern_type == 'codeable_concept':  
+                hc_element_definition.pattern_name = hc_element_definition.pattern_codeable_concept_id.name
+            elif hc_element_definition.pattern_type == 'attachment':    
+                hc_element_definition.pattern_name = hc_element_definition.pattern_attachment_id.name
+            elif hc_element_definition.pattern_type == 'identifier':    
+                hc_element_definition.pattern_name = hc_element_definition.pattern_identifier_id.name
+            elif hc_element_definition.pattern_type == 'quantity':
+                hc_element_definition.pattern_name = str(hc_element_definition.pattern_quantity)
+            elif hc_element_definition.pattern_type == 'range':
+                hc_element_definition.pattern_name = hc_element_definition.pattern_range
+            elif hc_element_definition.pattern_type == 'period':
+                hc_element_definition.pattern_name = hc_element_definition.pattern_period
+            elif hc_element_definition.pattern_type == 'ratio':
+                hc_element_definition.pattern_name = hc_element_definition.pattern_ratio
+            elif hc_element_definition.pattern_type == 'human_name':    
+                hc_element_definition.pattern_name = hc_element_definition.pattern_human_name_id.name
+            elif hc_element_definition.pattern_type == 'address':   
+                hc_element_definition.pattern_name = hc_element_definition.pattern_address_id.name   
+            elif hc_element_definition.pattern_type == 'contact_point':  
+                hc_element_definition.pattern_name = hc_element_definition.pattern_contact_point_id.name
+            elif hc_element_definition.pattern_type == 'timing':   
+                hc_element_definition.pattern_name = hc_element_definition.pattern_timing_id.name
+            elif hc_element_definition.pattern_type == 'signature':    
+                hc_element_definition.pattern_name = hc_element_definition.pattern_signature_id.name
+            elif hc_element_definition.pattern_type == 'reference':    
+                hc_element_definition.pattern_name = hc_element_definition.pattern_reference_id.name
+            elif hc_element_definition.pattern_type == 'time':   
+                hc_element_definition.pattern_type = str(hc_element_definition.pattern_time)                
+            elif hc_element_definition.pattern_type == 'oid': 
+                hc_element_definition.pattern_name = hc_element_definition.pattern_oid
+            elif hc_element_definition.pattern_type == 'id':  
+                hc_element_definition.pattern_name = hc_element_definition.pattern_id
+            elif hc_element_definition.pattern_type == 'unsigned_int':   
+                hc_element_definition.pattern_type = str(hc_element_definition.pattern_unsigned_int)                 
+            elif hc_element_definition.pattern_type == 'positive_int':   
+                hc_element_definition.pattern_type = str(hc_element_definition.pattern_positive_int)                
+            elif hc_element_definition.pattern_type == 'annotation':  
+                hc_element_definition.pattern_name = hc_element_definition.pattern_annotation_id.name
+            elif hc_element_definition.pattern_type == 'sampled_data':    
+                hc_element_definition.pattern_name = hc_element_definition.pattern_sampled_data_id.name
+            elif hc_element_definition.pattern_type == 'meta':    
+                hc_element_definition.pattern_name = hc_element_definition.pattern_meta_id.name
 
 class ElementDefinitionSlicing(models.Model):    
     _name = "hc.element.definition.slicing"    
@@ -949,6 +1196,75 @@ class ElementDefinitionExampleValue(models.Model):
         comodel_name="hc.element.definition.meta", 
         string="Value Meta", 
         help="Meta value of example (one of allowed types).")
+
+    @api.depends('value_type')              
+    def _compute_value_name(self):              
+        for hc_element_definition_example_value in self:
+            if hc_element_definition_example_value.value_type == 'integer':       
+                hc_element_definition_example_value.value_name = str(hc_element_definition_example_value.value_integer)
+            if hc_element_definition_example_value.value_type == 'decimal':   
+                hc_element_definition_example_value.value_name = str(hc_element_definition_example_value.value_decimal)
+            elif hc_element_definition_example_value.value_type == 'date_time':  
+                hc_element_definition_example_value.value_type = str(hc_element_definition_example_value.value_date_time)
+            elif hc_element_definition_example_value.value_type == 'date':      
+                hc_element_definition_example_value.value_name = str(hc_element_definition_example_value.value_date)
+            elif hc_element_definition_example_value.value_type == 'instant':   
+                hc_element_definition_example_value.value_name = str(hc_element_definition_example_value.value_instant)
+            elif hc_element_definition_example_value.value_type == 'string':      
+                hc_element_definition_example_value.value_name = hc_element_definition_example_value.value_string
+            elif hc_element_definition_example_value.value_type == 'uri': 
+                hc_element_definition_example_value.value_name = hc_element_definition_example_value.value_uri
+            elif hc_element_definition_example_value.value_type == 'boolean': 
+                hc_element_definition_example_value.value_name = hc_element_definition_example_value.value_boolean
+            elif hc_element_definition_example_value.value_type == 'code':    
+                hc_element_definition_example_value.value_name = hc_element_definition_example_value.value_code_id.name
+            elif hc_element_definition_example_value.value_type == 'markdown':    
+                hc_element_definition_example_value.value_name = hc_element_definition_example_value.value_markdown
+            elif hc_element_definition_example_value.value_type == 'coding':    
+                hc_element_definition_example_value.value_name = hc_element_definition_example_value.value_coding_id.name
+            elif hc_element_definition_example_value.value_type == 'codeable_concept':  
+                hc_element_definition_example_value.value_name = hc_element_definition_example_value.value_codeable_concept_id.name
+            elif hc_element_definition_example_value.value_type == 'attachment':    
+                hc_element_definition_example_value.value_name = hc_element_definition_example_value.value_attachment_id.name
+            elif hc_element_definition_example_value.value_type == 'identifier':    
+                hc_element_definition_example_value.value_name = hc_element_definition_example_value.value_identifier_id.name
+            elif hc_element_definition_example_value.value_type == 'quantity':
+                hc_element_definition_example_value.value_name = str(hc_element_definition_example_value.value_quantity)
+            elif hc_element_definition_example_value.value_type == 'range':
+                hc_element_definition_example_value.value_name = hc_element_definition_example_value.value_range
+            elif hc_element_definition_example_value.value_type == 'period':
+                hc_element_definition_example_value.value_name = hc_element_definition_example_value.value_period
+            elif hc_element_definition_example_value.value_type == 'ratio':
+                hc_element_definition_example_value.value_name = hc_element_definition_example_value.value_ratio
+            elif hc_element_definition_example_value.value_type == 'human_name':    
+                hc_element_definition_example_value.value_name = hc_element_definition_example_value.value_human_name_id.name
+            elif hc_element_definition_example_value.value_type == 'address':   
+                hc_element_definition_example_value.value_name = hc_element_definition_example_value.value_address_id.name   
+            elif hc_element_definition_example_value.value_type == 'contact_point':  
+                hc_element_definition_example_value.value_name = hc_element_definition_example_value.value_contact_point_id.name
+            elif hc_element_definition_example_value.value_type == 'timing':   
+                hc_element_definition_example_value.value_name = hc_element_definition_example_value.value_timing_id.name
+            elif hc_element_definition_example_value.value_type == 'signature':    
+                hc_element_definition_example_value.value_name = hc_element_definition_example_value.value_signature_id.name
+            elif hc_element_definition_example_value.value_type == 'reference':    
+                hc_element_definition_example_value.value_name = hc_element_definition_example_value.value_reference_id.name
+            elif hc_element_definition_example_value.value_type == 'time':   
+                hc_element_definition_example_value.value_type = str(hc_element_definition_example_value.value_time)                
+            elif hc_element_definition_example_value.value_type == 'oid': 
+                hc_element_definition_example_value.value_name = hc_element_definition_example_value.value_oid
+            elif hc_element_definition_example_value.value_type == 'id':  
+                hc_element_definition_example_value.value_name = hc_element_definition_example_value.value_id
+            elif hc_element_definition_example_value.value_type == 'unsigned_int':   
+                hc_element_definition_example_value.value_type = str(hc_element_definition_example_value.value_unsigned_int)                 
+            elif hc_element_definition_example_value.value_type == 'positive_int':   
+                hc_element_definition_example_value.value_type = str(hc_element_definition_example_value.value_positive_int)                
+            elif hc_element_definition_example_value.value_type == 'annotation':  
+                hc_element_definition_example_value.value_name = hc_element_definition_example_value.value_annotation_id.name
+            elif hc_element_definition_example_value.value_type == 'sampled_data':    
+                hc_element_definition_example_value.value_name = hc_element_definition_example_value.value_sampled_data_id.name
+            elif hc_element_definition_example_value.value_type == 'meta':    
+                hc_element_definition_example_value.value_name = hc_element_definition_example_value.value_meta_id.name
+
  
 class ElementDefinitionConstraint(models.Model):    
     _name = "hc.element.definition.constraint"    
@@ -1019,10 +1335,18 @@ class ElementDefinitionBinding(models.Model):
     value_set_uri = fields.Char(
         string="Value Set URI", 
         help="URI that source of value set.")                        
-    # value_set_id = fields.Many2one(
-    #     comodel_name="hc.res.value.set", 
-    #     string="Value Set", 
-    #     help="Value Set the reference to the value set.")                        
+    value_set_id = fields.Many2one(
+        comodel_name="hc.element.definition.value.set",
+        string="Value Set", 
+        help="Value Set the reference to the value set.")                        
+
+    @api.depends('value_set_type')  
+    def _compute_value_set_name(self):  
+        for hc_element_definition_binding in self:
+            if hc_element_definition_binding.value_set_type == 'uri': 
+                hc_element_definition_binding.value_set_name = hc_element_definition_binding.value_set_uri
+            elif hc_element_definition_binding.value_set_type == 'value_set': 
+                hc_element_definition_binding.value_set_name = hc_element_definition_binding.value_set_id.name
 
 class ElementDefinitionMapping(models.Model):    
     _name = "hc.element.definition.mapping"    
@@ -1112,7 +1436,7 @@ class ElementDefinitionSlicingDiscriminator(models.Model):
             ("profile", "Profile")], 
         help="How the element value is interpreted when discrimination is evaluated.")
     path = fields.Char(
-        string="Path",
+        string="FHIRPath Expression",
         required="True", 
         help="A FHIRPath expression, using a restricted subset of FHIRPath, that is used to identify the element on which discrimination is based.")              
 

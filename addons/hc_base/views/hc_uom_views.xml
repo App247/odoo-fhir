@@ -48,7 +48,7 @@
 
         <menuitem id="hc_base.menu_uom_cat"
                   name="UOM Category"
-                  parent="hc_base.menu_vs"
+                  parent="hc_base.menu_uom"
                   action="product_uom_categ_action"
                   groups="hc_base.group_hc_base_manager"
                   sequence="20"/>
@@ -116,7 +116,7 @@
                   parent="hc_base.menu_vs" 
                   action="product_uom_action" 
                   groups="hc_base.group_hc_base_manager" 
-                  sequence="21"/>
+                  sequence="20"/>
 
 
 

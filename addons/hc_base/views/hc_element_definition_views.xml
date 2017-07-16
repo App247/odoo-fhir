@@ -1,0 +1,638 @@
+<odoo>
+    <data>
+
+        <!-- Element Definition Views -->                                       
+                                        
+        <record id="hc_element_definition_view_search" model="ir.ui.view">                                      
+            <field name="name">Element Definition Search</field>                                    
+            <field name="model">hc.element.definition</field>                                   
+            <field name="arch" type="xml">                                  
+                <search string="Element Definitions">                               
+                </search>                               
+            </field>                                    
+        </record>                                       
+                                                
+        <record id="hc_element_definition_view_tree" model="ir.ui.view">                                        
+            <field name="name">Element Definition Tree</field>                                  
+            <field name="model">hc.element.definition</field>                                   
+            <field name="arch" type="xml">                                  
+                <tree string="Element Definitions">
+                    <field name="label"/>
+                    <field name="path"/>           
+                </tree>                             
+            </field>                                    
+        </record>                                       
+                                                
+        <record id="hc_element_definition_view_form" model="ir.ui.view">                                        
+            <field name="name">Element Definition Form</field>                                  
+            <field name="model">hc.element.definition</field>                                   
+            <field name="arch" type="xml">                                  
+                <form string="Element Definition">
+                    <sheet>
+                        <h1>
+                            <field name="label" placeholder="Label"/>
+                        </h1>     
+                        <group> 
+                            <group>
+                                <field name="path"/>
+                                <field name="slice_name"/>
+                                <field name="code_ids" widget="many2many_tags"/>
+                                <field name="short"/>
+                                <field name="definition"/>
+                                <field name="comment"/>
+                                <field name="requirements"/>
+                                <field name="min"/>
+                                <field name="max"/>
+                                <field name="content_reference"/>
+                                <field name="meaning_when_missing"/>
+                                <field name="order_meaning"/>
+                                <field name="max_length"/>
+                            </group>
+                            <group>
+                                <field name="slicing_id"/>
+                                <field name="base_id"/>
+                                <field name="binding_id"/>
+                                <field name="default_value_name"/>
+                                <field name="default_value_type" class="oe_edit_only"/>
+                                <field name="default_value_integer" class="oe_edit_only" attrs="{'invisible': [('default_value_type','!=','integer')], 'required': [('default_value_type','=','integer')]}"/>
+                                <field name="default_value_decimal" class="oe_edit_only" attrs="{'invisible': [('default_value_type','!=','decimal')], 'required': [('default_value_type','=','decimal')]}"/>
+                                <field name="default_value_date_time" class="oe_edit_only" attrs="{'invisible': [('default_value_type','!=','date_time')], 'required': [('default_value_type','=','date_time')]}"/>
+                                <field name="default_value_date" class="oe_edit_only" attrs="{'invisible': [('default_value_type','!=','date')], 'required': [('default_value_type','=','date')]}"/>
+                                <field name="default_value_instant" class="oe_edit_only" attrs="{'invisible': [('default_value_type','!=','instant')], 'required': [('default_value_type','=','instant')]}"/>
+                                <field name="default_value_string" class="oe_edit_only" attrs="{'invisible': [('default_value_type','!=','string')], 'required': [('default_value_type','=','string')]}"/>
+                                <field name="default_value_uri" class="oe_edit_only" attrs="{'invisible': [('default_value_type','!=','uri')], 'required': [('default_value_type','=','uri')]}"/>
+                                <field name="default_value_boolean" class="oe_edit_only" attrs="{'invisible': [('default_value_type','!=','boolean')], 'required': [('default_value_type','=','boolean')]}"/>
+                                <field name="default_value_code_id" class="oe_edit_only" attrs="{'invisible': [('default_value_type','!=','code')], 'required': [('default_value_type','=','code')]}"/>
+                                <field name="default_value_markdown" class="oe_edit_only" attrs="{'invisible': [('default_value_type','!=','markdown')], 'required': [('default_value_type','=','markdown')]}"/>
+                                <field name="default_value_base_64_binary" class="oe_edit_only" attrs="{'invisible': [('default_value_type','!=','base_64_binary')], 'required': [('default_value_type','=','base_64_binary')]}"/>
+                                <field name="default_value_coding_id" class="oe_edit_only" attrs="{'invisible': [('default_value_type','!=','coding')], 'required': [('default_value_type','=','coding')]}"/>
+                                <field name="default_value_codeable_concept_id" class="oe_edit_only" attrs="{'invisible': [('default_value_type','!=','codeable_concept')], 'required': [('default_value_type','=','codeable_concept')]}"/>
+                                <field name="default_value_attachment_id" class="oe_edit_only" attrs="{'invisible': [('default_value_type','!=','attachment')], 'required': [('default_value_type','=','attachment')]}"/>
+                                <field name="default_value_identifier_id" class="oe_edit_only" attrs="{'invisible': [('default_value_type','!=','identifier')], 'required': [('default_value_type','=','identifier')]}"/>
+                                <field name="default_value_quantity" class="oe_edit_only" attrs="{'invisible': [('default_value_type','!=','quantity')], 'required': [('default_value_type','=','quantity')]}"/>
+                                <field name="default_value_quantity_uom_id" class="oe_edit_only" attrs="{'invisible': [('default_value_type','!=','quantity')], 'required': [('default_value_type','=','quantity')]}"/>
+                                <field name="default_value_range" class="oe_edit_only" attrs="{'invisible': [('default_value_type','!=','range')], 'required': [('default_value_type','=','range')]}"/>
+                                <field name="default_value_period" class="oe_edit_only" attrs="{'invisible': [('default_value_type','!=','period')], 'required': [('default_value_type','=','period')]}"/>
+                                <field name="default_value_period_uom_id" class="oe_edit_only" attrs="{'invisible': [('default_value_type','!=','period')], 'required': [('default_value_type','=','period')]}"/>
+                                <field name="default_value_ratio" class="oe_edit_only" attrs="{'invisible': [('default_value_type','!=','ratio')], 'required': [('default_value_type','=','ratio')]}"/>
+                                <field name="default_value_human_name_id" class="oe_edit_only" attrs="{'invisible': [('default_value_type','!=','human_name')], 'required': [('default_value_type','=','human_name')]}"/>
+                                <field name="default_value_address_id" class="oe_edit_only" attrs="{'invisible': [('default_value_type','!=','address')], 'required': [('default_value_type','=','address')]}"/>
+                                <field name="default_value_contact_point_id" class="oe_edit_only" attrs="{'invisible': [('default_value_type','!=','contact_point')], 'required': [('default_value_type','=','contact_point')]}"/>
+                                <field name="default_value_timing_id" class="oe_edit_only" attrs="{'invisible': [('default_value_type','!=','timing')], 'required': [('default_value_type','=','timing')]}"/>
+                                <field name="default_value_signature_id" class="oe_edit_only" attrs="{'invisible': [('default_value_type','!=','signature')], 'required': [('default_value_type','=','signature')]}"/>
+                                <field name="default_value_reference_id" class="oe_edit_only" attrs="{'invisible': [('default_value_type','!=','reference')], 'required': [('default_value_type','=','reference')]}"/>
+                                <field name="default_value_time" class="oe_edit_only" attrs="{'invisible': [('default_value_type','!=','time')], 'required': [('default_value_type','=','time')]}"/>
+                                <field name="default_value_oid" class="oe_edit_only" attrs="{'invisible': [('default_value_type','!=','oid')], 'required': [('default_value_type','=','oid')]}"/>
+                                <field name="default_value_id" class="oe_edit_only" attrs="{'invisible': [('default_value_type','!=','id')], 'required': [('default_value_type','=','id')]}"/>
+                                <field name="default_value_unsigned_int" class="oe_edit_only" attrs="{'invisible': [('default_value_type','!=','unsigned_int')], 'required': [('default_value_type','=','unsigned_int')]}"/>
+                                <field name="default_value_positive_int" class="oe_edit_only" attrs="{'invisible': [('default_value_type','!=','positive_int')], 'required': [('default_value_type','=','positive_int')]}"/>
+                                <field name="default_value_annotation_id" class="oe_edit_only" attrs="{'invisible': [('default_value_type','!=','annotation')], 'required': [('default_value_type','=','annotation')]}"/>
+                                <field name="default_value_sampled_data_id" class="oe_edit_only" attrs="{'invisible': [('default_value_type','!=','sampled_data')], 'required': [('default_value_type','=','sampled_data')]}"/>
+                                <field name="default_value_meta_id" class="oe_edit_only" attrs="{'invisible': [('default_value_type','!=','meta')], 'required': [('default_value_type','=','meta')]}"/>
+                                <field name="fixed_name"/>
+                                <field name="fixed_type" class="oe_edit_only"/>
+                                <field name="fixed_integer" class="oe_edit_only" attrs="{'invisible': [('fixed_type','!=','integer')], 'required': [('fixed_type','=','integer')]}"/>
+                                <field name="fixed_decimal" class="oe_edit_only" attrs="{'invisible': [('fixed_type','!=','decimal')], 'required': [('fixed_type','=','decimal')]}"/>
+                                <field name="fixed_date_time" class="oe_edit_only" attrs="{'invisible': [('fixed_type','!=','date_time')], 'required': [('fixed_type','=','date_time')]}"/>
+                                <field name="fixed_date" class="oe_edit_only" attrs="{'invisible': [('fixed_type','!=','date')], 'required': [('fixed_type','=','date')]}"/>
+                                <field name="fixed_instant" class="oe_edit_only" attrs="{'invisible': [('fixed_type','!=','instant')], 'required': [('fixed_type','=','instant')]}"/>
+                                <field name="fixed_string" class="oe_edit_only" attrs="{'invisible': [('fixed_type','!=','string')], 'required': [('fixed_type','=','string')]}"/>
+                                <field name="fixed_uri" class="oe_edit_only" attrs="{'invisible': [('fixed_type','!=','uri')], 'required': [('fixed_type','=','uri')]}"/>
+                                <field name="fixed_boolean" class="oe_edit_only" attrs="{'invisible': [('fixed_type','!=','boolean')], 'required': [('fixed_type','=','boolean')]}"/>
+                                <field name="fixed_code_id" class="oe_edit_only" attrs="{'invisible': [('fixed_type','!=','code')], 'required': [('fixed_type','=','code')]}"/>
+                                <field name="fixed_markdown" class="oe_edit_only" attrs="{'invisible': [('fixed_type','!=','markdown')], 'required': [('fixed_type','=','markdown')]}"/>
+                                <field name="fixed_base_64_binary" class="oe_edit_only" attrs="{'invisible': [('fixed_type','!=','base_64_binary')], 'required': [('fixed_type','=','base_64_binary')]}"/>
+                                <field name="fixed_coding_id" class="oe_edit_only" attrs="{'invisible': [('fixed_type','!=','coding')], 'required': [('fixed_type','=','coding')]}"/>
+                                <field name="fixed_codeable_concept_id" class="oe_edit_only" attrs="{'invisible': [('fixed_type','!=','codeable_concept')], 'required': [('fixed_type','=','codeable_concept')]}"/>
+                                <field name="fixed_attachment_id" class="oe_edit_only" attrs="{'invisible': [('fixed_type','!=','attachment')], 'required': [('fixed_type','=','attachment')]}"/>
+                                <field name="fixed_identifier_id" class="oe_edit_only" attrs="{'invisible': [('fixed_type','!=','identifier')], 'required': [('fixed_type','=','identifier')]}"/>
+                                <field name="fixed_quantity" class="oe_edit_only" attrs="{'invisible': [('fixed_type','!=','quantity')], 'required': [('fixed_type','=','quantity')]}"/>
+                                <field name="fixed_quantity_uom_id" class="oe_edit_only" attrs="{'invisible': [('fixed_type','!=','quantity')], 'required': [('fixed_type','=','quantity')]}"/>
+                                <field name="fixed_range" class="oe_edit_only" attrs="{'invisible': [('fixed_type','!=','range')], 'required': [('fixed_type','=','range')]}"/>
+                                <field name="fixed_period" class="oe_edit_only" attrs="{'invisible': [('fixed_type','!=','period')], 'required': [('fixed_type','=','period')]}"/>
+                                <field name="fixed_period_uom_id" class="oe_edit_only" attrs="{'invisible': [('fixed_type','!=','period')], 'required': [('fixed_type','=','period')]}"/>
+                                <field name="fixed_ratio" class="oe_edit_only" attrs="{'invisible': [('fixed_type','!=','ratio')], 'required': [('fixed_type','=','ratio')]}"/>
+                                <field name="fixed_human_name_id" class="oe_edit_only" attrs="{'invisible': [('fixed_type','!=','human_name')], 'required': [('fixed_type','=','human_name')]}"/>
+                                <field name="fixed_address_id" class="oe_edit_only" attrs="{'invisible': [('fixed_type','!=','address')], 'required': [('fixed_type','=','address')]}"/>
+                                <field name="fixed_contact_point_id" class="oe_edit_only" attrs="{'invisible': [('fixed_type','!=','contact_point')], 'required': [('fixed_type','=','contact_point')]}"/>
+                                <field name="fixed_timing_id" class="oe_edit_only" attrs="{'invisible': [('fixed_type','!=','timing')], 'required': [('fixed_type','=','timing')]}"/>
+                                <field name="fixed_signature_id" class="oe_edit_only" attrs="{'invisible': [('fixed_type','!=','signature')], 'required': [('fixed_type','=','signature')]}"/>
+                                <field name="fixed_reference_id" class="oe_edit_only" attrs="{'invisible': [('fixed_type','!=','reference')], 'required': [('fixed_type','=','reference')]}"/>
+                                <field name="fixed_time" class="oe_edit_only" attrs="{'invisible': [('fixed_type','!=','time')], 'required': [('fixed_type','=','time')]}"/>
+                                <field name="fixed_oid" class="oe_edit_only" attrs="{'invisible': [('fixed_type','!=','oid')], 'required': [('fixed_type','=','oid')]}"/>
+                                <field name="fixed_id" class="oe_edit_only" attrs="{'invisible': [('fixed_type','!=','id')], 'required': [('fixed_type','=','id')]}"/>
+                                <field name="fixed_unsigned_int" class="oe_edit_only" attrs="{'invisible': [('fixed_type','!=','unsigned_int')], 'required': [('fixed_type','=','unsigned_int')]}"/>
+                                <field name="fixed_positive_int" class="oe_edit_only" attrs="{'invisible': [('fixed_type','!=','positive_int')], 'required': [('fixed_type','=','positive_int')]}"/>
+                                <field name="fixed_annotation_id" class="oe_edit_only" attrs="{'invisible': [('fixed_type','!=','annotation')], 'required': [('fixed_type','=','annotation')]}"/>
+                                <field name="fixed_sampled_data_id" class="oe_edit_only" attrs="{'invisible': [('fixed_type','!=','sampled_data')], 'required': [('fixed_type','=','sampled_data')]}"/>
+                                <field name="fixed_meta_id" class="oe_edit_only" attrs="{'invisible': [('fixed_type','!=','meta')], 'required': [('fixed_type','=','meta')]}"/>
+                                <field name="pattern_name"/>
+                                <field name="pattern_type" class="oe_edit_only"/>
+                                <field name="pattern_integer" class="oe_edit_only" attrs="{'invisible': [('pattern_type','!=','integer')], 'required': [('pattern_type','=','integer')]}"/>
+                                <field name="pattern_decimal" class="oe_edit_only" attrs="{'invisible': [('pattern_type','!=','decimal')], 'required': [('pattern_type','=','decimal')]}"/>
+                                <field name="pattern_date_time" class="oe_edit_only" attrs="{'invisible': [('pattern_type','!=','date_time')], 'required': [('pattern_type','=','date_time')]}"/>
+                                <field name="pattern_date" class="oe_edit_only" attrs="{'invisible': [('pattern_type','!=','date')], 'required': [('pattern_type','=','date')]}"/>
+                                <field name="pattern_instant" class="oe_edit_only" attrs="{'invisible': [('pattern_type','!=','instant')], 'required': [('pattern_type','=','instant')]}"/>
+                                <field name="pattern_string" class="oe_edit_only" attrs="{'invisible': [('pattern_type','!=','string')], 'required': [('pattern_type','=','string')]}"/>
+                                <field name="pattern_uri" class="oe_edit_only" attrs="{'invisible': [('pattern_type','!=','uri')], 'required': [('pattern_type','=','uri')]}"/>
+                                <field name="pattern_boolean" class="oe_edit_only" attrs="{'invisible': [('pattern_type','!=','boolean')], 'required': [('pattern_type','=','boolean')]}"/>
+                                <field name="pattern_code_id" class="oe_edit_only" attrs="{'invisible': [('pattern_type','!=','code')], 'required': [('pattern_type','=','code')]}"/>
+                                <field name="pattern_markdown" class="oe_edit_only" attrs="{'invisible': [('pattern_type','!=','markdown')], 'required': [('pattern_type','=','markdown')]}"/>
+                                <field name="pattern_base_64_binary" class="oe_edit_only" attrs="{'invisible': [('pattern_type','!=','base_64_binary')], 'required': [('pattern_type','=','base_64_binary')]}"/>
+                                <field name="pattern_coding_id" class="oe_edit_only" attrs="{'invisible': [('pattern_type','!=','coding')], 'required': [('pattern_type','=','coding')]}"/>
+                                <field name="pattern_codeable_concept_id" class="oe_edit_only" attrs="{'invisible': [('pattern_type','!=','codeable_concept')], 'required': [('pattern_type','=','codeable_concept')]}"/>
+                                <field name="pattern_attachment_id" class="oe_edit_only" attrs="{'invisible': [('pattern_type','!=','attachment')], 'required': [('pattern_type','=','attachment')]}"/>
+                                <field name="pattern_identifier_id" class="oe_edit_only" attrs="{'invisible': [('pattern_type','!=','identifier')], 'required': [('pattern_type','=','identifier')]}"/>
+                                <field name="pattern_quantity" class="oe_edit_only" attrs="{'invisible': [('pattern_type','!=','quantity')], 'required': [('pattern_type','=','quantity')]}"/>
+                                <field name="pattern_quantity_uom_id" class="oe_edit_only" attrs="{'invisible': [('pattern_type','!=','quantity')], 'required': [('pattern_type','=','quantity')]}"/>
+                                <field name="pattern_range" class="oe_edit_only" attrs="{'invisible': [('pattern_type','!=','range')], 'required': [('pattern_type','=','range')]}"/>
+                                <field name="pattern_period" class="oe_edit_only" attrs="{'invisible': [('pattern_type','!=','period')], 'required': [('pattern_type','=','period')]}"/>
+                                <field name="pattern_period_uom_id" class="oe_edit_only" attrs="{'invisible': [('pattern_type','!=','period')], 'required': [('pattern_type','=','period')]}"/>
+                                <field name="pattern_ratio" class="oe_edit_only" attrs="{'invisible': [('pattern_type','!=','ratio')], 'required': [('pattern_type','=','ratio')]}"/>
+                                <field name="pattern_human_name_id" class="oe_edit_only" attrs="{'invisible': [('pattern_type','!=','human_name')], 'required': [('pattern_type','=','human_name')]}"/>
+                                <field name="pattern_address_id" class="oe_edit_only" attrs="{'invisible': [('pattern_type','!=','address')], 'required': [('pattern_type','=','address')]}"/>
+                                <field name="pattern_contact_point_id" class="oe_edit_only" attrs="{'invisible': [('pattern_type','!=','contact_point')], 'required': [('pattern_type','=','contact_point')]}"/>
+                                <field name="pattern_timing_id" class="oe_edit_only" attrs="{'invisible': [('pattern_type','!=','timing')], 'required': [('pattern_type','=','timing')]}"/>
+                                <field name="pattern_signature_id" class="oe_edit_only" attrs="{'invisible': [('pattern_type','!=','signature')], 'required': [('pattern_type','=','signature')]}"/>
+                                <field name="pattern_reference_id" class="oe_edit_only" attrs="{'invisible': [('pattern_type','!=','reference')], 'required': [('pattern_type','=','reference')]}"/>
+                                <field name="pattern_time" class="oe_edit_only" attrs="{'invisible': [('pattern_type','!=','time')], 'required': [('pattern_type','=','time')]}"/>
+                                <field name="pattern_oid" class="oe_edit_only" attrs="{'invisible': [('pattern_type','!=','oid')], 'required': [('pattern_type','=','oid')]}"/>
+                                <field name="pattern_id" class="oe_edit_only" attrs="{'invisible': [('pattern_type','!=','id')], 'required': [('pattern_type','=','id')]}"/>
+                                <field name="pattern_unsigned_int" class="oe_edit_only" attrs="{'invisible': [('pattern_type','!=','unsigned_int')], 'required': [('pattern_type','=','unsigned_int')]}"/>
+                                <field name="pattern_positive_int" class="oe_edit_only" attrs="{'invisible': [('pattern_type','!=','positive_int')], 'required': [('pattern_type','=','positive_int')]}"/>
+                                <field name="pattern_annotation_id" class="oe_edit_only" attrs="{'invisible': [('pattern_type','!=','annotation')], 'required': [('pattern_type','=','annotation')]}"/>
+                                <field name="pattern_sampled_data_id" class="oe_edit_only" attrs="{'invisible': [('pattern_type','!=','sampled_data')], 'required': [('pattern_type','=','sampled_data')]}"/>
+                                <field name="pattern_meta_id" class="oe_edit_only" attrs="{'invisible': [('pattern_type','!=','meta')], 'required': [('pattern_type','=','meta')]}"/>
+                                <field name="min_value_name"/>
+                                <field name="min_value_type" class="oe_edit_only"/>
+                                <field name="min_value_date" class="oe_edit_only" attrs="{'invisible': [('min_value_type','!=','date')], 'required': [('min_value_type','=','date')]}"/>
+                                <field name="min_value_date_time" class="oe_edit_only" attrs="{'invisible': [('min_value_type','!=','date_time')], 'required': [('min_value_type','=','date_time')]}"/>
+                                <field name="min_value_instant" class="oe_edit_only" attrs="{'invisible': [('min_value_type','!=','instant')], 'required': [('min_value_type','=','instant')]}"/>
+                                <field name="min_value_decimal" class="oe_edit_only" attrs="{'invisible': [('min_value_type','!=','decimal')], 'required': [('min_value_type','=','decimal')]}"/>
+                                <field name="min_value_integer" class="oe_edit_only" attrs="{'invisible': [('min_value_type','!=','integer')], 'required': [('min_value_type','=','integer')]}"/>
+                                <field name="min_value_positive_int" class="oe_edit_only" attrs="{'invisible': [('min_value_type','!=','positive_int')], 'required': [('min_value_type','=','positive_int')]}"/>
+                                <field name="min_value_unsigned_int" class="oe_edit_only" attrs="{'invisible': [('min_value_type','!=','unsigned_int')], 'required': [('min_value_type','=','unsigned_int')]}"/>
+                                <field name="min_value_quantity" class="oe_edit_only" attrs="{'invisible': [('min_value_type','!=','quantity')], 'required': [('min_value_type','=','quantity')]}"/>
+                                <field name="max_value_name"/>
+                                <field name="max_value_type" class="oe_edit_only"/>
+                                <field name="max_value_date" class="oe_edit_only" attrs="{'invisible': [('max_value_type','!=','date')], 'required': [('max_value_type','=','date')]}"/>
+                                <field name="max_value_date_time" class="oe_edit_only" attrs="{'invisible': [('max_value_type','!=','date_time')], 'required': [('max_value_type','=','date_time')]}"/>
+                                <field name="max_value_instant" class="oe_edit_only" attrs="{'invisible': [('max_value_type','!=','instant')], 'required': [('max_value_type','=','instant')]}"/>
+                                <field name="max_value_decimal" class="oe_edit_only" attrs="{'invisible': [('max_value_type','!=','decimal')], 'required': [('max_value_type','=','decimal')]}"/>
+                                <field name="max_value_integer" class="oe_edit_only" attrs="{'invisible': [('max_value_type','!=','integer')], 'required': [('max_value_type','=','integer')]}"/>
+                                <field name="max_value_positive_int" class="oe_edit_only" attrs="{'invisible': [('max_value_type','!=','positive_int')], 'required': [('max_value_type','=','positive_int')]}"/>
+                                <field name="max_value_unsigned_int" class="oe_edit_only" attrs="{'invisible': [('max_value_type','!=','unsigned_int')], 'required': [('max_value_type','=','unsigned_int')]}"/>
+                                <field name="max_value_quantity" class="oe_edit_only" attrs="{'invisible': [('max_value_type','!=','quantity')], 'required': [('max_value_type','=','quantity')]}"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Representations">                 
+                                <field name="representation_ids" mode="tree">               
+                                    <tree>
+                                        <field name="representation"/>          
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                    <field name="representation"/>
+                                                </group>
+                                            </group>    
+                                        </sheet>        
+                                    </form>         
+                                </field>                
+                            </page>
+                            <page string="Aliases">                 
+                                <field name="alias_ids" mode="tree">               
+                                    <tree>
+                                        <field name="alias"/>          
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                    <field name="alias"/>
+                                                </group>
+                                            </group>    
+                                        </sheet>        
+                                    </form>         
+                                </field>                
+                            </page>
+                            <page string="Conditions">                 
+                                <field name="condition_ids" mode="tree">               
+                                    <tree>
+                                        <field name="condition"/>          
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                    <field name="condition"/>
+                                                </group>
+                                            </group>    
+                                        </sheet>        
+                                    </form>         
+                                </field>                
+                            </page>
+                            <page string="Types">                 
+                                <field name="type_ids" mode="tree">               
+                                    <tree>
+                                         <field name="code"/> 
+                                         <field name="profile"/> 
+                                         <field name="target_profile"/>
+                                         <field name="versioning"/>       
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                    <field name="code"/> 
+                                                    <field name="profile"/> 
+                                                    <field name="target_profile"/>
+                                                    <field name="versioning"/>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                            <notebook>
+                                                <page string="Aggregations">                 
+                                                    <field name="aggregation_ids" mode="tree">               
+                                                        <tree>
+                                                            <field name="aggregation"/>            
+                                                        </tree>         
+                                                        <form>          
+                                                            <sheet>     
+                                                                <group> 
+                                                                    <group>
+                                                                        <field name="aggregation"/>    
+                                                                    </group>
+                                                                </group>    
+                                                            </sheet>        
+                                                        </form>         
+                                                    </field>                
+                                                </page>    
+                                            </notebook>    
+                                        </sheet>        
+                                    </form>         
+                                </field>                
+                            </page>
+                            <page string="Examples">                 
+                                <field name="example_ids" mode="tree">               
+                                    <tree>
+                                        <field name="label"/>            
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                    <field name="label"/>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                            <notebook>
+                                                <page string="Values">                 
+                                                    <field name="value_ids" mode="tree">               
+                                                        <tree>
+                                                            <field name="value_name"/>
+                                                            <field name="value_type"/>             
+                                                        </tree>         
+                                                        <form>          
+                                                            <sheet>     
+                                                                <group> 
+                                                                    <group>
+                                                                        <field name="value_name"/>
+                                                                        <field name="value_type" class="oe_edit_only"/>
+                                                                        <field name="value_integer" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','integer')], 'required': [('value_type','=','integer')]}"/>
+                                                                        <field name="value_decimal" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','decimal')], 'required': [('value_type','=','decimal')]}"/>
+                                                                        <field name="value_date_time" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','date_time')], 'required': [('value_type','=','date_time')]}"/>
+                                                                        <field name="value_date" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','date')], 'required': [('value_type','=','date')]}"/>
+                                                                        <field name="value_instant" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','instant')], 'required': [('value_type','=','instant')]}"/>
+                                                                        <field name="value_string" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','string')], 'required': [('value_type','=','string')]}"/>
+                                                                        <field name="value_uri" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','uri')], 'required': [('value_type','=','uri')]}"/>
+                                                                        <field name="value_boolean" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','boolean')], 'required': [('value_type','=','boolean')]}"/>
+                                                                        <field name="value_code_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','code')], 'required': [('value_type','=','code')]}"/>
+                                                                        <field name="value_markdown" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','markdown')], 'required': [('value_type','=','markdown')]}"/>
+                                                                        <field name="value_base_64_binary" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','base_64_binary')], 'required': [('value_type','=','base_64_binary')]}"/>
+                                                                        <field name="value_coding_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','coding')], 'required': [('value_type','=','coding')]}"/>
+                                                                        <field name="value_codeable_concept_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','codeable_concept')], 'required': [('value_type','=','codeable_concept')]}"/>
+                                                                        <field name="value_attachment_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','attachment')], 'required': [('value_type','=','attachment')]}"/>
+                                                                        <field name="value_identifier_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','identifier')], 'required': [('value_type','=','identifier')]}"/>
+                                                                        <field name="value_quantity" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','quantity')], 'required': [('value_type','=','quantity')]}"/>
+                                                                        <field name="value_quantity_uom_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','quantity')], 'required': [('value_type','=','quantity')]}"/>
+                                                                        <field name="value_range" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','range')], 'required': [('value_type','=','range')]}"/>
+                                                                        <field name="value_period" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','period')], 'required': [('value_type','=','period')]}"/>
+                                                                        <field name="value_period_uom_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','period')], 'required': [('value_type','=','period')]}"/>
+                                                                        <field name="value_ratio" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','ratio')], 'required': [('value_type','=','ratio')]}"/>
+                                                                        <field name="value_human_name_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','human_name')], 'required': [('value_type','=','human_name')]}"/>
+                                                                        <field name="value_address_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','address')], 'required': [('value_type','=','address')]}"/>
+                                                                        <field name="value_contact_point_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','contact_point')], 'required': [('value_type','=','contact_point')]}"/>
+                                                                        <field name="value_timing_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','timing')], 'required': [('value_type','=','timing')]}"/>
+                                                                        <field name="value_signature_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','signature')], 'required': [('value_type','=','signature')]}"/>
+                                                                        <field name="value_reference_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','reference')], 'required': [('value_type','=','reference')]}"/>
+                                                                        <field name="value_time" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','time')], 'required': [('value_type','=','time')]}"/>
+                                                                        <field name="value_oid" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','oid')], 'required': [('value_type','=','oid')]}"/>
+                                                                        <field name="value_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','id')], 'required': [('value_type','=','id')]}"/>
+                                                                        <field name="value_unsigned_int" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','unsigned_int')], 'required': [('value_type','=','unsigned_int')]}"/>
+                                                                        <field name="value_positive_int" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','positive_int')], 'required': [('value_type','=','positive_int')]}"/>
+                                                                        <field name="value_annotation_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','annotation')], 'required': [('value_type','=','annotation')]}"/>
+                                                                        <field name="value_sampled_data_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','sampled_data')], 'required': [('value_type','=','sampled_data')]}"/>
+                                                                        <field name="value_meta_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','meta')], 'required': [('value_type','=','meta')]}"/>
+                                                                    </group>
+                                                                </group>    
+                                                            </sheet>        
+                                                        </form>         
+                                                    </field>                
+                                                </page>    
+                                            </notebook>    
+                                        </sheet>        
+                                    </form>         
+                                </field>                
+                            </page>
+                            <page string="Constraints">                 
+                                <field name="constraint_ids" mode="tree">               
+                                    <tree>
+                                        <field name="key"/>
+                                        <field name="requirements"/>
+                                        <field name="severity"/> 
+                                        <field name="human"/> 
+                                        <field name="expression"/> 
+                                        <field name="xpath"/> 
+                                        <field name="source"/>           
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                    <field name="key"/>
+                                                    <field name="requirements"/>
+                                                    <field name="severity"/>
+                                                    <field name="human"/>  
+                                                    <field name="source"/> 
+                                                </group>
+                                                <group string="Expressions">
+                                                    <field name="expression"/> 
+                                                    <field name="xpath"/>                                                                           
+                                                </group>
+                                            </group>    
+                                        </sheet>        
+                                    </form>         
+                                </field>                
+                            </page>
+                            <page string="Mappings">                 
+                                <field name="mapping_ids" mode="tree">               
+                                    <tree>
+                                        <field name="identity"/>
+                                        <field name="language"/>
+                                        <field name="map"/>
+                                        <field name="comment"/>          
+                                    </tree>         
+                                    <form>          
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                    <field name="identity"/>
+                                                    <field name="language"/>
+                                                    <field name="map"/>
+                                                    <field name="comment"/>                                                                         
+                                                </group>
+                                            </group>    
+                                        </sheet>        
+                                    </form>         
+                                </field>                
+                            </page>  
+                        </notebook>      
+                    </sheet>
+                </form>                                                           
+            </field>                                    
+        </record>                                       
+                                                
+        <act_window id="hc_element_definition_action"                                       
+                    name="HC Element Definitions"                           
+                    res_model="hc.element.definition"                           
+                    view_mode="tree,form"                           
+                    domain=""                           
+                    context=""                          
+                    limit=""/>
+
+        <menuitem id="hc_base.menu_elem_def" 
+                  name="Element Definition" 
+                  parent="hc_base.menu_datatype" 
+                  action="hc_element_definition_action" 
+                  groups="hc_base.group_hc_base_manager" 
+                  sequence="35"/>                          
+
+        <!-- Element Definition Slicing Views -->                                       
+                                                
+        <record id="hc_element_definition_slicing_view_search" model="ir.ui.view">                                      
+            <field name="name">Element Definition Slicing Search</field>                                    
+            <field name="model">hc.element.definition.slicing</field>                                   
+            <field name="arch" type="xml">                                  
+                <search string="Element Definition Slicings">                               
+                </search>                               
+            </field>                                    
+        </record>                                       
+                                                
+        <record id="hc_element_definition_slicing_view_tree" model="ir.ui.view">                                        
+            <field name="name">Element Definition Slicing Tree</field>                                  
+            <field name="model">hc.element.definition.slicing</field>                                   
+            <field name="arch" type="xml">                                  
+                <tree string="Element Definition Slicings">
+                    <field name="is_ordered"/>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="rules"/>                              
+                </tree>                             
+            </field>                                    
+        </record>                                       
+                                                
+        <record id="hc_element_definition_slicing_view_form" model="ir.ui.view">                                        
+            <field name="name">Element Definition Slicing Form</field>                                  
+            <field name="model">hc.element.definition.slicing</field>                                   
+            <field name="arch" type="xml">                                  
+                <form string="Element Definition Slicing">                              
+                    <sheet>                         
+                        <h1>                        
+                            <field name="name" default_focus="1" placeholder="Name"/>                   
+                        </h1>
+                        <field name="description" placeholder="Description"/>                       
+                        <group>                     
+                            <group>
+                                <field name="is_ordered"/>
+                                <field name="rules"/>                  
+                            </group>                    
+                            <group>                 
+                            </group>                    
+                        </group>                        
+                        <notebook>                      
+                            <page string="Discriminators">                 
+                                <field name="discriminator_ids" mode="tree">               
+                                    <tree>
+                                        <field name="type"/>
+                                        <field name="path"/>          
+                                    </tree>         
+                                    <form>       
+                                        <sheet>     
+                                            <group> 
+                                                <group>
+                                                    <field name="type"/>
+                                                    <field name="path"/>                                                      
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>    
+                                        </sheet>        
+                                    </form>         
+                                </field>                
+                            </page>                 
+                        </notebook>                     
+                    </sheet>                            
+                </form>                             
+            </field>                                    
+        </record>                                       
+                                                
+        <act_window id="hc_element_definition_slicing_action"                                       
+                    name="HC Element Definition Slicings"                           
+                    res_model="hc.element.definition.slicing"                           
+                    view_mode="tree,form"                           
+                    domain=""                           
+                    context=""                          
+                    limit=""/>                          
+
+            <menuitem id="hc_base.menu_elem_def_slice" 
+                      name="Slicing" 
+                      parent="hc_base.menu_elem_def" 
+                      action="hc_element_definition_slicing_action" 
+                      groups="hc_base.group_hc_base_manager" 
+                      sequence="10"/>
+
+        <!-- Element Definition Base Views -->                                      
+                                                
+        <record id="hc_element_definition_base_view_search" model="ir.ui.view">                                     
+            <field name="name">Element Definition Base Search</field>                                   
+            <field name="model">hc.element.definition.base</field>                                  
+            <field name="arch" type="xml">                                  
+                <search string="Element Definition Bases">                              
+                </search>                               
+            </field>                                    
+        </record>                                       
+                                                
+        <record id="hc_element_definition_base_view_tree" model="ir.ui.view">                                       
+            <field name="name">Element Definition Base Tree</field>                                 
+            <field name="model">hc.element.definition.base</field>                                  
+            <field name="arch" type="xml">                                  
+                <tree string="Element Definition Bases">          
+                    <field name="name"/>                
+                    <field name="path"/>
+                    <field name="min"/>
+                    <field name="max"/>                                                   
+                </tree>                             
+            </field>                                    
+        </record>                                       
+                                                
+        <record id="hc_element_definition_base_view_form" model="ir.ui.view">                                       
+            <field name="name">Element Definition Base Form</field>                                 
+            <field name="model">hc.element.definition.base</field>                                  
+            <field name="arch" type="xml">                                  
+                <form string="Element Definition Base">                             
+                    <sheet>                         
+                        <h1>                        
+                            <field name="name" default_focus="1" placeholder="Name"/>                   
+                        </h1>
+                        <field name="path" placeholder="FHIRPath Expression"/>                        
+                        <group>                    
+                            <group>
+                                <field name="min"/>
+                                <field name="max"/>                   
+                            </group>                  
+                            <group>                 
+                            </group>                    
+                        </group>                                            
+                    </sheet>                            
+                </form>                             
+            </field>                                    
+        </record>                                       
+                                                
+        <act_window id="hc_element_definition_base_action"                                      
+                    name="HC Element Definition Bases"                          
+                    res_model="hc.element.definition.base"                          
+                    view_mode="tree,form"                           
+                    domain=""                           
+                    context=""                          
+                    limit=""/>
+
+            <menuitem id="hc_base.menu_elem_def_base" 
+                      name="Bases" 
+                      parent="hc_base.menu_elem_def" 
+                      action="hc_element_definition_base_action" 
+                      groups="hc_base.group_hc_base_manager" 
+                      sequence="20"/>
+                          
+        <!-- Element Definition Binding Views -->                                       
+                                                
+        <record id="hc_element_definition_binding_view_search" model="ir.ui.view">                                      
+            <field name="name">Element Definition Binding Search</field>                                    
+            <field name="model">hc.element.definition.binding</field>                                   
+            <field name="arch" type="xml">                                  
+                <search string="Element Definition Bindings">                               
+                </search>                               
+            </field>                                    
+        </record>                                       
+                                                
+        <record id="hc_element_definition_binding_view_tree" model="ir.ui.view">                                        
+            <field name="name">Element Definition Binding Tree</field>                                  
+            <field name="model">hc.element.definition.binding</field>                                   
+            <field name="arch" type="xml">                                  
+                <tree string="Element Definition Bindings">
+                    <field name="name"/>
+                    <field name="strength"/> 
+                    <field name="description"/> 
+                    <field name="value_set_name"/> 
+                    <field name="value_set_type"/>                             
+                </tree>                             
+            </field>                                    
+        </record>                                       
+                                                
+        <record id="hc_element_definition_binding_view_form" model="ir.ui.view">                                        
+            <field name="name">Element Definition Binding Form</field>                                  
+            <field name="model">hc.element.definition.binding</field>                                   
+            <field name="arch" type="xml">                                  
+                <form string="Element Definition Binding">                              
+                    <sheet>                         
+                        <h1>                        
+                            <field name="name" default_focus="1" placeholder="Name"/>                   
+                        </h1>
+                        <field name="description" placeholder="Description"/>                       
+                        <group>                     
+                            <group>
+                                <group> 
+                                <field name="strength"/> 
+                                <field name="value_set_name"/> 
+                                <field name="value_set_type"/>
+                                <field name="value_set_uri" class="oe_edit_only" attrs="{'invisible': [('value_set_type','!=','uri')], 'required': [('value_set_type','=','uri')]}"/>
+                                <field name="value_set_id" class="oe_edit_only" attrs="{'invisible': [('value_set_type','!=','value_set')], 'required': [('value_set_type','=','value_set')]}"/>
+                                </group>                 
+                            </group>                                   
+                        </group>                                           
+                    </sheet>                            
+                </form>                             
+            </field>                                    
+        </record>                                       
+                                                
+        <act_window id="hc_element_definition_binding_action"                                       
+                    name="HC Element Definition Bindings"                           
+                    res_model="hc.element.definition.binding"                           
+                    view_mode="tree,form"                           
+                    domain=""                           
+                    context=""                          
+                    limit=""/>
+
+        <menuitem id="hc_base.menu_elem_def_bind" 
+                  name="Bindings" 
+                  parent="hc_base.menu_elem_def" 
+                  action="hc_element_definition_binding_action" 
+                  groups="hc_base.group_hc_base_manager" 
+                  sequence="30"/>                          
+
+    </data>
+</odoo>

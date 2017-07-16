@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 
 from openerp import models, fields, api
+from datetime import datetime
+from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as DTF
 
 class StructureDefinition(models.Model):
     _name = "hc.res.structure.definition"
     _description = "Structure Definition"
-    _rec_name = "title"
 
     url = fields.Char(
         string="URI",
@@ -22,7 +23,7 @@ class StructureDefinition(models.Model):
     name = fields.Char(
         string="Name",
         required="True",
-        help="Informal name for this Structure Definition.")
+        help="Name for this structure definition (computer friendly).")
     # added
     display = fields.Char(
         string="Display",
@@ -40,6 +41,11 @@ class StructureDefinition(models.Model):
             ("unknown", "Unknown")],
         default="draft",
         help="The status of this structure definition. Enables tracking the life-cycle of the content.")
+    status_history_ids = fields.One2many(       
+        comodel_name="hc.structure.definition.status.history",  
+        inverse_name="structure_definition_id", 
+        string="Status History",    
+        help="The status of the structure definition over time.")   
     is_experimental = fields.Boolean(
         string="Experimental",
         help="If for testing purposes, not real usage.")
@@ -90,9 +96,12 @@ class StructureDefinition(models.Model):
             ("resource", "Resource"),
             ("logical", "Logical")],
         help="Defines the kind of structure that this definition is describing.")
-    is_abstract = fields.Boolean(
+    abstract = fields.Selection(
         string="Abstract",
         required="True",
+        selection=[
+            ("true", "True"),
+            ("false", "False")],
         help="Whether the structure is abstract.")
     context_type = fields.Selection(
         string="Context Type",
@@ -142,6 +151,52 @@ class StructureDefinition(models.Model):
         comodel_name="hc.structure.definition.differential",
         string="Differential",
         help="Differential view of the structure.")
+
+    @api.model                          
+    def create(self, vals):                         
+        status_history_obj = self.env['hc.structure.definition.status.history']                     
+        res = super(StructureDefinition, self).create(vals)                     
+        if vals and vals.get('status'):                     
+            status_history_vals = {                 
+                'structure_definition_id': res.id,              
+                'status': res.status,               
+                'start_date': datetime.today()              
+                }               
+            status_history_obj.create(status_history_vals)                  
+        return res                      
+                                
+    @api.multi                          
+    def write(self, vals):                          
+        status_history_obj = self.env['hc.structure.definition.status.history']                     
+        res = super(StructureDefinition, self).write(vals)                      
+        status_history_record_ids = status_history_obj.search([('end_date','=', False)])                        
+        if status_history_record_ids:                       
+            if vals.get('status') and status_history_record_ids[0].status != vals.get('status'):                    
+                for status_history in status_history_record_ids:                
+                    status_history.end_date = datetime.strftime(datetime.today(), DTF)          
+                    time_diff = datetime.today() - datetime.strptime(status_history.start_date, DTF)            
+                    if time_diff:           
+                        days = str(time_diff).split(',')        
+                        if days and len(days) > 1:      
+                            status_history.time_diff_day = str(days[0]) 
+                            times = str(days[1]).split(':') 
+                            if times and times > 1: 
+                                status_history.time_diff_hour = str(times[0])
+                                status_history.time_diff_min = str(times[1])
+                                status_history.time_diff_sec = str(times[2])
+                        else:       
+                            times = str(time_diff).split(':')   
+                            if times and times > 1: 
+                                status_history.time_diff_hour = str(times[0])
+                                status_history.time_diff_min = str(times[1])
+                                status_history.time_diff_sec = str(times[2])
+                status_history_vals = {             
+                    'structure_definition_id': self.id,         
+                    'status': vals.get('status'),           
+                    'start_date': datetime.today()          
+                    }           
+                status_history_obj.create(status_history_vals)              
+        return res                      
 
 class StructureDefinitionMapping(models.Model):
     _name = "hc.structure.definition.mapping"
@@ -203,6 +258,36 @@ class StructureDefinitionIdentifier(models.Model):
         string="Structure Definition",
         help="Structure Definition associated with this Structure Definition Identifier.")
 
+class StructureDefinitionStatusHistory(models.Model):           
+    _name = "hc.structure.definition.status.history"        
+    _description = "Structure Definition Status History"        
+            
+    structure_definition_id = fields.Many2one(      
+        comodel_name="hc.res.structure.definition", 
+        string="Structure Definition",  
+        help="Structure Definition associated with this Structure Definition Status History.")  
+    status = fields.Char(       
+        string="Status",    
+        help="The status of the structure definition.") 
+    start_date = fields.Datetime(       
+        string="Start Date",    
+        help="Start of the period during which this structure definition status is valid.") 
+    end_date = fields.Datetime(     
+        string="End Date",  
+        help="End of the period during which this structure definition status is valid.")   
+    time_diff_day = fields.Char(        
+        string="Time Diff (days)",  
+        help="Days duration of the status.")    
+    time_diff_hour = fields.Char(       
+        string="Time Diff (hours)", 
+        help="Hours duration of the status.")   
+    time_diff_min = fields.Char(        
+        string="Time Diff (minutes)",   
+        help="Minutes duration of the status.") 
+    time_diff_sec = fields.Char(        
+        string="Time Diff (seconds)",   
+        help="Seconds duration of the status.") 
+
 class StructureDefinitionContact(models.Model):
     _name = "hc.structure.definition.contact"
     _description = "Structure Definition Contact"
@@ -230,6 +315,16 @@ class StructureDefinitionUseContext(models.Model):
         string="Structure Definition",
         help="Structure Definition associated with this Structure Definition Use Context.")
 
+    @api.depends('value_type')  
+    def _compute_value_name(self):  
+        for hc_structure_definition_usage_context in self:
+            if hc_structure_definition_usage_context.value_type == 'code':   
+                hc_structure_definition_usage_context.value_name = hc_structure_definition_usage_context.value_code_id.name            
+            elif hc_structure_definition_usage_context.value_type == 'quantity': 
+                hc_structure_definition_usage_context.value_name = str(hc_structure_definition_usage_context.value_quantity) + " " + str(hc_structure_definition_usage_context.value_quantity_uom_id.name)
+            elif hc_structure_definition_usage_context.value_type == 'range':    
+                hc_structure_definition_usage_context.value_name = "Between " + str(hc_structure_definition_usage_context.value_range_low) + " and " + str(hc_structure_definition_usage_context.value_range_high)
+
 class StructureDefinitionContext(models.Model):
     _name = "hc.structure.definition.context"
     _description = "Structure Definition Context"
@@ -239,7 +334,8 @@ class StructureDefinitionContext(models.Model):
         comodel_name="hc.res.structure.definition",
         string="Structure Definition",
         help="Structure Definition associated with this Structure Definition Context.")
-    context = fields.Char(string="Context",
+    context = fields.Char(
+        string="Context",
         help="Context associated with this Structure Definition Context.")
 
 class StructureDefinitionContextInvariant(models.Model):

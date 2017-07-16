@@ -17,7 +17,6 @@
             <field name="model">hc.res.person</field>
             <field name="arch" type="xml">
                 <tree string="Persons">
-<!--                     <field name="preferred_name"/> -->
                     <field name="name_id"/>
                     <field name="gender"/>
                     <field name="birth_date"/>
@@ -68,7 +67,7 @@
                                             </h1>
                                             <group>
                                                 <group>
-                                                    <field name="use" widget="radio"/>
+                                                    <field name="use" widget="radio" options="{'horizontal': true}"/>
                                                     <field name="is_preferred"/>
                                                     <field name="is_active"/>
                                                     <field name="start_date" placeholder="Valid From"/>
@@ -133,15 +132,17 @@
                                     </tree>
                                     <form>
                                         <sheet>
-                                            <group col="4" colspan="4">
-                                                <field name="use" widget="radio" colspan="4"/>
+                                            <h1>
                                                 <field name="address_id" class="oe_no_button"/>
-                                            </group>
+                                            </h1>
+                                            <field name="use" widget="radio" options="{'horizontal': true}"/>
                                             <group>
-                                                <field name="is_preferred"/>
-                                                <field name="is_active"/>
-                                                <field name="start_date" placeholder="Valid From"/>
-                                                <field name="end_date" placeholder="Valid To"/>
+                                                <group>
+                                                    <field name="is_preferred"/>
+                                                    <field name="is_active"/>
+                                                    <field name="start_date" placeholder="Valid From"/>
+                                                    <field name="end_date" placeholder="Valid To"/>
+                                                </group>
                                             </group>
                                         </sheet>
                                     </form>
@@ -149,23 +150,23 @@
                             </page>
                             <page string="Telecom">
                                 <field name="telecom_ids" mode="tree">
-                                    <tree default_order="is_preferred">
+                                    <tree default_order="is_preferred,rank">
                                         <field name="is_preferred"/>
+                                        <field name="rank"/>
                                         <field name="use"/>
                                         <field name="telecom_id"/>
-                                        <field name="rank"/>
                                         <field name="start_date"/>
                                         <field name="end_date"/>
                                     </tree>
                                     <form>
                                         <sheet>
+                                            <h1>
+                                                <field name="telecom_id"/>
+                                            </h1>
+                                            <field name="use" widget="radio" options="{'horizontal': true}"/>
                                             <group>
                                                 <group>
-                                                    <field name="use"/>
-                                                    <field name="telecom_id"/>
                                                     <field name="rank"/>
-                                                </group>
-                                                <group>
                                                     <field name="is_preferred"/>
                                                     <field name="is_active"/>
                                                     <field name="start_date" placeholder="Valid From"/>

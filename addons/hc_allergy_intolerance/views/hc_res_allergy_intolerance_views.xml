@@ -279,7 +279,7 @@
                   web_icon="hc_allergy_intolerance,static/description/icon.png"
                   parent="hc_base.menu_clinic_gen"
                   action="hc_res_allergy_intolerance_action"
-                  groups="hc_base.group_hc_base_manager"
+                  groups="hc_base.group_hc_base_user"
                   sequence="10"/>
 
         <!-- Allergy Intolerance Value Set Action and Menu -->
@@ -344,7 +344,7 @@
         <menuitem id="hc_allergy_intolerance.menu_allergy_conf"
                   name="Configuration"
                   parent="hc_allergy_intolerance.menu_allergy"
-                  groups="hc_base.group_hc_base_manager"
+                  groups="hc_base.group_hc_base_user"
                   sequence="10"/> -->
 
         <act_window id="hc_vs_allergy_intolerance_code_action"
@@ -359,7 +359,7 @@
                   name="Allergy Intolerance Codes"
                   parent="hc_allergy_intolerance.menu_allergy"
                   action="hc_vs_allergy_intolerance_code_action"
-                  groups="hc_base.group_hc_base_manager"
+                  groups="hc_base.group_hc_base_user"
                   sequence="10"/>
 
         <!-- Manifestation Code Value Set Action and Menu -->
@@ -433,7 +433,7 @@
                   name="Manifestation Codes"
                   parent="hc_allergy_intolerance.menu_allergy"
                   action="hc_vs_manifestation_code_action"
-                  groups="hc_base.group_hc_base_manager"
+                  groups="hc_base.group_hc_base_user"
                   sequence="20"/>
 
     </data>

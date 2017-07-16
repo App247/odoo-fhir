@@ -151,7 +151,7 @@
         
         <menuitem id="hc_base.menu_vs_part_sub" 
                   name="Participation Type Subsets" 
-                  parent="hc_base.menu_vs" 
+                  parent="hc_base.menu_vs_part" 
                   action="hc_vs_participation_type_subset_action" 
                   groups="hc_base.group_hc_base_manager" 
                   sequence="10"/>
