@@ -67,7 +67,8 @@ class Identifier(models.Model):
                 comp_name = hc_identifier.code_id.name or '' 
             if hc_identifier.value:        
                 comp_name = comp_name + ", " + hc_identifier.value or '' 
-                
+            hc_identifier.name = comp_name
+    
 class IdentifierCode(models.Model):
     _name = "hc.vs.identifier.code"
     _description = "Identifier Code"

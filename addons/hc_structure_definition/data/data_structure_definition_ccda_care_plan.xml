@@ -1,0 +1,35 @@
+<odoo>
+    <data>
+
+        <record id="ccda-care-plan-composition" model="hc.res.structure.definition">    
+            <field name="url">http://hl7.org/fhir/ccda/StructureDefinition/ccda-care-plan-composition</field>
+            <field name="name">C-CDA on FHIR Care Plan</field>
+            <field name="status">draft</field>
+            <field name="publisher">Lantana Consulting Group</field>
+            <field name="date">2016-08-11T00:38:46+10:00</field>
+            <field name="description">tbd</field>
+            <field name="kind">resource</field>
+            <field name="abstract">false</field>
+            <field name="type">Composition</field>
+            <field name="base_definition">http://hl7.org/fhir/ccda/StructureDefinition/ccda-us-realm-header-composition</field>
+            <field name="derivation">constraint</field>
+        </record>   
+
+
+        <record id="ccda-care-plan-12" model="hc.contact.detail.telecom">
+            <field name="contact_detail_id"></field>
+            <field name="telecom_id" ref=""/>
+            <field name="contact_id" ref=""/>   
+            <field name="use">work</field>
+        </record>   
+        
+        <record id="ccda-care-plan-17" model="hc.contact.detail.telecom">
+            <field name="contact_detail_id"></field>
+            <field name="telecom_id"></field>
+            <field name="contact_id"></field>   
+            <field name="use">work</field>
+        </record>   
+
+
+    </data>
+</odoo>

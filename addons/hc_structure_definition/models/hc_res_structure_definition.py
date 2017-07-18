@@ -125,9 +125,11 @@ class StructureDefinition(models.Model):
         required="True",
         selection=[
             ("type", "Type"),
+            ("element", "Element"),
             ("resource", "Resource"),
             ("constraint", "Constraint"),
-            ("extension", "Extension")],
+            ("extension", "Extension"),
+            ("composition", "Composition")],
         help="The type this structure is describes.")
     base_definition = fields.Char(
         string="Base Definition URI",
@@ -257,6 +259,16 @@ class StructureDefinitionIdentifier(models.Model):
         comodel_name="hc.res.structure.definition",
         string="Structure Definition",
         help="Structure Definition associated with this Structure Definition Identifier.")
+
+    @api.depends('code_id', 'value')            
+    def _compute_name(self):            
+        comp_name = '/'     
+        for hc_structure_definition_identifier in self:
+            if hc_structure_definition_identifier.code_id:
+                comp_name = hc_structure_definition_identifier.code_id.name or '' 
+            if hc_structure_definition_identifier.value:        
+                comp_name = comp_name + ", " + hc_structure_definition_identifier.value or ''
+            hc_structure_definition_identifier.name = comp_name    
 
 class StructureDefinitionStatusHistory(models.Model):           
     _name = "hc.structure.definition.status.history"        

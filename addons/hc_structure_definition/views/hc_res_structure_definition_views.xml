@@ -37,34 +37,36 @@
                         <h1>                        
                             <field name="name" default_focus="1" placeholder="Name"/>                   
                         </h1>
-                        <field name="url" widget="url" placeholder="URL"/>                        
+                        <field name="url" widget="url" placeholder="URL"/>
+                        <field name="description" placeholder="Description"/>                        
                         <group>                     
                             <group>
-                                <field name="title"/>
-                                <field name="description"/>
-                                <field name="base_definition"/>
-                                <field name="version"/>
-                                <field name="date"/>
+                                <field name="title"/>  
                                 <field name="publisher"/>
+                                <field name="date"/>
+                                <field name="fhir_version"/>
+                                <field name="version"/>                                
+                            </group>
+                            <group string="Type">
+                                <field name="kind"/>
+                                <field name="abstract"/>
+                                <field name="type"/>
+                                <field name="base_definition" widget="url"/>
+                                <field name="derivation"/>
                             </group>
                             <group string="Element Definition">
                                 <field name="snapshot_id"/>
                                 <field name="differential_id"/>
                             </group>                    
-                            <group>
-                                <field name="purpose"/>
-                                <field name="fhir_version"/>
-                                <field name="copyright"/>
-                            </group>
-                            <group string="Type">
+                            <group string="Miscellaneous">
                                 <field name="context_type"/>
-                                <field name="type"/>
-                                <field name="kind"/>
-                                <field name="abstract"/>
                                 <field name="is_experimental"/>
                                 <field name="jurisdiction_ids" widget="many2many_tags"/>
                                 <field name="keyword_ids" widget="many2many_tags"/>
-                            </group>                    
+                                <field name="purpose"/>
+                                <field name="copyright"/>
+                            </group>
+
                         </group>                        
                         <notebook colspan="4">
                             <page string="Identifiers">
@@ -84,6 +86,7 @@
                                             <group col="4" colspan="4">
                                                 <group>
                                                     <field name="value"/>
+                                                    <field name="code_id"/>
                                                     <field name="is_preferred"/>
                                                     <field name="is_active"/>
                                                 </group>
@@ -103,14 +106,45 @@
                                         <field name="telecom_ids" widget="many2many_tags"/>      
                                     </tree>         
                                     <form>          
-                                        <sheet>     
-                                            <group> 
-                                                <group>
-                                                    <field name="contact_id"/>
-                                                </group>
-                                                <group>
-                                                </group>
-                                            </group>    
+                                        <sheet>                         
+                                            <h1>                        
+                                                <field name="name" default_focus="1" placeholder="Name"/>                   
+                                            </h1>                       
+                                            <group>                     
+                                                <group>                 
+                                                </group>                    
+                                                <group>                 
+                                                </group>                    
+                                            </group>                        
+                                            <notebook>                      
+                                                <page string="Telecom">
+                                                    <field name="telecom_ids" mode="tree">
+                                                        <tree default_order="is_preferred">
+                                                            <field name="is_preferred"/>
+                                                            <field name="use"/>
+                                                            <field name="telecom_id"/>
+                                                            <field name="rank"/>
+                                                            <field name="start_date"/>
+                                                            <field name="end_date"/>
+                                                        </tree>
+                                                        <form>
+                                                            <sheet>
+                                                                <h1>
+                                                                    <field name="telecom_id"/> 
+                                                                </h1>
+                                                                <field name="use" widget="radio" options="{'horizontal': true}"/>
+                                                                <group>
+                                                                    <field name="rank"/>
+                                                                    <field name="is_preferred"/>
+                                                                    <field name="is_active"/>
+                                                                    <field name="start_date" placeholder="Valid From"/>
+                                                                    <field name="end_date" placeholder="Valid To"/>
+                                                                </group>
+                                                            </sheet>
+                                                        </form>
+                                                    </field>
+                                                </page>                 
+                                            </notebook>                        
                                         </sheet>        
                                     </form>         
                                 </field>                
@@ -292,7 +326,22 @@
                     </sheet>                            
                 </form>                             
             </field>                                    
-        </record>                                       
+        </record>
+
+        <act_window id="hc_structure_definition_snapshot_action"            
+                    name="HC Structure Definition Snapshots"
+                    res_model="hc.structure.definition.snapshot"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <menuitem id="hc_structure_definition.menu_struc_defn_snap" 
+                  name="Structure Definition Snapshots" 
+                  parent="hc_structure_definition.menu_struc_defn" 
+                  action="hc_structure_definition_snapshot_action" 
+                  groups="hc_base.group_hc_base_manager" 
+                  sequence="10"/>
 
         <!-- Structure Definition Differential Views -->                                        
                                                 
@@ -349,6 +398,21 @@
                 </form>                             
             </field>                                    
         </record>
+
+        <act_window id="hc_structure_definition_differential_action"            
+                    name="HC Structure Definition Differentials"
+                    res_model="hc.structure.definition.differential"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <menuitem id="hc_structure_definition.menu_struc_defn_diff" 
+                  name="Structure Definition Differentials" 
+                  parent="hc_structure_definition.menu_struc_defn" 
+                  action="hc_structure_definition_differential_action" 
+                  groups="hc_base.group_hc_base_manager" 
+                  sequence="20"/>
 
     </data>
 </odoo>

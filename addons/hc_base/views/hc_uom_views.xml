@@ -1,6 +1,69 @@
 <openerp>
     <data>
 
+        <!-- Unit of Measure Views -->
+
+        <record id="product_uom_view_search" model="ir.ui.view">                
+            <field name="name">UOM Search</field> 
+            <field name="model">product.uom</field>
+            <field name="arch" type="xml">            
+                <search string="UOMs">
+                    <field name="name" domain="[('name','ilike',self),"/>     
+                    <field name="code" domain="[('code','ilike',self),"/>        
+                    <field name="category_id" domain="[('category_id','ilike',self),"/>    
+                    <group>    
+                        <filter name="group_by_category" string="category" context="{'group_by': 'category_id'}" />
+                    </group>    
+                </search>        
+            </field>            
+        </record>                
+        
+        <record id="hc_product_uom_view_tree_inherited" model="ir.ui.view">                
+            <field name="name">UOM Tree</field>            
+            <field name="model">product.uom</field>            
+            <field name="inherit_id" ref="product.product_uom_tree_view"/>            
+            <field name="arch" type="xml">                 
+                    <field name="name" position="after">   
+                        <field name="code"/>
+                        <field name="sequence"/>
+                        <field name="uom_type"/>
+                    </field>    
+                    <field name="category_id" position="after">    
+                        <field name="source_id"/>
+                    </field>      
+            </field>            
+        </record>
+
+        <record id="product_uom_form_view_inherit" model="ir.ui.view">
+            <field name="name">UOM Form</field>            
+            <field name="model">product.uom</field>  
+            <field name="inherit_id" ref="product.product_uom_form_view"/>
+            <field name="arch" type="xml">               
+                <field name="name" position="after">   
+                    <field name="code"/>
+                    <field name="sequence"/>
+                </field>
+                <field name="rounding" position="after">    
+                    <field name="source_id"/>
+                </field>
+            </field>
+        </record>
+
+        <act_window id="product_uom_action"         
+                    name="HC UOMs"
+                    res_model="product.uom"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+  
+        <menuitem id="hc_base.menu_uom" 
+                  name="UOM" 
+                  parent="hc_base.menu_vs" 
+                  action="product_uom_action" 
+                  groups="hc_base.group_hc_base_manager" 
+                  sequence="20"/>
+
         <!-- Unit of Measure Category Views -->
 
         <record id="product.product_uom_categ_view_search" model="ir.ui.view">                  
@@ -52,73 +115,6 @@
                   action="product_uom_categ_action"
                   groups="hc_base.group_hc_base_manager"
                   sequence="20"/>
-
-        <!-- Unit of Measure Views -->
-
-        <record id="product_uom_view_search" model="ir.ui.view">                
-            <field name="name">UOM Search</field> 
-            <field name="model">product.uom</field>
-            <field name="arch" type="xml">            
-                <search string="UOMs">
-                    <field name="name" domain="[('name','ilike',self),"/>     
-                    <field name="code" domain="[('code','ilike',self),"/>        
-                    <field name="category_id" domain="[('category_id','ilike',self),"/>    
-                    <group>    
-                        <filter name="group_by_category" string="category" context="{'group_by': 'category_id'}" />
-                    </group>    
-                </search>        
-            </field>            
-        </record>                
-        
-        <record id="hc_product_uom_view_tree_inherited" model="ir.ui.view">                
-            <field name="name">UOM Tree</field>            
-            <field name="model">product.uom</field>            
-            <field name="inherit_id" ref="product.product_uom_tree_view"/>            
-            <field name="arch" type="xml">                 
-                    <field name="name" position="after">   
-                        <field name="code"/>
-                        <field name="sequence"/>
-                        <field name="uom_type"/>
-                    </field>    
-                    <field name="category_id" position="after">    
-                        <field name="source_id"/>
-                    </field>      
-            </field>            
-        </record>
-
-        <record id="product_uom_form_view_inherit" model="ir.ui.view">
-            <field name="name">UOM Form</field>            
-            <field name="model">product.uom</field>  
-            <field name="inherit_id" ref="product.product_uom_form_view"/>
-            <field name="arch" type="xml">               
-                <field name="name" position="after">   
-                    <field name="code"/>
-                    <field name="sequence"/>
-                </field>
-                <field name="rounding" position="after">    
-                    <field name="source_id"/>
-                </field>
-            </field>
-        </record>
-
-        <!-- Unit of Measure Action and Menu -->
-
-        <act_window id="product_uom_action"         
-                    name="HC UOMs"
-                    res_model="product.uom"
-                    view_mode="tree,form"
-                    domain=""
-                    context=""
-                    limit=""/>
-  
-        <menuitem id="hc_base.menu_uom" 
-                  name="UOM" 
-                  parent="hc_base.menu_vs" 
-                  action="product_uom_action" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="20"/>
-
-
 
     </data>
 </openerp>

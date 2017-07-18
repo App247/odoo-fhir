@@ -957,11 +957,9 @@ class ElementDefinitionSlicing(models.Model):
 
 class ElementDefinitionBase(models.Model):    
     _name = "hc.element.definition.base"    
-    _description = "Element Definition Base"                
-
-    name = fields.Char(
-        string="Name", 
-        help="Text representation of the base element.")                       
+    _description = "Element Definition Base"
+    _rec_name = "path"                
+                      
     path = fields.Char(
         string="Path", 
         required="True", 
@@ -1268,7 +1266,8 @@ class ElementDefinitionExampleValue(models.Model):
  
 class ElementDefinitionConstraint(models.Model):    
     _name = "hc.element.definition.constraint"    
-    _description = "Element Definition Constraint"                
+    _description = "Element Definition Constraint"
+    _rec_name = "key"                
 
     element_definition_id = fields.Many2one(
         comodel_name="hc.element.definition", 
@@ -1293,7 +1292,7 @@ class ElementDefinitionConstraint(models.Model):
         required="True", 
         help="Human description of constraint.")                        
     expression = fields.Char(
-        string="FHIRPath", 
+        string="Expression", 
         required="True", 
         help="FHIRPath expression of constraint.")                        
     xpath = fields.Char(
@@ -1305,7 +1304,8 @@ class ElementDefinitionConstraint(models.Model):
 
 class ElementDefinitionBinding(models.Model):    
     _name = "hc.element.definition.binding"    
-    _description = "Element Definition Binding"                
+    _description = "Element Definition Binding"
+    _rec_name = "strength"                
 
     name = fields.Char(
         string="Name", 
@@ -1350,7 +1350,8 @@ class ElementDefinitionBinding(models.Model):
 
 class ElementDefinitionMapping(models.Model):    
     _name = "hc.element.definition.mapping"    
-    _description = "Element Definition Mapping"                
+    _description = "Element Definition Mapping"
+    _rec_name = "identity"                
 
     element_definition_id = fields.Many2one(
         comodel_name="hc.element.definition", 
@@ -1436,7 +1437,7 @@ class ElementDefinitionSlicingDiscriminator(models.Model):
             ("profile", "Profile")], 
         help="How the element value is interpreted when discrimination is evaluated.")
     path = fields.Char(
-        string="FHIRPath Expression",
+        string="Path",
         required="True", 
         help="A FHIRPath expression, using a restricted subset of FHIRPath, that is used to identify the element on which discrimination is based.")              
 

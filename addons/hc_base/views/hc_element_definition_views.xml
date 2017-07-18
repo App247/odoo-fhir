@@ -31,16 +31,21 @@
                     <sheet>
                         <h1>
                             <field name="label" placeholder="Label"/>
-                        </h1>     
+                        </h1>
+                        <label for="short" string="Short"/>
+                        <field name="short" placeholder="Short"/>
+                        <label for="definition" string="Definition"/>
+                        <field name="definition"/>
+                        <label for="comment" string="Comment"/>
+                        <field name="comment"/>
+                        <label for="requirements" string="Requirements"/>
+                        <field name="requirements"/>
                         <group> 
                             <group>
                                 <field name="path"/>
                                 <field name="slice_name"/>
                                 <field name="code_ids" widget="many2many_tags"/>
                                 <field name="short"/>
-                                <field name="definition"/>
-                                <field name="comment"/>
-                                <field name="requirements"/>
                                 <field name="min"/>
                                 <field name="max"/>
                                 <field name="content_reference"/>
@@ -521,8 +526,7 @@
             <field name="name">Element Definition Base Tree</field>                                 
             <field name="model">hc.element.definition.base</field>                                  
             <field name="arch" type="xml">                                  
-                <tree string="Element Definition Bases">          
-                    <field name="name"/>                
+                <tree string="Element Definition Bases">                          
                     <field name="path"/>
                     <field name="min"/>
                     <field name="max"/>                                                   
@@ -537,9 +541,8 @@
                 <form string="Element Definition Base">                             
                     <sheet>                         
                         <h1>                        
-                            <field name="name" default_focus="1" placeholder="Name"/>                   
-                        </h1>
-                        <field name="path" placeholder="FHIRPath Expression"/>                        
+                            <field name="path" default_focus="1" placeholder="Path"/>                   
+                        </h1>                      
                         <group>                    
                             <group>
                                 <field name="min"/>
