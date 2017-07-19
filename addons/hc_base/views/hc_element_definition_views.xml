@@ -30,7 +30,7 @@
                 <form string="Element Definition">
                     <sheet>
                         <h1>
-                            <field name="label" placeholder="Label"/>
+                            <field name="path" placeholder="Path"/>
                         </h1>
                         <label for="short" string="Short"/>
                         <field name="short" placeholder="Short"/>
@@ -42,7 +42,7 @@
                         <field name="requirements"/>
                         <group> 
                             <group>
-                                <field name="path"/>
+                                <field name="label"/>
                                 <field name="slice_name"/>
                                 <field name="code_ids" widget="many2many_tags"/>
                                 <field name="short"/>

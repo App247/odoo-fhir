@@ -5,7 +5,7 @@ from openerp import models, fields, api
 class ElementDefinition(models.Model):    
     _name = "hc.element.definition"    
     _description = "Element Definition"    
-    _rec_name = "label"            
+    _rec_name = "path"            
 
     path = fields.Char(
         string="Path", 
@@ -19,9 +19,11 @@ class ElementDefinition(models.Model):
     slice_name = fields.Char(
         string="Slice Name", 
         help="Name for this particular element (in a set of slices).")                        
+    identifier = fields.Char(
+        string="Identifier",
+        help="Identifier.")  
     label = fields.Char(
         string="Label",
-        required="True", 
         help="Name for element to display with or prompt for element.")                        
     code_ids = fields.Many2many(
         comodel_name="hc.vs.element.definition.code", 
