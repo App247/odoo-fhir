@@ -120,17 +120,23 @@ class StructureDefinition(models.Model):
         inverse_name="structure_definition_id",
         string="Context Invariants",
         help="FHIRPath invariants - when the extension can be used.")
-    type = fields.Selection(
-        string="Type",
-        required="True",
-        selection=[
-            ("type", "Type"),
-            ("element", "Element"),
-            ("resource", "Resource"),
-            ("constraint", "Constraint"),
-            ("extension", "Extension"),
-            ("composition", "Composition")],
-        help="The type this structure is describes.")
+    # type = fields.Selection(
+    #     string="Type",
+    #     required="True",
+    #     selection=[
+    #         ("type", "Type"),
+    #         ("element", "Element"),
+    #         ("resource", "Resource"),
+    #         ("constraint", "Constraint"),
+    #         ("extension", "Extension"),
+    #         ("composition", "Composition"),
+    #         ("carePlan", "CarePlan")],
+    #     help="The type this structure is describes.")
+    type_id = fields.Many2one(
+        comodel_name="hc.vs.defined.type",
+        string="Code", 
+        required="True", 
+        help="Type defined or constrained by this structure.")    
     base_definition = fields.Char(
         string="Base Definition URI",
         help="Definition that this type is constrained/specialized from.")
@@ -225,7 +231,11 @@ class StructureDefinitionMapping(models.Model):
 class StructureDefinitionSnapshot(models.Model):
     _name = "hc.structure.definition.snapshot"
     _description = "Structure Definition Snapshot"
-
+   
+    structure_definition_id = fields.Many2one(
+        comodel_name="hc.res.structure.definition",
+        string="Structure Definition",
+        help="Structure Definition associated with this Structure Definition Snapshot.")
     name = fields.Char(
         string="Name",
         help="Text representation of the snapshot.")
@@ -240,6 +250,10 @@ class StructureDefinitionDifferential(models.Model):
     _name = "hc.structure.definition.differential"
     _description = "Structure Definition Differential"
 
+    structure_definition_id = fields.Many2one(
+        comodel_name="hc.res.structure.definition",
+        string="Structure Definition",
+        help="Structure Definition associated with this Structure Definition Differential.")
     name = fields.Char(
         string="Name",
         help="Text representation of the differential.")
@@ -380,119 +394,6 @@ class StructureDefinitionSnapshotElement(models.Model):
         string="Structure Definition Snapshot",
         help="Snapshot associated with this Structure Definition Snapshot Element.")
 
-
-  # _inherit = ["hc.basic.association", "hc.element.definition"]
-    # representation_ids = fields.One2many(
-    #     comodel_name="hc.structure.definition.snapshot.element.representation")
-    # alias_ids = fields.One2many(
-    #     comodel_name="hc.structure.definition.snapshot.element.alias")
-    # condition_ids = fields.One2many(
-    #     comodel_name="hc.structure.definition.snapshot.element.condition")
-    # slicing_id = fields.Many2one(
-    #     comodel_name="hc.structure.definition.snapshot.element.slicing")
-    # base_id = fields.Many2one(
-    #     comodel_name="hc.structure.definition.snapshot.element.base")
-    # type_ids = fields.One2many(
-    #     comodel_name="hc.structure.definition.snapshot.element.type")
-    # example_ids = fields.One2many(
-    #     comodel_name="hc.structure.definition.snapshot.element.example")
-    # constraint_ids = fields.One2many(
-    #     comodel_name="hc.structure.definition.snapshot.element.constraint")
-    # binding_id = fields.Many2one(
-    #     comodel_name="hc.structure.definition.snapshot.element.binding")
-    # mapping_ids = fields.One2many(
-    #     comodel_name="hc.structure.definition.snapshot.element.mapping")
-
-# class StructureDefinitionSnapshotElementSlicing(models.Model):
-#     _name = "hc.structure.definition.snapshot.element.slicing"
-#     _description = "Structure Definition Snapshot Element Slicing"
-#     _inherit = ["hc.element.definition.slicing"]
-
-#     discriminator_ids = fields.One2many(
-#         comodel_name="hc.structure.definition.snapshot.element.slicing.discriminator")
-
-# class StructureDefinitionSnapshotElementSlicingDiscriminator(models.Model):
-#     _name = "hc.structure.definition.snapshot.element.slicing.discriminator"
-#     _description = "Structure Definition Snapshot Element Slicing Discriminator"
-#     _inherit = ["hc.element.definition.slicing.discriminator"]
-
-#     slicing_id = fields.Many2one(
-#         comodel_name="hc.structure.definition.snapshot.element.slicing")
-
-# class StructureDefinitionSnapshotElementBase(models.Model):
-#     _name = "hc.structure.definition.snapshot.element.base"
-#     _description = "Structure Definition Snapshot Element Base"
-#     _inherit = ["hc.element.definition.base"]
-
-# class StructureDefinitionSnapshotElementType(models.Model):
-#     _name = "hc.structure.definition.snapshot.element.type"
-#     _description = "Structure Definition Snapshot Element Type"
-#     _inherit = ["hc.element.definition.type"]
-
-#     element_definition_id = fields.Many2one(
-#         comodel_name="hc.structure.definition.snapshot.element")
-
-# class StructureDefinitionSnapshotElementExample(models.Model):
-#     _name = "hc.structure.definition.snapshot.element.example"
-#     _description = "Structure Definition Snapshot Element Example"
-#     _inherit = ["hc.element.definition.example"]
-
-#     element_definition_id = fields.Many2one(
-#         comodel_name="hc.structure.definition.snapshot.element")
-
-# class StructureDefinitionSnapshotElementConstraint(models.Model):
-#     _name = "hc.structure.definition.snapshot.element.constraint"
-#     _description = "Structure Definition Snapshot Element Constraint"
-#     _inherit = ["hc.element.definition.constraint"]
-
-#     element_definition_id = fields.Many2one(
-#         comodel_name="hc.structure.definition.snapshot.element")
-
-# class StructureDefinitionSnapshotElementMapping(models.Model):
-#     _name = "hc.structure.definition.snapshot.element.mapping"
-#     _description = "Structure Definition Snapshot Element Mapping"
-#     _inherit = ["hc.element.definition.mapping"]
-
-#     element_definition_id = fields.Many2one(
-#         comodel_name="hc.structure.definition.snapshot.element")
-
-# class StructureDefinitionSnapshotElementRepresentation(models.Model):
-#     _name = "hc.structure.definition.snapshot.element.representation"
-#     _description = "Structure Definition Snapshot Element Representation"
-#     _inherit = ["hc.element.definition.representation"]
-
-#     element_definition_id = fields.Many2one(
-#         comodel_name="hc.structure.definition.snapshot.element")
-
-# class StructureDefinitionSnapshotElementAlias(models.Model):
-#     _name = "hc.structure.definition.snapshot.element.alias"
-#     _description = "Structure Definition Snapshot Element Alias"
-#     _inherit = ["hc.element.definition.alias"]
-
-#     element_definition_id = fields.Many2one(
-#         comodel_name="hc.structure.definition.snapshot.element")
-
-# class StructureDefinitionSnapshotElementCondition(models.Model):
-#     _name = "hc.structure.definition.snapshot.element.condition"
-#     _description = "Structure Definition Snapshot Element Condition"
-#     _inherit = ["hc.element.definition.condition"]
-
-#     element_definition_id = fields.Many2one(
-#         comodel_name="hc.structure.definition.snapshot.element")
-
-# class StructureDefinitionSnapshotElementTypeAggregation(models.Model):
-#     _name = "hc.structure.definition.snapshot.element.type.aggregation"
-#     _description = "Structure Definition Snapshot Element Type Aggregation"
-#     _inherit = ["hc.element.definition.type.aggregation"]
-
-#     type_id = fields.Many2one(
-#         comodel_name="hc.structure.definition.snapshot.element.type")
-
-# class StructureDefinitionSnapshotElementBinding(models.Model):
-#     _name = "hc.structure.definition.snapshot.element.binding"
-#     _description = "Structure Definition Snapshot Element Binding"
-#     _inherit = ["hc.element.definition.binding"]
-
 class StructureDefinitionDifferentialElement(models.Model):
     _name = "hc.structure.definition.differential.element"
     _description = "Structure Definition Differential Element"
@@ -508,122 +409,7 @@ class StructureDefinitionDifferentialElement(models.Model):
     differential_id = fields.Many2one(
         comodel_name="hc.structure.definition.differential",
         string="Structure Definition Differential",
-        help="Differential associated with this Structure Definition Snapshot Element.")
-
-    
-    # _inherit = ["hc.basic.association", "hc.element.definition"]
-    # differential_id = fields.Many2one(
-    #     comodel_name="hc.structure.definition.differential.element")
-    # representation_ids = fields.One2many(
-    #     comodel_name="hc.structure.definition.differential.element.representation")
-    # alias_ids = fields.One2many(
-    #     comodel_name="hc.structure.definition.differential.element.alias")
-    # condition_ids = fields.One2many(
-    #     comodel_name="hc.structure.definition.differential.element.condition")
-    # slicing_id = fields.Many2one(
-    #     comodel_name="hc.structure.definition.differential.element.slicing")
-    # base_id = fields.Many2one(
-    #     comodel_name="hc.structure.definition.differential.element.base")
-    # type_ids = fields.One2many(
-    #     comodel_name="hc.structure.definition.differential.element.type")
-    # example_ids = fields.One2many(
-    #     comodel_name="hc.structure.definition.differential.element.example")
-    # constraint_ids = fields.One2many(
-    #     comodel_name="hc.structure.definition.differential.element.constraint")
-    # binding_id = fields.Many2one(
-    #     comodel_name="hc.structure.definition.differential.element.binding")
-    # mapping_ids = fields.One2many(
-    #     comodel_name="hc.structure.definition.differential.element.mapping")
-
-# class StructureDefinitionDifferentialElementSlicing(models.Model):
-#     _name = "hc.structure.definition.differential.element.slicing"
-#     _description = "Structure Definition Differential Element Slicing"
-#     _inherit = ["hc.element.definition.slicing"]
-
-#     discriminator_ids = fields.One2many(
-#         comodel_name="hc.structure.defn.differential.element.slicing.discriminator")
-
-# class StructureDefnDifferentialElementSlicingDiscriminator(models.Model):
-#     _name = "hc.structure.defn.differential.element.slicing.discriminator"
-#     _description = "Structure Definition Differential Element Slicing Discriminator"
-#     _inherit = ["hc.element.definition.slicing.discriminator"]
-
-#     slicing_id = fields.Many2one(
-#         comodel_name="hc.structure.definition.differential.element.slicing")
-
-# class StructureDefinitionDifferentialElementBase(models.Model):
-#     _name = "hc.structure.definition.differential.element.base"
-#     _description = "Structure Definition Differential Element Base"
-#     _inherit = ["hc.element.definition.base"]
-
-# class StructureDefinitionDifferentialElementBinding(models.Model):
-#     _name = "hc.structure.definition.differential.element.binding"
-#     _description = "Structure Definition Differential Element Binding"
-#     _inherit = ["hc.element.definition.binding"]
-
-# class StructureDefinitionDifferentialElementType(models.Model):
-#     _name = "hc.structure.definition.differential.element.type"
-#     _description = "Structure Definition Differential Element Type"
-#     _inherit = ["hc.element.definition.type"]
-
-#     element_definition_id = fields.Many2one(
-#         comodel_name="hc.structure.definition.differential.element")
-
-# class StructureDefinitionDifferentialElementExample(models.Model):
-#     _name = "hc.structure.definition.differential.element.example"
-#     _description = "Structure Definition Differential Element Example"
-#     _inherit = ["hc.element.definition.example"]
-
-#     element_definition_id = fields.Many2one(
-#         comodel_name="hc.structure.definition.differential.element")
-
-# class StructureDefinitionDifferentialElementConstraint(models.Model):
-#     _name = "hc.structure.definition.differential.element.constraint"
-#     _description = "Structure Definition Differential Element Constraint"
-#     _inherit = ["hc.element.definition.constraint"]
-
-#     element_definition_id = fields.Many2one(
-#         comodel_name="hc.structure.definition.differential.element")
-
-# class StructureDefinitionDifferentialElementMapping(models.Model):
-#     _name = "hc.structure.definition.differential.element.mapping"
-#     _description = "Structure Definition Differential Element Mapping"
-#     _inherit = ["hc.element.definition.mapping"]
-
-#     element_definition_id = fields.Many2one(
-#         comodel_name="hc.structure.definition.differential.element")
-
-# class StructureDefinitionDifferentialElementRepresentation(models.Model):
-#     _name = "hc.structure.definition.differential.element.representation"
-#     _description = "Structure Definition Differential Element Representation"
-#     _inherit = ["hc.element.definition.representation"]
-
-#     element_definition_id = fields.Many2one(
-#         comodel_name="hc.structure.definition.differential.element")
-
-# class StructureDefinitionDifferentialElementAlias(models.Model):
-#     _name = "hc.structure.definition.differential.element.alias"
-#     _description = "Structure Definition Differential Element Alias"
-#     _inherit = ["hc.element.definition.alias"]
-
-#     element_definition_id = fields.Many2one(
-#         comodel_name="hc.structure.definition.differential.element")
-
-# class StructureDefinitionDifferentialElementCondition(models.Model):
-#     _name = "hc.structure.definition.differential.element.condition"
-#     _description = "Structure Definition Differential Element Condition"
-#     _inherit = ["hc.element.definition.condition"]
-
-#     element_definition_id = fields.Many2one(
-#         comodel_name="hc.structure.definition.differential.element")
-
-# class StructureDefinitionDifferentialElementTypeAggregation(models.Model):
-#     _name = "hc.structure.definition.differential.element.type.aggregation"
-#     _description = "Structure Definition Differential Element Type Aggregation"
-#     _inherit = ["hc.element.definition.type.aggregation"]
-
-#     type_id = fields.Many2one(
-#         comodel_name="hc.structure.definition.differential.element.type")
+        help="Differential associated with this Structure Definition Snapshot Element.") 
 
 class ProfileCode(models.Model):
     _name = "hc.vs.profile.code"

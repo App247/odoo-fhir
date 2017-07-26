@@ -6,6 +6,10 @@ class ElementElement(models.Model):
     _name = "hc.element"
     _description = "Element"
 
+    
+    id = fields.Char(
+        string="Identifier",
+        help="Internal id (e.g. like xml:id).")
     extension_ids = fields.One2many(
         comodel_name="hc.element.extension", 
         inverse_name="element_id", 

@@ -39,6 +39,9 @@ class ElementDefinition(models.Model):
     comment = fields.Text(
         string="Comment", 
         help="Comments about the use of this element.")                        
+    xml_sample = fields.Text(
+        string="XML Sample", 
+        help="Sample XML code that implements this element.") 
     requirements = fields.Text(
         string="Requirements", 
         help="Why this resource has been created.")                        
@@ -123,7 +126,7 @@ class ElementDefinition(models.Model):
         string="Default Value Boolean", 
         help="Boolean value if missing from instance.")
     default_value_code_id = fields.Many2one(
-        comodel_name="hc.element.definition.value.set", 
+        comodel_name="hc.vs.element.definition.code", 
         string="Default Value Code", 
         help="Code value if missing from instance.")
     default_value_markdown = fields.Text(
@@ -133,11 +136,11 @@ class ElementDefinition(models.Model):
         string="Default Value Base 64 Binary", 
         help="Base 64 Binary value if missing from instance.")
     default_value_coding_id = fields.Many2one(
-        comodel_name="hc.element.definition.value.set", 
+        comodel_name="hc.vs.element.definition.code", 
         string="Default Value Coding", 
         help="Coding value if missing from instance.")
     default_value_codeable_concept_id = fields.Many2one(
-        comodel_name="hc.element.definition.value.set", 
+        comodel_name="hc.vs.element.definition.code", 
         string="Default Value Codeable Concept", 
         help="Codeable Concept value if missing from instance.")
     default_value_attachment_id = fields.Many2one(
@@ -165,7 +168,7 @@ class ElementDefinition(models.Model):
         comodel_name="product.uom", 
         string="Default Value Period UOM", 
         help="Period unit of measure.")
-    default_value_ratio = fields.Char(
+    default_value_ratio = fields.Float(
         string="Default Value Ratio",  
         help="Ratio of value if missing from instance.")
     default_value_human_name_id = fields.Many2one(
@@ -292,7 +295,7 @@ class ElementDefinition(models.Model):
         string="Fixed Boolean", 
         help="Boolean value must be exactly this.")
     fixed_code_id = fields.Many2one(
-        comodel_name="hc.element.definition.value.set",
+        comodel_name="hc.vs.element.definition.code",
         string="Fixed Code", 
         help="Code value must be exactly this.")
     fixed_markdown = fields.Text(
@@ -302,11 +305,11 @@ class ElementDefinition(models.Model):
         string="Fixed Base 64 Binary", 
         help="Base 64 Binary value must be exactly this.")
     fixed_coding_id = fields.Many2one(
-        comodel_name="hc.element.definition.value.set", 
+        comodel_name="hc.vs.element.definition.code", 
         string="Fixed Coding", 
         help="Coding value must be exactly this.")
     fixed_codeable_concept_id = fields.Many2one(
-        comodel_name="hc.element.definition.value.set", 
+        comodel_name="hc.vs.element.definition.code", 
         string="Fixed Codeable Concept", 
         help="Codeable Concept value must be exactly this.")
     fixed_attachment_id = fields.Many2one(
@@ -334,7 +337,7 @@ class ElementDefinition(models.Model):
         comodel_name="product.uom", 
         string="Fixed Period UOM", 
         help="Period unit of measure.")
-    fixed_ratio = fields.Char(
+    fixed_ratio = fields.Float(
         string="Fixed Ratio", 
         help="Ratio of value must be exactly this.")
     fixed_human_name_id = fields.Many2one(
@@ -455,7 +458,7 @@ class ElementDefinition(models.Model):
         string="Pattern Boolean", 
         help="Boolean value must have at least these property values.")
     pattern_code_id = fields.Many2one(
-        comodel_name="hc.element.definition.value.set", 
+        comodel_name="hc.vs.element.definition.code", 
         string="Pattern Code", 
         help="Code value must have at least these property values.")
     pattern_markdown = fields.Text(
@@ -465,11 +468,11 @@ class ElementDefinition(models.Model):
         string="Pattern Base 64 Binary", 
         help="Base 64 Binary value must have at least these property values.")
     pattern_coding_id = fields.Many2one(
-        comodel_name="hc.element.definition.value.set", 
+        comodel_name="hc.vs.element.definition.code", 
         string="Pattern Coding", 
         help="Coding value must have at least these property values.")
     pattern_codeable_concept_id = fields.Many2one(
-        comodel_name="hc.element.definition.value.set", 
+        comodel_name="hc.vs.element.definition.code", 
         string="Pattern Codeable Concept", 
         help="Codeable Concept value must have at least these property values.")
     pattern_attachment_id = fields.Many2one(
@@ -497,7 +500,7 @@ class ElementDefinition(models.Model):
         comodel_name="product.uom", 
         string="Pattern Period UOM", 
         help="Period unit of measure.")
-    pattern_ratio = fields.Char(
+    pattern_ratio = fields.Float(
         string="Pattern Ratio", 
         help="Ratio of value must have at least these property values.")
     pattern_human_name_id = fields.Many2one(
@@ -693,8 +696,7 @@ class ElementDefinition(models.Model):
         string="Summary", 
         help="Include when _summary = true?.")                        
     slicing_id = fields.Many2one(
-        comodel_name="hc.element.definition.slicing", 
-        inverse_name="element_definition_id", 
+        comodel_name="hc.element.definition.slicing",  
         string="Slicing", 
         help="This element is sliced - slices follow.")                        
     base_id = fields.Many2one(
@@ -724,14 +726,19 @@ class ElementDefinition(models.Model):
         comodel_name="hc.element.definition.mapping", 
         inverse_name="element_definition_id", 
         string="Mappings", 
-        help="Map element to another set of definitions.")                        
+        help="Map element to another set of definitions.")
+    extension_ids = fields.One2many(
+        comodel_name="hc.element.definition.extension",
+        inverse_name="element_definition_id", 
+        string="Extensions", 
+        help="Additional valid requirement.")                        
          
     @api.depends('default_value_type')              
     def _compute_default_value_name(self):              
         for hc_element_definition in self:
             if hc_element_definition.default_value_type == 'integer':       
                 hc_element_definition.default_value_name = str(hc_element_definition.default_value_integer)
-            if hc_element_definition.default_value_type == 'decimal':   
+            elif hc_element_definition.default_value_type == 'decimal':   
                 hc_element_definition.default_value_name = str(hc_element_definition.default_value_decimal)
             elif hc_element_definition.default_value_type == 'date_time':  
                 hc_element_definition.default_value_type = str(hc_element_definition.default_value_date_time)
@@ -764,7 +771,7 @@ class ElementDefinition(models.Model):
             elif hc_element_definition.default_value_type == 'period':
                 hc_element_definition.default_value_name = hc_element_definition.default_value_period
             elif hc_element_definition.default_value_type == 'ratio':
-                hc_element_definition.default_value_name = hc_element_definition.default_value_ratio
+                hc_element_definition.default_value_name = str(hc_element_definition.default_value_ratio)
             elif hc_element_definition.default_value_type == 'human_name':    
                 hc_element_definition.default_value_name = hc_element_definition.default_value_human_name_id.name
             elif hc_element_definition.default_value_type == 'address':   
@@ -799,7 +806,7 @@ class ElementDefinition(models.Model):
         for hc_element_definition in self:
             if hc_element_definition.fixed_type == 'integer':       
                 hc_element_definition.fixed_name = str(hc_element_definition.fixed_integer)
-            if hc_element_definition.fixed_type == 'decimal':   
+            elif hc_element_definition.fixed_type == 'decimal':   
                 hc_element_definition.fixed_name = str(hc_element_definition.fixed_decimal)
             elif hc_element_definition.fixed_type == 'date_time':  
                 hc_element_definition.fixed_type = str(hc_element_definition.fixed_date_time)
@@ -832,7 +839,7 @@ class ElementDefinition(models.Model):
             elif hc_element_definition.fixed_type == 'period':
                 hc_element_definition.fixed_name = hc_element_definition.fixed_period
             elif hc_element_definition.fixed_type == 'ratio':
-                hc_element_definition.fixed_name = hc_element_definition.fixed_ratio
+                hc_element_definition.fixed_name = str(hc_element_definition.fixed_ratio)
             elif hc_element_definition.fixed_type == 'human_name':    
                 hc_element_definition.fixed_name = hc_element_definition.fixed_human_name_id.name
             elif hc_element_definition.fixed_type == 'address':   
@@ -867,7 +874,7 @@ class ElementDefinition(models.Model):
         for hc_element_definition in self:
             if hc_element_definition.pattern_type == 'integer':       
                 hc_element_definition.pattern_name = str(hc_element_definition.pattern_integer)
-            if hc_element_definition.pattern_type == 'decimal':   
+            elif hc_element_definition.pattern_type == 'decimal':   
                 hc_element_definition.pattern_name = str(hc_element_definition.pattern_decimal)
             elif hc_element_definition.pattern_type == 'date_time':  
                 hc_element_definition.pattern_type = str(hc_element_definition.pattern_date_time)
@@ -900,7 +907,7 @@ class ElementDefinition(models.Model):
             elif hc_element_definition.pattern_type == 'period':
                 hc_element_definition.pattern_name = hc_element_definition.pattern_period
             elif hc_element_definition.pattern_type == 'ratio':
-                hc_element_definition.pattern_name = hc_element_definition.pattern_ratio
+                hc_element_definition.pattern_name = str(hc_element_definition.pattern_ratio)
             elif hc_element_definition.pattern_type == 'human_name':    
                 hc_element_definition.pattern_name = hc_element_definition.pattern_human_name_id.name
             elif hc_element_definition.pattern_type == 'address':   
@@ -934,6 +941,10 @@ class ElementDefinitionSlicing(models.Model):
     _name = "hc.element.definition.slicing"    
     _description = "Element Definition Slicing"                
 
+    element_definition_id = fields.Many2one(
+        comodel_name="hc.element.definition", 
+        string="Element Definition", 
+        help="Element Definition associated with this Element Definition Slicing.")  
     name = fields.Char(
         string="Name", 
         help="Text representation of the slicing.")                    
@@ -962,6 +973,10 @@ class ElementDefinitionBase(models.Model):
     _description = "Element Definition Base"
     _rec_name = "path"                
                       
+    element_definition_id = fields.Many2one(
+        comodel_name="hc.element.definition", 
+        string="Element Definition", 
+        help="Element Definition associated with this Element Definition Base.")  
     path = fields.Char(
         string="Path", 
         required="True", 
@@ -983,8 +998,14 @@ class ElementDefinitionType(models.Model):
         comodel_name="hc.element.definition", 
         string="Element Definition", 
         help="Element Definition associated with this Element Definition Type.")                        
-    code = fields.Char(
-        string="Code URI", 
+    # code = fields.Char(
+    #     string="Code", 
+    #     required="True", 
+    #     help="Data type or Resource (reference to definition).")
+    # future
+    code_id = fields.Many2one(
+        comodel_name="hc.vs.defined.type",
+        string="Code", 
         required="True", 
         help="Data type or Resource (reference to definition).")                        
     profile = fields.Char(
@@ -1100,7 +1121,7 @@ class ElementDefinitionExampleValue(models.Model):
         string="Value Boolean", 
         help="Boolean value of example (one of allowed types).")
     value_code_id = fields.Many2one(
-        comodel_name="hc.element.definition.value.set",
+        comodel_name="hc.vs.element.definition.code",
         string="Value Code", 
         help="Code value of example (one of allowed types).")
     value_markdown = fields.Text(
@@ -1110,11 +1131,11 @@ class ElementDefinitionExampleValue(models.Model):
         string="Value Base 64 Binary", 
         help="Base 64 Binary value of example (one of allowed types).")
     value_coding_id = fields.Many2one(
-        comodel_name="hc.element.definition.value.set", 
+        comodel_name="hc.vs.element.definition.code", 
         string="Value Coding", 
         help="Coding value of example (one of allowed types).")
     value_codeable_concept_id = fields.Many2one(
-        comodel_name="hc.element.definition.value.set", 
+        comodel_name="hc.vs.element.definition.code", 
         string="Value Codeable Concept", 
         help="Codeable Concept value of example (one of allowed types).")
     value_attachment_id = fields.Many2one(
@@ -1142,7 +1163,7 @@ class ElementDefinitionExampleValue(models.Model):
         comodel_name="product.uom", 
         string="Value Period UOM", 
         help="Period unit of measure.")
-    value_ratio = fields.Char(
+    value_ratio = fields.Float(
         string="Value Ratio", 
         help="Ratio of value of example (one of allowed types).")
     value_human_name_id = fields.Many2one(
@@ -1202,7 +1223,7 @@ class ElementDefinitionExampleValue(models.Model):
         for hc_element_definition_example_value in self:
             if hc_element_definition_example_value.value_type == 'integer':       
                 hc_element_definition_example_value.value_name = str(hc_element_definition_example_value.value_integer)
-            if hc_element_definition_example_value.value_type == 'decimal':   
+            elif hc_element_definition_example_value.value_type == 'decimal':   
                 hc_element_definition_example_value.value_name = str(hc_element_definition_example_value.value_decimal)
             elif hc_element_definition_example_value.value_type == 'date_time':  
                 hc_element_definition_example_value.value_type = str(hc_element_definition_example_value.value_date_time)
@@ -1235,7 +1256,7 @@ class ElementDefinitionExampleValue(models.Model):
             elif hc_element_definition_example_value.value_type == 'period':
                 hc_element_definition_example_value.value_name = hc_element_definition_example_value.value_period
             elif hc_element_definition_example_value.value_type == 'ratio':
-                hc_element_definition_example_value.value_name = hc_element_definition_example_value.value_ratio
+                hc_element_definition_example_value.value_name = str(hc_element_definition_example_value.value_ratio)
             elif hc_element_definition_example_value.value_type == 'human_name':    
                 hc_element_definition_example_value.value_name = hc_element_definition_example_value.value_human_name_id.name
             elif hc_element_definition_example_value.value_type == 'address':   
@@ -1264,7 +1285,6 @@ class ElementDefinitionExampleValue(models.Model):
                 hc_element_definition_example_value.value_name = hc_element_definition_example_value.value_sampled_data_id.name
             elif hc_element_definition_example_value.value_type == 'meta':    
                 hc_element_definition_example_value.value_name = hc_element_definition_example_value.value_meta_id.name
-
  
 class ElementDefinitionConstraint(models.Model):    
     _name = "hc.element.definition.constraint"    
@@ -1304,13 +1324,27 @@ class ElementDefinitionConstraint(models.Model):
         string="Source URI", 
         help="Reference to original source of constraint.")                        
 
+class ElementDefinitionExtension(models.Model):    
+    _name = "hc.element.definition.extension"    
+    _description = "Element Definition Extension"
+    _inherit = ["hc.extension"]
+
+    element_definition_id = fields.Many2one(
+        comodel_name="hc.element.definition", 
+        string="Element Definition", 
+        help="Element Definition associated with this Element Definition Extension.")
+
 class ElementDefinitionBinding(models.Model):    
     _name = "hc.element.definition.binding"    
-    _description = "Element Definition Binding"
-    _rec_name = "strength"                
+    _description = "Element Definition Binding"               
 
+    element_definition_id = fields.Many2one(
+        comodel_name="hc.element.definition", 
+        string="Element Definition", 
+        help="Element Definition associated with this Element Definition Binding.")  
     name = fields.Char(
-        string="Name", 
+        string="Name",
+        required="True", 
         help="Text representation of the binding.")                      
     strength = fields.Selection(
         string="Strength", 
@@ -1337,8 +1371,7 @@ class ElementDefinitionBinding(models.Model):
     value_set_uri = fields.Char(
         string="Value Set URI", 
         help="URI that source of value set.")                        
-    value_set_id = fields.Many2one(
-        comodel_name="hc.element.definition.value.set",
+    value_set = fields.Char(
         string="Value Set", 
         help="Value Set the reference to the value set.")                        
 
@@ -1348,12 +1381,34 @@ class ElementDefinitionBinding(models.Model):
             if hc_element_definition_binding.value_set_type == 'uri': 
                 hc_element_definition_binding.value_set_name = hc_element_definition_binding.value_set_uri
             elif hc_element_definition_binding.value_set_type == 'value_set': 
-                hc_element_definition_binding.value_set_name = hc_element_definition_binding.value_set_id.name
+                hc_element_definition_binding.value_set_name = hc_element_definition_binding.value_set
+
+class ElementDefinitionBindingExtension(models.Model):    
+    _name = "hc.element.definition.binding.extension"    
+    _description = "Element Definition Binding Extension"
+    _inherit = ["hc.basic.association", "hc.extension"]
+
+    binding_id = fields.Many2one(
+        comodel_name="hc.element.definition.binding", 
+        string="Element Definition Binding", 
+        help="Element Definition Binding associated with this Element Definition Binding Extension.")
+
+class ElementDefinitionBindingExtensionValueReference(models.Model):    
+    _name = "hc.element.definition.binding.extension.value.reference"    
+    _description = "Element Definition Binding Extension Value Reference"
+
+    extension_id = fields.Many2one(
+        comodel_name="hc.element.definition.binding.extension", 
+        string="Element Definition Binding Extension", 
+        help="Element Definition Binding Extension associated with this Element Definition Binding Extension Value Reference.")
+    reference = fields.Char(
+        string="Reference",
+        required="True", 
+        help="Text representation of the binding extension value reference.")                
 
 class ElementDefinitionMapping(models.Model):    
     _name = "hc.element.definition.mapping"    
-    _description = "Element Definition Mapping"
-    _rec_name = "identity"                
+    _description = "Element Definition Mapping"               
 
     element_definition_id = fields.Many2one(
         comodel_name="hc.element.definition", 
@@ -1460,6 +1515,8 @@ class ElementDefinitionTypeAggregation(models.Model):
             ("bundled", "Bundled")], 
         help="If the type is a reference to another resource, how the resource is or can be aggregated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle.")                 
 
+
+
 class ElementDefinitionAddress(models.Model):
     _name = "hc.element.definition.address"
     _description = "Element Definition Address"
@@ -1539,19 +1596,10 @@ class ElementDefinitionTiming(models.Model):
     _description = "Element Definition Timing"
     _inherit = ["hc.basic.association", "hc.timing"]
 
-class ElementDefinitionValueSet(models.Model):
-    _name = "hc.element.definition.value.set"
-    _description = "Element Definition Value Set"
-    _inherit = ["hc.basic.association"]
-
-    name = fields.Char(
-        string="Name",
-        help="Name of this element definition value set.") 
-
 class ElementDefinitionCode(models.Model):
     _name = "hc.vs.element.definition.code"
     _description = "Element Definition Code"
-    inherit = ["hc.value.set.contains"]    
+    _inherit = ["hc.value.set.contains"]    
 
     name = fields.Char(
         string="Name",

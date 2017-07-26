@@ -11,21 +11,15 @@ class Extension(models.Model):
         required="True", 
         help="URI that identifies the meaning of the extension.")
     value_type = fields.Selection(
-        string="Value Type", 
+        string="Value Type",
         selection=[
             ("integer", "Integer"), 
-            ("unsigned_int", "Unsigned Int"),
-            ("positive_int", "Positive Int"), 
             ("decimal", "Decimal"),
             ("date_time", "Date Time"),
             ("date", "Date"),
-            ("time", "Time"),
             ("instant", "Instant"),
             ("string", "String"),
-            ("uri", "URI"),
-            ("oid", "OID"),
-            ("uuid", "UUID"),
-            ("id", "ID"),
+            ("uri", "URI"), 
             ("boolean", "Boolean"),
             ("code", "Code"),
             ("markdown", "Markdown"),
@@ -35,7 +29,6 @@ class Extension(models.Model):
             ("attachment", "Attachment"),
             ("identifier", "Identifier"),
             ("quantity", "Quantity"),
-            ("sample_data", "Sample Data"),
             ("range", "Range"),
             ("period", "Period"),
             ("ratio", "Ratio"), 
@@ -43,168 +36,211 @@ class Extension(models.Model):
             ("address", "Address"),
             ("contact_point", "Contact Point"),
             ("timing", "Timing"),
-            ("Reference", "Reference"),
-            ("annotation", "Annotation"),
             ("signature", "Signature"),
+            ("reference", "Reference"),
+            ("time", "Time"), 
+            ("oid", "OID"), 
+            ("id", "ID"), 
+            ("unsigned_int", "Unsigned Integer"), 
+            ("positive_int", "Positive Integer"), 
+            ("annotation", "Annotation"), 
+            ("sampled_data", "Sampled Data"), 
             ("meta", "Meta")],
-            help="Type of value of extension.")
+        help="Type of example value (as defined for type).")                       
     value_name = fields.Char(
         string="Value", 
         compute="_compute_value_name", 
         store="True", 
-        help="Value of extension.")
+        help="Value.")
     value_integer = fields.Integer(
         string="Value Integer", 
-        help="Integer value of extension.")
-    value_unsigned_int = fields.Integer(
-        string="Value Unsigned Integer", 
-        help="Unsigned Integer value of extension.")
-    value_positive_int = fields.Integer(
-        string="Value Positive Integer", 
-        help="Positive Integer value of extension.")
+        help="Integer value.")
     value_decimal = fields.Float(
         string="Value Decimal", 
-        help="Decimal value of extension.")
+        help="Decimal value.")
     value_date_time = fields.Datetime(
         string="Value Date Time", 
-        help="Date Time value of extension.")
+        help="Date Time value.")
     value_date = fields.Date(
         string="Value Date", 
-        help="Date value of extension.")
+        help="Date value.")
     value_instant = fields.Datetime(
         string="Value Instant", 
-        help="Instant value of extension.")
+        help="Instant value.")
     value_string = fields.Char(
         string="Value String", 
-        help="String value of extension.")
+        help="String value.")
     value_uri = fields.Char(
         string="Value URI", 
-        help="URI value of extension.")
-    value_oid = fields.Char(
-        string="Value OID", 
-        help="OID value of extension.")
-    value_uuid = fields.Char(
-        string="Value UUUID", 
-        help="UUUID value of extension.")
-    value_id = fields.Char(
-        string="Value Id", 
-        help="Id value of extension.")
+        help="URI value.")
     value_boolean = fields.Boolean(
         string="Value Boolean", 
-        help="Boolean value of extension.")
+        help="Boolean value.")
     value_code_id = fields.Many2one(
-        comodel_name="hc.vs.extension.code", 
+        comodel_name="hc.vs.extension.code",
         string="Value Code", 
-        help="Code value of extension.")
+        help="Code value.")
     value_markdown = fields.Text(
         string="Value Markdown", 
-        help="Markdown value of extension.")
+        help="Markdown value.")
     value_base_64_binary = fields.Binary(
         string="Value Base 64 Binary", 
-        help="Base 64 Binary value of extension.")
+        help="Base 64 Binary value.")
     value_coding_id = fields.Many2one(
-        comodel_name="hc.vs.extension.coding", 
+        comodel_name="hc.vs.extension.code", 
         string="Value Coding", 
-        help="Coding value of extension.")
+        help="Coding value.")
     value_codeable_concept_id = fields.Many2one(
-        comodel_name="hc.vs.extension.codeable.concept", 
+        comodel_name="hc.vs.extension.code", 
         string="Value Codeable Concept", 
-        help="Codeable Concept value of extension.")
+        help="Codeable Concept value.")
     value_attachment_id = fields.Many2one(
         comodel_name="hc.extension.attachment", 
         string="Value Attachment", 
-        help="Attachment value of extension.")
+        help="Attachment value.")
     value_identifier_id = fields.Many2one(
         comodel_name="hc.extension.identifier", 
         string="Value Identifier", 
-        help="Identifier value of extension.")
+        help="Identifier value.")
     value_quantity = fields.Float(
         string="Value Quantity", 
-        help="Quantity value of extension.")
+        help="Quantity value.")
     value_quantity_uom_id = fields.Many2one(
         comodel_name="product.uom", 
         string="Value Quantity UOM", 
         help="Quantity unit of measure.")
-    value_sampled_data = fields.Many2one(
-        comodel_name="hc.extension.sampled.data", 
-        string="Value Sampled Data", 
-        help="Sampled Data value of extension.")
-    value_range_low = fields.Float(
-        string="Value Range Low", 
-        help="Low limit of range value of extension.")
-    value_range_high = fields.Float(
-        string="Value Range High", 
-        help="High limit of range value of extension.")
-    value_range_uom_id = fields.Many2one(
-        comodel_name="product.uom", 
-        string="Value Range UOM", 
-        help="Range unit of measure.")
-    value_period_start_date = fields.Datetime(
-        string="Value Period Start Date", 
-        help="Start of the period for value of extension.")
-    value_period_end_date = fields.Datetime(
-        string="Value Period End Date", 
-        help="End of the period for value of extension.")
+    value_range = fields.Char(
+        string="Value Range", 
+        help="Value of Range.")
+    value_period = fields.Char(
+        string="Value Period", 
+        help="Value of Period.")
     value_period_uom_id = fields.Many2one(
         comodel_name="product.uom", 
         string="Value Period UOM", 
         help="Period unit of measure.")
-    value_numerator = fields.Float(
-        string="Value Numerator", 
-        help="Numerator value of value of extension.")
-    value_numerator_uom_id = fields.Many2one(
-        comodel_name="product.uom", 
-        string="Value Numerator UOM", 
-        help="Value numerator unit of measure.")
-    value_denominator = fields.Float(
-        string="Value Denominator", 
-        help="Denominator value of value of extension.")
-    value_denominator_uom_id = fields.Many2one(
-        comodel_name="product.uom", 
-        string="Value Denominator UOM", 
-        help="Value denominator unit of measure.")
     value_ratio = fields.Float(
         string="Value Ratio", 
-        compute="_compute_value_ratio", 
-        store="True", 
-        help="Ratio of value of extension.")
-    value_ratio_uom = fields.Char(
-        string="Value Ratio UOM", 
-        compute="_compute_value_ratio_uom", 
-        store="True", 
-        help="Value Ratio unit of measure.")
+        help="Ratio of value.")
     value_human_name_id = fields.Many2one(
         comodel_name="hc.extension.human.name", 
         string="Value Human Name", 
-        help="Human Name value of extension.")
+        help="Human Name value.")
     value_address_id = fields.Many2one(
         comodel_name="hc.extension.address", 
         string="Value Address", 
-        help="Address value of extension.")
+        help="Address value.")
     value_contact_point_id = fields.Many2one(
         comodel_name="hc.extension.telecom", 
         string="Value Contact Point", 
-        help="Contact Point (Telecom) value of extension.")
+        help="Value of Contact Point.")
     value_timing_id = fields.Many2one(
         comodel_name="hc.extension.timing", 
         string="Value Timing", 
-        help="Timing value of extension.")
-    value_reference_id = fields.Many2one(
-        comodel_name="hc.extension.reference", 
-        string="Value Reference", 
-        help="Reference value of extension.")
-    value_annotation_id = fields.Many2one(
-        comodel_name="hc.extension.annotation", 
-        string="Value Annotation", 
-        help="Annotation value of extension.")
+        help="Timing value.")
     value_signature_id = fields.Many2one(
         comodel_name="hc.extension.signature", 
         string="Value Signature", 
-        help="Signature value of extension.")
+        help="Signature value.")
+    value_reference_id = fields.Many2one(
+        comodel_name="hc.extension.reference", 
+        string="Value Reference", 
+        help="Reference value.")
+    value_time = fields.Float(
+        string="Value Time", 
+        help="Time value.")
+    value_oid = fields.Char(
+        string="Value OID", 
+        help="OID value.")
+    value_id = fields.Char(
+        string="Value ID", 
+        help="ID value.")
+    value_unsigned_int = fields.Integer(
+        string="Value Unsigned Integer", 
+        help="Unsigned Integer value.")
+    value_positive_int = fields.Integer(
+        string="Value Positive Integer", 
+        help="Positive Integer value.")
+    value_annotation_id = fields.Many2one(
+        comodel_name="hc.extension.annotation", 
+        string="Value Annotation", 
+        help="Annotation value.")
+    value_sampled_data_id = fields.Many2one(
+        comodel_name="hc.extension.sampled.data", 
+        string="Value Sampled Data", 
+        help="Sampled Data value.")
     value_meta_id = fields.Many2one(
         comodel_name="hc.extension.meta", 
         string="Value Meta", 
-        help="Meta value of extension.")
+        help="Meta value.")
+
+    @api.depends('value_type')              
+    def _compute_value_name(self):              
+        for hc_extension in self:
+            if hc_extension.value_type == 'integer':       
+                hc_extension.value_name = str(hc_extension.value_integer)
+            elif hc_extension.value_type == 'decimal':   
+                hc_extension.value_name = str(hc_extension.value_decimal)
+            elif hc_extension.value_type == 'date_time':  
+                hc_extension.value_type = str(hc_extension.value_date_time)
+            elif hc_extension.value_type == 'date':      
+                hc_extension.value_name = str(hc_extension.value_date)
+            elif hc_extension.value_type == 'instant':   
+                hc_extension.value_name = str(hc_extension.value_instant)
+            elif hc_extension.value_type == 'string':      
+                hc_extension.value_name = hc_extension.value_string
+            elif hc_extension.value_type == 'uri': 
+                hc_extension.value_name = hc_extension.value_uri
+            elif hc_extension.value_type == 'boolean': 
+                hc_extension.value_name = hc_extension.value_boolean
+            elif hc_extension.value_type == 'code':    
+                hc_extension.value_name = hc_extension.value_code_id.name
+            elif hc_extension.value_type == 'markdown':    
+                hc_extension.value_name = hc_extension.value_markdown
+            elif hc_extension.value_type == 'coding':    
+                hc_extension.value_name = hc_extension.value_coding_id.name
+            elif hc_extension.value_type == 'codeable_concept':  
+                hc_extension.value_name = hc_extension.value_codeable_concept_id.name
+            elif hc_extension.value_type == 'attachment':    
+                hc_extension.value_name = hc_extension.value_attachment_id.name
+            elif hc_extension.value_type == 'identifier':    
+                hc_extension.value_name = hc_extension.value_identifier_id.name
+            elif hc_extension.value_type == 'quantity':
+                hc_extension.value_name = str(hc_extension.value_quantity)
+            elif hc_extension.value_type == 'range':
+                hc_extension.value_name = hc_extension.value_range
+            elif hc_extension.value_type == 'period':
+                hc_extension.value_name = hc_extension.value_period
+            elif hc_extension.value_type == 'ratio':
+                hc_extension.value_name = str(hc_extension.value_ratio)
+            elif hc_extension.value_type == 'human_name':    
+                hc_extension.value_name = hc_extension.value_human_name_id.name
+            elif hc_extension.value_type == 'address':   
+                hc_extension.value_name = hc_extension.value_address_id.name   
+            elif hc_extension.value_type == 'contact_point':  
+                hc_extension.value_name = hc_extension.value_contact_point_id.name
+            elif hc_extension.value_type == 'timing':   
+                hc_extension.value_name = hc_extension.value_timing_id.name
+            elif hc_extension.value_type == 'signature':    
+                hc_extension.value_name = hc_extension.value_signature_id.name
+            elif hc_extension.value_type == 'reference':    
+                hc_extension.value_name = hc_extension.value_reference_id.name
+            elif hc_extension.value_type == 'time':   
+                hc_extension.value_type = str(hc_extension.value_time)                
+            elif hc_extension.value_type == 'oid': 
+                hc_extension.value_name = hc_extension.value_oid
+            elif hc_extension.value_type == 'id':  
+                hc_extension.value_name = hc_extension.value_id
+            elif hc_extension.value_type == 'unsigned_int':   
+                hc_extension.value_type = str(hc_extension.value_unsigned_int)                 
+            elif hc_extension.value_type == 'positive_int':   
+                hc_extension.value_type = str(hc_extension.value_positive_int)                
+            elif hc_extension.value_type == 'annotation':  
+                hc_extension.value_name = hc_extension.value_annotation_id.name
+            elif hc_extension.value_type == 'sampled_data':    
+                hc_extension.value_name = hc_extension.value_sampled_data_id.name
+            elif hc_extension.value_type == 'meta':    
+                hc_extension.value_name = hc_extension.value_meta_id.name
 
 class ExtensionAttachment(models.Model):    
     _name = "hc.extension.attachment"   

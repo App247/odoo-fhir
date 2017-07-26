@@ -18,7 +18,7 @@
             <field name="arch" type="xml">                                  
                 <tree string="Structure Definitions">
                     <field name="name"/>
-                    <field name="type"/>
+                    <field name="type_id"/>
                     <field name="kind"/>
                     <field name="status"/>                               
                 </tree>                             
@@ -50,7 +50,7 @@
                             <group string="Type">
                                 <field name="kind"/>
                                 <field name="abstract"/>
-                                <field name="type"/>
+                                <field name="type_id"/>
                                 <field name="base_definition" widget="url"/>
                                 <field name="derivation"/>
                             </group>
@@ -151,57 +151,6 @@
                                     </form>
                                 </field> 
                             </page>
-
-<!--                             <page string="Contacts">                 
-                                <field name="contact_ids" mode="tree">               
-                                    <tree>
-                                        <field name="name"/>
-                                        <field name="telecom_ids" widget="many2many_tags"/>      
-                                    </tree>         
-                                    <form>          
-                                        <sheet>                         
-                                            <h1>                        
-                                                <field name="name" default_focus="1" placeholder="Name"/>                   
-                                            </h1>                       
-                                            <group>                     
-                                                <group>                 
-                                                </group>                    
-                                                <group>                 
-                                                </group>                    
-                                            </group>                        
-                                            <notebook>                      
-                                                <page string="Telecom">
-                                                    <field name="telecom_ids" mode="tree">
-                                                        <tree default_order="is_preferred">
-                                                            <field name="is_preferred"/>
-                                                            <field name="use"/>
-                                                            <field name="telecom_id"/>
-                                                            <field name="rank"/>
-                                                            <field name="start_date"/>
-                                                            <field name="end_date"/>
-                                                        </tree>
-                                                        <form>
-                                                            <sheet>
-                                                                <h1>
-                                                                    <field name="telecom_id"/> 
-                                                                </h1>
-                                                                <field name="use" widget="radio" options="{'horizontal': true}"/>
-                                                                <group>
-                                                                    <field name="rank"/>
-                                                                    <field name="is_preferred"/>
-                                                                    <field name="is_active"/>
-                                                                    <field name="start_date" placeholder="Valid From"/>
-                                                                    <field name="end_date" placeholder="Valid To"/>
-                                                                </group>
-                                                            </sheet>
-                                                        </form>
-                                                    </field>
-                                                </page>                 
-                                            </notebook>                        
-                                        </sheet>        
-                                    </form>         
-                                </field>                
-                            </page> -->
                             <page string="Use Contexts">                 
                                 <field name="use_context_ids" mode="tree">               
                                     <tree>
@@ -331,7 +280,8 @@
             <field name="name">Structure Definition Snapshot Search</field>                                 
             <field name="model">hc.structure.definition.snapshot</field>                                    
             <field name="arch" type="xml">                                  
-                <search string="Structure Definition Snapshots">                                
+                <search string="Structure Definition Snapshots">
+                    <field name="name"/>                                
                 </search>                               
             </field>                                    
         </record>                                       
@@ -340,7 +290,9 @@
             <field name="name">Structure Definition Snapshot Tree</field>                                   
             <field name="model">hc.structure.definition.snapshot</field>                                    
             <field name="arch" type="xml">                                  
-                <tree string="Structure Definition Snapshots">                              
+                <tree string="Structure Definition Snapshots">
+                    <field name="structure_definition_id"/>
+                    <field name="name"/>                              
                 </tree>                             
             </field>                                    
         </record>                                       
@@ -351,12 +303,14 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>
+                    <field name="structure_definition_id"/>
                 </tree>                                  
                 <form string="Structure Definition Snapshot">                               
                     <sheet>                         
                         <h1>                        
                             <field name="name" default_focus="1" placeholder="Name"/>                   
-                        </h1>                       
+                        </h1>
+                        <field name="structure_definition_id"/>                       
                         <group>                     
                             <group>                 
                             </group>                    
@@ -367,12 +321,30 @@
                             <page string="Elements">                 
                                 <field name="element_ids" mode="tree">               
                                     <tree>
-                                        <field name="path"/>         
+                                        <field name="slice_name" string="Slice"/>
+                                        <field name="path"/>
+                                        <field name="short"/>
+                                        <field name="min"/>
+                                        <field name="max"/>                 
                                     </tree>         
                                     <form>
                                         <sheet>
+                                            <h1>                        
+                                                <field name="element_id" default_focus="1" placeholder="Element"/>                   
+                                            </h1>
+                                            <field name="definition" placeholder="Definition"/>
                                             <group>
-                                                <field name="element_id"/>
+                                                <group>
+                                                    <field name="slice_name" string="Slice"/>
+                                                    <field name="path"/>
+                                                    <field name="label"/>
+                                                    <field name="short"/>
+                                                    <field name="comment"/>
+                                                </group>
+                                                <group>
+                                                    <field name="min"/>
+                                                    <field name="max"/>
+                                                </group>
                                             </group>
                                         </sheet>
                                     </form>         
@@ -405,7 +377,9 @@
             <field name="name">Structure Definition Differential Search</field>                                 
             <field name="model">hc.structure.definition.differential</field>                                    
             <field name="arch" type="xml">                                  
-                <search string="Structure Definition Differentials">                                
+                <search string="Structure Definition Differentials">
+                    <field name="structure_definition_id"/>
+                    <field name="name"/>                                
                 </search>                               
             </field>                                    
         </record>                                       
@@ -414,7 +388,9 @@
             <field name="name">Structure Definition Differential Tree</field>                                   
             <field name="model">hc.structure.definition.differential</field>                                    
             <field name="arch" type="xml">                                  
-                <tree string="Structure Definition Differentials">                              
+                <tree string="Structure Definition Differentials">
+                    <field name="name"/>
+                    <field name="structure_definition_id"/>                              
                 </tree>                             
             </field>                                    
         </record>                                       
@@ -427,7 +403,8 @@
                     <sheet>                         
                         <h1>                        
                             <field name="name" default_focus="1" placeholder="Name"/>                   
-                        </h1>                       
+                        </h1>
+                        <field name="structure_definition_id"/>                       
                         <group>                     
                             <group>                 
                             </group>                    
@@ -449,12 +426,24 @@
                                             <h1>                        
                                                 <field name="element_id" default_focus="1" placeholder="Element"/>                   
                                             </h1>
+                                            <label for="short" string="Short"/>
+                                            <field name="short" placeholder="Short"/>
+                                            <label for="definition" string="Definition"/>
+                                            <field name="definition"/>
+                                            <label for="comment" string="Comment"/>
+                                            <field name="comment"/>
+                                            <label for="xml_sample" string="XML Sample"/>
+                                            <field name="xml_sample"/>
                                             <group>
-                                                <field name="slice_name" string="Slice"/>
-                                                <field name="path"/>
-                                                <field name="short"/>
-                                                <field name="min"/>
-                                                <field name="max"/>
+                                                <group>
+                                                    <field name="slice_name" string="Slice"/>
+                                                    <field name="path"/>
+                                                    <field name="label"/>
+                                                </group>
+                                                <group>
+                                                    <field name="min"/>
+                                                    <field name="max"/>
+                                                </group>
                                             </group>
                                         </sheet>
                                     </form>         

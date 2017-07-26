@@ -7,7 +7,9 @@
             <field name="name">Element Definition Search</field>                                    
             <field name="model">hc.element.definition</field>                                   
             <field name="arch" type="xml">                                  
-                <search string="Element Definitions">                               
+                <search string="Element Definitions">
+                    <field name="path"/>
+                    <field name="identifier"/>                               
                 </search>                               
             </field>                                    
         </record>                                       
@@ -17,8 +19,10 @@
             <field name="model">hc.element.definition</field>                                   
             <field name="arch" type="xml">                                  
                 <tree string="Element Definitions">
-                    <field name="label"/>
-                    <field name="path"/>           
+                    <field name="path"/>
+                    <field name="identifier"/>                    
+                    <field name="short"/>
+                    <field name="slice_name" string="Slice"/>
                 </tree>                             
             </field>                                    
         </record>                                       
@@ -32,6 +36,7 @@
                         <h1>
                             <field name="path" placeholder="Path"/>
                         </h1>
+                        <field name="identifier" placeholder="Identifier"/>
                         <label for="short" string="Short"/>
                         <field name="short" placeholder="Short"/>
                         <label for="definition" string="Definition"/>
@@ -42,10 +47,10 @@
                         <field name="requirements"/>
                         <group> 
                             <group>
+                                <field name="slice_name" string="Slice"/>
                                 <field name="label"/>
-                                <field name="slice_name"/>
                                 <field name="code_ids" widget="many2many_tags"/>
-                                <field name="short"/>
+                                <field name="is_summary"/>
                                 <field name="min"/>
                                 <field name="max"/>
                                 <field name="content_reference"/>
@@ -57,6 +62,7 @@
                                 <field name="slicing_id"/>
                                 <field name="base_id"/>
                                 <field name="binding_id"/>
+                                <field name="is_modifier"/>
                                 <field name="default_value_name"/>
                                 <field name="default_value_type" class="oe_edit_only"/>
                                 <field name="default_value_integer" class="oe_edit_only" attrs="{'invisible': [('default_value_type','!=','integer')], 'required': [('default_value_type','=','integer')]}"/>
@@ -242,7 +248,7 @@
                             <page string="Types">                 
                                 <field name="type_ids" mode="tree">               
                                     <tree>
-                                         <field name="code"/> 
+                                         <field name="code_id"/> 
                                          <field name="profile"/> 
                                          <field name="target_profile"/>
                                          <field name="versioning"/>       
@@ -251,8 +257,8 @@
                                         <sheet>     
                                             <group> 
                                                 <group>
-                                                    <field name="code"/> 
-                                                    <field name="profile"/> 
+                                                    <field name="code_id"/> 
+                                                    <field name="profile" widget="url"/> 
                                                     <field name="target_profile"/>
                                                     <field name="versioning"/>
                                                 </group>
@@ -358,12 +364,9 @@
                                 <field name="constraint_ids" mode="tree">               
                                     <tree>
                                         <field name="key"/>
-                                        <field name="requirements"/>
-                                        <field name="severity"/> 
                                         <field name="human"/> 
-                                        <field name="expression"/> 
-                                        <field name="xpath"/> 
-                                        <field name="source"/>           
+                                        <field name="xpath"/>
+                                        <field name="requirements"/>           
                                     </tree>         
                                     <form>          
                                         <sheet>     
@@ -388,18 +391,18 @@
                                 <field name="mapping_ids" mode="tree">               
                                     <tree>
                                         <field name="identity"/>
-                                        <field name="language"/>
                                         <field name="map"/>
-                                        <field name="comment"/>          
+                                        <field name="language"/>
+                                        <field name="comment"/>
                                     </tree>         
                                     <form>          
                                         <sheet>     
                                             <group> 
                                                 <group>
                                                     <field name="identity"/>
-                                                    <field name="language"/>
                                                     <field name="map"/>
-                                                    <field name="comment"/>                                                                         
+                                                    <field name="language"/>
+                                                    <field name="comment"/>                                                                        
                                                 </group>
                                             </group>    
                                         </sheet>        
@@ -433,7 +436,8 @@
             <field name="name">Element Definition Slicing Search</field>                                    
             <field name="model">hc.element.definition.slicing</field>                                   
             <field name="arch" type="xml">                                  
-                <search string="Element Definition Slicings">                               
+                <search string="Element Definition Slicings">
+                    <field name="name"/>                               
                 </search>                               
             </field>                                    
         </record>                                       
@@ -443,6 +447,7 @@
             <field name="model">hc.element.definition.slicing</field>                                   
             <field name="arch" type="xml">                                  
                 <tree string="Element Definition Slicings">
+                    <field name="id"/>
                     <field name="is_ordered"/>
                     <field name="name"/>
                     <field name="description"/>
@@ -472,16 +477,18 @@
                         <notebook>                      
                             <page string="Discriminators">                 
                                 <field name="discriminator_ids" mode="tree">               
+                                    <h1>
+                                        <field name="path" placeholder="Path"/>
+                                    </h1>                                    
                                     <tree>
-                                        <field name="type"/>
-                                        <field name="path"/>          
+                                        <field name="type"/>          
                                     </tree>         
                                     <form>       
                                         <sheet>     
                                             <group> 
                                                 <group>
-                                                    <field name="type"/>
-                                                    <field name="path"/>                                                      
+                                                    <field name="path"/>
+                                                    <field name="type"/>                                                      
                                                 </group>
                                                 <group>
                                                 </group>
@@ -517,7 +524,8 @@
             <field name="name">Element Definition Base Search</field>                                   
             <field name="model">hc.element.definition.base</field>                                  
             <field name="arch" type="xml">                                  
-                <search string="Element Definition Bases">                              
+                <search string="Element Definition Bases">
+                    <field name="path"/>                              
                 </search>                               
             </field>                                    
         </record>                                       
@@ -526,7 +534,8 @@
             <field name="name">Element Definition Base Tree</field>                                 
             <field name="model">hc.element.definition.base</field>                                  
             <field name="arch" type="xml">                                  
-                <tree string="Element Definition Bases">                          
+                <tree string="Element Definition Bases">
+                    <field name="id"/>                          
                     <field name="path"/>
                     <field name="min"/>
                     <field name="max"/>                                                   
@@ -577,7 +586,8 @@
             <field name="name">Element Definition Binding Search</field>                                    
             <field name="model">hc.element.definition.binding</field>                                   
             <field name="arch" type="xml">                                  
-                <search string="Element Definition Bindings">                               
+                <search string="Element Definition Bindings">
+                    <field name="name"/>                               
                 </search>                               
             </field>                                    
         </record>                                       
@@ -587,11 +597,12 @@
             <field name="model">hc.element.definition.binding</field>                                   
             <field name="arch" type="xml">                                  
                 <tree string="Element Definition Bindings">
+                    <field name="id"/>
                     <field name="name"/>
                     <field name="strength"/> 
                     <field name="description"/> 
-                    <field name="value_set_name"/> 
-                    <field name="value_set_type"/>                             
+                    <field name="value_set_uri" widget="url"/> 
+                    <field name="value_set"/>                             
                 </tree>                             
             </field>                                    
         </record>                                       
@@ -610,10 +621,8 @@
                             <group>
                                 <group> 
                                 <field name="strength"/> 
-                                <field name="value_set_name"/> 
-                                <field name="value_set_type"/>
-                                <field name="value_set_uri" class="oe_edit_only" attrs="{'invisible': [('value_set_type','!=','uri')], 'required': [('value_set_type','=','uri')]}"/>
-                                <field name="value_set_id" class="oe_edit_only" attrs="{'invisible': [('value_set_type','!=','value_set')], 'required': [('value_set_type','=','value_set')]}"/>
+                                <field name="value_set_uri" widget="url"/>
+                                <field name="value_set"/>
                                 </group>                 
                             </group>                                   
                         </group>                                           
@@ -636,6 +645,79 @@
                   action="hc_element_definition_binding_action" 
                   groups="hc_base.group_hc_base_manager" 
                   sequence="30"/>                          
+
+        <!-- Element Definition Code Views -->                      
+                                
+        <record id="hc_vs_element_definition_code_view_search" model="ir.ui.view">                      
+            <field name="name">Element Definition Code Search</field>                   
+            <field name="model">hc.vs.element.definition.code</field>                   
+            <field name="arch" type="xml">                  
+                <search string="Element Definition Codes">              
+                    <field name="name"/>            
+                    <field name="code"/>            
+                    <field name="definition"/>          
+                    <group>         
+                        <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>      
+                    </group>            
+                </search>               
+            </field>                    
+        </record>                       
+                                
+        <record id="hc_vs_element_definition_code_view_tree" model="ir.ui.view">                        
+            <field name="name">Element Definition Code Tree</field>                 
+            <field name="model">hc.vs.element.definition.code</field>                   
+            <field name="arch" type="xml">                  
+                <tree string="Element Definition Codes" default_order="name, code">             
+                    <field name="id"/>
+                    <field name="name"/>            
+                    <field name="code"/>            
+                    <field name="definition"/>          
+                    <field name="contains_id"/>         
+                    <field name="source_id" invisible="0"/>         
+                </tree>             
+            </field>                    
+        </record>                       
+                                
+        <record id="hc_vs_element_definition_code_view_form" model="ir.ui.view">                        
+            <field name="name">Element Definition Code Form</field>                 
+            <field name="model">hc.vs.element.definition.code</field>                   
+            <field name="arch" type="xml">                  
+                <form string="Element Definition Codes" >               
+                    <sheet>         
+                        <h1>        
+                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>  
+                        </h1>       
+                        <field name="code" placeholder="Code (e.g., biological)"/>      
+                        <field name="definition" placeholder="Definition"/>     
+                        <field name="comments" placeholder="Comments"/>     
+                        <group>     
+                            <group> 
+                                <field name="contains_id"/>
+                            </group>    
+                            <group> 
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
+                            </group>    
+                        </group>        
+                    </sheet>            
+                </form>             
+            </field>                    
+        </record>                       
+                       
+        <act_window id="hc_vs_element_definition_code_action"           
+                    name="HC Element Definition Codes"
+                    res_model="hc.vs.element.definition.code"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+                 
+        <menuitem id="hc_base.menu_elem_def_code" 
+            name="Codes" 
+            parent="hc_base.menu_elem_def" 
+            action="hc_vs_element_definition_code_action" 
+            groups="hc_base.group_hc_base_manager" 
+            sequence="40"/>
 
     </data>
 </odoo>
