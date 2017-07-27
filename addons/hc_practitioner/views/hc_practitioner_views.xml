@@ -1,53 +1,53 @@
 <openerp>
     <data>
 
-        <!-- Practitioner Views -->                                     
-                                                
-        <record id="hc_res_practitioner_view_search" model="ir.ui.view">                                        
-            <field name="name">Practitioner Search</field>                                  
-            <field name="model">hc.res.practitioner</field>                                 
-            <field name="arch" type="xml">                                  
-                <search string="Practitioners">                             
-                    <field name="name"/>                            
-                    <field name="qualification_ids"/>                           
-                </search>                               
-            </field>                                    
-        </record>                                       
-                                                
-        <record id="hc_res_practitioner_view_tree" model="ir.ui.view">                                      
-            <field name="name">Practitioner Tree</field>                                    
-            <field name="model">hc.res.practitioner</field>                                 
-            <field name="arch" type="xml">                                  
-                <tree string="Practitioners">                               
-                    <field name="name"/>                            
-                    <field name="specialty_id"/>                           
-                </tree>                             
-            </field>                                    
-        </record>                                       
-                                                
-        <record id="hc_res_practitioner_view_form" model="ir.ui.view">                                      
-            <field name="name">Practitioner Form</field>                                    
-            <field name="model">hc.res.practitioner</field>                                 
-            <field name="arch" type="xml">                                  
-                <form string="Practitioner">                              
-                    <sheet>                         
-                        <field name="image" widget="image" class="oe_left oe_avatar" options="{'preview_image': 'image_medium', 'size': [90, 90]}"/>                        
-                        <div class="oe_title">                     
-                            <h1>                    
-                                <field name="person_id" default_focus="1" placeholder="Name" context="{'is_practitioner': True}"/>             
-                            </h1>                   
-                        </div>                       
-                        <div name="buttons" class="oe_right oe_button_box"></div>                       
-                        <group>                     
-                            <group>                 
-                                <field name="gender"/>              
-                                <field name="birth_date"/>               
-                            </group>                    
+        <!-- Practitioner Views -->
+
+        <record id="hc_res_practitioner_view_search" model="ir.ui.view">
+            <field name="name">Practitioner Search</field>
+            <field name="model">hc.res.practitioner</field>
+            <field name="arch" type="xml">
+                <search string="Practitioners">
+                    <field name="name"/>
+                    <field name="qualification_ids"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_res_practitioner_view_tree" model="ir.ui.view">
+            <field name="name">Practitioner Tree</field>
+            <field name="model">hc.res.practitioner</field>
+            <field name="arch" type="xml">
+                <tree string="Practitioners">
+                    <field name="name"/>
+                    <field name="specialty_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_res_practitioner_view_form" model="ir.ui.view">
+            <field name="name">Practitioner Form</field>
+            <field name="model">hc.res.practitioner</field>
+            <field name="arch" type="xml">
+                <form string="Practitioner">
+                    <sheet>
+                        <field name="image" widget="image" class="oe_left oe_avatar" options="{'preview_image': 'image_medium', 'size': [90, 90]}"/>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="person_id" default_focus="1" placeholder="Name" context="{'is_practitioner': True}"/>
+                            </h1>
+                        </div>
+                        <div name="buttons" class="oe_right oe_button_box"></div>
+                        <group>
                             <group>
-                                <field name="specialty_id"/>                 
-                            </group>                    
-                        </group>                        
-                        <notebook colspan="4">                      
+                                <field name="gender"/>
+                                <field name="birth_date"/>
+                            </group>
+                            <group>
+                                <field name="specialty_id"/>
+                            </group>
+                        </group>
+                        <notebook colspan="4">
                             <page string="Names">
                                 <field name="name_ids" mode="tree">
                                     <tree default_order="is_preferred">
@@ -75,13 +75,14 @@
                                         </sheet>
                                     </form>
                                 </field>
-                            </page>                  
+                            </page>
                             <page string="Identifiers">
                                 <field name="identifier_ids" mode="tree">
                                     <tree>
                                         <field name="is_preferred"/>
                                         <field name="name"/>
                                         <field name="value"/>
+                                        <field name="code_id"/>
                                     </tree>
                                     <form>
                                         <sheet>
@@ -93,6 +94,7 @@
                                             <group col="4" colspan="4">
                                                 <group>
                                                     <field name="value"/>
+                                                    <field name="code_id"/>
                                                     <field name="is_preferred"/>
                                                     <field name="is_active"/>
                                                 </group>
@@ -104,23 +106,23 @@
                                         </sheet>
                                     </form>
                                 </field>
-                            </page>                                                          
-                            <page string="Addresses">         
+                            </page>
+                            <page string="Addresses">
                                 <field name="address_ids" mode="tree">
                                     <tree default_order="is_preferred">
-                                        <field name="is_preferred"/>       
-                                        <field name="use"/>    
-                                        <field name="line1"/>   
-                                        <field name="line2"/>   
-                                        <field name="city_id"/>   
-                                        <field name="postal_code_id"/>    
+                                        <field name="is_preferred"/>
+                                        <field name="use"/>
+                                        <field name="line1"/>
+                                        <field name="line2"/>
+                                        <field name="city_id"/>
+                                        <field name="postal_code_id"/>
                                         <field name="country_id"/>
-                                        <field name="start_date"/>    
+                                        <field name="start_date"/>
                                         <field name="end_date"/>
-                                    </tree>     
-                                    <form>      
-                                        <sheet>   
-                                            <group col="4" colspan="4">  
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group col="4" colspan="4">
                                                 <field name="use" widget="radio" colspan="4"/>
                                                 <field name="address_id" class="oe_no_button"/>
                                             </group>
@@ -129,11 +131,11 @@
                                                 <field name="is_active"/>
                                                 <field name="start_date" placeholder="Valid From"/>
                                                 <field name="end_date" placeholder="Valid To"/>
-                                            </group>  
-                                        </sheet>    
-                                    </form>     
+                                            </group>
+                                        </sheet>
+                                    </form>
                                 </field>
-                            </page>       
+                            </page>
                             <page string="Telecom">
                                 <field name="telecom_ids" mode="tree">
                                     <tree>
@@ -184,30 +186,30 @@
                                         </sheet>
                                     </form>
                                 </field>
-                            </page>                    
-                            <page string="Languages"/>                  
-                            <page string="Attachments"/>                    
-                            <page string="Qualifications"/>                 
-                            <page string="Roles"/>                  
-                        </notebook>                     
-                    </sheet>                            
-                </form>                             
-            </field>                                    
-        </record>                                       
-                                       
+                            </page>
+                            <page string="Languages"/>
+                            <page string="Attachments"/>
+                            <page string="Qualifications"/>
+                            <page string="Roles"/>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
-        <!-- Practitioner Action and Menu -->       
-                
-        <record id="hc_res_practitioner_action" model="ir.actions.act_window">      
-            <field name="name">HC Practitioners</field> 
+
+        <!-- Practitioner Action and Menu -->
+
+        <record id="hc_res_practitioner_action" model="ir.actions.act_window">
+            <field name="name">HC Practitioners</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="context">{'is_practitioner':True}</field>    
-            <field name="res_model">hc.res.practitioner</field> 
-            <field name="view_type">form</field>    
-            <field name="view_mode">tree,form</field>   
-        </record>       
+            <field name="context">{'is_practitioner':True}</field>
+            <field name="res_model">hc.res.practitioner</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
 
-<!--         <record id="hc_res_practitioner_role_action" model="ir.actions.act_window">  
+<!--         <record id="hc_res_practitioner_role_action" model="ir.actions.act_window">
             <field name="name">HC Practitioner Roles</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">hc.res.practitioner.role</field>
@@ -215,118 +217,118 @@
             <field name="search_view_id"></field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
-        </record>  -->  
+        </record>  -->
 
-        <menuitem id="hc_practitioner.menu_prac" 
+        <menuitem id="hc_practitioner.menu_prac"
                   name="Practitioners"
-                  web_icon="hc_practitioner,static/description/icon.png" 
-                  parent="hc_base.menu_indiv" 
-                  action="hc_res_practitioner_action" 
-                  groups="hc_base.group_hc_base_manager" 
+                  web_icon="hc_practitioner,static/description/icon.png"
+                  parent="hc_base.menu_indiv"
+                  action="hc_res_practitioner_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="20"/>
 
         <!-- External Reference View -->
 
-        <!-- <record id="base.view_partner_form_inherited_practitioner" model="ir.ui.view">     
-            <field name="name">res.partner.form</field>   
-            <field name="model">res.partner</field>   
-            <field name="inherit_id" ref="base.view_partner_form"/>   
+        <!-- <record id="base.view_partner_form_inherited_practitioner" model="ir.ui.view">
+            <field name="name">res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
                 <field name="parent_id" position="after">
-                    <label for="is_practitioner" string="HC Practitioner"/>  
+                    <label for="is_practitioner" string="HC Practitioner"/>
                         <field name="is_practitioner"/>
                 </field>
             </field>
         </record> -->
 
-        <record id="hc_res_person_view_form_inherited_practitioner" model="ir.ui.view">         
-            <field name="name">Person Form</field>      
-            <field name="model">hc.res.person</field>       
-            <field name="inherit_id" ref="hc_person.hc_res_person_view_form"/>      
-            <field name="arch" type="xml">      
-                <field name="target_type" position="after"> 
-                    <field name="target_practitioner_id" attrs="{'invisible': [('target_type','!=','practitioner')]}"/>
-                </field>    
-            </field>        
-        </record>           
-
-        <record id="hc_annotation_view_form_inherited_practitioner" model="ir.ui.view">     
-            <field name="name">Annotation Form</field>   
-            <field name="model">hc.annotation</field>   
-            <field name="inherit_id" ref="hc_base.hc_annotation_view_form"/>   
+        <record id="hc_res_person_view_form_inherited_practitioner" model="ir.ui.view">
+            <field name="name">Person Form</field>
+            <field name="model">hc.res.person</field>
+            <field name="inherit_id" ref="hc_person.hc_res_person_view_form"/>
             <field name="arch" type="xml">
-                <field name="author_type" position="after">
-                    <field name="author_practitioner_id" attrs="{'invisible': [('author_type','!=','practitioner')]}"/>  
+                <field name="target_type" position="after">
+                    <field name="target_practitioner_id" attrs="{'invisible': [('target_type','!=','practitioner')]}"/>
                 </field>
             </field>
         </record>
 
-        <!-- Practitioner Value Set Action and Menu -->         
-        
-<!--         <menuitem id="hc_practitioner.menu_prac_conf" 
-                  name="Configuration" 
-                  parent="hc_practitioner.menu_prac" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="10"/> -->            
-        
-        <record id="hc_vs_practitioner_specialty_view_search" model="ir.ui.view">                       
-            <field name="name">Practitioner Specialty Search</field>                    
-            <field name="model">hc.vs.practitioner.specialty</field>                                    
-            <field name="arch" type="xml">                  
-                <search string="Practitioner Specialties">               
-                    <field name="name"/>            
-                    <field name="code"/>            
-                    <field name="definition"/>          
-                    <group>         
-                        <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}" />     
-                    </group>            
-                </search>               
-            </field>                    
-        </record>                       
-                                
-        <record id="hc_vs_practitioner_specialty_view_tree" model="ir.ui.view">                     
-            <field name="name">Practitioner Specialty Tree</field>                  
-            <field name="model">hc.vs.practitioner.specialty</field>                                     
-            <field name="arch" type="xml">                  
-                <tree string="Practitioner Specialties" default_order="name, code">              
-                    <field name="name"/>            
-                    <field name="code"/>            
-                    <field name="definition"/>          
-                    <field name="source_id" invisible="0"/>         
-                </tree>             
-            </field>                    
-        </record>                       
-                                
-        <record id="hc_vs_practitioner_specialty_view_form" model="ir.ui.view">                     
-            <field name="name">Practitioner Specialty Form</field>                  
-            <field name="model">hc.vs.practitioner.specialty</field>                    
-            <field name="arch" type="xml">                  
-                <form string="Practitioner Specialties">                
-                    <sheet>         
-                        <h1>        
-                            <field name="name" default_focus="1" placeholder="Name (e.g., United States)"/> 
-                        </h1>       
-                        <field name="code" placeholder="Code (e.g., US)"/>      
-                        <field name="definition" placeholder="Definition"/>     
-                        <field name="comments" placeholder="Comments"/>     
-                        <group>     
-                            <group> 
+        <record id="hc_annotation_view_form_inherited_practitioner" model="ir.ui.view">
+            <field name="name">Annotation Form</field>
+            <field name="model">hc.annotation</field>
+            <field name="inherit_id" ref="hc_base.hc_annotation_view_form"/>
+            <field name="arch" type="xml">
+                <field name="author_type" position="after">
+                    <field name="author_practitioner_id" attrs="{'invisible': [('author_type','!=','practitioner')]}"/>
+                </field>
+            </field>
+        </record>
+
+        <!-- Practitioner Value Set Action and Menu -->
+
+<!--         <menuitem id="hc_practitioner.menu_prac_conf"
+                  name="Configuration"
+                  parent="hc_practitioner.menu_prac"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="10"/> -->
+
+        <record id="hc_vs_practitioner_specialty_view_search" model="ir.ui.view">
+            <field name="name">Practitioner Specialty Search</field>
+            <field name="model">hc.vs.practitioner.specialty</field>
+            <field name="arch" type="xml">
+                <search string="Practitioner Specialties">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                    <group>
+                        <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}" />
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_vs_practitioner_specialty_view_tree" model="ir.ui.view">
+            <field name="name">Practitioner Specialty Tree</field>
+            <field name="model">hc.vs.practitioner.specialty</field>
+            <field name="arch" type="xml">
+                <tree string="Practitioner Specialties" default_order="name, code">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                    <field name="source_id" invisible="0"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_vs_practitioner_specialty_view_form" model="ir.ui.view">
+            <field name="name">Practitioner Specialty Form</field>
+            <field name="model">hc.vs.practitioner.specialty</field>
+            <field name="arch" type="xml">
+                <form string="Practitioner Specialties">
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name (e.g., United States)"/>
+                        </h1>
+                        <field name="code" placeholder="Code (e.g., US)"/>
+                        <field name="definition" placeholder="Definition"/>
+                        <field name="comments" placeholder="Comments"/>
+                        <group>
+                            <group>
                                 <field name="contains_id"/>
                                 <field name="level" placeholder="An integer (e.g., 1, 2)"/>
                                 <field name="is_abstract"/>
                                 <field name="version" placeholder="e.g., v2.5"/>
-                            </group>    
-                            <group> 
+                            </group>
+                            <group>
                                 <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
                                 <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
-                            </group>    
-                        </group>        
-                    </sheet>            
-                </form>             
-            </field>                    
-        </record>                       
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
-        <act_window id="hc_vs_practitioner_specialty_action"            
+        <act_window id="hc_vs_practitioner_specialty_action"
                     name="HC Practitioner Specialties"
                     res_model="hc.vs.practitioner.specialty"
                     view_mode="tree,form"
@@ -334,14 +336,14 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_practitioner.menu_prac_spec" 
-                  name="Practitioner Specialties" 
-                  parent="hc_practitioner.menu_prac" 
-                  action="hc_vs_practitioner_specialty_action" 
-                  groups="hc_base.group_hc_base_manager" 
+        <menuitem id="hc_practitioner.menu_prac_spec"
+                  name="Practitioner Specialties"
+                  parent="hc_practitioner.menu_prac"
+                  action="hc_vs_practitioner_specialty_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="10"/>
 
 
-    
+
     </data>
 </openerp>

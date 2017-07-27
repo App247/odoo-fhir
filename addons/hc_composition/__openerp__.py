@@ -37,6 +37,9 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'data/data_composition.xml',
+        'data/hc.vs.doc.class.code.csv',
+        'data/hc.vs.doc.type.code.csv',
         'views/hc_res_composition_views.xml',
         'views/hc_res_composition_templates.xml',
     ],

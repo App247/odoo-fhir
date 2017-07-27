@@ -1,0 +1,34 @@
+id,code,name,source_id/id,system
+doc_class_lp173387_4,LP173387-4,"Administrative note",base.loinc,http://hl7.org/fhir/ValueSet/doc-classcodes
+doc_class_lp173388_2,LP173388-2,"Against medical advice note",base.loinc,http://hl7.org/fhir/ValueSet/doc-classcodes
+doc_class_lp173389_0,LP173389-0,"Agreement",base.loinc,http://hl7.org/fhir/ValueSet/doc-classcodes
+doc_class_lp173390_8,LP173390-8,"Certificate",base.loinc,http://hl7.org/fhir/ValueSet/doc-classcodes
+doc_class_lp173394_0,LP173394-0,"Consent",base.loinc,http://hl7.org/fhir/ValueSet/doc-classcodes
+doc_class_lp173403_9,LP173403-9,"Contract",base.loinc,http://hl7.org/fhir/ValueSet/doc-classcodes
+doc_class_lp193873_9,LP193873-9,"Driver license",base.loinc,http://hl7.org/fhir/ValueSet/doc-classcodes
+doc_class_lp173404_7,LP173404-7,"Health insurance card",base.loinc,http://hl7.org/fhir/ValueSet/doc-classcodes
+doc_class_lp173405_4,LP173405-4,"Health insurance-related form",base.loinc,http://hl7.org/fhir/ValueSet/doc-classcodes
+doc_class_lp173406_2,LP173406-2,"Health record cover sheet",base.loinc,http://hl7.org/fhir/ValueSet/doc-classcodes
+doc_class_lp173407_0,LP173407-0,"Legal document",base.loinc,http://hl7.org/fhir/ValueSet/doc-classcodes
+doc_class_lp181089_6,LP181089-6,"Request",base.loinc,http://hl7.org/fhir/ValueSet/doc-classcodes
+doc_class_lp173409_6,LP173409-6,"Advance directive",base.loinc,http://hl7.org/fhir/ValueSet/doc-classcodes
+doc_class_lp173410_4,LP173410-4,"Do not resuscitate",base.loinc,http://hl7.org/fhir/ValueSet/doc-classcodes
+doc_class_lp173412_0,LP173412-0,"Living will",base.loinc,http://hl7.org/fhir/ValueSet/doc-classcodes
+doc_class_lp173413_8,LP173413-8,"Rescinded advance directive",base.loinc,http://hl7.org/fhir/ValueSet/doc-classcodes
+doc_class_lp173414_6,LP173414-6,"Diagram",base.loinc,http://hl7.org/fhir/ValueSet/doc-classcodes
+doc_class_lp173415_3,LP173415-3,"Flowsheet",base.loinc,http://hl7.org/fhir/ValueSet/doc-classcodes
+doc_class_lp181112_6,LP181112-6,"Form",base.loinc,http://hl7.org/fhir/ValueSet/doc-classcodes
+doc_class_lp181116_7,LP181116-7,"Instructions",base.loinc,http://hl7.org/fhir/ValueSet/doc-classcodes
+doc_class_lp181119_1,LP181119-1,"Action plan",base.loinc,http://hl7.org/fhir/ValueSet/doc-classcodes
+doc_class_lp173118_3,LP173118-3,"Discharge instructions",base.loinc,http://hl7.org/fhir/ValueSet/doc-classcodes
+doc_class_lp173416_1,LP173416-1,"Legal",base.loinc,http://hl7.org/fhir/ValueSet/doc-classcodes
+doc_class_lp173417_9,LP173417-9,"Letter",base.loinc,http://hl7.org/fhir/ValueSet/doc-classcodes
+doc_class_lp173418_7,LP173418-7,"Note",base.loinc,http://hl7.org/fhir/ValueSet/doc-classcodes
+doc_class_lp173419_5,LP173419-5,"Adverse event note",base.loinc,http://hl7.org/fhir/ValueSet/doc-classcodes
+doc_class_lp173420_3,LP173420-3,"Alert",base.loinc,http://hl7.org/fhir/ValueSet/doc-classcodes
+doc_class_lp181207_4,LP181207-4,"Order",base.loinc,http://hl7.org/fhir/ValueSet/doc-classcodes
+doc_class_lp181204_1,LP181204-1,"Prescription",base.loinc,http://hl7.org/fhir/ValueSet/doc-classcodes
+doc_class_lp156982_3,LP156982-3,"Photographic image",base.loinc,http://hl7.org/fhir/ValueSet/doc-classcodes
+doc_class_lp173421_1,LP173421-1,"Report",base.loinc,http://hl7.org/fhir/ValueSet/doc-classcodes
+doc_class_lp183503_4,LP183503-4,"Case report",base.loinc,http://hl7.org/fhir/ValueSet/doc-classcodes
+doc_class_lp183502_6,LP183502-6,"Registry report",base.loinc,http://hl7.org/fhir/ValueSet/doc-classcodes

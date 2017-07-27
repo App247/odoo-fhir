@@ -4,7 +4,8 @@ from openerp import models, fields, api
 
 class Meta(models.Model):    
     _name = "hc.meta"    
-    _description = "Meta"        
+    _description = "Meta"
+    _rec_name = "profile"        
 
     version_id = fields.Char(
         string="Version Id", 

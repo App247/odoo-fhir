@@ -3201,7 +3201,6 @@
             <field name="kind">resource</field>
             <field name="abstract">false</field>
             <field name="type_id" ref="hc_base.defn_type_careplan"/>
-            <!-- <field name="type">carePlan</field> -->
             <field name="base_definition">http://hl7.org/fhir/StructureDefinition/CarePlan</field>
             <field name="derivation">constraint</field>
             <field name="snapshot_id" ref="us-core-careplan-33"/>

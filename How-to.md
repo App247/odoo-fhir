@@ -452,3 +452,9 @@ ctrl-z to quit
 
 * [Remove trailing spaces in Python code](http://www.mefancy.com/addremove/remove-leading-text.php)
 * [Remove/replace non ASCII characters](http://utils.paranoiaworks.org/diacriticsremover/) to fix `UnicodeWarning: Unicode unequal comparison failed to convert both arguments to Unicode - interpreting them as being unequalif cols[k][key] != vals[key]`
+
+# Optimize server
+
+* Watch: [Live Webinar- Intro to Customizing Odoo](https://youtu.be/E9u_Dpu2X1k)
+* [Tune PostgreSQL](http://pgtune.leopard.in.ua)
+* [Performance Tips](https://www.odoo.com/slides/slide/performance-tips-tricks-399)

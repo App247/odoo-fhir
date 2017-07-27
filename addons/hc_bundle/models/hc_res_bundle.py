@@ -4,11 +4,17 @@ from openerp import models, fields, api
 
 class Bundle(models.Model):    
     _name = "hc.res.bundle"    
-    _description = "Bundle"        
-
+    _description = "Bundle"
+    _inherit = ["hc.resource"]        
+    
+    name = fields.Char(
+        string="Name", 
+        # compute="_compute_name", 
+        # store="True", 
+        help="Text representation of the bundle.")
     identifier_id = fields.Many2one(
         comodel_name="hc.bundle.identifier", 
-        string="Identifier", 
+        string="Bundle Identifier", 
         help="Persistent identifier for the bundle.")
     type = fields.Selection(
         string="Bundle Type", 
@@ -17,7 +23,9 @@ class Bundle(models.Model):
             ("document", "Document"), 
             ("message", "Message"), 
             ("transaction", "Transaction"), 
-            ("transaction-response", "Transaction Response"), 
+            ("transaction-response", "Transaction Response"),
+            ("batch", "Batch"), 
+            ("batch-response", "Batch Response"), 
             ("history", "History"), 
             ("searchset", "Search Set"), 
             ("collection", "Collection")], 
@@ -55,7 +63,7 @@ class BundleLink(models.Model):
     relation = fields.Char(
         string="Relation", 
         required="True", 
-        help="http://www.iana.org/assignments/link-relations/link-relations.xhtml.")                
+        help="See http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1.")                
     url = fields.Char(
         string="URI", 
         required="True", 
@@ -109,8 +117,9 @@ class BundleEntrySearch(models.Model):
         string="Search Mode", 
         selection=[
             ("match", "Match"), 
-            ("include", "Include")], 
-        help="Why an entry is in the result set - whether it's included as a match or because of an _include requirement.")                
+            ("include", "Include"),
+            ("outcome", "Outcome")], 
+        help="Why an entry is in the result set.")                
     score = fields.Float(
         string="Score", 
         help="Search ranking (between 0 and 1).")                

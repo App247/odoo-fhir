@@ -1,0 +1,59 @@
+<odoo>
+    <data>
+
+        <!-- Reference Views -->
+
+        <record id="hc_reference_view_search" model="ir.ui.view">
+            <field name="display">Reference Search</field>
+            <field name="model">hc.reference</field>
+            <field name="arch" type="xml">
+                <search string="References">
+                    <field name="display"/>
+                    <field name="reference"/>
+                    <field name="identifier_id"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_reference_view_tree" model="ir.ui.view">
+            <field name="display">Reference Tree</field>
+            <field name="model">hc.reference</field>
+            <field name="arch" type="xml">
+                <tree string="References">
+                    <field name="display"/>
+                    <field name="reference"/>
+                    <field name="identifier_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_reference_view_form" model="ir.ui.view">
+            <field name="display">Reference Form</field>
+            <field name="model">hc.reference</field>
+            <field name="arch" type="xml">
+                <form string="Reference">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="display"/>
+                                <field name="reference"/>
+                                <field name="identifier_id"/>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_reference_action"
+                    name="HC References"
+                    res_model="hc.reference"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+    </data>
+</odoo>

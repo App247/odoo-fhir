@@ -1,0 +1,1001 @@
+id,code,name,source_id/id,system
+doc_type_11488_4,11488-4,"Consult note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11490_0,11490-0,"Physician Discharge summary",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11492_6,11492-6,"Provider-unspecifed, History and physical note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11527_9,11527-9,"Psychiatry study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11528_7,11528-7,"Deprecated Radiology Unspecified site and modality Study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11529_5,11529-5,"Surgical pathology study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11534_5,11534-5,"Temperature charts",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11536_0,11536-0,"Nurse Notes",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11538_6,11538-6,"Deprecated CT Chest study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11485_0,11485-0,"Anesthesia records",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11486_8,11486-8,"Chemotherapy records",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11494_2,11494-2,"Deprecated Physician Initial assessment note at First encounter",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11495_9,11495-9,"Deprecated Physical therapy Initial assessment note at First encounter",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11496_7,11496-7,"Deprecated Podiatry Initial assessment note at First encounter",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11497_5,11497-5,"Deprecated Psychology Initial assessment note at First encounter",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11498_3,11498-3,"Deprecated Social work Initial assessment note at First encounter",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11499_1,11499-1,"Deprecated Speech therapy Initial assessment note at First encounter",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11500_6,11500-6,"Deprecated Occupational therapy Initial assessment note at First encounter",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11502_2,11502-2,"Laboratory report",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11503_0,11503-0,"Medical records",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11504_8,11504-8,"Surgical operation note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11505_5,11505-5,"Physician procedure note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11506_3,11506-3,"Progress note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11507_1,11507-1,"Occupational therapy Progress note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11508_9,11508-9,"Physical therapy Progress note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11509_7,11509-7,"Podiatry Progress note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11510_5,11510-5,"Psychology Progress note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11512_1,11512-1,"Speech-language pathology Progress note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11514_7,11514-7,"Chiropractic Records total Encounter",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11515_4,11515-4,"Physical therapy Records total Encounter",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11516_2,11516-2,"Physician Records total Encounter",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11517_0,11517-0,"Podiatry Records total Encounter",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11518_8,11518-8,"Psychology Records total Encounter",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11519_6,11519-6,"Social service Records total Encounter",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11520_4,11520-4,"Speech therapy Records total Encounter",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11521_2,11521-2,"Occupational therapy Records total Encounter",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11522_0,11522-0,"Deprecated Cardiac echo study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11523_8,11523-8,"EEG study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11524_6,11524-6,"EKG Study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11525_3,11525-3,"US Pelvis Fetus for pregnancy",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11526_1,11526-1,"Pathology study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11539_4,11539-4,"Deprecated CT Head study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11540_2,11540-2,"Deprecated CT Abdomen study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11541_0,11541-0,"Deprecated MRI Brain study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11542_8,11542-8,"Deprecated Provider-unspecified visit note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_11543_6,11543-6,"Nursery records",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_15507_7,15507-7,"Emergency department Progress note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_15508_5,15508-5,"Labor and delivery records",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_19002_5,19002-5,"Physical therapy service attachment",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_19003_3,19003-3,"Respiratory therapy service attachment",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_19004_1,19004-1,"Skilled nursing service attachment",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_17787_3,17787-3,"Thyroid gland NM Study report",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18594_2,18594-2,"Psychiatric service attachment",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18733_6,18733-6,"Physician attending Progress note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18734_4,18734-4,"Occupational therapy Initial evaluation note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18735_1,18735-1,"Physical therapy Initial evaluation note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18736_9,18736-9,"Physician Initial evaluation note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18737_7,18737-7,"Podiatry Initial evaluation note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18738_5,18738-5,"Psychology Initial evaluation note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18739_3,18739-3,"Social work Initial evaluation note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18740_1,18740-1,"Speech-language pathology Initial evaluation note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18741_9,18741-9,"Deprecated Attending physician progress note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18742_7,18742-7,"Arthroscopy study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18743_5,18743-5,"Autopsy report",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18744_3,18744-3,"Bronchoscopy study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18745_0,18745-0,"Cardiac catheterization study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18746_8,18746-8,"Colonoscopy Study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18747_6,18747-6,"Deprecated CT Unspecified system Study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18748_4,18748-4,"Diagnostic imaging study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18749_2,18749-2,"Electromyogram study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18750_0,18750-0,"Electrophysiology study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18751_8,18751-8,"Endoscopy study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18752_6,18752-6,"Exercise stress test study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18753_4,18753-4,"Flexible sigmoidoscopy study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18754_2,18754-2,"Holter monitor study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18755_9,18755-9,"Deprecated MRI Unspecified site study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18756_7,18756-7,"MR Spine study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18757_5,18757-5,"Deprecated Nuclear medicine study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18758_3,18758-3,"Deprecated PET scan Unspecified system Study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18759_1,18759-1,"Spirometry study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18760_9,18760-9,"Deprecated US Unspecified system Study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18761_7,18761-7,"Transfer summary note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18762_5,18762-5,"Deprecated Chiropractor Progress note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18763_3,18763-3,"Physician consulting Initial evaluation note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18764_1,18764-1,"Deprecated Nurse practitioner Progress note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18765_8,18765-8,"Deprecated Podiatry visit note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18766_6,18766-6,"Deprecated Psychology visit note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18776_5,18776-5,"Plan of care note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18823_5,18823-5,"Alcohol and/or substance abuse service attachment",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18824_3,18824-3,"Cardiac service attachment",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18825_0,18825-0,"Medical social services attachment",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18826_8,18826-8,"Occupational therapy service attachment",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18836_7,18836-7,"Cardiac stress study Procedure",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18841_7,18841-7,"Hospital consultations Document",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_18842_5,18842-5,"Discharge summary",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24814_6,24814-6,"Liver CT",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24815_3,24815-3,"Liver CT W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24816_1,24816-1,"US Guidance for biopsy of Liver",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24817_9,24817-9,"Liver SPECT W Tc-99m IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24818_7,24818-7,"Diaphragm and Liver US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24819_5,24819-5,"Deprecated Liver and Spleen NM W Tc-99m calcium colloid IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25015_9,25015-9,"Upper GI tract Replacement of percutaneous gastrojejunostomy",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25016_7,25016-7,"Urethra Radio fluoroscopy W contrast intra urethra",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25017_5,25017-5,"Urinary bladder and Urethra Radio fluoroscopy W contrast intra bladder",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25018_3,25018-3,"Urinary bladder NM",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25019_1,25019-1,"Urinary bladder US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25068_8,25068-8,"Unspecified body region Radio fluoroscopy 1 hour",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25069_6,25069-6,"Radio fluoroscopy Guidance for biopsy of Unspecified body region",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25070_4,25070-4,"Unspecified body region Radio fluoroscopy during surgery",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25071_2,25071-2,"Unspecified body region X-ray tomography",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25072_0,25072-0,"Guidance for placement of infusion port in Unspecified body region",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26146_1,26146-1,"Radius and Ulna - bilateral X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26148_7,26148-7,"Radius and Ulna - left X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24771_8,24771-8,"Radio fluoroscopy Guidance for aspiration of Joint space",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24772_6,24772-6,"US Guidance for biopsy of Kidney",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24773_4,24773-4,"Kidney NM W radionuclide transplant scan",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24776_7,24776-7,"Kidney NM",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24874_0,24874-0,"Peripheral arteries Radio fluoroscopy angiography W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24875_7,24875-7,"Deprecated Peripheral vessel US.doppler Peripheral plane",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24876_5,24876-5,"Head to Pelvis NM for shunt patency W Tc-99m DTPA IT",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24877_3,24877-3,"Petrous part of temporal bone CT",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24878_1,24878-1,"Petrous part of temporal bone CT W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24879_9,24879-9,"Pituitary and Sella turcica MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24988_8,24988-8,"Spleen CT",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24989_6,24989-6,"Spleen CT WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24990_4,24990-4,"Spleen US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24991_2,24991-2,"Splenic vein and Portal vein Radio fluoroscopy angiography W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24992_0,24992-0,"Splenic artery Radio fluoroscopy angiography W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24993_8,24993-8,"Deprecated X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24994_6,24994-6,"Sternum X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24995_3,24995-3,"Radio fluoroscopy Guidance for placement of tube in Stomach",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24578_7,24578-7,"Bones SPECT",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24579_5,24579-5,"Long bones X-ray survey",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24580_3,24580-3,"Brachiocephalic artery Radio fluoroscopy angiography Angioplasty W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24581_1,24581-1,"Brachial artery and Subclavian artery Radio fluoroscopy angiography W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24582_9,24582-9,"Brachial plexus MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24634_8,24634-8,"Chest portable X-ray W inspiration and expiration",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24635_5,24635-5,"Chest X-ray PA upright W inspiration and expiration",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24636_3,24636-3,"Chest portable X-ray AP left lateral-decubitus",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24637_1,24637-1,"Chest X-ray AP left lateral-decubitus",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24638_9,24638-9,"Chest portable X-ray left lateral upright",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24690_0,24690-0,"Extremity CT",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24691_8,24691-8,"Extremity CT W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24692_6,24692-6,"US Guidance for drainage of Extremity",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24693_4,24693-4,"Extremity US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24694_2,24694-2,"Face MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24808_8,24808-8,"Knee X-ray AP and PA W standing",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24809_6,24809-6,"Knee X-ray W standing",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24811_2,24811-2,"CT Guidance for aspiration of Liver",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24812_0,24812-0,"CT Guidance for biopsy of Liver",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24813_8,24813-8,"CT Guidance for core needle biopsy of Liver",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24928_4,24928-4,"Spine X-ray AP and lateral",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24929_2,24929-2,"Thoracic and lumbar spine X-ray scoliosis W flexion and W extension",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24930_0,24930-0,"Thoracic and lumbar spine X-ray scoliosis",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24931_8,24931-8,"Radio fluoroscopy Guidance for injection of Spine facet joint",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24932_6,24932-6,"Cervical spine CT",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25000_1,25000-1,"Temporomandibular joint X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25001_9,25001-9,"Scrotum and testicle NM W Tc-99m pertechnetate IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25002_7,25002-7,"Scrotum and testicle US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25003_5,25003-5,"Thigh vessels MR angiogram W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25005_0,25005-0,"Three vessels Radio fluoroscopy angiography W contrast",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24531_6,24531-6,"Retroperitoneum US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24532_4,24532-4,"Abdomen RUQ US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24533_2,24533-2,"Abdominal vessels MR angiogram W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24534_0,24534-0,"Abdominal vessels US.doppler",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24535_7,24535-7,"Acetabulum X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24536_5,24536-5,"Acromioclavicular Joint X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24537_3,24537-3,"US Guidance for aspiration of amniotic fluid of Uterus",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24538_1,24538-1,"Ankle MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24539_9,24539-9,"Ankle MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24540_7,24540-7,"Ankle X-ray 2 views",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24541_5,24541-5,"Ankle X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24542_3,24542-3,"Anus US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24543_1,24543-1,"Thoracic and abdominal aorta Radio fluoroscopy angiography Angioplasty W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24544_9,24544-9,"Thoracic Aorta CT",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24545_6,24545-6,"Thoracic Aorta CT W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24546_4,24546-4,"Aorta arch and Neck Radio fluoroscopy angiography W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24547_2,24547-2,"Thoracic and abdominal aorta US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24548_0,24548-0,"Appendix US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24549_8,24549-8,"Upper extremity vessels MR angiogram W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24550_6,24550-6,"Upper extremity veins Radio fluoroscopy angiography W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24551_4,24551-4,"AV fistula Radio fluoroscopy angiography W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24552_2,24552-2,"Stent Radio fluoroscopy W contrast intra stent",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24553_0,24553-0,"Vessel intracranial Radio fluoroscopy angiography Embolectomy W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24554_8,24554-8,"Artery Radio fluoroscopy angiography Embolization W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24555_5,24555-5,"Radio fluoroscopy angiography Guidance for placement of stent in Artery",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24556_3,24556-3,"Abdomen MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24557_1,24557-1,"Abdomen MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24558_9,24558-9,"Abdomen US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24559_7,24559-7,"US Guidance for drainage of Abdomen",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24560_5,24560-5,"Abdomen portable X-ray AP left lateral-decubitus",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24561_3,24561-3,"Abdomen X-ray AP left lateral-decubitus",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24562_1,24562-1,"Abdomen X-ray left lateral-decubitus and right lateral-decubitus",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24563_9,24563-9,"Abdomen X-ray AP right lateral-decubitus",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24564_7,24564-7,"Abdomen portable X-ray AP upright",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24566_2,24566-2,"Retroperitoneum CT",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24567_0,24567-0,"Deprecated Abdomen>Retroperitoneum CT W contrast",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24568_8,24568-8,"AV fistula Radio fluoroscopy angiography Atherectomy W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24569_6,24569-6,"AV shunt Radio fluoroscopy angiography W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24570_4,24570-4,"Radio fluoroscopy Guidance for stone removal of Biliary duct common-- W contrast intra biliary duct",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24571_2,24571-2,"Biliary ducts and Gallbladder NM for patency of biliary structures and ejection fraction W sincalide and W radionuclide IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24572_0,24572-0,"Biliary ducts and Gallbladder NM for patency of biliary structures W Tc-99m IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24573_8,24573-8,"Biliary ducts and Gallbladder X-ray W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24574_6,24574-6,"Biliary ducts and Gallbladder Radio fluoroscopy during surgery W contrast biliary duct",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24575_3,24575-3,"Biliary ducts and Gallbladder Radio fluoroscopy W contrast percutaneous transhepatic",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24576_1,24576-1,"Urinary bladder arteries Radio fluoroscopy angiography W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24577_9,24577-9,"Bone X-ray during surgery",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24583_7,24583-7,"Brachial plexus MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24584_5,24584-5,"Thoracic inlet vessels MR angiogram W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24585_2,24585-2,"CT Guidance for stereotactic biopsy of Head-- W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24586_0,24586-0,"Brain MR W anesthesia",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24587_8,24587-8,"Brain MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24588_6,24588-6,"Brain MR WO and W contrast IV and W anesthesia",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24589_4,24589-4,"Brain MR W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24590_2,24590-2,"Brain MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24591_0,24591-0,"Brain NM brain death protocol W Tc-99m HMPAO IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24593_6,24593-6,"Head vessels MR angiogram W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24594_4,24594-4,"Mammogram Guidance for aspiration of cyst of Breast",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24595_1,24595-1,"Mammogram Guidance for needle localization of mass of Breast",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24596_9,24596-9,"Breast specimen US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24597_7,24597-7,"Breast specimen Mammogram",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24598_5,24598-5,"Mammogram Guidance for aspiration of Breast",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24599_3,24599-3,"Breast US limited",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24600_9,24600-9,"US Guidance for needle localization of Breast",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24601_7,24601-7,"Breast US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24602_5,24602-5,"Mammogram Guidance for biopsy of Breast",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24603_3,24603-3,"Mammogram Guidance for stereotactic biopsy of Breast",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24604_1,24604-1,"Breast Mammogram diagnostic limited",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24605_8,24605-8,"Breast Mammogram diagnostic",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24606_6,24606-6,"Breast Mammogram screening",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24609_0,24609-0,"Mammogram Guidance for core needle percutaneous biopsy of Breast",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24610_8,24610-8,"Breast Mammogram limited",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24611_6,24611-6,"Outpatient Consultation 2nd opinion",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24612_4,24612-4,"Calcaneus X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24613_2,24613-2,"Radio fluoroscopy angiography Guidance for placement of catheter in artery in Central cardiovascular artery",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24614_0,24614-0,"Carotid artery extracranial Radio fluoroscopy angiography Angioplasty W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24615_7,24615-7,"Carotid artery intracranial Radio fluoroscopy angiography Angioplasty W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24616_5,24616-5,"Carotid arteries US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24617_3,24617-3,"Carotid arteries Radio fluoroscopy angiography W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24619_9,24619-9,"Wrist X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24620_7,24620-7,"Catheter Radio fluoroscopy Patency check W contrast via catheter",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24621_5,24621-5,"Radio fluoroscopy Guidance for percutaneous drainage of Unspecified body region",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24622_3,24622-3,"Celiac artery Radio fluoroscopy angiography W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24623_1,24623-1,"CT Guidance for nerve block of Celiac plexus",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24624_9,24624-9,"Radio fluoroscopy angiography Guidance for change of central venous catheter in Vein-- W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24625_6,24625-6,"Radio fluoroscopy angiography Guidance for placement of central venous catheter in Vein-- W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24626_4,24626-4,"Radio fluoroscopy angiography Guidance for reposition of central venous catheter in Vein-- W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24627_2,24627-2,"Chest CT",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24628_0,24628-0,"Chest CT W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24629_8,24629-8,"Chest MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24630_6,24630-6,"Chest US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24631_4,24631-4,"Unspecified body region Radio fluoroscopy Central vein catheter placement check",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24632_2,24632-2,"Chest portable X-ray AP",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24639_7,24639-7,"Chest X-ray left lateral upright",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24640_5,24640-5,"Chest X-ray apical lordotic",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24641_3,24641-3,"Chest portable X-ray left oblique",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24642_1,24642-1,"Chest X-ray AP and PA upright",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24643_9,24643-9,"Chest X-ray PA and lateral and oblique upright",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24644_7,24644-7,"Chest portable X-ray PA and lateral upright",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24645_4,24645-4,"Chest portable X-ray PA and right lateral and right oblique and left oblique upright",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24646_2,24646-2,"Chest X-ray PA and right lateral and right oblique and left oblique upright",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24647_0,24647-0,"Chest X-ray PA and lateral upright",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24648_8,24648-8,"Chest X-ray PA upright",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24649_6,24649-6,"Chest portable X-ray right lateral-decubitus and left lateral-decubitus",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24650_4,24650-4,"Chest X-ray right lateral-decubitus and left lateral-decubitus",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24651_2,24651-2,"Chest X-ray right oblique and left oblique upright",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24652_0,24652-0,"Chest portable X-ray AP right lateral-decubitus",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24653_8,24653-8,"Chest X-ray AP and AP right lateral-decubitus",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24654_6,24654-6,"Chest portable X-ray AP and AP right lateral-decubitus",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24655_3,24655-3,"Chest Radio fluoroscopy Image intensifier during surgery",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24656_1,24656-1,"Chest Radio fluoroscopy during surgery",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24657_9,24657-9,"Chest X-ray tomography",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24658_7,24658-7,"Thoracic and abdominal aorta Radio fluoroscopy angiography W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24659_5,24659-5,"Chest vessels MR angiogram W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24660_3,24660-3,"Thoracic Aorta MR angiogram",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24661_1,24661-1,"Pleural space Radio fluoroscopy W contrast intra pleural space",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24662_9,24662-9,"US Guidance for aspiration of Pleural space",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24663_7,24663-7,"Cerebral cisterns NM W radionuclide IT",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24664_5,24664-5,"Clavicle X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24665_2,24665-2,"Sacrum and Coccyx X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24666_0,24666-0,"Colon Radio fluoroscopy W air and barium contrast PR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24667_8,24667-8,"Colon Radio fluoroscopy W contrast PR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24668_6,24668-6,"Colon Radio fluoroscopy for transit Post solid contrast",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24669_4,24669-4,"Colon Radio fluoroscopy W water soluble contrast PR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24670_2,24670-2,"US Guidance for biopsy of cyst of Unspecified body region",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24671_0,24671-0,"Radio fluoroscopy Guidance for aspiration of cyst of Unspecified body region",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24672_8,24672-8,"Diaphragm US for motion",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24673_6,24673-6,"Duodenum Radio fluoroscopy W contrast PO and hypotonic agent per ng",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24674_4,24674-4,"Elbow MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24675_1,24675-1,"Elbow MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24676_9,24676-9,"Elbow X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24677_7,24677-7,"Pelvis US transvaginal",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24678_5,24678-5,"Esophagus Radio fluoroscopy W contrast PO",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24679_3,24679-3,"Esophagus Radio fluoroscopy W gastrografin PO",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24680_1,24680-1,"Radio fluoroscopy Guidance for dilation of Esophagus",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24681_9,24681-9,"Esophagus and Hypopharynx Radio fluoroscopy videography W contrast PO during swallowing",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24682_7,24682-7,"Esophagus and Hypopharynx Radio fluoroscopy videography W liquid and paste contrast PO during swallowing",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24683_5,24683-5,"Esophagus+Stomach NM W Tc-99m SC PO",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24684_3,24684-3,"Extracranial vessels Radio fluoroscopy angiography Embolectomy W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24685_0,24685-0,"Peripheral veins Radio fluoroscopy angiography W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24686_8,24686-8,"Lower extremity X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24687_6,24687-6,"Lower Extremity Joint MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24688_4,24688-4,"Upper extremity MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24689_2,24689-2,"Upper extremity X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24695_9,24695-9,"Facial bones X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24696_7,24696-7,"Facial bones CT",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24697_5,24697-5,"Facial bones CT W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24698_3,24698-3,"Femoral artery Radio fluoroscopy angiography Angioplasty W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24699_1,24699-1,"Femoral artery Radio fluoroscopy angiography runoff W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24700_7,24700-7,"Femur and Tibia X-ray for leg length",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24702_3,24702-3,"Thigh MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24703_1,24703-1,"Thigh MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24704_9,24704-9,"Femur X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24705_6,24705-6,"Finger MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24706_4,24706-4,"Finger X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24707_2,24707-2,"Foot MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24708_0,24708-0,"Foot X-ray W standing",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24709_8,24709-8,"Foot X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24710_6,24710-6,"Forearm MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24711_4,24711-4,"Gallbladder US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24712_2,24712-2,"Gallbladder X-ray W contrast PO",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24713_0,24713-0,"Gallbladder X-ray 48 hours post contrast PO",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24714_8,24714-8,"Gastrointestinal tract NM for gastrointestinal bleeding W Tc-99m tagged RBC IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24715_5,24715-5,"Gastrointestinal tract upper Radio fluoroscopy Single view W contrast PO",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24716_3,24716-3,"Radio fluoroscopy Guidance for placement of decompression tube in Gastrointestinal tract",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24717_1,24717-1,"Ileal conduit X-ray Loopogram",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24718_9,24718-9,"Radio fluoroscopy Guidance for transjugular biopsy of Liver-- W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24719_7,24719-7,"Groin US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24720_5,24720-5,"Hand MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24721_3,24721-3,"Hand X-ray 2 views",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24722_1,24722-1,"Hand X-ray 3 views",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24723_9,24723-9,"Hand X-ray arthritis",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24724_7,24724-7,"Wrist and Hand X-ray bone age",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24725_4,24725-4,"Head CT",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24726_2,24726-2,"Head CT WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24727_0,24727-0,"Head CT W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24728_8,24728-8,"Head CT perfusion",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24729_6,24729-6,"Head CT perfusion WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24730_4,24730-4,"Brain NM",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24731_2,24731-2,"Head US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24732_0,24732-0,"Head US during surgery",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24733_8,24733-8,"Head vessels US.doppler",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24734_6,24734-6,"Cerebral cisterns CT W contrast IT",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24735_3,24735-3,"Internal auditory canal and Posterior fossa MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24740_3,24740-3,"Internal auditory canal and Posterior fossa MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24745_2,24745-2,"Petrous part of temporal bone X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24746_0,24746-0,"Deprecated Head Sagittal Sinus MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24747_8,24747-8,"Deprecated Head Sagittal Sinus MR angiogram W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24748_6,24748-6,"Heart MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24750_2,24750-2,"Heart NM at rest and W Tl-201 IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24751_0,24751-0,"Parathyroid gland NM W TI-201 subtraction Tc-99m IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24752_8,24752-8,"Heart Radio fluoroscopy videography",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24753_6,24753-6,"Unspecified body region CT W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24754_4,24754-4,"Administration of vasodilator into catheter of Vein",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24755_1,24755-1,"Radio fluoroscopy angiography Guidance for atherectomy of Vein-- W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24756_9,24756-9,"Radio fluoroscopy angiography Guidance for placement of stent in Vein",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24757_7,24757-7,"Deprecated Coronary arteries CT fast",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24760_1,24760-1,"Hip US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24761_9,24761-9,"Hip X-ray Single view",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24762_7,24762-7,"Hip X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24764_3,24764-3,"Hip Radio fluoroscopy Arthrogram",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24765_0,24765-0,"Humerus X-ray 2 views",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24766_8,24766-8,"Iliac artery Radio fluoroscopy angiography Angioplasty W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24767_6,24767-6,"Internal auditory canal X-ray tomography",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24769_2,24769-2,"CT Guidance for injection of Joint space",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24770_0,24770-0,"Joint NM W In-111 Intrajoint",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24778_3,24778-3,"Kidney - bilateral X-ray 3 views serial WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24779_1,24779-1,"Radio fluoroscopy Guidance for placement of percutaneous nephrostomy in Kidney - bilateral-- W contrast via tube",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24780_9,24780-9,"Kidney - bilateral Radio fluoroscopy W contrast via nephrostomy tube",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24781_7,24781-7,"Radio fluoroscopy Guidance for exchange of percutaneous nephrostomy tube of Kidney - bilateral-- W contrast",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24782_5,24782-5,"Radio fluoroscopy Guidance for placement of percutaneous nephroureteral stent in Kidney - bilateral-- W contrast via stent",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24783_3,24783-3,"Kidney - bilateral Radio fluoroscopy Urodynamics",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24784_1,24784-1,"Kidney - bilateral X-ray tomography WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24787_4,24787-4,"Kidney - bilateral X-ray tomography WO contrast and 10M post contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24788_2,24788-2,"Kidney - bilateral X-ray W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24789_0,24789-0,"Kidney - bilateral X-ray tomography",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24790_8,24790-8,"Kidney - bilateral X-ray tomography W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24792_4,24792-4,"Abdomen portable X-ray AP and AP left lateral-decubitus",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24793_2,24793-2,"Abdomen portable X-ray AP and lateral",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24794_0,24794-0,"Abdomen X-ray AP and lateral",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24795_7,24795-7,"Abdomen portable X-ray supine and upright",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24796_5,24796-5,"Abdomen X-ray AP and AP left lateral-decubitus",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24797_3,24797-3,"Abdomen X-ray AP and oblique prone",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24798_1,24798-1,"Abdomen X-ray supine and upright",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24799_9,24799-9,"Abdomen X-ray AP single view",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24800_5,24800-5,"Knee Radio fluoroscopy Arthrogram",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24801_3,24801-3,"Knee X-ray Merchants",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24802_1,24802-1,"Knee MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24803_9,24803-9,"Knee MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24804_7,24804-7,"Knee NM",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24805_4,24805-4,"Knee X-ray AP and lateral W standing",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24806_2,24806-2,"Knee X-ray 2 views",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24807_0,24807-0,"Knee X-ray AP single view W standing",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24820_3,24820-3,"Lower leg vessels MR angiogram W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24821_1,24821-1,"Lower leg MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24822_9,24822-9,"CT Guidance for aspiration of Lung",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24823_7,24823-7,"CT Guidance for biopsy of Lung",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24824_5,24824-5,"Lung NM portable",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24825_2,24825-2,"Lung X-ray W contrast intrabronchial",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24826_0,24826-0,"Lymphatic vessels NM W radionuclide intra lymphatic",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24827_8,24827-8,"Lymphatics Radio fluoroscopy W contrast intra lymphatic",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24828_6,24828-6,"Mandible X-ray tomography panoramic",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24829_4,24829-4,"Mandible X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24830_2,24830-2,"Mastoid X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24831_0,24831-0,"Small bowel NM for Meckel's diverticulum W Tc-99m M04 IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24832_8,24832-8,"Mesenteric artery Radio fluoroscopy angiography Angioplasty W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24833_6,24833-6,"Mesenteric artery Radio fluoroscopy angiography W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24834_4,24834-4,"Nasal bones X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24835_1,24835-1,"Nasopharynx and Neck CT",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24836_9,24836-9,"Nasopharynx and Neck CT W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24837_7,24837-7,"CT Guidance for aspiration of Neck",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24838_5,24838-5,"CT Guidance for biopsy of Neck",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24839_3,24839-3,"Neck MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24840_1,24840-1,"Neck MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24841_9,24841-9,"Neck MR W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24842_7,24842-7,"Neck US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24843_5,24843-5,"Neck X-ray lateral",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24844_3,24844-3,"Neck vessels MR angiogram W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24845_0,24845-0,"Neck Radio fluoroscopy W contrast intra larynx",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24846_8,24846-8,"Optic foramen X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24848_4,24848-4,"Orbit - bilateral CT",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24849_2,24849-2,"Orbit - bilateral CT WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24850_0,24850-0,"Orbit - bilateral CT W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24851_8,24851-8,"Orbit - bilateral MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24852_6,24852-6,"Orbit - bilateral MR W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24853_4,24853-4,"Eye+Orbit - bilateral US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24854_2,24854-2,"Orbit - bilateral X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24855_9,24855-9,"Oropharynx Radio fluoroscopy videography",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24856_7,24856-7,"CT Guidance for aspiration of Pancreas",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24857_5,24857-5,"Pancreas CT",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24858_3,24858-3,"Pancreas CT W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24859_1,24859-1,"Pancreas US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24860_9,24860-9,"Pancreatic artery Radio fluoroscopy angiography W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24861_7,24861-7,"Patella X-ray 2 views",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24862_5,24862-5,"Iliac artery Internal Radio fluoroscopy angiography W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24863_3,24863-3,"CT Guidance for aspiration of Pelvis",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24864_1,24864-1,"CT Guidance for biopsy of Pelvis",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24865_8,24865-8,"Pelvis CT",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24866_6,24866-6,"Pelvis CT W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24867_4,24867-4,"Pelvis MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24868_2,24868-2,"US Guidance for drainage of Pelvis",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24869_0,24869-0,"Pelvis US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24870_8,24870-8,"Pelvis vessels US.doppler",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24871_6,24871-6,"Pelvis X-ray pelvimetry",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24872_4,24872-4,"Pelvis and Hip MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24873_2,24873-2,"Pelvis vessels MR angiogram W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24880_7,24880-7,"Pituitary and Sella turcica MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24881_5,24881-5,"Popliteal space US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24882_3,24882-3,"Popliteal artery Radio fluoroscopy angiography Percutaneous transluminal angioplasty of vessel W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24883_1,24883-1,"US Guidance for biopsy of Prostate",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24884_9,24884-9,"Prostate US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24885_6,24885-6,"Deprecated US Guidance for repair of Pseudoaneurysm/AV fistula",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24887_2,24887-2,"Pulmonary arteries Radio fluoroscopy angiography Embolectomy W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24888_0,24888-0,"Pulmonary system NM Ventilation and perfusion W Xe-133 IH and W Tc-99m MAA IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24889_8,24889-8,"Pylorus US for Pyloric Stenosis",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24891_4,24891-4,"Radius and Ulna X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24892_2,24892-2,"Rectum US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24893_0,24893-0,"Rectum Radio fluoroscopy post contrast PR during defecation",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24894_8,24894-8,"Rectum and Urinary bladder Radio fluoroscopy W contrast PR and intra bladder during defecation and voiding",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24896_3,24896-3,"US Guidance for drainage of Kidney",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24899_7,24899-7,"Ribs X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24900_3,24900-3,"Sacroiliac Joint X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24901_1,24901-1,"CT Guidance for injection of Sacroiliac Joint",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24902_9,24902-9,"Salivary gland Radio fluoroscopy W contrast intra salivary duct",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24903_7,24903-7,"Scapula X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24904_5,24904-5,"Pituitary and Sella turcica CT WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24905_2,24905-2,"Shoulder MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24906_0,24906-0,"Shoulder MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24907_8,24907-8,"Shoulder US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24908_6,24908-6,"Shoulder X-ray 3 views",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24909_4,24909-4,"Shoulder X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24910_2,24910-2,"Shoulder Radio fluoroscopy Arthrogram",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24911_0,24911-0,"Shunt Radio fluoroscopy",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24912_8,24912-8,"Sinus tract Radio fluoroscopy W contrast intra sinus tract",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24913_6,24913-6,"Sinuses CT limited",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24914_4,24914-4,"Sinuses MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24915_1,24915-1,"Sinuses MR W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24916_9,24916-9,"Sinuses X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24917_7,24917-7,"Skull X-ray Single view",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24918_5,24918-5,"Skull X-ray 3 views",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24919_3,24919-3,"Skull X-ray AP and lateral",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24920_1,24920-1,"Skull X-ray lateral",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24921_9,24921-9,"Skull X-ray Waters",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24922_7,24922-7,"Skull X-ray 5 views",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24923_5,24923-5,"Small bowel Radio fluoroscopy W positive contrast via enteroclysis tube",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24924_3,24924-3,"Small bowel Radio fluoroscopy W contrast PO",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24925_0,24925-0,"Spinal artery Radio fluoroscopy angiography W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24926_8,24926-8,"Spine US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24927_6,24927-6,"Spine Radio fluoroscopy W contrast intradisc",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24933_4,24933-4,"Cervical spine CT W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24934_2,24934-2,"Cervical spine CT W contrast IT",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24935_9,24935-9,"Cervical spine MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24936_7,24936-7,"Cervical spine MR W anesthesia",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24937_5,24937-5,"Cervical spine MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24938_3,24938-3,"Cervical spine MR W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24939_1,24939-1,"Cervical spine X-ray 5 views",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24940_9,24940-9,"Cervical spine X-ray Single view",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24941_7,24941-7,"Cervical spine X-ray 3 views",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24942_5,24942-5,"Cervical spine X-ray AP and lateral",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24943_3,24943-3,"Cervical spine X-ray lateral",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24944_1,24944-1,"Cervical spine X-ray Swimmers",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24945_8,24945-8,"Cervical spine X-ray W flexion and W extension",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24946_6,24946-6,"Cervical spine X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24947_4,24947-4,"Cervical spine Radio fluoroscopy W contrast IT",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24948_2,24948-2,"Spine Cervical Odontoid and Cervical axis X-ray AP single view",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24963_1,24963-1,"Lumbar spine CT",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24964_9,24964-9,"Lumbar spine CT W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24965_6,24965-6,"Lumbar spine CT W contrast IT",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24967_2,24967-2,"Lumbar spine MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24968_0,24968-0,"Lumbar spine MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24969_8,24969-8,"Lumbar spine X-ray lateral",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24970_6,24970-6,"Lumbar spine X-ray AP and lateral",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24971_4,24971-4,"Lumbar spine X-ray W flexion and W extension",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24972_2,24972-2,"Lumbar spine X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24973_0,24973-0,"Radio fluoroscopy Guidance for aspiration of Spine Lumbar Space",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24974_8,24974-8,"Lumbar spine Radio fluoroscopy W contrast IT",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24975_5,24975-5,"Spine.lumbar and Sacroiliac joint - bilateral X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24977_1,24977-1,"Lumbar spine MR W anesthesia",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24978_9,24978-9,"Thoracic spine CT",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24979_7,24979-7,"Thoracic spine CT W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24980_5,24980-5,"Thoracic spine MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24981_3,24981-3,"Thoracic spine MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24982_1,24982-1,"Thoracic spine MR W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24983_9,24983-9,"Thoracic spine X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24984_7,24984-7,"Thoracic and lumbar spine X-ray 2 views",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24985_4,24985-4,"Thoracic spine Radio fluoroscopy W contrast IT",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24986_2,24986-2,"CT Guidance for biopsy of Spine",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24987_0,24987-0,"Spine CT W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24996_1,24996-1,"Radio fluoroscopy Guidance for replacement of percutaneous gastrostomy in Stomach",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24997_9,24997-9,"Stomach NM for gastric emptying solid phase W Tc-99m SC PO",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24998_7,24998-7,"Placement check of gastrostomy tube W contrast via GI tube",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_24999_5,24999-5,"Temporomandibular joint MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25006_8,25006-8,"Thumb X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25007_6,25007-6,"Thyroid gland NM W I-131 IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25008_4,25008-4,"Thyroid gland NM and uptake W I-131 IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25009_2,25009-2,"US Guidance for biopsy of Thyroid gland",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25010_0,25010-0,"Thyroid gland US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25011_8,25011-8,"Tibia and Fibula X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25012_6,25012-6,"Tibial artery Radio fluoroscopy angiography Angioplasty W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25013_4,25013-4,"Toes X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25014_2,25014-2,"Two vessels Radio fluoroscopy angiography W contrast",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25020_9,25020-9,"Urinary bladder and Urethra Radio fluoroscopy W contrast retrograde via urethra",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25022_5,25022-5,"Uterus and Fallopian tubes Radio fluoroscopy W contrast IU",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25023_3,25023-3,"Vein Radio fluoroscopy angiography W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25024_1,25024-1,"Radio fluoroscopy angiography Guidance for placement of peripherally-inserted central venous catheter in Vein",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25025_8,25025-8,"Vena cava Radio fluoroscopy angiography W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25026_6,25026-6,"Radio fluoroscopy angiography Guidance for placement of IVC filter in Inferior vena cava-- W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25027_4,25027-4,"Guidance for placement of large bore central venous catheter in Vein",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25028_2,25028-2,"Radio fluoroscopy angiography Guidance for placement of catheter for adminstration of thrombolytic in Vessel-- W contrast intravascular",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25029_0,25029-0,"Radio fluoroscopy angiography Guidance for placement of catheter for vasoconstrictor infusion in Vessels",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25030_8,25030-8,"Abdominal Arteries Radio fluoroscopy angiography W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25031_6,25031-6,"Bone NM",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25032_4,25032-4,"Bone NM W In-111 tagged WBC IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25033_2,25033-2,"Wrist MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25034_0,25034-0,"Wrist Radio fluoroscopy Arthrogram",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25035_7,25035-7,"Wrist MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25036_5,25036-5,"Wrist US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25038_1,25038-1,"Unspecified body region Courtesy consultation",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25039_9,25039-9,"Unspecified body region CT limited",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25040_7,25040-7,"Deprecated Unspecified body region CT 3D",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25041_5,25041-5,"CT Guidance for aspiration or biopsy of Unspecified body region-- W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25042_3,25042-3,"CT Guidance for aspiration or biopsy of Unspecified body region",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25043_1,25043-1,"CT Guidance for aspiration of Unspecified body region",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25044_9,25044-9,"CT Guidance for biopsy of Unspecified body region",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25045_6,25045-6,"Unspecified body region CT",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25046_4,25046-4,"Unspecified body region CT W anesthesia",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25047_2,25047-2,"Unspecified body region CT W conscious sedation",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25050_6,25050-6,"Deprecated Unspecified body region CT 3D sagittal and coronal disarticulation",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25051_4,25051-4,"Deprecated Unspecified body region CT Multisectional sagittal",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25052_2,25052-2,"Deprecated Unspecified body region CT sagittal and coronal",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25053_0,25053-0,"CT Guidance for radiosurgery of Unspecified body region",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25054_8,25054-8,"CT Guidance for radiosurgery of Unspecified body region-- W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25055_5,25055-5,"Deprecated Unspecified body region MR additional sequence",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25056_3,25056-3,"Unspecified body region MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25057_1,25057-1,"Unspecified body region MR W conscious sedation",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25058_9,25058-9,"Unspecified body region MR angiogram W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25059_7,25059-7,"US Guidance for biopsy of Unspecified body region",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25060_5,25060-5,"Unspecified body region US No charge",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25061_3,25061-3,"Unspecified body region US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25062_1,25062-1,"Unspecified body region X-ray Comparison view",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25063_9,25063-9,"Vessel Radio fluoroscopy angiography Single view W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25064_7,25064-7,"Vessel Radio fluoroscopy angiography Angioplasty W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25065_4,25065-4,"Unspecified body region Radio fluoroscopy 15 minutes",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25066_2,25066-2,"Unspecified body region Radio fluoroscopy 30 minutes",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25067_0,25067-0,"Unspecified body region Radio fluoroscopy 45 minutes",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25073_8,25073-8,"Vessel Radio fluoroscopy angiography Removal of foreign body from vascular space",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25074_6,25074-6,"Zygomatic arch X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25076_1,25076-1,"Hepatic artery Radio fluoroscopy angiography W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25077_9,25077-9,"Radio fluoroscopy angiography Guidance for placement of catheter in Hepatic artery-- W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25078_7,25078-7,"Radio fluoroscopy Guidance for placement of stent in Intrahepatic portal system",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25079_5,25079-5,"Kidney arteries Radio fluoroscopy angiography W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25080_3,25080-3,"Renal vein - bilateral Radio fluoroscopy angiography W contrast IV and W renin sampling",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_25081_1,25081-1,"Renal vessel Radio fluoroscopy angiography Angioplasty W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26340_0,26340-0,"US Guidance for biopsy of Kidney - bilateral",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26341_8,26341-8,"US Guidance for biopsy of Kidney - left",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26342_6,26342-6,"US Guidance for biopsy of Kidney - right",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26343_4,26343-4,"Mammogram Guidance for aspiration of cyst of Breast - bilateral",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26097_6,26097-6,"Ankle - bilateral X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26098_4,26098-4,"Ankle - left X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26099_2,26099-2,"Ankle - right X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26100_8,26100-8,"Calcaneus - bilateral X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26101_6,26101-6,"Calcaneus - left X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26102_4,26102-4,"Calcaneus - right X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26365_7,26365-7,"Knee - left X-ray AP and lateral W standing",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26366_5,26366-5,"Knee - right X-ray AP and lateral W standing",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26368_1,26368-1,"Deprecated Brachiocephalic artery - left Fluoroscopic angiogram Angioplasty W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26369_9,26369-9,"Deprecated Brachiocephalic artery - right Fluoroscopic angiogram Angioplasty W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26370_7,26370-7,"Iliac artery - bilateral Radio fluoroscopy angiography Angioplasty W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26064_6,26064-6,"Vein - bilateral Radio fluoroscopy angiography W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26065_3,26065-3,"Vein - left Radio fluoroscopy angiography W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26066_1,26066-1,"Vein - right Radio fluoroscopy angiography W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26067_9,26067-9,"Salivary gland - bilateral Radio fluoroscopy W contrast intra salivary duct",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26068_7,26068-7,"Salivary gland - left Radio fluoroscopy W contrast intra salivary duct",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26069_5,26069-5,"Salivary gland - right Radio fluoroscopy W contrast intra salivary duct",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26070_3,26070-3,"Hip - bilateral Radio fluoroscopy Arthrogram",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26071_1,26071-1,"Hip - left Radio fluoroscopy Arthrogram",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26072_9,26072-9,"Hip - right Radio fluoroscopy Arthrogram",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26073_7,26073-7,"Knee - bilateral Radio fluoroscopy Arthrogram",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26074_5,26074-5,"Knee - left Radio fluoroscopy Arthrogram",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26075_2,26075-2,"Knee - right Radio fluoroscopy Arthrogram",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26076_0,26076-0,"Shoulder - bilateral Radio fluoroscopy Arthrogram",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26077_8,26077-8,"Shoulder - left Radio fluoroscopy Arthrogram",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26078_6,26078-6,"Shoulder - right Radio fluoroscopy Arthrogram",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26079_4,26079-4,"Carotid arteries - bilateral Radio fluoroscopy angiography W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26080_2,26080-2,"Carotid arteries - left Radio fluoroscopy angiography W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26081_0,26081-0,"Carotid arteries -right Radio fluoroscopy angiography W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26082_8,26082-8,"Spinal artery - bilateral Radio fluoroscopy angiography W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26083_6,26083-6,"Spinal artery - left Radio fluoroscopy angiography W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26084_4,26084-4,"Spinal artery - right Radio fluoroscopy angiography W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26085_1,26085-1,"Knee - bilateral X-ray W standing",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26086_9,26086-9,"Knee - left X-ray W standing",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26087_7,26087-7,"Knee - right X-ray W standing",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26088_5,26088-5,"Knee - bilateral NM",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26089_3,26089-3,"Knee - left NM",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26090_1,26090-1,"Knee - right NM",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26091_9,26091-9,"Scrotum and Testicle - bilateral NM W Tc-99m pertechnetate IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26092_7,26092-7,"Scrotum and Testicle - left NM W Tc-99m pertechnetate IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26093_5,26093-5,"Scrotum and Testicle - right NM W Tc-99m pertechnetate IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26094_3,26094-3,"Foot - bilateral X-ray W standing",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26095_0,26095-0,"Foot - left X-ray W standing",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26096_8,26096-8,"Foot - right X-ray W standing",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26106_5,26106-5,"Clavicle - bilateral X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26107_3,26107-3,"Clavicle - left X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26108_1,26108-1,"Clavicle - right X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26109_9,26109-9,"Elbow - bilateral X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26110_7,26110-7,"Elbow - left X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26111_5,26111-5,"Elbow - right X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26112_3,26112-3,"Lower extremity - bilateral X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26113_1,26113-1,"Lower extremity - left X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26114_9,26114-9,"Lower extremity - right X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26115_6,26115-6,"Upper extremity - bilateral X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26116_4,26116-4,"Upper extremity - left X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26117_2,26117-2,"Upper extremity - right X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26118_0,26118-0,"Femur - bilateral X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26120_6,26120-6,"Femur - left X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26122_2,26122-2,"Femur - right X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26124_8,26124-8,"Finger - bilateral X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26125_5,26125-5,"Finger - left X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26126_3,26126-3,"Finger - right X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26127_1,26127-1,"Foot - bilateral X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26128_9,26128-9,"Foot - left X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26129_7,26129-7,"Foot - right X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26130_5,26130-5,"Hip - bilateral X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26131_3,26131-3,"Hip - left X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26132_1,26132-1,"Hip - right X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26133_9,26133-9,"Acetabulum - bilateral X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26134_7,26134-7,"Acetabulum - left X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26135_4,26135-4,"Acetabulum - right X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26136_2,26136-2,"Acromioclavicular joint - bilateral X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26137_0,26137-0,"Acromioclavicular joint - left X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26138_8,26138-8,"Acromioclavicular joint - right X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26139_6,26139-6,"Mastoid - bilateral X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26140_4,26140-4,"Mastoid - left X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26141_2,26141-2,"Mastoid - right X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26142_0,26142-0,"Optic foramen - bilateral X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26143_8,26143-8,"Optic foramen - left X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26144_6,26144-6,"Optic foramen - right X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26150_3,26150-3,"Radius and Ulna - right X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26151_1,26151-1,"Ribs - bilateral X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26152_9,26152-9,"Ribs - left X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26153_7,26153-7,"Ribs - right X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26154_5,26154-5,"Scapula - bilateral X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26155_2,26155-2,"Scapula - left X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26156_0,26156-0,"Scapula - right X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26157_8,26157-8,"Shoulder - bilateral X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26158_6,26158-6,"Shoulder - left X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26159_4,26159-4,"Shoulder - right X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26160_2,26160-2,"Thumb - bilateral X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26161_0,26161-0,"Thumb - left X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26162_8,26162-8,"Thumb - right X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26163_6,26163-6,"Tibia - bilateral and Fibula - bilateral X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26164_4,26164-4,"Tibia - left and Fibula - left X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26165_1,26165-1,"Tibia - right and Fibula - right X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26166_9,26166-9,"Toes - bilateral X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26167_7,26167-7,"Toes - left X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26168_5,26168-5,"Toes - right X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26169_3,26169-3,"Wrist - bilateral X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26170_1,26170-1,"Wrist - left X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26171_9,26171-9,"Wrist - right X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26172_7,26172-7,"Zygomatic arch - bilateral X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26173_5,26173-5,"Zygomatic arch - left X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26174_3,26174-3,"Zygomatic arch - right X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26175_0,26175-0,"Breast - bilateral Mammogram screening",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26176_8,26176-8,"Breast - left Mammogram screening",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26177_6,26177-6,"Breast - right Mammogram screening",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26178_4,26178-4,"Femoral artery - bilateral Radio fluoroscopy angiography runoff W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26179_2,26179-2,"Femoral artery - left Radio fluoroscopy angiography runoff W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26180_0,26180-0,"Femoral artery - right Radio fluoroscopy angiography runoff W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26181_8,26181-8,"Thoracic inlet vessels - bilateral MR angiogram W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26182_6,26182-6,"Thoracic inlet vessels - left MR angiogram W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26183_4,26183-4,"Thoracic inlet vessels - right MR angiogram W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26184_2,26184-2,"Extremity - bilateral CT W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26185_9,26185-9,"Extremity - left CT W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26186_7,26186-7,"Extremity - right CT W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26187_5,26187-5,"Ankle - bilateral MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26188_3,26188-3,"Ankle - left MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26189_1,26189-1,"Ankle - right MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26190_9,26190-9,"Brachial plexus - bilateral MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26191_7,26191-7,"Brachial plexus - left MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26192_5,26192-5,"Brachial plexus - right MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26193_3,26193-3,"Elbow - bilateral MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26194_1,26194-1,"Elbow - left MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26195_8,26195-8,"Elbow - right MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26196_6,26196-6,"Thigh - bilateral MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26197_4,26197-4,"Thigh - left MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26198_2,26198-2,"Thigh - right MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26199_0,26199-0,"Knee - bilateral MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26200_6,26200-6,"Knee - left MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26201_4,26201-4,"Knee - right MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26202_2,26202-2,"Shoulder - bilateral MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26203_0,26203-0,"Shoulder - left MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26204_8,26204-8,"Shoulder - right MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26205_5,26205-5,"Wrist - bilateral MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26206_3,26206-3,"Wrist - left MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26207_1,26207-1,"Wrist - right MR WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26208_9,26208-9,"Ankle - bilateral MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26209_7,26209-7,"Ankle - left MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26210_5,26210-5,"Ankle - right MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26211_3,26211-3,"Brachial plexus - bilateral MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26212_1,26212-1,"Brachial plexus - left MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26213_9,26213-9,"Brachial plexus - right MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26214_7,26214-7,"Breast - bilateral US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26215_4,26215-4,"Breast - left US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26216_2,26216-2,"Breast - right US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26217_0,26217-0,"Carotid arteries - bilateral US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26218_8,26218-8,"Carotid arteries - left US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26219_6,26219-6,"Carotid arteries -right US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26220_4,26220-4,"Elbow - bilateral MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26221_2,26221-2,"Elbow - left MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26222_0,26222-0,"Elbow - right MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26223_8,26223-8,"Extremity - bilateral US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26224_6,26224-6,"Extremity - bilateral CT",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26225_3,26225-3,"Extremity - left US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26226_1,26226-1,"Extremity - left CT",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26227_9,26227-9,"Lower extremity joint - bilateral MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26228_7,26228-7,"Lower extremity joint - left MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26229_5,26229-5,"Lower extremity joint - right MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26230_3,26230-3,"Extremity - right US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26231_1,26231-1,"Extremity - right CT",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26232_9,26232-9,"Upper extremity - bilateral MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26233_7,26233-7,"Upper extremity - left MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26234_5,26234-5,"Upper extremity - right MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26235_2,26235-2,"Thigh - bilateral MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26236_0,26236-0,"Thigh - left MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26237_8,26237-8,"Thigh - right MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26238_6,26238-6,"Finger - bilateral MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26239_4,26239-4,"Finger - left MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26240_2,26240-2,"Finger - right MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26241_0,26241-0,"Foot - bilateral MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26242_8,26242-8,"Foot - left MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26243_6,26243-6,"Foot - right MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26244_4,26244-4,"Forearm - bilateral MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26245_1,26245-1,"Forearm - left MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26246_9,26246-9,"Forearm - right MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26247_7,26247-7,"Hand - bilateral MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26248_5,26248-5,"Hand - left MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26249_3,26249-3,"Hand - right MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26250_1,26250-1,"Hip - bilateral US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26251_9,26251-9,"Hip - left US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26252_7,26252-7,"Hip - right US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26253_5,26253-5,"Internal auditory canal - bilateral X-ray tomography",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26254_3,26254-3,"Internal auditory canal - left X-ray tomography",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26255_0,26255-0,"Internal auditory canal - right X-ray tomography",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26256_8,26256-8,"Knee - bilateral MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26257_6,26257-6,"Knee - left MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26258_4,26258-4,"Knee - right MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26259_2,26259-2,"Pelvis and Hip - bilateral MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26260_0,26260-0,"Pelvis and Hip - left MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26261_8,26261-8,"Pelvis and Hip - right MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26262_6,26262-6,"Popliteal space - bilateral US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26263_4,26263-4,"Popliteal space - left US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26264_2,26264-2,"Popliteal space - right US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26265_9,26265-9,"Shoulder - bilateral US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26266_7,26266-7,"Shoulder - bilateral MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26267_5,26267-5,"Shoulder - left US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26268_3,26268-3,"Shoulder - left MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26269_1,26269-1,"Shoulder - right US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26270_9,26270-9,"Shoulder - right MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26271_7,26271-7,"Scrotum and Testicle - bilateral US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26272_5,26272-5,"Scrotum and Testicle - left US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26273_3,26273-3,"Scrotum and Testicle - right US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26277_4,26277-4,"Wrist - bilateral MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26278_2,26278-2,"Wrist - bilateral US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26279_0,26279-0,"Wrist - left MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26280_8,26280-8,"Wrist - left US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26281_6,26281-6,"Wrist - right MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26282_4,26282-4,"Wrist - right US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26283_2,26283-2,"Knee - bilateral X-ray Merchants",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26284_0,26284-0,"Knee - left X-ray Merchants",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26285_7,26285-7,"Knee - right X-ray Merchants",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26286_5,26286-5,"Breast - bilateral US limited",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26287_3,26287-3,"Breast - bilateral Mammogram limited",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26288_1,26288-1,"Breast - left US limited",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26289_9,26289-9,"Breast - left Mammogram limited",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26290_7,26290-7,"Breast - right US limited",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26291_5,26291-5,"Breast - right Mammogram limited",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26292_3,26292-3,"Mammogram Guidance for stereotactic biopsy of Breast - bilateral",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26293_1,26293-1,"Mammogram Guidance for stereotactic biopsy of Breast - left",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26294_9,26294-9,"Mammogram Guidance for stereotactic biopsy of Breast - right",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26295_6,26295-6,"Radio fluoroscopy angiography Guidance for reposition of central venous catheter in Vein - bilateral-- W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26296_4,26296-4,"Radio fluoroscopy angiography Guidance for reposition of central venous catheter in Vein - left-- W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26297_2,26297-2,"Radio fluoroscopy angiography Guidance for reposition of central venous catheter in Vein - right-- W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26298_0,26298-0,"Radio fluoroscopy angiography Guidance for atherectomy of Vein - bilateral-- W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26299_8,26299-8,"Radio fluoroscopy angiography Guidance for atherectomy of Vein - left-- W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26300_4,26300-4,"Radio fluoroscopy angiography Guidance for atherectomy of Vein - right-- W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26301_2,26301-2,"Radio fluoroscopy angiography Guidance for placement of stent in Vein - bilateral",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26302_0,26302-0,"Radio fluoroscopy angiography Guidance for placement of stent in Vein - left",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26303_8,26303-8,"Radio fluoroscopy angiography Guidance for placement of stent in Vein - right",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26304_6,26304-6,"Radio fluoroscopy angiography Guidance for placement of peripherally-inserted central venous catheter in Vein - bilateral",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26305_3,26305-3,"Radio fluoroscopy angiography Guidance for placement of peripherally-inserted central venous catheter in Vein - left",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26306_1,26306-1,"Radio fluoroscopy angiography Guidance for placement of peripherally-inserted central venous catheter in Vein - right",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26307_9,26307-9,"Guidance for placement of large bore central venous catheter in Vein - bilateral",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26308_7,26308-7,"Guidance for placement of large bore central venous catheter in Vein - left",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26309_5,26309-5,"Guidance for placement of large bore central venous catheter in Vein - right",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26310_3,26310-3,"Radio fluoroscopy angiography Guidance for placement of central venous catheter in Vein - bilateral-- W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26311_1,26311-1,"Radio fluoroscopy angiography Guidance for placement of central venous catheter in Vein - left-- W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26312_9,26312-9,"Radio fluoroscopy angiography Guidance for placement of central venous catheter in Vein - right-- W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26313_7,26313-7,"US Guidance for needle localization of Breast - bilateral",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26314_5,26314-5,"US Guidance for needle localization of Breast - left",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26315_2,26315-2,"Mammogram Guidance for needle localization of mass of Breast - bilateral",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26316_0,26316-0,"Mammogram Guidance for needle localization of mass of Breast - left",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26317_8,26317-8,"Mammogram Guidance for needle localization of mass of Breast - right",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26318_6,26318-6,"US Guidance for needle localization of Breast - right",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26319_4,26319-4,"CT Guidance for injection of Sacroiliac joint - bilateral",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26320_2,26320-2,"CT Guidance for injection of Sacroiliac joint - left",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26321_0,26321-0,"CT Guidance for injection of Sacroiliac joint - right",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26322_8,26322-8,"Radio fluoroscopy Guidance for injection of Spine facet joint - bilateral",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26323_6,26323-6,"Radio fluoroscopy Guidance for injection of Spine facet joint - left",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26324_4,26324-4,"Radio fluoroscopy Guidance for injection of Spine facet joint - right",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26325_1,26325-1,"US Guidance for drainage of Extremity - bilateral",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26326_9,26326-9,"US Guidance for drainage of Extremity - left",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26327_7,26327-7,"US Guidance for drainage of Extremity - right",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26328_5,26328-5,"US Guidance for drainage of Kidney - bilateral",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26329_3,26329-3,"US Guidance for drainage of Kidney - left",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26330_1,26330-1,"US Guidance for drainage of Kidney - right",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26331_9,26331-9,"Radio fluoroscopy angiography Guidance for change of central venous catheter in Vein - bilateral-- W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26332_7,26332-7,"Radio fluoroscopy angiography Guidance for change of central venous catheter in Vein - left-- W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26333_5,26333-5,"Radio fluoroscopy angiography Guidance for change of central venous catheter in Vein - right-- W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26334_3,26334-3,"Mammogram Guidance for core needle percutaneous biopsy of Breast - bilateral",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26335_0,26335-0,"Mammogram Guidance for core needle percutaneous biopsy of Breast - left",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26336_8,26336-8,"Mammogram Guidance for core needle percutaneous biopsy of Breast - right",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26337_6,26337-6,"Mammogram Guidance for biopsy of Breast - bilateral",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26338_4,26338-4,"Mammogram Guidance for biopsy of Breast - left",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26339_2,26339-2,"Mammogram Guidance for biopsy of Breast - right",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26344_2,26344-2,"Mammogram Guidance for aspiration of cyst of Breast - left",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26345_9,26345-9,"Mammogram Guidance for aspiration of cyst of Breast - right",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26346_7,26346-7,"Breast - bilateral Mammogram diagnostic",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26347_5,26347-5,"Breast - left Mammogram diagnostic",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26348_3,26348-3,"Breast - right Mammogram diagnostic",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26349_1,26349-1,"Breast - bilateral Mammogram diagnostic limited",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26350_9,26350-9,"Breast - left Mammogram diagnostic limited",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26351_7,26351-7,"Breast - right Mammogram diagnostic limited",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26352_5,26352-5,"Wrist - bilateral and Hand - bilateral X-ray bone age",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26353_3,26353-3,"Wrist - left and Hand - left X-ray bone age",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26354_1,26354-1,"Wrist - right and Hand - right X-ray bone age",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26355_8,26355-8,"Hand - bilateral X-ray arthritis",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26356_6,26356-6,"Hand - left X-ray arthritis",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26357_4,26357-4,"Hand - right X-ray arthritis",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26358_2,26358-2,"Knee - bilateral X-ray AP single view W standing",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26359_0,26359-0,"Knee - left X-ray AP single view W standing",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26360_8,26360-8,"Knee - right X-ray AP single view W standing",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26361_6,26361-6,"Knee - bilateral X-ray AP and PA W standing",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26362_4,26362-4,"Knee - left X-ray AP and PA W standing",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26363_2,26363-2,"Knee - right X-ray AP and PA W standing",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26364_0,26364-0,"Knee - bilateral X-ray AP and lateral W standing",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26371_5,26371-5,"Iliac artery - left Radio fluoroscopy angiography Angioplasty W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26372_3,26372-3,"Iliac artery - right Radio fluoroscopy angiography Angioplasty W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26373_1,26373-1,"Tibial artery - bilateral Radio fluoroscopy angiography Angioplasty W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26374_9,26374-9,"Tibial artery - left Radio fluoroscopy angiography Angioplasty W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26375_6,26375-6,"Tibial artery - right Radio fluoroscopy angiography Angioplasty W contrast IA",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26376_4,26376-4,"Administration of vasodilator into catheter of Vein - bilateral",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26377_2,26377-2,"Administration of vasodilator into catheter of Vein - left",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26378_0,26378-0,"Administration of vasodilator into catheter of Vein - right",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26379_8,26379-8,"Hand - bilateral X-ray 3 views",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26380_6,26380-6,"Hand - left X-ray 3 views",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26381_4,26381-4,"Hand - right X-ray 3 views",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26382_2,26382-2,"Shoulder - bilateral X-ray 3 views",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26383_0,26383-0,"Shoulder - left X-ray 3 views",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26384_8,26384-8,"Shoulder - right X-ray 3 views",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26385_5,26385-5,"Ankle - bilateral X-ray 2 views",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26386_3,26386-3,"Ankle - left X-ray 2 views",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26387_1,26387-1,"Ankle - right X-ray 2 views",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26388_9,26388-9,"Hand - bilateral X-ray 2 views",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26389_7,26389-7,"Hand - left X-ray 2 views",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26390_5,26390-5,"Hand - right X-ray 2 views",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26391_3,26391-3,"Humerus - bilateral X-ray 2 views",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26392_1,26392-1,"Humerus - left X-ray 2 views",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26393_9,26393-9,"Humerus - right X-ray 2 views",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26394_7,26394-7,"Knee - bilateral X-ray 2 views",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26395_4,26395-4,"Knee - left X-ray 2 views",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26396_2,26396-2,"Knee - right X-ray 2 views",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26397_0,26397-0,"Patella - bilateral X-ray 2 views",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26398_8,26398-8,"Patella - left X-ray 2 views",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26399_6,26399-6,"Patella - right X-ray 2 views",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26400_2,26400-2,"Hip - bilateral X-ray Single view",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26401_0,26401-0,"Hip - left X-ray Single view",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_26402_8,26402-8,"Hip - right X-ray Single view",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28032_1,28032-1,"Deprecated Cardiac echo, study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28561_9,28561-9,"Pelvis X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28564_3,28564-3,"Skull X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28565_0,28565-0,"Knee X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28566_8,28566-8,"Spine CT",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28567_6,28567-6,"Humerus X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28568_4,28568-4,"Physician Emergency department Note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28569_2,28569-2,"Physician consulting Progress note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28570_0,28570-0,"Procedure note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28571_8,28571-8,"Speech-language pathology Note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28572_6,28572-6,"Dentistry Initial evaluation note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28573_4,28573-4,"Physician, Operation note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28574_2,28574-2,"Discharge note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28575_9,28575-9,"Nurse practitioner Progress note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28576_7,28576-7,"Joint MR",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28577_5,28577-5,"Dentistry Procedure note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28578_3,28578-3,"Occupational therapy Note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28579_1,28579-1,"Physical therapy Note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28580_9,28580-9,"Chiropractic medicine Progress note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28581_7,28581-7,"Chiropractic medicine Initial evaluation note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28582_5,28582-5,"Hand X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28583_3,28583-3,"Dentist Operation note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28654_2,28654-2,"Physician attending Initial evaluation note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28655_9,28655-9,"Physician attending Discharge summary",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28656_7,28656-7,"Social work Progress note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28613_8,28613-8,"Spine X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28614_6,28614-6,"Liver US",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28615_3,28615-3,"Audiology study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28616_1,28616-1,"Physician Transfer note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28617_9,28617-9,"Dentistry Progress note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28618_7,28618-7,"Dentistry Note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28621_1,28621-1,"Nurse practitioner Initial evaluation note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28622_9,28622-9,"Nurse Discharge assessment",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28623_7,28623-7,"Nurse Progress note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28624_5,28624-5,"Podiatry Operation note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28625_2,28625-2,"Podiatry Procedure note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28626_0,28626-0,"Physician History and physical note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28627_8,28627-8,"Psychiatry Progress note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28628_6,28628-6,"Psychiatry Note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28629_4,28629-4,"Perimetry study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28630_2,28630-2,"Tonometry study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28631_0,28631-0,"Visual acuity study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28632_8,28632-8,"Heterophoria study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28633_6,28633-6,"Polysomnography (sleep) study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28635_1,28635-1,"Psychiatry Initial evaluation note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28636_9,28636-9,"Initial evaluation note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28651_8,28651-8,"Nurse Transfer note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_28653_4,28653-4,"Social work Note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_29206_0,29206-0,"Speech therapy service attachment",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_29252_4,29252-4,"Chest CT WO contrast",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_29272_2,29272-2,"Eye ultrasound study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_30579_7,30579-7,"CT Guidance for injection of Spine facet joint",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_30580_5,30580-5,"CT Guidance for fine needle aspiration of Unspecified body region",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_30581_3,30581-3,"CT Guidance for radiation treatment of Unspecified body region-- W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_30582_1,30582-1,"CT Guidance for radiation treatment of Unspecified body region-- WO contrast",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_30583_9,30583-9,"Internal auditory canal CT W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_29749_9,29749-9,"Dialysis records",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_29750_7,29750-7,"Neonatal intensive care records",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_29751_5,29751-5,"Critical care records",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_29752_3,29752-3,"Perioperative records",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_29753_1,29753-1,"Nurse Initial evaluation note",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_29754_9,29754-9,"Nystagmogram study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_29755_6,29755-6,"Nerve conduction study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_29756_4,29756-4,"Peritoneoscopy study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_29757_2,29757-2,"Colposcopy study",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_29761_4,29761-4,"Dentistry Discharge summary",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_30593_8,30593-8,"Head vessels CT angiogram WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_30594_6,30594-6,"Neck vessels CT angiogram WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_30595_3,30595-3,"CT Guidance for fine needle aspiration of Lung",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_30596_1,30596-1,"Thoracic spine CT W contrast IT",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_30597_9,30597-9,"Thoracic spine CT WO contrast",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_30598_7,30598-7,"Chest CT WO and W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_30784_3,30784-3,"Foot X-ray 2 views",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_30785_0,30785-0,"Foot X-ray W forced dorsiflexion",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_30786_8,30786-8,"Hip X-ray lateral frog",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_30787_6,30787-6,"Joint X-ray Single view",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_30788_4,30788-4,"Knee X-ray 3 views",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_30789_2,30789-2,"Knee X-ray 4 views",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_30885_8,30885-8,"Pelvis symphysis pubis X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_30887_4,30887-4,"Renal vessels MR angiogram W contrast IV",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_30888_2,30888-2,"Tibioperoneal vessels MR angiogram",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_30889_0,30889-0,"Temporomandibular joint - left X-ray",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes
+doc_type_30578_9,30578-9,"CT Guidance for drainage of abscess of Unspecified body region",base.snomed,http://hl7.org/fhir/ValueSet/doc-typecodes

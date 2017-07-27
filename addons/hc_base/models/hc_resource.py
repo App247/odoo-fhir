@@ -4,9 +4,10 @@ from openerp import models, fields, api
 
 class Resource(models.Model):    
     _name = "hc.resource"    
-    _description = "Resource"        
+    _description = "Resource"
+    _rec_name = "identifier"        
 
-    id = fields.Char(
+    identifier = fields.Char(
         string="Id", 
         help="How the resource reference is interpreted when testing consent restrictions.")                
     meta_id = fields.Many2one(

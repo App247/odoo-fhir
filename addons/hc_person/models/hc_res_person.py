@@ -4,31 +4,31 @@ from openerp import models, fields, api
 from datetime import datetime
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as DF
 
-class Person(models.Model): 
-    _name = "hc.res.person" 
+class Person(models.Model):
+    _name = "hc.res.person"
     _description = "Person"
     _inherits = {"res.partner": "partner_id"}
 
     partner_id = fields.Many2one(
-        comodel_name="res.partner", 
-        string="Partner", 
-        required="True", 
-        ondelete="restrict", 
+        comodel_name="res.partner",
+        string="Partner",
+        required="True",
+        ondelete="restrict",
         help="Partner associated with this Person.")
     # preferred_name = fields.Char(
-    #     string="Preferred Name", 
-    #     compute="_compute_preferred_name", 
-    #     store="True", 
+    #     string="Preferred Name",
+    #     compute="_compute_preferred_name",
+    #     store="True",
     #     help="Preferred name of person.")
     unique_person = fields.Char(
-        string="Unique Person", 
-        compute="_compute_unique_person", 
-        store="True", 
+        string="Unique Person",
+        compute="_compute_unique_person",
+        store="True",
         help="Unique identifier of a person. Full Name + Gender + Birth Date.")
     identifier_ids = fields.One2many(
-        comodel_name="hc.person.identifier", 
-        inverse_name="person_id", 
-        string="Identifiers", 
+        comodel_name="hc.person.identifier",
+        inverse_name="person_id",
+        string="Identifiers",
         help="A human identifier for this Person.")
     name_id = fields.Many2one(
         comodel_name="hc.human.name",
@@ -36,55 +36,55 @@ class Person(models.Model):
         required="True",
         help="A full text representation of this Person's name when the record was created.")
     # name_ids = fields.Many2many(
-    #     comodel_name="hc.person.name", 
-    #     relation="person_person_name_rel", 
-    #     string="Names", 
+    #     comodel_name="hc.person.name",
+    #     relation="person_person_name_rel",
+    #     string="Names",
     #     help="A name associated with the person.")
     name_ids = fields.One2many(
-        comodel_name="hc.person.name", 
-        inverse_name="person_id", 
+        comodel_name="hc.person.name",
+        inverse_name="person_id",
         string="Names",
         help="A name associated with this Person.")
     telecom_ids = fields.One2many(
-        comodel_name="hc.person.telecom", 
-        inverse_name="person_id", 
-        string="Telecoms", 
+        comodel_name="hc.person.telecom",
+        inverse_name="person_id",
+        string="Telecoms",
         help="A contact detail for the person.")
     gender = fields.Selection(
         string="Gender",
         required="True", # Standard is False
         selection=[
-            ("male", "Male"), 
-            ("female", "Female"), 
-            ("other", "Other"), 
-            ("unknown", "Unknown")],          
+            ("male", "Male"),
+            ("female", "Female"),
+            ("other", "Other"),
+            ("unknown", "Unknown")],
         help="The gender of a person used for administrative purposes.")
     birth_date = fields.Date(
         string="Birth Date",
-        required="True", # Standard is False
+        # required="True", # Standard is False
         help="The birth date for the person.")
     address_ids = fields.One2many(
-        comodel_name="hc.person.address", 
-        inverse_name="person_id", 
-        string="Addresses", 
+        comodel_name="hc.person.address",
+        inverse_name="person_id",
+        string="Addresses",
         help="One or more addresses for the person.")
     photo_ids = fields.One2many(
-        comodel_name="hc.person.photo", 
-        inverse_name="person_id", 
-        string="Photos", 
+        comodel_name="hc.person.photo",
+        inverse_name="person_id",
+        string="Photos",
         help="Image of the Person.")
 #     person_managing_organization_id = fields.Many2one(
-#         comodel_name="hc.res.organization", 
-#         string="Managing Organization", 
+#         comodel_name="hc.res.organization",
+#         string="Managing Organization",
 #         help="The Organization that is the custodian of the person record.")
     is_active = fields.Boolean(
         string="Active",
-        default="True", 
+        default="True",
         help="Whether this person's record is in active use.")
     link_ids = fields.One2many(
-        comodel_name="hc.person.link", 
-        inverse_name="person_id", 
-        string="Links", 
+        comodel_name="hc.person.link",
+        inverse_name="person_id",
+        string="Links",
         help="Link to a resource that concerns the same actual person.")
 
     _defaults = {
@@ -94,23 +94,23 @@ class Person(models.Model):
         "is_person": True,
         }
 
-    @api.depends('name_id', 'gender', 'birth_date')         
-    def _compute_unique_person(self):           
-        comp_unique_person = '/'        
-        for hc_person in self:      
-            if hc_person.name_id:   
+    @api.depends('name_id', 'gender', 'birth_date')
+    def _compute_unique_person(self):
+        comp_unique_person = '/'
+        for hc_person in self:
+            if hc_person.name_id:
                 comp_unique_person = hc_person.name_id.name or ''
-            if hc_person.gender:    
+            if hc_person.gender:
                 comp_unique_person = comp_unique_person + ", " + hc_person.gender or ''
-            if hc_person.birth_date:    
+            if hc_person.birth_date:
                 comp_unique_person = comp_unique_person + ", " + datetime.strftime(datetime.strptime(hc_person.birth_date, DF), "%Y-%m-%d")
-            hc_person.unique_person = comp_unique_person    
+            hc_person.unique_person = comp_unique_person
 
-    _sql_constraints = [    
+    _sql_constraints = [
         ('person_uniq',
         'UNIQUE (unique_person)',
         'Person must be unique.')
-        ]  
+        ]
 
     # For a new record, add Person Name to the list of Person Names and mark it as preferred with Start Date = Birth Date.
 
@@ -168,7 +168,7 @@ class Person(models.Model):
         res = super(Person, self).unlink()
         return res
 
-    
+
     # version 2
     # @api.multi
     # def write(self, vals):
@@ -198,11 +198,11 @@ class Person(models.Model):
 
         # vals['is_patient'] = self.env.context.get('is_patient', False)
         # vals['is_practitioner'] = self.env.context.get('is_practitioner', False)
-        # vals['is_related_person'] = self.env.context.get('is_related_person', False)     
-    
+        # vals['is_related_person'] = self.env.context.get('is_related_person', False)
+
 
     # Display Person Name and Birth Date in Dropdown
-    
+
     @api.model
     def name_search(self, name='', args=None, operator='ilike', limit=100):
         context = dict(self._context)
@@ -223,93 +223,93 @@ class Person(models.Model):
                 name_rec.append((id.id, id.name_id.name))
         return name_rec
 
-class PersonLink(models.Model): 
-    _name = "hc.person.link"    
+class PersonLink(models.Model):
+    _name = "hc.person.link"
     _description = "Person Link"
 
     person_id = fields.Many2one(
-        comodel_name="hc.res.person", 
-        string="Person", 
+        comodel_name="hc.res.person",
+        string="Person",
         help="Person associated with this Person Link.")
     target_type = fields.Selection(
-        string="Target Type", 
-        required="True", 
+        string="Target Type",
+        required="True",
         selection=[
             ("person", "Person"),
-            ("practitioner", "Practitioner"), 
-            ("related_person", "Related Person"), 
-            ("patient", "Patient")], 
-        help="Type of resource to which this actual person is associated.")                
+            ("practitioner", "Practitioner"),
+            ("related_person", "Related Person"),
+            ("patient", "Patient")],
+        help="Type of resource to which this actual person is associated.")
     target_name = fields.Char(
-        string="Target", 
-        compute="_compute_target_name", 
-        store="True", 
+        string="Target",
+        compute="_compute_target_name",
+        store="True",
         help="The resource to which this actual person is associated.")
     target_person_id = fields.Many2one(
-        comodel_name="hc.res.person", 
-        string="Target Person", 
+        comodel_name="hc.res.person",
+        string="Target Person",
         help="Person who is the resource to which this actual person is associated.")
     # target_patient_id = fields.Many2one(
-    #     comodel_name="hc.res.patient", 
-    #     string="Target Patient", 
+    #     comodel_name="hc.res.patient",
+    #     string="Target Patient",
     #     help="Patient who is the resource to which this actual person is associated.")
     # target_practitioner_id = fields.Many2one(
-    #     comodel_name="hc.res.practitioner", 
-    #     string="Target Practitioner", 
+    #     comodel_name="hc.res.practitioner",
+    #     string="Target Practitioner",
     #     help="Practitioner who is the resource to which this actual person is associated.")
     # target_related_person_id = fields.Many2one(
-    #     comodel_name="hc.res.related.person", 
-    #     string="Target Related Person", 
+    #     comodel_name="hc.res.related.person",
+    #     string="Target Related Person",
     #     help="Related Person who is the resource to which this actual person is associated.")
     assurance = fields.Selection(
-        string="Assurance Level", 
+        string="Assurance Level",
         selection=[
-            ("level1", "Level 1"), 
-            ("level2", "Level 2"), 
-            ("level3", "Level 3"), 
+            ("level1", "Level 1"),
+            ("level2", "Level 2"),
+            ("level3", "Level 3"),
             ("level4", "Level 4")],
-        default="level1", 
+        default="level1",
         help="Level of assurance that this link is actually associated with the target resource.")
 
-    @api.depends('target_type')            
-    def _compute_target_name(self):         
-        for hc_person_link in self:      
-            if hc_person_link.target_type == 'person': 
+    @api.depends('target_type')
+    def _compute_target_name(self):
+        for hc_person_link in self:
+            if hc_person_link.target_type == 'person':
                 hc_person_link.target_name = hc_person_link.target_person_id.name
-    #         elif hc_person_link.target_type == 'practitioner':   
+    #         elif hc_person_link.target_type == 'practitioner':
     #             hc_person_link.target_name = hc_person_link.target_practitioner_id.name
-    #         elif hc_person_link.target_type == 'related_person': 
+    #         elif hc_person_link.target_type == 'related_person':
     #             hc_person_link.target_name = hc_person_link.target_related_person_id.name
-    #         elif hc_person_link.target_type == 'patient':  
+    #         elif hc_person_link.target_type == 'patient':
     #             hc_person_link.target_name = hc_person_link.target_patient_id.name
 
-class PersonIdentifier(models.Model):   
-    _name = "hc.person.identifier"  
+class PersonIdentifier(models.Model):
+    _name = "hc.person.identifier"
     _description = "Person Identifier"
     _inherit = ["hc.basic.association", "hc.identifier"]
 
     person_id = fields.Many2one(
-        comodel_name="hc.res.person", 
-        string="Person", 
+        comodel_name="hc.res.person",
+        string="Person",
         help="Person associated with this Person Identifier.")
 
-class PersonName(models.Model): 
-    _name = "hc.person.name"    
+class PersonName(models.Model):
+    _name = "hc.person.name"
     _description = "Person Name"
-    _inherit = ["hc.human.name.use"] 
+    _inherit = ["hc.human.name.use"]
     _inherits = {"hc.human.name": "human_name_id"}
 
     human_name_id = fields.Many2one(
         comodel_name="hc.human.name",
         string="Human Name",
         required="True",
-        ondelete="restrict", 
+        ondelete="restrict",
         help="Human Name associated with this Person Name.")
     person_id = fields.Many2one(
-        comodel_name="hc.res.person", 
-        string="Person", 
+        comodel_name="hc.res.person",
+        string="Person",
         help="Person associated with this Person Name.")
-    
+
     # technical field used to manage unique person name
     person_name = fields.Char(
         string="Person Name",
@@ -317,23 +317,23 @@ class PersonName(models.Model):
         store="True",
         help="Human Name ID + Person ID.")
 
-    @api.depends('human_name_id', 'person_id')              
-    def _compute_name(self):                
-        comp_name = '/'         
-        for hc_person_name in self:         
-            if hc_person_name.human_name_id:        
-                comp_name = str(hc_person_name.human_name_id) or '' 
-            if hc_person_name.person_id:        
-                comp_name = comp_name + ", " + str(hc_person_name.person_id) or ''   
-    
-    # _sql_constraints = [    
+    @api.depends('human_name_id', 'person_id')
+    def _compute_name(self):
+        comp_name = '/'
+        for hc_person_name in self:
+            if hc_person_name.human_name_id:
+                comp_name = str(hc_person_name.human_name_id) or ''
+            if hc_person_name.person_id:
+                comp_name = comp_name + ", " + str(hc_person_name.person_id) or ''
+
+    # _sql_constraints = [
     #     ('name_uniq',
     #     'UNIQUE (name)',
     #     'Person name must be unique.')
     #     ]
 
-    # For a new person record, 
-    # Full Name = Person Name. 
+    # For a new person record,
+    # Full Name = Person Name.
     # Add Person Name to the list of Person Names and mark it as preferred.
 
     @api.model
@@ -355,7 +355,7 @@ class PersonName(models.Model):
     # For an existing person record,
     # If new name is preferred, set old name not preferred and set its end date to the start date of the new preferred name.
     # If new name is not preferred, don't change old name record.
-    
+
     @api.multi
     def write(self, vals):
         person_name_obj = self.env['hc.person.name']
@@ -371,7 +371,7 @@ class PersonName(models.Model):
     # When deleting a name,
     # If name to be deleted is the only name remaining, raise error message and do nothing.
     # If other names are remaining, delete the selected name and make the name with with the latest End Date become preferred and its End Date become blank.
-        
+
     @api.multi
     def unlink(self):
         hc_person_obj = self.env['hc.res.person']
@@ -419,50 +419,50 @@ class PersonName(models.Model):
     #             person.is_preferred = False
     #     return super(PersonName, self).write(vals)
 
-class PersonTelecom(models.Model):  
-    _name = "hc.person.telecom" 
+class PersonTelecom(models.Model):
+    _name = "hc.person.telecom"
     _description = "Person Telecom"
-    _inherit = ["hc.contact.point.use"] 
+    _inherit = ["hc.contact.point.use"]
     _inherits = {"hc.contact.point": "telecom_id"}
- 
+
     telecom_id = fields.Many2one(
-        comodel_name="hc.contact.point", 
-        string="Telecom", 
-        ondelete="restrict", 
-        required="True", 
+        comodel_name="hc.contact.point",
+        string="Telecom",
+        ondelete="restrict",
+        required="True",
         help="Telecom associated with this Person Telecom.")
     person_id = fields.Many2one(
-        comodel_name="hc.res.person", 
-        string="Person", 
+        comodel_name="hc.res.person",
+        string="Person",
         help="Person associated with this Person Telecom.")
 
 class PersonAddress(models.Model):
-    _name = "hc.person.address" 
+    _name = "hc.person.address"
     _description = "Person Address"
     _inherit = ["hc.address.use"]
     _inherits = {"hc.address": "address_id"}
     _rec_name = "text"
 
     address_id = fields.Many2one(
-        comodel_name="hc.address", 
-        string="Address", 
+        comodel_name="hc.address",
+        string="Address",
         required="True",
-        ondelete="restrict", 
-        help="Address associated with this Person Address.") 
+        ondelete="restrict",
+        help="Address associated with this Person Address.")
     person_id = fields.Many2one(
-        comodel_name="hc.res.person", 
-        string="Person", 
+        comodel_name="hc.res.person",
+        string="Person",
         help="Person associated with this Person Address.")
 
-class PersonPhoto(models.Model):   
-    _name = "hc.person.photo"  
+class PersonPhoto(models.Model):
+    _name = "hc.person.photo"
     _description = "Person Photo"
     _inherit = ["hc.basic.association", "hc.attachment"]
 
     person_id = fields.Many2one(
-        comodel_name="hc.res.person", 
-        string="Person", 
-        help="Entity associated with this Person Photo.")      
+        comodel_name="hc.res.person",
+        string="Person",
+        help="Entity associated with this Person Photo.")
 
 # External Reference
 
@@ -470,59 +470,59 @@ class Partner(models.Model):
     _inherit = ["res.partner"]
 
     is_person = fields.Boolean(
-        string="Is a person", 
+        string="Is a person",
         help="This partner is a health care person.")
     is_patient = fields.Boolean(
-        string="Is a patient", 
+        string="Is a patient",
         help="This partner is a patient.")
     is_practitioner = fields.Boolean(
-        string="Is a practitioner", 
+        string="Is a practitioner",
         help="This partner is a health care practitioner.")
     is_related_person = fields.Boolean(
-        string="Is a related person", 
+        string="Is a related person",
         help="This partner is a health care related person.")
     link_ids = fields.One2many(
-        comodel_name="hc.partner.link", 
-        inverse_name="partner_id", 
-        string="Links", 
+        comodel_name="hc.partner.link",
+        inverse_name="partner_id",
+        string="Links",
         help="Link to a resource that concerns the same actual partner.")
 
-class PartnerLink(models.Model): 
-    _name = "hc.partner.link"    
+class PartnerLink(models.Model):
+    _name = "hc.partner.link"
     _description = "Partner Link"
 
     partner_id = fields.Many2one(
-        comodel_name="res.partner", 
-        string="Partner", 
+        comodel_name="res.partner",
+        string="Partner",
         help="Partner associated with this Partner Link.")
     target_type = fields.Selection(
-        string="Target Type", 
-        required="True", 
+        string="Target Type",
+        required="True",
         selection=[
             ("person", "Person"),
-            ("practitioner", "Practitioner"), 
-            ("related_person", "Related Person"), 
-            ("patient", "Patient")], 
-        help="Type of resource to which this actual partner is associated.")                
+            ("practitioner", "Practitioner"),
+            ("related_person", "Related Person"),
+            ("patient", "Patient")],
+        help="Type of resource to which this actual partner is associated.")
     target_name = fields.Char(
         string="Target",
-        compute="_compute_target_name", 
-        store="True", 
+        compute="_compute_target_name",
+        store="True",
         help="The resource to which this actual partner is associated.")
     target_person_id = fields.Many2one(
-        comodel_name="hc.res.person", 
-        string="Target Person", 
+        comodel_name="hc.res.person",
+        string="Target Person",
         help="Person who is the resource to which this actual partner is associated.")
     # target_patient_id = fields.Many2one(
-    #     comodel_name="hc.res.patient", 
-    #     string="Target Patient", 
+    #     comodel_name="hc.res.patient",
+    #     string="Target Patient",
     #     help="Patient who is the resource to which this actual partner is associated.")
     # target_practitioner_id = fields.Many2one(
-    #     comodel_name="hc.res.practitioner", 
-    #     string="Target Practitioner", 
+    #     comodel_name="hc.res.practitioner",
+    #     string="Target Practitioner",
     #     help="Practitioner who is the resource to which this actual partner is associated.")
     # target_related_person_id = fields.Many2one(
-    #     comodel_name="hc.res.related.person", 
-    #     string="Target Related Person", 
-    #     help="Related Person who is the resource to which this actual partner is associated.")    
+    #     comodel_name="hc.res.related.person",
+    #     string="Target Related Person",
+    #     help="Related Person who is the resource to which this actual partner is associated.")
 

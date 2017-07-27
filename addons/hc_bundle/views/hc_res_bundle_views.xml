@@ -1,9 +1,202 @@
 <openerp>
     <data>
 
-        <!-- Bundle Action and Menu --> 
-    
-        <act_window id="hc_res_bundle_action"   
+        <!-- Bundle Views -->
+
+        <record id="hc_res_bundle_view_search" model="ir.ui.view">
+            <field name="name">Bundle Search</field>
+            <field name="model">hc.res.bundle</field>
+            <field name="arch" type="xml">
+                <search string="Bundles">
+                    <field name="name"/>
+                    <field name="identifier_id"/>
+                    <group string="Group By" >
+                        <filter name="group_by_type" string="Type" context="{'group_by':'type'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_res_bundle_view_tree" model="ir.ui.view">
+            <field name="name">Bundle Tree</field>
+            <field name="model">hc.res.bundle</field>
+            <field name="arch" type="xml">
+                <tree string="Bundles">
+                    <field name="name"/>
+                    <field name="identifier_id"/>
+                    <field name="type"/>
+                    <field name="total"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_res_bundle_view_form" model="ir.ui.view">
+            <field name="name">Bundle Form</field>
+            <field name="model">hc.res.bundle</field>
+            <field name="arch" type="xml">
+                <form string="Bundle">
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name"/>
+                        </h1>
+                        <group>
+                            <group string="Resource">
+                                <field name="identifier" string="Resource ID"/>
+                                <field name="meta_id" string="Profile URI"/>
+                            </group>
+                            <group string="Bundle">
+                                <field name="identifier_id" string="Identifier"/>
+                                <field name="type" string="Type"/>
+                                <field name="total"/>
+                                <field name="signature_id"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Links">
+                                <field name="link_ids" mode="tree">
+                                    <tree>
+                                        <field name="relation"/>
+                                        <field name="url"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                    <field name="relation"/>
+                                                    <field name="url"/>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Entries">
+                                <field name="entry_ids" mode="tree">
+                                    <tree>
+                                        <field name="full_url"/>
+                                        <field name="resource_id"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                    <field name="full_url"/>
+                                                    <field name="resource_id"/>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                            <notebook>
+                                                <page string="Links">
+                                                    <field name="link_ids" mode="tree">
+                                                        <tree>
+                                                            <field name="relation"/>
+                                                            <field name="url"/>
+                                                        </tree>
+                                                        <form>
+                                                            <sheet>
+                                                                <group>
+                                                                    <group>
+                                                                        <field name="relation"/>
+                                                                        <field name="url"/>
+                                                                    </group>
+                                                                    <group>
+                                                                    </group>
+                                                                </group>
+                                                            </sheet>
+                                                        </form>
+                                                    </field>
+                                                </page>
+                                                <page string="Searches">
+                                                    <field name="search_ids" mode="tree">
+                                                        <tree>
+                                                            <field name="mode"/>
+                                                            <field name="score"/>
+                                                        </tree>
+                                                        <form>
+                                                            <sheet>
+                                                                <group>
+                                                                    <group>
+                                                                        <field name="mode"/>
+                                                                        <field name="score"/>
+                                                                    </group>
+                                                                    <group>
+                                                                    </group>
+                                                                </group>
+                                                            </sheet>
+                                                        </form>
+                                                    </field>
+                                                </page>
+                                                <page string="Requests">
+                                                    <field name="request_ids" mode="tree">
+                                                        <tree>
+                                                            <field name="method"/>
+                                                            <field name="url"/>
+                                                            <field name="if_none_match"/>
+                                                            <field name="if_modified_since"/>
+                                                            <field name="if_match"/>
+                                                            <field name="if_none_exist"/>
+                                                        </tree>
+                                                        <form>
+                                                            <sheet>
+                                                                <group>
+                                                                    <group>
+                                                                        <field name="method"/>
+                                                                        <field name="url"/>
+                                                                        <field name="if_none_match"/>
+                                                                        <field name="if_modified_since"/>
+                                                                        <field name="if_match"/>
+                                                                        <field name="if_none_exist"/>
+                                                                    </group>
+                                                                    <group>
+                                                                    </group>
+                                                                </group>
+                                                            </sheet>
+                                                        </form>
+                                                    </field>
+                                                </page>
+                                                <page string="Responses">
+                                                    <field name="response_ids" mode="tree">
+                                                        <tree>
+                                                            <field name="status"/>
+                                                            <field name="location"/>
+                                                            <field name="etag"/>
+                                                            <field name="last_modified"/>
+                                                            <field name="outcome_id"/>
+                                                        </tree>
+                                                        <form>
+                                                            <sheet>
+                                                                <group>
+                                                                    <group>
+                                                                        <field name="status"/>
+                                                                        <field name="location"/>
+                                                                        <field name="etag"/>
+                                                                        <field name="last_modified"/>
+                                                                        <field name="outcome_id"/>
+                                                                    </group>
+                                                                    <group>
+                                                                    </group>
+                                                                </group>
+                                                            </sheet>
+                                                        </form>
+                                                    </field>
+                                                </page>
+                                            </notebook>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Bundle Action and Menu -->
+
+        <act_window id="hc_res_bundle_action"
                     name="HC Bundles"
                     res_model="hc.res.bundle"
                     view_mode="tree,form"
@@ -11,12 +204,86 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_bundle.menu_bundle" 
-                  name="Bundles" 
-                  parent="hc_base.menu_exch" 
-                  action="hc_res_bundle_action" 
-                  groups="hc_base.group_hc_base_manager" 
+        <menuitem id="hc_bundle.menu_bundle"
+                  name="Bundles"
+                  parent="hc_base.menu_exch"
+                  action="hc_res_bundle_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="30"/>
+
+        <!-- Bundle Entry Resource Views -->
+
+        <record id="hc_resource_view_search" model="ir.ui.view">
+            <field name="name">Resource Search</field>
+            <field name="model">hc.bundle.entry.resource</field>
+            <field name="arch" type="xml">
+                <search string="Resources">
+                    <field name="id"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_resource_view_tree" model="ir.ui.view">
+            <field name="name">Resource Tree</field>
+            <field name="model">hc.bundle.entry.resource</field>
+            <field name="arch" type="xml">
+                <tree string="Resources">
+                    <field name="id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_resource_view_form" model="ir.ui.view">
+            <field name="name">Resource Form</field>
+            <field name="model">hc.bundle.entry.resource</field>
+            <field name="arch" type="xml">
+                <form string="Resource">
+                    <sheet>
+                        <h1>
+                            <field name="identifier" default_focus="1" placeholder="Id"/>
+                        </h1>
+                        <group>
+                            <group>
+                                <field name="meta_id"/>
+                                <field name="implicit_rules"/>
+                                <field name="language_id"/>
+                            </group>
+                            <group>
+                                <field name="start_date" placeholder="Valid From"/>
+                                <field name="end_date" placeholder="Valid To"/>
+                                <field name="is_preferred"/>
+                                <field name="is_active"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hc_meta_view_form" model="ir.ui.view">
+            <field name="name">Meta Form</field>
+            <field name="model">hc.resource.meta</field>
+            <field name="arch" type="xml">
+                <form string="Meta">
+                    <sheet>
+                        <h1>
+                            <label for="profile" string="Profile URI"/>
+                            <field name="profile" default_focus="1" placeholder="Profile URI"/>
+                        </h1>
+                        <group>
+                            <group>
+                                <field name="version_id"/>
+                                <field name="last_updated"/>
+                                <field name="security_ids" widget="many2many_tags"/>
+                                <field name="tag_ids" widget="many2many_tags"/>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
     </data>
 </openerp>
