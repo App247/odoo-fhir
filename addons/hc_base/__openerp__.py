@@ -10,7 +10,7 @@
 
         **Data Types**
 
-        The FHIR specification defines a set of data types that are used for the resource elements. There are four categories of data types: 
+        The FHIR specification defines a set of data types that are used for the resource elements. There are four categories of data types:
 
         * Simple / primitive types, which are single elements with a primitive value. Examples: string, boolean, dateTime, integer and decimal. Simple/primitive types do not have any models because they have equivalent types in Odoo.
         * General purpose complex types, which are re-usable clusters of elements. Examples: Address, Identity, HumanName.
@@ -80,8 +80,8 @@
         'views/hc_participation_type_views.xml',
         'views/hc_language_views.xml',
         'views/hc_meta_views.xml',
-        'views/hc_reference_views.xml',
         'views/hc_resource_views.xml',
+        'views/hc_reference_views.xml',
         'views/hc_telecom_views.xml',
         'views/hc_contact_detail_views.xml',
         'views/hc_defined_type_views.xml',
@@ -89,7 +89,7 @@
         'views/hc_route_code_views.xml',
         'views/hc_uom_views.xml',
         'views/hc_value_set_v3_views.xml',
-        'views/templates.xml',    
+        'views/templates.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

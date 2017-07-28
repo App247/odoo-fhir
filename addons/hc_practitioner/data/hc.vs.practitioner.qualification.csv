@@ -1,0 +1,62 @@
+id,code,name,version,source_id/id,system
+prac_qual_aa,AA,Associate of Arts,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_aas,AAS,Associate of Applied Science,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_aba,ABA,Associate of Business Administration,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_ae,AE,Associate of Engineering,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_as,AS,Associate of Science,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_ba,BA,Bachelor of Arts,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_bba,BBA,Bachelor of Business Administration,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_be,BE,Bachelor or Engineering,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_bfa,BFA,Bachelor of Fine Arts,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_bn,BN,Bachelor of Nursing,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_bs,BS,Bachelor of Science,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_bsl,BSL,Bachelor of Science - Law,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_bsn,BSN,Bachelor on Science - Nursing,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_bt,BT,Bachelor of Theology,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_canp,CANP,Certified Adult Nurse Practitioner,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_cer,CER,Certificate,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_cma,CMA,Certified Medical Assistant,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_cnm,CNM,Certified Nurse Midwife,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_cnp,CNP,Certified Nurse Practitioner,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_cns,CNS,Certified Nurse Specialist,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_cpnp,CPNP,Certified Pediatric Nurse Practitioner,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_crn,CRN,Certified Registered Nurse,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_ctr,CTR,Certified Tumor Registrar,added v2.8,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_dba,DBA,Doctor of Business Administration,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_ded,DED,Doctor of Education,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_dip,DIP,Diploma,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_do,DO,Doctor of Osteopathy,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_emt,EMT,Emergency Medical Technician,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_emtp,EMTP,Emergency Medical Technician - Paramedic,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_fpnp,FPNP,Family Practice Nurse Practitioner,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_hs,HS,High School Graduate,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_jd,JD,Juris Doctor,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_ma,MA,Master of Arts,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_mba,MBA,Master of Business Administration,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_mce,MCE,Master of Civil Engineering,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_md,MD,Doctor of Medicine,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_mda,MDA,Medical Assistant,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_mdi,MDI,Master of Divinity,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_me,ME,Master of Engineering,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_med,MED,Master of Education,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_mee,MEE,Master of Electrical Engineering,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_mfa,MFA,Master of Fine Arts,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_mme,MME,Master of Mechanical Engineering,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_ms,MS,Master of Science,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_msl,MSL,Master of Science - Law,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_msn,MSN,Master of Science - Nursing,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_mt,MT,Medical Technician,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_mth,MTH,Master of Theology,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_ng,NG,Non-Graduate,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_np,NP,Nurse Practitioner,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_pa,PA,Physician Assistant,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_phd,PHD,Doctor of Philosophy,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_phe,PHE,Doctor of Engineering,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_phs,PHS,Doctor of Science,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_pn,PN,Advanced Practice Nurse,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_pharmd,PharmD,Doctor of Pharmacy,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_rma,RMA,Registered Medical Assistant,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_rn,RN,Registered Nurse,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_rph,RPH,Registered Pharmacist,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_sec,SEC,Secretarial Certificate,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_ts,TS,Trade School Graduate,from v2.7,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7

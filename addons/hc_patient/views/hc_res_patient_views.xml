@@ -1,68 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-    <data>  
+    <data>
 
-        <!-- Patient Views -->                                  
+        <!-- Patient Views -->
 
-         <record id="hc_res_patient_view_search" model="ir.ui.view">             
-            <field name="name">Patient Search</field>                   
-            <field name="model">hc.res.patient</field>                  
-            <field name="arch" type="xml">                  
-                <search string="Patients">              
+         <record id="hc_res_patient_view_search" model="ir.ui.view">
+            <field name="name">Patient Search</field>
+            <field name="model">hc.res.patient</field>
+            <field name="arch" type="xml">
+                <search string="Patients">
                     <field name="name"/>
-                    <field name="birth_date" string="DOB"/>            
-                </search>               
-            </field>                    
-        </record>                       
-        
-        <record id="hc_res_patient_view_tree" model="ir.ui.view">                       
-            <field name="name">Patient Tree</field>                 
-            <field name="model">hc.res.patient</field>                  
-            <field name="arch" type="xml">                  
-                <tree string="Patients">                
+                    <field name="birth_date" string="DOB"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_res_patient_view_tree" model="ir.ui.view">
+            <field name="name">Patient Tree</field>
+            <field name="model">hc.res.patient</field>
+            <field name="arch" type="xml">
+                <tree string="Patients">
                     <field name="name"/>
-                    <field name="birth_date" string="DOB"/>             
-                </tree>             
-            </field>                    
-        </record>                       
-        
-        <record id="hc_res_patient_view_form" model="ir.ui.view">                                       
-            <field name="name">Patient Form</field>                                
-            <field name="model">hc.res.patient</field>                                  
-            <field name="arch" type="xml">                                  
-                <form string="Patient">                             
-                    <sheet>                         
-                        <field name="image" 
-                            widget="image" 
-                            class="oe_left oe_avatar" 
-                            options="{'preview_image': 'image_medium', 'size': [90, 90]}"/>                        
-                        <div class="oe_title">                     
-                            <h1>                    
-                                <field name="person_id" default_focus="1" placeholder="Name" context="{'is_patient': True}"/>             
-                            </h1>                   
-                        </div>                      
-                        <div name="buttons" class="oe_right oe_button_box"></div>                       
+                    <field name="birth_date" string="DOB"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_res_patient_view_form" model="ir.ui.view">
+            <field name="name">Patient Form</field>
+            <field name="model">hc.res.patient</field>
+            <field name="arch" type="xml">
+                <form string="Patient">
+                    <sheet>
+                        <field name="image"
+                            widget="image"
+                            class="oe_left oe_avatar"
+                            options="{'preview_image': 'image_medium', 'size': [90, 90]}"/>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="person_id" default_focus="1" placeholder="Name" context="{'is_patient': True}"/>
+                            </h1>
+                        </div>
+                        <div name="buttons" class="oe_right oe_button_box"></div>
                         <group>
                             <group string = "Demographics">
-                                <field name="type"/>             
-                                <field name="gender"/>                    
+                                <field name="type"/>
+                                <field name="gender"/>
                                 <field name="marital_status_id" attrs="{'invisible': [('type','=','animal')]}"/>
-                                <field name="race_ids" widget="many2many_tags" attrs="{'invisible': [('type','=','animal')]}"/>             
+                                <field name="race_ids" widget="many2many_tags" attrs="{'invisible': [('type','=','animal')]}"/>
                                 <field name="ethnicity_ids" widget="many2many_tags" attrs="{'invisible': [('type','=','animal')]}"/>
                                 <field name="religion_ids" widget="many2many_tags" attrs="{'invisible': [('type','=','animal')]}"/>
-                                <field name="disability_ids" widget="many2many_tags" attrs="{'invisible': [('type','=','animal')]}"/>    
-                            </group>                      
-                            <group string = "Lifecycle">             
+                                <field name="disability_ids" widget="many2many_tags" attrs="{'invisible': [('type','=','animal')]}"/>
+                            </group>
+                            <group string = "Lifecycle">
                                 <field name="birth_date"/>
                                 <field name="birth_time" attrs="{'invisible': [('type','=','animal')]}"/>
                                 <field name="birth_place_id" attrs="{'invisible': [('type','=','animal')]}"/>
-                                <field name="adoption_info_id" attrs="{'invisible': [('type','=','animal')]}"/>              
-                                <field name="is_multiple_birth" attrs="{'invisible': [('type','=','animal')]}"/>               
-                                <field name="multiple_birth_count" attrs="{'invisible': [('is_multiple_birth','=',False)]}"/>               
+                                <field name="adoption_info_id" attrs="{'invisible': [('type','=','animal')]}"/>
+                                <field name="is_multiple_birth" attrs="{'invisible': [('type','=','animal')]}"/>
+                                <field name="multiple_birth_count" attrs="{'invisible': [('is_multiple_birth','=',False)]}"/>
                                 <field name="multiple_birth_order" attrs="{'invisible': [('is_multiple_birth','=',False)]}"/>
-                                <field name="is_deceased"/>             
+                                <field name="is_deceased"/>
                                 <field name="deceased_date" attrs="{'invisible': [('is_deceased','=',False)]}"/>
-                                <field name="is_cadaveric_donor" attrs="{'invisible': [('type','=','animal')]}"/>                                                 
+                                <field name="is_cadaveric_donor" attrs="{'invisible': [('type','=','animal')]}"/>
                             </group>
                             <group string="Miscl">
                                 <field name="congregation" attrs="{'invisible': [('type','=','animal')]}"/>
@@ -73,9 +73,13 @@
                             </group>
                             <group string = "Animal">
                                 <field name="animal_id" attrs="{'invisible': [('type','!=','animal')], 'required': [('type','=','animal')]}"/>
-                            </group>                    
-                        </group>                        
-                        <notebook colspan="4">                      
+                            </group>
+                            <group string="Resource">
+                                <field name="identifier" string="Resource ID"/>
+                                <field name="meta_id" string="Profile URI"/>
+                            </group>
+                        </group>
+                        <notebook colspan="4">
                             <page string="Names">
                                 <field name="name_ids" mode="tree">
                                     <tree default_order="is_preferred">
@@ -104,7 +108,7 @@
                                         </sheet>
                                     </form>
                                 </field>
-                            </page>                                    
+                            </page>
                             <page string="Identifiers">
                                 <field name="identifier_ids" mode="tree">
                                     <tree>
@@ -133,34 +137,34 @@
                                         </sheet>
                                     </form>
                                 </field>
-                            </page> 
-                            <page string="Addresses" attrs="{'invisible': [('type','=','animal')]}">         
+                            </page>
+                            <page string="Addresses" attrs="{'invisible': [('type','=','animal')]}">
                                 <field name="address_ids" mode="tree">
-                                    <tree>      
-                                        <field name="use" widget="radio"/>    
-                                        <field name="is_preferred"/>    
-                                        <field name="line1"/>   
-                                        <field name="line2"/>   
-                                        <field name="city_id"/>   
-                                        <field name="postal_code_id"/>    
+                                    <tree>
+                                        <field name="use" widget="radio"/>
+                                        <field name="is_preferred"/>
+                                        <field name="line1"/>
+                                        <field name="line2"/>
+                                        <field name="city_id"/>
+                                        <field name="postal_code_id"/>
                                         <field name="country_id"/>
-                                        <field name="start_date"/>    
+                                        <field name="start_date"/>
                                         <field name="end_date"/>
-                                    </tree>     
-                                    <form>      
-                                        <sheet>   
-                                            <group col="4" colspan="4">  
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group col="4" colspan="4">
                                                 <field name="use" widget="radio" colspan="4"/>
                                                 <field name="address_id" class="oe_no_button"/>
                                                 <field name="is_preferred"/>
                                                 <field name="is_active"/>
                                                 <field name="start_date" placeholder="Valid From"/>
                                                 <field name="end_date" placeholder="Valid To"/>
-                                            </group>  
-                                        </sheet>    
-                                    </form>     
-                                </field>        
-                            </page>                                               
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
                             <page string="Telecom" attrs="{'invisible': [('type','=','animal')]}">
                                 <field name="telecom_ids" mode="tree">
                                     <tree>
@@ -185,7 +189,7 @@
                                         </sheet>
                                     </form>
                                 </field>
-                            </page>                    
+                            </page>
                             <page string="Photos">
                                 <field name="photo_ids" mode="tree">
                                     <tree>
@@ -265,10 +269,10 @@
                                         <field name="end_date" string="Valid To"/>
                                     </tree>
                                     <form>
-                                        <sheet>                    
-                                            <h1>                    
-                                                <field name="name_id" default_focus="1" placeholder="Name"/>              
-                                            </h1>                   
+                                        <sheet>
+                                            <h1>
+                                                <field name="name_id" default_focus="1" placeholder="Name"/>
+                                            </h1>
                                             <group>
                                                 <group>
                                                     <field name="gender"/>
@@ -336,38 +340,38 @@
                                                         </form>
                                                     </field>
                                                 </page>
-                                                <page string="Addresses">         
+                                                <page string="Addresses">
                                                     <field name="address_ids" mode="tree">
-                                                        <tree>      
-                                                            <field name="use" widget="radio"/>    
-                                                            <field name="is_preferred"/>    
-                                                            <field name="line1"/>   
-                                                            <field name="line2"/>   
-                                                            <field name="city_id"/>   
-                                                            <field name="postal_code_id"/>    
+                                                        <tree>
+                                                            <field name="use" widget="radio"/>
+                                                            <field name="is_preferred"/>
+                                                            <field name="line1"/>
+                                                            <field name="line2"/>
+                                                            <field name="city_id"/>
+                                                            <field name="postal_code_id"/>
                                                             <field name="country_id"/>
-                                                            <field name="start_date"/>    
+                                                            <field name="start_date"/>
                                                             <field name="end_date"/>
-                                                        </tree>     
-                                                        <form>      
-                                                            <sheet>   
-                                                                <group col="4" colspan="4">  
+                                                        </tree>
+                                                        <form>
+                                                            <sheet>
+                                                                <group col="4" colspan="4">
                                                                     <field name="use" widget="radio" colspan="4"/>
                                                                     <field name="address_id" class="oe_no_button"/>
                                                                     <field name="is_preferred"/>
                                                                     <field name="is_active"/>
                                                                     <field name="start_date" placeholder="Valid From"/>
                                                                     <field name="end_date" placeholder="Valid To"/>
-                                                                </group>  
-                                                            </sheet>    
-                                                        </form>     
-                                                    </field>        
+                                                                </group>
+                                                            </sheet>
+                                                        </form>
+                                                    </field>
                                                 </page>
                                             </notebook>
                                         </sheet>
                                     </form>
                                 </field>
-                            </page>                       
+                            </page>
                             <page string="Languages" attrs="{'invisible': [('type','=','animal')]}">
                                 <field name="communication_ids" mode="tree">
                                     <tree>
@@ -378,11 +382,11 @@
                                     </tree>
                                     <form>
                                         <sheet>
-                                            <div class="oe_title oe_left">                      
-                                                <h1>                    
-                                                    <field name="language_id" default_focus="1" placeholder="Language"/>              
-                                                </h1>                   
-                                            </div> 
+                                            <div class="oe_title oe_left">
+                                                <h1>
+                                                    <field name="language_id" default_focus="1" placeholder="Language"/>
+                                                </h1>
+                                            </div>
                                             <group>
                                                 <group>
                                                     <field name="is_preferred"/>
@@ -393,32 +397,32 @@
                                                 <group>
                                                 </group>
                                             </group>
-                                            <notebook>                     
-                                                <page string="Proficiency">                    
-                                                    <field name="proficiency_ids" mode="tree">              
-                                                        <tree>            
-                                                            <field name="language_proficiency_id"/>     
+                                            <notebook>
+                                                <page string="Proficiency">
+                                                    <field name="proficiency_ids" mode="tree">
+                                                        <tree>
+                                                            <field name="language_proficiency_id"/>
                                                             <field name="language_skill_id"/>
                                                             <field name="start_date" string="Valid From"/>
-                                                            <field name="end_date" string="Valid To"/>       
-                                                        </tree>         
-                                                        <form>          
+                                                            <field name="end_date" string="Valid To"/>
+                                                        </tree>
+                                                        <form>
                                                             <sheet>
-                                                                <div class="oe_title oe_left oe_inline">                      
-                                                                    <h1>                    
+                                                                <div class="oe_title oe_left oe_inline">
+                                                                    <h1>
                                                                         <field name="communication_id" readonly="1"/>
-                                                                        <!-- <field name="communication_id" readonly="1" nolabel="1" class="oe_inline"/> -->              
-                                                                    </h1>                   
-                                                                </div>     
+                                                                        <!-- <field name="communication_id" readonly="1" nolabel="1" class="oe_inline"/> -->
+                                                                    </h1>
+                                                                </div>
                                                                 <group>
                                                                     <field name="language_proficiency_id" default_focus="1"/>
                                                                     <field name="language_skill_id"/>
                                                                     <field name="start_date" placeholder="Valid From"/>
                                                                     <field name="end_date" placeholder="Valid To"/>
-                                                                </group>    
-                                                            </sheet>        
-                                                        </form>         
-                                                    </field>                
+                                                                </group>
+                                                            </sheet>
+                                                        </form>
+                                                    </field>
                                                 </page>
                                             </notebook>
                                         </sheet>
@@ -432,7 +436,7 @@
                                         <field name="partner_id" attrs="{'invisible': [('may_have_spouse','!=','True')]}"/>
                                         <field name="start_date"/>
                                         <field name="end_date"/>
-                                    </tree> 
+                                    </tree>
                                     <form>
                                         <sheet>
                                             <group>
@@ -455,7 +459,7 @@
                                         <field name="code_id"/>
                                         <field name="start_date"/>
                                         <field name="end_date"/>
-                                    </tree> 
+                                    </tree>
                                     <form>
                                         <sheet>
                                             <group>
@@ -477,7 +481,7 @@
                                         <field name="code_id"/>
                                         <field name="start_date"/>
                                         <field name="end_date"/>
-                                    </tree> 
+                                    </tree>
                                     <form>
                                         <sheet>
                                             <group>
@@ -500,7 +504,7 @@
                                         <field name="reason_id"/>
                                         <field name="start_date"/>
                                         <field name="end_date"/>
-                                    </tree> 
+                                    </tree>
                                     <form>
                                         <sheet>
                                             <group>
@@ -516,88 +520,88 @@
                                         </sheet>
                                     </form>
                                 </field>
-                            </page>     
+                            </page>
                         </notebook>
                     </sheet>
                 </form>
             </field>
-        </record>                                                          
-                                
-        <!-- Patient Action and Menu -->                        
-                                
-        <record id="hc_res_patient_action" model="ir.actions.act_window">                       
-            <field name="name">HC Patients</field>                  
-            <field name="type">ir.actions.act_window</field>                    
+        </record>
+
+        <!-- Patient Action and Menu -->
+
+        <record id="hc_res_patient_action" model="ir.actions.act_window">
+            <field name="name">HC Patients</field>
+            <field name="type">ir.actions.act_window</field>
             <field name="res_model">hc.res.patient</field>
-            <field name="context">{'is_patient':True}</field>                           
-            <field name="view_type">form</field>                    
+            <field name="context">{'is_patient':True}</field>
+            <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem id="hc_patient.menu_pat" 
+        <menuitem id="hc_patient.menu_pat"
                   name="Patients"
-                  web_icon="hc_patient,static/description/icon.png" 
-                  parent="hc_base.menu_indiv" 
-                  action="hc_res_patient_action" 
-                  groups="hc_base.group_hc_base_manager" 
+                  web_icon="hc_patient,static/description/icon.png"
+                  parent="hc_base.menu_indiv"
+                  action="hc_res_patient_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="10"/>
-    
+
         <!-- Patient Language Views -->
 
-        <record id="hc_patient_language_view_tree" model="ir.ui.view">          
-            <field name="name">Patient Language Tree</field>        
-            <field name="model">hc.patient.communication</field>     
-            <field name="arch" type="xml">      
-                <tree string="Patient Languages">   
+        <record id="hc_patient_language_view_tree" model="ir.ui.view">
+            <field name="name">Patient Language Tree</field>
+            <field name="model">hc.patient.communication</field>
+            <field name="arch" type="xml">
+                <tree string="Patient Languages">
                     <field name="patient_id"/>
                     <field name="language_id"/>
                     <field name="is_preferred" widget="upgrade_boolean"/>
-                </tree> 
-            </field>        
+                </tree>
+            </field>
         </record>
 
-        <record id="hc_patient_language_view_form" model="ir.ui.view">                                      
-            <field name="name">Patient Language Form</field>                                    
-            <field name="model">hc.patient.communication</field>                                 
-            <field name="arch" type="xml">                                  
-                <form string="Patient Language">                                
-                    <sheet>                         
-                        <div class="oe_title oe_left">                      
-                            <h1>                    
-                                <field name="patient_id" default_focus="1" placeholder="Patient"/>              
-                            </h1>                   
-                        </div>                      
-                        <group>                     
-                            <group>                 
-                                <field name="language_id"/>             
-                            </group>                    
-                            <group>                 
-                            </group>                    
-                        </group>                        
-                        <notebook colspan="4">                      
-                            <page string="Proficiency">                    
-                                <field name="proficiency_ids" mode="tree">              
-                                    <tree>          
-                                        <field name="communication_id"/>     
-                                        <field name="language_proficiency_id"/>     
-                                        <field name="language_skill_id"/>       
-                                    </tree>         
-                                    <form>          
-                                        <sheet>     
-                                            <group> 
+        <record id="hc_patient_language_view_form" model="ir.ui.view">
+            <field name="name">Patient Language Form</field>
+            <field name="model">hc.patient.communication</field>
+            <field name="arch" type="xml">
+                <form string="Patient Language">
+                    <sheet>
+                        <div class="oe_title oe_left">
+                            <h1>
+                                <field name="patient_id" default_focus="1" placeholder="Patient"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="language_id"/>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                        <notebook colspan="4">
+                            <page string="Proficiency">
+                                <field name="proficiency_ids" mode="tree">
+                                    <tree>
+                                        <field name="communication_id"/>
+                                        <field name="language_proficiency_id"/>
+                                        <field name="language_skill_id"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
                                                 <field name="communication_id"/>
                                                 <field name="language_proficiency_id"/>
                                                 <field name="language_skill_id"/>
-                                            </group>    
-                                        </sheet>        
-                                    </form>         
-                                </field>                
-                            </page>                 
-                        </notebook>                     
-                    </sheet>                            
-                </form>                             
-            </field>                                    
-        </record>                                       
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
         <!-- Marital Status Views -->
 
@@ -670,224 +674,224 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_patient.menu_mar_stat" 
-                  name="Marital Status" 
-                  parent="hc_patient.menu_pat" 
-                  action="hc_vs_marital_status_action" 
-                  groups="hc_base.group_hc_base_manager" 
+        <menuitem id="hc_patient.menu_mar_stat"
+                  name="Marital Status"
+                  parent="hc_patient.menu_pat"
+                  action="hc_vs_marital_status_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="5"/>
 
-        <!-- Patient Animal Views -->                                       
-                                        
-        <record id="hc_patient_animal_view_search" model="ir.ui.view">                                      
-            <field name="name">Patient Animal Search</field>                                    
-            <field name="model">hc.patient.animal</field>                                   
-            <field name="arch" type="xml">                                  
+        <!-- Patient Animal Views -->
+
+        <record id="hc_patient_animal_view_search" model="ir.ui.view">
+            <field name="name">Patient Animal Search</field>
+            <field name="model">hc.patient.animal</field>
+            <field name="arch" type="xml">
                 <search string="Patient Animals">
                     <field name="name"/>
                     <field name="species_id"/>
                     <field name="breed_id"/>
-                    <field name="gender_status_id"/>                       
-                </search>                               
-            </field>                                    
-        </record>                                       
-                                                
-        <record id="hc_patient_animal_view_tree" model="ir.ui.view">                                        
-            <field name="name">Patient Animal Tree</field>                                  
-            <field name="model">hc.patient.animal</field>                                   
-            <field name="arch" type="xml">                                  
+                    <field name="gender_status_id"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_patient_animal_view_tree" model="ir.ui.view">
+            <field name="name">Patient Animal Tree</field>
+            <field name="model">hc.patient.animal</field>
+            <field name="arch" type="xml">
                 <tree string="Patient Animals">
                     <field name="name"/>
                     <field name="species_id"/>
                     <field name="breed_id"/>
-                    <field name="gender_status_id"/>                                 
-                </tree>                             
-            </field>                                    
-        </record>                                       
-                                                
-        <record id="hc_patient_animal_view_form" model="ir.ui.view">                                        
-            <field name="name">Patient Animal Form</field>                                  
-            <field name="model">hc.patient.animal</field>                                   
-            <field name="arch" type="xml">                                  
-                <form string="Patient Animal">                              
-                    <sheet>                         
-                        <h1>                        
-                            <field name="name" readonly="1" placeholder="Name"/>                   
-                        </h1>                       
-                        <group>                     
+                    <field name="gender_status_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_patient_animal_view_form" model="ir.ui.view">
+            <field name="name">Patient Animal Form</field>
+            <field name="model">hc.patient.animal</field>
+            <field name="arch" type="xml">
+                <form string="Patient Animal">
+                    <sheet>
+                        <h1>
+                            <field name="name" readonly="1" placeholder="Name"/>
+                        </h1>
+                        <group>
                             <group>
                                 <field name="species_id"/>
                                 <field name="breed_id"/>
-                                <field name="gender_status_id"/>                     
-                            </group>                    
-                            <group>                 
-                            </group>                    
-                        </group>                                             
-                    </sheet>                            
-                </form>                             
-            </field>                                    
-        </record>                                                                          
-                                                
-        <act_window id="hc_patient_animal_action"                                       
-                    name="HC Patient Animals"                           
-                    res_model="hc.patient.animal"                           
-                    view_mode="tree,form"                           
-                    domain=""                           
-                    context=""                          
-                    limit=""/>                          
+                                <field name="gender_status_id"/>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
-        <menuitem id="hc_patient.menu_pat_animal" 
-                  name="Patient Animal" 
-                  parent="hc_patient.menu_pat" 
-                  action="hc_patient_animal_action" 
-                  groups="hc_base.group_hc_base_manager" 
+        <act_window id="hc_patient_animal_action"
+                    name="HC Patient Animals"
+                    res_model="hc.patient.animal"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <menuitem id="hc_patient.menu_pat_animal"
+                  name="Patient Animal"
+                  parent="hc_patient.menu_pat"
+                  action="hc_patient_animal_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="10"/>
 
-        <!-- Animal Species Views -->                               
-                                        
-        <record id="hc_vs_animal_species_view_search" model="ir.ui.view">                               
-            <field name="name">Animal Species Search</field>                            
-            <field name="model">hc.vs.animal.species</field>                                                 
-            <field name="arch" type="xml">                          
-                <search string="Animal Species">                        
-                    <field name="name"/>                    
-                    <field name="code"/>                    
+        <!-- Animal Species Views -->
+
+        <record id="hc_vs_animal_species_view_search" model="ir.ui.view">
+            <field name="name">Animal Species Search</field>
+            <field name="model">hc.vs.animal.species</field>
+            <field name="arch" type="xml">
+                <search string="Animal Species">
+                    <field name="name"/>
+                    <field name="code"/>
                     <field name="definition"/>
-                    <field name="contains_id"/>                    
-                    <group>                 
+                    <field name="contains_id"/>
+                    <group>
                         <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>
-                        <filter name="group_by_level_name" string="level name" context="{'group_by': 'level_name'}"/>             
-                    </group>                    
-                </search>                       
-            </field>                            
-        </record>                               
-                                        
-        <record id="hc_vs_animal_species_view_tree" model="ir.ui.view">                             
-            <field name="name">Animal Species Tree</field>                          
-            <field name="model">hc.vs.animal.species</field>                                                     
-            <field name="arch" type="xml">                          
-                <tree string="Animal Species" default_order="name, code">                      
+                        <filter name="group_by_level_name" string="level name" context="{'group_by': 'level_name'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_vs_animal_species_view_tree" model="ir.ui.view">
+            <field name="name">Animal Species Tree</field>
+            <field name="model">hc.vs.animal.species</field>
+            <field name="arch" type="xml">
+                <tree string="Animal Species" default_order="name, code">
                     <field name="contains_id" invisible="1"/>
-                    <field name="name"/>                    
-                    <field name="code"/>                    
+                    <field name="name"/>
+                    <field name="code"/>
                     <field name="definition"/>
-                    <field name="level" invisible="1"/>     
-                    <field name="level_name" invisible="1"/>                  
-                    <field name="source_id" invisible="0"/>                 
-                </tree>                     
-            </field>                            
-        </record>                               
-                                        
-        <record id="hc_vs_animal_species_view_form" model="ir.ui.view">                             
-            <field name="name">Animal Species Form</field>                          
-            <field name="model">hc.vs.animal.species</field>                            
-            <field name="arch" type="xml">                          
-                <form string="Animal Species">                     
-                    <sheet>                 
-                        <h1>                
-                            <field name="name" default_focus="1" placeholder="Name (e.g., United States)"/>         
-                        </h1>               
-                        <field name="code" placeholder="Code (e.g., US)"/>              
-                        <field name="definition" placeholder="Definition"/>             
-                        <field name="comments" placeholder="Comments"/>             
-                        <group>             
-                            <group>         
-                                <field name="contains_id" invisible="0"/>              
-                                <field name="level" placeholder="An integer (e.g., 1, 2)"/>     
+                    <field name="level" invisible="1"/>
+                    <field name="level_name" invisible="1"/>
+                    <field name="source_id" invisible="0"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_vs_animal_species_view_form" model="ir.ui.view">
+            <field name="name">Animal Species Form</field>
+            <field name="model">hc.vs.animal.species</field>
+            <field name="arch" type="xml">
+                <form string="Animal Species">
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name (e.g., United States)"/>
+                        </h1>
+                        <field name="code" placeholder="Code (e.g., US)"/>
+                        <field name="definition" placeholder="Definition"/>
+                        <field name="comments" placeholder="Comments"/>
+                        <group>
+                            <group>
+                                <field name="contains_id" invisible="0"/>
+                                <field name="level" placeholder="An integer (e.g., 1, 2)"/>
                                 <field name="level_name" placeholder="Name of level (e.g., Species)"/>
-                                <field name="is_abstract"/>       
-                                <field name="version" placeholder="e.g., v2.5"/>        
-                            </group>            
-                            <group>         
-                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>        
-                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>     
-                            </group>            
-                        </group>                
-                    </sheet>                    
-                </form>                     
-            </field>                            
-        </record>                               
+                                <field name="is_abstract"/>
+                                <field name="version" placeholder="e.g., v2.5"/>
+                            </group>
+                            <group>
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
-        <act_window id="hc_vs_animal_species_action"                                
-                    name="HC Animal Species"                    
-                    res_model="hc.vs.animal.species"                    
-                    view_mode="tree,form"                   
-                    domain=""                   
-                    context=""                  
-                    limit=""/>                  
+        <act_window id="hc_vs_animal_species_action"
+                    name="HC Animal Species"
+                    res_model="hc.vs.animal.species"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
 
-        <menuitem id="hc_patient.menu_pat_species" 
-                  name="Animal Species" 
-                  parent="hc_patient.menu_pat" 
-                  action="hc_vs_animal_species_action" 
-                  groups="hc_base.group_hc_base_manager" 
+        <menuitem id="hc_patient.menu_pat_species"
+                  name="Animal Species"
+                  parent="hc_patient.menu_pat"
+                  action="hc_vs_animal_species_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="20"/>
-        
-        <!-- Animal Breed Views -->         
-            
-        <record id="hc_vs_animal_breed_view_search" model="ir.ui.view">             
-            <field name="name">Animal Breed Search</field>          
-            <field name="model">hc.vs.animal.breed</field>             
-            <field name="arch" type="xml">          
-                <search string="Animal Breeds">     
-                    <field name="name"/>    
-                    <field name="code"/>    
+
+        <!-- Animal Breed Views -->
+
+        <record id="hc_vs_animal_breed_view_search" model="ir.ui.view">
+            <field name="name">Animal Breed Search</field>
+            <field name="model">hc.vs.animal.breed</field>
+            <field name="arch" type="xml">
+                <search string="Animal Breeds">
+                    <field name="name"/>
+                    <field name="code"/>
                     <field name="definition"/>
                     <field name="hierarchy_id"/>
-                    <field name="contains_id"/>  
-                    <group> 
+                    <field name="contains_id"/>
+                    <group>
                         <filter name="group_by_hierarchy" string="hierarchy" context="{'group_by': 'hierarchy_id'}" />
                         <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}" />
-                    </group>    
-                </search>       
-            </field>            
-        </record>               
+                    </group>
+                </search>
+            </field>
+        </record>
 
-        <record id="hc_vs_animal_breed_view_tree" model="ir.ui.view">           
-            <field name="name">Animal Breed Tree</field>        
-            <field name="model">hc.vs.animal.breed</field>      
-            <field name="arch" type="xml">      
-                <tree string="Animal Breeds" default_order="name, code">    
+        <record id="hc_vs_animal_breed_view_tree" model="ir.ui.view">
+            <field name="name">Animal Breed Tree</field>
+            <field name="model">hc.vs.animal.breed</field>
+            <field name="arch" type="xml">
+                <tree string="Animal Breeds" default_order="name, code">
                     <field name="name"/>
                     <field name="code"/>
                     <field name="definition"/>
                     <field name="hierarchy_id"/>
                     <field name="contains_id"/>
                     <field name="source_id" invisible="0"/>
-                </tree> 
-            </field>        
-        </record>           
+                </tree>
+            </field>
+        </record>
 
-        <record id="hc_vs_animal_breed_view_form" model="ir.ui.view">                       
-            <field name="name">Animal Breed Form</field>                    
-            <field name="model">hc.vs.animal.breed</field>                  
-            <field name="arch" type="xml">                  
-                <form string="Animal Breeds">              
-                    <sheet>         
-                        <h1>        
-                            <field name="name" default_focus="1" placeholder="Name (e.g., United States)"/> 
-                        </h1>       
-                        <field name="code" placeholder="Code (e.g., US)"/>      
-                        <field name="definition" placeholder="Definition"/>   
-                        <group>     
-                            <group> 
+        <record id="hc_vs_animal_breed_view_form" model="ir.ui.view">
+            <field name="name">Animal Breed Form</field>
+            <field name="model">hc.vs.animal.breed</field>
+            <field name="arch" type="xml">
+                <form string="Animal Breeds">
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name (e.g., United States)"/>
+                        </h1>
+                        <field name="code" placeholder="Code (e.g., US)"/>
+                        <field name="definition" placeholder="Definition"/>
+                        <group>
+                            <group>
                                 <field name="hierarchy_id" placeholder="e.g., dog"/>
                                 <field name="contains_id"/>
                                 <field name="level" placeholder="An integer (e.g., 1, 2)"/>
                                 <field name="is_abstract"/>
                                 <field name="version" placeholder="e.g., v2.5"/>
-                            </group>    
-                            <group> 
+                            </group>
+                            <group>
                                 <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
                                 <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
-                            </group>    
-                        </group>        
-                    </sheet>            
-                </form>             
-            </field>                    
-        </record>                       
-             
-        <act_window id="hc_vs_animal_breed_action"          
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_vs_animal_breed_action"
                     name="HC Animal Breeds"
                     res_model="hc.vs.animal.breed"
                     view_mode="tree,form"
@@ -895,62 +899,62 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_patient.menu_pat_breed" 
-                  name="Animal Breeds" 
-                  parent="hc_patient.menu_pat" 
-                  action="hc_vs_animal_breed_action" 
-                  groups="hc_base.group_hc_base_manager" 
+        <menuitem id="hc_patient.menu_pat_breed"
+                  name="Animal Breeds"
+                  parent="hc_patient.menu_pat"
+                  action="hc_vs_animal_breed_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="30"/>
 
-        <!-- V3 Religious Affiliation Views -->                     
-                                
-        <record id="hc_vs_v3_religious_affiliation_view_search" model="ir.ui.view">                     
-            <field name="name">V3 Religious Affiliation Search</field>                  
-            <field name="model">hc.vs.v3.religious.affiliation</field>                  
-            <field name="arch" type="xml">                  
-                <search string="V3 Religious Affiliations">             
-                    <field name="name"/>            
-                    <field name="code"/>                     
-                    <group>           
-                    </group>            
-                </search>               
-            </field>                    
-        </record>                       
-                                
-        <record id="hc_vs_v3_religious_affiliation_view_tree" model="ir.ui.view">                       
-            <field name="name">V3 Religious Affiliation Tree</field>                    
-            <field name="model">hc.vs.v3.religious.affiliation</field>                  
-            <field name="arch" type="xml">                  
-                <tree string="V3 Religious Affiliations" default_order="name">                
-                    <field name="name"/>            
-                    <field name="code"/>                  
-                    <field name="source_id" invisible="0"/>         
-                </tree>             
-            </field>                    
-        </record>                       
-                                
-        <record id="hc_vs_v3_religious_affiliation_view_form" model="ir.ui.view">                       
-            <field name="name">V3 Religious Affiliation Form</field>                    
-            <field name="model">hc.vs.v3.religious.affiliation</field>                  
-            <field name="arch" type="xml">                  
-                <form string="V3 Religious Affiliation">                
-                    <sheet>         
-                        <h1>        
-                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>  
-                        </h1>       
-                        <field name="code" placeholder="Code (e.g., biological)"/>          
-                        <group>         
-                            <group> 
+        <!-- V3 Religious Affiliation Views -->
+
+        <record id="hc_vs_v3_religious_affiliation_view_search" model="ir.ui.view">
+            <field name="name">V3 Religious Affiliation Search</field>
+            <field name="model">hc.vs.v3.religious.affiliation</field>
+            <field name="arch" type="xml">
+                <search string="V3 Religious Affiliations">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <group>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_vs_v3_religious_affiliation_view_tree" model="ir.ui.view">
+            <field name="name">V3 Religious Affiliation Tree</field>
+            <field name="model">hc.vs.v3.religious.affiliation</field>
+            <field name="arch" type="xml">
+                <tree string="V3 Religious Affiliations" default_order="name">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="source_id" invisible="0"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_vs_v3_religious_affiliation_view_form" model="ir.ui.view">
+            <field name="name">V3 Religious Affiliation Form</field>
+            <field name="model">hc.vs.v3.religious.affiliation</field>
+            <field name="arch" type="xml">
+                <form string="V3 Religious Affiliation">
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>
+                        </h1>
+                        <field name="code" placeholder="Code (e.g., biological)"/>
+                        <group>
+                            <group>
                                 <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
                                 <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
-                            </group>    
-                        </group>        
-                    </sheet>            
-                </form>             
-            </field>                    
-        </record>                       
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
-        <act_window id="hc_vs_v3_religious_affiliation_action"          
+        <act_window id="hc_vs_v3_religious_affiliation_action"
                     name="HC V3 Religious Affiliations"
                     res_model="hc.vs.v3.religious.affiliation"
                     view_mode="tree,form"
@@ -958,148 +962,148 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_patient.menu_rel_aff" 
-                  name="Religious Affiliations" 
-                  parent="hc_patient.menu_pat" 
-                  action="hc_vs_v3_religious_affiliation_action" 
-                  groups="hc_base.group_hc_base_manager" 
+        <menuitem id="hc_patient.menu_rel_aff"
+                  name="Religious Affiliations"
+                  parent="hc_patient.menu_pat"
+                  action="hc_vs_v3_religious_affiliation_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="30"/>
-            
-<!-- V3 Race Views -->          
 
-        <record id="hc_vs_v3_race_view_search" model="ir.ui.view">                      
-            <field name="name">V3 Race Search</field>                   
-            <field name="model">hc.vs.v3.race</field>                   
-            <field name="arch" type="xml">                  
-                <search string="V3 Races">              
-                    <field name="name"/>            
-                    <field name="code"/>            
-                    <field name="definition"/>          
-                    <group>         
-                        <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>      
-                    </group>            
-                </search>               
-            </field>                    
-        </record>                       
-                                
-        <record id="hc_vs_v3_race_view_tree" model="ir.ui.view">                        
-            <field name="name">V3 Race Tree</field>                 
-            <field name="model">hc.vs.v3.race</field>                   
-            <field name="arch" type="xml">                  
-                <tree string="V3 Races" default_order="name, code">             
-                    <field name="name"/>            
-                    <field name="code"/>            
-                    <field name="definition"/>          
-                    <field name="contains_id"/>         
-                    <field name="source_id" invisible="0"/>         
-                </tree>             
-            </field>                    
-        </record>                       
-                                
-        <record id="hc_vs_v3_race_view_form" model="ir.ui.view">                        
-            <field name="name">V3 Race Form</field>                 
-            <field name="model">hc.vs.v3.race</field>                   
-            <field name="arch" type="xml">                  
-                <form string="V3 Race">             
-                    <sheet>         
-                        <h1>        
-                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>  
-                        </h1>       
-                        <field name="code" placeholder="Code (e.g., biological)"/>      
-                        <field name="definition" placeholder="Definition"/>     
-                        <field name="comments" placeholder="Comments"/>     
-                        <group>     
-                            <group> 
+<!-- V3 Race Views -->
+
+        <record id="hc_vs_v3_race_view_search" model="ir.ui.view">
+            <field name="name">V3 Race Search</field>
+            <field name="model">hc.vs.v3.race</field>
+            <field name="arch" type="xml">
+                <search string="V3 Races">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                    <group>
+                        <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_vs_v3_race_view_tree" model="ir.ui.view">
+            <field name="name">V3 Race Tree</field>
+            <field name="model">hc.vs.v3.race</field>
+            <field name="arch" type="xml">
+                <tree string="V3 Races" default_order="name, code">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                    <field name="contains_id"/>
+                    <field name="source_id" invisible="0"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_vs_v3_race_view_form" model="ir.ui.view">
+            <field name="name">V3 Race Form</field>
+            <field name="model">hc.vs.v3.race</field>
+            <field name="arch" type="xml">
+                <form string="V3 Race">
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>
+                        </h1>
+                        <field name="code" placeholder="Code (e.g., biological)"/>
+                        <field name="definition" placeholder="Definition"/>
+                        <field name="comments" placeholder="Comments"/>
+                        <group>
+                            <group>
                                 <field name="contains_id"/>
                                 <field name="level" placeholder="An integer (e.g., 1, 2)"/>
                                 <field name="is_abstract"/>
                                 <field name="version" placeholder="e.g., v2.5"/>
-                            </group>    
-                            <group> 
+                            </group>
+                            <group>
                                 <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
                                 <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
-                            </group>    
-                        </group>        
-                    </sheet>            
-                </form>             
-            </field>                    
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
         </record>
 
-        <act_window id="hc_vs_v3_race_action"           
+        <act_window id="hc_vs_v3_race_action"
                     name="HC V3 Races"
                     res_model="hc.vs.v3.race"
                     view_mode="tree,form"
                     domain=""
                     context=""
-                    limit=""/>                       
-        
-        <menuitem id="hc_patient.menu_race" 
-                  name="Races" 
-                  parent="hc_patient.menu_pat" 
-                  action="hc_vs_v3_race_action" 
-                  groups="hc_base.group_hc_base_manager" 
+                    limit=""/>
+
+        <menuitem id="hc_patient.menu_race"
+                  name="Races"
+                  parent="hc_patient.menu_pat"
+                  action="hc_vs_v3_race_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="35"/>
 
 
-        <!-- V3 Race Value Set Views -->                        
-                                
-        <record id="hc_vs_v3_race_value_set_view_search" model="ir.ui.view">                        
-            <field name="name">V3 Race Value Set Search</field>                 
-            <field name="model">hc.vs.v3.race.value.set</field>                 
-            <field name="arch" type="xml">                  
-                <search string="V3 Race Value Sets">                
-                    <field name="name"/>            
-                    <field name="code"/>            
-                    <field name="definition"/>          
-                    <group>              
-                    </group>            
-                </search>               
-            </field>                    
-        </record>                       
-                                
-        <record id="hc_vs_v3_race_value_set_view_tree" model="ir.ui.view">                      
-            <field name="name">V3 Race Value Set Tree</field>                   
-            <field name="model">hc.vs.v3.race.value.set</field>                 
-            <field name="arch" type="xml">                  
-                <tree string="V3 Race Value Sets" default_order="name, code">               
-                    <field name="name"/>            
-                    <field name="code"/>            
-                    <field name="definition"/>                   
-                    <field name="source_id" invisible="0"/>         
-                </tree>             
-            </field>                    
-        </record>                       
-                                
-        <record id="hc_vs_v3_race_value_set_view_form" model="ir.ui.view">                      
-            <field name="name">V3 Race Value Set Form</field>                   
-            <field name="model">hc.vs.v3.race.value.set</field>                 
-            <field name="arch" type="xml">                  
-                <form string="V3 Race Value Set">               
-                    <sheet>         
-                        <h1>        
-                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>  
-                        </h1>       
-                        <field name="code" placeholder="Code (e.g., biological)"/>      
-                        <field name="definition" placeholder="Definition"/>     
-                        <field name="comments" placeholder="Comments"/>     
-                        <group>     
-                            <group> 
+        <!-- V3 Race Value Set Views -->
+
+        <record id="hc_vs_v3_race_value_set_view_search" model="ir.ui.view">
+            <field name="name">V3 Race Value Set Search</field>
+            <field name="model">hc.vs.v3.race.value.set</field>
+            <field name="arch" type="xml">
+                <search string="V3 Race Value Sets">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                    <group>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_vs_v3_race_value_set_view_tree" model="ir.ui.view">
+            <field name="name">V3 Race Value Set Tree</field>
+            <field name="model">hc.vs.v3.race.value.set</field>
+            <field name="arch" type="xml">
+                <tree string="V3 Race Value Sets" default_order="name, code">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                    <field name="source_id" invisible="0"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_vs_v3_race_value_set_view_form" model="ir.ui.view">
+            <field name="name">V3 Race Value Set Form</field>
+            <field name="model">hc.vs.v3.race.value.set</field>
+            <field name="arch" type="xml">
+                <form string="V3 Race Value Set">
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>
+                        </h1>
+                        <field name="code" placeholder="Code (e.g., biological)"/>
+                        <field name="definition" placeholder="Definition"/>
+                        <field name="comments" placeholder="Comments"/>
+                        <group>
+                            <group>
                                 <field name="contains_id"/>
                                 <field name="level" placeholder="An integer (e.g., 1, 2)"/>
                                 <field name="is_abstract"/>
                                 <field name="version" placeholder="e.g., v2.5"/>
-                            </group>    
-                            <group> 
+                            </group>
+                            <group>
                                 <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
                                 <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
-                            </group>    
-                        </group>        
-                    </sheet>            
-                </form>             
-            </field>                    
-        </record>                       
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
-        <act_window id="hc_vs_v3_race_value_set_action"         
+        <act_window id="hc_vs_v3_race_value_set_action"
                     name="HC V3 Race Value Sets"
                     res_model="hc.vs.v3.race.value.set"
                     view_mode="tree,form"
@@ -1107,32 +1111,32 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_patient.menu_race_vs" 
-                  name="Race Value Sets" 
-                  parent="hc_patient.menu_pat" 
-                  action="hc_vs_v3_race_value_set_action" 
-                  groups="hc_base.group_hc_base_manager" 
+        <menuitem id="hc_patient.menu_race_vs"
+                  name="Race Value Sets"
+                  parent="hc_patient.menu_pat"
+                  action="hc_vs_v3_race_value_set_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="36"/>
 
 
         <!-- External Reference View -->
 
-<!--         <record id="base.view_partner_form_inherited_patient" model="ir.ui.view">     
-          <field name="name">res.partner.form</field>   
-          <field name="model">res.partner</field>   
-          <field name="inherit_id" ref="base.view_partner_form"/>   
+<!--         <record id="base.view_partner_form_inherited_patient" model="ir.ui.view">
+          <field name="name">res.partner.form</field>
+          <field name="model">res.partner</field>
+          <field name="inherit_id" ref="base.view_partner_form"/>
           <field name="arch" type="xml">
               <field name="parent_id" position="after">
-                <label for="is_patient" string="HC Patient"/>  
+                <label for="is_patient" string="HC Patient"/>
                 <field name="is_patient"/>
               </field>
           </field>
         </record> -->
 
-        <record id="hc_res_person_view_form_inherited_patient" model="ir.ui.view">     
-            <field name="name">Person Form</field>   
-            <field name="model">hc.res.person</field>   
-            <field name="inherit_id" ref="hc_person.hc_res_person_view_form"/>   
+        <record id="hc_res_person_view_form_inherited_patient" model="ir.ui.view">
+            <field name="name">Person Form</field>
+            <field name="model">hc.res.person</field>
+            <field name="inherit_id" ref="hc_person.hc_res_person_view_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='is_active']" position="after">
                     <field name="is_patient" readonly="1"/>
@@ -1143,10 +1147,10 @@
             </field>
         </record>
 
-        <record id="hc_res_related_person_view_form_inherited" model="ir.ui.view">     
-            <field name="name">Related Person Form</field>   
-            <field name="model">hc.res.related.person</field>   
-            <field name="inherit_id" ref="hc_related_person.hc_res_related_person_view_form"/>   
+        <record id="hc_res_related_person_view_form_inherited" model="ir.ui.view">
+            <field name="name">Related Person Form</field>
+            <field name="model">hc.res.related.person</field>
+            <field name="inherit_id" ref="hc_related_person.hc_res_related_person_view_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='patient_ids']//tree//field[@name='relationship_id']" position="before">
                     <field name="patient_id"/>

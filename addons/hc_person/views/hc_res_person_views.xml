@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-      
+
         <record id="hc_res_person_view_search" model="ir.ui.view">
             <field name="name">Person Search</field>
             <field name="model">hc.res.person</field>
@@ -11,7 +11,7 @@
                 </search>
             </field>
         </record>
-                
+
         <record id="hc_res_person_view_tree" model="ir.ui.view">
             <field name="name">Person Tree</field>
             <field name="model">hc.res.person</field>
@@ -34,7 +34,7 @@
                         <field name="image" widget="image" class="oe_left oe_avatar" options="{'preview_image': 'image_medium', 'size': [90, 90]}"/>
                         <div class="oe_title">
                             <h1>
-                                <field name="name" readonly="1" placeholder="Full Name"/>
+                                <field name="name_id" readonly="1" placeholder="Full Name"/>
                             </h1>
                         </div>
                         <div name="buttons" class="oe_right oe_button_box">
@@ -222,6 +222,7 @@
                                         <sheet>
                                             <group>
                                                 <group>
+                                                    <field name="target_name"/>
                                                     <field name="target_type"/>
                                                     <field name="target_person_id" attrs="{'invisible': [('target_type','!=','person')]}"/>
                                                     <!-- <field name="target_patient_id" attrs="{'invisible': [('target_type','!=','Patient')]}"/>
@@ -264,7 +265,7 @@
         </record>
 
         <!-- Person Action and Menu -->
-    
+
         <act_window id="hc_res_person_action"
                     name="HC Persons"
                     res_model="hc.res.person"
@@ -273,14 +274,14 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_person.menu_pers" 
+        <menuitem id="hc_person.menu_pers"
                   name="Persons"
-                  web_icon="hc_person,static/description/icon.png"   
-                  parent="hc_base.menu_indiv" 
-                  action="hc_res_person_action" 
-                  groups="hc_base.group_hc_base_manager" 
+                  web_icon="hc_person,static/description/icon.png"
+                  parent="hc_base.menu_indiv"
+                  action="hc_res_person_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="50"/>
-        
+
         <!-- External Reference View -->
 
          <record id="base.view_partner_form_inherited_person" model="ir.ui.view">

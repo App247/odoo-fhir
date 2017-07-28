@@ -304,12 +304,10 @@ class CompositionSection(models.Model):
         comodel_name="hc.vs.composition.section.text",
         string="Text",
         help="Text summary of the section, for human interpretation.")
-    mode = fields.Selection(
+    mode = fields.Many2one(
+        comodel_name="hc.vs.list.mode",
         string="Mode",
-        selection=[
-            ("working", "Working"),
-            ("snapshot", "Snapshot"),
-            ("changes", "Changes")],
+        required="True",
         help="How the entry list was prepared.")
     ordered_by_id = fields.Many2one(
         comodel_name="hc.vs.list.order",
@@ -385,7 +383,7 @@ class CompositionIdentifier(models.Model):
     _description = "Composition Identifier"
     _inherit = ["hc.basic.association", "hc.identifier"]
 
-class compositionStatusHistory(models.Model):
+class CompositionStatusHistory(models.Model):
     _name = "hc.composition.status.history"
     _description = "Composition Status History"
 
@@ -414,7 +412,6 @@ class compositionStatusHistory(models.Model):
     time_diff_sec = fields.Char(
         string="Time Diff (seconds)",
         help="Seconds duration of the status.")
-
 
 class CompositionEventDetail(models.Model):
     _name = "hc.composition.event.detail"

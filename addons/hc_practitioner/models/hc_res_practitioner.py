@@ -5,7 +5,9 @@ from openerp import models, fields, api
 class Practitioner(models.Model):
     _name = "hc.res.practitioner"
     _description = "Practitioner"
+    _inherit = ["hc.resource", "hc.domain.resource"]
     _inherits = {"hc.res.person": "person_id"}
+    _rec_name = "name"
 
     person_id = fields.Many2one(
         comodel_name="hc.res.person",
@@ -14,10 +16,18 @@ class Practitioner(models.Model):
         ondelete="restrict",
         help="Person who is this practitioner.")
     identifier_ids = fields.One2many(
-        comodel_name="hc.practitioner.identifier",
-        inverse_name="practitioner_id",
+        related="person_id.identifier_ids",
         string="Identifiers",
         help="A human identifier for this practitioner.")
+    # identifier_ids = fields.One2many(
+    #     comodel_name="hc.practitioner.identifier",
+    #     inverse_name="practitioner_id",
+    #     string="Identifiers",
+    #     help="A human identifier for this practitioner.")
+    is_active = fields.Boolean(
+        string="Active Practitioner",
+        default="True",
+        help="Whether this practitioner's record is in active use.")
     name_ids = fields.One2many(
         related="person_id.name_ids",
         string="Names",
@@ -28,20 +38,23 @@ class Practitioner(models.Model):
     #     string="Names",
     #     help="A name associated with this practitioner.")
     telecom_ids = fields.One2many(
-        comodel_name="hc.practitioner.telecom",
-        inverse_name="practitioner_id",
+        related="person_id.telecom_ids",
         string="Telecoms",
         help="A contact detail for this practitioner.")
+    # telecom_ids = fields.One2many(
+    #     comodel_name="hc.practitioner.telecom",
+    #     inverse_name="practitioner_id",
+    #     string="Telecoms",
+    #     help="A contact detail for this practitioner.")
     address_ids = fields.One2many(
-        comodel_name="hc.practitioner.address",
-        inverse_name="practitioner_id",
+        related="person_id.address_ids",
         string="Addresses",
         help="One or more addresses for this practitioner.")
-    communication_ids = fields.One2many(
-        comodel_name="hc.practitioner.communication",
-        inverse_name="practitioner_id",
-        string="Languages",
-        help="A language the practitioner is able to use in patient communication.")
+    # address_ids = fields.One2many(
+    #     comodel_name="hc.practitioner.address",
+    #     inverse_name="practitioner_id",
+    #     string="Addresses",
+    #     help="One or more addresses for this practitioner.")
     gender = fields.Selection(
         related="person_id.gender",
         readonly="1",
@@ -51,14 +64,19 @@ class Practitioner(models.Model):
         readonly="1",
         help="The birth date for the practitioner.")
     photo_ids = fields.One2many(
-        comodel_name="hc.practitioner.photo",
-        inverse_name="practitioner_id",
+        related="person_id.photo_ids",
         string="Photos",
-        help="Image of the Practitioner.")
-    is_active_practitioner = fields.Boolean(
-        string="Active Practitioner",
-        default="True",
-        help="Whether this practitioner's record is in active use.")
+        help="Image of the practitioner.")
+    # photo_ids = fields.One2many(
+    #     comodel_name="hc.practitioner.photo",
+    #     inverse_name="practitioner_id",
+    #     string="Photos",
+    #     help="Image of the Practitioner.")
+    communication_ids = fields.One2many(
+        comodel_name="hc.practitioner.communication",
+        inverse_name="practitioner_id",
+        string="Languages",
+        help="A language the practitioner is able to use in patient communication.")
     specialty_id = fields.Many2one(
         comodel_name="hc.vs.practitioner.specialty",
         string="Primary Specialty",
@@ -83,21 +101,49 @@ class Practitioner(models.Model):
         vals['is_practitioner'] = self.env.context.get('is_practitioner', False)
         return super(Practitioner, self).create(vals)
 
-class PractitionerIdentifier(models.Model):
-    _name = "hc.practitioner.identifier"
-    _description = "Practitioner Identifier"
-    _inherits = {"hc.person.identifier": "identifier_id"}
+class PractitionerQualification(models.Model):
+    _name = "hc.practitioner.qualification"
+    _description = "Practitioner Qualification"
 
-    identifier_id = fields.Many2one(
-        comodel_name="hc.person.identifier",
-        string="Identifier",
-        ondelete="restrict",
-        required="True",
-        help="Person Identifier associated with this Practitioner Identifier.")
     practitioner_id = fields.Many2one(
         comodel_name="hc.res.practitioner",
         string="Practitioner",
-        help="Practitioner associated with this Practitioner Identifier.")
+        help="Practitioner associated with this qualification.")
+    identifier_ids = fields.One2many(
+        comodel_name="hc.practitioner.qualification.identifier",
+        inverse_name="qualification_id",
+        string="Identifiers",
+        help="An identifier for this qualification for the practitioner.")
+    code_id = fields.Many2one(
+        comodel_name="hc.vs.practitioner.qualification",
+        string="Qualification Code",
+        help="Coded representation of the qualification.")
+    start_date = fields.Datetime(
+        string="Start Date",
+        help="Start of the period during which the qualification is valid.")
+    end_date = fields.Datetime(
+        string="End Date",
+        help="End of the period during which the qualification status is valid.")
+    issuer_id = fields.Many2one(
+        comodel_name="hc.res.organization",
+        string="Issuer",
+        help="Organization that regulates and issues the qualification.")
+
+# class PractitionerIdentifier(models.Model):
+#     _name = "hc.practitioner.identifier"
+#     _description = "Practitioner Identifier"
+#     _inherits = {"hc.person.identifier": "identifier_id"}
+
+#     identifier_id = fields.Many2one(
+#         comodel_name="hc.person.identifier",
+#         string="Identifier",
+#         ondelete="restrict",
+#         required="True",
+#         help="Person Identifier associated with this Practitioner Identifier.")
+#     practitioner_id = fields.Many2one(
+#         comodel_name="hc.res.practitioner",
+#         string="Practitioner",
+#         help="Practitioner associated with this Practitioner Identifier.")
 
 # class PractitionerName(models.Model):
 #     _name = "hc.practitioner.name"
@@ -117,55 +163,55 @@ class PractitionerIdentifier(models.Model):
 #         string="Practitioner",
 #         help="Practitioner associated with this human name.")
 
-class PractitionerTelecom(models.Model):
-    _name = "hc.practitioner.telecom"
-    _description = "Practitioner Telecom"
-    _inherit = ["hc.contact.point.use"]
-    _inherits = {"hc.contact.point": "telecom_id"}
+# class PractitionerTelecom(models.Model):
+#     _name = "hc.practitioner.telecom"
+#     _description = "Practitioner Telecom"
+#     _inherit = ["hc.contact.point.use"]
+#     _inherits = {"hc.contact.point": "telecom_id"}
 
-    telecom_id = fields.Many2one(
-        comodel_name="hc.contact.point",
-        string="Telecom",
-        ondelete="restrict",
-        required="True",
-        help="Telecom associated with this Practitioner Telecom.")
-    practitioner_id = fields.Many2one(
-        comodel_name="hc.res.practitioner",
-        string="Practitioner",
-        help="Practitioner associated with this Practitioner Telecom.")
+#     telecom_id = fields.Many2one(
+#         comodel_name="hc.contact.point",
+#         string="Telecom",
+#         ondelete="restrict",
+#         required="True",
+#         help="Telecom associated with this Practitioner Telecom.")
+#     practitioner_id = fields.Many2one(
+#         comodel_name="hc.res.practitioner",
+#         string="Practitioner",
+#         help="Practitioner associated with this Practitioner Telecom.")
 
-class PractitionerAddress(models.Model):
-    _name = "hc.practitioner.address"
-    _description = "Practitioner Address"
-    _inherit = ["hc.address.use"]
-    _inherits = {"hc.address": "address_id"}
+# class PractitionerAddress(models.Model):
+#     _name = "hc.practitioner.address"
+#     _description = "Practitioner Address"
+#     _inherit = ["hc.address.use"]
+#     _inherits = {"hc.address": "address_id"}
 
-    address_id = fields.Many2one(
-        comodel_name="hc.address",
-        string="Address",
-        required="True",
-        ondelete="restrict",
-        help="Address associated with this Practitioner Address.")
-    practitioner_id = fields.Many2one(
-        comodel_name="hc.res.practitioner",
-        string="Practitioner",
-        help="Practitioner associated with this Practitioner Address.")
+#     address_id = fields.Many2one(
+#         comodel_name="hc.address",
+#         string="Address",
+#         required="True",
+#         ondelete="restrict",
+#         help="Address associated with this Practitioner Address.")
+#     practitioner_id = fields.Many2one(
+#         comodel_name="hc.res.practitioner",
+#         string="Practitioner",
+#         help="Practitioner associated with this Practitioner Address.")
 
-class PractitionerPhoto(models.Model):
-    _name = "hc.practitioner.photo"
-    _description = "Practitioner Photo"
-    _inherits = {"hc.person.photo": "photo_id"}
+# class PractitionerPhoto(models.Model):
+#     _name = "hc.practitioner.photo"
+#     _description = "Practitioner Photo"
+#     _inherits = {"hc.person.photo": "photo_id"}
 
-    photo_id = fields.Many2one(
-        comodel_name="hc.person.photo",
-        string="Photo",
-        required="True",
-        ondelete="restrict",
-        help="Photo associated with this Practitioner Photo.")
-    practitioner_id = fields.Many2one(
-        comodel_name="hc.res.practitioner",
-        string="Practitioner",
-        help="Practitioner associated with this Practitioner Photo.")
+#     photo_id = fields.Many2one(
+#         comodel_name="hc.person.photo",
+#         string="Photo",
+#         required="True",
+#         ondelete="restrict",
+#         help="Photo associated with this Practitioner Photo.")
+#     practitioner_id = fields.Many2one(
+#         comodel_name="hc.res.practitioner",
+#         string="Practitioner",
+#         help="Practitioner associated with this Practitioner Photo.")
 
 class PractitionerCommunication(models.Model):
     _name = "hc.practitioner.communication"
@@ -204,29 +250,6 @@ class PractitionerLanguageProficiency(models.Model):
         string="Language Skill",
         help="Language Skill associated with this Practitioner Language Proficiency.")
 
-class PractitionerQualification(models.Model):
-    _name = "hc.practitioner.qualification"
-    _description = "Practitioner Qualification"
-    _inherit = ["hc.basic.association"]
-
-    practitioner_id = fields.Many2one(
-        comodel_name="hc.res.practitioner",
-        string="Practitioner",
-        help="Practitioner associated with this qualification.")
-    code_id = fields.Many2one(
-        comodel_name="hc.vs.occupation.code",
-        string="Qualification Code",
-        help="Coded representation of the qualification.")
-    identifier_ids = fields.One2many(
-        comodel_name="hc.practitioner.qualification.identifier",
-        inverse_name="qualification_id",
-        string="Identifiers",
-        help="An identifier for this qualification for the practitioner.")
-    issuer_id = fields.Many2one(
-        comodel_name="hc.res.organization",
-        string="Issuer",
-        help="Organization that regulates and issues the qualification.")
-
 class PractitionerQualificationIdentifier(models.Model):
     _name = "hc.practitioner.qualification.identifier"
     _description = "Practitioner Qualification Identifier"
@@ -236,6 +259,26 @@ class PractitionerQualificationIdentifier(models.Model):
         comodel_name="hc.practitioner.qualification",
         string="Qualification",
         help="Qualification associated with this Practitioner Qualification Identifier.")
+
+class PractitionerQualification(models.Model):
+    _name = "hc.vs.practitioner.qualification"
+    _description = "Practitioner Qualification"
+    _inherit = ["hc.value.set.contains"]
+
+    name = fields.Char(
+        string="Name",
+        help="Name of this practitioner qualification.")
+    code = fields.Char(
+        string="Code",
+        help="Code of this practitioner qualification.")
+    contains_id = fields.Many2one(
+        comodel_name="hc.vs.practitioner.qualification",
+        string="Parent",
+        help="Parent concept.")
+    country_id = fields.Many2one(
+        comodel_name="res.country",
+        string="Country",
+        help="Country (can be ISO 3166 3 letter code).")
 
 class PractitionerSpecialty(models.Model):
     _name = "hc.vs.practitioner.specialty"

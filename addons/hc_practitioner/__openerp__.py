@@ -40,6 +40,7 @@
         'security/ir.model.access.csv',
         'views/hc_practitioner_views.xml',
         'views/hc_practitioner_templates.xml',
+        'data/hc.vs.practitioner.qualification.csv',
         'data/hc.vs.practitioner.specialty.csv',
     ],
     # only loaded in demonstration mode

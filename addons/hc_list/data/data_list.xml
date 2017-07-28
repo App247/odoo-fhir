@@ -1,0 +1,148 @@
+<odoo>
+    <data>
+
+        <!--List Mode -->
+
+        <record id="list_mode_working" model="hc.vs.list.mode">
+            <field name="code">working</field>
+            <field name="name">Working List</field>
+            <field name="definition">"This list is the master list, maintained in an ongoing fashion with regular updates as the real world list it is tracking changes."</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system"> http://hl7.org/fhir/ValueSet/list-order</field>
+        </record>
+
+        <record id="list_mode_snapshot" model="hc.vs.list.mode">
+            <field name="code">snapshot</field>
+            <field name="name">Snapshot List</field>
+            <field name="definition">"This list was prepared as a snapshot. It should not be assumed to be current."</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system"> http://hl7.org/fhir/ValueSet/list-order</field>
+        </record>
+
+        <record id="list_mode_changes" model="hc.vs.list.mode">
+            <field name="code">changes</field>
+            <field name="name">Change List</field>
+            <field name="definition">"A list that indicates where changes have been made or recommended."</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system"> http://hl7.org/fhir/ValueSet/list-order</field>
+        </record>
+
+        <!--List Order Code -->
+
+        <record id="list_order_user" model="hc.vs.list.order">
+            <field name="code">user</field>
+            <field name="name">Sorted by User</field>
+            <field name="definition">"The list was sorted by a user. The criteria the user used are not specified."</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system"> http://hl7.org/fhir/ValueSet/list-order</field>
+        </record>
+
+        <record id="list_order_system" model="hc.vs.list.order">
+            <field name="code">system</field>
+            <field name="name">Sorted by System</field>
+            <field name="definition">"The list was sorted by the system. The criteria the user used are not specified; define additional codes to specify a particular order (or use other defined codes)."</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system"> http://hl7.org/fhir/ValueSet/list-order</field>
+        </record>
+
+        <record id="list_order_event-date" model="hc.vs.list.order">
+            <field name="code">event-date</field>
+            <field name="name">Sorted by Event Date</field>
+            <field name="definition">"The list is sorted by the data of the event. This can be used when the list has items which are dates with past or future events."</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system"> http://hl7.org/fhir/ValueSet/list-order</field>
+        </record>
+
+        <record id="list_order_entry-date" model="hc.vs.list.order">
+            <field name="code">entry-date</field>
+            <field name="name">Sorted by Item Date</field>
+            <field name="definition">"The list is sorted by the date the item was added to the list. Note that the date added to the list is not explicit in the list itself."</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system"> http://hl7.org/fhir/ValueSet/list-order</field>
+        </record>
+
+        <record id="list_order_priority" model="hc.vs.list.order">
+            <field name="code">priority</field>
+            <field name="name">Sorted by Priority</field>
+            <field name="definition">"The list is sorted by priority. The exact method in which priority has been determined is not specified."</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system"> http://hl7.org/fhir/ValueSet/list-order</field>
+        </record>
+
+        <record id="list_order_alphabetic" model="hc.vs.list.order">
+            <field name="code">alphabetic</field>
+            <field name="name">Sorted Alphabetically</field>
+            <field name="definition">"The list is sorted alphabetically by an unspecified property of the items in the list."</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system"> http://hl7.org/fhir/ValueSet/list-order</field>
+        </record>
+
+        <record id="list_order_category" model="hc.vs.list.order">
+            <field name="code">category</field>
+            <field name="name">Sorted by Category</field>
+            <field name="definition">"The list is sorted categorically by an unspecified property of the items in the list."</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system"> http://hl7.org/fhir/ValueSet/list-order</field>
+        </record>
+
+        <record id="list_order_patient" model="hc.vs.list.order">
+            <field name="code">patient</field>
+            <field name="name">Sorted by Patient</field>
+            <field name="definition">"The list is sorted by patient, with items for each patient grouped together."</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system"> http://hl7.org/fhir/ValueSet/list-order</field>
+        </record>
+
+        <!--List Empty Reason -->
+
+        <record id="list_empty_nilknown" model="hc.vs.list.empty.reason">
+            <field name="code">nilknown</field>
+            <field name="name">Nil Known</field>
+            <field name="definition">"Clinical judgment that there are no known items for this list after reasonable investigation."</field>
+            <field name="comments">"Note that this a positive statement by a clinical user, and not a default position asserted by a computer system in the lack of other information. &#10;&#10;Example uses: &#10;* For allergies: the patient or patient&apos;s agent/guardian has asserted that he/she is not aware of any allergies (NKA - nil known allergies) &#10;* For medications: the patient or patient&apos;s agent/guardian has asserted that the patient is known to be taking no medications &#10;* For diagnoses, problems and procedures: the patient or patient&apos;s agent/guardian has asserted that there is no known event to record."</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/list-empty-reason</field>
+        </record>
+
+        <record id="list_empty_notasked" model="hc.vs.list.empty.reason">
+            <field name="code">notasked</field>
+            <field name="name">Not Asked</field>
+            <field name="definition">"The investigation to find out whether there are items for this list has not occurred."</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/list-empty-reason</field>
+        </record>
+
+        <record id="list_empty_withheld" model="hc.vs.list.empty.reason">
+            <field name="code">withheld</field>
+            <field name="name">Information Withheld</field>
+            <field name="definition">"The content of the list was not provided due to privacy or confidentiality concerns. Note that it should not be assumed that this means that the particular information in question was withheld due to its contents - it can also be a policy decision."</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/list-empty-reason</field>
+        </record>
+
+        <record id="list_empty_unavailable" model="hc.vs.list.empty.reason">
+            <field name="code">unavailable</field>
+            <field name="name">Unavailable</field>
+            <field name="definition">"Information to populate this list cannot be obtained; e.g. unconscious patient."</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/list-empty-reason</field>
+        </record>
+
+        <record id="list_empty_notstarted" model="hc.vs.list.empty.reason">
+            <field name="code">notstarted</field>
+            <field name="name">Not Started</field>
+            <field name="definition">"The work to populate this list has not yet begun."</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/list-empty-reason</field>
+        </record>
+
+        <record id="list_empty_closed" model="hc.vs.list.empty.reason">
+            <field name="code">closed</field>
+            <field name="name">Closed</field>
+            <field name="definition">"This list has now closed or has ceased to be relevant or useful."</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/list-empty-reason</field>
+        </record>
+
+    </data>
+</odoo>

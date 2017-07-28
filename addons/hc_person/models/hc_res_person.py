@@ -7,7 +7,9 @@ from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as DF
 class Person(models.Model):
     _name = "hc.res.person"
     _description = "Person"
+    _inherit = ["hc.resource", "hc.domain.resource"]
     _inherits = {"res.partner": "partner_id"}
+    _rec_name = "name_id"
 
     partner_id = fields.Many2one(
         comodel_name="res.partner",
@@ -525,4 +527,3 @@ class PartnerLink(models.Model):
     #     comodel_name="hc.res.related.person",
     #     string="Target Related Person",
     #     help="Related Person who is the resource to which this actual partner is associated.")
-

@@ -3,6 +3,7 @@ access_hc_list_hc_res_list_user,hc.list.hc.res.list.user,model_hc_res_list,hc_ba
 access_hc_list_hc_list_entry_user,hc.list.hc.list.entry.user,model_hc_list_entry,hc_base.group_hc_base_user,1,0,0,0
 access_hc_list_hc_list_identifier_user,hc.list.hc.list.identifier.user,model_hc_list_identifier,hc_base.group_hc_base_user,1,0,0,0
 access_hc_list_hc_list_note_user,hc.list.hc.list.note.user,model_hc_list_note,hc_base.group_hc_base_user,1,0,0,0
+access_hc_list_hc_vs_list_mode_manager,hc.list.hc.vs.list.mode.manager,model_hc_vs_list_mode,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_list_hc_vs_list_code_manager,hc.list.hc.vs.list.code.manager,model_hc_vs_list_code,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_list_hc_vs_list_order_manager,hc.list.hc.vs.list.order.manager,model_hc_vs_list_order,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_list_hc_vs_list_empty_reason_manager,hc.list.hc.vs.list.empty.reason.manager,model_hc_vs_list_empty_reason,hc_base.group_hc_base_manager,1,1,1,1

@@ -5,15 +5,15 @@ from openerp import models, fields, api
 class ElementElement(models.Model):
     _name = "hc.element"
     _description = "Element"
+    _rec_name = "identifier"
 
-    
-    id = fields.Char(
+    identifier = fields.Char(
         string="Identifier",
         help="Internal id (e.g. like xml:id).")
     extension_ids = fields.One2many(
-        comodel_name="hc.element.extension", 
-        inverse_name="element_id", 
-        string="Extensions", 
+        comodel_name="hc.element.extension",
+        inverse_name="element_id",
+        string="Extensions",
         help="Additional Content defined by implementations.")
 
 class ElementExtension(models.Model):
@@ -22,8 +22,8 @@ class ElementExtension(models.Model):
     _inherit = ["hc.basic.association", "hc.extension"]
 
     element_id = fields.Many2one(
-        comodel_name="hc.element", 
-        string="Element", 
+        comodel_name="hc.element",
+        string="Element",
         help="Element associated with this Element Extension.")
 
 class Extension(models.Model):

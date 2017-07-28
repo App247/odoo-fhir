@@ -1,0 +1,58 @@
+id,code,name,source_id/id,system
+doc_sec_10154_3,10154-3,"Chief complaint Narrative - Reported",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_10157_6,10157-6,"History of family member diseases Narrative",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_10160_0,10160-0,"History of medication use Narrative",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_10164_2,10164-2,"History of present illness Narrative",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_10183_2,10183-2,"Hospital discharge medications Narrative",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_10184_0,10184-0,"Hospital discharge physical findings Narrative",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_10187_3,10187-3,"Review of systems Narrative - Reported",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_10210_3,10210-3,"Physical findings of General status Narrative",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_10216_0,10216-0,"Surgical operation note fluids Narrative",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_10218_6,10218-6,"Surgical operation note postoperative diagnosis Narrative",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_10218_6,10218-6,"Surgical operation note postoperative diagnosis Narrative",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_10223_6,10223-6,"Surgical operation note surgical procedure Narrative",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_10830_8,10830-8,"Deprecated Surgical operation note complications",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_11329_0,11329-0,"History general Narrative - Reported",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_11348_0,11348-0,"History of past illness Narrative",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_11369_6,11369-6,"History of immunization Narrative",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_11450_4,11450-4,"Problem list - Reported",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_11493_4,11493-4,"Hospital discharge studies summary Narrative",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_11535_2,11535-2,"Hospital discharge Dx Narrative",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_11537_8,11537-8,"Surgical drains Narrative",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_18776_5,18776-5,"Plan of treatment (narrative)",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_18841_7,18841-7,"Hospital consultations Document",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_29299_5,29299-5,"Reason for visit Narrative",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_29545_1,29545-1,"Physical findings Narrative",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_29549_3,29549-3,"Medication administered Narrative",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_29554_3,29554-3,"Procedure Narrative",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_29762_2,29762-2,"Social history Narrative",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_30954_2,30954-2,"Relevant diagnostic tests/laboratory data Narrative",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_42344_2,42344-2,"Discharge diet (narrative)",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_42346_7,42346-7,"Medications on admission (narrative)",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_42348_3,42348-3,"Advance directives (narrative)",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_42349_1,42349-1,"Reason for referral (narrative)",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_46240_8,46240-8,"History of hospitalizations+History of outpatient visits Narrative",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_46241_6,46241-6,"Hospital admission diagnosis Narrative - Reported",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_46264_8,46264-8,"History of medical device use",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_47420_5,47420-5,"Functional status assessment note",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_47519_4,47519-4,"History of Procedures Document",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_48765_2,48765-2,"Allergies and adverse reactions Document",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_48768_6,48768-6,"Payment sources Document",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_51848_0,51848-0,"Evaluation note",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_55109_3,55109-3,"Complications Document",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_55122_6,55122-6,"Surgical operation note implants Narrative",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_59768_2,59768-2,"Procedure indications [interpretation] Narrative",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_59769_0,59769-0,"Postprocedure diagnosis Narrative",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_59770_8,59770-8,"Procedure estimated blood loss Narrative",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_59771_6,59771-6,"Procedure implants Narrative",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_59772_4,59772-4,"Planned procedure Narrative",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_59773_2,59773-2,"Procedure specimens taken Narrative",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_59775_7,59775-7,"Procedure disposition Narrative",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_59776_5,59776-5,"Procedure findings Narrative",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_61149_1,61149-1,"Objective Narrative",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_61150_9,61150-9,"Subjective Narrative",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_61150_9,61150-9,"Subjective Narrative",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_69730_0,69730-0,"Instructions",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_8648_8,8648-8,"Hospital course Narrative",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_8653_8,8653-8,"Hospital Discharge instructions",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes
+doc_sec_8716_3,8716-3,"Vital signs",base.loinc,http://hl7.org/fhir/ValueSet/doc-section-codes

@@ -34,17 +34,23 @@
                         <field name="image" widget="image" class="oe_left oe_avatar" options="{'preview_image': 'image_medium', 'size': [90, 90]}"/>
                         <div class="oe_title">
                             <h1>
-                                <field name="person_id" default_focus="1" placeholder="Name" context="{'is_practitioner': True}"/>
+                                <field name="name" default_focus="1" placeholder="Name"/>
                             </h1>
                         </div>
                         <div name="buttons" class="oe_right oe_button_box"></div>
                         <group>
                             <group>
+                                <field name="partner_id"/>
+                                <field name="person_id"/>
                                 <field name="gender"/>
                                 <field name="birth_date"/>
                             </group>
                             <group>
                                 <field name="specialty_id"/>
+                            </group>
+                            <group string="Resource">
+                                <field name="identifier" string="Resource ID"/>
+                                <field name="meta_id" string="Profile URI"/>
                             </group>
                         </group>
                         <notebook colspan="4">
@@ -72,6 +78,10 @@
                                                 <field name="family"/>
                                                 <field name="given"/>
                                             </group>
+<!--                                             <group string="Resource">
+                                                <field name="identifier" string="Resource ID"/>
+                                                <field name="meta_id" string="Profile URI"/>
+                                            </group> -->
                                         </sheet>
                                     </form>
                                 </field>
@@ -187,9 +197,88 @@
                                     </form>
                                 </field>
                             </page>
-                            <page string="Languages"/>
+                            <page string="Languages">
+                                <field name="communication_ids" mode="tree">
+                                    <tree>
+                                        <field name="is_preferred"/>
+                                        <field name="language_id"/>
+                                        <field name="start_date" string="Valid From"/>
+                                        <field name="end_date" string="Valid To"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <div class="oe_title oe_left">
+                                                <h1>
+                                                    <field name="language_id" default_focus="1" placeholder="Language"/>
+                                                </h1>
+                                            </div>
+                                            <group>
+                                                <group>
+                                                    <field name="is_preferred"/>
+                                                    <field name="is_active"/>
+                                                    <field name="start_date" placeholder="Valid From"/>
+                                                    <field name="end_date" placeholder="Valid To"/>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                            <notebook>
+                                                <page string="Proficiency">
+                                                    <field name="proficiency_ids" mode="tree">
+                                                        <tree>
+                                                            <field name="language_proficiency_id"/>
+                                                            <field name="language_skill_id"/>
+                                                            <field name="start_date" string="Valid From"/>
+                                                            <field name="end_date" string="Valid To"/>
+                                                        </tree>
+                                                        <form>
+                                                            <sheet>
+                                                                <div class="oe_title oe_left oe_inline">
+                                                                    <h1>
+                                                                        <field name="communication_id" readonly="1"/>
+                                                                        <!-- <field name="communication_id" readonly="1" nolabel="1" class="oe_inline"/> -->
+                                                                    </h1>
+                                                                </div>
+                                                                <group>
+                                                                    <field name="language_proficiency_id" default_focus="1"/>
+                                                                    <field name="language_skill_id"/>
+                                                                    <field name="start_date" placeholder="Valid From"/>
+                                                                    <field name="end_date" placeholder="Valid To"/>
+                                                                </group>
+                                                            </sheet>
+                                                        </form>
+                                                    </field>
+                                                </page>
+                                            </notebook>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
                             <page string="Attachments"/>
-                            <page string="Qualifications"/>
+                            <page string="Qualifications">
+                                <field name="qualification_ids" mode="tree">
+                                    <tree>
+                                        <field name="code_id"/>
+                                        <field name="start_date"/>
+                                        <field name="end_date"/>
+                                        <field name="issuer_id"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                    <field name="code_id"/>
+                                                    <field name="start_date" placeholder="Valid From"/>
+                                                    <field name="end_date" placeholder="Valid To"/>
+                                                    <field name="issuer_id"/>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
                             <page string="Roles"/>
                         </notebook>
                     </sheet>
@@ -343,7 +432,21 @@
                   groups="hc_base.group_hc_base_manager"
                   sequence="10"/>
 
+        <!-- External reference -->
 
+        <record id="hc_res_person_view_form_inherited_practitioner" model="ir.ui.view">
+            <field name="name">Person Form</field>
+            <field name="model">hc.res.person</field>
+            <field name="inherit_id" ref="hc_person.hc_res_person_view_form"/>
+            <field name="arch" type="xml">
+<!--                 <xpath expr="//field[@name='is_active']" position="after">
+                    <field name="is_practitioner" readonly="1"/>
+                </xpath> -->
+                <xpath expr="//field[@name='link_ids']//form//field[@name='target_person_id']" position="after">
+                    <field name="target_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('target_type','!=','practitioner')], 'required': [('target_type','=','practitioner')]}"/>
+                </xpath>
+            </field>
+        </record>
 
     </data>
 </openerp>
