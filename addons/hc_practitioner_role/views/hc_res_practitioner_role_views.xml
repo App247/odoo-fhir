@@ -1,79 +1,194 @@
 <openerp>
     <data>
-    
-        <!-- Practitioner Role Views -->                                        
-                                        
-        <record id="hc_res_practitioner_role_view_search" model="ir.ui.view">                                       
-            <field name="name">Practitioner Role Search</field>                                 
-            <field name="model">hc.res.practitioner.role</field>                                    
-            <field name="arch" type="xml">                                  
-                <search string="Practitioner Roles">                                
-                </search>                               
-            </field>                                    
-        </record>                                       
-                                                
-        <record id="hc_res_practitioner_role_view_tree" model="ir.ui.view">                                     
-            <field name="name">Practitioner Role Tree</field>                                   
-            <field name="model">hc.res.practitioner.role</field>                                    
-            <field name="arch" type="xml">                                  
-                <tree string="Practitioner Roles">                              
-                </tree>                             
-            </field>                                    
-        </record>                                       
-                                                
-        <record id="hc_res_practitioner_role_view_form" model="ir.ui.view">                                     
-            <field name="name">Practitioner Role Form</field>                                   
-            <field name="model">hc.res.practitioner.role</field>                                    
-            <field name="arch" type="xml">                                  
-                <form string="Practitioner Role">                               
-                    <sheet>                         
-                        <h1>                        
-                            <field name="name" default_focus="1" placeholder="Name"/>                 
-                        </h1>                       
-                        <group>                     
-                            <group>                 
-                            </group>                    
-                            <group>                 
-                            </group>                    
-                        </group>                        
-                        <notebook>                      
-                            <page string="Identifiers">                 
-                                <field name="identifier_ids" mode="tree">               
-                                    <tree>          
-                                    </tree>         
-                                    <form>          
-                                        <sheet>     
-                                            <group> 
+
+        <!-- Practitioner Role Views -->
+
+        <record id="hc_res_practitioner_role_view_search" model="ir.ui.view">
+            <field name="name">Practitioner Role Search</field>
+            <field name="model">hc.res.practitioner.role</field>
+            <field name="arch" type="xml">
+                <search string="Practitioner Roles">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_res_practitioner_role_view_tree" model="ir.ui.view">
+            <field name="name">Practitioner Role Tree</field>
+            <field name="model">hc.res.practitioner.role</field>
+            <field name="arch" type="xml">
+                <tree string="Practitioner Roles">
+                    <field name="name"/>
+                    <field name="is_active"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_res_practitioner_role_view_form" model="ir.ui.view">
+            <field name="name">Practitioner Role Form</field>
+            <field name="model">hc.res.practitioner.role</field>
+            <field name="arch" type="xml">
+                <form string="Practitioner Role">
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name"/>
+                        </h1>
+                        <group>
+                            <group>
+                                <field name="practitioner_id"/>
+                                <field name="organization_id"/>
+                                <field name="period_start_date" placeholder="Valid From"/>
+                                <field name="period_end_date" placeholder="Valid To"/>
+                            </group>
+                            <group>
+                                <field name="is_active"/>
+                                <field name="role_ids" widget="many2many_tags"/>
+                                <field name="specialty_ids" widget="many2many_tags"/>
+                                <field name="location_ids" widget="many2many_tags"/>
+                            </group>
+                            <group>
+                                <field name="availability_exceptions"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Identifiers">
+                                <field name="identifier_ids" mode="tree">
+                                    <tree>
+                                        <field name="is_preferred"/>
+                                        <field name="name"/>
+                                        <field name="value"/>
+                                        <field name="code_id"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <div>
+                                                <h1>
+                                                    <field name="name" placeholder="Identifier"/>
+                                                </h1>
+                                            </div>
+                                            <group col="4" colspan="4">
                                                 <group>
+                                                    <field name="value"/>
+                                                    <field name="code_id"/>
+                                                    <field name="is_preferred"/>
+                                                    <field name="is_active"/>
+                                                </group>
+                                                <group>
+                                                    <field name="start_date" placeholder="Valid From"/>
+                                                    <field name="end_date" placeholder="Valid To"/>
+                                               </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Healthcare Service">
+                                <field name="healthcare_service_ids" mode="tree">
+                                    <tree>
+                                        <field name="healthcare_service_id"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                    <field name="healthcare_service_id"/>
                                                 </group>
                                                 <group>
                                                 </group>
-                                            </group>    
-                                        </sheet>        
-                                    </form>         
-                                </field>                
-                            </page>                 
-                        </notebook>                     
-                    </sheet>                            
-                </form>                             
-            </field>                                    
-        </record>                                       
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Telecom">
+                                <field name="telecom_ids" mode="tree">
+                                    <tree>
+                                        <field name="is_preferred"/>
+                                        <field name="telecom_id"/>
+                                        <field name="use"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                    <field name="telecom_id"/>
+                                                    <field name="use"/>
+                                                </group>
+                                                <group>
+                                                    <field name="is_preferred"/>
+                                                    <field name="is_active"/>
+                                                    <field name="start_date" placeholder="Valid From"/>
+                                                    <field name="end_date" placeholder="Valid To"/>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Endpoints">
+                                <field name="endpoint_ids" mode="tree">
+                                    <tree>
+                                        <field name="endpoint_id"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                    <field name="endpoint_id"/>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
-        <act_window id="hc_res_practitioner_role_action"        
-                    name="HC Practitioner Roles"    
-                    res_model="hc.res.practitioner.role"    
-                    view_mode="tree,form"   
-                    domain=""   
-                    context=""  
-                    limit=""/>  
+        <act_window id="hc_res_practitioner_role_action"
+                    name="HC Practitioner Roles"
+                    res_model="hc.res.practitioner.role"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
 
-        <menuitem id="hc_practitioner_role.menu_prac_role" 
+        <menuitem id="hc_practitioner_role.menu_prac_role"
                   name="Practitioner Roles"
-                  web_icon="hc_practitioner_role,static/description/icon.png"    
-                  parent="hc_base.menu_indiv" 
-                  action="hc_res_practitioner_role_action" 
-                  groups="hc_base.group_hc_base_manager" 
+                  web_icon="hc_practitioner_role,static/description/icon.png"
+                  parent="hc_base.menu_indiv"
+                  action="hc_res_practitioner_role_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="30"/>
+
+        <!-- External reference -->
+
+        <record id="hc_res_practitioner_view_form_inherited" model="ir.ui.view">
+            <field name="name">Practitioner Form</field>
+            <field name="model">hc.res.practitioner</field>
+            <field name="inherit_id" ref="hc_practitioner.hc_res_practitioner_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page//field[@name='role_ids']" position="after">
+                <!-- <xpath expr="//page[@name='Qualifications']" position="after"> -->
+                    <tree>
+                        <!-- <field name="role_id"/> -->
+                    </tree>
+                    <form>
+                        <sheet>
+                            <group>
+                                <group>
+                                    <!-- <field name="role_id"/> -->
+                                </group>
+                                <group>
+                                </group>
+                            </group>
+                        </sheet>
+                    </form>
+                </xpath>
+            </field>
+        </record>
 
     </data>
 </openerp>

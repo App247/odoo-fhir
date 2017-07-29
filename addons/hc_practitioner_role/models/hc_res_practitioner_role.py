@@ -1,19 +1,16 @@
 # -*- coding: utf-8 -*-
 
 from openerp import models, fields, api
+from datetime import datetime
+from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as DF
+from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as DTF
 
 class PractitionerRole(models.Model):
     _name = "hc.res.practitioner.role"
     _description = "Practitioner Role"
     _inherit = ["hc.resource", "hc.domain.resource"]
-    # _inherits = {"hc.res.person": "person_id"}
+    _rec_name = "name"
 
-    # person_id = fields.Many2one(
-    #     comodel_name="hc.res.person",
-    #     string="Person",
-    #     required="True",
-    #     ondelete="restrict",
-    #     help="Person who is this practitioner.")
     name = fields.Char(
         string="Name",
         compute="_compute_name",
@@ -67,7 +64,7 @@ class PractitionerRole(models.Model):
         inverse_name="practitioner_role_id",
         string="Telecoms",
         help="Contact details that are specific to the role/location/service.")
-    availability_exceptions = fields.Char(
+    availability_exceptions = fields.Text(
         string="Availability Exceptions",
         help="Description of availability exceptions.")
     endpoint_ids = fields.One2many(
@@ -75,6 +72,19 @@ class PractitionerRole(models.Model):
         inverse_name="practitioner_role_id",
         string="Endpoints",
         help="Technical endpoints providing access to services operated for the practitioner with this role.")
+
+    @api.depends('practitioner_id', 'organization_id', 'period_start_date')
+    def _compute_name(self):
+        comp_name = '/'
+        for hc_res_practitioner_role in self:
+            if hc_res_practitioner_role.practitioner_id:
+                comp_name = hc_res_practitioner_role.practitioner_id.name or ''
+            if hc_res_practitioner_role.organization_id:
+                comp_name = comp_name + ", " + hc_res_practitioner_role.organization_id.name or ''
+            if hc_res_practitioner_role.period_start_date:
+                period_start_date = datetime.strftime(datetime.strptime(hc_res_practitioner_role.period_start_date, DTF), "%Y-%m-%d")
+                comp_name = comp_name + ", " + period_start_date
+            hc_res_practitioner_role.name = comp_name
 
 class PractitionerRoleAvailableTime(models.Model):
     _name = "hc.practitioner.role.available.time"
@@ -178,11 +188,10 @@ class PractitionerRoleRole(models.Model):
 
 # External Reference
 
-class Practitioner(models.Model):
-    _inherit = ["hc.res.practitioner"]
+class PractitionerPractitionerRole(models.Model):
+    _inherit = "hc.practitioner.practitioner.role"
 
-    role_ids = fields.One2many(
+    role_id = fields.Many2one(
         comodel_name="hc.res.practitioner.role",
-        inverse_name="practitioner_id",
-        string="Roles",
-        help="Roles/organizations that the practitioner is associated with.")
+        string="Role",
+        help="Practitioner Role associated with this Practitioner Practitioner Role.")

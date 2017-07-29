@@ -48,10 +48,10 @@
                             <group>
                                 <field name="specialty_id"/>
                             </group>
-                            <group string="Resource">
+<!--                             <group string="Resource">
                                 <field name="identifier" string="Resource ID"/>
                                 <field name="meta_id" string="Profile URI"/>
-                            </group>
+                            </group> -->
                         </group>
                         <notebook colspan="4">
                             <page string="Names">
@@ -78,10 +78,6 @@
                                                 <field name="family"/>
                                                 <field name="given"/>
                                             </group>
-<!--                                             <group string="Resource">
-                                                <field name="identifier" string="Resource ID"/>
-                                                <field name="meta_id" string="Profile URI"/>
-                                            </group> -->
                                         </sheet>
                                     </form>
                                 </field>
@@ -254,7 +250,6 @@
                                     </form>
                                 </field>
                             </page>
-                            <page string="Attachments"/>
                             <page string="Qualifications">
                                 <field name="qualification_ids" mode="tree">
                                     <tree>
@@ -279,7 +274,10 @@
                                     </form>
                                 </field>
                             </page>
-                            <page string="Roles"/>
+                            <page string="Roles">
+                                <field name="role_ids" mode="tree">
+                                </field>
+                            </page>
                         </notebook>
                     </sheet>
                 </form>
@@ -297,16 +295,6 @@
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
         </record>
-
-<!--         <record id="hc_res_practitioner_role_action" model="ir.actions.act_window">
-            <field name="name">HC Practitioner Roles</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">hc.res.practitioner.role</field>
-            <field name="domain"></field>
-            <field name="search_view_id"></field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-        </record>  -->
 
         <menuitem id="hc_practitioner.menu_prac"
                   name="Practitioners"

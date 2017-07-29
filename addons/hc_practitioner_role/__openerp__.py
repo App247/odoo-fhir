@@ -13,8 +13,8 @@
 
         PractitionerRole covers the recording of the location and types of services that Practitioners are able to provide for an organization.
 
-        The role, specialty, Location telecom and HealthcareService properties can be repeated if required in other instances of the PractitionerRole. 
-        Some systems record a collection of service values for a single location, others record the single service and the list of locations it is available. 
+        The role, specialty, Location telecom and HealthcareService properties can be repeated if required in other instances of the PractitionerRole.
+        Some systems record a collection of service values for a single location, others record the single service and the list of locations it is available.
         Both are acceptable options for presenting this data.
     """,
 
@@ -33,6 +33,7 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'data/data_practitioner_role.xml',
         'views/hc_res_practitioner_role_views.xml',
         'views/hc_res_practitioner_role_templates.xml',
     ],

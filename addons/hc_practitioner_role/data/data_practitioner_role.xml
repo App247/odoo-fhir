@@ -1,0 +1,55 @@
+<odoo>
+    <data>
+
+        <!--Practitioner Role -->
+
+        <record id="prac_role_doctor" model="hc.vs.practitioner.role">
+            <field name="code">doctor</field>
+            <field name="name">Doctor</field>
+            <field name="definition">"A qualified/registered medical practitioner."</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/practitioner-role</field>
+        </record>
+
+        <record id="prac_role_nurse" model="hc.vs.practitioner.role">
+            <field name="code">nurse</field>
+            <field name="name">Nurse</field>
+            <field name="definition">"A practitoner with nursing experience that may be qualified/registered."</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/practitioner-role</field>
+        </record>
+
+        <record id="prac_role_pharmacist" model="hc.vs.practitioner.role">
+            <field name="code">pharmacist</field>
+            <field name="name">Pharmacist</field>
+            <field name="definition">"A qualified/registered/licensed pharmacist."</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/practitioner-role</field>
+        </record>
+
+        <record id="prac_role_researcher" model="hc.vs.practitioner.role">
+            <field name="code">researcher</field>
+            <field name="name">Researcher</field>
+            <field name="definition">"A practitioner that may perform research."</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/practitioner-role</field>
+        </record>
+
+        <record id="prac_role_teacher" model="hc.vs.practitioner.role">
+            <field name="code">teacher</field>
+            <field name="name">Teacher/educator</field>
+            <field name="definition">"Someone who is able to provide educational services."</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/practitioner-role</field>
+        </record>
+
+        <record id="prac_role_ict" model="hc.vs.practitioner.role">
+            <field name="code">ict</field>
+            <field name="name">ICT professional</field>
+            <field name="definition">"Someone who is qualified in Information and Communication Technologies."</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/practitioner-role</field>
+        </record>
+    
+    </data>
+</odoo>

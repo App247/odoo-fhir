@@ -81,16 +81,16 @@ class Practitioner(models.Model):
         comodel_name="hc.vs.practitioner.specialty",
         string="Primary Specialty",
         help="Primary specialty of the practitioner.")
-    # role_ids = fields.One2many(
-    #     comodel_name="hc.res.practitioner.role",
-    #     inverse_name="practitioner_id",
-    #     string="Roles",
-    #     help="Roles/organizations the practitioner is associated with.")
     qualification_ids = fields.One2many(
         comodel_name="hc.practitioner.qualification",
         inverse_name="practitioner_id",
         string="Qualifications",
         help="Qualification obtained by training and certification")
+    role_ids = fields.One2many( # not in standard
+        comodel_name="hc.practitioner.practitioner.role",
+        inverse_name="practitioner_id",
+        string="Roles",
+        help="Roles/organizations the practitioner is associated with.")
 
     _defaults = {
         "is_practitioner": True,
@@ -128,6 +128,20 @@ class PractitionerQualification(models.Model):
         comodel_name="hc.res.organization",
         string="Issuer",
         help="Organization that regulates and issues the qualification.")
+
+class PractitionerPractitionerRole(models.Model):
+    _name = "hc.practitioner.practitioner.role"
+    _description = "Practitioner Practitioner Role"
+
+    practitioner_id = fields.Many2one(
+        comodel_name="hc.res.practitioner",
+        string="Practitioner",
+        help="Practitioner associated with this Practitioner Practitioner Role.")
+    # role_id = fields.many2one(
+    #     comodel_name="hc.res.practitioner.role",
+    #     string="Role",
+    #     help="Practitioner Role associated with this Practitioner Practitioner Role.")
+
 
 # class PractitionerIdentifier(models.Model):
 #     _name = "hc.practitioner.identifier"
