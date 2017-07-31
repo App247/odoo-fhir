@@ -7,7 +7,6 @@ from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as DTF
 class CodeSystem(models.Model):
     _name = "hc.res.code.system"
     _description = "Code System"
-    _rec_name = "title"
 
     url = fields.Char(
         string="URI",
@@ -40,7 +39,7 @@ class CodeSystem(models.Model):
         help="If for testing purposes, not real usage.")
     date = fields.Datetime(
         string="Date",
-        help="Date this was last changed.")    
+        help="Date this was last changed.")
     publisher = fields.Char(
         string="Publisher",
         help="Name of the publisher (organization or individual).")
@@ -103,17 +102,17 @@ class CodeSystem(models.Model):
     filter_ids = fields.One2many(
         comodel_name="hc.code.system.filter",
         inverse_name="code_system_id",
-        string="Filter",
+        string="Filters",
         help="Filter that can be used in a value set.")
     property_ids = fields.One2many(
         comodel_name="hc.code.system.property",
         inverse_name="code_system_id",
-        string="Property",
+        string="Properties",
         help="Additional information supplied about each concept.")
     concept_ids = fields.One2many(
         comodel_name="hc.code.system.concept",
         inverse_name="code_system_id",
-        string="Concept",
+        string="Concepts",
         help="Concepts in the code system.")
 
     @api.model

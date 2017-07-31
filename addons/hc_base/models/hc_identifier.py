@@ -66,7 +66,7 @@ class Identifier(models.Model):
             if hc_identifier.code_id:
                 comp_name = hc_identifier.code_id.name or ''
             if hc_identifier.value:
-                comp_name = comp_name + ", " + hc_identifier.value or ''
+                comp_name = comp_name + " " + hc_identifier.value or ''
             hc_identifier.name = comp_name
 
 class IdentifierCode(models.Model):
@@ -76,7 +76,7 @@ class IdentifierCode(models.Model):
 
     name = fields.Char(
         string="Name",
-        help="Name of this identifier (e.g., CA Driver's License Number).")
+        help="Name of this identifier (e.g., CA Driver's License Number, OID).")
     # name = fields.Char(
     #     string="Name",
     #     compute="_compute_name",
@@ -84,7 +84,7 @@ class IdentifierCode(models.Model):
     #     help="Name of this identifier (e.g., CA Driver's License Number).")
     code = fields.Char(
         string="Code",
-        help="Code of this identifier (e.g., CA DL).")
+        help="Code of this identifier (e.g., CA DL, oid).")
     contains_id = fields.Many2one(
         comodel_name="hc.vs.identifier.code",
         string="Parent",
@@ -107,8 +107,3 @@ class IdentifierCode(models.Model):
         comodel_name="res.country",
         string="Country",
         help="Country associated with the identifier.")
-
-
-
-
-

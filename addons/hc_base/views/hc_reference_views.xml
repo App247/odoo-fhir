@@ -4,7 +4,7 @@
         <!-- Reference Views -->
 
         <record id="hc_reference_view_search" model="ir.ui.view">
-            <field name="display">Reference Search</field>
+            <field name="name">Reference Search</field>
             <field name="model">hc.reference</field>
             <field name="arch" type="xml">
                 <search string="References">
@@ -16,7 +16,7 @@
         </record>
 
         <record id="hc_reference_view_tree" model="ir.ui.view">
-            <field name="display">Reference Tree</field>
+            <field name="name">Reference Tree</field>
             <field name="model">hc.reference</field>
             <field name="arch" type="xml">
                 <tree string="References">
@@ -28,7 +28,7 @@
         </record>
 
         <record id="hc_reference_view_form" model="ir.ui.view">
-            <field name="display">Reference Form</field>
+            <field name="name">Reference Form</field>
             <field name="model">hc.reference</field>
             <field name="arch" type="xml">
                 <form string="Reference">
