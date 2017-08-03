@@ -1,28 +1,28 @@
 # -*- coding: utf-8 -*-
 
-
 from openerp import models, fields, api
 from datetime import datetime
 from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as DTF
 
-class Annotation(models.AbstractModel):
+class Annotation(models.Model):
     _name = "hc.annotation"
     _description = "Annotation"
- 
+    _inherit = ["hc.element"]
+
     name = fields.Char(
         string="Name",
         required="True",
         help="The name of the annotation.")
     text = fields.Text(
-        string="Text", 
-        required="True", 
+        string="Text",
+        required="True",
         help="The annotation - text content.")
     recorded_date = fields.Datetime(
         string="Recorded Date",
-        default=fields.datetime.now(), 
+        default=fields.datetime.now(),
         help="When the annotation was made.")
     author_type = fields.Selection(
-        string="Author Type", 
+        string="Author Type",
         selection=[
             ("string", "String"),
             ("practitioner", "Practitioner"),
@@ -30,24 +30,24 @@ class Annotation(models.AbstractModel):
             ("related_person", "Related Person")],
         help="Type of individual responsible for the annotation.")
     author_name = fields.Char(
-        string="Author", 
-        compute="_compute_author_name", 
+        string="Author",
+        compute="_compute_author_name",
         store="True",
         help="Individual responsible for the annotation.")
     author_string = fields.Char(
         string="Author String",
         help="Individual responsible for the annotation.")
     # author_practitioner_id = fields.Many2one(
-    #     comodel_name="hc.res.practitioner", 
-    #     string="Author Practitioner", 
+    #     comodel_name="hc.res.practitioner",
+    #     string="Author Practitioner",
     #     help="Practitioner responsible for the annotation.")
     # author_patient_id = fields.Many2one(
-    #     comodel_name="hc.res.patient", 
-    #     string="Author Patient", 
+    #     comodel_name="hc.res.patient",
+    #     string="Author Patient",
     #     help="Patient responsible for the annotation.")
     # author_related_person_id = fields.Many2one(
-    #     comodel_name="hc.res.related.person", 
-    #     string="Author Related Person", 
+    #     comodel_name="hc.res.related.person",
+    #     string="Author Related Person",
     #     help="Related Person responsible for the annotation.")
 
     # def _get_default_date(self):

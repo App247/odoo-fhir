@@ -33,6 +33,7 @@ class IdentifierType(models.Model):
 class Identifier(models.Model):
     _name = "hc.identifier"
     _description = "Identifier"
+    _inherit = ["hc.element"]
 
     name = fields.Char(
         string="Name",

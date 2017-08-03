@@ -1,3 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_hc_schedule_hc_res_schedule_user,hc.schedule.hc.res.schedule.user,model_hc_res_schedule,hc_base.group_hc_base_user,1,0,0,0
 access_hc_schedule_hc_schedule_identifier_user,hc.schedule.hc.schedule.identifier.user,model_hc_schedule_identifier,hc_base.group_hc_base_user,1,0,0,0
+access_hc_schedule_hc_schedule_actor_user,hc.schedule.hc.schedule.actor.user,model_hc_schedule_actor,hc_base.group_hc_base_user,1,0,0,0

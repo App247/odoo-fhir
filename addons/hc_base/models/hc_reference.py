@@ -5,6 +5,7 @@ from openerp import models, fields, api
 class Reference(models.Model):
     _name = "hc.reference"
     _description = "Reference"
+    _inherit = ["hc.element"]
     _rec_name = "display"
 
     reference = fields.Char(

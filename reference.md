@@ -17,3 +17,12 @@
 
   Example: `fa-flask` icon and a simple example to use it, is available at http://fortawesome.github.io/Font-Awesome/icon/flask/
 
+  ###CDA Parser
+
+  * [HAPI-FHIR](http://hapifhir.io/)
+  * [HAPI Code](https://github.com/jamesagnew/hapi-fhir)
+  * HAPI (HL7 application programming interface; pronounced "happy") is an open-source, object-oriented HL7 2.x parser for Java. [HAPI](http://hl7api.sourceforge.net/)
+
+http://fhirtest.uhn.ca/baseDstu3/Patient?_id=179986&_format=json
+http://fhirtest.uhn.ca/baseDstu3/Patient?_id=179986&_format=xml
+mirthconnect demo [Video](https://youtu.be/rktoj_nlsB8)

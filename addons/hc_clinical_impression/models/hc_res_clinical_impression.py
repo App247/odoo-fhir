@@ -466,7 +466,6 @@ class ClinicalImpressionStatusHistory(models.Model):
         string="Time Diff (seconds)",
         help="Seconds duration of the status.")
 
-
 class ClinicalImpressionPrognosisReference(models.Model):
     _name = "hc.clinical.impression.prognosis.reference"
     _description = "Clinical Impression Prognosis Reference"
@@ -539,20 +538,6 @@ class ClinicalImpressionProblem(models.Model):
                 hc_res_clinical_impression.problem_name = hc_res_clinical_impression.problem_condition_id.name
             elif hc_res_clinical_impression.problem_type == 'allergy_intolerance':
                 hc_res_clinical_impression.problem_name = hc_res_clinical_impression.problem_allergy_intolerance_id.name
-
-class ClinicalImpressionPrognosis(models.Model):
-    _name = "hc.clinical.impression.prognosis"
-    _description = "Clinical Impression Prognosis"
-    _inherit = ["hc.basic.association"]
-
-    clinical_impression_id = fields.Many2one(
-        comodel_name="hc.res.clinical.impression",
-        string="Clinical Impression",
-        help="Clinical Impression associated with this Clinical Impression Prognosis.")
-    prognosis_id = fields.Many2one(
-        comodel_name="hc.vs.clinical.impression.prognosis",
-        string="Clinical Impression Prognosis",
-        help="Clinical Impression Prognosis associated with this Clinical Impression Prognosis.")
 
 class ClinicalImpressionProtocol(models.Model):
     _name = "hc.clinical.impression.protocol"

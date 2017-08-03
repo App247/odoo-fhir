@@ -5,6 +5,7 @@ from openerp import models, fields, api
 class Extension(models.Model):
     _name = "hc.extension"
     _description = "Extension"
+    _inherit = ["hc.element"]
 
     url = fields.Char(
         string="URI",
@@ -378,3 +379,8 @@ class ExtensionCodeableConcept(models.Model):
         comodel_name="hc.vs.extension.codeable.concept",
         string="Contains",
         help="Parent extension codeable concept.")
+
+# External reference
+
+class ElementExtension(models.Model):
+    _inherit = ["hc.extension"]

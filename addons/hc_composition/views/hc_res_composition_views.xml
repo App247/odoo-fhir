@@ -335,5 +335,70 @@
             </field>
         </record> -->
 
+        <!-- Doc Type Code Views -->
+
+        <record id="hc_vs_doc_type_code_view_search" model="ir.ui.view">
+            <field name="name">Document Type Code Search</field>
+            <field name="model">hc.vs.doc.type.code</field>
+            <field name="arch" type="xml">
+                <search string="Doc Type Codes">
+                    <field name="name"/>
+                    <field name="code"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_vs_doc_type_code_view_tree" model="ir.ui.view">
+            <field name="name">Document Type Code Tree</field>
+            <field name="model">hc.vs.doc.type.code</field>
+            <field name="arch" type="xml">
+                <tree string="Doc Type Codes" default_order="name, code">
+                    <field name="name"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_vs_doc_type_code_view_form" model="ir.ui.view">
+            <field name="name">Document Type Code Form</field>
+            <field name="model">hc.vs.doc.type.code</field>
+            <field name="arch" type="xml">
+                <form string="Doc Type Codes">
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>
+                        </h1>
+                        <field name="code" placeholder="Code (e.g., biological)"/>
+                        <field name="definition" placeholder="Definition"/>
+                        <field name="comments" placeholder="Comments"/>
+                        <group>
+                            <group>
+                                <field name="contains_id"/>
+                            </group>
+                            <group>
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_vs_doc_type_code_action"
+                    name="HC Document Type Codes"
+                    res_model="hc.vs.doc.type.code"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <menuitem id="hc_composition.menu_doc_type"
+                  name="Document Types"
+                  parent="hc_composition.menu_comp"
+                  action="hc_vs_doc_type_code_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="10"/>
+
     </data>
 </odoo>

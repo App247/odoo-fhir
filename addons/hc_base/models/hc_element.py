@@ -5,7 +5,6 @@ from openerp import models, fields, api
 class ElementElement(models.Model):
     _name = "hc.element"
     _description = "Element"
-    _rec_name = "identifier"
 
     identifier = fields.Char(
         string="Identifier",
@@ -19,18 +18,17 @@ class ElementElement(models.Model):
 class ElementExtension(models.Model):
     _name = "hc.element.extension"
     _description = "Element Extension"
-    _inherit = ["hc.basic.association", "hc.extension"]
+    _inherit = ["hc.basic.association"]
 
     element_id = fields.Many2one(
         comodel_name="hc.element",
         string="Element",
         help="Element associated with this Element Extension.")
 
-class Extension(models.Model):
+# External reference
+
+class Coding(models.Model):
     _inherit = ["hc.element"]
 
-class Narrative(models.Model):
-    _inherit = ["hc.element"]
-
-class Reference(models.Model):
+class CodeableConcept(models.Model):
     _inherit = ["hc.element"]

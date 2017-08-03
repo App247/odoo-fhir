@@ -4,5 +4,6 @@ access_hc_coverage_hc_coverage_grouping_user,hc.coverage.hc.coverage.grouping.us
 access_hc_coverage_hc_coverage_identifier_user,hc.coverage.hc.coverage.identifier.user,model_hc_coverage_identifier,hc_base.group_hc_base_user,1,0,0,0
 access_hc_coverage_hc_coverage_status_history_user,hc.coverage.hc.coverage.status.history.user,model_hc_coverage_status_history,hc_base.group_hc_base_user,1,0,0,0
 access_hc_coverage_hc_coverage_contract_user,hc.coverage.hc.coverage.contract.user,model_hc_coverage_contract,hc_base.group_hc_base_user,1,0,0,0
+access_hc_coverage_hc_coverage_network_user,hc.coverage.hc.coverage.network.user,model_hc_coverage_network,hc_base.group_hc_base_user,1,0,0,0
 access_hc_coverage_hc_vs_coverage_type_manager,hc.coverage.hc.vs.coverage.type.manager,model_hc_vs_coverage_type,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_coverage_hc_vs_policyholder_relationship_manager,hc.coverage.hc.vs.policyholder.relationship.manager,model_hc_vs_policyholder_relationship,hc_base.group_hc_base_manager,1,1,1,1

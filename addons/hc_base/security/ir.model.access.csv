@@ -114,6 +114,12 @@ access_hc_base_hc_vs_value_code_manager,hc.base.hc.vs.value.code.manager,model_h
 access_hc_base_hc_vs_value_code_concept_manager,hc.base.hc.vs.value.code.concept.manager,model_hc_vs_value_code_concept,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_vs_value_coding_manager,hc.base.hc.vs.value.coding.manager,model_hc_vs_value_coding,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_quantity_user,hc.base.hc.quantity.user,model_hc_quantity,hc_base.group_hc_base_user,1,0,0,0
+access_hc_base_hc_age_user,hc.base.hc.age.user,model_hc_age,hc_base.group_hc_base_user,1,0,0,0
+access_hc_base_hc_count_user,hc.base.hc.count.user,model_hc_count,hc_base.group_hc_base_user,1,0,0,0
+access_hc_base_hc_distance_user,hc.base.hc.distance.user,model_hc_distance,hc_base.group_hc_base_user,1,0,0,0
+access_hc_base_hc_duration_user,hc.base.hc.duration.user,model_hc_duration,hc_base.group_hc_base_user,1,0,0,0
+access_hc_base_hc_money_user,hc.base.hc.money.user,model_hc_money,hc_base.group_hc_base_user,1,0,0,0
+access_hc_base_hc_simple_quantity_user,hc.base.hc.simple.quantity.user,model_hc_simple_quantity,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_range_user,hc.base.hc.range.user,model_hc_range,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_ratio_user,hc.base.hc.ratio.user,model_hc_ratio,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_period_user,hc.base.hc.period.user,model_hc_period,hc_base.group_hc_base_user,1,0,0,0
@@ -217,6 +223,7 @@ access_hc_base_hc_vs_extension_codeable_concept_manager,hc.base.hc.vs.extension.
 access_hc_base_hc_reference_user,hc.base.hc.reference.user,model_hc_reference,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_reference_identifier_user,hc.base.hc.reference.identifier.user,model_hc_reference_identifier,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_narrative_user,hc.base.hc.narrative.user,model_hc_narrative,hc_base.group_hc_base_user,1,0,0,0
+access_hc_base_hc_narrative_status_history_user,hc.base.hc.narrative.status.history.user,model_hc_narrative_status_history,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_vs_v3_confidentiality_manager,hc.base.hc.vs.v3.confidentiality.manager,model_hc_vs_v3_confidentiality,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_vs_v3_confidentiality_value_set_manager,hc.base.hc.vs.v3.confidentiality.value.set.manager,model_hc_vs_v3_confidentiality_value_set,hc_base.group_hc_base_manager,1,1,1,1
 

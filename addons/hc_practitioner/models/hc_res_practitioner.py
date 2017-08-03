@@ -355,15 +355,30 @@ class Annotation(models.Model):
             elif hc_annotation.author_type == 'practitioner':
                 hc_annotation.author_name = hc_annotation.author_practitioner_id.name
 
-class Signature(models.AbstractModel):
-    _inherit = "hc.signature"
+class Signature(models.Model):
+    _inherit = ["hc.signature"]
 
     who_practitioner_id = fields.Many2one(
         comodel_name="hc.res.practitioner",
         string="Who Practitioner",
         help="Practitioner who signed.")
-
     on_behalf_of_practitioner_id = fields.Many2one(
         comodel_name="hc.res.practitioner",
         string="On Behalf Of Practitioner",
         help="Practitioner the party represented.")
+
+    @api.depends('who_type')
+    def _compute_who_name(self):
+        for hc_signature in self:
+            if hc_signature.who_type == 'uri':
+                hc_signature.who_name = hc_signature.who_uri
+            elif hc_signature.who_type == 'practitioner':
+                hc_signature.who_name = hc_signature.who_practitioner_id.name
+
+    @api.depends('on_behalf_of_type')
+    def _compute_on_behalf_of_name(self):
+        for hc_signature in self:
+            if hc_signature.on_behalf_of_type == 'uri':
+                hc_signature.on_behalf_of_name = hc_signature.on_behalf_of_uri
+            elif hc_signature.on_behalf_of_type == 'practitioner':
+                hc_signature.on_behalf_of_name = hc_signature.on_behalf_of_practitioner_id.name

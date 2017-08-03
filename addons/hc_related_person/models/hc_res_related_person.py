@@ -255,15 +255,30 @@ class Annotation(models.Model):
             elif hc_annotation.author_type == 'related_person':
                 hc_annotation.author_name = hc_annotation.author_related_person_id.name
 
-class Signature(models.AbstractModel):
-    _inherit = "hc.signature"
+class Signature(models.Model):
+    _inherit = ["hc.signature"]
 
     who_related_person_id = fields.Many2one(
         comodel_name="hc.res.related.person",
         string="Who Related Person",
         help="Related Person who signed.")
-
     on_behalf_of_related_person_id = fields.Many2one(
         comodel_name="hc.res.related.person",
         string="On Behalf Of Related Person",
         help="Related Person the party represented.")
+
+    @api.depends('who_type')
+    def _compute_who_name(self):
+        for hc_signature in self:
+            if hc_signature.who_type == 'uri':
+                hc_signature.who_name = hc_signature.who_uri
+            elif hc_signature.who_type == 'related_person':
+                hc_signature.who_name = hc_signature.who_related_person_id.name
+
+    @api.depends('on_behalf_of_type')
+    def _compute_on_behalf_of_name(self):
+        for hc_signature in self:
+            if hc_signature.on_behalf_of_type == 'uri':
+                hc_signature.on_behalf_of_name = hc_signature.on_behalf_of_uri
+            elif hc_signature.on_behalf_of_type == 'related_person':
+                hc_signature.on_behalf_of_name = hc_signature.on_behalf_of_related_person_id.name

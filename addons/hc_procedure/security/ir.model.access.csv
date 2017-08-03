@@ -9,6 +9,7 @@ access_hc_procedure_hc_procedure_based_on_user,hc.procedure.hc.procedure.based.o
 access_hc_procedure_hc_procedure_part_of_user,hc.procedure.hc.procedure.part.of.user,model_hc_procedure_part_of,hc_base.group_hc_base_user,1,0,0,0
 access_hc_procedure_hc_procedure_reason_reference_user,hc.procedure.hc.procedure.reason.reference.user,model_hc_procedure_reason_reference,hc_base.group_hc_base_user,1,0,0,0
 access_hc_procedure_hc_procedure_report_user,hc.procedure.hc.procedure.report.user,model_hc_procedure_report,hc_base.group_hc_base_user,1,0,0,0
+access_hc_procedure_hc_procedure_complication_detail_user,hc.procedure.hc.procedure.complication.detail.user,model_hc_procedure_complication_detail,hc_base.group_hc_base_user,1,0,0,0
 access_hc_procedure_hc_procedure_note_user,hc.procedure.hc.procedure.note.user,model_hc_procedure_note,hc_base.group_hc_base_user,1,0,0,0
 access_hc_procedure_hc_procedure_used_reference_user,hc.procedure.hc.procedure.used.reference.user,model_hc_procedure_used_reference,hc_base.group_hc_base_user,1,0,0,0
 access_hc_procedure_hc_parent_procedure_not_performed_reason_manager,hc.procedure.hc.parent.procedure.not.performed.reason.manager,model_hc_parent_procedure_not_performed_reason,hc_base.group_hc_base_manager,1,1,1,1

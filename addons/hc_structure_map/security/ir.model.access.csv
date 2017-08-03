@@ -9,6 +9,8 @@ access_hc_structure_map_hc_structure_map_group_rule_source_user,hc.structure.map
 access_hc_structure_map_hc_structure_map_group_rule_target_user,hc.structure.map.hc.structure.map.group.rule.target.user,model_hc_structure_map_group_rule_target,hc_base.group_hc_base_user,1,0,0,0
 access_hc_structure_map_hc_structure_map_group_rule_dependent_user,hc.structure.map.hc.structure.map.group.rule.dependent.user,model_hc_structure_map_group_rule_dependent,hc_base.group_hc_base_user,1,0,0,0
 access_hc_structure_map_hc_structure_map_identifier_user,hc.structure.map.hc.structure.map.identifier.user,model_hc_structure_map_identifier,hc_base.group_hc_base_user,1,0,0,0
+access_hc_structure_map_hc_structure_map_contact_user,hc.structure.map.hc.structure.map.contact.user,model_hc_structure_map_contact,hc_base.group_hc_base_user,1,0,0,0
+access_hc_structure_map_hc_structure_map_import_user,hc.structure.map.hc.structure.map.import.user,model_hc_structure_map_import,hc_base.group_hc_base_user,1,0,0,0
 access_hc_structure_map_hc_structure_map_use_context_user,hc.structure.map.hc.structure.map.use.context.user,model_hc_structure_map_use_context,hc_base.group_hc_base_user,1,0,0,0
 access_hc_structure_map_hc_structure_map_group_rule_target_list_mode_user,hc.structure.map.hc.structure.map.group.rule.target.list.mode.user,model_hc_structure_map_group_rule_target_list_mode,hc_base.group_hc_base_user,1,0,0,0
 

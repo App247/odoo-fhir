@@ -980,15 +980,42 @@ class Annotation(models.Model):
             elif hc_annotation.author_type == 'patient':
                 hc_annotation.author_name = hc_annotation.author_patient_id.name
 
-class Signature(models.AbstractModel):
-    _inherit = "hc.signature"
+class Signature(models.Model):
+    _inherit = ["hc.signature"]
 
     who_patient_id = fields.Many2one(
         comodel_name="hc.res.patient",
         string="Who Patient",
         help="Patient who signed.")
-
     on_behalf_of_patient_id = fields.Many2one(
         comodel_name="hc.res.patient",
         string="On Behalf Of Patient",
         help="Patient the party represented.")
+
+    @api.depends('who_type')
+    def _compute_who_name(self):
+        for hc_signature in self:
+            if hc_signature.who_type == 'uri':
+                hc_signature.who_name = hc_signature.who_uri
+            elif hc_signature.who_type == 'practitioner':
+                hc_signature.who_name = hc_signature.who_practitioner_id.name
+            elif hc_signature.who_type == 'related_person':
+                hc_signature.who_name = hc_signature.who_related_person_id.name
+            elif hc_signature.who_type == 'patient':
+                hc_signature.who_name = hc_signature.who_patient_id.name
+            elif hc_signature.who_type == 'organization':
+                hc_signature.who_name = hc_signature.who_organization_id.name
+
+    @api.depends('on_behalf_of_type')
+    def _compute_on_behalf_of_name(self):
+        for hc_signature in self:
+            if hc_signature.on_behalf_of_type == 'uri':
+                hc_signature.on_behalf_of_name = hc_signature.on_behalf_of_uri
+            elif hc_signature.on_behalf_of_type == 'practitioner':
+                hc_signature.on_behalf_of_name = hc_signature.on_behalf_of_practitioner_id.name
+            elif hc_signature.on_behalf_of_type == 'related_person':
+                hc_signature.on_behalf_of_name = hc_signature.on_behalf_of_related_person_id.name
+            elif hc_signature.on_behalf_of_type == 'patient':
+                hc_signature.on_behalf_of_name = hc_signature.on_behalf_of_patient_id.name
+            elif hc_signature.on_behalf_of_type == 'organization':
+                hc_signature.on_behalf_of_name = hc_signature.on_behalf_of_organization_id.name

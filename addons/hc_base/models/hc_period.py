@@ -2,16 +2,17 @@
 
 from openerp import models, fields, api
 
-class Period(models.AbstractModel):    
-    _name = "hc.period"    
+class Period(models.Model):
+    _name = "hc.period"
     _description = "Period"
+    _inherit = ["hc.element"]
 
     start = fields.Datetime(
-    	string="Start Datetime", 
-    	help="Starting time with inclusive boundary.")        
+    	string="Start Datetime",
+    	help="Starting time with inclusive boundary.")
     end = fields.Datetime(
-    	string="End Datetime", 
-    	help="End time with inclusive boundary, if not ongoing.")        
+    	string="End Datetime",
+    	help="End time with inclusive boundary, if not ongoing.")
 
 # Constraints
 

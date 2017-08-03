@@ -1,51 +1,51 @@
 <odoo>
     <data>
 
-        <!-- Structure Definition Views -->                                     
-                                                
-        <record id="hc_res_structure_definition_view_search" model="ir.ui.view">                                        
-            <field name="name">Structure Definition Search</field>                                  
-            <field name="model">hc.res.structure.definition</field>                                 
-            <field name="arch" type="xml">                                  
-                <search string="Structure Definitions">                             
-                </search>                               
-            </field>                                    
-        </record>                                       
-                                                
-        <record id="hc_res_structure_definition_view_tree" model="ir.ui.view">                                      
-            <field name="name">Structure Definition Tree</field>                                    
-            <field name="model">hc.res.structure.definition</field>                                 
-            <field name="arch" type="xml">                                  
+        <!-- Structure Definition Views -->
+
+        <record id="hc_res_structure_definition_view_search" model="ir.ui.view">
+            <field name="name">Structure Definition Search</field>
+            <field name="model">hc.res.structure.definition</field>
+            <field name="arch" type="xml">
+                <search string="Structure Definitions">
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_res_structure_definition_view_tree" model="ir.ui.view">
+            <field name="name">Structure Definition Tree</field>
+            <field name="model">hc.res.structure.definition</field>
+            <field name="arch" type="xml">
                 <tree string="Structure Definitions">
                     <field name="name"/>
                     <field name="type_id"/>
                     <field name="kind"/>
-                    <field name="status"/>                               
-                </tree>                             
-            </field>                                    
-        </record>                                       
-                                                
-        <record id="hc_res_structure_definition_view_form" model="ir.ui.view">                                      
-            <field name="name">Structure Definition Form</field>                                    
-            <field name="model">hc.res.structure.definition</field>                                 
-            <field name="arch" type="xml">                                  
+                    <field name="status"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_res_structure_definition_view_form" model="ir.ui.view">
+            <field name="name">Structure Definition Form</field>
+            <field name="model">hc.res.structure.definition</field>
+            <field name="arch" type="xml">
                 <form string="Structure Definition">
                     <header>
                         <field name="status" widget="statusbar" clickable="True"/>
-                    </header>                               
-                    <sheet>                         
-                        <h1>                        
-                            <field name="name" default_focus="1" placeholder="Name"/>                   
+                    </header>
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name"/>
                         </h1>
                         <field name="url" widget="url" placeholder="URL"/>
-                        <field name="description" placeholder="Description"/>                        
-                        <group>                     
+                        <field name="description" placeholder="Description"/>
+                        <group>
                             <group>
-                                <field name="title"/>  
+                                <field name="title"/>
                                 <field name="publisher"/>
                                 <field name="date"/>
                                 <field name="fhir_version"/>
-                                <field name="version"/>                                
+                                <field name="version"/>
                             </group>
                             <group string="Type">
                                 <field name="kind"/>
@@ -57,7 +57,7 @@
                             <group string="Element Definition">
                                 <field name="snapshot_id"/>
                                 <field name="differential_id"/>
-                            </group>                    
+                            </group>
                             <group string="Miscellaneous">
                                 <field name="context_type"/>
                                 <field name="is_experimental"/>
@@ -67,7 +67,7 @@
                                 <field name="copyright"/>
                             </group>
 
-                        </group>                        
+                        </group>
                         <notebook colspan="4">
                             <page string="Identifiers">
                                 <field name="identifier_ids" mode="tree">
@@ -118,7 +118,7 @@
                                                     <field name="end_date" placeholder="Valid To"/>
                                                 </group>
                                             </group>
-                                            <notebook>                      
+                                            <notebook>
                                                 <page string="Telecom">
                                                     <field name="telecom_ids" mode="tree">
                                                         <tree default_order="is_preferred">
@@ -132,7 +132,7 @@
                                                         <form>
                                                             <sheet>
                                                                 <h1>
-                                                                    <field name="telecom_id"/> 
+                                                                    <field name="telecom_id"/>
                                                                 </h1>
                                                                 <field name="use" widget="radio" options="{'horizontal': true}"/>
                                                                 <group>
@@ -145,22 +145,22 @@
                                                             </sheet>
                                                         </form>
                                                     </field>
-                                                </page>                 
+                                                </page>
                                             </notebook>
                                         </sheet>
                                     </form>
-                                </field> 
+                                </field>
                             </page>
-                            <page string="Use Contexts">                 
-                                <field name="use_context_ids" mode="tree">               
+                            <page string="Use Contexts">
+                                <field name="use_context_ids" mode="tree">
                                     <tree>
                                         <field name="code_id"/>
                                         <field name="value_name"/>
                                         <field name="value_type"/>
-                                    </tree>         
-                                    <form>          
-                                        <sheet>     
-                                            <group> 
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
                                                 <group>
                                                     <field name="code_id"/>
                                                     <field name="value_name"/>
@@ -174,72 +174,72 @@
                                                 </group>
                                                 <group>
                                                 </group>
-                                            </group>    
-                                        </sheet>        
-                                    </form>         
-                                </field>                
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
                             </page>
-                            <page string="Contexts">                 
-                                <field name="context_ids" mode="tree">               
+                            <page string="Contexts">
+                                <field name="context_ids" mode="tree">
                                     <tree editable="top">
-                                        <field name="context"/>          
-                                    </tree>         
-                                    <form>          
-                                        <sheet>     
-                                            <group> 
+                                        <field name="context"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
                                                 <group>
                                                     <field name="context"/>
                                                 </group>
                                                 <group>
                                                 </group>
-                                            </group>    
-                                        </sheet>        
-                                    </form>         
-                                </field>                
-                            </page>                      
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
                             <page string="Context Invariants">
-                                <field name="context_invariant_ids" mode="tree">               
+                                <field name="context_invariant_ids" mode="tree">
                                     <tree editable="top">
-                                        <field name="context_invariant"/>           
-                                    </tree>         
-                                    <form>          
-                                        <sheet>     
-                                            <group> 
+                                        <field name="context_invariant"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
                                                 <group>
-                                                    <field name="context_invariant"/> 
+                                                    <field name="context_invariant"/>
                                                 </group>
                                                 <group>
                                                 </group>
-                                            </group>    
-                                        </sheet>        
-                                    </form>         
-                                </field>                
-                            </page>    
-                            <page string="Mappings">                 
-                                <field name="mapping_ids" mode="tree">               
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Mappings">
+                                <field name="mapping_ids" mode="tree">
                                     <tree>
                                         <field name="name"/>
                                         <field name="identity"/>
-                                        <field name="uri"/>
-                                        <field name="comment"/>          
-                                    </tree>         
-                                    <form>          
-                                        <sheet>     
-                                            <group> 
+                                        <field name="uri" widget="url"/>
+                                        <field name="comment"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
                                                 <group>
                                                     <field name="name"/>
                                                     <field name="identity"/>
-                                                    <field name="uri"/>
-                                                    <field name="comment"/> 
+                                                    <field name="uri" widget="url"/>
+                                                    <field name="comment"/>
                                                 </group>
-                                            </group>    
-                                        </sheet>        
-                                    </form>         
-                                </field>                
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
                             </page>
-                            <page string="Status History">          
-                                <field name="status_history_ids" mode="tree">       
-                                    <tree>  
+                            <page string="Status History">
+                                <field name="status_history_ids" mode="tree">
+                                    <tree>
                                         <field name="status" readonly="1"/>
                                         <field name="start_date"/>
                                         <field name="end_date"/>
@@ -248,18 +248,18 @@
                                         <field name="time_diff_min"/>
                                         <field name="time_diff_sec"/>
                                         <field name="write_uid" invisible="0"/>
-                                    </tree> 
-                                </field>        
-                            </page>         
-                        </notebook>                     
-                    </sheet>                            
-                </form>                             
-            </field>                                    
-        </record>                                       
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
-        <!-- Structure Definition Action and Menu -->   
-    
-        <act_window id="hc_res_structure_definition_action" 
+        <!-- Structure Definition Action and Menu -->
+
+        <act_window id="hc_res_structure_definition_action"
                     name="HC Structure Definitions"
                     res_model="hc.res.structure.definition"
                     view_mode="tree,form"
@@ -267,70 +267,70 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_structure_definition.menu_struc_defn" 
-                  name="Structure Definitions" 
-                  parent="hc_base.menu_conf" 
-                  action="hc_res_structure_definition_action" 
-                  groups="hc_base.group_hc_base_manager" 
+        <menuitem id="hc_structure_definition.menu_struc_defn"
+                  name="Structure Definitions"
+                  parent="hc_base.menu_conf"
+                  action="hc_res_structure_definition_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="10"/>
 
-        <!-- Structure Definition Snapshot Views -->                                        
-                                        
-        <record id="hc_structure_definition_snapshot_view_search" model="ir.ui.view">                                       
-            <field name="name">Structure Definition Snapshot Search</field>                                 
-            <field name="model">hc.structure.definition.snapshot</field>                                    
-            <field name="arch" type="xml">                                  
+        <!-- Structure Definition Snapshot Views -->
+
+        <record id="hc_structure_definition_snapshot_view_search" model="ir.ui.view">
+            <field name="name">Structure Definition Snapshot Search</field>
+            <field name="model">hc.structure.definition.snapshot</field>
+            <field name="arch" type="xml">
                 <search string="Structure Definition Snapshots">
-                    <field name="name"/>                                
-                </search>                               
-            </field>                                    
-        </record>                                       
-                                                
-        <record id="hc_structure_definition_snapshot_view_tree" model="ir.ui.view">                                     
-            <field name="name">Structure Definition Snapshot Tree</field>                                   
-            <field name="model">hc.structure.definition.snapshot</field>                                    
-            <field name="arch" type="xml">                                  
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_structure_definition_snapshot_view_tree" model="ir.ui.view">
+            <field name="name">Structure Definition Snapshot Tree</field>
+            <field name="model">hc.structure.definition.snapshot</field>
+            <field name="arch" type="xml">
                 <tree string="Structure Definition Snapshots">
                     <field name="structure_definition_id"/>
-                    <field name="name"/>                              
-                </tree>                             
-            </field>                                    
-        </record>                                       
-                                                
-        <record id="hc_structure_definition_snapshot_view_form" model="ir.ui.view">                                     
-            <field name="name">Structure Definition Snapshot Form</field>                                   
-            <field name="model">hc.structure.definition.snapshot</field>                                    
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_structure_definition_snapshot_view_form" model="ir.ui.view">
+            <field name="name">Structure Definition Snapshot Form</field>
+            <field name="model">hc.structure.definition.snapshot</field>
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>
                     <field name="structure_definition_id"/>
-                </tree>                                  
-                <form string="Structure Definition Snapshot">                               
-                    <sheet>                         
-                        <h1>                        
-                            <field name="name" default_focus="1" placeholder="Name"/>                   
+                </tree>
+                <form string="Structure Definition Snapshot">
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name"/>
                         </h1>
-                        <field name="structure_definition_id"/>                       
-                        <group>                     
-                            <group>                 
-                            </group>                    
-                            <group>                 
-                            </group>                    
-                        </group>                        
-                        <notebook>                      
-                            <page string="Elements">                 
-                                <field name="element_ids" mode="tree">               
+                        <field name="structure_definition_id"/>
+                        <group>
+                            <group>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Elements">
+                                <field name="element_ids" mode="tree">
                                     <tree>
                                         <field name="slice_name" string="Slice"/>
                                         <field name="path"/>
                                         <field name="short"/>
                                         <field name="min"/>
-                                        <field name="max"/>                 
-                                    </tree>         
+                                        <field name="max"/>
+                                    </tree>
                                     <form>
                                         <sheet>
-                                            <h1>                        
-                                                <field name="element_id" default_focus="1" placeholder="Element"/>                   
+                                            <h1>
+                                                <field name="element_id" default_focus="1" placeholder="Element"/>
                                             </h1>
                                             <field name="definition" placeholder="Definition"/>
                                             <group>
@@ -347,16 +347,16 @@
                                                 </group>
                                             </group>
                                         </sheet>
-                                    </form>         
-                                </field>                
-                            </page>                 
-                        </notebook>                     
-                    </sheet>                            
-                </form>                             
-            </field>                                    
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
         </record>
 
-        <act_window id="hc_structure_definition_snapshot_action"            
+        <act_window id="hc_structure_definition_snapshot_action"
                     name="HC Structure Definition Snapshots"
                     res_model="hc.structure.definition.snapshot"
                     view_mode="tree,form"
@@ -364,67 +364,67 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_structure_definition.menu_struc_defn_snap" 
-                  name="Structure Definition Snapshots" 
-                  parent="hc_structure_definition.menu_struc_defn" 
-                  action="hc_structure_definition_snapshot_action" 
-                  groups="hc_base.group_hc_base_manager" 
+        <menuitem id="hc_structure_definition.menu_struc_defn_snap"
+                  name="Structure Definition Snapshots"
+                  parent="hc_structure_definition.menu_struc_defn"
+                  action="hc_structure_definition_snapshot_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="10"/>
 
-        <!-- Structure Definition Differential Views -->                                        
-                                                
-        <record id="hc_structure_definition_differential_view_search" model="ir.ui.view">                                       
-            <field name="name">Structure Definition Differential Search</field>                                 
-            <field name="model">hc.structure.definition.differential</field>                                    
-            <field name="arch" type="xml">                                  
+        <!-- Structure Definition Differential Views -->
+
+        <record id="hc_structure_definition_differential_view_search" model="ir.ui.view">
+            <field name="name">Structure Definition Differential Search</field>
+            <field name="model">hc.structure.definition.differential</field>
+            <field name="arch" type="xml">
                 <search string="Structure Definition Differentials">
                     <field name="structure_definition_id"/>
-                    <field name="name"/>                                
-                </search>                               
-            </field>                                    
-        </record>                                       
-                                                
-        <record id="hc_structure_definition_differential_view_tree" model="ir.ui.view">                                     
-            <field name="name">Structure Definition Differential Tree</field>                                   
-            <field name="model">hc.structure.definition.differential</field>                                    
-            <field name="arch" type="xml">                                  
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_structure_definition_differential_view_tree" model="ir.ui.view">
+            <field name="name">Structure Definition Differential Tree</field>
+            <field name="model">hc.structure.definition.differential</field>
+            <field name="arch" type="xml">
                 <tree string="Structure Definition Differentials">
                     <field name="name"/>
-                    <field name="structure_definition_id"/>                              
-                </tree>                             
-            </field>                                    
-        </record>                                       
-                                                
-        <record id="hc_structure_definition_differential_view_form" model="ir.ui.view">                                     
-            <field name="name">Structure Definition Differential Form</field>                                   
-            <field name="model">hc.structure.definition.differential</field>                                    
-            <field name="arch" type="xml">                                  
-                <form string="Structure Definition Differential">                               
-                    <sheet>                         
-                        <h1>                        
-                            <field name="name" default_focus="1" placeholder="Name"/>                   
+                    <field name="structure_definition_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_structure_definition_differential_view_form" model="ir.ui.view">
+            <field name="name">Structure Definition Differential Form</field>
+            <field name="model">hc.structure.definition.differential</field>
+            <field name="arch" type="xml">
+                <form string="Structure Definition Differential">
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name"/>
                         </h1>
-                        <field name="structure_definition_id"/>                       
-                        <group>                     
-                            <group>                 
-                            </group>                    
-                            <group>                 
-                            </group>                    
-                        </group>                        
-                        <notebook>                      
-                            <page string="Elements">                 
-                                <field name="element_ids" mode="tree">               
+                        <field name="structure_definition_id"/>
+                        <group>
+                            <group>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Elements">
+                                <field name="element_ids" mode="tree">
                                     <tree>
                                         <field name="slice_name" string="Slice"/>
                                         <field name="path"/>
                                         <field name="short"/>
                                         <field name="min"/>
-                                        <field name="max"/>                 
-                                    </tree>         
+                                        <field name="max"/>
+                                    </tree>
                                     <form>
                                         <sheet>
-                                            <h1>                        
-                                                <field name="element_id" default_focus="1" placeholder="Element"/>                   
+                                            <h1>
+                                                <field name="element_id" default_focus="1" placeholder="Element"/>
                                             </h1>
                                             <label for="short" string="Short"/>
                                             <field name="short" placeholder="Short"/>
@@ -446,16 +446,16 @@
                                                 </group>
                                             </group>
                                         </sheet>
-                                    </form>         
-                                </field>                
-                            </page>                 
-                        </notebook>                     
-                    </sheet>                            
-                </form>                             
-            </field>                                    
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
         </record>
 
-        <act_window id="hc_structure_definition_differential_action"            
+        <act_window id="hc_structure_definition_differential_action"
                     name="HC Structure Definition Differentials"
                     res_model="hc.structure.definition.differential"
                     view_mode="tree,form"
@@ -463,11 +463,11 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_structure_definition.menu_struc_defn_diff" 
-                  name="Structure Definition Differentials" 
-                  parent="hc_structure_definition.menu_struc_defn" 
-                  action="hc_structure_definition_differential_action" 
-                  groups="hc_base.group_hc_base_manager" 
+        <menuitem id="hc_structure_definition.menu_struc_defn_diff"
+                  name="Structure Definition Differentials"
+                  parent="hc_structure_definition.menu_struc_defn"
+                  action="hc_structure_definition_differential_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="20"/>
 
     </data>
