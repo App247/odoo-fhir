@@ -7,7 +7,7 @@ from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as DTF
 class Composition(models.Model):
     _name = "hc.res.composition"
     _description = "Composition"
-    _inherit = ["hc.resource", "hc.domain.resource"]
+    _inherit = ["hc.domain.resource"]
     _rec_name = "title"
 
     identifier_id = fields.Many2one(
@@ -92,6 +92,15 @@ class Composition(models.Model):
         inverse_name="composition_id",
         string="Sections",
         help="Composition is broken into sections.")
+    extension_ids = fields.One2many(
+        comodel_name="hc.composition.extension",
+        inverse_name="composition_id",
+        string="Extensions",
+        help="Additional Content defined by implementations.")
+    # Added for CDA
+    version = fields.Char(
+        string="Version",
+        help="Version of the document")
 
     @api.model
     def create(self, vals):
@@ -477,6 +486,15 @@ class CompositionSectionEntry(models.Model):
             if this.entry_name:
                 this.entry_type = this.entry_name._description
 
+class CompositionExtension(models.Model):
+    _name = "hc.composition.extension"
+    _description = "Composition Extension"
+    _inherit = ["hc.basic.association", "hc.extension"]
+
+    composition_id = fields.Many2one(
+        comodel_name="hc.res.composition",
+        string="Composition",
+        help="Composition associated with this Composition Extension.")
 
 class CompositionAttestationMode(models.Model):
     _name = "hc.vs.composition.attestation.mode"

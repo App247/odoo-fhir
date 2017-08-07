@@ -458,3 +458,9 @@ ctrl-z to quit
 * Watch: [Live Webinar- Intro to Customizing Odoo](https://youtu.be/E9u_Dpu2X1k)
 * [Tune PostgreSQL](http://pgtune.leopard.in.ua)
 * [Performance Tips](https://www.odoo.com/slides/slide/performance-tips-tricks-399)
+
+#Sublime Text How To
+
+* Find and Replace special characters
+  
+  - Enable regex in the find panel. Then use **\t** for tabs, **\r** for carriage returns, **\n** for newlines.

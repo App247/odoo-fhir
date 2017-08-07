@@ -1090,5 +1090,13 @@
             <field name="system">http://hl7.org/fhir/v2/0203</field>
         </record>
 
+        <!-- Identifier Code -->
+
+        <record id="ident_code_struc_defn" model="hc.vs.identifier.code">
+            <field name="code">fhir_structure_definition</field>
+            <field name="name">FHIR Structure Definition</field>
+            <field name="type_id" ref="ident_type_ri"/>
+        </record>
+
     </data>
 </odoo>

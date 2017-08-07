@@ -64,4 +64,4 @@ class CodeableConceptCoding(models.Model):
     codeable_concept_id = fields.Many2one(
         comodel_name="hc.codeable.concept",
         string="Codeable Concept",
-        help="Codeable concept associated with this codeable concept coding.")
+        help="Codeable Concept associated with this Codeable Concept Coding.")

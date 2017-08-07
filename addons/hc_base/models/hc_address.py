@@ -330,14 +330,13 @@ class CountryPostalCode(models.Model):
 
     @api.depends('postal_code')
     def _compute_code(self):
-        comp_code = '/'
-        comp_name = '/'
+        comp_code = '/code'
+        comp_name = '/name'
         for hc_vs_country_postal_code in self:
             if hc_vs_country_postal_code.postal_code:
                 comp_code = hc_vs_country_postal_code.postal_code or ''
-            hc_vs_country_postal_code.code = comp_code
-            if hc_vs_country_postal_code.name:
                 comp_name = hc_vs_country_postal_code.postal_code or ''
+            hc_vs_country_postal_code.code = comp_code
             hc_vs_country_postal_code.name = comp_name
 
 class AddressUse(models.Model):

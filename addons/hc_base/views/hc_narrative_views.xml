@@ -30,10 +30,14 @@
             <field name="model">hc.narrative</field>
             <field name="arch" type="xml">
                 <form string="Narrative">
+                    <header>
+                        <field name="status" string="Status" widget="statusbar" clickable="True"/>
+                    </header>
                     <sheet>
                         <h1>
                             <field name="title" default_focus="1" placeholder="Title"/>
                         </h1>
+                        <field name="div"/>
                         <group>
                             <group>
                             </group>

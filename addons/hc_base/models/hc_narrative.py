@@ -25,7 +25,7 @@ class Narrative(models.Model):
         inverse_name="narrative_id",
         string="Status History",
         help="The status of the narrative over time.")
-    div = fields.Text(
+    div = fields.Html(
     	string="Div",
     	help="Limited xhtml content.")
 

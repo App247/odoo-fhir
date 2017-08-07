@@ -1,9 +1,400 @@
 <openerp>
     <data>
 
-        <!-- Value Set Action and Menu -->  
-    
-        <act_window id="hc_res_value_set_action"    
+        <!-- Value Set Views -->
+
+        <record id="hc_res_value_set_view_search" model="ir.ui.view">
+            <field name="name">Value Set Search</field>
+            <field name="model">hc.res.value.set</field>
+            <field name="arch" type="xml">
+                <search string="Value Sets">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_res_value_set_view_tree" model="ir.ui.view">
+            <field name="name">Value Set Tree</field>
+            <field name="model">hc.res.value.set</field>
+            <field name="arch" type="xml">
+                <tree string="Value Sets">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_res_value_set_view_form" model="ir.ui.view">
+            <field name="name">Value Set Form</field>
+            <field name="model">hc.res.value.set</field>
+            <field name="arch" type="xml">
+                <form string="Value Set">
+                    <header>
+                        <field name="status" string="Status" widget="statusbar" clickable="True"/>
+                    </header>
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name"/>
+                        </h1>
+                        <label for="description" string="Description"/>
+                        <field name="description"/>
+                        <label for="purpose" string="Purpose"/>
+                        <field name="purpose"/>
+                        <group>
+                            <group>
+                                <field name="title"/>
+                                <field name="url"/>
+                                <field name="version"/>
+                                <field name="publisher"/>
+                                <field name="copyright"/>
+                                <field name="date" string="Status Date"/>
+                            </group>
+                            <group>
+                                <field name="is_experimental"/>
+                                <field name="is_immutable"/>
+                                <field name="is_extensible"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Contacts">
+                                <field name="contact_ids" mode="tree">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="telecom_ids" widget="many2many_tags"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <h1>
+                                                <field name="name" default_focus="1" placeholder="Name"/>
+                                            </h1>
+                                            <group>
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                            <notebook>
+                                                <page string="Telecom">
+                                                    <field name="telecom_ids" mode="tree">
+                                                        <tree default_order="is_preferred">
+                                                            <field name="is_preferred"/>
+                                                            <field name="use"/>
+                                                            <field name="telecom_id"/>
+                                                            <field name="rank"/>
+                                                            <field name="start_date"/>
+                                                            <field name="end_date"/>
+                                                        </tree>
+                                                        <form>
+                                                            <sheet>
+                                                                <group>
+                                                                    <group>
+                                                                        <field name="use"/>
+                                                                        <field name="telecom_id"/>
+                                                                        <field name="rank"/>
+                                                                    </group>
+                                                                    <group>
+                                                                        <field name="is_preferred"/>
+                                                                        <field name="is_active"/>
+                                                                        <field name="start_date" placeholder="Valid From"/>
+                                                                        <field name="end_date" placeholder="Valid To"/>
+                                                                    </group>
+                                                                </group>
+                                                            </sheet>
+                                                        </form>
+                                                    </field>
+                                                </page>
+                                            </notebook>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Use Contexts">
+                                <field name="use_context_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                    <field name="code_id"/>
+                                                    <field name="value_type"/>
+                                                    <field name="value_name"/>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Compose">
+                                <field name="compose_ids" mode="tree">
+                                    <tree>
+                                        <field name="locked_date"/>
+                                        <field name="is_inactive"/>
+                                        <field name="exclude_id"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                    <field name="locked_date"/>
+                                                    <field name="is_inactive"/>
+                                                    <field name="exclude_id"/>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                            <notebook>
+                                                <page string="Include">
+                                                    <field name="include_ids" mode="tree">
+                                                        <tree>
+                                                            <field name="system"/>
+                                                            <field name="version"/>
+                                                        </tree>
+                                                        <form>
+                                                            <sheet>
+                                                                <group>
+                                                                    <group>
+                                                                        <field name="system"/>
+                                                                        <field name="version"/>
+                                                                    </group>
+                                                                    <group>
+                                                                    </group>
+                                                                </group>
+                                                                <notebook>
+                                                                    <page string="Value Sets">
+                                                                        <field name="value_set_ids" mode="tree">
+                                                                            <tree>
+                                                                                <field name="value_set" editable="bottom"/>
+                                                                            </tree>
+                                                                            <form>
+                                                                                <sheet>
+                                                                                    <group>
+                                                                                        <group>
+                                                                                        </group>
+                                                                                        <group>
+                                                                                        </group>
+                                                                                    </group>
+
+                                                                                </sheet>
+                                                                            </form>
+                                                                        </field>
+                                                                    </page>
+                                                                    <page string="Concepts">
+                                                                        <field name="concept_ids" mode="tree">
+                                                                            <tree>
+                                                                                <field name="code"/>
+                                                                                <field name="display"/>
+                                                                            </tree>
+                                                                            <form>
+                                                                                <sheet>
+                                                                                    <group>
+                                                                                        <group>
+                                                                                            <field name="code"/>
+                                                                                            <field name="display"/>
+                                                                                        </group>
+                                                                                        <group>
+                                                                                        </group>
+                                                                                    </group>
+                                                                                    <notebook>
+                                                                                        <page string="Designations">
+                                                                                            <field name="designation_ids" mode="tree">
+                                                                                                <tree>
+                                                                                                    <field name="value"/>
+                                                                                                    <field name="language_id"/>
+                                                                                                    <field name="use_id"/>
+                                                                                                </tree>
+                                                                                                <form>
+                                                                                                    <sheet>
+                                                                                                        <group>
+                                                                                                            <group>
+                                                                                                                <field name="value"/>
+                                                                                                                <field name="language_id"/>
+                                                                                                                <field name="use_id"/>
+                                                                                                            </group>
+                                                                                                            <group>
+                                                                                                            </group>
+                                                                                                        </group>
+                                                                                                    </sheet>
+                                                                                                </form>
+                                                                                            </field>
+                                                                                        </page>
+                                                                                    </notebook>
+                                                                                </sheet>
+                                                                            </form>
+                                                                        </field>
+                                                                    </page>
+                                                                    <page string="Filters">
+                                                                        <field name="filter_ids" mode="tree">
+                                                                            <tree>
+                                                                                <field name="value_id"/>
+                                                                                <field name="op"/>
+                                                                                <field name="property_id"/>
+                                                                            </tree>
+                                                                            <form>
+                                                                                <sheet>
+                                                                                    <group>
+                                                                                        <group>
+                                                                                            <field name="value_id"/>
+                                                                                            <field name="op"/>
+                                                                                            <field name="property_id"/>
+                                                                                        </group>
+                                                                                        <group>
+                                                                                        </group>
+                                                                                    </group>
+                                                                                </sheet>
+                                                                            </form>
+                                                                        </field>
+                                                                    </page>
+                                                                </notebook>
+                                                            </sheet>
+                                                        </form>
+                                                    </field>
+                                                </page>
+                                            </notebook>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Expansion">
+                                <field name="expansion_ids" mode="tree">
+                                    <tree>
+                                        <field name="identifier"/>
+                                        <field name="timestamp"/>
+                                        <field name="total"/>
+                                        <field name="offset"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                    <field name="identifier"/>
+                                                    <field name="timestamp"/>
+                                                    <field name="total"/>
+                                                    <field name="offset"/>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                            <notebook>
+                                                <page string="Parameters">
+                                                    <field name="parameter_ids" mode="tree">
+                                                        <tree>
+                                                            <field name="name"/>
+                                                            <field name="value_type"/>
+                                                            <field name="value_name"/>
+                                                        </tree>
+                                                        <form>
+                                                            <sheet>
+                                                                <group>
+                                                                    <group>
+                                                                        <field name="name"/>
+                                                                        <field name="value_name"/>
+                                                                        <field name="value_type" class="oe_edit_only"/>
+                                                                        <field name="value_string" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','string')], 'required': [('value_type','=','string')]}"/>
+                                                                        <field name="value_boolean" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','boolean')], 'required': [('value_type','=','boolean')]}"/>
+                                                                        <field name="value_integer" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','integer')], 'required': [('value_type','=','integer')]}"/>
+                                                                        <field name="value_decimal" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','decimal')], 'required': [('value_type','=','decimal')]}"/>
+                                                                        <field name="value_uri" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','uri')], 'required': [('value_type','=','uri')]}"/>
+                                                                        <field name="value_code_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','code')], 'required': [('value_type','=','code')]}"/>
+                                                                    </group>
+                                                                    <group>
+                                                                    </group>
+                                                                </group>
+                                                            </sheet>
+                                                        </form>
+                                                    </field>
+                                                </page>
+                                                <page string="Contain">
+                                                    <field name="contains_ids" mode="tree">
+                                                        <tree>
+                                                            <field name="code"/>
+                                                            <field name="display"/>
+                                                        </tree>
+                                                        <form>
+                                                            <sheet>
+                                                                <group>
+                                                                    <group>
+                                                                        <field name="code"/>
+                                                                        <field name="display"/>
+                                                                        <field name="system"/>
+                                                                        <field name="display"/>
+                                                                    </group>
+                                                                    <group>
+                                                                        <field name="is_abstract"/>
+                                                                        <field name="is_inactive"/>
+                                                                        <field name="contains_id"/>
+                                                                    </group>
+                                                                </group>
+                                                                <notebook>
+                                                                    <page string="Designations">
+                                                                        <field name="designation_ids" mode="tree">
+                                                                            <tree>
+                                                                                <field name="value"/>
+                                                                                <field name="language_id"/>
+                                                                                <field name="use_id"/>
+                                                                            </tree>
+                                                                            <form>
+                                                                                <sheet>
+                                                                                    <group>
+                                                                                        <group>
+                                                                                            <field name="value"/>
+                                                                                            <field name="language_id"/>
+                                                                                            <field name="use_id"/>
+                                                                                        </group>
+                                                                                        <group>
+                                                                                        </group>
+                                                                                    </group>
+                                                                                </sheet>
+                                                                            </form>
+                                                                        </field>
+                                                                    </page>
+                                                                </notebook>
+                                                            </sheet>
+                                                        </form>
+                                                    </field>
+                                                </page>
+                                            </notebook>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Status History">
+                                <field name="status_history_ids" mode="tree">
+                                    <tree>
+                                        <field name="status" readonly="1"/>
+                                        <field name="start_date"/>
+                                        <field name="end_date"/>
+                                        <field name="time_diff_day"/>
+                                        <field name="time_diff_hour"/>
+                                        <field name="time_diff_min"/>
+                                        <field name="time_diff_sec"/>
+                                        <field name="write_uid" invisible="0"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Meta">
+                                <sheet>
+                                    <group>
+                                        <group string="Resource">
+                                            <field name="identifier" string="Resource ID"/>
+                                            <field name="meta_id" string="Profile URI"/>
+                                            <field name="language_id"/>
+                                            <field name="implicit_rules"/>
+                                        </group>
+                                        <group string="Domain Resource">
+                                            <field name="text_id"/>
+                                        </group>
+                                    </group>
+                                </sheet>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_res_value_set_action"
                     name="HC Value Sets"
                     res_model="hc.res.value.set"
                     view_mode="tree,form"
@@ -11,11 +402,11 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_value_set.menu_value_set" 
-                  name="Value Sets" 
-                  parent="hc_base.menu_term" 
-                  action="hc_res_value_set_action" 
-                  groups="hc_base.group_hc_base_manager" 
+        <menuitem id="hc_value_set.menu_value_set"
+                  name="Value Sets"
+                  parent="hc_base.menu_term"
+                  action="hc_res_value_set_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="20"/>
 
     </data>

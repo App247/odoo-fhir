@@ -5407,12 +5407,6 @@
             <field name="differential_id" ref="ccda-care-plan-3363"/>
         </record>
 
-        <record id="hc_base.ident_code_struc_defn" model="hc.vs.identifier.code">
-            <field name="code">fhir_structure_definition</field>
-            <field name="name">FHIR Structure Definition</field>
-            <field name="type_id" ref="hc_base.ident_type_ri"/>
-        </record>
-
     <!-- Structure Definition Identifiers -->
 
         <record id="id_ccda-care-plan-composition" model="hc.structure.definition.identifier">

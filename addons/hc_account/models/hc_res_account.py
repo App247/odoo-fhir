@@ -5,6 +5,7 @@ from openerp import models, fields, api
 class Account(models.Model):
     _name = "hc.res.account"
     _description = "Account"
+    _inherit = ["hc.domain.resource"]
     _inherits = {"account.account": "account_account_id"}
 
     account_account_id = fields.Many2one(

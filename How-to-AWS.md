@@ -3,7 +3,13 @@
 1 Create instance
 
 * Go to [EC2 Instances Console](https://us-west-2.console.aws.amazon.com/ec2/v2/home)
-* **Launch Instance**
+* Select **Launch Instance**
+* Choose an Amazon Machine Image (AMI) - Ubuntu Server
+* Choose an Instance Type - t2.small
+* Select **Review and Launch**, Select **Launch**
+* Select an existing key pair - **Moxylus**
+* Select **View Instances**
+
 
 2 Assign security group
 
@@ -25,6 +31,8 @@
 * Alternatively, select a existing Elastic IP
 - Go to Actions>Associated address
 - Enter **Instance** and click **Associate**
+
+# Install Odoo and Git
 
 # Update
 

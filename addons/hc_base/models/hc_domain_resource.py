@@ -5,7 +5,7 @@ from openerp import models, fields, api
 class DomainResource(models.Model):
     _name = "hc.domain.resource"
     _description = "Domain Resource"
-    _inherit = ["hc.element"]
+    _inherit = ["hc.resource"]
     _rec_name = "text_id"
 
     text_id = fields.Many2one(
@@ -32,6 +32,11 @@ class DomainResourceText(models.Model):
     _name = "hc.domain.resource.text"
     _description = "Domain Resource Text"
     _inherit = ["hc.basic.association", "hc.narrative"]
+
+    domain_resource_id = fields.Many2one(
+        comodel_name="hc.domain.resource",
+        string="Domain Resource",
+        help="Domain Resource associated with this Domain Resource Text.")
 
 class DomainResourceContained(models.Model):
     _name = "hc.domain.resource.contained"
