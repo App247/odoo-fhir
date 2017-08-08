@@ -8,7 +8,7 @@ from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as DTF
 class PractitionerRole(models.Model):
     _name = "hc.res.practitioner.role"
     _description = "Practitioner Role"
-    _inherit = ["hc.resource", "hc.domain.resource"]
+    _inherit = ["hc.domain.resource"]
     _rec_name = "name"
 
     name = fields.Char(

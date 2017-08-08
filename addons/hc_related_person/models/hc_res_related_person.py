@@ -5,7 +5,6 @@ from openerp import models, fields, api
 class RelatedPerson(models.Model):
     _name = "hc.res.related.person"
     _description = "Related Person"
-    _inherit = ["hc.resource", "hc.domain.resource"]
     _inherits = {"hc.res.person": "person_id"}
     _rec_name = "name"
 
