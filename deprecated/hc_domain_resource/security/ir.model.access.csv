@@ -1,6 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_hc_domain_resource_hc_res_domain_resource_user,hc.domain.resource.hc.res.domain.resource.user,model_hc_res_domain_resource,hc_base.group_hc_base_user,1,0,0,0
-access_hc_domain_resource_hc_domain_resource_text_user,hc.domain.resource.hc.domain.resource.text.user,model_hc_domain_resource_text,hc_base.group_hc_base_user,1,0,0,0
-access_hc_domain_resource_hc_domain_resource_contained_user,hc.domain.resource.hc.domain.resource.contained.user,model_hc_domain_resource_contained,hc_base.group_hc_base_user,1,0,0,0
-access_hc_domain_resource_hc_domain_resource_extension_user,hc.domain.resource.hc.domain.resource.extension.user,model_hc_domain_resource_extension,hc_base.group_hc_base_user,1,0,0,0
-access_hc_domain_resource_hc_domain_resource_modifier_extension_user,hc.domain.resource.hc.domain.resource.modifier.extension.user,model_hc_domain_resource_modifier_extension,hc_base.group_hc_base_user,1,0,0,0
