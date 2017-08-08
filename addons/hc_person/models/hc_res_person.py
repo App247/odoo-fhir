@@ -7,7 +7,7 @@ from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as DF
 class Person(models.Model):
     _name = "hc.res.person"
     _description = "Person"
-    _inherit = ["hc.resource", "hc.domain.resource"]
+    _inherit = ["hc.domain.resource"]
     _inherits = {"res.partner": "partner_id"}
     _rec_name = "name_id"
 
