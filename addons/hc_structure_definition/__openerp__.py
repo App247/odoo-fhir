@@ -34,7 +34,7 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
-        # 'data/data_structure_definition_ccda_care_plan.xml',
+        'data/data_structure_definition_ccda_care_plan.xml',
         'data/data_structure_definition_us_core_care_plan.xml',
         'views/hc_res_structure_definition_views.xml',
         'views/hc_res_structure_definition_templates.xml',

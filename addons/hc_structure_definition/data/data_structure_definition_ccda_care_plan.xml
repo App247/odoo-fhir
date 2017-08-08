@@ -66,6 +66,16 @@
             <field name="rules">open</field>
         </record>
 
+        <record id="hc_base.ccda-care-plan-3387" model="hc.element.definition.slicing">
+            <field name="name">Composition Section - Differential</field>
+            <field name="rules">open</field>
+        </record>
+
+        <record id="hc_base.ccda-care-plan-3388" model="hc.element.definition.slicing.discriminator">
+            <field name="slicing_id" ref="hc_base.ccda-care-plan-3387"/>
+            <field name="path">Composition.section.code</field>
+        </record>
+
     <!-- Element Definition Base -->
 
         <record id="hc_base.ccda-care-plan-80" model="hc.element.definition.base">
@@ -896,7 +906,6 @@
 
         <record id="ccda-care-plan-69" model="hc.structure.definition.snapshot">
             <field name="name">CDA on FHIR Care Plan Snapshot</field>
-            <field name="structure_definition_id" ref="ccda-care-plan"/>
         </record>
 
         <record id="ccda-care-plan-70" model="hc.structure.definition.snapshot.element">
@@ -5117,7 +5126,6 @@
 
         <record id="ccda-care-plan-3363" model="hc.structure.definition.differential">
             <field name="name">CDA on FHIR Care Plan Differential</field>
-            <field name="structure_definition_id" ref="ccda-care-plan"/>
         </record>
 
         <record id="ccda-care-plan-3364" model="hc.structure.definition.differential.element">
@@ -5151,6 +5159,7 @@
         <record id="hc_base.ccda-care-plan-3387" model="hc.element.definition.slicing">
             <field name="element_definition_id" ref="hc_structure_definition.ccda-care-plan-3385_hc_element_definition"/>
         </record>
+
 
         <record id="ccda-care-plan-3394" model="hc.structure.definition.differential.element">
             <field name="differential_id" ref="ccda-care-plan-3363"/>
@@ -5405,6 +5414,14 @@
             <field name="derivation">constraint</field>
             <field name="snapshot_id" ref="ccda-care-plan-69"/>
             <field name="differential_id" ref="ccda-care-plan-3363"/>
+        </record>
+
+        <record id="ccda-care-plan-69" model="hc.structure.definition.snapshot">
+            <field name="structure_definition_id" ref="ccda-care-plan"/>
+        </record>
+
+        <record id="ccda-care-plan-3363" model="hc.structure.definition.differential">
+            <field name="structure_definition_id" ref="ccda-care-plan"/>
         </record>
 
     <!-- Structure Definition Identifiers -->
