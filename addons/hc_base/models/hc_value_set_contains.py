@@ -3,8 +3,7 @@
 from openerp import models, fields, api
 from openerp.exceptions import ValidationError
 
-class ValueSetContains(models.AbstractModel):
-
+class ValueSetContains(models.Model):
     _name = "hc.value.set.contains"
     _description = "Value Set Contains"
     _parent_name = "contains_id"
@@ -31,9 +30,9 @@ class ValueSetContains(models.AbstractModel):
         comodel_name="res.partner",
         string="Source",
         help="The source of the definition of the code.")
-    # oid = fields.Char(
-    #     string="OID",
-    #     help="aka Object Identifier. Globally unique name of an object.")
+    oid = fields.Char(
+        string="OID",
+        help="aka Object Identifier. Globally unique name of an object.")
     definition = fields.Text(
         string="Definition",
         help="An explanation of the meaning of the concept.")

@@ -77,7 +77,7 @@ class IdentifierCode(models.Model):
 
     name = fields.Char(
         string="Name",
-        help="Name of this identifier (e.g., CA Driver's License Number, OID).")
+        help="Name of this identifier (e.g., CA Driver's License Number).")
     # name = fields.Char(
     #     string="Name",
     #     compute="_compute_name",
@@ -85,7 +85,7 @@ class IdentifierCode(models.Model):
     #     help="Name of this identifier (e.g., CA Driver's License Number).")
     code = fields.Char(
         string="Code",
-        help="Code of this identifier (e.g., CA DL, oid).")
+        help="Code of this identifier (e.g., CA DL).")
     contains_id = fields.Many2one(
         comodel_name="hc.vs.identifier.code",
         string="Parent",
