@@ -24,5 +24,7 @@ access_hc_patient_hc_vs_v2_contact_role_manager,hc.patient.hc.vs.v2.contact.role
 access_hc_patient_hc_vs_clinical_trial_reason_manager,hc.patient.hc.vs.clinical.trial.reason.manager,model_hc_vs_clinical_trial_reason,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_patient_hc_vs_v3_race_manager,hc.patient.hc.vs.v3.race.manager,model_hc_vs_v3_race,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_patient_hc_vs_v3_race_value_set_manager,hc.patient.hc.vs.v3.race.value.set.manager,model_hc_vs_v3_race_value_set,hc_base.group_hc_base_manager,1,1,1,1
+access_hc_patient_hc_vs_nationality_user,hc.patient.hc.vs.nationality.user,model_hc_vs_nationality,hc_base.group_hc_base_user,1,0,0,0
+
 
 

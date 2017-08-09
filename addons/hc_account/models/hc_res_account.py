@@ -19,7 +19,8 @@ class Account(models.Model):
         inverse_name="account_id",
         string="Identifiers",
         help="Account number.")
-    status = fields.Selection(string="Account Status",
+    status = fields.Selection(
+        string="Account Status",
         selection=[
             ("active", "Active"),
             ("inactive", "Inactive"),
@@ -287,18 +288,27 @@ class AccountStatusHistory(models.Model):
         string="Time Diff (seconds)",
         help="Seconds duration of the status.")
 
-class AccountType(models.Model):
-    _name = "hc.vs.account.type"
-    _description = "Account Type"
-    _inherit = ["hc.value.set.contains"]
+# class AccountType(models.Model):
+#     _name = "hc.vs.account.type"
+#     _description = "Account Type"
+#     _inherit = ["hc.value.set.contains"]
 
-    name = fields.Char(
-        string="Name",
-        help="Name of this account type.")
-    code = fields.Char(
-        string="Code",
-        help="Code of this account type.")
-    contains_id = fields.Many2one(
-        comodel_name="hc.vs.account.type",
-        string="Parent",
-        help="Parent account type.")
+#     name = fields.Char(
+#         string="Name",
+#         help="Name of this account type.")
+#     code = fields.Char(
+#         string="Code",
+#         help="Code of this account type.")
+#     contains_id = fields.Many2one(
+#         comodel_name="hc.vs.account.type",
+#         string="Parent",
+#         help="Parent account type.")
+
+# External reference
+
+class AccountAccountType(models.Model):
+    _inherit = "account.account.type"
+
+    type = fields.Selection(
+        selection_add=[
+            ("patient","Patient")])

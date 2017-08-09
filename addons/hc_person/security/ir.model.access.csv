@@ -8,3 +8,4 @@ access_hc_person_hc_res_person,hc.person.hc.res.person,model_hc_res_person,,1,0,
 access_hc_person_hc_person_link,hc.person.hc.person.link,model_hc_person_link,,1,0,0,0
 access_hc_person_hc_partner_link_user,hc.person.hc.partner.link.user,model_hc_partner_link,hc_base.group_hc_base_user,1,0,0,0
 
+
