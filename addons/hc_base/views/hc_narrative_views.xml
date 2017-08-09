@@ -45,7 +45,7 @@
                             </group>
                         </group>
                         <notebook>
-                            <page string="Status History">
+<!--                             <page string="Status History">
                                 <field name="status_history_ids" mode="tree">
                                     <tree>
                                         <field name="status" readonly="1"/>
@@ -58,7 +58,7 @@
                                         <field name="write_uid" invisible="0"/>
                                     </tree>
                                 </field>
-                            </page>
+                            </page> -->
                         </notebook>
                     </sheet>
                 </form>

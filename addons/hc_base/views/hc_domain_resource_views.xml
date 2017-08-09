@@ -231,7 +231,7 @@
                             <group>
                             </group>
                         </group>
-                        <notebook>
+<!--                         <notebook>
                             <page string="Status History">
                                 <field name="status_history_ids" mode="tree">
                                     <tree>
@@ -246,7 +246,7 @@
                                     </tree>
                                 </field>
                             </page>
-                        </notebook>
+                        </notebook> -->
                     </sheet>
                 </form>
             </field>

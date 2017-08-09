@@ -6,6 +6,7 @@ class ContactPoint(models.Model):
     _name = "hc.contact.point"
     _description = "Contact Point"
     _inherit = ["hc.element"]
+    _rec_name = "name"
 
     name = fields.Char(
         string="Contact Point",

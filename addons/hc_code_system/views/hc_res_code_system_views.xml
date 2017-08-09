@@ -28,6 +28,9 @@
             <field name="model">hc.res.code.system</field>
             <field name="arch" type="xml">
                 <form string="Code System">
+                    <header>
+                        <field name="status_id" string="Status" widget="statusbar" clickable="True"/>
+                    </header>
                     <sheet>
                         <h1>
                             <field name="name" default_focus="1" placeholder="Name"/>
@@ -46,9 +49,6 @@
                                 <field name="identifier_id"/>
                                 <field name="date" string="Date Last Changed"/>
                                 <field name="publisher"/>
-                            </group>
-                            <group string="Status">
-                                <field name="status_id"/>
                             </group>
                             <group string="Characteristics">
                                 <field name="content"/>
@@ -156,6 +156,21 @@
                                         <field name="write_uid" invisible="0"/>
                                     </tree>
                                 </field>
+                            </page>
+                            <page string="Meta">
+                                <sheet>
+                                    <group>
+                                        <group string="Resource">
+                                            <field name="identifier" string="Resource ID"/>
+                                            <field name="meta_id" string="Profile URI"/>
+                                            <field name="language_id"/>
+                                            <field name="implicit_rules"/>
+                                        </group>
+                                        <group string="Domain Resource">
+                                            <field name="text_id"/>
+                                        </group>
+                                    </group>
+                                </sheet>
                             </page>
                         </notebook>
                     </sheet>

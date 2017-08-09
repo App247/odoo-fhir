@@ -7,6 +7,7 @@ from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as DTF
 class CodeSystem(models.Model):
     _name = "hc.res.code.system"
     _description = "Code System"
+    _inherit = ["hc.domain.resource"]
 
     url = fields.Char(
         string="URI",

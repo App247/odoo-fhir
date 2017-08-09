@@ -7,6 +7,7 @@ from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as DTF
 class StructureDefinition(models.Model):
     _name = "hc.res.structure.definition"
     _description = "Structure Definition"
+    _inherit = ["hc.domain.resource"]
 
     url = fields.Char(
         string="URI",

@@ -50,15 +50,6 @@
                                 <field name="confidentiality_id"/>
                                 <field name="custodian_id"/>
                             </group>
-                            <group string="Resource">
-                                <field name="identifier" string="Resource ID"/>
-                                <field name="meta_id" string="Profile URI"/>
-                                <field name="language_id"/>
-                                <field name="implicit_rules"/>
-                            </group>
-                            <group string="Domain Resource">
-                                <field name="text_id"/>
-                            </group>
                         </group>
                         <notebook>
                             <page string="Authors">
@@ -297,6 +288,21 @@
                                         <field name="write_uid" invisible="0"/>
                                     </tree>
                                 </field>
+                            </page>
+                            <page string="Meta">
+                                <sheet>
+                                    <group>
+                                        <group string="Resource">
+                                            <field name="identifier" string="Resource ID"/>
+                                            <field name="meta_id" string="Profile URI"/>
+                                            <field name="language_id"/>
+                                            <field name="implicit_rules"/>
+                                        </group>
+                                        <group string="Domain Resource">
+                                            <field name="text_id"/>
+                                        </group>
+                                    </group>
+                                </sheet>
                             </page>
                         </notebook>
                     </sheet>
