@@ -96,6 +96,7 @@ class CodeSystem(models.Model):
             ("examplar", "Examplar"),
             ("fragment", "Fragment"),
             ("complete", "Complete")],
+        default="complete",
         help="How much of the content of the code system - the concepts and codes it defines - are represented in this resource.")
     count = fields.Integer(
         string="Count",
@@ -173,8 +174,7 @@ class CodeSystemFilter(models.Model):
         comodel_name="hc.res.code.system",
         string="Code System",
         help="Code System associated with this Code System Filter.")
-    code_id = fields.Many2one(
-        comodel_name="hc.vs.code.system.filter.code",
+    code = fields.Char(
         string="Code",
         required="True",
         help="Code that identifies the filter.")
@@ -200,8 +200,7 @@ class CodeSystemProperty(models.Model):
         comodel_name="hc.res.code.system",
         string="Code System",
         help="Code System associated with this Code System Property.")
-    code_id = fields.Many2one(
-        comodel_name="hc.vs.code.system.property.code",
+    code = fields.Char(
         string="Code",
         required="True",
         help="Identifies the property on the concepts, and when referred to in operations.")
@@ -231,8 +230,7 @@ class CodeSystemConcept(models.Model):
         comodel_name="hc.res.code.system",
         string="Code System",
         help="Code System associated with this Code System Concept.")
-    code_id = fields.Many2one(
-        comodel_name="hc.vs.code.system.concept.code",
+    code = fields.Char(
         string="Code",
         required="True",
         help="Code that identifies concept.")
@@ -286,9 +284,9 @@ class CodeSystemConceptProperty(models.Model):
         comodel_name="hc.code.system.concept",
         string="Concept",
         help="Concepts in the code system.")
-    code_id = fields.Many2one(
-        comodel_name="hc.vs.code.system.property.code",
-        string="Code", required="True",
+    code = fields.Char(
+        string="Code",
+        required="True",
         help="Reference to CodeSystem.property.code.")
     value_type = fields.Selection(
         string="Value Type",
@@ -299,7 +297,7 @@ class CodeSystemConceptProperty(models.Model):
             ("string", "String"),
             ("integer", "Integer"),
             ("boolean", "Boolean"),
-            ("dateTime", "Datetime")],
+            ("date_time", "Datetime")],
         help="Type of value of the property for this concept.")
     value_name = fields.Char(
         string="Value",
@@ -323,7 +321,7 @@ class CodeSystemConceptProperty(models.Model):
     value_boolean = fields.Boolean(
         string="Value Boolean",
         help="Boolean value of the property for this concept.")
-    value_datetime = fields.Datetime(
+    value_date_time = fields.Datetime(
         string="Value Datetime",
         help="Datetime value of the property for this concept.")
 
@@ -331,6 +329,10 @@ class CodeSystemIdentifier(models.Model):
     _name = "hc.code.system.identifier"
     _description = "Code System Identifier"
     _inherit = ["hc.basic.association", "hc.identifier"]
+
+    system = fields.Char(
+        string="System URI",
+        help="The namespace for the identifier.")
 
 class CodeSystemStatusHistory(models.Model):
     _name = "hc.code.system.status.history"
@@ -389,20 +391,15 @@ class CodeSystemUseContext(models.Model):
         string="Code System",
         help="Code System associated with this Code System Use Context.")
 
-class CodeSystemConceptCode(models.Model):
-    _name = "hc.vs.code.system.concept.code"
-    _description = "Code System Concept Code"
-    _inherit = ["hc.value.set.contains"]
+# class CodeSystemFilterCode(models.Model):
+#     _name = "hc.vs.code.system.filter.code"
+#     _description = "Code System Filter Code"
+#     _inherit = ["hc.value.set.contains"]
 
-class CodeSystemFilterCode(models.Model):
-    _name = "hc.vs.code.system.filter.code"
-    _description = "Code System Filter Code"
-    _inherit = ["hc.value.set.contains"]
-
-class CodeSystemPropertyCode(models.Model):
-    _name = "hc.vs.code.system.property.code"
-    _description = "Code System Property Code"
-    _inherit = ["hc.value.set.contains"]
+# class CodeSystemPropertyCode(models.Model):
+#     _name = "hc.vs.code.system.property.code"
+#     _description = "Code System Property Code"
+#     _inherit = ["hc.value.set.contains"]
 
 class FilterOperator(models.Model):
     _name = "hc.vs.filter.operator"

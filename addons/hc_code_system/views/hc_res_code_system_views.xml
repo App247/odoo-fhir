@@ -51,11 +51,11 @@
                                 <field name="publisher"/>
                             </group>
                             <group string="Characteristics">
+                                <field name="is_case_sensitive"/>
+                                <field name="value_set"/>
                                 <field name="content"/>
                                 <field name="is_experimental"/>
                                 <field name="jurisdiction_ids" widget="many2many_tags"/>
-                                <field name="is_case_sensitive"/>
-                                <field name="value_set"/>
                                 <field name="hierarchy_meaning"/>
                                 <field name="is_compositional"/>
                                 <field name="is_version_needed"/>
@@ -65,28 +65,78 @@
                         <notebook>
                             <page string="Contacts">
                                 <field name="contact_ids" mode="tree">
-                                    <tree>
+                                    <tree string="Contact Details">
+                                        <field name="name"/>
+                                        <field name="telecom_ids" widget="many2many_tags"/>
                                     </tree>
                                     <form>
                                         <sheet>
+                                            <h1>
+                                                <field name="name" default_focus="1" placeholder="Name"/>
+                                            </h1>
                                             <group>
                                                 <group>
                                                 </group>
                                                 <group>
                                                 </group>
                                             </group>
+                                            <notebook>
+                                                <page string="Telecom">
+                                                    <field name="telecom_ids" mode="tree">
+                                                        <tree default_order="is_preferred">
+                                                            <field name="is_preferred"/>
+                                                            <field name="use"/>
+                                                            <field name="telecom_id"/>
+                                                            <field name="rank"/>
+                                                            <field name="start_date"/>
+                                                            <field name="end_date"/>
+                                                        </tree>
+                                                        <form>
+                                                            <sheet>
+                                                                <group>
+                                                                    <group>
+                                                                        <field name="use"/>
+                                                                        <field name="telecom_id"/>
+                                                                        <field name="rank"/>
+                                                                    </group>
+                                                                    <group>
+                                                                        <field name="is_preferred"/>
+                                                                        <field name="is_active"/>
+                                                                        <field name="start_date" placeholder="Valid From"/>
+                                                                        <field name="end_date" placeholder="Valid To"/>
+                                                                    </group>
+                                                                </group>
+                                                            </sheet>
+                                                        </form>
+                                                    </field>
+                                                </page>
+                                            </notebook>
                                         </sheet>
                                     </form>
                                 </field>
                             </page>
                             <page string="Use Contexts">
                                 <field name="use_context_ids" mode="tree">
-                                    <tree>
+                                    <tree string="Usage Contexts">
+                                        <field name="value_name"/>
+                                        <field name="value_type"/>
+                                        <field name="code_id"/>
                                     </tree>
                                     <form>
                                         <sheet>
+                                            <h1>
+                                                <field name="value_name" default_focus="1" placeholder="Name"/>
+                                            </h1>
                                             <group>
                                                 <group>
+                                                    <field name="code_id"/>
+                                                    <field name="value_type" class="oe_edit_only"/>
+                                                    <field name="value_code_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','code')], 'required': [('value_type','=','code')]}"/>
+                                                    <field name="value_quantity" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','quantity')], 'required': [('value_type','=','quantity')]}"/>
+                                                    <field name="value_quantity_uom_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','quantity')], 'required': [('value_type','=','quantity')]}"/>
+                                                    <field name="value_range_low" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','range')], 'required': [('value_type','=','range')]}"/>
+                                                    <field name="value_range_high" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','range')], 'required': [('value_type','=','range')]}"/>
+                                                    <field name="value_range_uom_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','range')], 'required': [('value_type','=','range')]}"/>
                                                 </group>
                                                 <group>
                                                 </group>
@@ -96,13 +146,21 @@
                                 </field>
                             </page>
                             <page string="Filters">
-                                <field name="use_context_ids" mode="tree">
+                                <field name="filter_ids" mode="tree">
                                     <tree>
+                                        <field name="value"/>
+                                        <field name="code"/>
+                                        <field name="description"/>
+                                        <field name="operator_ids" widget="many2many_tags"/>
                                     </tree>
                                     <form>
                                         <sheet>
                                             <group>
                                                 <group>
+                                                    <field name="value"/>
+                                                    <field name="code"/>
+                                                    <field name="description"/>
+                                                    <field name="operator_ids" widget="many2many_tags"/>
                                                 </group>
                                                 <group>
                                                 </group>
@@ -114,11 +172,19 @@
                             <page string="Properties">
                                 <field name="property_ids" mode="tree">
                                     <tree>
+                                        <field name="code"/>
+                                        <field name="uri"/>
+                                        <field name="description"/>
+                                        <field name="type"/>
                                     </tree>
                                     <form>
                                         <sheet>
                                             <group>
                                                 <group>
+                                                    <field name="code"/>
+                                                    <field name="uri"/>
+                                                    <field name="description"/>
+                                                    <field name="type"/>
                                                 </group>
                                                 <group>
                                                 </group>
@@ -130,15 +196,75 @@
                             <page string="Concepts">
                                 <field name="concept_ids" mode="tree">
                                     <tree>
+                                        <field name="code"/>
+                                        <field name="display"/>
+                                        <field name="definition"/>
+                                        <field name="concept_id"/>
                                     </tree>
                                     <form>
                                         <sheet>
                                             <group>
                                                 <group>
+                                                    <field name="code"/>
+                                                    <field name="display"/>
+                                                    <field name="definition"/>
+                                                    <field name="concept_id"/>
                                                 </group>
                                                 <group>
                                                 </group>
                                             </group>
+                                            <notebook>
+                                                <page string="Designations">
+                                                    <field name="designation_ids" mode="tree">
+                                                        <tree>
+                                                            <field name="value"/>
+                                                            <field name="language_id"/>
+                                                            <field name="use_id"/>
+                                                        </tree>
+                                                        <form>
+                                                            <sheet>
+                                                                <group>
+                                                                    <group>
+                                                                        <field name="value"/>
+                                                                        <field name="language_id"/>
+                                                                        <field name="use_id"/>
+                                                                    </group>
+                                                                    <group>
+                                                                    </group>
+                                                                </group>
+                                                            </sheet>
+                                                        </form>
+                                                    </field>
+                                                </page>
+                                                <page string="Properties">
+                                                    <field name="property_ids" mode="tree">
+                                                        <tree>
+                                                            <field name="code"/>
+                                                            <field name="value_name"/>
+                                                            <field name="value_type"/>
+                                                        </tree>
+                                                        <form>
+                                                            <sheet>
+                                                                <group>
+                                                                    <group>
+                                                                        <field name="code"/>
+                                                                        <field name="value_name"/>
+                                                                        <field name="value_type" class="oe_edit_only"/>
+                                                                        <field name="value_code_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','code')], 'required': [('value_type','=','code')]}"/>
+                                                                        <field name="value_coding_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','coding')], 'required': [('value_type','=','coding')]}"/>
+                                                                        <field name="value_string" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','string')], 'required': [('value_type','=','string')]}"/>
+                                                                        <field name="value_integer" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','integer')], 'required': [('value_type','=','integer')]}"/>
+                                                                        <field name="value_boolean" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','boolean')], 'required': [('value_type','=','boolean')]}"/>
+                                                                        <field name="value_date_time" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','date_time')], 'required': [('value_type','=','date_time')]}"/>
+                                                                    </group>
+                                                                    <group>
+                                                                    </group>
+                                                                </group>
+                                                            </sheet>
+                                                        </form>
+                                                    </field>
+                                                </page>
+                                            </notebook>
                                         </sheet>
                                     </form>
                                 </field>
@@ -211,6 +337,7 @@
                                 <field name="code_id" string="Code Name"/>
                                 <field name="value"/>
                                 <field name="use"/>
+                                <field name="system"/>
                             </group>
                             <group>
                             </group>
@@ -219,6 +346,130 @@
                 </form>
             </field>
         </record>
+
+        <!-- Code System Filter Code Views -->
+
+<!--         <record id="hc_vs_code_system_filter_code_view_search" model="ir.ui.view">
+            <field name="name">Code System Filter Code Search</field>
+            <field name="model">hc.vs.code.system.filter.code</field>
+            <field name="arch" type="xml">
+                <search string="Code System Filter Codes">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_vs_code_system_filter_code_view_tree" model="ir.ui.view">
+            <field name="name">Code System Filter Code Tree</field>
+            <field name="model">hc.vs.code.system.filter.code</field>
+            <field name="arch" type="xml">
+                <tree string="Code System Filter Codes" default_order="name, code">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                    <field name="contains_id"/>
+                    <field name="source_id" invisible="0"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_vs_code_system_filter_code_view_form" model="ir.ui.view">
+            <field name="name">Code System Filter Code Form</field>
+            <field name="model">hc.vs.code.system.filter.code</field>
+            <field name="arch" type="xml">
+                <form string="Code System Filter Codes">
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>
+                        </h1>
+                        <field name="code" placeholder="Code (e.g., biological)"/>
+                        <field name="definition" placeholder="Definition"/>
+                        <field name="comments" placeholder="Comments"/>
+                        <group>
+                            <group>
+                                <field name="contains_id"/>
+                            </group>
+                            <group>
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_vs_code_system_filter_code_action"
+                    name="HC Encounter Reasons"
+                    res_model="hc.vs.code.system.filter.code"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/> -->
+
+        <!-- Filter Operator Views -->
+
+        <record id="hc_vs_filter_operator_view_search" model="ir.ui.view">
+            <field name="name">Filter Operator Search</field>
+            <field name="model">hc.vs.filter.operator</field>
+            <field name="arch" type="xml">
+                <search string="Filter Operators">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_vs_filter_operator_view_tree" model="ir.ui.view">
+            <field name="name">Filter Operator Tree</field>
+            <field name="model">hc.vs.filter.operator</field>
+            <field name="arch" type="xml">
+                <tree string="Filter Operators" default_order="name, code">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                    <field name="contains_id"/>
+                    <field name="source_id" invisible="0"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_vs_filter_operator_view_form" model="ir.ui.view">
+            <field name="name">Filter Operator Form</field>
+            <field name="model">hc.vs.filter.operator</field>
+            <field name="arch" type="xml">
+                <form string="Filter Operators" >
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>
+                        </h1>
+                        <field name="code" placeholder="Code (e.g., biological)"/>
+                        <field name="definition" placeholder="Definition"/>
+                        <field name="comments" placeholder="Comments"/>
+                        <group>
+                            <group>
+                                <field name="contains_id"/>
+                            </group>
+                            <group>
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_vs_filter_operator_action"
+                    name="HC Filter Operators"
+                    res_model="hc.vs.filter.operator"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
 
     </data>
 </openerp>

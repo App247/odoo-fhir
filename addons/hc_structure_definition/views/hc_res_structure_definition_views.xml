@@ -291,8 +291,8 @@
             <field name="model">hc.structure.definition.snapshot</field>
             <field name="arch" type="xml">
                 <tree string="Structure Definition Snapshots">
-                    <field name="structure_definition_id"/>
                     <field name="name"/>
+                    <field name="structure_definition_id"/>
                 </tree>
             </field>
         </record>
@@ -301,10 +301,6 @@
             <field name="name">Structure Definition Snapshot Form</field>
             <field name="model">hc.structure.definition.snapshot</field>
             <field name="arch" type="xml">
-                <tree>
-                    <field name="name"/>
-                    <field name="structure_definition_id"/>
-                </tree>
                 <form string="Structure Definition Snapshot">
                     <sheet>
                         <h1>
@@ -378,8 +374,8 @@
             <field name="model">hc.structure.definition.differential</field>
             <field name="arch" type="xml">
                 <search string="Structure Definition Differentials">
-                    <field name="structure_definition_id"/>
                     <field name="name"/>
+                    <field name="structure_definition_id"/>
                 </search>
             </field>
         </record>

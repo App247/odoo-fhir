@@ -9,9 +9,6 @@ access_hc_code_system_hc_code_system_identifier_user,hc.code.system.hc.code.syst
 access_hc_code_system_hc_code_system_status_history_user,hc.code.system.hc.code.system.status.history.user,model_hc_code_system_status_history,hc_base.group_hc_base_user,1,0,0,0
 access_hc_code_system_hc_code_system_contact_user,hc.code.system.hc.code.system.contact.user,model_hc_code_system_contact,hc_base.group_hc_base_user,1,0,0,0
 access_hc_code_system_hc_code_system_use_context_user,hc.code.system.hc.code.system.use.context.user,model_hc_code_system_use_context,hc_base.group_hc_base_user,1,0,0,0
-access_hc_code_system_hc_vs_code_system_concept_code_manager,hc.code.system.hc.vs.code.system.concept.code.manager,model_hc_vs_code_system_concept_code,hc_base.group_hc_base_manager,1,1,1,1
-access_hc_code_system_hc_vs_code_system_filter_code_manager,hc.code.system.hc.vs.code.system.filter.code.manager,model_hc_vs_code_system_filter_code,hc_base.group_hc_base_manager,1,1,1,1
-access_hc_code_system_hc_vs_code_system_property_code_manager,hc.code.system.hc.vs.code.system.property.code.manager,model_hc_vs_code_system_property_code,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_code_system_hc_vs_filter_operator_manager,hc.code.system.hc.vs.filter.operator.manager,model_hc_vs_filter_operator,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_code_system_hc_vs_code_system_concept_property_value_code_manager,hc.code.system.hc.vs.code.system.concept.property.value.code.manager,model_hc_vs_code_system_concept_property_value_code,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_code_system_hc_vs_code_system_concept_property_value_coding_manager,hc.code.system.hc.vs.code.system.concept.property.value.coding.manager,model_hc_vs_code_system_concept_property_value_coding,hc_base.group_hc_base_manager,1,1,1,1
