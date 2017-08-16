@@ -8,6 +8,8 @@ from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as DTF
 class Procedure(models.Model):
     _name = "hc.res.procedure"
     _description = "Procedure"
+    _inherit = ["hc.domain.resource"]
+    _rec_name = "name"
 
     name = fields.Char(
         string="Event Name",
@@ -235,7 +237,7 @@ class Procedure(models.Model):
         'CHECK(performed_date_end_date >= performed_date_start_date)',
         'Period End Date SHALL not be before than Period Start Date.')
         ]
-    
+
     @api.depends('performed_date_type')
     def _compute_performed_date_name(self):
         for hc_res_procedure in self:
@@ -273,7 +275,7 @@ class Procedure(models.Model):
             if hc_res_procedure.subject_type == 'patient':
                 hc_res_procedure.subject_name = hc_res_procedure.subject_patient_id.name
             elif hc_res_procedure.subject_type == 'group':
-                hc_res_procedure.subject_name = hc_res_procedure.subject_group_id.name   
+                hc_res_procedure.subject_name = hc_res_procedure.subject_group_id.name
 
     @api.depends('context_type')
     def _compute_context_name(self):
@@ -298,39 +300,39 @@ class Procedure(models.Model):
             status_history_obj.create(status_history_vals)
         return res
 
-    @api.multi                  
-    def write(self, vals):                  
-        status_history_obj = self.env['hc.procedure.status.history']                
-        res = super(Procedure, self).write(vals)               
+    @api.multi
+    def write(self, vals):
+        status_history_obj = self.env['hc.procedure.status.history']
+        res = super(Procedure, self).write(vals)
         status_history_record_ids = status_history_obj.search([('end_date','=', False)])
         if status_history_record_ids:
             if vals.get('status') and status_history_record_ids[0].status != vals.get('status'):
                 for status_history in status_history_record_ids:
-                    status_history.end_date = datetime.strftime(datetime.today(), DTF)              
-                    time_diff = datetime.today() - datetime.strptime(status_history.start_date, DTF)               
-                    if time_diff:               
-                        days = str(time_diff).split(',')            
-                        if days and len(days) > 1:          
-                            status_history.time_diff_day = str(days[0])        
-                            times = str(days[1]).split(':')     
-                            if times and times > 1:     
-                                status_history.time_diff_hour = str(times[0])  
-                                status_history.time_diff_min = str(times[1])   
-                                status_history.time_diff_sec = str(times[2])   
-                        else:                       
-                            times = str(time_diff).split(':')       
-                            if times and times > 1:     
-                                status_history.time_diff_hour = str(times[0])  
-                                status_history.time_diff_min = str(times[1])   
-                                status_history.time_diff_sec = str(times[2])   
-                status_history_vals = {    
+                    status_history.end_date = datetime.strftime(datetime.today(), DTF)
+                    time_diff = datetime.today() - datetime.strptime(status_history.start_date, DTF)
+                    if time_diff:
+                        days = str(time_diff).split(',')
+                        if days and len(days) > 1:
+                            status_history.time_diff_day = str(days[0])
+                            times = str(days[1]).split(':')
+                            if times and times > 1:
+                                status_history.time_diff_hour = str(times[0])
+                                status_history.time_diff_min = str(times[1])
+                                status_history.time_diff_sec = str(times[2])
+                        else:
+                            times = str(time_diff).split(':')
+                            if times and times > 1:
+                                status_history.time_diff_hour = str(times[0])
+                                status_history.time_diff_min = str(times[1])
+                                status_history.time_diff_sec = str(times[2])
+                status_history_vals = {
                     'procedure_id': self.id,
                     'status': vals.get('status'),
                     'start_date': datetime.today()
                     }
                 if vals.get('status') == 'entered-in-error':
                     status_history_vals.update({'end_date': datetime.today()})
-                status_history_obj.create(status_history_vals)    
+                status_history_obj.create(status_history_vals)
         return res
 
 class ProcedurePerformer(models.Model):
@@ -830,13 +832,13 @@ class EncounterDiagnosis(models.Model):
         string="Condition Procedure",
         help="Procedure reason the encounter takes place (resource).")
 
-    @api.depends('condition_type')          
-    def _compute_condition_name(self):          
-        for hc_encounter_diagnosis in self:     
-            if hc_encounter_diagnosis.condition_type == 'condition':    
+    @api.depends('condition_type')
+    def _compute_condition_name(self):
+        for hc_encounter_diagnosis in self:
+            if hc_encounter_diagnosis.condition_type == 'condition':
                 hc_encounter_diagnosis.condition_name = hc_encounter_diagnosis.condition_condition_id.name
-            elif hc_encounter_diagnosis.condition_type == 'procedure':  
-                hc_encounter_diagnosis.condition_name = hc_encounter_diagnosis.condition_procedure_id.name    
+            elif hc_encounter_diagnosis.condition_type == 'procedure':
+                hc_encounter_diagnosis.condition_name = hc_encounter_diagnosis.condition_procedure_id.name
 
 class AppointmentIndication(models.Model):
     _inherit = "hc.appointment.indication"

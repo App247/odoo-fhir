@@ -8,6 +8,7 @@ class StructureDefinition(models.Model):
     _name = "hc.res.structure.definition"
     _description = "Structure Definition"
     _inherit = ["hc.domain.resource"]
+    _rec_name = "name"
 
     url = fields.Char(
         string="URI",
@@ -424,7 +425,7 @@ class ProfileCode(models.Model):
         string="Code",
         help="Code of this profile code.")
     contains_id = fields.Many2one(
-        comodel_name="hc.vs.element.definition.code",
+        comodel_name="hc.vs.profile.code",
         string="Parent",
         help="Parent profile code.")
 

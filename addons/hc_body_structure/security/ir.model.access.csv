@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hc_body_structure_hc_res_body_structure_user,hc.body.structure.hc.res.body.structure.user,model_hc_res_body_structure,hc_base.group_hc_base_user,1,0,0,0
+access_hc_body_structure_hc_body_structure_identifier_user,hc.body.structure.hc.body.structure.identifier.user,model_hc_body_structure_identifier,hc_base.group_hc_base_user,1,0,0,0
+access_hc_body_structure_hc_body_structure_location_qualifier_user,hc.body.structure.hc.body.structure.location.qualifier.user,model_hc_body_structure_location_qualifier,hc_base.group_hc_base_user,1,0,0,0
+access_hc_body_structure_hc_body_structure_image_user,hc.body.structure.hc.body.structure.image.user,model_hc_body_structure_image,hc_base.group_hc_base_user,1,0,0,0
+access_hc_body_structure_hc_vs_body_structure_code_manager,hc.body.structure.hc.vs.body.structure.code.manager,model_hc_vs_body_structure_code,hc_base.group_hc_base_manager,1,1,1,1
+access_hc_body_structure_hc_vs_body_structure_relative_location_manager,hc.body.structure.hc.vs.body.structure.relative.location.manager,model_hc_vs_body_structure_relative_location,hc_base.group_hc_base_manager,1,1,1,1

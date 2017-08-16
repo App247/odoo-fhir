@@ -7,6 +7,7 @@ from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as DTF
 class AppointmentResponse(models.Model):
     _name = "hc.res.appointment.response"
     _description = "Appointment Response"
+    _inherit = ["hc.domain.resource"]
     _rec_name = "appointment_id"
 
     identifier_ids = fields.One2many(

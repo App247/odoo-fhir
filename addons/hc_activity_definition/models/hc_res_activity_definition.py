@@ -7,6 +7,8 @@ from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as DTF
 class ActivityDefinition(models.Model):
     _name = "hc.res.activity.definition"
     _description = "Activity Definition"
+    _inherit = ["hc.domain.resource"]
+    _rec_name = "name"
 
     url = fields.Char(
         string="URI",
@@ -467,4 +469,3 @@ class ActivityDefinitionTimingCode(models.Model):
         comodel_name="hc.vs.activity.definition.timing.code",
         string="Parent",
         help="Parent activity definition timing code.")
-

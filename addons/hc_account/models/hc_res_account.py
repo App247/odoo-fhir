@@ -7,6 +7,7 @@ class Account(models.Model):
     _description = "Account"
     _inherit = ["hc.domain.resource"]
     _inherits = {"account.account": "account_account_id"}
+    _rec_name = "name"
 
     account_account_id = fields.Many2one(
         comodel_name="account.account",

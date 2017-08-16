@@ -8,7 +8,8 @@ from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as DTF
 class AllergyIntolerance(models.Model):
     _name = "hc.res.allergy.intolerance"
     _description = "Allergy Intolerance"
-    _inherit = ["hc.basic.association"]
+    _inherit = ["hc.domain.resource"]
+    _rec_name = "name"
 
     name = fields.Char(
         string="Event Name",
