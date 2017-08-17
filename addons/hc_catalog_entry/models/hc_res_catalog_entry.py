@@ -8,9 +8,19 @@ class CatalogEntry(models.Model):
     _inherit = ["hc.domain.resource"]
     _rec_name = "name"
 
-    name = fields.Char(string="Name", compute="_compute_name", store="True", help="Text representation of the catalog entry. Reference Item + Type + Valid Period.")
-    type_id = fields.Many2one(comodel_name="hc.vs.catalog.entry.type", string="Type", help="The type of item - medication, device, service, protocol or other.")
-    purpose_id = fields.Many2one(comodel_name="hc.vs.catalog.entry.purpose", string="Purpose", required="True", help="Whether the entry represents an orderable item, or other.")
+    name = fields.Char(string="Name",
+        compute="_compute_name",
+        store="True",
+        help="Text representation of the catalog entry. Reference Item + Type + Valid Period.")
+    type_id = fields.Many2one(
+        comodel_name="hc.vs.catalog.entry.type",
+        string="Type",
+        help="The type of item - medication, device, service, protocol or other.")
+    purpose_id = fields.Many2one(
+        comodel_name="hc.vs.catalog.entry.purpose",
+        string="Purpose",
+        required="True",
+        help="Whether the entry represents an orderable item, or other.")
     reference_item_type = fields.Selection(
         string="Reference Item Type",
         selection=[
@@ -61,24 +71,66 @@ class CatalogEntry(models.Model):
         comodel_name="hc.res.service.definition",
         string="Reference Item Service Definition",
         help="Service Definition reference.")
-    identifier_id = fields.Many2one(comodel_name="hc.catalog.entry.identifier", string="Identifier", help="Unique identifier of the catalog item.")
-    additional_identifier_ids = fields.One2many(comodel_name="hc.catalog.entry.additional.identifier", inverse_name="catalog_entry_id", string="Additional Identifiers", help="Any additional identifier(s) for the catalog item, in the same granularity or concept.")
-    classification_ids = fields.One2many(comodel_name="hc.catalog.entry.classification", inverse_name="catalog_entry_id", string="Classifications", help="Classification (category or class) of the item entry.")
-    status_id= fields.Many2one(comodel_name="hc.vs.catalog.entry.status", string="Status", help="The status of the item, e.g. active, approved, deleted.")
-    valid_period_start_date = fields.Datetime(string="Valid Period Start Date", help="Start of the time period in which this catalog entry is expected to be active.")
-    valid_period_end_date = fields.Datetime(string="Valid Period End Date", help="End of the time period in which this catalog entry is expected to be active.")
-    last_updated = fields.Datetime(string="Last Updated", help="When was this catalog last updated.")
-    additional_characteristic_ids = fields.One2many(comodel_name="hc.catalog.entry.additional.characteristic", inverse_name="catalog_entry_id", string="Additional Characteristics", help="Additional characteristics of the catalog entry.")
-    additional_classification_ids = fields.One2many(comodel_name="hc.catalog.entry.additional.classification", inverse_name="catalog_entry_id", string="Additional Classifications", help="Additional classification of the catalog entry.")
-    related_item_ids = fields.One2many(comodel_name="hc.catalog.entry.related.item", inverse_name="catalog_entry_id", string="Related Items", help="An item that this catalog entry is related to.")
+    identifier_id = fields.Many2one(
+        comodel_name="hc.catalog.entry.identifier",
+        string="Identifier",
+        help="Unique identifier of the catalog item.")
+    additional_identifier_ids = fields.One2many(
+        comodel_name="hc.catalog.entry.additional.identifier",
+        inverse_name="catalog_entry_id",
+        string="Additional Identifiers",
+        help="Any additional identifier(s) for the catalog item, in the same granularity or concept.")
+    classification_ids = fields.One2many(
+        comodel_name="hc.catalog.entry.classification",
+        inverse_name="catalog_entry_id",
+        string="Classifications",
+        help="Classification (category or class) of the item entry.")
+    status_id= fields.Many2one(
+        comodel_name="hc.vs.catalog.entry.status",
+        string="Status",
+        help="The status of the item, e.g. active, approved, deleted.")
+    valid_period_start_date = fields.Datetime(
+        string="Valid Period Start Date",
+        help="Start of the time period in which this catalog entry is expected to be active.")
+    valid_period_end_date = fields.Datetime(
+        string="Valid Period End Date",
+        help="End of the time period in which this catalog entry is expected to be active.")
+    last_updated = fields.Datetime(
+        string="Last Updated",
+        help="When was this catalog last updated.")
+    additional_characteristic_ids = fields.One2many(
+        comodel_name="hc.catalog.entry.additional.characteristic",
+        inverse_name="catalog_entry_id",
+        string="Additional Characteristics",
+        help="Additional characteristics of the catalog entry.")
+    additional_classification_ids = fields.One2many(
+        comodel_name="hc.catalog.entry.additional.classification",
+        inverse_name="catalog_entry_id",
+        string="Additional Classifications",
+        help="Additional classification of the catalog entry.")
+    related_item_ids = fields.One2many(
+        comodel_name="hc.catalog.entry.related.item",
+        inverse_name="catalog_entry_id",
+        string="Related Items",
+        help="An item that this catalog entry is related to.")
 
 class CatalogEntryRelatedItem(models.Model):
     _name = "hc.catalog.entry.related.item"
     _description = "Catalog Entry Related Item"
 
-    catalog_entry_id = fields.Many2one(comodel_name="hc.res.catalog.entry", string="Catalog Entry", help="Catalog Entry associated with this Catalog Entry Related Item.")
-    relation_type_id = fields.Many2one(comodel_name="hc.vs.catalog.entry.relation.type", string="Relation Type", required="True", help="The type of relation to the related item.")
-    type_id = fields.Many2one(comodel_name="hc.vs.catalog.entry.type", string="Type", help="The type of item - medication, device, service, protocol or other.")
+    catalog_entry_id = fields.Many2one(
+        comodel_name="hc.res.catalog.entry",
+        string="Catalog Entry",
+        help="Catalog Entry associated with this Catalog Entry Related Item.")
+    relation_type_id = fields.Many2one(
+        comodel_name="hc.vs.catalog.entry.relation.type",
+        string="Relation Type",
+        required="True",
+        help="The type of relation to the related item.")
+    type_id = fields.Many2one(
+        comodel_name="hc.vs.catalog.entry.type",
+        string="Type",
+        help="The type of item - medication, device, service, protocol or other.")
     item_type = fields.Selection(
         string="Item Type",
         selection=[
@@ -140,37 +192,58 @@ class CatalogEntryIdentifier(models.Model):
     _description = "Catalog Entry Identifier"
     _inherit = ["hc.basic.association", "hc.identifier"]
 
-    catalog_entry_id = fields.Many2one(comodel_name="hc.res.catalog.entry", string="Catalog Entry", help="Catalog Entry associated with this Catalog Entry Identifier.")
+    catalog_entry_id = fields.Many2one(
+        comodel_name="hc.res.catalog.entry",
+        string="Catalog Entry",
+        help="Catalog Entry associated with this Catalog Entry Identifier.")
 
 class CatalogEntryAdditionalIdentifier(models.Model):
     _name = "hc.catalog.entry.additional.identifier"
     _description = "Catalog Entry Additional Identifier"
     _inherit = ["hc.basic.association", "hc.identifier"]
 
-    catalog_entry_id = fields.Many2one(comodel_name="hc.res.catalog.entry", string="Catalog Entry", help="Catalog Entry associated with this Catalog Entry Additional Identifier.")
+    catalog_entry_id = fields.Many2one(
+        comodel_name="hc.res.catalog.entry",
+        string="Catalog Entry",
+        help="Catalog Entry associated with this Catalog Entry Additional Identifier.")
 
 class CatalogEntryClassification(models.Model):
     _name = "hc.catalog.entry.classification"
     _description = "Catalog Entry Classification"
     _inherit = ["hc.basic.association", "hc.identifier"]
 
-    catalog_entry_id = fields.Many2one(comodel_name="hc.res.catalog.entry", string="Catalog Entry", help="Catalog Entry associated with this Catalog Entry Classification.")
+    catalog_entry_id = fields.Many2one(
+        comodel_name="hc.res.catalog.entry",
+        string="Catalog Entry",
+        help="Catalog Entry associated with this Catalog Entry Classification.")
 
 class CatalogEntryAdditionalCharacteristic(models.Model):
     _name = "hc.catalog.entry.additional.characteristic"
     _description = "Catalog Entry Additional Characteristic"
     _inherit = ["hc.basic.association"]
 
-    catalog_entry_id = fields.Many2one(comodel_name="hc.res.catalog.entry", string="Catalog Entry", help="Catalog Entry associated with this Catalog Entry Classification.")
-    additional_characteristic_id = fields.Many2one(comodel_name="hc.vs.catalog.entry.characteristic", string="Additional Characteristic", help="Additional Characteristic associated with this Catalog Entry Additional Characteristic.")
+    catalog_entry_id = fields.Many2one(
+        comodel_name="hc.res.catalog.entry",
+        string="Catalog Entry",
+        help="Catalog Entry associated with this Catalog Entry Classification.")
+    additional_characteristic_id = fields.Many2one(
+        comodel_name="hc.vs.catalog.entry.characteristic",
+        string="Additional Characteristic",
+        help="Additional Characteristic associated with this Catalog Entry Additional Characteristic.")
 
 class CatalogEntryAdditionalClassification(models.Model):
     _name = "hc.catalog.entry.additional.classification"
     _description = "Catalog Entry Additional Classification"
     _inherit = ["hc.basic.association"]
 
-    catalog_entry_id = fields.Many2one(comodel_name="hc.res.catalog.entry", string="Catalog Entry", help="Catalog Entry associated with this Catalog Entry Classification.")
-    additional_classification_id = fields.Many2one(comodel_name="hc.vs.catalog.entry.classification", string="Additional Classification", help="Additional Classification associated with this Catalog Entry Additional Characteristic.")
+    catalog_entry_id = fields.Many2one(
+        comodel_name="hc.res.catalog.entry",
+        string="Catalog Entry",
+        help="Catalog Entry associated with this Catalog Entry Classification.")
+    additional_classification_id = fields.Many2one(
+        comodel_name="hc.vs.catalog.entry.classification",
+        string="Additional Classification",
+        help="Additional Classification associated with this Catalog Entry Additional Characteristic.")
 
 class CatalogEntryStatus(models.Model):
     _name = "hc.vs.catalog.entry.status"

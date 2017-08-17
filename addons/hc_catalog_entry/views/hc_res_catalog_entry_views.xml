@@ -1,59 +1,162 @@
-<openerp>
-  <data>
-    <!-- explicit list view definition -->
-    <!--
-    <record model="ir.ui.view" id="hc_catalog_entry.list">
-      <field name="name">hc_catalog_entry list</field>
-      <field name="model">hc_catalog_entry.hc_catalog_entry</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
-        </tree>
-      </field>
-    </record>
-    -->
+<odoo>
+    <data>
 
-    <!-- actions opening views on models -->
-    <!--
-    <record model="ir.actions.act_window" id="hc_catalog_entry.action_window">
-      <field name="name">hc_catalog_entry window</field>
-      <field name="res_model">hc_catalog_entry.hc_catalog_entry</field>
-      <field name="view_mode">tree,form</field>
-    </record>
-    -->
+        <!-- Catalog Entry Views -->
 
-    <!-- server action to the one above -->
-    <!--
-    <record model="ir.actions.server" id="hc_catalog_entry.action_server">
-      <field name="name">hc_catalog_entry server</field>
-      <field name="model_id" ref="model_hc_catalog_entry_hc_catalog_entry"/>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": self._name,
-        }
-      </field>
-    </record>
-    -->
+        <record id="hc_res_catalog_entry_view_search" model="ir.ui.view">
+            <field name="name">Catalog Entry Search</field>
+            <field name="model">hc.res.catalog.entry</field>
+            <field name="arch" type="xml">
+                <search string="Catalog Entries">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
 
-    <!-- Top menu item -->
-    <!--
-    <menuitem name="hc_catalog_entry" id="hc_catalog_entry.menu_root"/>
-    -->
-    <!-- menu categories -->
-    <!--
-    <menuitem name="Menu 1" id="hc_catalog_entry.menu_1" parent="hc_catalog_entry.menu_root"/>
-    <menuitem name="Menu 2" id="hc_catalog_entry.menu_2" parent="hc_catalog_entry.menu_root"/>
-    -->
-    <!-- actions -->
-    <!--
-    <menuitem name="List" id="hc_catalog_entry.menu_1_list" parent="hc_catalog_entry.menu_1"
-              action="hc_catalog_entry.action_window"/>
-    <menuitem name="Server to list" id="hc_catalog_entry" parent="hc_catalog_entry.menu_2"
-              action="hc_catalog_entry.action_server"/>
-    -->
-  </data>
-</openerp>
+        <record id="hc_res_catalog_entry_view_tree" model="ir.ui.view">
+            <field name="name">Catalog Entry Tree</field>
+            <field name="model">hc.res.catalog.entry</field>
+            <field name="arch" type="xml">
+                <tree string="Catalog Entries">
+                    <field name="name"/>
+                    <field name="type_id"/>
+                    <field name="reference_item_name"/>
+                    <field name="valid_period_start_date"/>
+                    <field name="valid_period_end_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_res_catalog_entry_view_form" model="ir.ui.view">
+            <field name="name">Catalog Entry Form</field>
+            <field name="model">hc.res.catalog.entry</field>
+            <field name="arch" type="xml">
+                <form string="Catalog Entry">
+                    <sheet>
+                        <header>
+                            <field name="status_id" string="Status" widget="statusbar" clickable="True"/>
+                        </header>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name"/>
+                        </h1>
+                        <group>
+                            <group>
+                                <field name="type_id"/>
+                                <field name="purpose_id"/>
+                                <field name="reference_item_type"/>
+                                <field name="reference_item_name"/>
+                                <field name="valid_period_start_date"/>
+                                <field name="valid_period_end_date"/>
+                                <field name="last_updated"/>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Related Items">
+                                <field name="related_item_ids" mode="tree">
+                                    <tree>
+                                        <field name="type_id"/>
+                                        <field name="relation_type_id"/>
+                                        <field name="item_type"/>
+                                        <field name="item_name"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Additional Identifiers">
+                                <field name="additional_identifier_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Classifications">
+                                <field name="classification_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Additional Characteristics">
+                                <field name="additional_characteristic_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Additional Classifications">
+                                <field name="additional_classification_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_res_catalog_entry_action"
+                    name="HC Catalog Entries"
+                    res_model="hc.res.catalog.entry"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <menuitem id="hc_catalog_entry.menu_cat_ent"
+                  name="Catalog Entries"
+                  parent="hc_base.menu_doc_quest"
+                  action="hc_res_catalog_entry_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="35"/>
+
+      </data>
+</odoo>

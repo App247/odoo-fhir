@@ -8,7 +8,8 @@
     'description': """
         Record details about an anatomical structure. This resource may be used when a coded concept does not provide the necessary detail needed for the use case.
 
-        10.8.1 Scope and Usage
+        **Scope and Usage**
+        
         The BodyStructure resource contains details about the anatomical location of a specimen or body part, including patient information, identifiers,
         as well as text descriptons and images. It provides for the addition of qualifiers such as laterality and directionality to the anatomic location
         for those use cases where precoordination of codes is not possible. The BodyStructure resource supports recording and tracking of an anatomic location
