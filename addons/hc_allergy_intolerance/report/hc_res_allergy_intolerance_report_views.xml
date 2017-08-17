@@ -1,0 +1,9 @@
+<odoo>
+
+    <report id="action_report_allergy_intolerance_observation"
+            model="hc.res.allergy.intolerance"
+            string="Allergy Intolerance Observation"
+            report_type="qweb-pdf"
+            name="hc_allergy_intolerance.report_allergy_intolerance_observation"/>
+
+</odoo>

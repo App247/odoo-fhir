@@ -1,0 +1,205 @@
+<odoo>
+
+    <!-- Report template for Qweb report of Allergy Intolerance Observation -->
+    <template id="report_allergy_intolerance_observation">
+        <t>
+            <t t-call="report.external_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <table width="100%">
+                            <tr>
+                                <td>
+                                    <center>
+                                        <h2>
+                                            <b>Allergy Intolerance Observation</b>
+                                        </h2>
+                                    </center>
+                                </td>
+                            </tr>
+                        </table>
+                        <br/>
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr style="color:blue; size:4">
+                                    <td width="50%">
+                                        <b>Event</b>
+                                    </td>
+                                    <td width="50%">
+                                        <b>Status</b>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td width="50%">
+                                        <b>Patient Name: </b><span t-field="o.patient_id.name"/>
+                                    </td>
+                                    <td width="50%">
+                                        <b>Verification Status: </b><span t-field="o.verification_status"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="50%">
+                                        <b>Allergy/Intolerance: </b><span t-field="o.code_id.name"/>
+                                    </td>
+                                    <td width="50%">
+                                        <b>Clinical Status: </b><span t-field="o.clinical_status"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="50%">
+                                        <b>Asserted Date: </b><span t-field="o.asserted_date"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="50%">
+                                        <b>Type: </b><span t-field="o.type"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="50%">
+                                        <b>Criticality: </b><span t-field="o.criticality"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br/>
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr style="color:blue; size:4">
+                                    <td width="50%">
+                                        <b>Who, Where</b>
+                                    </td>
+                                    <td width="50%">
+                                        <b>Timeline</b>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td width="50%" style="border:None">
+                                        <b>Recorder: </b><span t-field="o.recorder_name"/>
+                                    </td>
+                                    <td width="50%" style="border:None">
+                                        <b>Onset: </b><span t-field="o.onset_name"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>Asserter: </b><span t-field="o.asserter_name"/>
+                                    </td>
+                                    <td width="50%">
+                                        <b>Last Occurence Date: </b><span t-field="o.last_occurence"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br/>
+                        <table class="table table-condensed">
+                            <tr>
+                                 <td style="color:blue">
+                                    <h3>
+                                        <b>Reactions</b>
+                                    </h3>
+                                </td>
+                            </tr>
+                            <!-- <tr>
+                                 <td width="16%">
+                                    <b>Substance</b>
+                                </td>
+                                <td width="16%">
+                                    <b>Description</b>
+                                </td>
+                                <td width="16%">
+                                    <b>Onset Date</b>
+                                </td>
+                                <td width="16%">
+                                    <b>Duration</b>
+                                </td>
+                                <td width="16%">
+                                    <b>Duration UOM</b>
+                                </td>
+                                <td width="16%">
+                                    <b>Reaction Severity</b>
+                                </td>
+                            </tr>
+                            <t t-foreach="o.reaction_ids" t-as="reaction">
+	                            <tr>
+	                                <td>
+	                                    <span t-field="reaction.substance_id.name"/>
+	                                </td>
+	                                <td>
+	                                    <span t-field="reaction.description"/>
+	                                </td>
+	                                <td>
+	                                    <span t-field="reaction.onset"/>
+	                                </td>
+	                                <td>
+	                                    <span t-field="reaction.duration"/>
+	                                </td>
+	                                <td>
+	                                    <span t-field="reaction.duration_uom_id.name"/>
+	                                </td>
+	                                <td>
+	                                    <span t-field="reaction.severity"/>
+	                                </td>
+	                            </tr>
+                            </t> -->
+                        </table>
+                        <table class="table table-condensed" t-foreach="o.reaction_ids" t-as="reaction">
+                            <thead>
+                                <tr style="color:blue; size:4">
+                                    <td>
+                                        <b>Substance: </b><span t-field="reaction.substance_id.name"/>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td width="50%">
+                                        <b>Description: </b><span t-field="reaction.description"/>
+                                    </td>
+                                    <td width="50%">
+                                        <b>Severity: </b><span t-field="reaction.severity"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="50%">
+                                        <b>Onset: </b><span t-field="reaction.onset"/>
+                                    </td>
+                                    <td width="50%">
+                                        <b>Certainty: </b><span t-field="reaction.certainty"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="50%">
+                                        <b>Duration: </b><span t-field="reaction.duration"/>
+                                    </td>
+                                    <td width="50%">
+                                        <b>Manifestations: </b><span t-field="reaction.manifestation_ids.name"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="50%">
+                                        <b>Duration UOM: </b><span t-field="reaction.duration_uom_id.name"/>
+                                    </td>
+                                    <td width="50%">
+                                        <b>Exposure Route: </b><span t-field="reaction.exposure_route_id.name"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <table class="table table-condensed" t-foreach="o.note_ids" t-as="note">
+                                <tr>
+                                    <td>
+                                        <b>Text: </b><span t-field="note.text"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>
