@@ -5,7 +5,9 @@ from openerp import models, fields, api
 class Organization(models.Model):
     _name = "hc.res.organization"
     _description = "Organization"
+    _inherit = "hc.domain.resource"
     _inherits = {"res.partner": "partner_id"}
+    _rec_name = "name"
 
     partner_id = fields.Many2one(
         comodel_name="res.partner",
@@ -28,6 +30,7 @@ class Organization(models.Model):
         help="Kind of organization.")
     name = fields.Char(
         string="Name",
+        related="partner_id.name",
         help="Name used for the organization.")
     alias_ids = fields.One2many(
         comodel_name="hc.organization.alias",
@@ -62,6 +65,11 @@ class Organization(models.Model):
         comodel_name="res.company",
         string="Company",
         help="The company associated with this organization.")
+    contact_ids = fields.One2many(
+        comodel_name="hc.organization.contact",
+        inverse_name="organization_id",
+        string="Contacts",
+        help="A location for this organization.")
 
     _defaults = {
         "is_company": True,
@@ -111,7 +119,7 @@ class OrganizationIdentifier(models.Model):
     organization_id = fields.Many2one(
         comodel_name="hc.res.organization",
         string="Organization",
-        help="Organization associated with this identifier.")
+        help="Organization associated with this Organization Identifier.")
 
 class OrganizationAlias(models.Model):
     _name = "hc.organization.alias"

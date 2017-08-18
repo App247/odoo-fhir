@@ -136,5 +136,18 @@
                   groups="hc_base.group_hc_base_manager"
                   sequence="30"/>
 
+        <!-- External Reference -->
+
+        <record id="hc_organization_view_form_inherited_endpoint" model="ir.ui.view">
+            <field name="name">organization Form</field>
+            <field name="model">hc.organization</field>
+            <field name="inherit_id" ref="hc_organization.hc_organization_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='endpoint_ids']" position="after">
+                    <page string="endpoint_id"/>
+                </xpath>
+            </field>
+        </record>
+
     </data>
 </openerp>
