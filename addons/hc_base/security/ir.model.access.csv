@@ -223,7 +223,6 @@ access_hc_base_hc_vs_extension_codeable_concept_manager,hc.base.hc.vs.extension.
 access_hc_base_hc_reference_user,hc.base.hc.reference.user,model_hc_reference,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_reference_identifier_user,hc.base.hc.reference.identifier.user,model_hc_reference_identifier,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_narrative_user,hc.base.hc.narrative.user,model_hc_narrative,hc_base.group_hc_base_user,1,0,0,0
-access_hc_base_hc_narrative_status_history_user,hc.base.hc.narrative.status.history.user,model_hc_narrative_status_history,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_vs_v3_confidentiality_manager,hc.base.hc.vs.v3.confidentiality.manager,model_hc_vs_v3_confidentiality,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_vs_v3_confidentiality_value_set_manager,hc.base.hc.vs.v3.confidentiality.value.set.manager,model_hc_vs_v3_confidentiality_value_set,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_vs_entity_name_use_manager,hc.base.hc.vs.entity.name.use.manager,model_hc_vs_entity_name_use,hc_base.group_hc_base_manager,1,1,1,1

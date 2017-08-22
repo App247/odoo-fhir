@@ -138,13 +138,13 @@
 
         <!-- External Reference -->
 
-        <record id="hc_organization_view_form_inherited_endpoint" model="ir.ui.view">
+        <record id="hc_res_organization_view_form_inherited_endpoint" model="ir.ui.view">
             <field name="name">organization Form</field>
-            <field name="model">hc.organization</field>
-            <field name="inherit_id" ref="hc_organization.hc_organization_view_form"/>
+            <field name="model">hc.res.organization</field>
+            <field name="inherit_id" ref="hc_organization.hc_res_organization_view_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//page[@name='endpoint_ids']" position="after">
-                    <page string="endpoint_id"/>
+                <xpath expr="//field[@name='endpoint_ids']//tree" position="after">
+                    <field name="endpoint_id"/>
                 </xpath>
             </field>
         </record>

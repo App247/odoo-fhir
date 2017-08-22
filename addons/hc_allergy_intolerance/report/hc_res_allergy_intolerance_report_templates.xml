@@ -8,21 +8,17 @@
                     <div class="page">
                         <table width="100%">
                             <tr>
-                                <td>
-                                    <center>
-                                        <h2>
-                                            <b>Allergy Intolerance Observation</b>
-                                        </h2>
-                                    </center>
+                                <td class="h2" style="text-align: center; padding: 12px">
+                                    <p>Allergy Intolerance Observation</p>
                                 </td>
                             </tr>
                         </table>
                         <br/>
                         <table class="table table-condensed">
                             <thead>
-                                <tr style="color:blue; size:4">
+                                <tr style="font-size: 16px; font-weight: bold; color: #337ab7">
                                     <td width="50%">
-                                        <b>Event</b>
+                                        <b>Summary</b>
                                     </td>
                                     <td width="50%">
                                         <b>Status</b>
@@ -66,7 +62,7 @@
                         <br/>
                         <table class="table table-condensed">
                             <thead>
-                                <tr style="color:blue; size:4">
+                                <tr style="font-size: 16px; font-weight: bold; color: #337ab7">
                                     <td width="50%">
                                         <b>Who, Where</b>
                                     </td>
@@ -95,12 +91,10 @@
                             </tbody>
                         </table>
                         <br/>
-                        <table class="table table-condensed">
+                        <table class="table table-condensed" style="page-break-before: always">
                             <tr>
-                                 <td style="color:blue">
-                                    <h3>
-                                        <b>Reactions</b>
-                                    </h3>
+                                <td class="h3" style="color: #337ab7">
+                                    <p>Reactions</p>
                                 </td>
                             </tr>
                             <!-- <tr>
@@ -146,9 +140,9 @@
 	                            </tr>
                             </t> -->
                         </table>
-                        <table class="table table-condensed" t-foreach="o.reaction_ids" t-as="reaction">
+                        <table class="table table-condensed" style="display: inline-table" t-foreach="o.reaction_ids" t-as="reaction">
                             <thead>
-                                <tr style="color:blue; size:4">
+                                <tr style="font-size: 16px; font-weight: bold; color: #337ab7">
                                     <td>
                                         <b>Substance: </b><span t-field="reaction.substance_id.name"/>
                                     </td>
@@ -176,7 +170,7 @@
                                         <b>Duration: </b><span t-field="reaction.duration"/>
                                     </td>
                                     <td width="50%">
-                                        <b>Manifestations: </b><span t-field="reaction.manifestation_ids.name"/>
+                                        <b>Manifestations: </b><span t-esc="get_manifestation(reaction.manifestation_ids)"/>
                                     </td>
                                 </tr>
                                 <tr>
@@ -187,14 +181,14 @@
                                         <b>Exposure Route: </b><span t-field="reaction.exposure_route_id.name"/>
                                     </td>
                                 </tr>
+                                <table class="table table-condensed" t-foreach="o.note_ids" t-as="note">
+                                    <tr>
+                                        <td>
+                                            <b>Text: </b><span t-field="note.text"/>
+                                        </td>
+                                    </tr>
+                                </table>
                             </tbody>
-                            <table class="table table-condensed" t-foreach="o.note_ids" t-as="note">
-                                <tr>
-                                    <td>
-                                        <b>Text: </b><span t-field="note.text"/>
-                                    </td>
-                                </tr>
-                            </table>
                         </table>
                     </div>
                 </t>

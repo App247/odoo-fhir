@@ -205,45 +205,6 @@
                   groups="hc_base.group_hc_base_manager"
                   sequence="40"/>
 
-        <!-- External Reference View -->
-
-        <!-- <record id="base.view_partner_form_inherited_related_person" model="ir.ui.view">
-            <field name="name">res.partner.form</field>
-            <field name="model">res.partner</field>
-            <field name="inherit_id" ref="base.view_partner_form"/>
-            <field name="arch" type="xml">
-                <field name="parent_id" position="after">
-                    <label for="is_related_person" string="HC Related Person"/>
-                        <field name="is_related_person"/>
-                </field>
-            </field>
-        </record> -->
-
-        <record id="hc_res_person_view_form_inherited_related_person" model="ir.ui.view">
-            <field name="name">Person Form</field>
-            <field name="model">hc.res.person</field>
-            <field name="inherit_id" ref="hc_person.hc_res_person_view_form"/>
-            <field name="arch" type="xml">
-<!--                 <xpath expr="//field[@name='is_active']" position="after">
-                    <field name="is_related_person" readonly="1"/>
-                </xpath> -->
-                <xpath expr="//field[@name='link_ids']//form//field[@name='target_person_id']" position="after">
-                    <field name="target_related_person_id" class="oe_edit_only" attrs="{'invisible': [('target_type','!=','related_person')], 'required': [('target_type','=','related_person')]}"/>
-                </xpath>
-            </field>
-        </record>
-
-        <record id="hc_annotation_view_form_inherited_related_person" model="ir.ui.view">
-            <field name="name">Annotation Form</field>
-            <field name="model">hc.annotation</field>
-            <field name="inherit_id" ref="hc_base.hc_annotation_view_form"/>
-            <field name="arch" type="xml">
-                <field name="author_type" position="after">
-                    <field name="author_related_person_id" attrs="{'invisible': [('author_type','!=','related_person')]}"/>
-                </field>
-            </field>
-        </record>
-
     <!-- Related Person Value Set Action and Menu -->
 
     <record id="hc_vs_related_person_relationship_type_view_tree" model="ir.ui.view">
@@ -302,6 +263,45 @@
               action="hc_vs_related_person_relationship_type_action"
               groups="hc_base.group_hc_base_manager"
               sequence="10"/>
+
+        <!-- External Reference View -->
+
+        <!-- <record id="base.view_partner_form_inherited_related_person" model="ir.ui.view">
+            <field name="name">res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="parent_id" position="after">
+                    <label for="is_related_person" string="HC Related Person"/>
+                        <field name="is_related_person"/>
+                </field>
+            </field>
+        </record> -->
+
+        <record id="hc_res_person_view_form_inherited_related_person" model="ir.ui.view">
+            <field name="name">Person Form</field>
+            <field name="model">hc.res.person</field>
+            <field name="inherit_id" ref="hc_person.hc_res_person_view_form"/>
+            <field name="arch" type="xml">
+<!--                 <xpath expr="//field[@name='is_active']" position="after">
+                    <field name="is_related_person" readonly="1"/>
+                </xpath> -->
+                <xpath expr="//field[@name='link_ids']//form//field[@name='target_person_id']" position="after">
+                    <field name="target_related_person_id" class="oe_edit_only" attrs="{'invisible': [('target_type','!=','related_person')], 'required': [('target_type','=','related_person')]}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="hc_annotation_view_form_inherited_related_person" model="ir.ui.view">
+            <field name="name">Annotation Form</field>
+            <field name="model">hc.annotation</field>
+            <field name="inherit_id" ref="hc_base.hc_annotation_view_form"/>
+            <field name="arch" type="xml">
+                <field name="author_type" position="after">
+                    <field name="author_related_person_id" attrs="{'invisible': [('author_type','!=','related_person')]}"/>
+                </field>
+            </field>
+        </record>
 
     </data>
 </openerp>

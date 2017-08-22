@@ -1,65 +1,65 @@
 <openerp>
     <data>
-    
-        <!-- Location Views -->                                     
-                                            
-        <record id="hc_res_location_view_search" model="ir.ui.view">                                        
-            <field name="name">Location Search</field>                                  
-            <field name="model">hc.res.location</field>                                 
-            <field name="arch" type="xml">                                  
-                <search string="Locations">                             
-                </search>                               
-            </field>                                    
-        </record>                                       
-                                                
-        <record id="hc_res_location_view_tree" model="ir.ui.view">                                      
-            <field name="name">Location Tree</field>                                    
-            <field name="model">hc.res.location</field>                                 
-            <field name="arch" type="xml">                                  
-                <tree string="Locations">                               
-                </tree>                             
-            </field>                                    
-        </record>                                       
-                                                
-        <record id="hc_res_location_view_form" model="ir.ui.view">                                      
-            <field name="name">Location Form</field>                                    
-            <field name="model">hc.res.location</field>                                 
-            <field name="arch" type="xml">                                  
-                <form string="Location">                                
-                    <sheet>                         
-                        <h1>                        
-                            <field name="name" default_focus="1" placeholder="Name"/>                   
-                        </h1>                       
-                        <group>                     
-                            <group>                 
-                            </group>                    
-                            <group>                 
-                            </group>                    
-                        </group>                        
-                        <notebook>                      
-                            <page string="Identifiers">                 
-                                <field name="identifier_ids" mode="tree">               
-                                    <tree>          
-                                    </tree>         
-                                    <form>          
-                                        <sheet>     
-                                            <group> 
+
+        <!-- Location Views -->
+
+        <record id="hc_res_location_view_search" model="ir.ui.view">
+            <field name="name">Location Search</field>
+            <field name="model">hc.res.location</field>
+            <field name="arch" type="xml">
+                <search string="Locations">
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_res_location_view_tree" model="ir.ui.view">
+            <field name="name">Location Tree</field>
+            <field name="model">hc.res.location</field>
+            <field name="arch" type="xml">
+                <tree string="Locations">
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_res_location_view_form" model="ir.ui.view">
+            <field name="name">Location Form</field>
+            <field name="model">hc.res.location</field>
+            <field name="arch" type="xml">
+                <form string="Location">
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name"/>
+                        </h1>
+                        <group>
+                            <group>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Identifiers">
+                                <field name="identifier_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
                                                 <group>
                                                 </group>
                                                 <group>
                                                 </group>
-                                            </group>    
-                                        </sheet>        
-                                    </form>         
-                                </field>                
-                            </page>                 
-                        </notebook>                     
-                    </sheet>                            
-                </form>                             
-            </field>                                    
-        </record>                                       
-        
-        <act_window id="hc_res_location_action" 
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_res_location_action"
                     name="HC Locations"
                     res_model="hc.res.location"
                     view_mode="tree,form"
@@ -67,12 +67,26 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_location.menu_loc" 
+        <menuitem id="hc_location.menu_loc"
                   name="Locations"
-                  web_icon="hc_location,static/description/icon.png" 
-                  parent="hc_base.menu_entity" 
-                  action="hc_res_location_action" 
-                  groups="hc_base.group_hc_base_manager" 
+                  web_icon="hc_location,static/description/icon.png"
+                  parent="hc_base.menu_entity"
+                  action="hc_res_location_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="40"/>
+
+        <!-- External Reference -->
+
+        <record id="hc_res_organization_view_form_inherited_location" model="ir.ui.view">
+            <field name="name">organization Form</field>
+            <field name="model">hc.res.organization</field>
+            <field name="inherit_id" ref="hc_organization.hc_res_organization_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page//field[@name='location_ids']//tree" position="after">
+                    <field name="location_id"/>
+                </xpath>
+            </field>
+        </record>
+
     </data>
 </openerp>

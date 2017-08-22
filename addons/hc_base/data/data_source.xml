@@ -1,19 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>      
-<openerp>       
-    <data noupdate="0">     
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
 
-        <record id="base.hl7" model="res.partner">  
+        <record id="base.hl7" model="res.partner">
             <field name="name">HL7 (Health Level 7 International)</field>
             <field name="company_type">company</field>
             <field name="website">www.hl7.org</field>
-            <field name="comment">Founded in 1987, Health Level Seven International (HL7) is a not-for-profit, ANSI-accredited standards developing organization dedicated to providing a comprehensive framework and related standards for the exchange, integration, sharing, and retrieval of electronic health information that supports clinical practice and the management, delivery and evaluation of health services. &#10;&#10;(Ref: http://www.hl7.org/)       
+            <field name="comment">Founded in 1987, Health Level Seven International (HL7) is a not-for-profit, ANSI-accredited standards developing organization dedicated to providing a comprehensive framework and related standards for the exchange, integration, sharing, and retrieval of electronic health information that supports clinical practice and the management, delivery and evaluation of health services. &#10;&#10;(Ref: http://www.hl7.org/)
             </field>
             <field name="notify_email">none</field>
             <field name="category_id" eval="[(6, 0, [ref('partner_source'), ref('partner_organization')])]"/>
             <field name="country_id" ref="base.us"/>
         </record>
 
-        <record id="base.hl7v3" model="res.partner">  
+        <record id="base.hl7v3" model="res.partner">
             <field name="name">HL7 v3</field>
             <field name="company_type">company</field>
             <field name="website">www.hl7.org</field>
@@ -23,7 +23,7 @@
             <field name="country_id" ref="base.us"/>
         </record>
 
-        <record id="base.hl7v2" model="res.partner">  
+        <record id="base.hl7v2" model="res.partner">
             <field name="name">HL7 v2</field>
             <field name="company_type">company</field>
             <field name="website">www.hl7.org</field>
@@ -33,19 +33,19 @@
             <field name="country_id" ref="base.us"/>
         </record>
 
-        <record id="base.hl7fhir" model="res.partner">  
+        <record id="base.hl7fhir" model="res.partner">
             <field name="name">HL7 FHIR</field>
             <field name="company_type">company</field>
             <field name="website">http://www.hl7.org/fhir/</field>
             <field name="comment">FHIR® – Fast Healthcare Interoperability Resources (hl7.org/fhir) – is a next generation standards framework created by HL7. FHIR combines the best features of HL7&apos;s v2 , HL7 v3  and CDA  product lines while leveraging the latest web standards and applying a tight focus on implementability.
-            &#10;&#10;FHIR solutions are built from a set of modular components called &quot;Resources&quot;. These resources can easily be assembled into working systems that solve real world clinical and administrative problems at a fraction of the price of existing alternatives. FHIR is suitable for use in a wide variety of contexts – mobile phone apps, cloud communications, EHR-based data sharing, server communication in large institutional healthcare providers, and much more.  &#10;&#10;(Ref: http://www.hl7.org/fhir/summary.html)    
+            &#10;&#10;FHIR solutions are built from a set of modular components called &quot;Resources&quot;. These resources can easily be assembled into working systems that solve real world clinical and administrative problems at a fraction of the price of existing alternatives. FHIR is suitable for use in a wide variety of contexts – mobile phone apps, cloud communications, EHR-based data sharing, server communication in large institutional healthcare providers, and much more.  &#10;&#10;(Ref: http://www.hl7.org/fhir/summary.html)
             </field>
             <field name="notify_email">none</field>
             <field name="category_id" eval="[(6, 0, [ref('partner_source'), ref('partner_document')])]"/>
             <field name="country_id" ref="base.us"/>
         </record>
 
-        <record id="base.snomed" model="res.partner">  
+        <record id="base.snomed" model="res.partner">
             <field name="name">SNOMED CT</field>
             <field name="company_type">company</field>
             <field name="website">www.ihtsdo.org/snomed-ct</field>
@@ -55,7 +55,7 @@
             <field name="country_id" ref="base.dk"/>
         </record>
 
-        <record id="base.nlm_rxnorm" model="res.partner">  
+        <record id="base.nlm_rxnorm" model="res.partner">
             <field name="name">RxNorm</field>
             <field name="company_type">company</field>
             <field name="website">https://www.nlm.nih.gov/research/umls/rxnorm/overview.html</field>
@@ -63,8 +63,8 @@
             &#10;&#10;Purpose of RxNorm. Hospitals, pharmacies, and other organizations use computer systems to record and process drug information. Because these systems use many different sets of drug names, it can be difficult for one system to communicate with another. To address this challenge, RxNorm provides normalized names and unique identifiers for medicines and drugs. The goal of RxNorm is to allow computer systems to communicate drug-related information efficiently and unambiguously.
             &#10;&#10;Scope of RxNorm. RxNorm contains the names of prescription and many over-the-counter drugs available in the United States. RxNorm includes generic and branded:
             &#10;&#10;Clinical drugs - pharmaceutical products given to (or taken by) a patient with therapeutic or diagnostic intent
-            &#10;&#10;Drug packs - packs that contain multiple drugs, or drugs designed to be administered in a specified sequence            
-            &#10;&#10;Radiopharmaceuticals, bulk powders, contrast media, food, dietary supplements, and medical devices, such as bandages and crutches, are all out of scope for RxNorm. 
+            &#10;&#10;Drug packs - packs that contain multiple drugs, or drugs designed to be administered in a specified sequence
+            &#10;&#10;Radiopharmaceuticals, bulk powders, contrast media, food, dietary supplements, and medical devices, such as bandages and crutches, are all out of scope for RxNorm.
 
             (ref: https://www.nlm.nih.gov/research/umls/rxnorm/overview.html)</field>
             <field name="notify_email">none</field>
@@ -72,7 +72,7 @@
             <field name="country_id" ref="base.us"/>
         </record>
 
-        <record id="base.nucc" model="res.partner">  
+        <record id="base.nucc" model="res.partner">
             <field name="name">NUCC (National Uniform Claim Committee)</field>
             <field name="company_type">company</field>
             <field name="website">https://www.nucc.org</field>
@@ -83,13 +83,13 @@
             <field name="category_id" eval="[(6, 0, [ref('partner_source'), ref('partner_organization')])]"/>
             <field name="country_id" ref="base.us"/>
         </record>
- 
-        <record id="base.fda" model="res.partner">  
+
+        <record id="base.fda" model="res.partner">
             <field name="name">FDA (US Food and Drug Administration)</field>
             <field name="company_type">company</field>
             <field name="website">http://www.fda.gov</field>
             <field name="comment">A federal agency of the United States.
-            &#10;&#10;The Food and Drug Administration is responsible for protecting the public health by ensuring the safety, efficacy, and security of human and veterinary drugs, biological products, and medical devices; 
+            &#10;&#10;The Food and Drug Administration is responsible for protecting the public health by ensuring the safety, efficacy, and security of human and veterinary drugs, biological products, and medical devices;
             and by ensuring the safety of our nation&apos;s food supply, cosmetics, and products that emit radiation.
             &#10;&#10;FDA also has responsibility for regulating the manufacturing, marketing, and distribution of tobacco products to protect the public health and to reduce tobacco use by minors.
             &#10;&#10;FDA is responsible for advancing the public health by helping to speed innovations that make medical products more effective, safer, and more affordable and by helping the public get the accurate, science-based information they need to use medical products and foods to maintain and improve their health.
@@ -99,7 +99,7 @@
             <field name="country_id" ref="base.us"/>
         </record>
 
-        <record id="base.fda_product_label" model="res.partner">  
+        <record id="base.fda_product_label" model="res.partner">
             <field name="name">FDA Product Label</field>
             <field name="company_type">company</field>
             <field name="website">http://www.fda.gov/ForIndustry/DataStandards/StructuredProductLabeling/ucm168397.htm</field>
@@ -109,7 +109,7 @@
             <field name="country_id" ref="base.us"/>
         </record>
 
-         <record id="base.ucum" model="res.partner">  
+         <record id="base.ucum" model="res.partner">
             <field name="name">UCUM</field>
             <field name="company_type">company</field>
             <field name="website">http://unitsofmeasure.org/ucum.html</field>
@@ -137,7 +137,7 @@
             <field name="country_id" ref="base.us"/>
         </record>
 
-        <record id="base.loinc_ucum" model="res.partner">  
+        <record id="base.loinc_ucum" model="res.partner">
             <field name="name">LOINC UCUM</field>
             <field name="company_type">company</field>
             <field name="website">https://loinc.org/usage/units</field>
@@ -147,18 +147,18 @@
             <field name="country_id" ref="base.us"/>
         </record>
 
-        <record id="base.loinc" model="res.partner">  
+        <record id="base.loinc" model="res.partner">
             <field name="name">LOINC (Logical Observation Identifiers Names and Codes)</field>
             <field name="company_type">company</field>
             <field name="website">https://loinc.org</field>
             <field name="notify_email">none</field>
-            <field name="comment">LOINC is a freely available international standard for tests, measurements, and observations. &#10;&#10;(Ref: https://loinc.org)   
+            <field name="comment">LOINC is a freely available international standard for tests, measurements, and observations. &#10;&#10;(Ref: https://loinc.org)
             </field>
             <field name="category_id" eval="[(6, 0, [ref('partner_source'), ref('partner_organization')])]"/>
             <field name="country_id" ref="base.us"/>
         </record>
 
-        <record id="base.nlm_umls" model="res.partner">  
+        <record id="base.nlm_umls" model="res.partner">
             <field name="name">UMLS Terminology Services</field>
             <field name="company_type">company</field>
             <field name="website">https://uts.nlm.nih.gov//uts.html</field>
@@ -168,17 +168,16 @@
             <field name="country_id" ref="base.us"/>
         </record>
 
-        <record id="base.oasis" model="res.partner">  
+        <record id="base.oasis" model="res.partner">
             <field name="name">OASIS (Organization for the Advancement of Structured Information Standards)</field>
             <field name="company_type">company</field>
             <field name="website">www.oasis.org</field>
-            <field name="comment">OASIS is the Organization for the Advancement of Structured Information Standards, a not-for-profit, international consortium that drives the development, convergence and adoption of open standards for the global information society. &#10;&#10;(Ref: https://www.oasis-open.org/org/faq)       
+            <field name="comment">OASIS is the Organization for the Advancement of Structured Information Standards, a not-for-profit, international consortium that drives the development, convergence and adoption of open standards for the global information society. &#10;&#10;(Ref: https://www.oasis-open.org/org/faq)
             </field>
             <field name="notify_email">none</field>
             <field name="category_id" eval="[(6, 0, [ref('partner_source'), ref('partner_organization')])]"/>
             <field name="country_id" ref="base.us"/>
         </record>
-    
+
     </data>
 </openerp>
-

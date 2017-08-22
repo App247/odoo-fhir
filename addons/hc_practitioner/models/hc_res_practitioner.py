@@ -5,6 +5,7 @@ from openerp import models, fields, api
 class Practitioner(models.Model):
     _name = "hc.res.practitioner"
     _description = "Practitioner"
+    _inherit = "hc.domain.resource"
     _inherits = {"hc.res.person": "person_id"}
     _rec_name = "name"
 
@@ -127,6 +128,16 @@ class PractitionerQualification(models.Model):
         comodel_name="hc.res.organization",
         string="Issuer",
         help="Organization that regulates and issues the qualification.")
+
+class PractitionerQualificationIdentifier(models.Model):
+    _name = "hc.practitioner.qualification.identifier"
+    _description = "Practitioner Qualification Identifier"
+    _inherit = ["hc.basic.association", "hc.identifier"]
+
+    qualification_id = fields.Many2one(
+        comodel_name="hc.practitioner.qualification",
+        string="Qualification",
+        help="Qualification associated with this Practitioner Qualification Identifier.")
 
 class PractitionerPractitionerRole(models.Model):
     _name = "hc.practitioner.practitioner.role"
@@ -262,16 +273,6 @@ class PractitionerLanguageProficiency(models.Model):
         comodel_name="hc.vs.language.skill",
         string="Language Skill",
         help="Language Skill associated with this Practitioner Language Proficiency.")
-
-class PractitionerQualificationIdentifier(models.Model):
-    _name = "hc.practitioner.qualification.identifier"
-    _description = "Practitioner Qualification Identifier"
-    _inherit = ["hc.basic.association", "hc.identifier"]
-
-    qualification_id = fields.Many2one(
-        comodel_name="hc.practitioner.qualification",
-        string="Qualification",
-        help="Qualification associated with this Practitioner Qualification Identifier.")
 
 class PractitionerQualification(models.Model):
     _name = "hc.vs.practitioner.qualification"

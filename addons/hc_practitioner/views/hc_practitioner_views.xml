@@ -48,10 +48,6 @@
                             <group>
                                 <field name="specialty_id"/>
                             </group>
-<!--                             <group string="Resource">
-                                <field name="identifier" string="Resource ID"/>
-                                <field name="meta_id" string="Profile URI"/>
-                            </group> -->
                         </group>
                         <notebook colspan="4">
                             <page string="Names">
@@ -270,6 +266,39 @@
                                                 <group>
                                                 </group>
                                             </group>
+                                            <notebook>
+                                                <page string="Identifiers">
+                                                    <field name="identifier_ids" mode="tree">
+                                                        <tree>
+                                                            <field name="is_preferred"/>
+                                                            <field name="name"/>
+                                                            <field name="value"/>
+                                                            <field name="code_id"/>
+                                                        </tree>
+                                                        <form>
+                                                            <sheet>
+                                                                <div>
+                                                                    <h1>
+                                                                        <field name="name" placeholder="Identifier"/>
+                                                                    </h1>
+                                                                </div>
+                                                                <group col="4" colspan="4">
+                                                                    <group>
+                                                                        <field name="value"/>
+                                                                        <field name="code_id"/>
+                                                                        <field name="is_preferred"/>
+                                                                        <field name="is_active"/>
+                                                                    </group>
+                                                                    <group>
+                                                                        <field name="start_date" placeholder="Valid From"/>
+                                                                        <field name="end_date" placeholder="Valid To"/>
+                                                                   </group>
+                                                                </group>
+                                                            </sheet>
+                                                        </form>
+                                                    </field>
+                                                </page>
+                                            </notebook>
                                         </sheet>
                                     </form>
                                 </field>
@@ -277,6 +306,21 @@
                             <page string="Roles">
                                 <field name="role_ids" mode="tree">
                                 </field>
+                            </page>
+                            <page string="Meta">
+                                <sheet>
+                                    <group>
+                                        <group string="Resource">
+                                            <field name="identifier"/>
+                                            <field name="meta_id" string="Profile URI"/>
+                                            <field name="language_id"/>
+                                            <field name="implicit_rules"/>
+                                        </group>
+                                        <group string="Domain Resource">
+                                            <field name="text_id"/>
+                                        </group>
+                                    </group>
+                                </sheet>
                             </page>
                         </notebook>
                     </sheet>

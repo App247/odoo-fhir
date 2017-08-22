@@ -293,7 +293,7 @@
                                 <sheet>
                                     <group>
                                         <group string="Resource">
-                                            <field name="identifier" string="Resource ID"/>
+                                            <field name="identifier"/>
                                             <field name="meta_id" string="Profile URI"/>
                                             <field name="language_id"/>
                                             <field name="implicit_rules"/>

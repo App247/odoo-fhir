@@ -8,7 +8,7 @@
             <field name="model">hc.res.bundle</field>
             <field name="arch" type="xml">
                 <search string="Bundles">
-                    <field name="name"/>
+                    <field name="identifier"/>
                     <field name="identifier_id"/>
                     <group string="Group By" >
                         <filter name="group_by_type" string="Type" context="{'group_by':'type'}"/>
@@ -22,7 +22,7 @@
             <field name="model">hc.res.bundle</field>
             <field name="arch" type="xml">
                 <tree string="Bundles">
-                    <field name="name"/>
+                    <field name="identifier"/>
                     <field name="identifier_id"/>
                     <field name="type"/>
                     <field name="total"/>
@@ -36,9 +36,6 @@
             <field name="arch" type="xml">
                 <form string="Bundle">
                     <sheet>
-                        <h1>
-                            <field name="name" default_focus="1" placeholder="Name"/>
-                        </h1>
                         <group>
                             <group string="Resource">
                                 <field name="identifier" string="Resource ID"/>

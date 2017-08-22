@@ -1,0 +1,1 @@
+from . import report_allergy_intolerance_observation

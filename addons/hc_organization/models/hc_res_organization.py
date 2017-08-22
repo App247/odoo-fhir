@@ -96,20 +96,6 @@ class OrganizationContact(models.Model):
         comodel_name="hc.vs.contact.entity.type",
         string="Purpose",
         help="The type of contact.")
-    name_id = fields.Many2one(
-        comodel_name="hc.organization.contact.name",
-        string="Name",
-        help="A name associated with the contact.")
-    telecom_ids = fields.One2many(
-        comodel_name="hc.organization.contact.telecom",
-        inverse_name="contact_id",
-        string="Telecoms",
-        help="Contact details (telephone, email, etc.) for the organization contact.")
-    address_ids = fields.One2many(
-        comodel_name="hc.organization.contact.address",
-        inverse_name="contact_id",
-        string="Addresses",
-        help="Visiting or postal addresses for the organization contact.")
 
 class OrganizationIdentifier(models.Model):
     _name = "hc.organization.identifier"
@@ -172,15 +158,18 @@ class OrganizationEndpoint(models.Model):
     _name = "hc.organization.endpoint"
     _description = "Organization Endpoint"
     _inherit = ["hc.basic.association"]
+    # _inherits = {"hc.res.endpoint": "endpoint_id"}
 
+    # endpoint_id = fields.Many2one(
+    #     comodel_name="hc.res.endpoint",
+    #     string="Endpoint",
+    #     required="True",
+    #     ondelete="restrict",
+    #     help="Endpoint associated with this Organization Endpoint.")
     organization_id = fields.Many2one(
         comodel_name="hc.res.organization",
         string="Organization",
         help="Organization associated with this Organization Endpoint.")
-    # endpoint_id = fields.Many2one(
-    #     comodel_name="hc.res.endpoint",
-    #     string="Endpoint",
-    #     help="Endpoint associated with this Organization Endpoint.")
 
 class OrganizationLocation(models.Model):
     _name = "hc.organization.location"
@@ -195,53 +184,6 @@ class OrganizationLocation(models.Model):
     #     comodel_name="hc.res.location",
     #     string="Location",
     #     help="Location associated with this Organization Location.")
-
-class OrganizationContactName(models.Model):
-    _name = "hc.organization.contact.name"
-    _description = "Organization Contact Name"
-    _inherit = ["hc.basic.association"]
-    _inherits = {"hc.human.name": "name_id"}
-
-    name_id = fields.Many2one(
-        comodel_name="hc.human.name",
-        string="Human Name",
-        required="True",
-        ondelete="restrict",
-        help="Human Name associated with this Organization Contact Name.")
-
-class OrganizationContactTelecom(models.Model):
-    _name = "hc.organization.contact.telecom"
-    _description = "Organization Contact Telecom"
-    _inherit = ["hc.contact.point.use"]
-    _inherits = {"hc.contact.point": "telecom_id"}
-
-    telecom_id = fields.Many2one(
-        comodel_name="hc.contact.point",
-        string="Telecom",
-        ondelete="restrict",
-        required="True",
-        help="Telecom associated with this Organization Contact Telecom.")
-    contact_id = fields.Many2one(
-        comodel_name="hc.organization.contact",
-        string="Contact",
-        help="Contact associated with this Organization Contact Telecom.")
-
-class OrganizationContactAddress(models.Model):
-    _name = "hc.organization.contact.address"
-    _description = "Organization Contact Address"
-    _inherit = ["hc.address.use"]
-    _inherits = {"hc.address": "address_id"}
-
-    address_id = fields.Many2one(
-        comodel_name="hc.address",
-        string="Address",
-        required="True",
-        ondelete="restrict",
-        help="Address associated with this Organization Contact Address.")
-    contact_id = fields.Many2one(
-        comodel_name="hc.organization.contact",
-        string="Organization Contact",
-        help="Organization Contact associated with this Organization Contact Address.")
 
 class OrganizationType(models.Model):
     _name = "hc.vs.organization.type"

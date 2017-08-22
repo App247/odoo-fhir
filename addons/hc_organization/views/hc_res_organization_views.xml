@@ -8,6 +8,11 @@
             <field name="model">hc.res.organization</field>
             <field name="arch" type="xml">
                 <search string="Organizations">
+                    <field name="name"/>
+                    <field name="is_active"/>
+                    <field name="type_id"/>
+                    <field name="part_of_id"/>
+                    <field name="company_id"/>
                 </search>
             </field>
         </record>
@@ -18,6 +23,10 @@
             <field name="arch" type="xml">
                 <tree string="Organizations">
                     <field name="name"/>
+                    <field name="is_active"/>
+                    <field name="type_id"/>
+                    <field name="part_of_id"/>
+                    <field name="company_id"/>
                 </tree>
             </field>
         </record>
@@ -34,6 +43,10 @@
                         <group>
                             <group>
                                 <field name="partner_id"/>
+                                <field name="is_active"/>
+                                <field name="type_id"/>
+                                <field name="part_of_id"/>
+                                <field name="company_id"/>
                             </group>
                             <group>
                             </group>
@@ -42,82 +55,82 @@
                             <page string="Contacts">
                                 <field name="contact_ids" mode="tree">
                                     <tree>
-                                        <field name="name_id"/>
+                                        <field name="person_id"/>
                                         <field name="purpose_id"/>
                                     </tree>
                                     <form>
                                         <sheet>
                                             <group>
                                                 <group>
-                                                    <field name="name_id"/>
+                                                    <field name="person_id"/>
                                                     <field name="purpose_id"/>
                                                 </group>
                                                 <group>
                                                 </group>
                                             </group>
+                                            <notebook>
+                                                <page string="Telecom">
+                                                    <field name="telecom_ids" mode="tree">
+                                                        <tree default_order="is_preferred,rank">
+                                                            <field name="is_preferred"/>
+                                                            <field name="rank"/>
+                                                            <field name="use"/>
+                                                            <field name="telecom_id"/>
+                                                            <field name="start_date"/>
+                                                            <field name="end_date"/>
+                                                        </tree>
+                                                        <form>
+                                                            <sheet>
+                                                                <h1>
+                                                                    <field name="telecom_id"/>
+                                                                </h1>
+                                                                <field name="use" widget="radio" options="{'horizontal': true}"/>
+                                                                <group>
+                                                                    <group>
+                                                                        <field name="rank"/>
+                                                                        <field name="is_preferred"/>
+                                                                        <field name="is_active"/>
+                                                                        <field name="start_date" placeholder="Valid From"/>
+                                                                        <field name="end_date" placeholder="Valid To"/>
+                                                                    </group>
+                                                                </group>
+                                                            </sheet>
+                                                        </form>
+                                                    </field>
+                                                </page>
+                                                <page string="Addresses">
+                                                    <field name="address_ids" mode="tree">
+                                                        <tree default_order="is_preferred">
+                                                            <field name="is_preferred"/>
+                                                            <field name="use"/>
+                                                            <field name="line1"/>
+                                                            <field name="line2"/>
+                                                            <field name="city_id"/>
+                                                            <field name="postal_code_id"/>
+                                                            <field name="country_id"/>
+                                                            <field name="start_date"/>
+                                                            <field name="end_date"/>
+                                                        </tree>
+                                                        <form>
+                                                            <sheet>
+                                                                <h1>
+                                                                    <field name="address_id" class="oe_no_button"/>
+                                                                </h1>
+                                                                <field name="use" widget="radio" options="{'horizontal': true}"/>
+                                                                <group>
+                                                                    <group>
+                                                                        <field name="is_preferred"/>
+                                                                        <field name="is_active"/>
+                                                                        <field name="start_date" placeholder="Valid From"/>
+                                                                        <field name="end_date" placeholder="Valid To"/>
+                                                                    </group>
+                                                                </group>
+                                                            </sheet>
+                                                        </form>
+                                                    </field>
+                                                </page>
+                                            </notebook>
                                         </sheet>
-                                        <notebook>
-                                            <page string="Telecom">
-                                                <field name="telecom_ids" mode="tree">
-                                                    <tree default_order="is_preferred,rank">
-                                                        <field name="is_preferred"/>
-                                                        <field name="rank"/>
-                                                        <field name="use"/>
-                                                        <field name="telecom_id"/>
-                                                        <field name="start_date"/>
-                                                        <field name="end_date"/>
-                                                    </tree>
-                                                    <form>
-                                                        <sheet>
-                                                            <h1>
-                                                                <field name="telecom_id"/>
-                                                            </h1>
-                                                            <field name="use" widget="radio" options="{'horizontal': true}"/>
-                                                            <group>
-                                                                <group>
-                                                                    <field name="rank"/>
-                                                                    <field name="is_preferred"/>
-                                                                    <field name="is_active"/>
-                                                                    <field name="start_date" placeholder="Valid From"/>
-                                                                    <field name="end_date" placeholder="Valid To"/>
-                                                                </group>
-                                                            </group>
-                                                        </sheet>
-                                                    </form>
-                                                </field>
-                                            </page>
-                                            <page string="Addresses">
-                                                <field name="address_ids" mode="tree">
-                                                    <tree default_order="is_preferred">
-                                                        <field name="is_preferred"/>
-                                                        <field name="use"/>
-                                                        <field name="line1"/>
-                                                        <field name="line2"/>
-                                                        <field name="city_id"/>
-                                                        <field name="postal_code_id"/>
-                                                        <field name="country_id"/>
-                                                        <field name="start_date"/>
-                                                        <field name="end_date"/>
-                                                    </tree>
-                                                    <form>
-                                                        <sheet>
-                                                            <h1>
-                                                                <field name="address_id" class="oe_no_button"/>
-                                                            </h1>
-                                                            <field name="use" widget="radio" options="{'horizontal': true}"/>
-                                                            <group>
-                                                                <group>
-                                                                    <field name="is_preferred"/>
-                                                                    <field name="is_active"/>
-                                                                    <field name="start_date" placeholder="Valid From"/>
-                                                                    <field name="end_date" placeholder="Valid To"/>
-                                                                </group>
-                                                            </group>
-                                                        </sheet>
-                                                    </form>
-                                                </field>
-                                            </page>
-                                        </notebook>
                                     </form>
                                 </field>
                             </page>
@@ -259,6 +272,21 @@
                                     </form>
                                 </field>
                             </page>
+                            <page string="Meta">
+                                <sheet>
+                                    <group>
+                                        <group string="Resource">
+                                            <field name="identifier"/>
+                                            <field name="meta_id" string="Profile URI"/>
+                                            <field name="language_id"/>
+                                            <field name="implicit_rules"/>
+                                        </group>
+                                        <group string="Domain Resource">
+                                            <field name="text_id"/>
+                                        </group>
+                                    </group>
+                                </sheet>
+                            </page>
                         </notebook>
                     </sheet>
                 </form>
@@ -282,7 +310,151 @@
                   groups="hc_base.group_hc_base_manager"
                   sequence="10"/>
 
-        <!-- External Referece -->
+        <!-- Organization Type Views -->
+
+        <record id="hc_vs_organization_type_view_search" model="ir.ui.view">
+            <field name="name">Organization Type Search</field>
+            <field name="model">hc.vs.organization.type</field>
+            <field name="arch" type="xml">
+                <search string="Organization Types">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                    <group>
+                        <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_vs_organization_type_view_tree" model="ir.ui.view">
+            <field name="name">Organization Type Tree</field>
+            <field name="model">hc.vs.organization.type</field>
+            <field name="arch" type="xml">
+                <tree string="Organization Types" default_order="name, code">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                    <field name="contains_id"/>
+                    <field name="source_id" invisible="0"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_vs_organization_type_view_form" model="ir.ui.view">
+            <field name="name">Organization Type Form</field>
+            <field name="model">hc.vs.organization.type</field>
+            <field name="arch" type="xml">
+                <form string="Organization Types">
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>
+                        </h1>
+                        <field name="code" placeholder="Code (e.g., biological)"/>
+                        <field name="definition" placeholder="Definition"/>
+                        <field name="comments" placeholder="Comments"/>
+                        <group>
+                            <group>
+                                <field name="contains_id"/>
+                            </group>
+                            <group>
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_vs_organization_type_action"
+                    name="HC Organization Types"
+                    res_model="hc.vs.organization.type"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <menuitem id="hc_organization.menu_org_type"
+                  name="Organization Types"
+                  parent="hc_organization.menu_org"
+                  action="hc_vs_organization_type_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="10"/>
+
+        <!-- Contact Entity Type Views -->
+
+        <record id="hc_vs_contact_entity_type_view_search" model="ir.ui.view">
+            <field name="name">Contact Entity Type Search</field>
+            <field name="model">hc.vs.contact.entity.type</field>
+            <field name="arch" type="xml">
+                <search string="Contact Entity Types">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                    <group>
+                        <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_vs_contact_entity_type_view_tree" model="ir.ui.view">
+            <field name="name">Contact Entity Type Tree</field>
+            <field name="model">hc.vs.contact.entity.type</field>
+            <field name="arch" type="xml">
+                <tree string="Contact Entity Types" default_order="name, code">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                    <field name="contains_id"/>
+                    <field name="source_id" invisible="0"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_vs_contact_entity_type_view_form" model="ir.ui.view">
+            <field name="name">Contact Entity Type Form</field>
+            <field name="model">hc.vs.contact.entity.type</field>
+            <field name="arch" type="xml">
+                <form string="Contact Entity Types">
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>
+                        </h1>
+                        <field name="code" placeholder="Code (e.g., biological)"/>
+                        <field name="definition" placeholder="Definition"/>
+                        <field name="comments" placeholder="Comments"/>
+                        <group>
+                            <group>
+                                <field name="contains_id"/>
+                            </group>
+                            <group>
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_vs_contact_entity_type_action"
+                    name="HC Contact Entity Types"
+                    res_model="hc.vs.contact.entity.type"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <menuitem id="hc_organization.menu_cont_enty_type"
+                  name="Contact Entity Types"
+                  parent="hc_organization.menu_org"
+                  action="hc_vs_contact_entity_type_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="20"/>
+
+        <!-- External Reference -->
 
         <record id="hc_vs_identifier_code_view_form_inherited" model="ir.ui.view">
             <field name="name">Identifier Code Form Inherit</field>
