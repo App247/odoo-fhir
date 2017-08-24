@@ -238,9 +238,18 @@ class Procedure(models.Model):
         'Period End Date SHALL not be before than Period Start Date.')
         ]
 
-    @api.depends('performed_date_type')
+    @api.depends('performed_date_type', 'performed_date_date_time', 'performed_date_string', 'performed_date_age', 'performed_date_range_low', 'performed_date_range_high','performed_date_start_date', 'performed_date_end_date', 'performed_date_range_uom_id')
     def _compute_performed_date_name(self):
         for hc_res_procedure in self:
+            hc_res_procedure.performed_date_date_time = False
+            hc_res_procedure.performed_date_string = ''
+            hc_res_procedure.performed_date_age = 0
+            hc_res_procedure.performed_date_age_uom_id = False
+            hc_res_procedure.performed_date_range_low = 0
+            hc_res_procedure.performed_date_range_high = 0
+            hc_res_procedure.performed_date_start_date = False
+            hc_res_procedure.performed_date_end_date = False
+            hc_res_procedure.performed_date_range_uom_id = False
             if hc_res_procedure.performed_date_type == 'date_time':
                 hc_res_procedure.performed_date_name = str(hc_res_procedure.performed_date_date_time)
             elif hc_res_procedure.performed_date_type == 'period':
@@ -250,7 +259,7 @@ class Procedure(models.Model):
             elif hc_res_procedure.performed_date_type == 'age':
                 hc_res_procedure.performed_date_name = str(hc_res_procedure.performed_date_age) + " " + str(hc_res_procedure.performed_date_age_uom_id.name) + "s old"
             elif hc_res_procedure.performed_date_type == 'range':
-                hc_res_procedure.performed_date_name = "Between " + str(hc_res_procedure.performed_date_range_low) + " and " + str(hc_res_procedure.performed_date_range_high) + " " + str(hc_res_procedure.performed_date_range_uom_id.name) + "s ago"
+                hc_res_procedure.performed_date_name = 'Between ' + str(hc_res_procedure.performed_date_range_low) + ' and ' + str(hc_res_procedure.performed_date_range_high) + " " + str(hc_res_procedure.performed_date_range_uom_id.name) + "s ago"
 
     @api.depends('subject_patient_id', 'subject_group_id', 'code_id', 'performed_date_name')
     def _compute_name(self):
@@ -259,14 +268,14 @@ class Procedure(models.Model):
             if hc_res_procedure.subject_type == 'patient':
                 comp_name = hc_res_procedure.subject_patient_id.name
                 if hc_res_procedure.subject_patient_id.birth_date:
-                    subject_patient_birth_date = datetime.strftime(datetime.strptime(hc_res_procedure.subject_patient_id.birth_date, DF), "%Y-%m-%d")
-                    comp_name = comp_name + "("+ subject_patient_birth_date + ")"
+                    subject_patient_birth_date = datetime.strftime(datetime.strptime(hc_res_procedure.subject_patient_id.birth_date, DF), '%Y-%m-%d')
+                    comp_name = comp_name + '('+ subject_patient_birth_date + ')'
             if hc_res_procedure.subject_type == 'group':
                 comp_name = hc_res_procedure.subject_group_id.name
             if hc_res_procedure.code_id:
-                comp_name = comp_name + ", " + hc_res_procedure.code_id.name or ''
+                comp_name = comp_name + ', ' + hc_res_procedure.code_id.name or ''
             if hc_res_procedure.performed_date_name:
-                comp_name = comp_name + ", " + str(hc_res_procedure.performed_date_name) or ''
+                comp_name = comp_name + ', ' + str(hc_res_procedure.performed_date_name) or ''
             hc_res_procedure.name = comp_name
 
     @api.depends('subject_type')
