@@ -1,7 +1,7 @@
 from openerp import api, fields, models
 
 class allergy_intolerance_observation(models.AbstractModel):
-    _name = 'report.hc_allergy_intolerance.report_allergy_intolerance_observation'
+    _name = 'report.hc_allergy_intolerance.report_allergy_observation'
 
     @api.multi
     def get_manifestation(self, manifestation_ids):
@@ -23,4 +23,4 @@ class allergy_intolerance_observation(models.AbstractModel):
                    'docs': docs,
                    'get_manifestation': self.get_manifestation,
                    }
-        return self.env['report'].render('hc_allergy_intolerance.report_allergy_intolerance_observation', docargs)
+        return self.env['report'].render('hc_allergy_intolerance.report_allergy_observation', docargs)

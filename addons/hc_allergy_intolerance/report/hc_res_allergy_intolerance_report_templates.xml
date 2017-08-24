@@ -1,7 +1,7 @@
 <odoo>
 
     <!-- Report template for Qweb report of Allergy Intolerance Observation -->
-    <template id="report_allergy_intolerance_observation">
+    <template id="report_allergy_observation">
         <t>
             <t t-call="report.external_layout">
                 <t t-foreach="docs" t-as="o">
@@ -170,7 +170,9 @@
                                         <b>Duration: </b><span t-field="reaction.duration"/>
                                     </td>
                                     <td width="50%">
-                                        <b>Manifestations: </b><span t-esc="get_manifestation(reaction.manifestation_ids)"/>
+                                        <b>Manifestations: </b>
+                                        <!-- <span t-field="reaction.manifestation_ids.name"/> -->
+                                        <span t-esc="get_manifestation(reaction.manifestation_ids)"/>
                                     </td>
                                 </tr>
                                 <tr>
