@@ -183,12 +183,41 @@
                                         <b>Exposure Route: </b><span t-field="reaction.exposure_route_id.name"/>
                                     </td>
                                 </tr>
-                                <table class="table table-condensed" t-foreach="o.note_ids" t-as="note">
-                                    <tr>
-                                        <td>
-                                            <b>Text: </b><span t-field="note.text"/>
-                                        </td>
-                                    </tr>
+                                <table class="table table-condensed" t-foreach="reaction.note_ids" t-as="note">
+                                    <thead>
+                                        <tr style="font-size: 14px; font-weight: bold; color: #337ab7">
+                                            <td>
+                                                <b>Note: </b>
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <b>Name: </b><span t-field="note.name"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <b>Text: </b><span t-field="note.text"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <b>Author: </b><span t-field="note.author_name"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <b>Author Type: </b><span t-field="note.author_type"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <b>Recorded Date: </b><span t-field="note.start_date"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
                                 </table>
                             </tbody>
                         </table>

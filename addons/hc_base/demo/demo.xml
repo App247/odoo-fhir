@@ -35,7 +35,7 @@
 
          <record id="base.main_company" model="res.company">
             <field name="name">Fiore Health</field>
-            <field name="partner_id" ref="main_partner"/>
+            <field name="partner_id" ref="base.main_partner"/>
             <field name="rml_header1">Health and Wellness for All</field>
             <field name="currency_id" ref="base.US"/>
         </record>

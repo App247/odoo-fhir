@@ -118,6 +118,27 @@ netstat -l # Check network status.
 iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 8069 #Reroute from port 80 to port 8069
 iptables -t nat -L # Check status
 ```
+* Enable proxy modules to suport different network protocols
+```
+a2enmod proxy # the main proxy module Apache module for redirecting connections; it allows Apache to act as a gateway to the underlying application servers
+a2enmod proxy_http # adds support for proxying HTTP connections
+systemctl restart apache2 # To put changes into effect
+```
+* Modify Config File
+```
+nano /etc/apache2/sites-available/000-default.conf
+```
+Inside config file, you will find the <VirtualHost *:80> block starting on the first line. Replace all the contents within VirtualHost block with the following, so your configuration file looks like this:
+```
+	<VirtualHost *:80>
+	    ProxyPreserveHost On
+
+	    ProxyPass / http://127.0.0.1:8069/
+	    ProxyPassReverse / http://127.0.0.1:8069/
+	</VirtualHost>
+```
+```systemctl restart apache2 # To put changes into effect```
+
 * Troubleshooting
 
 - Find out if Odoo has errors
