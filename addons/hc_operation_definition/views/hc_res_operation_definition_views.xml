@@ -1,9 +1,9 @@
 <openerp>
     <data>
 
-        <!-- Operation Definition Action and Menu -->   
-    
-        <act_window id="hc_res_operation_definition_action" 
+        <!-- Operation Definition Action and Menu -->
+
+        <act_window id="hc_res_operation_definition_action"
                     name="HC Operation Definitions"
                     res_model="hc.res.operation.definition"
                     view_mode="tree,form"
@@ -11,11 +11,11 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_operation_definition.menu_ops_defn" 
-                  name="Operation Definitions" 
-                  parent="hc_base.menu_conf" 
-                  action="hc_res_operation_definition_action" 
-                  groups="hc_base.group_hc_base_manager" 
+        <menuitem id="hc_operation_definition.menu_ops_defn"
+                  name="Operation Definitions"
+                  parent="hc_base.menu_conf"
+                  action="hc_res_operation_definition_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="60"/>
 
     </data>

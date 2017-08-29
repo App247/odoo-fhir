@@ -153,10 +153,10 @@
 
         <menuitem id="hc_catalog_entry.menu_cat_ent"
                   name="Catalog Entries"
-                  parent="hc_base.menu_doc_quest"
+                  parent="hc_base.menu_doc"
                   action="hc_res_catalog_entry_action"
                   groups="hc_base.group_hc_base_manager"
-                  sequence="35"/>
+                  sequence="40"/>
 
       </data>
 </odoo>

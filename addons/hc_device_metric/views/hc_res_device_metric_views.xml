@@ -1,21 +1,21 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Device Metric Views -->
 
-        <record id="hc_res_device_metric_view_search" model="ir.ui.view">                                       
-            <field name="name">Device Metric Search</field>                                 
-            <field name="model">hc.res.device.metric</field>                                    
-            <field name="arch" type="xml">                                  
-                <search string="Device Metrics">                                
-                </search>                               
-            </field>                                    
-        </record>                                       
-                                                
-        <record id="hc_res_device_metric_view_tree" model="ir.ui.view">                                     
-            <field name="name">Device Metric Tree</field>                                   
-            <field name="model">hc.res.device.metric</field>                                    
-            <field name="arch" type="xml">                                  
+        <record id="hc_res_device_metric_view_search" model="ir.ui.view">
+            <field name="name">Device Metric Search</field>
+            <field name="model">hc.res.device.metric</field>
+            <field name="arch" type="xml">
+                <search string="Device Metrics">
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_res_device_metric_view_tree" model="ir.ui.view">
+            <field name="name">Device Metric Tree</field>
+            <field name="model">hc.res.device.metric</field>
+            <field name="arch" type="xml">
                 <tree string="Device Metrics">
                     <field name="name"/>
                     <field name="identifier_id"/>
@@ -23,28 +23,28 @@
                     <field name="unit_id"/>
                     <field name="operational_status"/>
                     <field name="last_calibration_time"/>
-                </tree>                             
-            </field>                                    
-        </record>                                       
-                                                
-        <record id="hc_res_device_metric_view_form" model="ir.ui.view">                                     
-            <field name="name">Device Metric Form</field>                                   
-            <field name="model">hc.res.device.metric</field>                                    
-            <field name="arch" type="xml">                                  
-                <form string="Device Metric">                               
-                    <sheet>                         
-                        <h1>                        
-                            <field name="name" default_focus="1" placeholder="Name"/>                   
-                        </h1>                       
-                        <group>                     
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_res_device_metric_view_form" model="ir.ui.view">
+            <field name="name">Device Metric Form</field>
+            <field name="model">hc.res.device.metric</field>
+            <field name="arch" type="xml">
+                <form string="Device Metric">
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name"/>
+                        </h1>
+                        <group>
                             <group string="Event">
                                 <field name="identifier_id"/>
                                 <field name="type_id"/>
                                 <field name="unit_id"/>
                                 <field name="last_calibration_time"/>
-                            </group>                    
+                            </group>
                             <group string="Status">
-                                <field name="operational_status"/>                 
+                                <field name="operational_status"/>
                             </group>
                             <group string="Characteristic">
                                 <field name="color"/>
@@ -54,19 +54,19 @@
                             </group>
                             <group string="Timeline">
                                 <field name="measurement_period_id"/>
-                            </group>                    
-                        </group>                        
-                        <notebook>                      
-                            <page string="Calibrations">                 
-                                <field name="calibration_ids" mode="tree">               
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Calibrations">
+                                <field name="calibration_ids" mode="tree">
                                     <tree>
                                         <field name="type"/>
                                         <field name="state"/>
                                         <field name="time"/>
-                                    </tree>         
-                                    <form>          
-                                        <sheet>     
-                                            <group> 
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
                                                 <group>
                                                     <field name="type"/>
                                                     <field name="state"/>
@@ -74,18 +74,18 @@
                                                 </group>
                                                 <group>
                                                 </group>
-                                            </group>    
-                                        </sheet>        
-                                    </form>         
-                                </field>                
-                            </page>                 
-                        </notebook>                     
-                    </sheet>                            
-                </form>                             
-            </field>                                    
-        </record>                                       
-  
-        <act_window id="hc_res_device_metric_action"    
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_res_device_metric_action"
                     name="HC Device Metrics"
                     res_model="hc.res.device.metric"
                     view_mode="tree,form"
@@ -93,12 +93,12 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_device_metric.menu_dev_metric" 
-                  name="Device Metrics" 
-                  parent="hc_base.menu_dev" 
-                  action="hc_res_device_metric_action" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="30"/>
+        <menuitem id="hc_device_metric.menu_dev_metric"
+                  name="Device Metrics"
+                  parent="hc_base.menu_entity"
+                  action="hc_res_device_metric_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="80"/>
 
     </data>
-</openerp>
+</odoo>

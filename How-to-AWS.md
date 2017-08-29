@@ -1,17 +1,17 @@
 # Initialize
 
-1 Create instance
+## 1 Create instance
 
 * Go to [EC2 Instances Console](https://us-west-2.console.aws.amazon.com/ec2/v2/home)
 * Select **Launch Instance**
 * Choose an Amazon Machine Image (AMI) - Ubuntu Server
-* Choose an Instance Type - t2.small
+* Choose an Instance Type - **t2.small**
 * Select **Review and Launch**, Select **Launch**
 * Select an existing key pair - **Moxylus**
 * Select **View Instances**
 
 
-2 Assign security group
+## 2 Assign security group
 
 * Go to EC2 NETWORK & SECURITY>Security Groups
 * Create Security Group
@@ -23,7 +23,7 @@
 - Go to INSTANCES>Instances>Actons>Networking>Change Security Groups
 - Select Security Group Name and click **Assign Security Groups**
 
-3 Assign fixed address - elastic IP
+## 3 Assign fixed address - elastic IP
 
 * Go to EC2 NETWORK & SECURITY>Security Groups>Elastic IPs
 * Create address
@@ -130,14 +130,16 @@ nano /etc/apache2/sites-available/000-default.conf
 ```
 Inside config file, you will find the <VirtualHost *:80> block starting on the first line. Replace all the contents within VirtualHost block with the following, so your configuration file looks like this:
 ```
-	<VirtualHost *:80>
-	    ProxyPreserveHost On
+<VirtualHost *:80>
+    ProxyPreserveHost On
 
-	    ProxyPass / http://127.0.0.1:8069/
-	    ProxyPassReverse / http://127.0.0.1:8069/
-	</VirtualHost>
+    ProxyPass / http://127.0.0.1:8069/
+    ProxyPassReverse / http://127.0.0.1:8069/
+</VirtualHost>
 ```
-```systemctl restart apache2 # To put changes into effect```
+```
+systemctl restart apache2 # To put changes into effect
+```
 
 * Troubleshooting
 

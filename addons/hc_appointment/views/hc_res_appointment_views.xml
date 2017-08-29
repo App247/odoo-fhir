@@ -1,13 +1,13 @@
-<openerp>
+<odoo>
     <data>
 
-        <!-- Appointment Views -->                
-                
-        <record id="hc_res_appointment_view_search" model="ir.ui.view">         
-            <field name="name">Appointment Search</field>      
-            <field name="model">hc.res.appointment</field>      
-            <field name="arch" type="xml">      
-                <search string=" Appointments"> 
+        <!-- Appointment Views -->
+
+        <record id="hc_res_appointment_view_search" model="ir.ui.view">
+            <field name="name">Appointment Search</field>
+            <field name="model">hc.res.appointment</field>
+            <field name="arch" type="xml">
+                <search string=" Appointments">
                     <field name="description"/>
                     <field name="status"/>
                     <field name="service_category_id"/>
@@ -16,70 +16,70 @@
                     <field name="appointment_type_id"/>
                     <field name="reason_ids"/>
                     <field name="priority"/>
-                </search>   
-            </field>        
-        </record>           
-               
-        <record id="hc_res_appointment_view_tree" model="ir.ui.view">           
-            <field name="name">Appointment Tree</field>        
-            <field name="model">hc.res.appointment</field>      
-            <field name="arch" type="xml">      
-                <tree string=" Appointments" default_order="priority, description">    
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_res_appointment_view_tree" model="ir.ui.view">
+            <field name="name">Appointment Tree</field>
+            <field name="model">hc.res.appointment</field>
+            <field name="arch" type="xml">
+                <tree string=" Appointments" default_order="priority, description">
                     <field name="priority"/>
                     <field name="description"/>
                     <field name="status"/>
                     <field name="start"/>
                     <field name="end"/>
-                </tree> 
-            </field>        
-        </record>           
-               
-        <record id="hc_res_appointment_view_form" model="ir.ui.view">                                                   
-            <field name="name">Appointment Form</field>                                             
-            <field name="model">hc.res.appointment</field>                                              
-            <field name="arch" type="xml">                                              
-                <form string="Appointment">                                         
-                    <sheet>                                     
-                        <!-- <div class="oe_title oe_left"> -->                                  
-                            <h1>                                
-                                <field name="description" default_focus="1" placeholder="Description (e.g., Check-up)"/>                            
-                            </h1>                               
-                        <!-- </div>  -->                                 
-                        <group>                                 
-                            <group>                             
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_res_appointment_view_form" model="ir.ui.view">
+            <field name="name">Appointment Form</field>
+            <field name="model">hc.res.appointment</field>
+            <field name="arch" type="xml">
+                <form string="Appointment">
+                    <sheet>
+                        <!-- <div class="oe_title oe_left"> -->
+                            <h1>
+                                <field name="description" default_focus="1" placeholder="Description (e.g., Check-up)"/>
+                            </h1>
+                        <!-- </div>  -->
+                        <group>
+                            <group>
                                     <field name="created"/>
-                                    <field name="status"/>                     
-                                    <field name="service_category_id"/>                        
+                                    <field name="status"/>
+                                    <field name="service_category_id"/>
                                     <field name="service_type_ids"  widget="many2many_tags"/>
-                                    <field name="specialty_ids" widget="many2many_tags"/>                        
-                            </group>                                
-                            <group>                             
-                                    <field name="appointment_type_id"/>                       
+                                    <field name="specialty_ids" widget="many2many_tags"/>
+                            </group>
+                            <group>
+                                    <field name="appointment_type_id"/>
                                     <field name="reason_ids" widget="many2many_tags"/>
                                     <field name="priority"/>
                                     <field name="start"/>
                                     <field name="end"/>
                                     <field name="minutes_duration"/>
                                     <field name="comment"/>
-                            </group>                                
-                        </group>                                    
+                            </group>
+                        </group>
                         <notebook colspan="4">
-                            <page string="Participants">                        
-                                <field name="participant_ids" mode="tree">                 
-                                    <tree>              
+                            <page string="Participants">
+                                <field name="participant_ids" mode="tree">
+                                    <tree>
                                         <field name="actor_name"/>
-                                        <field name="actor_type"/>          
-                                        <field name="required"/>            
-                                        <field name="status"/>          
-                                    </tree>             
-                                    <form>              
-                                        <sheet>         
-                                            <div>     
-                                                <h1>    
+                                        <field name="actor_type"/>
+                                        <field name="required"/>
+                                        <field name="status"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <div>
+                                                <h1>
                                                     <field name="actor_name" readonly="1"/>
-                                                </h1>   
-                                            </div>      
-                                            <group>     
+                                                </h1>
+                                            </div>
+                                            <group>
                                                 <group>
                                                     <field name="required" widget="radio"/>
                                                     <field name="status" widget="radio"/>
@@ -90,128 +90,128 @@
                                                     <field name="actor_device_id" class="oe_edit_only" attrs="{'invisible': [('actor_type','!=','device')], 'required': [('actor_type','=','device')]}"/>
                                                     <field name="actor_healthcare_service_id" class="oe_edit_only" attrs="{'invisible': [('actor_type','!=','healthcare_service')], 'required': [('actor_type','=','healthcare_service')]}"/>
                                                     <field name="actor_location_id" class="oe_edit_only" attrs="{'invisible': [('actor_type','!=','location')], 'required': [('actor_type','=','location')]}"/>
-                                                    <field name="type_ids" widget="many2many_tags"/> 
-                                                </group>    
-                                            </group>        
-                                        </sheet>            
-                                    </form>             
-                                </field>                    
-                            </page>                            
-                            <page string="Indications">                     
-                                <field name="indication_ids" mode="tree">                   
-                                    <tree>              
-                                        <field name="indication_name"/>         
-                                        <field name="indication_type"/>         
-                                    </tree>             
-                                    <form>              
-                                        <sheet>         
-                                            <div class="oe_title oe_left">      
-                                                <h1>    
+                                                    <field name="type_ids" widget="many2many_tags"/>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Indications">
+                                <field name="indication_ids" mode="tree">
+                                    <tree>
+                                        <field name="indication_name"/>
+                                        <field name="indication_type"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <div class="oe_title oe_left">
+                                                <h1>
                                                     <field name="indication_name" readonly="1"/>
-                                                </h1>   
-                                            </div>      
-                                            <group> 
+                                                </h1>
+                                            </div>
+                                            <group>
                                                 <field name="indication_type"/>
                                                 <!-- <field name="indication_condition_id" class="oe_edit_only" attrs="{'invisible': [('indication_type','!=','condition')]}"/> -->
                                                 <!-- <field name="indication_procedure_id" class="oe_edit_only" attrs="{'invisible': [('indication_type','!=','procedure')]}"/> -->
-                                            </group>    
-                                        </sheet>            
-                                    </form>             
-                                </field>                    
-                            </page>                              
-                            <page string="Supporting Information">                      
-                                <field name="supporting_information_ids" mode="tree">                   
-                                    <tree>              
-                                        <field name="supporting_information_name"/>         
-                                        <field name="supporting_information_type"/>         
-                                    </tree>             
-                                    <form>              
-                                        <sheet>    
-                                            <group> 
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Supporting Information">
+                                <field name="supporting_information_ids" mode="tree">
+                                    <tree>
+                                        <field name="supporting_information_name"/>
+                                        <field name="supporting_information_type"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
                                                 <field name="supporting_information_name"/>
                                                 <field name="supporting_information_type"/>
-                                            </group>            
-                                        </sheet>            
-                                    </form>             
-                                </field>                    
-                            </page>                     
-                            <page string="Slots">                       
-                                <field name="slot_ids" mode="tree">                 
-                                    <tree>              
-                                        <field name="slot_id"/>         
-                                    </tree>             
-                                    <form>              
-                                        <sheet>         
-                                            <group> 
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Slots">
+                                <field name="slot_ids" mode="tree">
+                                    <tree>
+                                        <field name="slot_id"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
                                                 <field name="slot_id"/>
-                                            </group>    
-                                        </sheet>            
-                                    </form>             
-                                </field>                    
-                            </page>                                                    
-                            <page string="Requested Periods">                      
-                                <field name="requested_period_ids" mode="tree">                 
-                                    <tree>              
-                                        <field name="start_date"/>          
-                                        <field name="end_date"/>            
-                                    </tree>             
-                                    <form>              
-                                        <sheet>             
-                                            <group> 
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Requested Periods">
+                                <field name="requested_period_ids" mode="tree">
+                                    <tree>
+                                        <field name="start_date"/>
+                                        <field name="end_date"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
                                                 <field name="start_date"/>
                                                 <field name="end_date"/>
-                                            </group>           
-                                        </sheet>            
-                                    </form>             
-                                </field>                    
-                            </page>                     
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
                             <page string="Incoming Referrals"/>
-                            <!-- <page string="Incoming Referrals">                      
-                                <field name="incoming_referral_ids" mode="tree">                    
-                                    <tree>              
-                                        <field name="incoming_referral_id"/>            
-                                    </tree>             
-                                    <form>              
-                                        <sheet>         
-                                            <div class="oe_title oe_left">      
-                                                <h1>    
+                            <!-- <page string="Incoming Referrals">
+                                <field name="incoming_referral_ids" mode="tree">
+                                    <tree>
+                                        <field name="incoming_referral_id"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <div class="oe_title oe_left">
+                                                <h1>
                                                     <field name="incoming_referral_id"/>
-                                                </h1>   
+                                                </h1>
                                             </div>
-                                        </sheet>            
-                                    </form>             
-                                </field>                    
-                            </page>  -->                    
-                            <page string="Identifiers">                     
-                                <field name="identifier_ids" mode="tree">                   
-                                    <tree>              
-                                        <field name="is_preferred"/>            
-                                        <field name="name"/>            
-                                        <field name="value"/>           
-                                        <field name="type_id"/>         
-                                    </tree>             
-                                    <form>              
-                                        <sheet>         
-                                            <div class="oe_title oe_left">      
-                                                <h1>    
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>  -->
+                            <page string="Identifiers">
+                                <field name="identifier_ids" mode="tree">
+                                    <tree>
+                                        <field name="is_preferred"/>
+                                        <field name="name"/>
+                                        <field name="value"/>
+                                        <field name="type_id"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <div class="oe_title oe_left">
+                                                <h1>
                                                     <field name="name" placeholder="Identifier"/>
-                                                </h1>   
-                                            </div>      
-                                            <group>     
-                                                <group> 
+                                                </h1>
+                                            </div>
+                                            <group>
+                                                <group>
                                                     <field name="value"/>
                                                     <field name="type_id"/>
                                                     <field name="is_preferred"/>
                                                     <field name="is_active"/>
-                                                </group>    
-                                                <group> 
+                                                </group>
+                                                <group>
                                                     <field name="start_date" placeholder="Valid From"/>
                                                     <field name="end_date" placeholder="Valid To"/>
-                                                </group>    
-                                            </group>        
-                                        </sheet>            
-                                    </form>             
-                                </field>                    
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
                             </page>
                             <page string="Status History">
                                 <field name="status_history_ids" mode="tree">
@@ -226,16 +226,16 @@
                                         <field name="write_uid" invisible="0"/>
                                     </tree>
                                 </field>
-                            </page>                                          
-                        </notebook>                                 
-                    </sheet>                                        
-                </form>                                         
-            </field>                                                
-        </record>                                                   
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
-        <!-- Appointment Action and Menu -->    
-    
-        <act_window id="hc_res_appointment_action"  
+        <!-- Appointment Action and Menu -->
+
+        <act_window id="hc_res_appointment_action"
                     name="HC Appointments"
                     res_model="hc.res.appointment"
                     view_mode="tree,form"
@@ -243,13 +243,13 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_appointment.menu_appt" 
+        <menuitem id="hc_appointment.menu_appt"
                   name="Appointments"
-                  web_icon="hc_appointment,static/description/icon.png"  
-                  parent="hc_base.menu_work_sched" 
-                  action="hc_res_appointment_action" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="30"/>
+                  web_icon="hc_appointment,static/description/icon.png"
+                  parent="hc_base.menu_work"
+                  action="hc_res_appointment_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="20"/>
 
     </data>
-</openerp>
+</odoo>

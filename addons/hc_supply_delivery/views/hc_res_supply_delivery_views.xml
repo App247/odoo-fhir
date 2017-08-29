@@ -1,9 +1,9 @@
-<openerp>
+<odoo>
     <data>
 
-        <!-- Supply Delivery Action and Menu -->  
-      
-        <act_window id="hc_res_supply_delivery_action"  
+        <!-- Supply Delivery Action and Menu -->
+
+        <act_window id="hc_res_supply_delivery_action"
                     name="HC Supply Deliveries"
                     res_model="hc.res.supply.delivery"
                     view_mode="tree,form"
@@ -11,12 +11,12 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_supply_delivery.menu_supply_del" 
-                  name="Supply Deliveries" 
-                  parent="hc_base.menu_work_event_1" 
-                  action="hc_res_supply_delivery_action" 
-                  groups="hc_base.group_hc_base_manager" 
+        <menuitem id="hc_supply_delivery.menu_supply_del"
+                  name="Supply Deliveries"
+                  parent="hc_base.menu_clinic_req"
+                  action="hc_res_supply_delivery_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="60"/>
 
     </data>
-</openerp>
+</odoo>

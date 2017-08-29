@@ -11,13 +11,13 @@
 
         **Scope and Usage**
 
-        A MedicationStatement may indicate that the patient may be taking the medication now, 
-        or has taken the medication in the past or will be taking the medication in the future. 
-        The source of this information can be the patient, significant other (such as a family 
-        member or spouse), or a clinician. 
+        A MedicationStatement may indicate that the patient may be taking the medication now,
+        or has taken the medication in the past or will be taking the medication in the future.
+        The source of this information can be the patient, significant other (such as a family
+        member or spouse), or a clinician.
 
-        A common scenario where this information is captured is during the history taking process 
-        during a patient visit or stay. The medication information may come from e.g. the patient's memory, 
+        A common scenario where this information is captured is during the history taking process
+        during a patient visit or stay. The medication information may come from e.g. the patient's memory,
         from a prescription bottle, or from a list of medications the patient, clinician or other party maintains.
     """,
 
@@ -31,7 +31,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['hc_referral_request'],
+    'depends': ['hc_medication_request'],
 
     # always loaded
     'data': [

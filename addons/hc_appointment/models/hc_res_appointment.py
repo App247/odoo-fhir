@@ -435,9 +435,9 @@ class AppointmentIncomingReferral(models.Model):
         string="Appointment",
         help="Appointment associated with this Appointment Incoming Referral.")
     # incoming_referral_id = fields.Many2one(
-    #     comodel_name="hc.res.referral.request",
+    #     comodel_name="hc.res.procedure.request",
     #     string="Incoming Referral",
-    #     help="The ReferralRequest provided as information to allocate to the Encounter.")
+    #     help="The ProcedureRequest provided as information to allocate to the Encounter.")
 
 class AppointmentRequestedPeriod(models.Model):
     _name = "hc.appointment.requested.period"

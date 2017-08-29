@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hc_event_definition_hc_res_event_definition_user,hc.event.definition.hc.res.event.definition.user,model_hc_res_event_definition,hc_base.group_hc_base_user,1,0,0,0
+access_hc_event_definition_hc_event_definition_identifier_user,hc.event.definition.hc.event.definition.identifier.user,model_hc_event_definition_identifier,hc_base.group_hc_base_user,1,0,0,0
+access_hc_event_definition_hc_event_definition_use_context_user,hc.event.definition.hc.event.definition.use.context.user,model_hc_event_definition_use_context,hc_base.group_hc_base_user,1,0,0,0
+access_hc_event_definition_hc_event_definition_contributor_user,hc.event.definition.hc.event.definition.contributor.user,model_hc_event_definition_contributor,hc_base.group_hc_base_user,1,0,0,0
+access_hc_event_definition_hc_event_definition_contact_user,hc.event.definition.hc.event.definition.contact.user,model_hc_event_definition_contact,hc_base.group_hc_base_user,1,0,0,0
+access_hc_event_definition_hc_event_definition_related_artifact_user,hc.event.definition.hc.event.definition.related.artifact.user,model_hc_event_definition_related_artifact,hc_base.group_hc_base_user,1,0,0,0
+access_hc_event_definition_hc_event_definition_trigger_user,hc.event.definition.hc.event.definition.trigger.user,model_hc_event_definition_trigger,hc_base.group_hc_base_user,1,0,0,0

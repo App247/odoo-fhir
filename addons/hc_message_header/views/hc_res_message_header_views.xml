@@ -1,9 +1,9 @@
 <openerp>
     <data>
 
-        <!-- Message Header Action and Menu --> 
-    
-        <act_window id="hc_res_message_header_action"   
+        <!-- Message Header Action and Menu -->
+
+        <act_window id="hc_res_message_header_action"
                     name="HC Message Headers"
                     res_model="hc.res.message.header"
                     view_mode="tree,form"
@@ -11,10 +11,12 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_message_header.menu_msg_hdr" 
-                  name="Message Headers" 
-                  parent="hc_base.menu_exch" 
-                  action="hc_res_message_header_action" groups="hc_base.group_hc_base_manager" sequence="40"/>
+        <menuitem id="hc_message_header.menu_msg_hdr"
+                  name="Message Headers"
+                  parent="hc_base.menu_other"
+                  action="hc_res_message_header_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="60"/>
 
     </data>
 </openerp>

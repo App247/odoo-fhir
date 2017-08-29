@@ -1,67 +1,67 @@
 <openerp>
     <data>
-    
+
         <!-- Immunization Views -->
 
-        <record id="hc_res_immunization_view_search" model="ir.ui.view">         
-            <field name="name">Immunization Search</field>       
-            <field name="model">hc.res.immunization</field>      
-            <field name="arch" type="xml">      
+        <record id="hc_res_immunization_view_search" model="ir.ui.view">
+            <field name="name">Immunization Search</field>
+            <field name="model">hc.res.immunization</field>
+            <field name="arch" type="xml">
                 <search string="Immunizations">
-                    <field name="name"/>  
-                </search>   
-            </field>        
-        </record>           
-                    
-        <record id="hc_res_immunization_view_tree" model="ir.ui.view">           
-            <field name="name">Immunization Tree</field>     
-            <field name="model">hc.res.immunization</field>      
-            <field name="arch" type="xml">      
-                <tree string="Immunizations">    
                     <field name="name"/>
-                </tree> 
-            </field>        
-        </record>           
-    
-        <record id="hc_res_immunization_view_form" model="ir.ui.view">                                     
-            <field name="name">Immunization Form</field>                                   
-            <field name="model">hc.res.immunization</field>                                    
-            <field name="arch" type="xml">                                  
-                <form string="Immunization ">                               
-                    <sheet>                         
-                        <h1>                    
-                            <field name="name" default_focus="1" placeholder="Name"/>             
-                        </h1>                   
-                        <group>                     
-                            <group>                 
-                            </group>                    
-                            <group>                 
-                            </group>                    
-                        </group>                        
-                        <notebook>                      
-                            <page string="Identifiers">                 
-                                <field name="identifier_ids" mode="tree">               
-                                    <tree>          
-                                    </tree>         
-                                    <form>          
-                                        <sheet>     
-                                            <group> 
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_res_immunization_view_tree" model="ir.ui.view">
+            <field name="name">Immunization Tree</field>
+            <field name="model">hc.res.immunization</field>
+            <field name="arch" type="xml">
+                <tree string="Immunizations">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_res_immunization_view_form" model="ir.ui.view">
+            <field name="name">Immunization Form</field>
+            <field name="model">hc.res.immunization</field>
+            <field name="arch" type="xml">
+                <form string="Immunization ">
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name"/>
+                        </h1>
+                        <group>
+                            <group>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Identifiers">
+                                <field name="identifier_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
                                                 <group>
                                                 </group>
                                                 <group>
                                                 </group>
-                                            </group>    
-                                        </sheet>        
-                                    </form>         
-                                </field>                
-                            </page>                 
-                        </notebook>                     
-                    </sheet>                            
-                </form>                             
-            </field>                                    
-        </record>       
-    
-        <act_window id="hc_res_immunization_action" 
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_res_immunization_action"
                     name="HC Immunizations"
                     res_model="hc.res.immunization"
                     view_mode="tree,form"
@@ -69,11 +69,11 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_immunization.menu_immun" 
-                  name="Immunization" 
-                  parent="hc_base.menu_med" 
-                  action="hc_res_immunization_action" 
-                  groups="hc_base.group_hc_base_manager" 
+        <menuitem id="hc_immunization.menu_immun"
+                  name="Immunization"
+                  parent="hc_base.menu_clinic_med"
+                  action="hc_res_immunization_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="60"/>
 
     </data>

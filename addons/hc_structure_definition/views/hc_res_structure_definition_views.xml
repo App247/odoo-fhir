@@ -272,7 +272,7 @@
                   parent="hc_base.menu_conf"
                   action="hc_res_structure_definition_action"
                   groups="hc_base.group_hc_base_manager"
-                  sequence="10"/>
+                  sequence="20"/>
 
         <!-- Structure Definition Snapshot Views -->
 

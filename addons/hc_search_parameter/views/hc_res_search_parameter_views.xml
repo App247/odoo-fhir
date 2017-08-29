@@ -1,9 +1,9 @@
 <openerp>
     <data>
 
-        <!-- Search Parameter Action and Menu -->   
-    
-        <act_window id="hc_res_search_parameter_action" 
+        <!-- Search Parameter Action and Menu -->
+
+        <act_window id="hc_res_search_parameter_action"
                     name="HC Search Parameters"
                     res_model="hc.res.search.parameter"
                     view_mode="tree,form"
@@ -11,12 +11,12 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_search_parameter.menu_search_param" 
-                  name="Search Parameters" 
-                  parent="hc_base.menu_conf" 
-                  action="hc_res_search_parameter_action" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="70"/>
+        <menuitem id="hc_search_parameter.menu_search_param"
+                  name="Search Parameters"
+                  parent="hc_base.menu_conf"
+                  action="hc_res_search_parameter_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="40"/>
 
     </data>
 </openerp>

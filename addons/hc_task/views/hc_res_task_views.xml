@@ -1,9 +1,9 @@
-<openerp>
+<odoo>
     <data>
 
-        <!-- Task Action and Menu -->   
-    
-        <act_window id="hc_res_task_action" 
+        <!-- Task Action and Menu -->
+
+        <act_window id="hc_res_task_action"
                     name="HC Tasks"
                     res_model="hc.res.task"
                     view_mode="tree,form"
@@ -11,12 +11,12 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_task.menu_task" 
-                  name="Tasks" 
-                  parent="hc_base.menu_work_sched"  
-                  action="hc_res_task_action" 
-                  groups="hc_base.group_hc_base_manager" 
+        <menuitem id="hc_task.menu_task"
+                  name="Tasks"
+                  parent="hc_base.menu_work"
+                  action="hc_res_task_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="10"/>
 
     </data>
-</openerp>
+</odoo>

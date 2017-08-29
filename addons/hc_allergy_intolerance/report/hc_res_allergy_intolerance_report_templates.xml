@@ -171,7 +171,6 @@
                                     </td>
                                     <td width="50%">
                                         <b>Manifestations: </b>
-                                        <!-- <span t-field="reaction.manifestation_ids.name"/> -->
                                         <span t-esc="get_manifestation(reaction.manifestation_ids)"/>
                                     </td>
                                 </tr>
@@ -214,7 +213,7 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <b>Recorded Date: </b><span t-field="note.start_date"/>
+                                                <b>Recorded Date: </b><span t-field="note.recorded_date"/>
                                             </td>
                                         </tr>
                                     </tbody>

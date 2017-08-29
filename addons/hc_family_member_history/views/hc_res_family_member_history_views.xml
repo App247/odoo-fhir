@@ -1,50 +1,50 @@
 <openerp>
     <data>
-    
-        <!-- Family Member History Views -->            
-                    
-        <record id="hc_res_family_member_history_view_search" model="ir.ui.view">           
-            <field name="name">Family Member History Search</field>     
-            <field name="model">hc.res.family.member.history</field>        
-            <field name="arch" type="xml">      
+
+        <!-- Family Member History Views -->
+
+        <record id="hc_res_family_member_history_view_search" model="ir.ui.view">
+            <field name="name">Family Member History Search</field>
+            <field name="model">hc.res.family.member.history</field>
+            <field name="arch" type="xml">
                 <search string="Family Member Histories">
                     <field name="record_name"/>
                     <field name="patient_id"/>
                     <field name="family_member_name"/>
                     <field name="date"/>
                     <field name="status"/>
-                    <group string="Group By">   
+                    <group string="Group By">
                         <filter name="group_by_patient" string="Patient" context="{'group_by':'patient_id'}"/>
                     </group>
-                </search>   
-            </field>        
-        </record>           
-                    
-        <record id="hc_res_family_member_history_view_tree" model="ir.ui.view">         
-            <field name="name">Family Member History Tree</field>       
-            <field name="model">hc.res.family.member.history</field>        
-            <field name="arch" type="xml">      
-                <tree string="Family Member Histories">  
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_res_family_member_history_view_tree" model="ir.ui.view">
+            <field name="name">Family Member History Tree</field>
+            <field name="model">hc.res.family.member.history</field>
+            <field name="arch" type="xml">
+                <tree string="Family Member Histories">
                     <field name="record_name"/>
                     <field name="patient_id"/>
                     <field name="family_member_name"/>
                     <field name="relationship_id"/>
                     <field name="date"/>
                     <field name="status"/>
-                </tree> 
-            </field>        
-        </record>           
+                </tree>
+            </field>
+        </record>
 
-        <record id="hc_res_family_member_history_view_form" model="ir.ui.view">                                     
-            <field name="name">Family Member History Form</field>                                   
-            <field name="model">hc.res.family.member.history</field>                                    
-            <field name="arch" type="xml">                                  
-                <form string="Family Member History">                               
-                    <sheet>                         
-                        <h1>                    
-                            <field name="record_name" default_focus="1" placeholder="Record Name"/>             
-                        </h1>                   
-                        <group>                     
+        <record id="hc_res_family_member_history_view_form" model="ir.ui.view">
+            <field name="name">Family Member History Form</field>
+            <field name="model">hc.res.family.member.history</field>
+            <field name="arch" type="xml">
+                <form string="Family Member History">
+                    <sheet>
+                        <h1>
+                            <field name="record_name" default_focus="1" placeholder="Record Name"/>
+                        </h1>
+                        <group>
                             <group string="Entity">
                                 <field name="patient_id"/>
                                 <field name="family_member_name"/>
@@ -60,10 +60,10 @@
                             <group string="Status">
                                 <field name="status"/>
                                 <field name="data_absent_reason"/>
-                            </group>                 
+                            </group>
                             <group string="Timeline">
                                 <field name="born_name" attrs="{'invisible': ['|',('age_type','!=',False),('is_estimated_age','=',True)]}"/>
-                                <field name="born_type" class="oe_edit_only" attrs="{'invisible': ['|',('age_type','!=',False),('is_estimated_age','=',True)]}"/>                
+                                <field name="born_type" class="oe_edit_only" attrs="{'invisible': ['|',('age_type','!=',False),('is_estimated_age','=',True)]}"/>
                                 <field name="earliest_born_date" class="oe_edit_only" attrs="{'invisible': [('born_type','!=','period')], 'required': [('born_type','=','period')]}"/>
                                 <field name="latest_born_date" class="oe_edit_only" attrs="{'invisible': [('born_type','!=','period')], 'required': [('born_type','=','period')]}"/>
                                 <field name="born_date" class="oe_edit_only" attrs="{'invisible': [('born_type','!=','date')], 'required': [('born_type','=','date')]}"/>
@@ -72,35 +72,35 @@
                                 <field name="is_estimated_age" attrs="{'invisible': [('has_born','=',True)]}"/>
                                 <field name="age_name" attrs="{'invisible': [('has_born','=',True)]}"/>
                                 <field name="age_type" class="oe_edit_only" attrs="{'invisible': [('has_born','=',True)], 'required': [('is_estimated_age','=',True)]}"/>
-                                <field name="age" class="oe_edit_only" attrs="{'invisible': [('age_type','!=','age')], 'required': [('age_type','=','age')]}"/>     
-                                <field name="age_uom_id" class="oe_edit_only" attrs="{'invisible': [('age_type','!=','age')], 'required': [('age_type','=','age')]}"/>      
+                                <field name="age" class="oe_edit_only" attrs="{'invisible': [('age_type','!=','age')], 'required': [('age_type','=','age')]}"/>
+                                <field name="age_uom_id" class="oe_edit_only" attrs="{'invisible': [('age_type','!=','age')], 'required': [('age_type','=','age')]}"/>
                                 <field name="age_range_low" class="oe_edit_only" attrs="{'invisible': [('age_type','!=','range')], 'required': [('age_type','=','range')]}"/>
                                 <field name="age_range_high" class="oe_edit_only" attrs="{'invisible': [('age_type','!=','range')], 'required': [('age_type','=','range')]}"/>
                                 <field name="age_string" class="oe_edit_only" attrs="{'invisible': [('age_type','!=','string')], 'required': [('age_type','=','string')]}"/>
                                 <field name="is_deceased"/>
                                 <field name="deceased_age_name" attrs="{'invisible': [('is_deceased','!=',True)]}"/>
                                 <field name="deceased_age_type" class="oe_edit_only" attrs="{'invisible': [('is_deceased','!=',True)]}"/>
-                                <field name="deceased_age" class="oe_edit_only" attrs="{'invisible': [('deceased_age_type','!=','age')], 'required': [('deceased_age_type','=','age')]}"/>  
+                                <field name="deceased_age" class="oe_edit_only" attrs="{'invisible': [('deceased_age_type','!=','age')], 'required': [('deceased_age_type','=','age')]}"/>
                                 <field name="deceased_age" class="oe_edit_only" attrs="{'invisible': [('deceased_age_type','!=','age')], 'required': [('deceased_age_type','=','age')]}"/>
                                 <field name="deceased_age_uom_id" class="oe_edit_only" attrs="{'invisible': [('deceased_age_type','!=','age')], 'required': [('deceased_age_type','=','age')]}"/>
                                 <field name="deceased_age_range_low" class="oe_edit_only" attrs="{'invisible': [('deceased_age_type','!=','range')], 'required': [('deceased_age_type','=','range')]}"/>
                                 <field name="deceased_age_range_high" class="oe_edit_only" attrs="{'invisible': [('deceased_age_type','!=','range')], 'required': [('deceased_age_type','=','range')]}"/>
                                 <field name="deceased_age_string" class="oe_edit_only" attrs="{'invisible': [('deceased_age_type','!=','string')], 'required': [('deceased_age_type','=','string')]}" placeholder="e.g., Summer 1967"/>
                                 <field name="deceased_age_date" class="oe_edit_only" attrs="{'invisible': [('deceased_age_type','!=','date')], 'required': [('deceased_age_type','=','date')]}"/>
-                            </group>                    
-                        </group>                        
-                        <notebook>                      
-                            <page string="Conditions">                 
-                                <field name="condition_ids" mode="tree">               
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Conditions">
+                                <field name="condition_ids" mode="tree">
                                     <tree>
                                         <field name="code_id"/>
                                         <field name="outcome"/>
                                         <field name="onset_name"/>
-                                        <field name="onset_type"/>          
-                                    </tree>         
-                                    <form>          
-                                        <sheet>     
-                                            <group> 
+                                        <field name="onset_type"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
                                                 <group>
                                                     <field name="code_id"/>
                                                     <field name="outcome"/>
@@ -113,143 +113,143 @@
                                                     <field name="onset_range_low" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','range')], 'required': [('onset_type','=','range')]}"/>
                                                     <field name="onset_range_high" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','range')], 'required': [('onset_type','=','range')]}"/>
                                                     <field name="onset_string" class="oe_edit_only" attrs="{'invisible': [('onset_type','!=','string')], 'required': [('onset_type','=','string')]}"/>
-                                                    <field name="abatement_name"/>  
+                                                    <field name="abatement_name"/>
                                                     <field name="abatement_type" class="oe_edit_only"/>
-                                                    <field name="abatement_date" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','date')], 'required': [('abatement_type','=','date')]}"/>     
-                                                    <field name="abatement_age" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','age')], 'required': [('abatement_type','=','age')]}"/>   
+                                                    <field name="abatement_date" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','date')], 'required': [('abatement_type','=','date')]}"/>
+                                                    <field name="abatement_age" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','age')], 'required': [('abatement_type','=','age')]}"/>
                                                     <field name="abatement_age_uom_id" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','age')], 'required': [('abatement_type','=','age')]}"/>
-                                                    <field name="abatement_boolean" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','boolean')], 'required': [('abatement_type','=','boolean')]}"/>   
+                                                    <field name="abatement_boolean" class="oe_edit_only" attrs="{'invisible': [('abatement_type','!=','boolean')], 'required': [('abatement_type','=','boolean')]}"/>
                                                 </group>
                                             </group>
-                                            <notebook>                      
-                                                <page string="Notes">                           
-                                                    <field name="note_ids" mode="tree">                     
-                                                        <tree>                  
-                                                            <field name="text"/>                
-                                                            <field name="author_type"/>             
-                                                            <field name="recorded_date"/>               
-                                                        </tree>                 
-                                                        <form>                  
-                                                            <sheet>             
-                                                                <div>           
-                                                                    <field name="text" placeholder="Annotation"/>       
-                                                                </div>          
-                                                                <group>         
-                                                                    <group>     
+                                            <notebook>
+                                                <page string="Notes">
+                                                    <field name="note_ids" mode="tree">
+                                                        <tree>
+                                                            <field name="text"/>
+                                                            <field name="author_type"/>
+                                                            <field name="recorded_date"/>
+                                                        </tree>
+                                                        <form>
+                                                            <sheet>
+                                                                <div>
+                                                                    <field name="text" placeholder="Annotation"/>
+                                                                </div>
+                                                                <group>
+                                                                    <group>
                                                                         <field name="author_name"/>
                                                                         <field name="author_type" class="oe_edit_only"/>
                                                                         <field name="author_string" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','string')], 'required': [('author_type','=','string')]}"/>
                                                                         <field name="author_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','practitioner')], 'required': [('author_type','=','practitioner')]}"/>
                                                                         <field name="author_patient_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','patient')], 'required': [('author_type','=','patient')]}"/>
-                                                                        <field name="author_related_person_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','related_person')], 'required': [('author_type','=','related_person')]}"/> 
-                                                                    </group>        
-                                                                    <group>     
-                                                                        <field name="recorded_date"/>   
-                                                                    </group>        
-                                                                </group>            
-                                                            </sheet>                
-                                                        </form>             
-                                                    </field>                    
-                                                </page>                         
-                                            </notebook>                     
-                                        </sheet>        
-                                    </form>     
-                                </field>            
+                                                                        <field name="author_related_person_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','related_person')], 'required': [('author_type','=','related_person')]}"/>
+                                                                    </group>
+                                                                    <group>
+                                                                        <field name="recorded_date"/>
+                                                                    </group>
+                                                                </group>
+                                                            </sheet>
+                                                        </form>
+                                                    </field>
+                                                </page>
+                                            </notebook>
+                                        </sheet>
+                                    </form>
+                                </field>
                             </page>
-                            <page string="Identifiers">                     
-                                <field name="identifier_ids" mode="tree">                   
-                                    <tree>              
-                                        <field name="is_preferred"/>            
-                                        <field name="name"/>            
-                                        <field name="value"/>           
-                                        <field name="type_id"/>         
-                                    </tree>             
-                                    <form>              
-                                        <sheet>         
-                                            <div class="oe_title oe_left">      
-                                                <h1>    
+                            <page string="Identifiers">
+                                <field name="identifier_ids" mode="tree">
+                                    <tree>
+                                        <field name="is_preferred"/>
+                                        <field name="name"/>
+                                        <field name="value"/>
+                                        <field name="type_id"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <div class="oe_title oe_left">
+                                                <h1>
                                                     <field name="name" placeholder="Identifier"/>
-                                                </h1>   
-                                            </div>      
-                                            <group>     
-                                                <group> 
+                                                </h1>
+                                            </div>
+                                            <group>
+                                                <group>
                                                     <field name="value"/>
                                                     <field name="type_id"/>
                                                     <field name="is_preferred"/>
                                                     <field name="is_active"/>
-                                                </group>    
-                                                <group> 
+                                                </group>
+                                                <group>
                                                     <field name="start_date" placeholder="Valid From"/>
                                                     <field name="end_date" placeholder="Valid To"/>
-                                                </group>    
-                                            </group>        
-                                        </sheet>            
-                                    </form>             
-                                </field>                    
-                            </page>                     
-                            <page string="Definitions">                 
-                                <field name="definition_ids" mode="tree">               
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Definitions">
+                                <field name="definition_ids" mode="tree">
                                     <tree>
                                         <field name="definition_name"/>
-                                        <field name="definition_type"/>          
-                                    </tree>         
-                                    <form>          
+                                        <field name="definition_type"/>
+                                    </tree>
+                                    <form>
                                         <sheet>
                                         <h1>
                                             <field name="definition_name" placeholder="Definition"/>
-                                        </h1>     
-                                            <group> 
-                                                <group>  
+                                        </h1>
+                                            <group>
+                                                <group>
                                                     <field name="definition_type" class="oe_edit_only"/>
                                                     <field name="definition_plan_definition_id" class="oe_edit_only" attrs="{'invisible': [('definition_type','!=','plan_definition')], 'required': [('definition_type','=','plan_definition')]}"/>
                                                     <field name="definition_questionnaire_id" class="oe_edit_only" attrs="{'invisible': [('definition_type','!=','questionnaire')], 'required': [('definition_type','=','questionnaire')]}"/>
                                                 </group>
                                                 <group>
                                                 </group>
-                                            </group>    
-                                        </sheet>        
-                                    </form>     
-                                </field>            
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
                             </page>
-                            <page string="Reason References">                 
-                                <field name="reason_reference_ids" mode="tree">               
+                            <page string="Reason References">
+                                <field name="reason_reference_ids" mode="tree">
                                     <tree>
                                         <field name="reason_reference_name"/>
-                                        <field name="reason_reference_type"/>      
-                                    </tree>         
-                                    <form>          
+                                        <field name="reason_reference_type"/>
+                                    </tree>
+                                    <form>
                                         <sheet>
                                         <h1>
                                             <field name="reason_reference_name" placeholder="Name"/>
-                                        </h1>     
-                                            <group> 
+                                        </h1>
+                                            <group>
                                                 <group>
                                                     <field name="reason_reference_type" class="oe_edit_only"/>
-                                                    <field name="reason_reference_condition_id" class="oe_edit_only" attrs="{'invisible': [('reason_reference_type','!=','condition')], 'required': [('reason_reference_type','=','condition')]}"/> 
-                                                    <field name="reason_reference_observation_id" class="oe_edit_only" attrs="{'invisible': [('reason_reference_type','!=','observation')], 'required': [('reason_reference_type','=','observation')]}"/>   
-                                                    <field name="reason_reference_allergy_intolerance_id" class="oe_edit_only" attrs="{'invisible': [('reason_reference_type','!=','allergy_intolerance')], 'required': [('reason_reference_type','=','allergy_intolerance')]}"/>   
-                                                    <field name="reason_reference_questionnaire_response_id" class="oe_edit_only" attrs="{'invisible': [('reason_reference_type','!=','questionnaire_response')], 'required': [('reason_reference_type','=','questionnaire_response')]}"/>  
+                                                    <field name="reason_reference_condition_id" class="oe_edit_only" attrs="{'invisible': [('reason_reference_type','!=','condition')], 'required': [('reason_reference_type','=','condition')]}"/>
+                                                    <field name="reason_reference_observation_id" class="oe_edit_only" attrs="{'invisible': [('reason_reference_type','!=','observation')], 'required': [('reason_reference_type','=','observation')]}"/>
+                                                    <field name="reason_reference_allergy_intolerance_id" class="oe_edit_only" attrs="{'invisible': [('reason_reference_type','!=','allergy_intolerance')], 'required': [('reason_reference_type','=','allergy_intolerance')]}"/>
+                                                    <field name="reason_reference_questionnaire_response_id" class="oe_edit_only" attrs="{'invisible': [('reason_reference_type','!=','questionnaire_response')], 'required': [('reason_reference_type','=','questionnaire_response')]}"/>
                                                 </group>
                                                 <group>
                                                 </group>
-                                            </group>    
-                                        </sheet>        
-                                    </form>     
-                                </field>            
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
                             </page>
-                            <page string="Notes">                       
-                                <field name="note_ids" mode="tree">                 
-                                    <tree>              
-                                        <field name="text"/>            
-                                        <field name="author_type"/>         
-                                        <field name="recorded_date"/>           
-                                    </tree>             
-                                    <form>              
-                                        <sheet>         
-                                            <div>       
-                                                <field name="text" placeholder="Annotation"/>   
-                                            </div>      
-                                            <group>     
+                            <page string="Notes">
+                                <field name="note_ids" mode="tree">
+                                    <tree>
+                                        <field name="text"/>
+                                        <field name="author_type"/>
+                                        <field name="recorded_date"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <div>
+                                                <field name="text" placeholder="Annotation"/>
+                                            </div>
+                                            <group>
                                                 <group>
                                                     <field name="author_name"/>
                                                     <field name="author_type" class="oe_edit_only"/>
@@ -257,98 +257,98 @@
                                                     <field name="author_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','practitioner')], 'required': [('author_type','=','practitioner')]}"/>
                                                     <field name="author_patient_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','patient')], 'required': [('author_type','=','patient')]}"/>
                                                     <field name="author_related_person_id" class="oe_edit_only" attrs="{'invisible': [('author_type','!=','related_person')], 'required': [('author_type','=','related_person')]}"/>
-                                                </group>    
-                                                <group> 
+                                                </group>
+                                                <group>
                                                     <field name="recorded_date"/>
-                                                </group>    
-                                            </group>        
-                                        </sheet>            
-                                    </form>             
-                                </field>                    
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
                             </page>
-                            <page string="Patient Records">                       
-                                <field name="patient_record_ids" mode="tree">                 
+                            <page string="Patient Records">
+                                <field name="patient_record_ids" mode="tree">
                                     <tree>
                                         <field name="patient_record_name"/>
-                                        <field name="patient_record_type"/>              
-                                    </tree>             
-                                    <form>              
-                                        <sheet>         
-                                            <div>       
-                                                <field name="patient_record_name" placeholder="Annotation"/>   
-                                            </div>      
-                                            <group>     
+                                        <field name="patient_record_type"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <div>
+                                                <field name="patient_record_name" placeholder="Annotation"/>
+                                            </div>
+                                            <group>
                                                 <group>
                                                     <field name="patient_record_type" class="oe_edit_only"/>
                                                     <field name="patient_record_person_id" class="oe_edit_only" attrs="{'invisible': [('patient_record_type','!=','person')], 'required': [('patient_record_type','=','person')]}"/>
                                                     <field name="patient_record_patient_id" class="oe_edit_only" attrs="{'invisible': [('patient_record_type','!=','patient')], 'required': [('patient_record_type','=','patient')]}"/>
                                                     <field name="patient_record_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('patient_record_type','!=','practitioner')], 'required': [('patient_record_type','=','practitioner')]}"/>
                                                     <field name="patient_record_related_person_id" class="oe_edit_only" attrs="{'invisible': [('patient_record_type','!=','related_person')], 'required': [('patient_record_type','=','related_person')]}"/>
-                                                </group>    
-                                                <group> 
-                                                </group>    
-                                            </group>        
-                                        </sheet>            
-                                    </form>             
-                                </field>                    
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
                             </page>
-                            <page string="Genetics Observations">                       
-                                <field name="genetics_observation_ids" mode="tree">                 
+                            <page string="Genetics Observations">
+                                <field name="genetics_observation_ids" mode="tree">
                                     <tree>
-                                        <field name="genetics_observation_id"/>            
-                                    </tree>             
-                                    <form>              
-                                        <sheet>         
-                                            <group>     
+                                        <field name="genetics_observation_id"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
                                                 <group>
                                                     <field name="genetics_observation_id"/>
-                                                </group>    
-                                                <group> 
-                                                </group>    
-                                            </group>        
-                                        </sheet>            
-                                    </form>             
-                                </field>                    
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
                             </page>
-                            <page string="Parents">                       
-                                <field name="parent_ids" mode="tree">                 
+                            <page string="Parents">
+                                <field name="parent_ids" mode="tree">
                                     <tree>
                                         <field name="type_id"/>
-                                        <field name="reference_id"/>                
-                                    </tree>             
-                                    <form>              
-                                        <sheet>               
-                                            <group>     
+                                        <field name="reference_id"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
                                                 <group>
                                                     <field name="type_id" placeholder="Relationship"/>
                                                     <field name="reference_id" placeholder="Family Member History"/>
-                                                </group>    
-                                                <group> 
-                                                </group>    
-                                            </group>        
-                                        </sheet>            
-                                    </form>             
-                                </field>                    
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
                             </page>
-                            <page string="Siblings">                       
-                                <field name="sibling_ids" mode="tree">                 
+                            <page string="Siblings">
+                                <field name="sibling_ids" mode="tree">
                                     <tree>
                                         <field name="type_id"/>
-                                        <field name="reference_id"/>              
-                                    </tree>             
-                                    <form>              
-                                        <sheet>              
-                                            <group>     
+                                        <field name="reference_id"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
                                                 <group>
                                                     <field name="type_id" placeholder="Relationship"/>
                                                     <field name="reference_id" placeholder="Family Member History"/>
-                                                </group>    
-                                                <group> 
-                                                </group>    
-                                            </group>        
-                                        </sheet>            
-                                    </form>             
-                                </field>                    
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
                             </page>
                             <page string="Status History">
                                 <field name="status_history_ids" mode="tree">
@@ -363,176 +363,175 @@
                                         <field name="write_uid" invisible="0"/>
                                     </tree>
                                 </field>
-                            </page>                     
-                        </notebook>                     
-                    </sheet>                            
-                </form>                             
-            </field>                                    
-        </record>                                       
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
-        <!-- Family Member History Action and Menu -->  
-    
-        <act_window id="hc_res_family_member_history_action"    
+        <!-- Family Member History Action and Menu -->
+
+        <act_window id="hc_res_family_member_history_action"
                     name="HC Family Member Histories"
                     res_model="hc.res.family.member.history"
                     view_mode="tree,form"
                     domain=""
                     context=""
                     limit=""/>
-                
-        <menuitem id="hc_family_member_history.menu_fam_hist" 
+
+        <menuitem id="hc_family_member_history.menu_fam_hist"
                   name="Family Member Histories"
-                  web_icon="hc_family_member_history,static/description/icon.png"   
-                  parent="hc_base.menu_clinic_gen" 
-                  action="hc_res_family_member_history_action" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="40"/>
+                  web_icon="hc_family_member_history,static/description/icon.png"
+                  parent="hc_base.menu_clinic_sum"
+                  action="hc_res_family_member_history_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="50"/>
 
+        <!-- V3 Family Member Views -->
 
-        <!-- V3 Family Member Views -->                         
-                                    
-        <record id="hc_vs_v3_family_member_history_view_search" model="ir.ui.view">                         
-            <field name="name">Family Member Search</field>                      
-            <field name="model">hc.vs.v3.family.member</field>                      
-            <field name="arch" type="xml">                      
-                <search string="V3 Family Members">                 
-                    <field name="name"/>                
-                    <field name="code"/>                
-                    <field name="definition"/>              
-                    <group>             
-                        <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>          
-                    </group>                
-                </search>                   
-            </field>                        
-        </record>                           
-                                    
-        <record id="hc_vs_v3_family_member_history_view_tree" model="ir.ui.view">                           
-            <field name="name">Family Member Tree</field>                        
-            <field name="model">hc.vs.v3.family.member</field>                      
-            <field name="arch" type="xml">                      
-                <tree string="V3 Family Members" default_order="name, code">                    
-                    <field name="name"/>                
-                    <field name="code"/>                
-                    <field name="definition"/>              
+        <record id="hc_vs_v3_family_member_history_view_search" model="ir.ui.view">
+            <field name="name">Family Member Search</field>
+            <field name="model">hc.vs.v3.family.member</field>
+            <field name="arch" type="xml">
+                <search string="V3 Family Members">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                    <group>
+                        <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_vs_v3_family_member_history_view_tree" model="ir.ui.view">
+            <field name="name">Family Member Tree</field>
+            <field name="model">hc.vs.v3.family.member</field>
+            <field name="arch" type="xml">
+                <tree string="V3 Family Members" default_order="name, code">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
                     <field name="contains_id"/>
-                    <field name="level"/>             
-                    <field name="source_id" invisible="0"/>             
-                </tree>                 
-            </field>                        
-        </record>                           
-                                    
-        <record id="hc_vs_v3_family_member_history_view_form" model="ir.ui.view">                           
-            <field name="name">Family Member Form</field>                        
-            <field name="model">hc.vs.v3.family.member</field>                      
-            <field name="arch" type="xml">                      
-                <form string="V3 Family Members" >                  
-                    <sheet>             
-                        <h1>            
-                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>      
-                        </h1>           
-                        <field name="code" placeholder="Code (e.g., biological)"/>          
-                        <field name="definition" placeholder="Definition"/>         
-                        <field name="comments" placeholder="Comments"/>         
-                        <group>         
-                            <group>     
-                                <field name="contains_id"/>
-                                <field name="level"/> 
-                            </group>        
-                            <group>     
-                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>    
-                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/> 
-                            </group>        
-                        </group>            
-                    </sheet>                
-                </form>                 
-            </field>                        
-        </record>                                                      
-                                    
-        <act_window id="hc_vs_v3_family_member_history_action"                          
-                    name="HC Family Members"              
-                    res_model="hc.vs.v3.family.member"              
-                    view_mode="tree,form"               
-                    domain=""               
-                    context=""              
-                    limit=""/> 
+                    <field name="level"/>
+                    <field name="source_id" invisible="0"/>
+                </tree>
+            </field>
+        </record>
 
-        <menuitem id="hc_family_member_history.menu_fam_mbr" 
-                  name="Family Member" 
-                  parent="hc_family_member_history.menu_fam_hist" 
-                  action="hc_vs_v3_family_member_history_action" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="10"/>
-        
-        <!-- Family Member History Type Views -->                       
-                        
-        <record id="hc_vs_family_member_history_type_view_search" model="ir.ui.view">                       
-            <field name="name">Family Member History Type Search</field>                    
-            <field name="model">hc.vs.family.member.history.type</field>                    
-            <field name="arch" type="xml">                  
-                <search string="Family Member History Types">               
-                    <field name="name"/>            
-                    <field name="code"/>            
-                    <field name="definition"/>          
-                    <group>         
-                        <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>      
-                    </group>            
-                </search>               
-            </field>                    
-        </record>                       
-                                
-        <record id="hc_vs_family_member_history_type_view_tree" model="ir.ui.view">                     
-            <field name="name">Family Member History Type Tree</field>                  
-            <field name="model">hc.vs.family.member.history.type</field>                    
-            <field name="arch" type="xml">                  
-                <tree string="Family Member History Types" default_order="name, code">              
-                    <field name="name"/>            
-                    <field name="code"/>            
-                    <field name="definition"/>          
-                    <field name="contains_id"/>         
-                    <field name="source_id" invisible="0"/>         
-                </tree>             
-            </field>                    
-        </record>                       
-                                
-        <record id="hc_vs_family_member_history_type_view_form" model="ir.ui.view">                     
-            <field name="name">Family Member History Type Form</field>                  
-            <field name="model">hc.vs.family.member.history.type</field>                    
-            <field name="arch" type="xml">                  
-                <form string="Family Member History Types" >                
-                    <sheet>         
-                        <h1>        
-                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>  
-                        </h1>       
-                        <field name="code" placeholder="Code (e.g., biological)"/>      
-                        <field name="definition" placeholder="Definition"/>     
-                        <field name="comments" placeholder="Comments"/>     
-                        <group>     
-                            <group> 
+        <record id="hc_vs_v3_family_member_history_view_form" model="ir.ui.view">
+            <field name="name">Family Member Form</field>
+            <field name="model">hc.vs.v3.family.member</field>
+            <field name="arch" type="xml">
+                <form string="V3 Family Members" >
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>
+                        </h1>
+                        <field name="code" placeholder="Code (e.g., biological)"/>
+                        <field name="definition" placeholder="Definition"/>
+                        <field name="comments" placeholder="Comments"/>
+                        <group>
+                            <group>
                                 <field name="contains_id"/>
-                            </group>    
-                            <group> 
+                                <field name="level"/>
+                            </group>
+                            <group>
                                 <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
                                 <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
-                            </group>    
-                        </group>        
-                    </sheet>            
-                </form>             
-            </field>                    
-        </record>                                             
-                                
-        <act_window id="hc_vs_family_member_history_type_action"                        
-                    name="HC Family Member History Types"            
-                    res_model="hc.vs.family.member.history.type"            
-                    view_mode="tree,form"           
-                    domain=""           
-                    context=""          
-                    limit=""/>          
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
-        <menuitem id="hc_family_member_history.menu_fam_mbr_hist_type" 
-                  name="History Type" 
-                  parent="hc_family_member_history.menu_fam_hist" 
-                  action="hc_vs_family_member_history_type_action" 
-                  groups="hc_base.group_hc_base_manager" 
+        <act_window id="hc_vs_v3_family_member_history_action"
+                    name="HC Family Members"
+                    res_model="hc.vs.v3.family.member"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <menuitem id="hc_family_member_history.menu_fam_mbr"
+                  name="Family Member"
+                  parent="hc_family_member_history.menu_fam_hist"
+                  action="hc_vs_v3_family_member_history_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="10"/>
+
+        <!-- Family Member History Type Views -->
+
+        <record id="hc_vs_family_member_history_type_view_search" model="ir.ui.view">
+            <field name="name">Family Member History Type Search</field>
+            <field name="model">hc.vs.family.member.history.type</field>
+            <field name="arch" type="xml">
+                <search string="Family Member History Types">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                    <group>
+                        <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_vs_family_member_history_type_view_tree" model="ir.ui.view">
+            <field name="name">Family Member History Type Tree</field>
+            <field name="model">hc.vs.family.member.history.type</field>
+            <field name="arch" type="xml">
+                <tree string="Family Member History Types" default_order="name, code">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                    <field name="contains_id"/>
+                    <field name="source_id" invisible="0"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_vs_family_member_history_type_view_form" model="ir.ui.view">
+            <field name="name">Family Member History Type Form</field>
+            <field name="model">hc.vs.family.member.history.type</field>
+            <field name="arch" type="xml">
+                <form string="Family Member History Types" >
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>
+                        </h1>
+                        <field name="code" placeholder="Code (e.g., biological)"/>
+                        <field name="definition" placeholder="Definition"/>
+                        <field name="comments" placeholder="Comments"/>
+                        <group>
+                            <group>
+                                <field name="contains_id"/>
+                            </group>
+                            <group>
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_vs_family_member_history_type_action"
+                    name="HC Family Member History Types"
+                    res_model="hc.vs.family.member.history.type"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <menuitem id="hc_family_member_history.menu_fam_mbr_hist_type"
+                  name="History Type"
+                  parent="hc_family_member_history.menu_fam_hist"
+                  action="hc_vs_family_member_history_type_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="20"/>
 
     </data>

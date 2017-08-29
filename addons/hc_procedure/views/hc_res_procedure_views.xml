@@ -383,10 +383,10 @@
 
         <menuitem id="hc_procedure.menu_proc"
                   name="Procedures"
-                  parent="hc_base.menu_clinic_gen"
+                  parent="hc_base.menu_clinic_sum"
                   action="hc_res_procedure_action"
                   groups="hc_base.group_hc_base_manager"
-                  sequence="30"/>
+                  sequence="40"/>
 
 
 

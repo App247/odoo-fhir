@@ -287,10 +287,10 @@
     <menuitem id="hc_condition.menu_cond"
               name="Conditions"
               web_icon="hc_condition,static/description/icon.png"
-              parent="hc_base.menu_clinic_gen"
+              parent="hc_base.menu_clinic_sum"
               action="hc_res_condition_action"
               groups="hc_base.group_hc_base_manager"
-              sequence="20"/>
+              sequence="30"/>
 
     </data>
 </openerp>

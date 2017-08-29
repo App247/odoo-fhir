@@ -573,8 +573,8 @@ class ConditionStageAssessment(models.Model):
         help="Type of assessment.")
     assessment_name = fields.Char(
         string="Assessment",
-        # compute="_compute_assessment_name",
-        # store="True",
+        compute="_compute_assessment_name",
+        store="True",
         help="Formal record of assessment.")
     # assessment_clinical_impression_id = fields.Many2one(
     #     comodel_name="hc.res.clinical.impression",

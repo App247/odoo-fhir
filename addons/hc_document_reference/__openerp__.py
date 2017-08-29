@@ -9,10 +9,10 @@
     'description': """
         A reference to a document.
 
-        **Scope and Usage** 
-        
-        A DocumentReference resource is used to describe a document that is made available to a healthcare system. A document is some sequence of bytes 
-        that is identifiable, establishes its own context (e.g., what subject, author, etc. can be displayed to the user), and has defined update management. 
+        **Scope and Usage**
+
+        A DocumentReference resource is used to describe a document that is made available to a healthcare system. A document is some sequence of bytes
+        that is identifiable, establishes its own context (e.g., what subject, author, etc. can be displayed to the user), and has defined update management.
         The DocumentReference resource can be used with any document format that has a recognized mime type and that conforms to this definition.
 
         Typically, DocumentReference resources are used in document indexing systems, such as IHE XDS  (see the XDS specific profile), and are used to refer to:
@@ -33,7 +33,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['hc_clinical_impression'],
+    'depends': ['hc_encounter'],
 
     # always loaded
     'data': [

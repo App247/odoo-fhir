@@ -154,24 +154,10 @@ class SpecimenCollection(models.Model):
         comodel_name="hc.vs.specimen.collection.method",
         string="Method",
         help="Technique used to perform collection.")
-    body_site_type = fields.Selection(
-        string="Body Site Type",
-        selection=[
-            ("code", "Code"),
-            ("body_site", "Body Site")],
-        help="Type of anatomical collection site.")
-    body_site_name = fields.Char(
-        string="Body Site",
-        compute="_compute_body_site_name",
-        help="Anatomical collection site.")
-    body_site_code_id = fields.Many2one(
+    body_site_id = fields.Many2one(
         comodel_name="hc.vs.body.site",
         string="Body Site Code",
-        help="Code of anatomical collection site.")
-    body_site_id = fields.Many2one(
-        comodel_name="hc.res.body.site",
-        string="Body Site",
-        help="Body Site anatomical collection site.")
+        help="Anatomical collection site.")
 
 class SpecimenTreatment(models.Model):
     _name = "hc.specimen.treatment"
@@ -334,3 +320,13 @@ class V2SpecimenType(models.Model):
     _name = "hc.vs.v2.specimen.type"
     _description = "V2 Specimen Type"
     _inherit = ["hc.value.set.contains"]
+
+# External Reference
+
+class ProcedureRequestSpecimen(models.Model):
+    _inherit = "hc.procedure.request.specimen"
+
+    specimen_id = fields.Many2one(
+        comodel_name="hc.res.specimen",
+        string="Specimen",
+        help="Specimen associated with this Procedure Request Specimen.")

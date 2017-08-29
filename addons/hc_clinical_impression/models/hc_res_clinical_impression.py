@@ -262,7 +262,6 @@ class ClinicalImpressionAction(models.Model):
     action_type = fields.Selection(
         string="Action Type",
         selection=[
-            ("referral_request", "Referral Request"),
             ("procedure_request", "Procedure Request"),
             ("procedure", "Procedure"),
             ("medication_request", "Medication Request"),
@@ -273,10 +272,6 @@ class ClinicalImpressionAction(models.Model):
         compute="_compute_action_name",
         store="True",
         help="Actions taken during assessment.")
-    action_referral_request_id = fields.Many2one(
-        comodel_name="hc.res.referral.request",
-        string="Action Referral Request",
-        help="Referral Request actions taken during assessment.")
     action_procedure_request_id = fields.Many2one(
         comodel_name="hc.res.procedure.request",
         string="Action Procedure Request",
@@ -298,12 +293,10 @@ class ClinicalImpressionAction(models.Model):
     @api.depends('action_type')
     def _compute_action_name(self):
         for hc_res_clinical_impression in self:
-            if hc_res_clinical_impression.action_type == 'procedure':
-                hc_res_clinical_impression.action_name = hc_res_clinical_impression.action_procedure_id.name
-            elif hc_res_clinical_impression.action_type == 'referral_request':
-                hc_res_clinical_impression.action_name = hc_res_clinical_impression.action_referral_request_id.name
-            elif hc_res_clinical_impression.action_type == 'procedure_request':
+            if hc_res_clinical_impression.action_type == 'procedure_request':
                 hc_res_clinical_impression.action_name = hc_res_clinical_impression.action_procedure_request_id.name
+            elif hc_res_clinical_impression.action_type == 'procedure':
+                hc_res_clinical_impression.action_name = hc_res_clinical_impression.action_procedure_id.name
             elif hc_res_clinical_impression.action_type == 'medication_request':
                 hc_res_clinical_impression.action_name = hc_res_clinical_impression.action_medication_request_id.name
             elif hc_res_clinical_impression.action_type == 'appointment':
@@ -582,23 +575,13 @@ class ClinicalImpressionCode(models.Model):
 class ConditionStageAssessment(models.Model):
     _inherit = ["hc.condition.stage.assessment"]
 
-    assessment_name = fields.Char(
-        string="Assessment",
-        compute="_compute_assessment_name",
-        store="True",
-        help="Formal record of assessment.")
+    assessment_type = fields.Selection(
+        selection_add=[
+            ("clinical_impression", "Clinical Impression")])
     assessment_clinical_impression_id = fields.Many2one(
         comodel_name="hc.res.clinical.impression",
         string="Assessment Clinical Impression",
         help="Clinical Impression formal record of assessment.")
-    assessment_diagnostic_report_id = fields.Many2one(
-        comodel_name="hc.res.diagnostic.report",
-        string="Assessment Diagnostic Report",
-        help="Diagnostic Report formal record of assessment.")
-    assessment_observation_id = fields.Many2one(
-        comodel_name="hc.res.observation",
-        string="Assessment Observation",
-        help="Observation formal record of assessment.")
 
     @api.depends('assessment_type')
     def _compute_assessment_name(self):
@@ -609,3 +592,16 @@ class ConditionStageAssessment(models.Model):
                 hc_condition_stage_assessment.assessment_name = hc_condition_stage_assessment.assessment_observation_id.name
             elif hc_condition_stage_assessment.assessment_type == 'diagnostic_report':
                 hc_condition_stage_assessment.assessment_name = hc_condition_stage_assessment.assessment_diagnostic_report_id.name
+
+# External Reference
+
+class DocumentReferenceContextRelatedRef(models.Model):
+    _inherit = "hc.document.reference.context.related.ref"
+
+    ref_type = fields.Selection(
+        selection_add=[
+            ("clinical_impression", "Clinical Impression")])
+    ref_clinical_impression_id = fields.Many2one(
+        comodel_name="hc.res.clinical.impression",
+        string="Ref Clinical Impression",
+        help="Clinical Impression related resource.")

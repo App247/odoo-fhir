@@ -1,50 +1,50 @@
 <openerp>
     <data>
 
-        <!-- Appointment Response Views -->         
-            
-        <record id="hc_res_appointment_response_view_search" model="ir.ui.view">            
-            <field name="name">Appointment Response Search</field>      
-            <field name="model">hc.res.appointment.response</field>     
-            <field name="arch" type="xml">      
-                <search string=" Appointment Responses">    
+        <!-- Appointment Response Views -->
+
+        <record id="hc_res_appointment_response_view_search" model="ir.ui.view">
+            <field name="name">Appointment Response Search</field>
+            <field name="model">hc.res.appointment.response</field>
+            <field name="arch" type="xml">
+                <search string=" Appointment Responses">
                     <field name="actor_name"/>
                     <field name="actor_type"/>
                     <field name="participant_status"/>
                     <field name="start"/>
                     <field name="end"/>
-                    <group string="Group By">  
+                    <group string="Group By">
                         <filter name="group_by_actor" string="Actor" context="{'group_by':'actor_name'}"/>
                     </group>
-                </search>   
-            </field>        
-        </record>           
-        
-        <record id="hc_res_appointment_response_view_tree" model="ir.ui.view">          
-            <field name="name">Appointment Response Tree</field>        
-            <field name="model">hc.res.appointment.response</field>     
-            <field name="arch" type="xml">      
-                <tree string=" Appointment Responses" default_order="actor_name, start">   
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_res_appointment_response_view_tree" model="ir.ui.view">
+            <field name="name">Appointment Response Tree</field>
+            <field name="model">hc.res.appointment.response</field>
+            <field name="arch" type="xml">
+                <tree string=" Appointment Responses" default_order="actor_name, start">
                     <field name="appointment_id"/>
                     <field name="actor_name"/>
                     <field name="actor_type"/>
                     <field name="participant_status"/>
                     <field name="start"/>
                     <field name="end"/>
-                </tree> 
-            </field>        
-        </record>           
+                </tree>
+            </field>
+        </record>
 
-        <record id="hc_res_appointment_response_view_form" model="ir.ui.view">                          
-            <field name="name">Appointment Response Form</field>                        
-            <field name="model">hc.res.appointment.response</field>                     
-            <field name="arch" type="xml">                      
-                <form string="Appointment Response">                    
-                    <sheet>                
-                        <h1>        
-                            <field name="appointment_id" default_focus="1" placeholder="Description (e.g., Check-up)"/> 
-                        </h1>       
-                        <group>         
+        <record id="hc_res_appointment_response_view_form" model="ir.ui.view">
+            <field name="name">Appointment Response Form</field>
+            <field name="model">hc.res.appointment.response</field>
+            <field name="arch" type="xml">
+                <form string="Appointment Response">
+                    <sheet>
+                        <h1>
+                            <field name="appointment_id" default_focus="1" placeholder="Description (e.g., Check-up)"/>
+                        </h1>
+                        <group>
                             <group>
                                 <field name="actor_name"/>
                                 <field name="actor_type"/>
@@ -56,14 +56,14 @@
                                 <field name="actor_location_id" class="oe_edit_only" attrs="{'invisible': [('actor_type','!=','location')]}"/>
                                 <field name="participant_type_ids" widget="many2many_tags"/>
                                 <field name="participant_status"/>
-                            </group>        
-                            <group>     
+                            </group>
+                            <group>
                                 <field name="start"/>
                                 <field name="end"/>
                                 <field name="comment"/>
-                            </group>        
-                        </group>        
-                        <notebook colspan="4">      
+                            </group>
+                        </group>
+                        <notebook colspan="4">
                             <page string="Identifiers">
                                 <field name="identifier_ids" mode="tree">
                                     <tree>
@@ -95,9 +95,9 @@
                                     </form>
                                 </field>
                             </page>
-                            <page string="Participant Status History">          
-                                <field name="participant_status_history_ids" mode="tree">       
-                                    <tree>  
+                            <page string="Participant Status History">
+                                <field name="participant_status_history_ids" mode="tree">
+                                    <tree>
                                         <field name="participant_status" readonly="1"/>
                                         <field name="start_date"/>
                                         <field name="end_date"/>
@@ -106,18 +106,18 @@
                                         <field name="time_diff_min"/>
                                         <field name="time_diff_sec"/>
                                         <field name="write_uid" invisible="0"/>
-                                    </tree> 
-                                </field>        
-                            </page>         
+                                    </tree>
+                                </field>
+                            </page>
                         </notebook>
                     </sheet>
                 </form>
             </field>
-        </record>   
+        </record>
 
-        <!-- Appointment Response Action and Menu -->   
-    
-        <act_window id="hc_res_appointment_response_action" 
+        <!-- Appointment Response Action and Menu -->
+
+        <act_window id="hc_res_appointment_response_action"
                     name="HC Appointment Responses"
                     res_model="hc.res.appointment.response"
                     view_mode="tree,form"
@@ -125,12 +125,12 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_appointment_response.menu_appt_resp" 
-                  name="Appointment Responses" 
-                  parent="hc_base.menu_work_sched" 
-                  action="hc_res_appointment_response_action" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="40"/>
+        <menuitem id="hc_appointment_response.menu_appt_resp"
+                  name="Appointment Responses"
+                  parent="hc_base.menu_work"
+                  action="hc_res_appointment_response_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="30"/>
 
     </data>
 </openerp>

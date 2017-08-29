@@ -1,9 +1,9 @@
 <openerp>
     <data>
 
-        <!-- Operation Outcome Action and Menu -->  
-    
-        <act_window id="hc_res_operation_outcome_action"    
+        <!-- Operation Outcome Action and Menu -->
+
+        <act_window id="hc_res_operation_outcome_action"
                     name="HC Operation Outcomes"
                     res_model="hc.res.operation.outcome"
                     view_mode="tree,form"
@@ -11,12 +11,12 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_operation_outcome.menu_ops_outcome" 
-                  name="Operation Outcomes" 
-                  parent="hc_base.menu_exch" 
-                  action="hc_res_operation_outcome_action" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="50"/>
+        <menuitem id="hc_operation_outcome.menu_ops_outcome"
+                  name="Operation Outcomes"
+                  parent="hc_base.menu_other"
+                  action="hc_res_operation_outcome_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="70"/>
 
     </data>
 </openerp>

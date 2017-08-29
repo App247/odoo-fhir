@@ -238,6 +238,23 @@ class Procedure(models.Model):
         'Period End Date SHALL not be before than Period Start Date.')
         ]
 
+    @api.depends('subject_patient_id', 'subject_group_id', 'code_id', 'performed_date_name')
+    def _compute_name(self):
+        comp_name = '/'
+        for hc_res_procedure in self:
+            if hc_res_procedure.subject_type == 'patient':
+                comp_name = hc_res_procedure.subject_patient_id.name
+                if hc_res_procedure.subject_patient_id.birth_date:
+                    subject_patient_birth_date = datetime.strftime(datetime.strptime(hc_res_procedure.subject_patient_id.birth_date, DF), '%Y-%m-%d')
+                    comp_name = comp_name + '('+ subject_patient_birth_date + ')'
+            if hc_res_procedure.subject_type == 'group':
+                comp_name = hc_res_procedure.subject_group_id.name
+            if hc_res_procedure.code_id:
+                comp_name = comp_name + ', ' + hc_res_procedure.code_id.name or ''
+            if hc_res_procedure.performed_date_name:
+                comp_name = comp_name + ', ' + str(hc_res_procedure.performed_date_name) or ''
+            hc_res_procedure.name = comp_name
+
     @api.depends('performed_date_type', 'performed_date_date_time', 'performed_date_string', 'performed_date_age', 'performed_date_range_low', 'performed_date_range_high','performed_date_start_date', 'performed_date_end_date', 'performed_date_range_uom_id')
     def _compute_performed_date_name(self):
         for hc_res_procedure in self:
@@ -260,23 +277,6 @@ class Procedure(models.Model):
                 hc_res_procedure.performed_date_name = str(hc_res_procedure.performed_date_age) + " " + str(hc_res_procedure.performed_date_age_uom_id.name) + "s old"
             elif hc_res_procedure.performed_date_type == 'range':
                 hc_res_procedure.performed_date_name = 'Between ' + str(hc_res_procedure.performed_date_range_low) + ' and ' + str(hc_res_procedure.performed_date_range_high) + " " + str(hc_res_procedure.performed_date_range_uom_id.name) + "s ago"
-
-    @api.depends('subject_patient_id', 'subject_group_id', 'code_id', 'performed_date_name')
-    def _compute_name(self):
-        comp_name = '/'
-        for hc_res_procedure in self:
-            if hc_res_procedure.subject_type == 'patient':
-                comp_name = hc_res_procedure.subject_patient_id.name
-                if hc_res_procedure.subject_patient_id.birth_date:
-                    subject_patient_birth_date = datetime.strftime(datetime.strptime(hc_res_procedure.subject_patient_id.birth_date, DF), '%Y-%m-%d')
-                    comp_name = comp_name + '('+ subject_patient_birth_date + ')'
-            if hc_res_procedure.subject_type == 'group':
-                comp_name = hc_res_procedure.subject_group_id.name
-            if hc_res_procedure.code_id:
-                comp_name = comp_name + ', ' + hc_res_procedure.code_id.name or ''
-            if hc_res_procedure.performed_date_name:
-                comp_name = comp_name + ', ' + str(hc_res_procedure.performed_date_name) or ''
-            hc_res_procedure.name = comp_name
 
     @api.depends('subject_type')
     def _compute_subject_name(self):
@@ -477,7 +477,7 @@ class ProcedureDefinition(models.Model):
     procedure_id = fields.Many2one(
         comodel_name="hc.res.procedure",
         string="Procedure",
-        help="Procedure associated with this Procedure Procedure Definition.")
+        help="Procedure associated with this Procedure Definition.")
     definition_type = fields.Selection(
         string="Definition Type",
         selection=[
@@ -511,7 +511,7 @@ class ProcedureBasedOn(models.Model):
     procedure_id = fields.Many2one(
         comodel_name="hc.res.procedure",
         string="Procedure",
-        help="Procedure associated with this Procedure Procedure Based On.")
+        help="Procedure associated with this Procedure Based On.")
     based_on_type = fields.Selection(
         string="Based On Type",
         selection=[
@@ -540,7 +540,7 @@ class ProcedurePartOf(models.Model):
     procedure_id = fields.Many2one(
         comodel_name="hc.res.procedure",
         string="Procedure",
-        help="Procedure associated with this Procedure Procedure Part Of.")
+        help="Procedure associated with this Procedure Part Of.")
     part_of_type = fields.Selection(
         string="Part Of Type",
         selection=[

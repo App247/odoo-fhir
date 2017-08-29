@@ -1,9 +1,9 @@
 <openerp>
     <data>
 
-        <!-- Media Action and Menu -->  
-    
-        <act_window id="hc_res_media_action"    
+        <!-- Media Action and Menu -->
+
+        <act_window id="hc_res_media_action"
                     name="HC Media"
                     res_model="hc.res.media"
                     view_mode="tree,form"
@@ -11,12 +11,12 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_media.menu_media" 
+        <menuitem id="hc_media.menu_media"
                   name="Media"
-                  parent="hc_base.menu_exch"
-                  action="hc_res_media_action" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="10"/>
+                  parent="hc_base.menu_other"
+                  action="hc_res_media_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="50"/>
 
     </data>
 </openerp>

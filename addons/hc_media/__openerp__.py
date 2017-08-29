@@ -9,8 +9,8 @@
     'description': """
         A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference.
 
-        **Scope and Usage** 
-        
+        **Scope and Usage**
+
         The Media resource contains photos, videos, and audio recordings. It is used with media acquired or used as part of the healthcare process. Here are some typical usages:
 
         * Photos of patients and staff for identification purposes
@@ -29,7 +29,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['hc_specimen'],
+    'depends': ['hc_specimen', 'hc_device_metric'],
 
     # always loaded
     'data': [

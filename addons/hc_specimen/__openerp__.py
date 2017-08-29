@@ -9,7 +9,7 @@
     'description': """
         A sample to be used for analysis.
 
-        **Scope and Usage** 
+        **Scope and Usage**
 
         Any material sample:
 
@@ -29,7 +29,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['hc_body_site', 'hc_diagnostic_request', 'hc_procedure_request'],
+    'depends': ['hc_diagnostic_request', 'hc_procedure_request'],
 
     # always loaded
     'data': [

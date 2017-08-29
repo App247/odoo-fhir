@@ -1,66 +1,66 @@
-<openerp>
+<odoo>
     <data>
 
-        <!-- Communication Request Views -->                                        
-                                        
-        <record id="hc_res_communication_request_view_search" model="ir.ui.view">                                       
-            <field name="name">Communication Request Search</field>                                 
-            <field name="model">hc.res.communication.request</field>                                    
-            <field name="arch" type="xml">                                  
-                <search string="Communication Requests">                                
-                </search>                               
-            </field>                                    
-        </record>                                       
-                                                
-        <record id="hc_res_communication_request_view_tree" model="ir.ui.view">                                     
-            <field name="name">Communication Request Tree</field>                                   
-            <field name="model">hc.res.communication.request</field>                                    
-            <field name="arch" type="xml">                                  
-                <tree string="Communication Requests">                              
-                </tree>                             
-            </field>                                    
-        </record>                                       
-                                                
-        <record id="hc_res_communication_request_view_form" model="ir.ui.view">                                     
-            <field name="name">Communication Request Form</field>                                   
-            <field name="model">hc.res.communication.request</field>                                    
-            <field name="arch" type="xml">                                  
-                <form string="Communication Request">                               
-                    <sheet>                         
-                        <h1>                        
-                            <field name="name" default_focus="1" placeholder="Name"/>                   
-                        </h1>                       
-                        <group>                     
-                            <group>                 
-                            </group>                    
-                            <group>                 
-                            </group>                    
-                        </group>                        
-                        <notebook>                      
-                            <page string="Identifiers">                 
-                                <field name="identifier_ids" mode="tree">               
-                                    <tree>          
-                                    </tree>         
-                                    <form>          
-                                        <sheet>     
-                                            <group> 
+        <!-- Communication Request Views -->
+
+        <record id="hc_res_communication_request_view_search" model="ir.ui.view">
+            <field name="name">Communication Request Search</field>
+            <field name="model">hc.res.communication.request</field>
+            <field name="arch" type="xml">
+                <search string="Communication Requests">
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_res_communication_request_view_tree" model="ir.ui.view">
+            <field name="name">Communication Request Tree</field>
+            <field name="model">hc.res.communication.request</field>
+            <field name="arch" type="xml">
+                <tree string="Communication Requests">
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_res_communication_request_view_form" model="ir.ui.view">
+            <field name="name">Communication Request Form</field>
+            <field name="model">hc.res.communication.request</field>
+            <field name="arch" type="xml">
+                <form string="Communication Request">
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name"/>
+                        </h1>
+                        <group>
+                            <group>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Identifiers">
+                                <field name="identifier_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
                                                 <group>
                                                 </group>
                                                 <group>
                                                 </group>
-                                            </group>    
-                                        </sheet>        
-                                    </form>         
-                                </field>                
-                            </page>                 
-                        </notebook>                     
-                    </sheet>                            
-                </form>                             
-            </field>                                    
-        </record>                                       
-  
-  
-        <act_window id="hc_res_communication_request_action"  
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <act_window id="hc_res_communication_request_action"
                     name="HC Communication Requests"
                     res_model="hc.res.communication.request"
                     view_mode="tree,form"
@@ -68,13 +68,12 @@
                     context=""
                     limit=""/>
 
-
-        <menuitem id="hc_communication_request.menu_comm_req" 
-                  name="Communication Requests" 
-                  parent="hc_base.menu_pat_mgt" 
-                  action="hc_res_communication_request_action" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="60"/>
+        <menuitem id="hc_communication_request.menu_comm_req"
+                  name="Communication Requests"
+                  parent="hc_base.menu_clinic_req"
+                  action="hc_res_communication_request_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="20"/>
 
     </data>
-</openerp>
+</odoo>

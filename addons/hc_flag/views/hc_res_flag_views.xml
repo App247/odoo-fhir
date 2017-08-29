@@ -1,22 +1,22 @@
-<openerp>
+<odoo>
     <data>
-    
-        <!-- Flag Action and Menu -->   
-    
-        <act_window id="hc_res_flag_action" 
-            name="HC Flags"
-            res_model="hc.res.flag"
-            view_mode="tree,form"
-            domain=""
-            context=""
-            limit=""/>
 
-        <menuitem id="hc_flag.menu_flag" 
-                  name="Flags" 
-                  parent="hc_base.menu_pat_mgt" 
-                  action="hc_res_flag_action" 
-                  groups="hc_base.group_hc_base_manager" 
+        <!-- Flag Action and Menu -->
+
+        <act_window id="hc_res_flag_action"
+                    name="HC Flags"
+                    res_model="hc.res.flag"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <menuitem id="hc_flag.menu_flag"
+                  name="Flags"
+                  parent="hc_base.menu_mgt"
+                  action="hc_res_flag_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="30"/>
 
     </data>
-</openerp>
+</odoo>

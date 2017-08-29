@@ -437,6 +437,22 @@ class DefinedType(models.Model):
         string="Parent",
         help="Parent defined type.")
 
+class DefinitionTopic(models.Model):
+    _name = "hc.vs.definition.topic"
+    _description = "Definition Topic"
+    _inherit = ["hc.value.set.contains"]
+
+    name = fields.Char(
+        string="Name",
+        help="Name of this definition topic.")
+    code = fields.Char(
+        string="Code",
+        help="Code of this definition topic.")
+    contains_id = fields.Many2one(
+        comodel_name="hc.vs.definition.topic",
+        string="Parent",
+        help="Parent definition topic.")
+
 class DemographicAgeGroup(models.Model):
     _name = "hc.vs.demographic.age.group"
     _description = "Demographic Age Group"
@@ -749,6 +765,22 @@ class ParticipationTypeSubset(models.Model):
         comodel_name="hc.vs.participation.type.subset",
         string="Parent",
         help="Parent participation type subset.")
+
+class ProcedureReasonCode(models.Model):
+    _name = "hc.vs.procedure.reason"
+    _description = "Procedure Reason"
+    _inherit = ["hc.value.set.contains"]
+
+    name = fields.Char(
+        string="Name",
+        help="Name of this procedure reason.")
+    code = fields.Char(
+        string="Code",
+        help="Code of this procedure reason.")
+    contains_id = fields.Many2one(
+        comodel_name="hc.vs.procedure.reason",
+        string="Parent",
+        help="Parent procedure reason.")
 
 class PublicationStatus(models.Model):
     _name = "hc.vs.publication.status"

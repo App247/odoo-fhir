@@ -1,9 +1,9 @@
 <openerp>
     <data>
 
-        <!-- Plan Definition Action and Menu -->    
-        
-        <act_window id="hc_res_plan_definition_action"  
+        <!-- Plan Definition Action and Menu -->
+
+        <act_window id="hc_res_plan_definition_action"
             name="HC Plan Definitions"
             res_model="hc.res.plan.definition"
             view_mode="tree,form"
@@ -11,12 +11,12 @@
             context=""
             limit=""/>
 
-        <menuitem id="hc_plan_definition.menu_plan_defn" 
-                  name="Plan Definitions" 
-                  parent="hc_base.menu_clin_rsn" 
-                  action="hc_res_plan_definition_action" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="80"/>
+        <menuitem id="hc_plan_definition.menu_plan_defn"
+                  name="Plan Definitions"
+                  parent="hc_base.menu_spec_art"
+                  action="hc_res_plan_definition_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="50"/>
 
     </data>
 </openerp>

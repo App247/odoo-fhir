@@ -215,9 +215,8 @@
                                                 <group>
                                                     <field name="action_name"/>
                                                     <field name="action_type" class="oe_edit_only"/>
-                                                    <field name="action_referral_request_id" class="oe_edit_only" attrs="{'invisible': [('action_type','!=','referral_request')], 'required': [('action_type','=','referral_request')]}"/>
                                                     <field name="action_procedure_request_id" class="oe_edit_only" attrs="{'invisible': [('action_type','!=','procedure_request')], 'required': [('action_type','=','procedure_request')]}"/>
-                                                    <field name="action_procedure_request_id" class="oe_edit_only" attrs="{'invisible': [('action_type','!=','procedure_request')], 'required': [('action_type','=','procedure_request')]}"/>
+                                                    <field name="action_procedure_id" class="oe_edit_only" attrs="{'invisible': [('action_type','!=','procedure')], 'required': [('action_type','=','procedure')]}"/>
                                                     <field name="action_medication_request_id" class="oe_edit_only" attrs="{'invisible': [('action_type','!=','medication_request')], 'required': [('action_type','=','medication_request')]}"/>
                                                     <field name="action_appointment_id" class="oe_edit_only" attrs="{'invisible': [('action_type','!=','appointment')], 'required': [('action_type','=','appointment')]}"/>
                                                 </group>
@@ -288,10 +287,10 @@
         <menuitem id="hc_clinical_impression.menu_clinic_imp"
                   name="Clinical Impressions"
                   web_icon="hc_clinical_impression,static/description/icon.png"
-                  parent="hc_base.menu_clinic_gen"
+                  parent="hc_base.menu_clinic_sum"
                   action="hc_res_clinical_impression_action"
                   groups="hc_base.group_hc_base_manager"
-                  sequence="50"/>
+                  sequence="60"/>
 
         <!-- External Reference -->
 

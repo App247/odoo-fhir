@@ -1,9 +1,9 @@
-<openerp>
+<odoo>
     <data>
-        
-        <!-- Device Use Request Action and Menu --> 
-    
-        <act_window id="hc_res_device_request_action"   
+
+        <!-- Device Use Request Action and Menu -->
+
+        <act_window id="hc_res_device_request_action"
                     name="HC Device Requests"
                     res_model="hc.res.device.request"
                     view_mode="tree,form"
@@ -11,13 +11,12 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_device_request.menu_dev_req" 
+        <menuitem id="hc_device_request.menu_dev_req"
                   name="Device Requests"
-                  web_icon="hc_device_request,static/description/icon.png"  
-                  parent="hc_base.menu_work_event_1" 
-                  action="hc_res_device_request_action" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="11"/>
+                  parent="hc_base.menu_clinic_req"
+                  action="hc_res_device_request_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="30"/>
 
     </data>
-</openerp>
+</odoo>

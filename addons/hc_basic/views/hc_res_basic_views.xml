@@ -1,9 +1,9 @@
 <openerp>
     <data>
 
-        <!-- Basic Action and Menu -->  
+        <!-- Basic Action and Menu -->
 
-        <act_window id="hc_res_basic_action"  
+        <act_window id="hc_res_basic_action"
                     name="HC Basics"
                     res_model="hc.res.basic"
                     view_mode="tree,form"
@@ -11,12 +11,12 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_basic.menu_basic" 
-                  name="Basic" 
-                  parent="hc_base.menu_doc_quest" 
-                  action="hc_res_basic_action" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="70"/>
+        <menuitem id="hc_basic.menu_basic"
+                  name="Basic"
+                  parent="hc_base.menu_other"
+                  action="hc_res_basic_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="10"/>
 
     </data>
 </openerp>

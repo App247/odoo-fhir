@@ -1,0 +1,81 @@
+<openerp>
+    <data>
+
+        <!-- Event Definition Views -->
+
+        <record id="hc_res_event_definition_view_search" model="ir.ui.view">
+            <field name="name">Event Definition Search</field>
+            <field name="model">hc.res.event.definition</field>
+            <field name="arch" type="xml">
+                <search string="Event Definitions">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_res_event_definition_view_tree" model="ir.ui.view">
+            <field name="name">Event Definition Tree</field>
+            <field name="model">hc.res.event.definition</field>
+            <field name="arch" type="xml">
+                <tree string="Event Definitions">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_res_event_definition_view_form" model="ir.ui.view">
+            <field name="name">Event Definition Form</field>
+            <field name="model">hc.res.event.definition</field>
+            <field name="arch" type="xml">
+                <form string="Event Definition">
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name"/>
+                        </h1>
+                        <group>
+                            <group>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Identifiers">
+                                <field name="identifier_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_res_event_definition_action"
+                    name="HC Event Definitions"
+                    res_model="hc.res.event.definition"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <menuitem id="hc_event_definition.menu_event_defn"
+                  name="Event Definitions"
+                  parent="hc_base.menu_spec_art" 
+                  action="hc_res_event_definition_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="30"/>
+
+
+    </data>
+</openerp>

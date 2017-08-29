@@ -105,6 +105,14 @@ class Task(models.Model):
         compute="_compute_context_name",
         store="True",
         help="Healthcare event during which this task originated.")
+    context_encounter_id = fields.Many2one(
+        comodel_name="hc.res.encounter",
+        string="Context Encounter",
+        help="Encounter healthcare event during which this task originated.")
+    context_episode_of_care_id = fields.Many2one(
+        comodel_name="hc.res.episode.of.care",
+        string="Context Episode Of Care",
+        help="Episode Of Care healthcare event during which this task originated.")
     execution_period_start_date = fields.Datetime(
         string="Execution Period Start Date",
         help="Start of execution.")
@@ -136,6 +144,26 @@ class Task(models.Model):
         compute="_compute_owner_name",
         store="True",
         help="Task Owner.")
+    owner_device_id = fields.Many2one(
+        comodel_name="hc.res.device",
+        string="Owner Device",
+        help="Device responsible individual.")
+    owner_organization_id = fields.Many2one(
+        comodel_name="hc.res.organization",
+        string="Owner Organization",
+        help="Organization responsible individual.")
+    owner_patient_id = fields.Many2one(
+        comodel_name="hc.res.patient",
+        string="Owner Patient",
+        help="Patient responsible individual.")
+    owner_practitioner_id = fields.Many2one(
+        comodel_name="hc.res.practitioner",
+        string="Owner Practitioner",
+        help="Practitioner responsible individual.")
+    owner_related_person_id = fields.Many2one(
+        comodel_name="hc.res.related.person",
+        string="Owner Related Person",
+        help="Related Person responsible individual.")
     reason_id = fields.Many2one(
         comodel_name="hc.vs.task.reason",
         string="Reason",
@@ -195,7 +223,6 @@ class Task(models.Model):
                     'start_date': datetime.today()
                     }
                 business_status_history_obj.create(business_status_history_vals)
-
         return res
 
     @api.multi
@@ -275,10 +302,7 @@ class Task(models.Model):
             if vals.get('status') == 'entered-in-error':
                     business_status_history_vals.update({'end_date': datetime.today()})
             business_status_history_obj.create(business_status_history_vals)
-
         return res
-
-
 
 class TaskRequester(models.Model):
     _name = "hc.task.requester"
@@ -360,26 +384,167 @@ class TaskInput(models.Model):
         help="Input Name.")
     value_type = fields.Selection(
         string="Value Type",
-        required="True",
         selection=[
+            ("integer", "Integer"),
+            ("decimal", "Decimal"),
+            ("date_time", "Date Time"),
+            ("date", "Date"),
+            ("instant", "Instant"),
             ("string", "String"),
-            ("decimal", "Decimal")],
-        help="Type of input value.")
+            ("uri", "URI"),
+            ("boolean", "Boolean"),
+            ("code", "Code"),
+            ("markdown", "Markdown"),
+            ("base_64_binary", "Base 64 Binary"),
+            ("coding", "Coding"),
+            ("codeable_concept", "Codeable Concept"),
+            ("attachment", "Attachment"),
+            ("identifier", "Identifier"),
+            ("quantity", "Quantity"),
+            ("range", "Range"),
+            ("period", "Period"),
+            ("ratio", "Ratio"),
+            ("human_name", "Human Name"),
+            ("address", "Address"),
+            ("contact_point", "Contact Point"),
+            ("timing", "Timing"),
+            ("signature", "Signature"),
+            ("reference", "Reference"),
+            ("time", "Time"),
+            ("oid", "OID"),
+            ("id", "ID"),
+            ("unsigned_int", "Unsigned Integer"),
+            ("positive_int", "Positive Integer"),
+            ("annotation", "Annotation"),
+            ("sampled_data", "Sampled Data"),
+            ("meta", "Meta")],
+        help="Type of specified input value.")
     value_name = fields.Char(
         string="Value",
         compute="_compute_value_name",
         store="True",
-        help="Input Value.")
-    value_string = fields.Char(
-        string="Value String",
-        help="String input value.")
+        help="Specified input value.")
+    value_integer = fields.Integer(
+        string="Value Integer",
+        help="Integer input value.")
     value_decimal = fields.Float(
         string="Value Decimal",
         help="Decimal input value.")
+    value_date_time = fields.Datetime(
+        string="Value Date Time",
+        help="Date Time input value.")
+    value_date = fields.Date(
+        string="Value Date",
+        help="Date input value.")
+    value_instant = fields.Datetime(
+        string="Value Instant",
+        help="Instant input value.")
+    value_string = fields.Char(
+        string="Value String",
+        help="String input value.")
+    value_uri = fields.Char(
+        string="Value URI",
+        help="URI input value.")
+    value_boolean = fields.Boolean(
+        string="Value Boolean",
+        help="Boolean input value.")
     value_code_id = fields.Many2one(
-        comodel_name="hc.vs.task.input.type",
+        comodel_name="hc.vs.task.code",
         string="Value Code",
         help="Code input value.")
+    value_markdown = fields.Text(
+        string="Value Markdown",
+        help="Markdown input value.")
+    value_base_64_binary = fields.Binary(
+        string="Value Base 64 Binary",
+        help="Base 64 Binary input value.")
+    value_coding_id = fields.Many2one(
+        comodel_name="hc.vs.task.code",
+        string="Value Coding",
+        help="Coding input value.")
+    value_codeable_concept_id = fields.Many2one(
+        comodel_name="hc.vs.task.code",
+        string="Value Codeable Concept",
+        help="Codeable Concept input value.")
+    value_attachment_id = fields.Many2one(
+        comodel_name="hc.task.attachment",
+        string="Value Attachment",
+        help="Attachment input value.")
+    value_identifier_id = fields.Many2one(
+        comodel_name="hc.task.value.identifier",
+        string="Value Identifier",
+        help="Identifier input value.")
+    value_quantity = fields.Float(
+        string="Value Quantity",
+        help="Quantity input value.")
+    value_quantity_uom_id = fields.Many2one(
+        comodel_name="product.uom",
+        string="Value Quantity UOM",
+        help="Quantity unit of measure.")
+    value_range = fields.Char(
+        string="Value Range",
+        help="Range input value.")
+    value_period = fields.Char(
+        string="Value Period",
+        help="Period input value.")
+    value_period_uom_id = fields.Many2one(
+        comodel_name="product.uom",
+        string="Value Period UOM",
+        help="Period unit of measure.")
+    value_ratio = fields.Float(
+        string="Value Ratio",
+        help="Ratio of input value.")
+    value_human_name_id = fields.Many2one(
+        comodel_name="hc.task.human.name",
+        string="Value Human Name",
+        help="Human Name input value.")
+    value_address_id = fields.Many2one(
+        comodel_name="hc.task.address",
+        string="Value Address",
+        help="Address input value.")
+    value_contact_point_id = fields.Many2one(
+        comodel_name="hc.task.telecom",
+        string="Value Contact Point",
+        help="Contact Point input value.")
+    value_timing_id = fields.Many2one(
+        comodel_name="hc.task.timing",
+        string="Value Timing",
+        help="Timing input value.")
+    value_signature_id = fields.Many2one(
+        comodel_name="hc.task.signature",
+        string="Value Signature",
+        help="Signature input value.")
+    value_reference_id = fields.Many2one(
+        comodel_name="hc.task.reference",
+        string="Value Reference",
+        help="Reference input value.")
+    value_time = fields.Float(
+        string="Value Time",
+        help="Time input value.")
+    value_oid = fields.Char(
+        string="Value OID",
+        help="OID input value.")
+    value_id = fields.Char(
+        string="Value ID",
+        help="ID input value.")
+    value_unsigned_int = fields.Integer(
+        string="Value Unsigned Integer",
+        help="Unsigned Integer input value.")
+    value_positive_int = fields.Integer(
+        string="Value Positive Integer",
+        help="Positive Integer input value.")
+    value_annotation_id = fields.Many2one(
+        comodel_name="hc.task.annotation",
+        string="Value Annotation",
+        help="Annotation input value.")
+    value_sampled_data_id = fields.Many2one(
+        comodel_name="hc.task.sampled.data",
+        string="Value Sampled Data",
+        help="Sampled Data input value.")
+    value_meta_id = fields.Many2one(
+        comodel_name="hc.task.meta",
+        string="Value Meta",
+        help="Meta input value.")
 
 class TaskOutput(models.Model):
     _name = "hc.task.output"
@@ -395,26 +560,167 @@ class TaskOutput(models.Model):
         help="Output Name.")
     value_type = fields.Selection(
         string="Value Type",
-        required="True",
         selection=[
+            ("integer", "Integer"),
+            ("decimal", "Decimal"),
+            ("date_time", "Date Time"),
+            ("date", "Date"),
+            ("instant", "Instant"),
             ("string", "String"),
-            ("decimal", "Decimal")],
-        help="Type of output value.")
+            ("uri", "URI"),
+            ("boolean", "Boolean"),
+            ("code", "Code"),
+            ("markdown", "Markdown"),
+            ("base_64_binary", "Base 64 Binary"),
+            ("coding", "Coding"),
+            ("codeable_concept", "Codeable Concept"),
+            ("attachment", "Attachment"),
+            ("identifier", "Identifier"),
+            ("quantity", "Quantity"),
+            ("range", "Range"),
+            ("period", "Period"),
+            ("ratio", "Ratio"),
+            ("human_name", "Human Name"),
+            ("address", "Address"),
+            ("contact_point", "Contact Point"),
+            ("timing", "Timing"),
+            ("signature", "Signature"),
+            ("reference", "Reference"),
+            ("time", "Time"),
+            ("oid", "OID"),
+            ("id", "ID"),
+            ("unsigned_int", "Unsigned Integer"),
+            ("positive_int", "Positive Integer"),
+            ("annotation", "Annotation"),
+            ("sampled_data", "Sampled Data"),
+            ("meta", "Meta")],
+        help="Type of specified output value.")
     value_name = fields.Char(
         string="Value",
         compute="_compute_value_name",
         store="True",
-        help="Output Value.")
-    value_string = fields.Char(
-        string="Value String",
-        help="String output value.")
+        help="Specified output value.")
+    value_integer = fields.Integer(
+        string="Value Integer",
+        help="Integer output value.")
     value_decimal = fields.Float(
         string="Value Decimal",
         help="Decimal output value.")
+    value_date_time = fields.Datetime(
+        string="Value Date Time",
+        help="Date Time output value.")
+    value_date = fields.Date(
+        string="Value Date",
+        help="Date output value.")
+    value_instant = fields.Datetime(
+        string="Value Instant",
+        help="Instant output value.")
+    value_string = fields.Char(
+        string="Value String",
+        help="String output value.")
+    value_uri = fields.Char(
+        string="Value URI",
+        help="URI output value.")
+    value_boolean = fields.Boolean(
+        string="Value Boolean",
+        help="Boolean output value.")
     value_code_id = fields.Many2one(
-        comodel_name="hc.vs.task.output.type",
+        comodel_name="hc.vs.task.code",
         string="Value Code",
         help="Code output value.")
+    value_markdown = fields.Text(
+        string="Value Markdown",
+        help="Markdown output value.")
+    value_base_64_binary = fields.Binary(
+        string="Value Base 64 Binary",
+        help="Base 64 Binary output value.")
+    value_coding_id = fields.Many2one(
+        comodel_name="hc.vs.task.code",
+        string="Value Coding",
+        help="Coding output value.")
+    value_codeable_concept_id = fields.Many2one(
+        comodel_name="hc.vs.task.code",
+        string="Value Codeable Concept",
+        help="Codeable Concept output value.")
+    value_attachment_id = fields.Many2one(
+        comodel_name="hc.task.attachment",
+        string="Value Attachment",
+        help="Attachment output value.")
+    value_identifier_id = fields.Many2one(
+        comodel_name="hc.task.value.identifier",
+        string="Value Identifier",
+        help="Identifier output value.")
+    value_quantity = fields.Float(
+        string="Value Quantity",
+        help="Quantity output value.")
+    value_quantity_uom_id = fields.Many2one(
+        comodel_name="product.uom",
+        string="Value Quantity UOM",
+        help="Quantity unit of measure.")
+    value_range = fields.Char(
+        string="Value Range",
+        help="Range output value.")
+    value_period = fields.Char(
+        string="Value Period",
+        help="Period output value.")
+    value_period_uom_id = fields.Many2one(
+        comodel_name="product.uom",
+        string="Value Period UOM",
+        help="Period unit of measure.")
+    value_ratio = fields.Float(
+        string="Value Ratio",
+        help="Ratio of output value.")
+    value_human_name_id = fields.Many2one(
+        comodel_name="hc.task.human.name",
+        string="Value Human Name",
+        help="Human Name output value.")
+    value_address_id = fields.Many2one(
+        comodel_name="hc.task.address",
+        string="Value Address",
+        help="Address output value.")
+    value_contact_point_id = fields.Many2one(
+        comodel_name="hc.task.telecom",
+        string="Value Contact Point",
+        help="Contact Point output value.")
+    value_timing_id = fields.Many2one(
+        comodel_name="hc.task.timing",
+        string="Value Timing",
+        help="Timing output value.")
+    value_signature_id = fields.Many2one(
+        comodel_name="hc.task.signature",
+        string="Value Signature",
+        help="Signature output value.")
+    value_reference_id = fields.Many2one(
+        comodel_name="hc.task.reference",
+        string="Value Reference",
+        help="Reference output value.")
+    value_time = fields.Float(
+        string="Value Time",
+        help="Time output value.")
+    value_oid = fields.Char(
+        string="Value OID",
+        help="OID output value.")
+    value_id = fields.Char(
+        string="Value ID",
+        help="ID output value.")
+    value_unsigned_int = fields.Integer(
+        string="Value Unsigned Integer",
+        help="Unsigned Integer output value.")
+    value_positive_int = fields.Integer(
+        string="Value Positive Integer",
+        help="Positive Integer output value.")
+    value_annotation_id = fields.Many2one(
+        comodel_name="hc.task.annotation",
+        string="Value Annotation",
+        help="Annotation output value.")
+    value_sampled_data_id = fields.Many2one(
+        comodel_name="hc.task.sampled.data",
+        string="Value Sampled Data",
+        help="Sampled Data output value.")
+    value_meta_id = fields.Many2one(
+        comodel_name="hc.task.meta",
+        string="Value Meta",
+        help="Meta output value.")
 
 class TaskIdentifier(models.Model):
     _name = "hc.task.identifier"
@@ -618,25 +924,17 @@ class TaskRestrictionRecipient(models.Model):
     recipient_type = fields.Selection(
         string="Recipient Type",
         selection=[
-            ("Patient", "Patient"),
-            ("Practitioner", "Practitioner"),
-            ("Related Person", "Related Person"),
-            ("Group", "Group"),
-            ("Organization", "Organization")],
+            ("patient", "Patient"),
+            ("practitioner", "Practitioner"),
+            ("related_person", "Related Person"),
+            ("group", "Group"),
+            ("organization", "Organization")],
         help="Type for whom is fulfillment sought.")
     recipient_name = fields.Char(
         string="Recipient",
         compute="_compute_recipient_name",
         store="True",
         help="For whom is fulfillment sought? ")
-    recipient_patient_id = fields.Many2one(
-        comodel_name="hc.res.patient",
-        string="Recipient Patient",
-        help="Patient for whom is fulfillment sought?")
-    recipient_organization_id = fields.Many2one(
-        comodel_name="hc.res.organization",
-        string="Recipient Organization",
-        help="Organization for whom is fulfillment sought?")
     recipient_patient_id = fields.Many2one(
         comodel_name="hc.res.patient",
         string="Recipient Patient",
@@ -649,6 +947,109 @@ class TaskRestrictionRecipient(models.Model):
         comodel_name="hc.res.related.person",
         string="Recipient Related Person",
         help="Related Person for whom is fulfillment sought?")
+    recipient_group_id = fields.Many2one(
+        comodel_name="hc.res.group",
+        string="Recipient Group",
+        help="Group for whom is fulfillment sought?")
+    recipient_organization_id = fields.Many2one(
+        comodel_name="hc.res.organization",
+        string="Recipient Organization",
+        help="Organization for whom is fulfillment sought?")
+
+class TaskAddress(models.Model):
+    _name = "hc.task.address"
+    _description = "Task Address"
+    _inherit = ["hc.address.use"]
+    _inherits = {"hc.address": "address_id"}
+
+    address_id = fields.Many2one(
+        comodel_name="hc.address",
+        string="Address",
+        ondelete="restrict",
+        required="True",
+        help="Address associated with this Task Address.")
+
+class TaskAnnotation(models.Model):
+    _name = "hc.task.annotation"
+    _description = "Task Annotation"
+    _inherit = ["hc.basic.association", "hc.annotation"]
+
+class TaskAttachment(models.Model):
+    _name = "hc.task.attachment"
+    _description = "Task Attachment"
+    _inherit = ["hc.basic.association", "hc.attachment"]
+
+class TaskTelecom(models.Model):
+    _name = "hc.task.telecom"
+    _description = "Task Telecom"
+    _inherit = ["hc.contact.point.use"]
+    _inherits = {"hc.contact.point": "telecom_id"}
+
+    telecom_id = fields.Many2one(
+        comodel_name="hc.contact.point",
+        string="Telecom",
+        ondelete="restrict",
+        required="True",
+        help="Telecom associated with this Task Telecom.")
+
+class TaskHumanName(models.Model):
+    _name = "hc.task.human.name"
+    _description = "Task Human Name"
+    _inherit = ["hc.human.name.use"]
+    _inherits = {"hc.human.name": "name_id"}
+
+    name_id = fields.Many2one(
+        comodel_name="hc.human.name",
+        string="Name",
+        ondelete="restrict",
+        required="True",
+        help="Name associated with this Task Human Name.")
+
+class TaskIdentifier(models.Model):
+    _name = "hc.task.value.identifier"
+    _description = "Task Value Identifier"
+    _inherit = ["hc.basic.association", "hc.identifier"]
+
+class TaskMeta(models.Model):
+    _name = "hc.task.meta"
+    _description = "Task Meta"
+    _inherit = ["hc.basic.association", "hc.meta"]
+
+class TaskReference(models.Model):
+    _name = "hc.task.reference"
+    _description = "Task Reference"
+    _inherit = ["hc.basic.association", "hc.reference"]
+
+class TaskSampledData(models.Model):
+    _name = "hc.task.sampled.data"
+    _description = "Task Sampled Data"
+    _inherit = ["hc.basic.association", "hc.sampled.data"]
+
+class TaskSignature(models.Model):
+    _name = "hc.task.signature"
+    _description = "Task Signature"
+    _inherit = ["hc.basic.association", "hc.signature"]
+
+class TaskTiming(models.Model):
+    _name = "hc.task.timing"
+    _description = "Task Timing"
+    _inherit = ["hc.basic.association", "hc.timing"]
+
+class TaskCode(models.Model):
+    _name = "hc.vs.task.code"
+    _description = "Task Code"
+    _inherit = ["hc.value.set.contains"]
+
+    name = fields.Char(
+        string="Name",
+        help="Name of this task code.")
+    code = fields.Char(
+        string="Code",
+        help="Code of this task code.")
+    contains_id = fields.Many2one(
+        comodel_name="hc.vs.task.code",
+        string="Parent",
+        help="Parent task code.")
 
 class TaskBusinessStatus(models.Model):
     _name = "hc.vs.task.business.status"

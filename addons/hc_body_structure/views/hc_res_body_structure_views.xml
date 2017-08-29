@@ -77,7 +77,7 @@
                   parent="hc_base.menu_clinic_diag"
                   action="hc_res_body_structure_action"
                   groups="hc_base.group_hc_base_manager"
-                  sequence="60"/>
+                  sequence="50"/>
 
     </data>
 </odoo>

@@ -1,9 +1,9 @@
-<openerp>
+<odoo>
     <data>
-      
-        <!-- Device Use Statement Action and Menu -->   
-    
-        <act_window id="hc_res_device_use_statement_action" 
+
+        <!-- Device Use Statement Action and Menu -->
+
+        <act_window id="hc_res_device_use_statement_action"
                     name="HC Device Use Statements"
                     res_model="hc.res.device.use.statement"
                     view_mode="tree,form"
@@ -11,11 +11,12 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_device_use_statement.menu_dev_use_stmt" 
-                  name="Device Use Statements" 
-                  parent="hc_base.menu_work_event_1" 
-                  action="hc_res_device_use_statement_action" 
-                  groups="hc_base.group_hc_base_manager" sequence="20"/>
+        <menuitem id="hc_device_use_statement.menu_dev_use_stmt"
+                  name="Device Use Statements"
+                  parent="hc_base.menu_clinic_req"
+                  action="hc_res_device_use_statement_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="40"/>
 
     </data>
-</openerp>  
+</odoo>  

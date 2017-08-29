@@ -999,6 +999,16 @@ class VitalSignResult(models.Model):
 class ConditionStageAssessment(models.Model):
     _inherit = "hc.condition.stage.assessment"
 
+    assessment_type = fields.Selection(
+        string="Assessment Type",
+        selection=[
+            ("observation", "Observation")],
+        help="Type of assessment.")
+    assessment_name = fields.Char(
+        string="Assessment",
+        compute="_compute_assessment_name",
+        store="True",
+        help="Formal record of assessment.")
     assessment_observation_id = fields.Many2one(
         comodel_name="hc.res.observation",
         string="Assessment Observations",
@@ -1009,6 +1019,27 @@ class ConditionStageAssessment(models.Model):
         for hc_condition_stage_assessment in self:
             if hc_condition_stage_assessment.assessment_type == 'observation':
                 hc_condition_stage_assessment.assessment_name = hc_condition_stage_assessment.assessment_observation_id.name
+
+class ProcedureRequestReasonReference(models.Model):
+    _inherit = "hc.procedure.request.reason.reference"
+
+    reason_reference_type = fields.Selection(
+        selection=[
+            ("observation", "Observation")])
+    reason_reference_observation_id = fields.Many2one(
+        comodel_name="hc.res.observation",
+        string="Reason Reference Observation",
+        help="Observation explanation/justification for procedure or service.")
+
+    @api.multi
+    def _compute_reason_reference_name(self):
+        for hc_res_procedure_request in self:
+            if hc_res_procedure_request.reason_type == 'condition':
+                hc_res_procedure_request.reason_name = hc_res_procedure_request.reason_condition_id.name
+            elif hc_res_procedure_request.reason_type == 'observation':
+                hc_res_procedure_request.reason_name = hc_res_procedure_request.reason_observation_id.name
+            elif hc_res_procedure_request.reason_type == 'document_reference':
+                hc_res_procedure_request.reason_name = hc_res_procedure_request.reason_document_reference_id.name
 
 class SequenceVariant(models.Model):
     _inherit = "hc.sequence.variant"

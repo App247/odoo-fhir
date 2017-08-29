@@ -11,8 +11,8 @@
 
         **Scope and Usage**
 
-        This resource records the use of a healthcare-related device by a patient. The record is the result of a report of use by the 
-        patient or another provider. The resource can be used to note the use of an assistive device such as a wheelchair or hearing aid, 
+        This resource records the use of a healthcare-related device by a patient. The record is the result of a report of use by the
+        patient or another provider. The resource can be used to note the use of an assistive device such as a wheelchair or hearing aid,
         a contraceptive such an intra-uterine device, or other implanted devices such as a pacemaker.
     """,
 
@@ -26,7 +26,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['hc_device', 'hc_body_site'],
+    'depends': ['hc_group'],
 
     # always loaded
     'data': [

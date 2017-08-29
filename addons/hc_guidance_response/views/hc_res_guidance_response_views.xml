@@ -1,9 +1,9 @@
 <openerp>
     <data>
 
-        <!-- Guidance Response Action and Menu -->  
-    
-        <act_window id="hc_res_guidance_response_action"    
+        <!-- Guidance Response Action and Menu -->
+
+        <act_window id="hc_res_guidance_response_action"
                     name="HC Guidance Responses"
                     res_model="hc.res.guidance.response"
                     view_mode="tree,form"
@@ -11,12 +11,12 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_guidance_response.menu_guide_resp" 
-                  name="Guidance Responses" 
-                  parent="hc_base.menu_clin_rsn" 
-                  action="hc_res_guidance_response_action" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="40"/>
+        <menuitem id="hc_guidance_response.menu_guide_resp"
+                  name="Guidance Responses"
+                  parent="hc_base.menu_spec_cds"
+                  action="hc_res_guidance_response_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="10"/>
 
     </data>
 </openerp>

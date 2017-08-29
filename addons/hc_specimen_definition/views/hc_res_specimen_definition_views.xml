@@ -108,7 +108,7 @@
                   parent="hc_base.menu_clinic_diag"
                   action="hc_res_specimen_definition_action"
                   groups="hc_base.group_hc_base_manager"
-                  sequence="35"/>
+                  sequence="30"/>
 
     </data>
 </odoo>

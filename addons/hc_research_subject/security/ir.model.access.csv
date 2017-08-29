@@ -1,3 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_hc_research_subject_hc_res_research_subject_user,hc.research.subject.hc.res.research.subject.user,model_hc_res_research_subject,hc_base.group_hc_base_user,1,0,0,0
 access_hc_research_subject_hc_research_subject_identifier_user,hc.research.subject.hc.research.subject.identifier.user,model_hc_research_subject_identifier,hc_base.group_hc_base_user,1,0,0,0
+access_hc_research_subject_hc_research_subject_status_history_user,hc.research.subject.hc.research.subject.status.history.user,model_hc_research_subject_status_history,hc_base.group_hc_base_user,1,0,0,0

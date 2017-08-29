@@ -79,7 +79,7 @@ class ActivityDefinition(models.Model):
         string="Jurisdictions",
         help="Intended jurisdiction for activity definition (if applicable).")
     topic_ids = fields.Many2many(
-        comodel_name="hc.vs.activity.definition.topic",
+        comodel_name="hc.vs.definition.topic",
         relation="activity_definition_topic_rel",
         string="Topics",
         help="Descriptional topics for the asset.")
@@ -437,22 +437,6 @@ class ActivityDefinitionProduct(models.Model):
         comodel_name="hc.vs.activity.definition.product",
         string="Parent",
         help="Parent activity definition product.")
-
-class ActivityDefinitionTopic(models.Model):
-    _name = "hc.vs.activity.definition.topic"
-    _description = "Activity Definition Topic"
-    _inherit = ["hc.value.set.contains"]
-
-    name = fields.Char(
-        string="Name",
-        help="Name of this activity definition topic.")
-    code = fields.Char(
-        string="Code",
-        help="Code of this activity definition topic.")
-    contains_id = fields.Many2one(
-        comodel_name="hc.vs.activity.definition.topic",
-        string="Parent",
-        help="Parent activity definition topic.")
 
 class ActivityDefinitionTimingCode(models.Model):
     _name = "hc.vs.activity.definition.timing.code"

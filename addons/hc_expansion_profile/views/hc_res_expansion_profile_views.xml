@@ -1,9 +1,9 @@
 <openerp>
     <data>
 
-        <!-- Expansion Profile Action and Menu -->  
-    
-        <act_window id="hc_res_expansion_profile_action"    
+        <!-- Expansion Profile Action and Menu -->
+
+        <act_window id="hc_res_expansion_profile_action"
                     name="HC Expansion Profiles"
                     res_model="hc.res.expansion.profile"
                     view_mode="tree,form"
@@ -11,11 +11,12 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_expansion_profile.menu_expan_prof" 
-                  name="Expansion Profiles" 
-                  parent="hc_base.menu_term" 
-                  action="hc_res_expansion_profile_action" 
-                  groups="hc_base.group_hc_base_manager" sequence="40"/>
+        <menuitem id="hc_expansion_profile.menu_expan_prof"
+                  name="Expansion Profiles"
+                  parent="hc_base.menu_term"
+                  action="hc_res_expansion_profile_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="40"/>
 
     </data>
 </openerp>

@@ -159,7 +159,7 @@ class MedicationRequest(models.Model):
     #     string="Prescriber",
     #     help="Who ordered the initial medication(s).")
     reason_code_ids = fields.Many2many(
-        comodel_name="hc.vs.activity.definition.topic",
+        comodel_name="hc.vs.condition.code",
         string="Reason Codes",
         help="Reason or indication for writing the prescription.")
     reason_reference_ids = fields.One2many(

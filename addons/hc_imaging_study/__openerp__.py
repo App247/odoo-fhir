@@ -7,8 +7,8 @@
         """,
 
     'description': """
-        Representation of the content produced in a DICOM imaging study. A study comprises a set of series, 
-        each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or 
+        Representation of the content produced in a DICOM imaging study. A study comprises a set of series,
+        each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or
         produced in a common context. A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities.
 
         **Scope and Usage**
@@ -26,7 +26,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['hc_care_plan'],
+    'depends': ['hc_procedure_request','hc_care_plan'],
 
     # always loaded
     'data': [

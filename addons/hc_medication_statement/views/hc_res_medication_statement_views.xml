@@ -3,66 +3,66 @@
 
         <!-- Medication Statement Views -->
 
-        <record id="hc_res_medication_statement_view_search" model="ir.ui.view">         
-            <field name="name">Medication Statement Search</field>       
-            <field name="model">hc.res.medication.statement</field>      
-            <field name="arch" type="xml">      
+        <record id="hc_res_medication_statement_view_search" model="ir.ui.view">
+            <field name="name">Medication Statement Search</field>
+            <field name="model">hc.res.medication.statement</field>
+            <field name="arch" type="xml">
                 <search string="Medication Statements">
-                    <field name="name"/>  
-                </search>   
-            </field>        
-        </record>           
-                    
-        <record id="hc_res_medication_statement_view_tree" model="ir.ui.view">           
-            <field name="name">Medication Statement Tree</field>     
-            <field name="model">hc.res.medication.statement</field>      
-            <field name="arch" type="xml">      
-                <tree string="Medication Statements">    
                     <field name="name"/>
-                </tree> 
-            </field>        
+                </search>
+            </field>
         </record>
 
-        <record id="hc_res_medication_statement_view_form" model="ir.ui.view">                                     
-            <field name="name">Medication Statement Form</field>                                   
-            <field name="model">hc.res.medication.statement</field>                                    
-            <field name="arch" type="xml">                                  
-                <form string="Medication Statement">                               
-                    <sheet>                         
-                        <h1>                    
-                            <field name="name" default_focus="1" placeholder="Event Name"/>             
-                        </h1>                   
-                        <group>                     
-                            <group>                 
-                            </group>                    
-                            <group>                 
-                            </group>                    
-                        </group>                        
-                        <notebook>                      
-                            <page string="Identifiers">                 
-                                <field name="identifier_ids" mode="tree">               
-                                    <tree>          
-                                    </tree>         
-                                    <form>          
-                                        <sheet>     
-                                            <group> 
-                                                <group>
-                                                </group>
-                                                <group>
-                                                </group>
-                                            </group>    
-                                        </sheet>        
-                                    </form>         
-                                </field>                
-                            </page>                 
-                        </notebook>                     
-                    </sheet>                            
-                </form>                             
-            </field>                                    
+        <record id="hc_res_medication_statement_view_tree" model="ir.ui.view">
+            <field name="name">Medication Statement Tree</field>
+            <field name="model">hc.res.medication.statement</field>
+            <field name="arch" type="xml">
+                <tree string="Medication Statements">
+                    <field name="name"/>
+                </tree>
+            </field>
         </record>
-   
-    
-        <act_window id="hc_res_medication_statement_action" 
+
+        <record id="hc_res_medication_statement_view_form" model="ir.ui.view">
+            <field name="name">Medication Statement Form</field>
+            <field name="model">hc.res.medication.statement</field>
+            <field name="arch" type="xml">
+                <form string="Medication Statement">
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Event Name"/>
+                        </h1>
+                        <group>
+                            <group>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Identifiers">
+                                <field name="identifier_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <act_window id="hc_res_medication_statement_action"
                     name="HC Medication Statements"
                     res_model="hc.res.medication.statement"
                     view_mode="tree,form"
@@ -70,12 +70,12 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_medication_statement.menu_med_stmt" 
-                  name="Medication Statements" 
-                  parent="hc_base.menu_med" 
-                  action="hc_res_medication_statement_action" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="50"/>
-  
+        <menuitem id="hc_medication_statement.menu_med_stmt"
+                  name="Medication Statements"
+                  parent="hc_base.menu_clinic_med" 
+                  action="hc_res_medication_statement_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="40"/>
+
     </data>
 </openerp>

@@ -1,9 +1,9 @@
 <openerp>
     <data>
-    
-        <!-- Graph Definition Action and Menu --> 
-  
-        <act_window id="hc_res_graph_definition_action" 
+
+        <!-- Graph Definition Action and Menu -->
+
+        <act_window id="hc_res_graph_definition_action"
                     name="HC Graph Definitions"
                     res_model="hc.res.graph.definition"
                     view_mode="tree,form"
@@ -11,12 +11,12 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_graph_definition.menu_graph_defn" 
-                  name="Graph Definitions" 
-                  parent="hc_base.menu_conf" 
-                  action="hc_res_graph_definition_action" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="91"/>
+        <menuitem id="hc_graph_definition.menu_graph_defn"
+                  name="Graph Definitions"
+                  parent="hc_base.menu_conf"
+                  action="hc_res_graph_definition_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="90"/>
 
     </data>
 </openerp>

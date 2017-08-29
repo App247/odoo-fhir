@@ -1,46 +1,46 @@
 <openerp>
     <data>
 
-        <!-- Compartment Definition Views -->                                       
-                                        
-        <record id="hc_res_compartment_definition_view_search" model="ir.ui.view">                                      
-            <field name="name">Compartment Definition Search</field>                                    
-            <field name="model">hc.res.compartment.definition</field>                                   
-            <field name="arch" type="xml">                                  
-                <search string="Compartment Definitions">                               
-                </search>                               
-            </field>                                    
-        </record>                                       
-                                                
-        <record id="hc_res_compartment_definition_view_tree" model="ir.ui.view">                                        
-            <field name="name">Compartment Definition Tree</field>                                  
-            <field name="model">hc.res.compartment.definition</field>                                   
-            <field name="arch" type="xml">                                  
-                <tree string="Compartment Definitions">                             
-                </tree>                             
-            </field>                                    
-        </record>                                       
-                                                
-        <record id="hc_res_compartment_definition_view_form" model="ir.ui.view">                                        
-            <field name="name">Compartment Definition Form</field>                                  
-            <field name="model">hc.res.compartment.definition</field>                                   
-            <field name="arch" type="xml">                                  
-                <form string="Compartment Definition">                              
-                    <sheet>                         
-                        <h1>                        
-                            <field name="name" default_focus="1" placeholder="Name"/>                   
-                        </h1>                       
-                        <group>                     
-                            <group>                 
-                            </group>                    
+        <!-- Compartment Definition Views -->
+
+        <record id="hc_res_compartment_definition_view_search" model="ir.ui.view">
+            <field name="name">Compartment Definition Search</field>
+            <field name="model">hc.res.compartment.definition</field>
+            <field name="arch" type="xml">
+                <search string="Compartment Definitions">
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_res_compartment_definition_view_tree" model="ir.ui.view">
+            <field name="name">Compartment Definition Tree</field>
+            <field name="model">hc.res.compartment.definition</field>
+            <field name="arch" type="xml">
+                <tree string="Compartment Definitions">
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_res_compartment_definition_view_form" model="ir.ui.view">
+            <field name="name">Compartment Definition Form</field>
+            <field name="model">hc.res.compartment.definition</field>
+            <field name="arch" type="xml">
+                <form string="Compartment Definition">
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name"/>
+                        </h1>
+                        <group>
+                            <group>
+                            </group>
                             <group string="Status">
-                                <field name="status_id"/>                 
-                            </group>                    
-                        </group>                        
-                        <notebook>                      
-                            <page string="Status History">          
-                                <field name="status_history_ids" mode="tree">       
-                                    <tree>  
+                                <field name="status_id"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Status History">
+                                <field name="status_history_ids" mode="tree">
+                                    <tree>
                                         <field name="status" readonly="1"/>
                                         <field name="start_date"/>
                                         <field name="end_date"/>
@@ -49,16 +49,16 @@
                                         <field name="time_diff_min"/>
                                         <field name="time_diff_sec"/>
                                         <field name="write_uid" invisible="0"/>
-                                    </tree> 
-                                </field>        
-                            </page>                        
-                        </notebook>                     
-                    </sheet>                            
-                </form>                             
-            </field>                                    
-        </record>                                       
-    
-        <act_window id="hc_res_compartment_definition_action"   
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_res_compartment_definition_action"
                     name="HC Compartment Definitions"
                     res_model="hc.res.compartment.definition"
                     view_mode="tree,form"
@@ -66,11 +66,12 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_compartment_definition.menu_compart_defn" 
-                  name="Compartment Definitions" 
-                  parent="hc_base.menu_conf" 
-                  action="hc_res_compartment_definition_action" 
-                  groups="hc_base.group_hc_base_manager" sequence="80"/>
+        <menuitem id="hc_compartment_definition.menu_compart_defn"
+                  name="Compartment Definitions"
+                  parent="hc_base.menu_conf"
+                  action="hc_res_compartment_definition_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="70"/>
 
     </data>
 </openerp>

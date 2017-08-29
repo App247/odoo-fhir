@@ -1,9 +1,9 @@
 <openerp>
     <data>
 
-        <!-- Structure Map Action and Menu -->  
-    
-        <act_window id="hc_res_structure_map_action"    
+        <!-- Structure Map Action and Menu -->
+
+        <act_window id="hc_res_structure_map_action"
                     name="HC Structure Maps"
                     res_model="hc.res.structure.map"
                     view_mode="tree,form"
@@ -11,12 +11,12 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_structure_map.menu_struc_map" 
-                  name="Structure Maps" 
-                  parent="hc_base.menu_conf" 
-                  action="hc_res_structure_map_action" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="20"/>
+        <menuitem id="hc_structure_map.menu_struc_map"
+                  name="Structure Maps"
+                  parent="hc_base.menu_conf"
+                  action="hc_res_structure_map_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="80"/>
 
-    </data>   
+    </data>
 </openerp>

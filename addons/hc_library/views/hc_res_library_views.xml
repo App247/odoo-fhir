@@ -1,22 +1,22 @@
-<openerp>
+<odoo>
     <data>
 
-        <!-- Library Action and Menu -->    
-    
-        <act_window id="hc_res_library_action"  
+        <!-- Library Action and Menu -->
+
+        <act_window id="hc_res_library_action"
                     name="HC Libraries"
                     res_model="hc.res.library"
                     view_mode="tree,form"
                     domain=""
                     context=""
                     limit=""/>
-    
-        <menuitem id="hc_library.menu_lib" 
-                  name="Libraries" 
-                  parent="hc_base.menu_clin_rsn" 
-                  action="hc_res_library_action" 
-                  groups="hc_base.group_hc_base_manager" 
+
+        <menuitem id="hc_library.menu_lib"
+                  name="Libraries"
+                  parent="hc_base.menu_mgt"
+                  action="hc_res_library_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="50"/>
 
     </data>
-</openerp>
+</odoo>

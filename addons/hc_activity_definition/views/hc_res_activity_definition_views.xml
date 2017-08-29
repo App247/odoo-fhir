@@ -221,10 +221,10 @@
 
         <menuitem id="hc_activity_definition.menu_act_defn"
                   name="Activity Definitions"
-                  parent="hc_base.menu_clin_rsn"
+                  parent="hc_base.menu_spec_art"
                   action="hc_res_activity_definition_action"
                   groups="hc_base.group_hc_base_manager"
-                  sequence="10"/>
+                  sequence="20"/>
 
     </data>
 </openerp>

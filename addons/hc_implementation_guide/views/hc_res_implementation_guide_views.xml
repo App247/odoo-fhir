@@ -1,9 +1,9 @@
 <openerp>
     <data>
 
-        <!-- Implementation Guide Action and Menu -->   
-    
-        <act_window id="hc_res_implementation_guide_action" 
+        <!-- Implementation Guide Action and Menu -->
+
+        <act_window id="hc_res_implementation_guide_action"
                     name="HC Implementation Guides"
                     res_model="hc.res.implementation.guide"
                     view_mode="tree,form"
@@ -11,12 +11,12 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_implementation_guide.menu_impl_guide" 
-                  name="Implementation Guides" 
-                  parent="hc_base.menu_conf" 
-                  action="hc_res_implementation_guide_action" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="90"/>
+        <menuitem id="hc_implementation_guide.menu_impl_guide"
+                  name="Implementation Guides"
+                  parent="hc_base.menu_conf"
+                  action="hc_res_implementation_guide_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="30"/>
 
     </data>
 </openerp>

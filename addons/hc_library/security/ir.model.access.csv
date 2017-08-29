@@ -8,4 +8,3 @@ access_hc_library_hc_library_parameter_user,hc.library.hc.library.parameter.user
 access_hc_library_hc_library_data_requirement_user,hc.library.hc.library.data.requirement.user,model_hc_library_data_requirement,hc_base.group_hc_base_user,1,0,0,0
 access_hc_library_hc_library_content_user,hc.library.hc.library.content.user,model_hc_library_content,hc_base.group_hc_base_user,1,0,0,0
 access_hc_library_hc_library_identifier_user,hc.library.hc.library.identifier.user,model_hc_library_identifier,hc_base.group_hc_base_user,1,0,0,0
-access_hc_library_hc_vs_library_topic_manager,hc.library.hc.vs.library.topic.manager,model_hc_vs_library_topic,hc_base.group_hc_base_manager,1,1,1,1

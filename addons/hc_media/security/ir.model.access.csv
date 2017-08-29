@@ -1,6 +1,9 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_hc_media_hc_res_media_user,hc.media.hc.res.media.user,model_hc_res_media,hc_base.group_hc_base_user,1,0,0,0
 access_hc_media_hc_media_identifier_user,hc.media.hc.media.identifier.user,model_hc_media_identifier,hc_base.group_hc_base_user,1,0,0,0
-access_hc_media_hc_media_content_attachment_user,hc.media.hc.media.content.attachment.user,model_hc_media_content_attachment,hc_base.group_hc_base_user,1,0,0,0
+access_hc_media_hc_media_based_on_user,hc.media.hc.media.based.on.user,model_hc_media_based_on,hc_base.group_hc_base_user,1,0,0,0
+access_hc_media_hc_media_content_user,hc.media.hc.media.content.user,model_hc_media_content,hc_base.group_hc_base_user,1,0,0,0
+access_hc_media_hc_media_note_user,hc.media.hc.media.note.user,model_hc_media_note,hc_base.group_hc_base_user,1,0,0,0
 access_hc_media_hc_vs_digital_media_subtype_manager,hc.media.hc.vs.digital.media.subtype.manager,model_hc_vs_digital_media_subtype,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_media_hc_vs_media_view_manager,hc.media.hc.vs.media.view.manager,model_hc_vs_media_view,hc_base.group_hc_base_manager,1,1,1,1
+

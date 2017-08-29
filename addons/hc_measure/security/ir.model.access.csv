@@ -16,4 +16,3 @@ access_hc_measure_hc_measure_group_population_identifier_user,hc.measure.hc.meas
 access_hc_measure_hc_measure_group_stratifier_identifier_user,hc.measure.hc.measure.group.stratifier.identifier.user,model_hc_measure_group_stratifier_identifier,hc_base.group_hc_base_user,1,0,0,0
 access_hc_measure_hc_measure_supplemental_data_identifier_user,hc.measure.hc.measure.supplemental.data.identifier.user,model_hc_measure_supplemental_data_identifier,hc_base.group_hc_base_user,1,0,0,0
 access_hc_measure_hc_measure_supplemental_data_usage_user,hc.measure.hc.measure.supplemental.data.usage.user,model_hc_measure_supplemental_data_usage,hc_base.group_hc_base_user,1,0,0,0
-access_hc_measure_hc_vs_measure_topic_manager,hc.measure.hc.vs.measure.topic.manager,model_hc_vs_measure_topic,hc_base.group_hc_base_manager,1,1,1,1

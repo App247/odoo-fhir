@@ -203,7 +203,7 @@
 
         <menuitem id="hc_bundle.menu_bundle"
                   name="Bundles"
-                  parent="hc_base.menu_exch"
+                  parent="hc_base.menu_other"
                   action="hc_res_bundle_action"
                   groups="hc_base.group_hc_base_manager"
                   sequence="30"/>

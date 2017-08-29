@@ -1,9 +1,9 @@
 <openerp>
     <data>
 
-        <!-- Measure Action and Menu -->    
-    
-        <act_window id="hc_res_measure_action"  
+        <!-- Measure Action and Menu -->
+
+        <act_window id="hc_res_measure_action"
                     name="HC Measures"
                     res_model="hc.res.measure"
                     view_mode="tree,form"
@@ -11,12 +11,12 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_measure.menu_meas" 
-                  name="Measures" 
-                  parent="hc_base.menu_clin_rsn" 
-                  action="hc_res_measure_action" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="60"/>
+        <menuitem id="hc_measure.menu_meas"
+                  name="Measures"
+                  parent="hc_base.menu_spec_qual" 
+                  action="hc_res_measure_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="10"/>
 
     </data>
 </openerp>

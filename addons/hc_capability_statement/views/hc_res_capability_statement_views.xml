@@ -1,9 +1,9 @@
 <openerp>
     <data>
 
-        <!-- Capability Statement Action and Menu -->   
-    
-        <act_window id="hc_res_capability_statement_action" 
+        <!-- Capability Statement Action and Menu -->
+
+        <act_window id="hc_res_capability_statement_action"
                     name="HC Capability Statements"
                     res_model="hc.res.capability.statement"
                     view_mode="tree,form"
@@ -11,12 +11,12 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_capability_statement.menu_cap_stmt" 
-                  name="Capability Statements" 
-                  parent="hc_base.menu_conf" 
-                  action="hc_res_capability_statement_action" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="40"/>
+        <menuitem id="hc_capability_statement.menu_cap_stmt"
+                  name="Capability Statements"
+                  parent="hc_base.menu_conf"
+                  action="hc_res_capability_statement_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="10"/>
 
     </data>
 </openerp>

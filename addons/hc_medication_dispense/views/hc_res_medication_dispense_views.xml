@@ -3,65 +3,65 @@
 
         <!-- Medication Dispense Views -->
 
-        <record id="hc_res_medication_dispense_view_search" model="ir.ui.view">         
-            <field name="name">Medication Dispense Search</field>       
-            <field name="model">hc.res.medication.dispense</field>      
-            <field name="arch" type="xml">      
+        <record id="hc_res_medication_dispense_view_search" model="ir.ui.view">
+            <field name="name">Medication Dispense Search</field>
+            <field name="model">hc.res.medication.dispense</field>
+            <field name="arch" type="xml">
                 <search string="Medication Dispenses">
-                    <field name="name"/>  
-                </search>   
-            </field>        
-        </record>           
-                    
-        <record id="hc_res_medication_dispense_view_tree" model="ir.ui.view">           
-            <field name="name">Medication Dispense Tree</field>     
-            <field name="model">hc.res.medication.dispense</field>      
-            <field name="arch" type="xml">      
-                <tree string="Medication Dispenses">    
                     <field name="name"/>
-                </tree> 
-            </field>        
+                </search>
+            </field>
         </record>
 
-        <record id="hc_res_medication_dispense_view_form" model="ir.ui.view">                                     
-            <field name="name">Medication Dispense Form</field>                                   
-            <field name="model">hc.res.medication.dispense</field>                                    
-            <field name="arch" type="xml">                                  
-                <form string="Medication Dispense">                               
-                    <sheet>                         
-                        <h1>                    
-                            <field name="name" default_focus="1" placeholder="Event Name"/>             
-                        </h1>                   
-                        <group>                     
-                            <group>                 
-                            </group>                    
-                            <group>                 
-                            </group>                    
-                        </group>                        
-                        <notebook>                      
-                            <page string="Part Of">                 
-                                <field name="part_of_ids" mode="tree">               
-                                    <tree>          
-                                    </tree>         
-                                    <form>          
-                                        <sheet>     
-                                            <group> 
+        <record id="hc_res_medication_dispense_view_tree" model="ir.ui.view">
+            <field name="name">Medication Dispense Tree</field>
+            <field name="model">hc.res.medication.dispense</field>
+            <field name="arch" type="xml">
+                <tree string="Medication Dispenses">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_res_medication_dispense_view_form" model="ir.ui.view">
+            <field name="name">Medication Dispense Form</field>
+            <field name="model">hc.res.medication.dispense</field>
+            <field name="arch" type="xml">
+                <form string="Medication Dispense">
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Event Name"/>
+                        </h1>
+                        <group>
+                            <group>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Part Of">
+                                <field name="part_of_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
                                                 <group>
                                                 </group>
                                                 <group>
                                                 </group>
-                                            </group>    
-                                        </sheet>        
-                                    </form>         
-                                </field>                
-                            </page>                 
-                        </notebook>                     
-                    </sheet>                            
-                </form>                             
-            </field>                                    
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
         </record>
 
-        <act_window id="hc_res_medication_dispense_action"  
+        <act_window id="hc_res_medication_dispense_action"
                     name="HC Medication Dispenses"
                     res_model="hc.res.medication.dispense"
                     view_mode="tree,form"
@@ -69,12 +69,12 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_medication_dispense.menu_med_disp" 
-                  name="Medication Dispense" 
-                  parent="hc_base.menu_med" 
-                  action="hc_res_medication_dispense_action" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="40"/>
+        <menuitem id="hc_medication_dispense.menu_med_disp"
+                  name="Medication Dispense"
+                  parent="hc_base.menu_clinic_med"
+                  action="hc_res_medication_dispense_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="30"/>
 
     </data>
 </openerp>

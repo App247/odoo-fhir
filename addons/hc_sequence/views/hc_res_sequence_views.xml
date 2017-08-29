@@ -74,7 +74,7 @@
                   parent="hc_base.menu_clinic_diag"
                   action="hc_res_sequence_action"
                   groups="hc_base.group_hc_base_manager"
-                  sequence="50"/>
+                  sequence="90"/>
 
     </data>
 </openerp>

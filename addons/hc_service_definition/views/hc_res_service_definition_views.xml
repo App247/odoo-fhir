@@ -1,9 +1,9 @@
 <openerp>
     <data>
 
-        <!-- Service Definition Action and Menu --> 
-    
-        <act_window id="hc_res_service_definition_action"   
+        <!-- Service Definition Action and Menu -->
+
+        <act_window id="hc_res_service_definition_action"
                     name="HC Service Definitions"
                     res_model="hc.res.service.definition"
                     view_mode="tree,form"
@@ -11,12 +11,12 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_service_definition.menu_serv_defn" 
-                  name="Service Definitions" 
-                  parent="hc_base.menu_clin_rsn" 
-                  action="hc_res_service_definition_action" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="30"/>
+        <menuitem id="hc_service_definition.menu_serv_defn"
+                  name="Service Definitions"
+                  parent="hc_base.menu_spec_art"
+                  action="hc_res_service_definition_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="40"/>
 
     </data>
 </openerp>

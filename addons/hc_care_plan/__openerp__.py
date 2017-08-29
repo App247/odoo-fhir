@@ -11,10 +11,10 @@
 
         **Scope and Usage**
 
-        Care Plans are used in many of areas of healthcare with a variety of scopes. 
-        They can be as simple as a general practitioner keeping track of when their patient is next due for a tetanus immunization 
-        through to a detailed plan for an oncology patient covering diet, chemotherapy, radiation, lab work and counseling 
-        with detailed timing relationships, pre-conditions and goals. They may be used in veterinary care or clinical research 
+        Care Plans are used in many of areas of healthcare with a variety of scopes.
+        They can be as simple as a general practitioner keeping track of when their patient is next due for a tetanus immunization
+        through to a detailed plan for an oncology patient covering diet, chemotherapy, radiation, lab work and counseling
+        with detailed timing relationships, pre-conditions and goals. They may be used in veterinary care or clinical research
         to describe the care of a herd or other collection of animals. In public health, they may describe education or immunization campaigns.
     """,
 
@@ -28,8 +28,8 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    # 'hc_supply_request' 
-    'depends': ['hc_questionnaire','hc_vision_prescription','hc_goal','hc_communication_request','hc_referral_request','hc_device_request','hc_process_request', 'hc_request_group','hc_task'],
+    # 'hc_supply_request'
+    'depends': ['hc_questionnaire','hc_vision_prescription','hc_goal','hc_communication_request','hc_device_request','hc_process_request', 'hc_request_group','hc_task'],
 
     # always loaded
     'data': [

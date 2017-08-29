@@ -1,9 +1,9 @@
 <openerp>
     <data>
 
-        <!-- Subscription Action and Menu -->   
-    
-        <act_window id="hc_res_subscription_action" 
+        <!-- Subscription Action and Menu -->
+
+        <act_window id="hc_res_subscription_action"
                     name="HC Subscriptions"
                     res_model="hc.res.subscription"
                     view_mode="tree,form"
@@ -11,12 +11,12 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_subscription.menu_subscription" 
-                  name="Subscriptions" 
-                  parent="hc_base.menu_work_sched" 
-                  action="hc_res_subscription_action" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="20"/>
+        <menuitem id="hc_subscription.menu_subscription"
+                  name="Subscriptions"
+                  parent="hc_base.menu_other"
+                  action="hc_res_subscription_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="90"/>
 
     </data>
 </openerp>

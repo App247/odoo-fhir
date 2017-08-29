@@ -1,22 +1,22 @@
 <openerp>
     <data>
 
-        <!-- Explanation Of Benefit Action and Menu --> 
-    
-        <act_window id="hc_res_explanation_of_benefit_action"   
+        <!-- Explanation Of Benefit Action and Menu -->
+
+        <act_window id="hc_res_explanation_of_benefit_action"
                     name="HC Explanation Of Benefits"
                     res_model="hc.res.explanation.of.benefit"
                     view_mode="tree,form"
                     domain=""
                     context=""
                     limit=""/>
-    
-        <menuitem id="hc_explanation_of_benefit.menu_eob" 
-                  name="Explanations of Benefit" 
-                  parent="hc_base.menu_fina_oth" 
-                  action="hc_res_explanation_of_benefit_action" 
-                  groups="hc_base.group_hc_base_manager" 
+
+        <menuitem id="hc_explanation_of_benefit.menu_eob"
+                  name="Explanations of Benefit"
+                  parent="hc_base.menu_fina_gen" 
+                  action="hc_res_explanation_of_benefit_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="10"/>
- 
+
     </data>
 </openerp>

@@ -1,9 +1,9 @@
 <openerp>
     <data>
-    
-        <!-- Charge Item Action and Menu -->  
 
-        <act_window id="hc_res_charge_item_action"  
+        <!-- Charge Item Action and Menu -->
+
+        <act_window id="hc_res_charge_item_action"
                     name="HC Charge Items"
                     res_model="hc.res.charge.item"
                     view_mode="tree,form"
@@ -11,12 +11,12 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_charge_item.menu_charge_item" 
-                  name="Charge Items" 
-                  parent="hc_base.menu_fina_oth" 
-                  action="hc_res_charge_item_action" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="30"/>
+        <menuitem id="hc_charge_item.menu_charge_item"
+                  name="Charge Items"
+                  parent="hc_base.menu_fina_gen"
+                  action="hc_res_charge_item_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="40"/>
 
     </data>
 </openerp>

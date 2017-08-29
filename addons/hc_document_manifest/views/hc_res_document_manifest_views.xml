@@ -1,9 +1,9 @@
 <openerp>
     <data>
 
-        <!-- Document Manifest Action and Menu -->  
-    
-        <act_window id="hc_res_document_manifest_action"    
+        <!-- Document Manifest Action and Menu -->
+
+        <act_window id="hc_res_document_manifest_action"
                     name="HC Document Manifests"
                     res_model="hc.res.document.manifest"
                     view_mode="tree,form"
@@ -11,12 +11,12 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_document_manifest.menu_doc_manif" 
-                  name="Document Manifests" 
-                  parent="hc_base.menu_doc_quest" 
-                  action="hc_res_document_manifest_action" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="40"/>
+        <menuitem id="hc_document_manifest.menu_doc_manif"
+                  name="Document Manifests"
+                  parent="hc_base.menu_doc" 
+                  action="hc_res_document_manifest_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="20"/>
 
     </data>
 </openerp>

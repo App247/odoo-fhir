@@ -1,9 +1,9 @@
 <openerp>
     <data>
 
-        <!-- Parameters Action and Menu --> 
-    
-        <act_window id="hc_res_parameters_action"   
+        <!-- Parameters Action and Menu -->
+
+        <act_window id="hc_res_parameters_action"
             name="HC Parameters"
             res_model="hc.res.parameters"
             view_mode="tree,form"
@@ -12,11 +12,11 @@
             limit=""/>
 
         <menuitem id="hc_parameters.menu_param" 
-                  name="Parameters" 
-                  parent="hc_base.menu_exch" 
-                  action="hc_res_parameters_action" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="60"/>
+                  name="Parameters"
+                  parent="hc_base.menu_other"
+                  action="hc_res_parameters_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="80"/>
 
     </data>
 </openerp>

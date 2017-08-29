@@ -3,61 +3,61 @@
 
         <!-- Vision Prescription Views -->
 
-        <record id="hc_res_vision_prescription_view_search" model="ir.ui.view">         
-            <field name="name">Vision Prescription Search</field>       
-            <field name="model">hc.res.vision.prescription</field>      
-            <field name="arch" type="xml">      
+        <record id="hc_res_vision_prescription_view_search" model="ir.ui.view">
+            <field name="name">Vision Prescription Search</field>
+            <field name="model">hc.res.vision.prescription</field>
+            <field name="arch" type="xml">
                 <search string="Vision Prescriptions">
-                    <field name="name"/>  
-                </search>   
-            </field>        
-        </record>           
-                    
-        <record id="hc_res_vision_prescription_view_tree" model="ir.ui.view">           
-            <field name="name">Vision Prescription Tree</field>     
-            <field name="model">hc.res.vision.prescription</field>      
-            <field name="arch" type="xml">      
-                <tree string="Vision Prescriptions">    
                     <field name="name"/>
-                </tree> 
-            </field>        
+                </search>
+            </field>
         </record>
 
-        <record id="hc_res_vision_prescription_view_form" model="ir.ui.view">                                     
-            <field name="name">Vision Prescription Form</field>                                   
-            <field name="model">hc.res.vision.prescription</field>                                    
-            <field name="arch" type="xml">                                  
-                <form string="Vision Prescription">                               
-                    <sheet>                         
-                        <h1>                    
-                            <field name="name" default_focus="1" placeholder="Event Name"/>             
-                        </h1>                   
-                        <group>                     
-                            <group>                 
-                            </group>                    
-                            <group>                 
-                            </group>                    
-                        </group>                        
-                        <notebook>                      
-                            <page string="Identifiers">                 
-                                <field name="identifier_ids" mode="tree">               
-                                    <tree>          
-                                    </tree>         
-                                    <form>          
-                                        <sheet>     
-                                            <group> 
+        <record id="hc_res_vision_prescription_view_tree" model="ir.ui.view">
+            <field name="name">Vision Prescription Tree</field>
+            <field name="model">hc.res.vision.prescription</field>
+            <field name="arch" type="xml">
+                <tree string="Vision Prescriptions">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_res_vision_prescription_view_form" model="ir.ui.view">
+            <field name="name">Vision Prescription Form</field>
+            <field name="model">hc.res.vision.prescription</field>
+            <field name="arch" type="xml">
+                <form string="Vision Prescription">
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Event Name"/>
+                        </h1>
+                        <group>
+                            <group>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Identifiers">
+                                <field name="identifier_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
                                                 <group>
                                                 </group>
                                                 <group>
                                                 </group>
-                                            </group>    
-                                        </sheet>        
-                                    </form>         
-                                </field>                
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
                             </page>
-                            <page string="Status History">          
-                                <field name="status_history_ids" mode="tree">       
-                                    <tree>  
+                            <page string="Status History">
+                                <field name="status_history_ids" mode="tree">
+                                    <tree>
                                         <field name="status" readonly="1"/>
                                         <field name="start_date"/>
                                         <field name="end_date"/>
@@ -66,17 +66,17 @@
                                         <field name="time_diff_min"/>
                                         <field name="time_diff_sec"/>
                                         <field name="write_uid" invisible="0"/>
-                                    </tree> 
-                                </field>        
-                            </page>         
-                        </notebook>                     
-                    </sheet>                            
-                </form>                             
-            </field>                                    
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
         </record>
 
-    
-        <act_window id="hc_res_vision_prescription_action"  
+
+        <act_window id="hc_res_vision_prescription_action"
                     name="HC Vision Prescriptions"
                     res_model="hc.res.vision.prescription"
                     view_mode="tree,form"
@@ -84,12 +84,12 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_vision_prescription.menu_vision_rx" 
+        <menuitem id="hc_vision_prescription.menu_vision_rx"
                   name="Vision Prescriptions"
                   parent="hc_base.menu_clinic_care"
-                  action="hc_res_vision_prescription_action" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="70"/>
+                  action="hc_res_vision_prescription_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="60"/>
 
     </data>
 </openerp>

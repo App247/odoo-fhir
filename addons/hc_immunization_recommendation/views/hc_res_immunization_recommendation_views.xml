@@ -1,69 +1,69 @@
 <openerp>
     <data>
-    
+
 
          <!-- Immunization Recommendation Views -->
 
-        <record id="hc_res_immunization_recommendation_view_search" model="ir.ui.view">         
-            <field name="name">Immunization Recommendation Search</field>       
-            <field name="model">hc.res.immunization.recommendation</field>      
-            <field name="arch" type="xml">      
+        <record id="hc_res_immunization_recommendation_view_search" model="ir.ui.view">
+            <field name="name">Immunization Recommendation Search</field>
+            <field name="model">hc.res.immunization.recommendation</field>
+            <field name="arch" type="xml">
                 <search string="Immunization Recommendations">
-                    <field name="name"/>  
-                </search>   
-            </field>        
-        </record>           
-                    
-        <record id="hc_res_immunization_recommendation_view_tree" model="ir.ui.view">           
-            <field name="name">Immunization Recommendation Tree</field>     
-            <field name="model">hc.res.immunization.recommendation</field>      
-            <field name="arch" type="xml">      
-                <tree string="Immunization Recommendations">    
                     <field name="name"/>
-                </tree> 
-            </field>        
+                </search>
+            </field>
         </record>
 
-        <record id="hc_res_immunization_recommendation_view_form" model="ir.ui.view">                                     
-            <field name="name">Immunization Recommendation Form</field>                                   
-            <field name="model">hc.res.immunization.recommendation</field>                                    
-            <field name="arch" type="xml">                                  
-                <form string="Immunization Recommendation">                               
-                    <sheet>                         
-                        <h1>                    
-                            <field name="name" default_focus="1" placeholder="Event Name"/>             
-                        </h1>                   
-                        <group>                     
-                            <group>                 
-                            </group>                    
-                            <group>                 
-                            </group>                    
-                        </group>                        
-                        <notebook>                      
-                            <page string="Identifiers">                 
-                                <field name="identifier_ids" mode="tree">               
-                                    <tree>          
-                                    </tree>         
-                                    <form>          
-                                        <sheet>     
-                                            <group> 
-                                                <group>
-                                                </group>
-                                                <group>
-                                                </group>
-                                            </group>    
-                                        </sheet>        
-                                    </form>         
-                                </field>                
-                            </page>                 
-                        </notebook>                     
-                    </sheet>                            
-                </form>                             
-            </field>                                    
+        <record id="hc_res_immunization_recommendation_view_tree" model="ir.ui.view">
+            <field name="name">Immunization Recommendation Tree</field>
+            <field name="model">hc.res.immunization.recommendation</field>
+            <field name="arch" type="xml">
+                <tree string="Immunization Recommendations">
+                    <field name="name"/>
+                </tree>
+            </field>
         </record>
-    
-        
-        <act_window id="hc_res_immunization_recommendation_action"  
+
+        <record id="hc_res_immunization_recommendation_view_form" model="ir.ui.view">
+            <field name="name">Immunization Recommendation Form</field>
+            <field name="model">hc.res.immunization.recommendation</field>
+            <field name="arch" type="xml">
+                <form string="Immunization Recommendation">
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Event Name"/>
+                        </h1>
+                        <group>
+                            <group>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Identifiers">
+                                <field name="identifier_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <act_window id="hc_res_immunization_recommendation_action"
                     name="HC Immunization Recommendations"
                     res_model="hc.res.immunization.recommendation"
                     view_mode="tree,form"
@@ -71,11 +71,11 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_immunization_recommendation.menu_immun_rec" 
-                  name="Immunization Recommendations" 
-                  parent="hc_base.menu_med" 
-                  action="hc_res_immunization_recommendation_action" 
-                  groups="hc_base.group_hc_base_manager" 
+        <menuitem id="hc_immunization_recommendation.menu_immun_rec"
+                  name="Immunization Recommendations"
+                  parent="hc_base.menu_clinic_med"
+                  action="hc_res_immunization_recommendation_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="70"/>
 
     </data>

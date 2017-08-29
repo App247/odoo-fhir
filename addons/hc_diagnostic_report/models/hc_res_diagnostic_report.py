@@ -5,6 +5,8 @@ from openerp import models, fields, api
 class DiagnosticReport(models.Model):
     _name = "hc.res.diagnostic.report"
     _description = "Diagnostic Report"
+    _inherit = ["hc.domain.resource"]
+    _rec_name = "name"
 
     name = fields.Char(
         string="Name",
@@ -259,8 +261,7 @@ class DiagnosticReportBasedOn(models.Model):
             ("immunization_recommendation", "Immunization Recommendation"),
             ("medication_request", "Medication Request"),
             ("nutrition_order", "Nutrition Order"),
-            ("procedure_request", "Procedure Request"),
-            ("referral_request", "Referral Request")],
+            ("procedure_request", "Procedure Request")],
         help="Type of what was requested.")
     based_on_name = fields.Char(
         string="Based On",
@@ -287,10 +288,6 @@ class DiagnosticReportBasedOn(models.Model):
         comodel_name="hc.res.procedure.request",
         string="Bsaed On Procedure Request",
         help="Procedure Request what was requested.")
-    based_on_referral_request_id = fields.Many2one(
-        comodel_name="hc.res.referral.request",
-        string="Based On Referral Request",
-        help="Referral Request what was requested.")
 
 class DiagnosticReportImagingStudy(models.Model):
     _name = "hc.diagnostic.report.imaging.study"
@@ -304,8 +301,8 @@ class DiagnosticReportImagingStudy(models.Model):
     imaging_study_type = fields.Selection(
         string="Imaging Study Type",
         selection=[
-            ("Imaging Study", "Imaging Study"),
-            ("Imaging Manifest", "Imaging Manifest")],
+            ("imaging_study", "Imaging Study"),
+            ("imaging_manifest", "Imaging Manifest")],
         help="Type of reference to full details of imaging associated with the diagnostic report.")
     imaging_study_name = fields.Char(
         string="Imaging Study",
@@ -395,6 +392,9 @@ class DiagnosticReportCode(models.Model):
 class ConditionStageAssessment(models.Model):
     _inherit = "hc.condition.stage.assessment"
 
+    assessment_type = fields.Selection(
+        selection_add=[
+            ("diagnostic_report", "Diagnostic Report")])
     assessment_diagnostic_report_id = fields.Many2one(
         comodel_name="hc.res.diagnostic.report",
         string="Assessment Diagnostic Reports",
@@ -415,3 +415,26 @@ class ProcedureReport(models.Model):
         comodel_name="hc.res.diagnostic.report",
         string="Report",
         help="Report associated with this Procedure Report.")
+
+class ProcedureRequestReasonReference(models.Model):
+    _inherit = "hc.procedure.request.reason.reference"
+
+    reason_reference_type = fields.Selection(
+        selection_add=[
+            ("diagnostic_report", "Diagnostic Report")])
+    reason_reference_diagnostic_report_id = fields.Many2one(
+        comodel_name="hc.res.diagnostic.report",
+        string="Reason Reference Diagnostic Report",
+        help="Diagnostic Report explanation/justification for procedure or service.")
+
+    @api.multi
+    def _compute_reason_reference_name(self):
+        for hc_res_procedure_request in self:
+            if hc_res_procedure_request.reason_type == 'condition':
+                hc_res_procedure_request.reason_name = hc_res_procedure_request.reason_condition_id.name
+            elif hc_res_procedure_request.reason_type == 'observation':
+                hc_res_procedure_request.reason_name = hc_res_procedure_request.reason_observation_id.name
+            elif hc_res_procedure_request.reason_type == 'diagnostic_report':
+                hc_res_procedure_request.reason_name = hc_res_procedure_request.reason_diagnostic_report_id.name
+            elif hc_res_procedure_request.reason_type == 'document_reference':
+                hc_res_procedure_request.reason_name = hc_res_procedure_request.reason_document_reference_id.name

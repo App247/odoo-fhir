@@ -46,11 +46,11 @@ class CarePlan(models.Model):
             ("cancelled", "Cancelled"),
             ("unknown", "Unknown")],
         help="Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record.")
-    status_history_ids = fields.One2many(       
-        comodel_name="hc.care.plan.status.history", 
-        inverse_name="care_plan_id",    
-        string="Status History",    
-        help="The status of the care plan over time.")  
+    status_history_ids = fields.One2many(
+        comodel_name="hc.care.plan.status.history",
+        inverse_name="care_plan_id",
+        string="Status History",
+        help="The status of the care plan over time.")
     intent = fields.Selection(
         string="Intent",
         required="True",
@@ -60,7 +60,7 @@ class CarePlan(models.Model):
             ("order", "Order"),
             ("option", "Option")],
         help="Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified substance (including pharmaceutical product).")
-    intent_history_ids = fields.One2many(   
+    intent_history_ids = fields.One2many(
         comodel_name="hc.care.plan.intent.history",
         inverse_name="care_plan_id",
         string="Intent History",
@@ -157,129 +157,129 @@ class CarePlan(models.Model):
         string="Activities",
         help="Action to occur as part of plan.")
 
-    @api.model                          
-    def create(self, vals):                                               
+    @api.model
+    def create(self, vals):
         status_history_obj = self.env['hc.care.plan.status.history']
-        intent_history_obj = self.env['hc.care.plan.intent.history']                         
-        res = super(CarePlan, self).create(vals)                        
-                                
-        # For Status                        
-        if vals and vals.get('status'):                     
-            status_history_vals = {                 
-                'care_plan_id': res.id,             
-                'status': res.status,               
-                'start_date': datetime.today()              
-                }               
-            if vals.get('status') == 'entered-in-error':                    
-                status_history_vals.update({'end_date': datetime.today()})              
-            status_history_obj.create(status_history_vals)                  
-                                
-        # For Intent                        
-        if vals.get('status') != 'entered-in-error':                        
-            if vals and vals.get('intent'):                 
-                intent_history_vals = {             
-                    'care_plan_id': res.id,         
-                    'intent': res.intent,           
-                    'start_date': datetime.today()          
-                    }           
-                intent_history_obj.create(intent_history_vals)              
-                                
-        return res                      
-                            
-    @api.multi                          
-    def write(self, vals):                          
-        status_history_obj = self.env['hc.care.plan.status.history']
-        intent_history_obj = self.env['hc.care.plan.intent.history']                                                
-        res = super(CarePlan, self).write(vals)                     
-                                
-        # For Status                        
-        status_history_record_ids = status_history_obj.search([('end_date','=', False)])                        
-        if status_history_record_ids:                       
-            if vals.get('status') and status_history_record_ids[0].status != vals.get('status'):                    
-                for status_history in status_history_record_ids:                
-                    status_history.end_date = datetime.strftime(datetime.today(), DTF)          
-                    time_diff = datetime.today() - datetime.strptime(status_history.start_date, DTF)            
-                    if time_diff:           
-                        days = str(time_diff).split(',')        
-                        if days and len(days) > 1:      
-                            status_history.time_diff_day = str(days[0]) 
-                            times = str(days[1]).split(':') 
-                            if times and times > 1: 
-                                status_history.time_diff_hour = str(times[0])
-                                status_history.time_diff_min = str(times[1])
-                                status_history.time_diff_sec = str(times[2])
-                        else:       
-                            times = str(time_diff).split(':')   
-                            if times and times > 1: 
-                                status_history.time_diff_hour = str(times[0])
-                                status_history.time_diff_min = str(times[1])
-                                status_history.time_diff_sec = str(times[2])
-                status_history_vals = {             
-                    'care_plan_id': self.id,            
-                    'status': vals.get('status'),           
-                    'start_date': datetime.today()          
-                    }           
-                if vals.get('status') == 'entered-in-error':                
-                    status_history_vals.update({'end_date': datetime.today()})          
-                status_history_obj.create(status_history_vals)              
-                                
-        # For Intent                       
-        intent_history_record_ids = intent_history_obj.search([('end_date','=', False)])                        
-        if intent_history_record_ids:                       
-            if vals.get('status') == 'entered-in-error' or (vals.get('intent') and intent_history_record_ids[0].intent != vals.get('intent')):                  
-                for intent_history in intent_history_record_ids:                
-                    intent_history.end_date = datetime.strftime(datetime.today(), DTF)          
-                    time_diff = datetime.today() - datetime.strptime(intent_history.start_date, DTF)            
-                    if time_diff:           
-                        days = str(time_diff).split(',')        
-                        if days and len(days) > 1:      
-                            intent_history.time_diff_day = str(days[0]) 
-                            times = str(days[1]).split(':') 
-                            if times and times > 1: 
-                                intent_history.time_diff_hour = str(times[0])
-                                intent_history.time_diff_min = str(times[1])
-                                intent_history.time_diff_sec = str(times[2])
-                        else:       
-                            times = str(time_diff).split(':')   
-                            if times and times > 1: 
-                                intent_history.time_diff_hour = str(times[0])
-                                intent_history.time_diff_min = str(times[1])
-                                intent_history.time_diff_sec = str(times[2])
-                    intent_history_vals = {         
-                        'care_plan_id': self.id,        
-                        'intent': vals.get('intent'),       
-                        'start_date': datetime.today()      
-                        }       
-                    if vals.get('status') == 'entered-in-error':            
-                        intent_history_vals.update({'end_date': datetime.today()})      
-                    if vals.get('status') != 'entered-in-error':            
-                        intent_history_obj.create(intent_history_vals)      
-        else:                       
-            intent_history_vals = {                 
-                    'care_plan_id': self.id,            
-                    'intent': vals.get('intent'),           
-                    'start_date': datetime.today()          
-                    }           
-            if vals.get('status') == 'entered-in-error':                    
-                    intent_history_vals.update({'end_date': datetime.today()})          
-            intent_history_obj.create(intent_history_vals)                  
-                                
-        return res                      
+        intent_history_obj = self.env['hc.care.plan.intent.history']
+        res = super(CarePlan, self).create(vals)
 
-    @api.depends('subject_type')            
-    def _compute_subject_name(self):            
-        for hc_res_care_plan in self:       
-            if hc_res_care_plan.subject_type == 'patient':  
+        # For Status
+        if vals and vals.get('status'):
+            status_history_vals = {
+                'care_plan_id': res.id,
+                'status': res.status,
+                'start_date': datetime.today()
+                }
+            if vals.get('status') == 'entered-in-error':
+                status_history_vals.update({'end_date': datetime.today()})
+            status_history_obj.create(status_history_vals)
+
+        # For Intent
+        if vals.get('status') != 'entered-in-error':
+            if vals and vals.get('intent'):
+                intent_history_vals = {
+                    'care_plan_id': res.id,
+                    'intent': res.intent,
+                    'start_date': datetime.today()
+                    }
+                intent_history_obj.create(intent_history_vals)
+
+        return res
+
+    @api.multi
+    def write(self, vals):
+        status_history_obj = self.env['hc.care.plan.status.history']
+        intent_history_obj = self.env['hc.care.plan.intent.history']
+        res = super(CarePlan, self).write(vals)
+
+        # For Status
+        status_history_record_ids = status_history_obj.search([('end_date','=', False)])
+        if status_history_record_ids:
+            if vals.get('status') and status_history_record_ids[0].status != vals.get('status'):
+                for status_history in status_history_record_ids:
+                    status_history.end_date = datetime.strftime(datetime.today(), DTF)
+                    time_diff = datetime.today() - datetime.strptime(status_history.start_date, DTF)
+                    if time_diff:
+                        days = str(time_diff).split(',')
+                        if days and len(days) > 1:
+                            status_history.time_diff_day = str(days[0])
+                            times = str(days[1]).split(':')
+                            if times and times > 1:
+                                status_history.time_diff_hour = str(times[0])
+                                status_history.time_diff_min = str(times[1])
+                                status_history.time_diff_sec = str(times[2])
+                        else:
+                            times = str(time_diff).split(':')
+                            if times and times > 1:
+                                status_history.time_diff_hour = str(times[0])
+                                status_history.time_diff_min = str(times[1])
+                                status_history.time_diff_sec = str(times[2])
+                status_history_vals = {
+                    'care_plan_id': self.id,
+                    'status': vals.get('status'),
+                    'start_date': datetime.today()
+                    }
+                if vals.get('status') == 'entered-in-error':
+                    status_history_vals.update({'end_date': datetime.today()})
+                status_history_obj.create(status_history_vals)
+
+        # For Intent
+        intent_history_record_ids = intent_history_obj.search([('end_date','=', False)])
+        if intent_history_record_ids:
+            if vals.get('status') == 'entered-in-error' or (vals.get('intent') and intent_history_record_ids[0].intent != vals.get('intent')):
+                for intent_history in intent_history_record_ids:
+                    intent_history.end_date = datetime.strftime(datetime.today(), DTF)
+                    time_diff = datetime.today() - datetime.strptime(intent_history.start_date, DTF)
+                    if time_diff:
+                        days = str(time_diff).split(',')
+                        if days and len(days) > 1:
+                            intent_history.time_diff_day = str(days[0])
+                            times = str(days[1]).split(':')
+                            if times and times > 1:
+                                intent_history.time_diff_hour = str(times[0])
+                                intent_history.time_diff_min = str(times[1])
+                                intent_history.time_diff_sec = str(times[2])
+                        else:
+                            times = str(time_diff).split(':')
+                            if times and times > 1:
+                                intent_history.time_diff_hour = str(times[0])
+                                intent_history.time_diff_min = str(times[1])
+                                intent_history.time_diff_sec = str(times[2])
+                    intent_history_vals = {
+                        'care_plan_id': self.id,
+                        'intent': vals.get('intent'),
+                        'start_date': datetime.today()
+                        }
+                    if vals.get('status') == 'entered-in-error':
+                        intent_history_vals.update({'end_date': datetime.today()})
+                    if vals.get('status') != 'entered-in-error':
+                        intent_history_obj.create(intent_history_vals)
+        else:
+            intent_history_vals = {
+                    'care_plan_id': self.id,
+                    'intent': vals.get('intent'),
+                    'start_date': datetime.today()
+                    }
+            if vals.get('status') == 'entered-in-error':
+                    intent_history_vals.update({'end_date': datetime.today()})
+            intent_history_obj.create(intent_history_vals)
+
+        return res
+
+    @api.depends('subject_type')
+    def _compute_subject_name(self):
+        for hc_res_care_plan in self:
+            if hc_res_care_plan.subject_type == 'patient':
                 hc_res_care_plan.subject_name = hc_res_care_plan.subject_patient_id.name
-            elif hc_res_care_plan.subject_type == 'group':  
+            elif hc_res_care_plan.subject_type == 'group':
                 hc_res_care_plan.subject_name = hc_res_care_plan.subject_group_id.name
 
-    @api.depends('context_type')            
-    def _compute_context_name(self):            
-        for hc_res_care_plan in self:       
-            if hc_res_care_plan.context_type == 'encounter':    
+    @api.depends('context_type')
+    def _compute_context_name(self):
+        for hc_res_care_plan in self:
+            if hc_res_care_plan.context_type == 'encounter':
                 hc_res_care_plan.context_name = hc_res_care_plan.context_encounter_id.name
-            elif hc_res_care_plan.context_type == 'episode_of_care':    
+            elif hc_res_care_plan.context_type == 'episode_of_care':
                 hc_res_care_plan.context_name = hc_res_care_plan.context_episode_of_care_id.name
 
 class CarePlanActivity(models.Model):
@@ -440,7 +440,7 @@ class CarePlanActivityDetail(models.Model):
             ("stopped", "Stopped"),
             ("unknown", "Unknown")],
         help="The status of this activity definition. Enables tracking the life-cycle of the content.")
-    status_history_ids = fields.One2many(   
+    status_history_ids = fields.One2many(
         comodel_name="hc.care.plan.activity.detail.status.history",
         inverse_name="detail_id",
         string="Status History",
@@ -528,78 +528,78 @@ class CarePlanActivityDetail(models.Model):
         string="Description",
         help="Extra info describing activity to perform.")
 
-    @api.model                          
-    def create(self, vals):                         
-        status_history_obj = self.env['hc.care.plan.activity.detail.status.history']                        
-        res = super(CarePlanActivityDetail, self).create(vals)                      
-        if vals and vals.get('status'):                     
-            status_history_vals = {                 
-                'detail_id': res.id,             
-                'status': res.status,               
-                'start_date': datetime.today()              
-                }               
-            status_history_obj.create(status_history_vals)                  
-        return res                      
-                                
-    @api.multi                          
-    def write(self, vals):                          
-        status_history_obj = self.env['hc.care.plan.activity.detail.status.history']                        
-        res = super(CarePlanActivityDetail, self).write(vals)                       
-        status_history_record_ids = status_history_obj.search([('end_date','=', False)])                        
-        if status_history_record_ids:                       
-            if vals.get('status') and status_history_record_ids[0].status != vals.get('status'):                    
-                for status_history in status_history_record_ids:                
-                    status_history.end_date = datetime.strftime(datetime.today(), DTF)          
-                    time_diff = datetime.today() - datetime.strptime(status_history.start_date, DTF)            
-                    if time_diff:           
-                        days = str(time_diff).split(',')        
-                        if days and len(days) > 1:      
-                            status_history.time_diff_day = str(days[0]) 
-                            times = str(days[1]).split(':') 
-                            if times and times > 1: 
-                                status_history.time_diff_hour = str(times[0])
-                                status_history.time_diff_min = str(times[1])
-                                status_history.time_diff_sec = str(times[2])
-                        else:       
-                            times = str(time_diff).split(':')   
-                            if times and times > 1: 
-                                status_history.time_diff_hour = str(times[0])
-                                status_history.time_diff_min = str(times[1])
-                                status_history.time_diff_sec = str(times[2])
-                status_history_vals = {             
-                    'detail_id': self.id,            
-                    'status': vals.get('status'),           
-                    'start_date': datetime.today()          
-                    }           
-                status_history_obj.create(status_history_vals)              
-        return res                      
+    @api.model
+    def create(self, vals):
+        status_history_obj = self.env['hc.care.plan.activity.detail.status.history']
+        res = super(CarePlanActivityDetail, self).create(vals)
+        if vals and vals.get('status'):
+            status_history_vals = {
+                'detail_id': res.id,
+                'status': res.status,
+                'start_date': datetime.today()
+                }
+            status_history_obj.create(status_history_vals)
+        return res
 
-    @api.depends('definition_type')         
-    def _compute_definition_name(self):         
-        for hc_care_plan_activity_detail in self:       
-            if hc_care_plan_activity_detail.definition_type == 'encounter': 
+    @api.multi
+    def write(self, vals):
+        status_history_obj = self.env['hc.care.plan.activity.detail.status.history']
+        res = super(CarePlanActivityDetail, self).write(vals)
+        status_history_record_ids = status_history_obj.search([('end_date','=', False)])
+        if status_history_record_ids:
+            if vals.get('status') and status_history_record_ids[0].status != vals.get('status'):
+                for status_history in status_history_record_ids:
+                    status_history.end_date = datetime.strftime(datetime.today(), DTF)
+                    time_diff = datetime.today() - datetime.strptime(status_history.start_date, DTF)
+                    if time_diff:
+                        days = str(time_diff).split(',')
+                        if days and len(days) > 1:
+                            status_history.time_diff_day = str(days[0])
+                            times = str(days[1]).split(':')
+                            if times and times > 1:
+                                status_history.time_diff_hour = str(times[0])
+                                status_history.time_diff_min = str(times[1])
+                                status_history.time_diff_sec = str(times[2])
+                        else:
+                            times = str(time_diff).split(':')
+                            if times and times > 1:
+                                status_history.time_diff_hour = str(times[0])
+                                status_history.time_diff_min = str(times[1])
+                                status_history.time_diff_sec = str(times[2])
+                status_history_vals = {
+                    'detail_id': self.id,
+                    'status': vals.get('status'),
+                    'start_date': datetime.today()
+                    }
+                status_history_obj.create(status_history_vals)
+        return res
+
+    @api.depends('definition_type')
+    def _compute_definition_name(self):
+        for hc_care_plan_activity_detail in self:
+            if hc_care_plan_activity_detail.definition_type == 'encounter':
                 hc_care_plan_activity_detail.definition_name = hc_care_plan_activity_detail.definition_encounter_id.name
-            elif hc_care_plan_activity_detail.definition_type == 'episode_of_care': 
+            elif hc_care_plan_activity_detail.definition_type == 'episode_of_care':
                 hc_care_plan_activity_detail.definition_name = hc_care_plan_activity_detail.definition_episode_of_care_id.name
 
-    @api.depends('scheduled_type')          
-    def _compute_scheduled_name(self):          
-        for hc_care_plan_activity_detail in self:       
-            if hc_care_plan_activity_detail.scheduled_type == 'timing':  
-                hc_care_plan_activity_detail.scheduled_name = hc_care_plan_activity_detail.scheduled_timing_id.name             
-            elif hc_care_plan_activity_detail.scheduled_type == 'period':   
+    @api.depends('scheduled_type')
+    def _compute_scheduled_name(self):
+        for hc_care_plan_activity_detail in self:
+            if hc_care_plan_activity_detail.scheduled_type == 'timing':
+                hc_care_plan_activity_detail.scheduled_name = hc_care_plan_activity_detail.scheduled_timing_id.name
+            elif hc_care_plan_activity_detail.scheduled_type == 'period':
                 hc_care_plan_activity_detail.scheduled_name = "Between " + str(hc_care_plan_activity_detail.scheduled_start_date) + " and " + str(hc_care_plan_activity_detail.scheduled_end_date)
-            elif hc_care_plan_activity_detail.scheduled_type == 'string':   
+            elif hc_care_plan_activity_detail.scheduled_type == 'string':
                 hc_care_plan_activity_detail.scheduled_type = hc_care_plan_activity_detail.hc_care_plan_activity_detail_string
 
-    @api.depends('product_type')            
-    def _compute_product_name(self):            
-        for hc_care_plan_activity_detail in self:       
-            if hc_care_plan_activity_detail.product_type == 'code': 
+    @api.depends('product_type')
+    def _compute_product_name(self):
+        for hc_care_plan_activity_detail in self:
+            if hc_care_plan_activity_detail.product_type == 'code':
                 hc_care_plan_activity_detail.product_name = hc_care_plan_activity_detail.product_code_id.name
-            elif hc_care_plan_activity_detail.product_type == 'medication': 
+            elif hc_care_plan_activity_detail.product_type == 'medication':
                 hc_care_plan_activity_detail.product_name = hc_care_plan_activity_detail.product_medication_id.name
-            elif hc_care_plan_activity_detail.product_type == 'substance':  
+            elif hc_care_plan_activity_detail.product_type == 'substance':
                 hc_care_plan_activity_detail.product_name = hc_care_plan_activity_detail.product_substance_id.name
 
 
@@ -631,7 +631,7 @@ class CarePlanDefinition(models.Model):
     definition_name = fields.Char(
         string="Definition",
         compute="_compute_definition_name",
-        store="True", 
+        store="True",
         help="Protocol or definition.")
     definition_plan_definition_id = fields.Many2one(
         comodel_name="hc.res.plan.definition",
@@ -642,12 +642,12 @@ class CarePlanDefinition(models.Model):
         string="Definition Questionnaire",
         help="Questionnaire protocol or definition.")
 
-    @api.depends('definition_type')         
-    def _compute_definition_name(self):         
-        for hc_care_plan_definition in self:        
-            if hc_care_plan_definition.definition_type == 'plan_definition':    
+    @api.depends('definition_type')
+    def _compute_definition_name(self):
+        for hc_care_plan_definition in self:
+            if hc_care_plan_definition.definition_type == 'plan_definition':
                 hc_care_plan_definition.definition_name = hc_care_plan_definition.definition_plan_definition_id.name
-            elif hc_care_plan_definition.definition_type == 'questionnaire':    
+            elif hc_care_plan_definition.definition_type == 'questionnaire':
                 hc_care_plan_definition.definition_name = hc_care_plan_definition.definition_questionnaire_id.name
 
 class CarePlanBasedOn(models.Model):
@@ -692,63 +692,63 @@ class CarePlanPartOf(models.Model):
         string="Part Of",
         help="Care Plan associated with this Care Plan Part Of.")
 
-class CarePlanStatusHistory(models.Model):      
-    _name = "hc.care.plan.status.history"   
-    _description = "Care Plan Status History"   
-        
-    care_plan_id = fields.Many2one( 
+class CarePlanStatusHistory(models.Model):
+    _name = "hc.care.plan.status.history"
+    _description = "Care Plan Status History"
+
+    care_plan_id = fields.Many2one(
         comodel_name="hc.res.care.plan",
         string="Care Plan",
         help="Care Plan associated with this Care Plan Status History.")
-    status = fields.Char(   
+    status = fields.Char(
         string="Status",
         help="The status of the care plan.")
-    start_date = fields.Datetime(   
+    start_date = fields.Datetime(
         string="Start Date",
         help="Start of the period during which this care plan status is valid.")
-    end_date = fields.Datetime( 
+    end_date = fields.Datetime(
         string="End Date",
         help="End of the period during which this care plan status is valid.")
-    time_diff_day = fields.Char(    
+    time_diff_day = fields.Char(
         string="Time Diff (days)",
         help="Days duration of the status.")
-    time_diff_hour = fields.Char(   
+    time_diff_hour = fields.Char(
         string="Time Diff (hours)",
         help="Hours duration of the status.")
-    time_diff_min = fields.Char(    
+    time_diff_min = fields.Char(
         string="Time Diff (minutes)",
         help="Minutes duration of the status.")
-    time_diff_sec = fields.Char(    
+    time_diff_sec = fields.Char(
         string="Time Diff (seconds)",
         help="Seconds duration of the status.")
 
-class CarePlanIntentHistory(models.Model):      
-    _name = "hc.care.plan.intent.history"   
-    _description = "Care Plan Intent History"   
-        
-    care_plan_id = fields.Many2one( 
+class CarePlanIntentHistory(models.Model):
+    _name = "hc.care.plan.intent.history"
+    _description = "Care Plan Intent History"
+
+    care_plan_id = fields.Many2one(
         comodel_name="hc.res.care.plan",
         string="Care Plan",
         help="Care Plan associated with this Care Plan Intent History.")
-    intent = fields.Char(   
+    intent = fields.Char(
         string="Intent",
         help="The intent of the care plan.")
-    start_date = fields.Datetime(   
+    start_date = fields.Datetime(
         string="Start Date",
         help="Start of the period during which this care plan intent is valid.")
-    end_date = fields.Datetime( 
+    end_date = fields.Datetime(
         string="End Date",
         help="End of the period during which this care plan intent is valid.")
-    time_diff_day = fields.Char(    
+    time_diff_day = fields.Char(
         string="Time Diff (days)",
         help="Days duration of the intent.")
-    time_diff_hour = fields.Char(   
+    time_diff_hour = fields.Char(
         string="Time Diff (hours)",
         help="Hours duration of the intent.")
-    time_diff_min = fields.Char(    
+    time_diff_min = fields.Char(
         string="Time Diff (minutes)",
         help="Minutes duration of the intent.")
-    time_diff_sec = fields.Char(    
+    time_diff_sec = fields.Char(
         string="Time Diff (seconds)",
         help="Seconds duration of the intent.")
 
@@ -796,18 +796,18 @@ class CarePlanAuthor(models.Model):
         string="Author Care Team",
         help="Care Team who is responsible for contents of the plan.")
 
-    @api.depends('author_type')         
-    def _compute_author_name(self):         
-        for hc_care_plan_author in self:        
-            if hc_care_plan_author.author_type == 'patient':    
+    @api.depends('author_type')
+    def _compute_author_name(self):
+        for hc_care_plan_author in self:
+            if hc_care_plan_author.author_type == 'patient':
                 hc_care_plan_author.author_name = hc_care_plan_author.author_patient_id.name
-            elif hc_care_plan_author.author_type == 'practitioner': 
+            elif hc_care_plan_author.author_type == 'practitioner':
                 hc_care_plan_author.author_name = hc_care_plan_author.author_practitioner_id.name
-            elif hc_care_plan_author.author_type == 'related_person':   
+            elif hc_care_plan_author.author_type == 'related_person':
                 hc_care_plan_author.author_name = hc_care_plan_author.author_related_person_id.name
-            elif hc_care_plan_author.author_type == 'organization': 
+            elif hc_care_plan_author.author_type == 'organization':
                 hc_care_plan_author.author_name = hc_care_plan_author.author_organization_id.name
-            elif hc_care_plan_author.author_type == 'care_team':    
+            elif hc_care_plan_author.author_type == 'care_team':
                 hc_care_plan_author.author_name = hc_care_plan_author.author_care_team_id.name
 
 class CarePlanCareTeam(models.Model):
@@ -913,17 +913,17 @@ class CarePlanActivityOutcomeReference(models.Model):
         selection="_reference_models",
         help="Appointment, Encounter, Procedure, etc..")
 
-    @api.model          
-    def _reference_models(self):            
-        models = self.env['ir.model'].search([('state', '!=', 'manual')])       
-        return [(model.model, model.name)       
-            for model in models 
+    @api.model
+    def _reference_models(self):
+        models = self.env['ir.model'].search([('state', '!=', 'manual')])
+        return [(model.model, model.name)
+            for model in models
                 if model.model.startswith('hc.res')]
-                
-    @api.depends('outcome_reference_name')          
-    def _compute_outcome_reference_type(self):          
-        for this in self:       
-            if this.outcome_reference_name: 
+
+    @api.depends('outcome_reference_name')
+    def _compute_outcome_reference_type(self):
+        for this in self:
+            if this.outcome_reference_name:
                 this.outcome_reference_type = this.outcome_reference_name._description
 
 class CarePlanActivityProgress(models.Model):
@@ -964,33 +964,33 @@ class CarePlanActivityDetailGoal(models.Model):
         string="Goal",
         help="Goal associated with this Care Plan Activity Detail Goal.")
 
-class CarePlanActivityDetailStatusHistory(models.Model):        
-    _name = "hc.care.plan.activity.detail.status.history"   
-    _description = "Care Plan Activity Detail Status History"   
-        
-    detail_id = fields.Many2one( 
+class CarePlanActivityDetailStatusHistory(models.Model):
+    _name = "hc.care.plan.activity.detail.status.history"
+    _description = "Care Plan Activity Detail Status History"
+
+    detail_id = fields.Many2one(
         comodel_name="hc.care.plan.activity.detail",
         string="Detail",
         help="Detail associated with this Care Plan Activity Detail Status History.")
-    status = fields.Char(   
+    status = fields.Char(
         string="Status",
         help="The status of the care plan activity detail.")
-    start_date = fields.Datetime(   
+    start_date = fields.Datetime(
         string="Start Date",
         help="Start of the period during which this care plan activity detail status is valid.")
-    end_date = fields.Datetime( 
+    end_date = fields.Datetime(
         string="End Date",
         help="End of the period during which this care plan activity detail status is valid.")
-    time_diff_day = fields.Char(    
+    time_diff_day = fields.Char(
         string="Time Diff (days)",
         help="Days duration of the status.")
-    time_diff_hour = fields.Char(   
+    time_diff_hour = fields.Char(
         string="Time Diff (hours)",
         help="Hours duration of the status.")
-    time_diff_min = fields.Char(    
+    time_diff_min = fields.Char(
         string="Time Diff (minutes)",
         help="Minutes duration of the status.")
-    time_diff_sec = fields.Char(    
+    time_diff_sec = fields.Char(
         string="Time Diff (seconds)",
         help="Seconds duration of the status.")
 
@@ -1038,18 +1038,18 @@ class CarePlanActivityDetailPerformer(models.Model):
         string="Performer Care Team",
         help="Care Team who will be responsible?")
 
-    @api.depends('performer_type')          
-    def _compute_performer_name(self):          
-        for hc_care_plan_activity_detail_performer in self:     
-            if hc_care_plan_activity_detail_performer.performer_type == 'practitioner': 
+    @api.depends('performer_type')
+    def _compute_performer_name(self):
+        for hc_care_plan_activity_detail_performer in self:
+            if hc_care_plan_activity_detail_performer.performer_type == 'practitioner':
                 hc_care_plan_activity_detail_performer.performer_name = hc_care_plan_activity_detail_performer.performer_practitioner_id.name
-            elif hc_care_plan_activity_detail_performer.performer_type == 'organization':   
+            elif hc_care_plan_activity_detail_performer.performer_type == 'organization':
                 hc_care_plan_activity_detail_performer.performer_name = hc_care_plan_activity_detail_performer.performer_organization_id.name
-            elif hc_care_plan_activity_detail_performer.performer_type == 'related_person': 
+            elif hc_care_plan_activity_detail_performer.performer_type == 'related_person':
                 hc_care_plan_activity_detail_performer.performer_name = hc_care_plan_activity_detail_performer.performer_related_person_id.name
-            elif hc_care_plan_activity_detail_performer.performer_type == 'patient':    
+            elif hc_care_plan_activity_detail_performer.performer_type == 'patient':
                 hc_care_plan_activity_detail_performer.performer_name = hc_care_plan_activity_detail_performer.performer_patient_id.name
-            elif hc_care_plan_activity_detail_performer.performer_type == 'care_team':  
+            elif hc_care_plan_activity_detail_performer.performer_type == 'care_team':
                 hc_care_plan_activity_detail_performer.performer_name = hc_care_plan_activity_detail_performer.performer_care_team_id.name
 
 class CarePlanActivityDetailScheduledTiming(models.Model):
@@ -1160,6 +1160,32 @@ class ProcedureBasedOn(models.Model):
         comodel_name="hc.res.care.plan",
         string="Based On Care Plan",
         help="Care Plan for this procedure.")
+
+class ProcedureRequestBasedOn(models.Model):
+    _inherit = "hc.procedure.request.based.on"
+
+    based_on_type = fields.Selection(
+        selection_add=[
+            ("care_plan", "Care Plan"),
+            ("medication_request", "Medication Request")])
+    based_on_care_plan_id = fields.Many2one(
+        comodel_name="hc.res.care.plan",
+        string="Based On Care Plan",
+        help="Care Plan fulfills.")
+    based_on_medication_request_id = fields.Many2one(
+        comodel_name="hc.res.medication.request",
+        string="Based On Medication Request",
+        help="Medication Request fulfills.")
+
+    @api.multi
+    def _compute_based_on_name(self):
+        for hc_procedure_request in self:
+            if hc_procedure_request.based_on_type == 'procedure_request':
+                hc_procedure_request.based_on_name = hc_procedure_request.based_on_procedure_request_id.name
+            elif hc_procedure_request.based_on_type == 'care_plan':
+                hc_procedure_request.based_on_name = hc_procedure_request.based_on_care_plan_id.name
+            elif hc_procedure_request.based_on_type == 'medication_request':
+                hc_procedure_request.based_on_name = hc_procedure_request.based_on_medication_request_id.name
 
 class ObservationBasedOn(models.Model):
     _inherit = "hc.observation.based.on"

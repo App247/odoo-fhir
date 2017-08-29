@@ -183,10 +183,10 @@ class EpisodeOfCareReferralRequest(models.Model):
         required="True",
         help="Episode Of Care associated with this Episode Of Care Referral Request.")
     # referral_request_id = fields.Many2one(
-    #     comodel_name="hc.res.referral.request",
+    #     comodel_name="hc.res.procedure.request",
     #     string="Referral Request",
     #     required="True",
-    #     help="Referral Request associated with this Episode Of Care Referral Request.")
+    #     help="Procedure Request associated with this Episode Of Care Referral Request.")
 
 class EpisodeOfCareTeam(models.Model):
     _name = "hc.episode.of.care.team"

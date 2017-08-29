@@ -11,4 +11,3 @@ access_hc_imaging_study_hc_imaging_study_procedure_user,hc.imaging.study.hc.imag
 access_hc_imaging_study_hc_vs_body_site_laterality_manager,hc.imaging.study.hc.vs.body.site.laterality.manager,model_hc_vs_body_site_laterality,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_imaging_study_hc_vs_dicom_cid_29_manager,hc.imaging.study.hc.vs.dicom.cid.29.manager,model_hc_vs_dicom_cid_29,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_imaging_study_hc_vs_d_web_type_manager,hc.imaging.study.hc.vs.d.web.type.manager,model_hc_vs_d_web_type,hc_base.group_hc_base_manager,1,1,1,1
-access_hc_imaging_study_hc_vs_imaging_study_reason_manager,hc.imaging.study.hc.vs.imaging.study.reason.manager,model_hc_vs_imaging_study_reason,hc_base.group_hc_base_manager,1,1,1,1

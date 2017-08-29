@@ -1,9 +1,9 @@
-<openerp>
+<odoo>
     <data>
 
-<!--         <page string="Status History">          
-            <field name="status_history_ids" mode="tree">       
-                <tree>  
+<!--         <page string="Status History">
+            <field name="status_history_ids" mode="tree">
+                <tree>
                     <field name="status" readonly="1"/>
                     <field name="start_date"/>
                     <field name="end_date"/>
@@ -12,14 +12,14 @@
                     <field name="time_diff_min"/>
                     <field name="time_diff_sec"/>
                     <field name="write_uid" invisible="0"/>
-                </tree> 
-            </field>        
-        </page>  -->        
+                </tree>
+            </field>
+        </page>  -->
 
 
-        <!-- Process Response Action and Menu -->   
-    
-        <act_window id="hc_res_process_response_action" 
+        <!-- Process Response Action and Menu -->
+
+        <act_window id="hc_res_process_response_action"
                     name="HC Process Responses"
                     res_model="hc.res.process.response"
                     view_mode="tree,form"
@@ -27,12 +27,12 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_process_response.menu_process_resp" 
-                  name="Process Responses" 
-                  parent="hc_base.menu_work_event_1" 
-                  action="hc_res_process_response_action" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="40"/>
+        <menuitem id="hc_process_response.menu_process_resp"
+                  name="Process Responses"
+                  parent="hc_base.menu_work"
+                  action="hc_res_process_response_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="70"/>
 
     </data>
-</openerp>
+</odoo>

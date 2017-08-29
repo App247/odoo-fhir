@@ -7,13 +7,13 @@
         """,
 
     'description': """
-        This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, 
+        This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information,
         for informing the subscriber of the benefits provided.
 
         **Scope and Usage**
 
-        The ExplanationOfBenefit resource combines key information from a Claim, a ClaimResponse and optional Account information 
-        to inform a patient of the goods and services rendered by a provider and the settlement made under the patients coverage in 
+        The ExplanationOfBenefit resource combines key information from a Claim, a ClaimResponse and optional Account information
+        to inform a patient of the goods and services rendered by a provider and the settlement made under the patients coverage in
         respect of that Claim.
     """,
 
@@ -27,13 +27,13 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['hc_claim_response','hc_referral_request'],
+    'depends': ['hc_claim_response'],
 
     # always loaded
     'data': [
         'security/ir.model.access.csv',
         'views/hc_res_explanation_of_benefit_views.xml',
-        'views/hc_res_explanation_of_benefit_templates.xml',  
+        'views/hc_res_explanation_of_benefit_templates.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

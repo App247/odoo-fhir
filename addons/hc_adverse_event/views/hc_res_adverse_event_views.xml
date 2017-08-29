@@ -1,9 +1,10 @@
-<openerp>
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
     <data>
 
-    <!-- Adverse Event Action and Menu -->  
-  
-    <act_window id="hc_res_adverse_event_action"  
+    <!-- Adverse Event Action and Menu -->
+
+    <act_window id="hc_res_adverse_event_action"
                 name="HC Adverse Events"
                 res_model="hc.res.adverse.event"
                 view_mode="tree,form"
@@ -11,13 +12,13 @@
                 context=""
                 limit=""/>
 
-    <menuitem id="hc_adverse_event.menu_adv_event" 
+    <menuitem id="hc_adverse_event.menu_adv_event"
               name="Adverse Events"
-              web_icon="hc_adverse_event,static/description/icon.png"  
-              parent="hc_base.menu_clinic_gen" 
-              action="hc_res_adverse_event_action" 
-              groups="hc_base.group_hc_base_manager" 
-              sequence="70"/>
+              web_icon="hc_adverse_event,static/description/icon.png"
+              parent="hc_base.menu_clinic_sum"
+              action="hc_res_adverse_event_action"
+              groups="hc_base.group_hc_base_manager"
+              sequence="20"/>
 
     </data>
-</openerp>
+</odoo>
