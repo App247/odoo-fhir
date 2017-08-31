@@ -229,6 +229,9 @@ access_hc_base_hc_vs_entity_name_use_manager,hc.base.hc.vs.entity.name.use.manag
 access_hc_base_hc_vs_occupation_code_manager,hc.base.hc.vs.occupation.code.manager,model_hc_vs_occupation_code,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_vs_definition_topic_manager,hc.base.hc.vs.definition.topic.manager,model_hc_vs_definition_topic,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_vs_procedure_reason_manager,hc.base.hc.vs.procedure.reason.manager,model_hc_vs_procedure_reason,hc_base.group_hc_base_manager,1,1,1,1
+access_hc_base_hc_backbone_element_user,hc.base.hc.backbone.element.user,model_hc_backbone_element,hc_base.group_hc_base_user,1,0,0,0
+access_hc_base_hc_backbone_element_modifier_extension_user,hc.base.hc.backbone.element.modifier.extension.user,model_hc_backbone_element_modifier_extension,hc_base.group_hc_base_user,1,0,0,0
+
 
 
 

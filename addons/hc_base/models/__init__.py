@@ -33,6 +33,7 @@ import hc_trigger_definition
 import hc_usage_context
 import product_uom
 import hc_extension
+import hc_backbone_element
 import hc_domain_resource
 import hc_element_definition
 import hc_value_set_contains_v3
