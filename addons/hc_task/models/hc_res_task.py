@@ -831,7 +831,6 @@ class TaskStatusHistory(models.Model):
         string="Time Diff (seconds)",
         help="Seconds duration of the status.")
 
-
 class TaskFocus(models.Model):
     _name = "hc.task.focus"
     _description = "Task Focus"
@@ -1005,7 +1004,7 @@ class TaskHumanName(models.Model):
         required="True",
         help="Name associated with this Task Human Name.")
 
-class TaskIdentifier(models.Model):
+class TaskValueIdentifier(models.Model):
     _name = "hc.task.value.identifier"
     _description = "Task Value Identifier"
     _inherit = ["hc.basic.association", "hc.identifier"]

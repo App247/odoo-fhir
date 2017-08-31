@@ -7,3 +7,5 @@ access_hc_concept_map_hc_concept_map_group_element_target_depends_on_user,hc.con
 access_hc_concept_map_hc_concept_map_identifier_user,hc.concept.map.hc.concept.map.identifier.user,model_hc_concept_map_identifier,hc_base.group_hc_base_user,1,0,0,0
 access_hc_concept_map_hc_concept_map_contact_user,hc.concept.map.hc.concept.map.contact.user,model_hc_concept_map_contact,hc_base.group_hc_base_user,1,0,0,0
 access_hc_concept_map_hc_concept_map_use_context_user,hc.concept.map.hc.concept.map.use.context.user,model_hc_concept_map_use_context,hc_base.group_hc_base_user,1,0,0,0
+access_hc_concept_map_hc_vs_concept_map_element_code_manager,hc.concept.map.hc.vs.concept.map.element.code.manager,model_hc_vs_concept_map_element_code,hc_base.group_hc_base_manager,1,0,0,0
+

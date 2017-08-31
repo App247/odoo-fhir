@@ -19,7 +19,7 @@ access_hc_task_hc_task_annotation_user,hc.task.hc.task.annotation.user,model_hc_
 access_hc_task_hc_task_attachment_user,hc.task.hc.task.attachment.user,model_hc_task_attachment,hc_base.group_hc_base_user,1,0,0,0
 access_hc_task_hc_task_telecom_user,hc.task.hc.task.telecom.user,model_hc_task_telecom,hc_base.group_hc_base_user,1,0,0,0
 access_hc_task_hc_task_human_name_user,hc.task.hc.task.human.name.user,model_hc_task_human_name,hc_base.group_hc_base_user,1,0,0,0
-access_hc_task_hc_task_identifier_user,hc.task.hc.task.identifier.user,model_hc_task_identifier,hc_base.group_hc_base_user,1,0,0,0
+access_hc_task_hc_task_value_identifier_user,hc.task.hc.task.value.identifier.user,model_hc_task_value_identifier,hc_base.group_hc_base_user,1,0,0,0
 access_hc_task_hc_task_meta_user,hc.task.hc.task.meta.user,model_hc_task_meta,hc_base.group_hc_base_user,1,0,0,0
 access_hc_task_hc_task_reference_user,hc.task.hc.task.reference.user,model_hc_task_reference,hc_base.group_hc_base_user,1,0,0,0
 access_hc_task_hc_task_sampled_data_user,hc.task.hc.task.sampled.data.user,model_hc_task_sampled_data,hc_base.group_hc_base_user,1,0,0,0

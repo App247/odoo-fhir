@@ -4,7 +4,8 @@ access_hc_charge_item_hc_charge_item_participant_user,hc.charge.item.hc.charge.i
 access_hc_charge_item_hc_charge_item_identifier_user,hc.charge.item.hc.charge.item.identifier.user,model_hc_charge_item_identifier,hc_base.group_hc_base_user,1,0,0,0
 access_hc_charge_item_hc_charge_item_definition_user,hc.charge.item.hc.charge.item.definition.user,model_hc_charge_item_definition,hc_base.group_hc_base_user,1,0,0,0
 access_hc_charge_item_hc_charge_item_part_of_user,hc.charge.item.hc.charge.item.part.of.user,model_hc_charge_item_part_of,hc_base.group_hc_base_user,1,0,0,0
-access_hc_charge_item_hc_charge_item_timing_user,hc.charge.item.hc.charge.item.timing.user,model_hc_charge_item_timing,hc_base.group_hc_base_user,1,0,0,0 access_hc_charge_item_hc_charge_item_service_user,hc.charge.item.hc.charge.item.service.user,model_hc_charge_item_service,hc_base.group_hc_base_user,1,0,0,0
+access_hc_charge_item_hc_charge_item_timing_user,hc.charge.item.hc.charge.item.timing.user,model_hc_charge_item_timing,hc_base.group_hc_base_user,1,0,0,0 
+access_hc_charge_item_hc_charge_item_service_user,hc.charge.item.hc.charge.item.service.user,model_hc_charge_item_service,hc_base.group_hc_base_user,1,0,0,0
 access_hc_charge_item_hc_charge_item_account_user,hc.charge.item.hc.charge.item.account.user,model_hc_charge_item_account,hc_base.group_hc_base_user,1,0,0,0
 access_hc_charge_item_hc_charge_item_note_user,hc.charge.item.hc.charge.item.note.user,model_hc_charge_item_note,hc_base.group_hc_base_user,1,0,0,0
 access_hc_charge_item_hc_charge_item_supporting_information_user,hc.charge.item.hc.charge.item.supporting.information.user,model_hc_charge_item_supporting_information,hc_base.group_hc_base_user,1,0,0,0
