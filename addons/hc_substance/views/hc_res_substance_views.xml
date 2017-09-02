@@ -1,65 +1,65 @@
 <openerp>
     <data>
-    
-        <!-- Substance Views -->                                        
-                                        
-        <record id="hc_res_substance_view_search" model="ir.ui.view">                                       
-            <field name="name">Substance Search</field>                                 
-            <field name="model">hc.res.substance</field>                                    
-            <field name="arch" type="xml">                                  
-                <search string="Substances">                                
-                </search>                               
-            </field>                                    
-        </record>                                       
-                                                
-        <record id="hc_res_substance_view_tree" model="ir.ui.view">                                     
-            <field name="name">Substance Tree</field>                                   
-            <field name="model">hc.res.substance</field>                                    
-            <field name="arch" type="xml">                                  
-                <tree string="Substances">                              
-                </tree>                             
-            </field>                                    
-        </record>                                       
-                                                
-        <record id="hc_res_substance_view_form" model="ir.ui.view">                                     
-            <field name="name">Substance Form</field>                                   
-            <field name="model">hc.res.substance</field>                                    
-            <field name="arch" type="xml">                                  
-                <form string="Substance">                               
-                    <sheet>                         
-                        <h1>                        
-                            <field name="name" default_focus="1" placeholder="Name"/>                   
-                        </h1>                       
-                        <group>                     
-                            <group>                 
-                            </group>                    
-                            <group>                 
-                            </group>                    
-                        </group>                        
-                        <notebook>                      
-                            <page string="Identifiers">                 
-                                <field name="identifier_ids" mode="tree">               
-                                    <tree>          
-                                    </tree>         
-                                    <form>          
-                                        <sheet>     
-                                            <group> 
+
+        <!-- Substance Views -->
+
+        <record id="hc_res_substance_view_search" model="ir.ui.view">
+            <field name="name">Substance Search</field>
+            <field name="model">hc.res.substance</field>
+            <field name="arch" type="xml">
+                <search string="Substances">
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_res_substance_view_tree" model="ir.ui.view">
+            <field name="name">Substance Tree</field>
+            <field name="model">hc.res.substance</field>
+            <field name="arch" type="xml">
+                <tree string="Substances">
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_res_substance_view_form" model="ir.ui.view">
+            <field name="name">Substance Form</field>
+            <field name="model">hc.res.substance</field>
+            <field name="arch" type="xml">
+                <form string="Substance">
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name"/>
+                        </h1>
+                        <group>
+                            <group>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Identifiers">
+                                <field name="identifier_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
                                                 <group>
                                                 </group>
                                                 <group>
                                                 </group>
-                                            </group>    
-                                        </sheet>        
-                                    </form>         
-                                </field>                
-                            </page>                 
-                        </notebook>                     
-                    </sheet>                            
-                </form>                             
-            </field>                                    
-        </record>                                       
-        
-        <act_window id="hc_res_substance_action"      
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_res_substance_action"
                     name="HC Substances"
                     res_model="hc.res.substance"
                     view_mode="tree,form"
@@ -67,83 +67,83 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_substance.menu_subs" 
+        <menuitem id="hc_substance.menu_subs"
                   name="Substances"
-                  web_icon="hc_substance,static/description/icon.png"  
-                  parent="hc_base.menu_entity" 
-                  action="hc_res_substance_action" 
-                  groups="hc_base.group_hc_base_manager" 
+                  web_icon="hc_substance,static/description/icon.png"
+                  parent="hc_base.menu_entity"
+                  action="hc_res_substance_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="50"/>
 
-        <menuitem id="hc_substance.menu_substance_conf" 
-                  name="Configuration" 
-                  parent="hc_substance.menu_subs" 
-                  groups="hc_base.group_hc_base_manager" 
+        <menuitem id="hc_substance.menu_substance_conf"
+                  name="Configuration"
+                  parent="hc_substance.menu_subs"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="10"/>
 
-        <!-- Substance Category Views -->                       
-                            
-        <record id="hc_vs_substance_category_view_search" model="ir.ui.view">                       
-            <field name="name">Substance Category Search</field>                    
-            <field name="model">hc.vs.substance.category</field>                    
-            <field name="arch" type="xml">                  
-                <search string="Substance Categories">              
-                    <field name="name"/>            
-                    <field name="code"/>            
-                    <field name="definition"/>          
-                    <group>         
-                        <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>      
-                    </group>            
-                </search>               
-            </field>                    
-        </record>                       
-                                
-        <record id="hc_vs_substance_category_view_tree" model="ir.ui.view">                     
-            <field name="name">Substance Category Tree</field>                  
-            <field name="model">hc.vs.substance.category</field>                    
-            <field name="arch" type="xml">                  
-                <tree string="Substance Categories" default_order="name, code">             
-                    <field name="name"/>            
-                    <field name="code"/>            
-                    <field name="definition"/>          
-                    <field name="contains_id"/>         
-                    <field name="source_id" invisible="0"/>         
-                </tree>             
-            </field>                    
-        </record>                       
-                                
-        <record id="hc_vs_substance_category_view_form" model="ir.ui.view">                     
-            <field name="name">Substance Category Form</field>                  
-            <field name="model">hc.vs.substance.category</field>                    
-            <field name="arch" type="xml">                  
-                <form string="Substance Categories">               
-                    <sheet>         
-                        <h1>        
-                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>  
-                        </h1>       
-                        <field name="code" placeholder="Code (e.g., biological)"/>      
-                        <field name="definition" placeholder="Definition"/>     
-                        <field name="comments" placeholder="Comments"/>     
-                        <group>     
-                            <group> 
-                                <field name="snomed_code" placeholder="SNOMED Code (e.g., 115668003)"/>     
-                                <field name="snomed_definition" placeholder="SNOMED Definition (e.g., Biological substance (substance))"/>      
+        <!-- Substance Category Views -->
+
+        <record id="hc_vs_substance_category_view_search" model="ir.ui.view">
+            <field name="name">Substance Category Search</field>
+            <field name="model">hc.vs.substance.category</field>
+            <field name="arch" type="xml">
+                <search string="Substance Categories">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                    <group>
+                        <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_vs_substance_category_view_tree" model="ir.ui.view">
+            <field name="name">Substance Category Tree</field>
+            <field name="model">hc.vs.substance.category</field>
+            <field name="arch" type="xml">
+                <tree string="Substance Categories" default_order="name, code">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                    <field name="contains_id"/>
+                    <field name="source_id" invisible="0"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_vs_substance_category_view_form" model="ir.ui.view">
+            <field name="name">Substance Category Form</field>
+            <field name="model">hc.vs.substance.category</field>
+            <field name="arch" type="xml">
+                <form string="Substance Categories">
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>
+                        </h1>
+                        <field name="code" placeholder="Code (e.g., biological)"/>
+                        <field name="definition" placeholder="Definition"/>
+                        <field name="comments" placeholder="Comments"/>
+                        <group>
+                            <group>
+                                <field name="snomed_code" placeholder="SNOMED Code (e.g., 115668003)"/>
+                                <field name="snomed_definition" placeholder="SNOMED Definition (e.g., Biological substance (substance))"/>
                                 <field name="contains_id"/>
                                 <field name="level" placeholder="An integer (e.g., 1, 2)"/>
                                 <field name="is_abstract"/>
                                 <field name="version" placeholder="e.g., v2.5"/>
-                            </group>    
-                            <group> 
+                            </group>
+                            <group>
                                 <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
                                 <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
-                            </group>    
-                        </group>        
-                    </sheet>            
-                </form>             
-            </field>                    
-        </record>                              
-                    
-        <act_window id="hc_vs_substance_category_action"            
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_vs_substance_category_action"
                     name="HC Substance Categories"
                     res_model="hc.vs.substance.category"
                     view_mode="tree,form"
@@ -151,95 +151,96 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_substance.menu_subs_cat" 
-                  name="Substance Categories" 
+        <menuitem id="hc_substance.menu_subs_cat"
+                  name="Substance Categories"
                   parent="hc_substance.menu_subs"
                   action="hc_vs_substance_category_action"
-                  groups="hc_base.group_hc_base_manager" 
+                  groups="hc_base.group_hc_base_manager"
                   sequence="10"/>
 
-        <!-- Substance Code Views -->                                                       
-                                                        
-        <record id="hc_vs_substance_code_view_search" model="ir.ui.view">                                                       
-            <field name="name">Substance Code Search</field>                                                    
-            <field name="model">hc.vs.substance.code</field>                                                    
-            <field name="arch" type="xml">                                                  
-                <search string="Substance Codes">                                               
-                    <field name="name"/>                                            
-                    <field name="code"/>                                            
-                    <field name="definition"/>                                                                           
-                </search>                                               
-            </field>                                                    
-        </record>                                                       
-                                                                
-        <record id="hc_vs_substance_code_view_tree" model="ir.ui.view">                                                     
-            <field name="name">Substance Code Tree</field>                                                  
-            <field name="model">hc.vs.substance.code</field>                                                    
-            <field name="arch" type="xml">                                                  
-                <tree string="Substance Codes" default_order="level,name">                                              
-                    <field name="id" invisible="0"/>   
-                    <field name="name"/>                                            
-                    <field name="code"/>                                            
+        <!-- Substance Code Views -->
+
+        <record id="hc_vs_substance_code_view_search" model="ir.ui.view">
+            <field name="name">Substance Code Search</field>
+            <field name="model">hc.vs.substance.code</field>
+            <field name="arch" type="xml">
+                <search string="Substance Codes">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_vs_substance_code_view_tree" model="ir.ui.view">
+            <field name="name">Substance Code Tree</field>
+            <field name="model">hc.vs.substance.code</field>
+            <field name="arch" type="xml">
+                <tree string="Substance Codes" default_order="level,name">
+                    <field name="id" invisible="0"/>
+                    <field name="name"/>
+                    <field name="code"/>
                     <field name="definition" invisible="1"/>
                     <field name="contains_id" invisible="1"/>
                     <field name="level" invisible="1"/>
-                    <field name="level_attribute"/>                                                                                       
-                    <field name="source_id" invisible="0"/>                                         
-                </tree>                                             
-            </field>                                                    
-        </record>                                                       
-                                                                
+                    <field name="parent_child_ids" widget="many2many_tags" invisible="0"/> 
+                    <field name="level_attribute" invisible="1"/>
+                    <field name="source_id" invisible="0"/>
+                </tree>
+            </field>
+        </record>
+
         <record id="hc_vs_substance_code_view_form" model="ir.ui.view">
-            <field name="name">Substance Code Form</field>                                                  
-            <field name="model">hc.vs.substance.code</field>                                                    
-            <field name="arch" type="xml">                                                  
-                <form string="Substance Codes">                                                
-                    <sheet>                                         
-                        <h1>                                        
+            <field name="name">Substance Code Form</field>
+            <field name="model">hc.vs.substance.code</field>
+            <field name="arch" type="xml">
+                <form string="Substance Codes">
+                    <sheet>
+                        <h1>
                             <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>
-                        </h1>                                       
-                        <field name="code" placeholder="Code (e.g., biological)"/>                                      
-                        <field name="definition" placeholder="Definition"/>                                     
-                        <field name="comments" placeholder="Comments"/>                                     
+                        </h1>
+                        <field name="code" placeholder="Code (e.g., biological)"/>
+                        <field name="definition" placeholder="Definition"/>
+                        <field name="comments" placeholder="Comments"/>
                         <group>
-                            <group> 
+                            <group>
                                 <field name="contains_id"/>
                                 <field name="level" placeholder="An integer (e.g., 1, 2)"/>
                                 <field name="is_abstract"/>
                                 <field name="version" placeholder="e.g., v2.5"/>
-                            </group>                                                                          
-                            <group>                                 
+                            </group>
+                            <group>
                                 <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
                                 <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
-                            </group>                                    
+                            </group>
                         </group>
                         <notebook>
-                            <page string="Parents">                             
-                                <field name="parent_child_ids" mode="tree">                         
+                            <page string="Parents">
+                                <field name="parent_child_ids" mode="tree">
                                     <tree default_order="level">
-                                        <field name="name"/> 
-                                        <field name="level"/>                                       
-                                    </tree>                     
-                                    <form>                      
-                                        <sheet>                                                 
-                                            <group>             
+                                        <field name="name"/>
+                                        <field name="level"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
                                                 <group>
-                                                    <field name="name"/> 
+                                                    <field name="name"/>
                                                     <field name="code"/>
                                                     <field name="level_attribute"/>
-                                                </group>           
-                                            </group>                
-                                        </sheet>                    
-                                    </form>                     
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
                                 </field>
                             </page>
-                        </notebook>                                         
-                    </sheet>                                            
-                </form>                                             
-            </field>                                                    
-        </record>                                                       
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
-        <act_window id="hc_vs_substance_code_action"            
+        <act_window id="hc_vs_substance_code_action"
                     name="HC Substance Codes"
                     res_model="hc.vs.substance.code"
                     view_mode="tree,form"
@@ -247,87 +248,87 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_substance.menu_subs_code" 
-                  name="Substance Code" 
+        <menuitem id="hc_substance.menu_subs_code"
+                  name="Substance Code"
                   parent="hc_substance.menu_subs"
-                  action="hc_vs_substance_code_action" 
-                  groups="hc_base.group_hc_base_manager" 
+                  action="hc_vs_substance_code_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="20"/>
-   
-        <!-- Parent Substance Code Views -->                                
-                                
-        <!-- <record id="hc_parent_substance_code_view_search" model="ir.ui.view">                               
-            <field name="name">Parent Substance Code Search</field>                         
-            <field name="model">hc.parent.substance.code</field>                            
-            <field name="arch" type="xml">                          
-                <search string="Parent Substance Codes">                       
-                    <field name="name"/>                    
-                    <field name="code"/>                    
-                    <field name="definition"/>                                      
-                </search>                       
-            </field>                            
-        </record>                               
-                                        
-        <record id="hc_parent_substance_code_view_tree" model="ir.ui.view">                             
-            <field name="name">Parent Substance Code Tree</field>                           
-            <field name="model">hc.parent.substance.code</field>                            
-            <field name="arch" type="xml">                          
-                <tree string="Parent Substance Codes" default_order="name, code">                      
-                    <field name="name"/>                    
-                    <field name="code"/>                    
-                    <field name="definition"/>                                  
-                    <field name="source_id" invisible="0"/>                 
-                </tree>                     
-            </field>                            
-        </record>                               
-                                        
-        <record id="hc_parent_substance_code_view_form" model="ir.ui.view">                             
-            <field name="name">Parent Substance Code Form</field>                           
-            <field name="model">hc.parent.substance.code</field>                            
-            <field name="arch" type="xml">                          
-                <form string="Parent Substance Codes" >                        
-                    <sheet>                 
-                        <h1>                
-                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>          
-                        </h1>               
-                        <field name="code" placeholder="Code (e.g., biological)"/>              
-                        <field name="definition" placeholder="Definition"/>             
-                        <field name="comments" placeholder="Comments"/>             
-                        <group>             
-                            <group>         
-                                <field name="level"/>     
-                            </group>            
-                            <group>         
-                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>        
-                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>     
-                            </group>            
+
+        <!-- Parent Substance Code Views -->
+
+        <!-- <record id="hc_parent_substance_code_view_search" model="ir.ui.view">
+            <field name="name">Parent Substance Code Search</field>
+            <field name="model">hc.parent.substance.code</field>
+            <field name="arch" type="xml">
+                <search string="Parent Substance Codes">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_parent_substance_code_view_tree" model="ir.ui.view">
+            <field name="name">Parent Substance Code Tree</field>
+            <field name="model">hc.parent.substance.code</field>
+            <field name="arch" type="xml">
+                <tree string="Parent Substance Codes" default_order="name, code">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                    <field name="source_id" invisible="0"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_parent_substance_code_view_form" model="ir.ui.view">
+            <field name="name">Parent Substance Code Form</field>
+            <field name="model">hc.parent.substance.code</field>
+            <field name="arch" type="xml">
+                <form string="Parent Substance Codes" >
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>
+                        </h1>
+                        <field name="code" placeholder="Code (e.g., biological)"/>
+                        <field name="definition" placeholder="Definition"/>
+                        <field name="comments" placeholder="Comments"/>
+                        <group>
+                            <group>
+                                <field name="level"/>
+                            </group>
+                            <group>
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
+                            </group>
                         </group> -->
                         <!-- <notebook>
-                            <page string="Children">                               
-                                <field name="child_ids" mode="tree">                         
-                                    <tree>                      
-                                        <field name="parent_substance_code_id"/>                 
-                                    </tree>                     
-                                    <form>                      
-                                        <sheet>                              
-                                            <h1>            
+                            <page string="Children">
+                                <field name="child_ids" mode="tree">
+                                    <tree>
+                                        <field name="parent_substance_code_id"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <h1>
                                                 <field name="parent_substance_code_id" placeholder="Parent Substance Name (e.g., Biological Substance)"/>
-                                            </h1>                    
-                                            <group>             
+                                            </h1>
+                                            <group>
                                                 <group>
-                                                </group>           
-                                            </group>                
-                                        </sheet>                    
-                                    </form>                     
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
                                 </field>
                             </page>
-                        </notebook> -->                
-       <!--              </sheet>                    
-                </form>                     
-            </field>                            
-        </record>                               
-  
-        <act_window id="hc_parent_substance_code_action"          
+                        </notebook> -->
+       <!--              </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_parent_substance_code_action"
                     name="HC Parent Substance Codes"
                     res_model="hc.parent.substance.code"
                     view_mode="tree,form"
@@ -335,11 +336,11 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_substance.menu_par_subs_code" 
-                  name="Parent Substance Code" 
-                  parent="hc_substance.menu_substance_conf" 
-                  action="hc_parent_substance_code_action" 
-                  groups="hc_base.group_hc_base_manager" 
+        <menuitem id="hc_substance.menu_par_subs_code"
+                  name="Parent Substance Code"
+                  parent="hc_substance.menu_substance_conf"
+                  action="hc_parent_substance_code_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="15"/> -->
 
     </data>

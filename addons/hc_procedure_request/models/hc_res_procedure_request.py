@@ -626,9 +626,9 @@ class ProcedureCode(models.Model):
     _description = "Procedure Code"
     _inherit = ["hc.value.set.contains"]
 
-class ProcedureRequestAsNeeded(models.Model):
-    _name = "hc.vs.procedure.request.as.needed"
-    _description = "Procedure Request As Needed"
+class MedicationAsNeeded(models.Model):
+    _name = "hc.vs.medication.as.needed"
+    _description = "Medication As Needed"
     _inherit = ["hc.value.set.contains"]
 
 # External Reference
