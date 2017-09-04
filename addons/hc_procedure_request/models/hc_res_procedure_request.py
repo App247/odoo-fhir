@@ -165,7 +165,7 @@ class ProcedureRequest(models.Model):
         string="As Needed Boolean",
         help="Boolean of preconditions for procedure.")
     as_needed_codeable_concept_id = fields.Many2one(
-        comodel_name="hc.vs.procedure.request.as.needed",
+        comodel_name="hc.vs.medication.as.needed",
         string="As Needed Codeable Concept",
         help="Codeable Concept of preconditions for procedure.")
     authored_on = fields.Datetime(

@@ -5,6 +5,8 @@ from openerp import models, fields, api
 class Observation(models.Model):
     _name = "hc.res.observation"
     _description = "Observation"
+    _inherit = ["hc.domain.resource"]
+    _rec_name = "name"
 
     name = fields.Char(
         string="Event Name",
@@ -25,7 +27,7 @@ class Observation(models.Model):
             ("registered", "Registered"),
             ("preliminary", "Preliminary"),
             ("final", "Final"),
-            ("amended +", "Amended +")],
+            ("amended", "Amended")],
         help="The status of the result value.")
     category_ids = fields.Many2many(
         comodel_name="hc.vs.observation.category",
@@ -336,6 +338,7 @@ class Observation(models.Model):
 class ObservationReferenceRange(models.Model):
     _name = "hc.observation.reference.range"
     _description = "Observation Reference Range"
+    _inherit = ["hc.backbone.element"]
 
     observation_id = fields.Many2one(
         comodel_name="hc.res.observation",
@@ -390,6 +393,7 @@ class ObservationReferenceRange(models.Model):
 class ObservationRelated(models.Model):
     _name = "hc.observation.related"
     _description = "Observation Related"
+    _inherit = ["hc.backbone.element"]
 
     observation_id = fields.Many2one(
         comodel_name="hc.res.observation",
@@ -453,6 +457,7 @@ class ObservationRelated(models.Model):
 class ObservationComponent(models.Model):
     _name = "hc.observation.component"
     _description = "Observation Component"
+    _inherit = ["hc.backbone.element"]
 
     observation_id = fields.Many2one(
         comodel_name="hc.res.observation",

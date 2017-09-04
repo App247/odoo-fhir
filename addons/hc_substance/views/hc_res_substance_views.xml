@@ -17,6 +17,10 @@
             <field name="model">hc.res.substance</field>
             <field name="arch" type="xml">
                 <tree string="Substances">
+                    <field name="name"/>
+                    <field name="code_id"/>
+                    <field name="category_ids" widget="many2many_tags"/>
+                    <field name="status"/>
                 </tree>
             </field>
         </record>
@@ -26,12 +30,18 @@
             <field name="model">hc.res.substance</field>
             <field name="arch" type="xml">
                 <form string="Substance">
+                    <header>
+                        <field name="status" string="Status" widget="statusbar" clickable="True"/>
+                    </header>
                     <sheet>
                         <h1>
                             <field name="name" default_focus="1" placeholder="Name"/>
                         </h1>
+                        <field name="description" placeholder="Description"/>
                         <group>
                             <group>
+                                <field name="code_id"/>
+                                <field name="category_ids" widget="many2many_tags"/>
                             </group>
                             <group>
                             </group>
@@ -40,17 +50,98 @@
                             <page string="Identifiers">
                                 <field name="identifier_ids" mode="tree">
                                     <tree>
+                                        <field name="is_preferred"/>
+                                        <field name="name"/>
+                                        <field name="value"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <div>
+                                                <h1>
+                                                    <field name="name" placeholder="Identifier"/>
+                                                </h1>
+                                            </div>
+                                            <group col="4" colspan="4">
+                                                <group>
+                                                    <field name="value"/>
+                                                    <field name="is_preferred"/>
+                                                    <field name="is_active"/>
+                                                </group>
+                                                <group>
+                                                    <field name="start_date" placeholder="Valid From"/>
+                                                    <field name="end_date" placeholder="Valid To"/>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Instances">
+                                <field name="instance_ids" mode="tree">
+                                    <tree>
+                                        <field name="identifier_id"/>
+                                        <field name="expiry"/>
+                                        <field name="quantity"/>
+                                        <field name="quantity_uom_id"/>
                                     </tree>
                                     <form>
                                         <sheet>
                                             <group>
                                                 <group>
+                                                    <field name="identifier_id"/>
+                                                    <field name="expiry"/>
+                                                    <field name="quantity"/>
+                                                    <field name="quantity_uom_id"/>
                                                 </group>
                                                 <group>
                                                 </group>
                                             </group>
                                         </sheet>
                                     </form>
+                                </field>
+                            </page>
+                            <page string="Ingredients">
+                                <field name="ingredient_ids" mode="tree">
+                                    <tree>
+                                        <field name="substance_name"/>
+                                        <field name="substance_type"/>
+                                        <field name="quantity_ratio"/>
+                                        <field name="quantity_ratio_uom"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group string="Substance">
+                                                    <field name="substance_name"/>
+                                                    <field name="substance_type" class="oe_edit_only"/>
+                                                    <field name="substance_codeable_concept_id" class="oe_edit_only" attrs="{'invisible': [('substance_type','!=','codeable_concept')], 'required': [('substance_type','=','codeable_concept')]}"/>
+                                                    <field name="substance_id" class="oe_edit_only" attrs="{'invisible': [('substance_type','!=','substance')], 'required': [('substance_type','=','substance')]}"/>
+                                                </group>
+                                                <group string="Ratio">
+                                                    <field name="quantity_numerator"/>
+                                                    <field name="quantity_numerator_uom_id"/>
+                                                    <field name="quantity_denominator"/>
+                                                    <field name="quantity_denominator_uom_id"/>
+                                                    <field name="quantity_ratio"/>
+                                                    <field name="quantity_ratio_uom"/>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Status History">
+                                <field name="status_history_ids" mode="tree">
+                                    <tree>
+                                        <field name="status" readonly="1"/>
+                                        <field name="start_date"/>
+                                        <field name="end_date"/>
+                                        <field name="time_diff_day"/>
+                                        <field name="time_diff_hour"/>
+                                        <field name="time_diff_min"/>
+                                        <field name="time_diff_sec"/>
+                                        <field name="write_uid" invisible="0"/>
+                                    </tree>
                                 </field>
                             </page>
                         </notebook>
@@ -80,6 +171,35 @@
                   parent="hc_substance.menu_subs"
                   groups="hc_base.group_hc_base_manager"
                   sequence="10"/>
+
+        <!-- Substance Instance Identifier Views -->
+
+        <record id="hc_substance_instance_identifier_view_form" model="ir.ui.view">
+            <field name="name">Substance Instance Identifier Form</field>
+            <field name="model">hc.substance.instance.identifier</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div>
+                            <h1>
+                                <field name="name" placeholder="Identifier"/>
+                            </h1>
+                        </div>
+                        <group col="4" colspan="4">
+                            <group>
+                                <field name="value"/>
+                                <field name="is_preferred"/>
+                                <field name="is_active"/>
+                            </group>
+                            <group>
+                                <field name="start_date" placeholder="Valid From"/>
+                                <field name="end_date" placeholder="Valid To"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
         <!-- Substance Category Views -->
 
@@ -183,7 +303,7 @@
                     <field name="definition" invisible="1"/>
                     <field name="contains_id" invisible="1"/>
                     <field name="level" invisible="1"/>
-                    <field name="parent_child_ids" widget="many2many_tags" invisible="0"/> 
+                    <field name="parent_child_ids" widget="many2many_tags" invisible="0"/>
                     <field name="level_attribute" invisible="1"/>
                     <field name="source_id" invisible="0"/>
                 </tree>

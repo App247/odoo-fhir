@@ -1,6 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_hc_substance_hc_res_substance_user,hc.substance.hc.res.substance.user,model_hc_res_substance,hc_base.group_hc_base_user,1,0,0,0
 access_hc_substance_hc_substance_identifier_user,hc.substance.hc.substance.identifier.user,model_hc_substance_identifier,hc_base.group_hc_base_user,1,0,0,0
+access_hc_substance_hc_substance_status_history_user,hc.substance.hc.substance.status.history.user,model_hc_substance_status_history,hc_base.group_hc_base_user,1,0,0,0
 access_hc_substance_hc_substance_ingredient_user,hc.substance.hc.substance.ingredient.user,model_hc_substance_ingredient,hc_base.group_hc_base_user,1,0,0,0
 access_hc_substance_hc_substance_instance_user,hc.substance.hc.substance.instance.user,model_hc_substance_instance,hc_base.group_hc_base_user,1,0,0,0
 access_hc_substance_hc_substance_instance_identifier_user,hc.substance.hc.substance.instance.identifier.user,model_hc_substance_instance_identifier,hc_base.group_hc_base_user,1,0,0,0
