@@ -1216,7 +1216,9 @@ class ObservationBasedOn(models.Model):
     @api.depends('based_on_type')
     def _compute_based_on_name(self):
         for hc_observation_based_on in self:
-            if hc_observation_based_on.based_on_type == 'care_plan':
+            if hc_observation_based_on.based_on_type == 'procedure_request':
+                hc_observation_based_on.based_on_name = hc_observation_based_on.based_on_procedure_request_id.name
+            elif hc_observation_based_on.based_on_type == 'care_plan':
                 hc_observation_based_on.based_on_name = hc_observation_based_on.based_on_care_plan_id.name
             elif hc_observation_based_on.based_on_type == 'device_request':
                 hc_observation_based_on.based_on_name = hc_observation_based_on.based_on_device_request_id.name

@@ -425,3 +425,26 @@ class AnswerValue(models.Model):
         comodel_name="hc.vs.answer.value",
         string="Parent",
         help="Parent answer value.")
+
+# External Reference
+
+class ObservationRelated(models.Model):
+    _inherit = "hc.observation.related"
+
+    target_type = fields.Selection(
+        selection_add=[
+            ("questionnaire_response", "Questionnaire Response")])
+    target_questionnaire_response_id = fields.Many2one(
+        comodel_name="hc.res.questionnaire.response",
+        string="Target Questionnaire Response",
+        help="Questionnaire Response resource that is related to this target.")
+
+    @api.multi
+    def _compute_target_name(self):
+        for hc_res_observation in self:
+            if hc_res_observation.target_type == 'observation':
+                hc_res_observation.target_name = hc_res_observation.target_observation_id.name
+            elif hc_res_observation.target_type == 'questionnaire_response':
+                hc_res_observation.target_name = hc_res_observation.target_questionnaire_response_id.name
+            elif hc_res_observation.target_type == 'sequence':
+                hc_res_observation.target_name = hc_res_observation.target_sequence_id.name

@@ -60,6 +60,18 @@
         </record>
 
 
+<!-- <group string="Ratio">
+    <field name="has_value_ratio_numerator" invisible="1"/>
+    <field name="value_ratio_numerator" attrs="{'required': [('has_value_ratio_numerator','=',True)]}"/>
+    <field name="value_ratio_numerator_uom_id" attrs="{'required': [('has_value_ratio_numerator','=',True)]}"/>
+    <field name="value_ratio_denominator" attrs="{'required': [('has_value_ratio_numerator','=',True)]}"/>
+    <field name="value_ratio_denominator_uom_id" attrs="{'required': [('has_value_ratio_numerator','=',True)]}"/>
+    <field name="value_ratio" readonly="1"/>
+    <field name="value_ratio_uom" readonly="1"/>
+    <field name="value_ratio_name" readonly="1"/>
+</group>     -->
+
+
         <act_window id="hc_res_observation_action"
                     name="HC Observations"
                     res_model="hc.res.observation"

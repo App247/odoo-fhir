@@ -150,19 +150,19 @@ class Observation(models.Model):
     value_range_high = fields.Float(
         string="Value Range High",
         help="High limit of actual result.")
-    value_numerator = fields.Float(
-        string="Value Numerator",
+    value_ratio_numerator = fields.Float(
+        string="Value Ratio Numerator",
         help="Numerator value of actual result.")
-    value_numerator_uom_id = fields.Many2one(
+    value_ratio_numerator_uom_id = fields.Many2one(
         comodel_name="product.uom",
-        string="Value Numerator UOM",
+        string="Value Ratio Numerator UOM",
         help="Value numerator unit of measure.")
-    value_denominator = fields.Float(
-        string="Value Denominator",
+    value_ratio_denominator = fields.Float(
+        string="Value Ratio Denominator",
         help="Denominator value of actual result.")
-    value_denominator_uom_id = fields.Many2one(
+    value_ratio_denominator_uom_id = fields.Many2one(
         comodel_name="product.uom",
-        string="Value Denominator UOM",
+        string="Value Ratio Denominator UOM",
         help="Value denominator unit of measure.")
     value_ratio = fields.Float(
         string="Value Ratio",
@@ -172,7 +172,13 @@ class Observation(models.Model):
     value_ratio_uom = fields.Char(
         string="Value Ratio UOM",
         compute="_compute_value_ratio_uom",
-        store="True", help="Value Ratio unit of measure.")
+        store="True",
+        help="Value Ratio unit of measure.")
+    value_ratio_name = fields.Char(
+        string="Value Ratio",
+        compute="_compute_value_ratio_name",
+        store="True",
+        help="Numerator + Numerator UOM / Denominator + Denominator UOM.")
     value_sampled_data_id = fields.Many2one(
         comodel_name="hc.observation.value.sampled.data",
         string="Value Sampled Data",
@@ -283,6 +289,21 @@ class Observation(models.Model):
         string="Modifier Extensions",
         help="Extensions that cannot be ignored.")
 
+    # technical attribute
+    has_value_ratio_numerator = fields.Boolean(
+        string="Has Value Ratio Numerator",
+        invisible=True,
+        help="Indicates if value_ratio_numerator exists. Used to enforce constraint value_ratio_numerator and value_ratio_denominator.")
+
+    _sql_constraints = [
+        ('value_ratio_numerator_gt_zero',
+        'CHECK(value_ratio_numerator >= 0.0)',
+        'Value Ratio Numerator SHALL be a non-negative value.'),
+
+        ('value_ratio_denominator_gt_zero',
+        'CHECK(value_ratio_denominator >= 0.0)',
+        'Value Ratio Denominator SHALL be a non-negative value.')]
+
     @api.multi
     def _compute_subject_name(self):
         for hc_res_observation in self:
@@ -334,6 +355,33 @@ class Observation(models.Model):
                 hc_res_observation.device_name = hc_res_observation.device_device_id.name
             elif hc_res_observation.device_type == 'device_metric':
                 hc_res_observation.device_name = hc_res_observation.device_device_metric_id.name
+
+    @api.onchange('value_ratio_numerator')
+    def _onchange_value_ratio_numerator(self):
+        if self.value_ratio_numerator:
+            self.has_value_ratio_numerator = True
+        else:
+            self.has_value_ratio_numerator = False
+
+    @api.depends('value_ratio_numerator', 'value_ratio_denominator')
+    def _compute_value_ratio(self):
+        if self.value_ratio_numerator and self.value_ratio_denominator:
+            self.value_ratio = self.value_ratio_numerator / self.value_ratio_denominator
+
+    @api.depends('value_ratio_numerator_uom_id', 'value_ratio_denominator_uom_id')
+    def _compute_value_ratio_uom(self):
+        value_ratio_uom = '/'
+        if self.value_ratio_numerator_uom_id:
+            value_ratio_uom = self.value_ratio_numerator_uom_id.code
+        if self.value_ratio_denominator_uom_id:
+            value_ratio_uom = value_ratio_uom + ' per ' + self.value_ratio_denominator_uom_id.code
+        self.value_ratio_uom = value_ratio_uom
+
+    @api.depends('value_ratio_numerator', 'value_ratio_denominator', 'value_ratio_numerator_uom_id', 'value_ratio_denominator_uom_id')
+    def _compute_value_ratio_name(self):
+        value_ratio_name = '/'
+        if self.value_ratio_numerator and self.value_ratio_denominator:
+            self.value_ratio_name = str(self.value_ratio_numerator) + ' ' + str(self.value_ratio_numerator_uom_id.code) + '/' + str(self.value_ratio_denominator) + ' ' + str(self.value_ratio_denominator_uom_id.code)
 
 class ObservationReferenceRange(models.Model):
     _name = "hc.observation.reference.range"
@@ -449,8 +497,8 @@ class ObservationRelated(models.Model):
         for hc_res_observation in self:
             if hc_res_observation.target_type == 'observation':
                 hc_res_observation.target_name = hc_res_observation.target_observation_id.name
-            elif hc_res_observation.target_type == 'questionnaire_response':
-                hc_res_observation.target_name = hc_res_observation.target_questionnaire_response_id.name
+            # elif hc_res_observation.target_type == 'questionnaire_response':
+            #     hc_res_observation.target_name = hc_res_observation.target_questionnaire_response_id.name
             elif hc_res_observation.target_type == 'sequence':
                 hc_res_observation.target_name = hc_res_observation.target_sequence_id.name
 
@@ -783,7 +831,14 @@ class ObservationBasedOn(models.Model):
         for hc_observation_based_on in self:
             if hc_observation_based_on.based_on_type == 'procedure_request':
                 hc_observation_based_on.based_on_name = hc_observation_based_on.based_on_procedure_request_id.name
-
+            # elif hc_observation_based_on.based_on_type == 'care_plan':
+            #     hc_observation_based_on.based_on_name = hc_observation_based_on.based_on_care_plan_id.name
+            # elif hc_observation_based_on.based_on_type == 'device_request':
+            #     hc_observation_based_on.based_on_name = hc_observation_based_on.based_on_device_request_id.name
+            # elif hc_observation_based_on.based_on_type == 'medication_request':
+            #     hc_observation_based_on.based_on_name = hc_observation_based_on.based_on_medication_request_id.name
+            # elif hc_observation_based_on.based_on_type == 'nutrition_order':
+            #     hc_observation_based_on.based_on_name = hc_observation_based_on.based_on_nutrition_order_id.name
 
 
 class ObservationValueAttachment(models.Model):

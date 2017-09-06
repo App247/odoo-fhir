@@ -1388,6 +1388,7 @@ subs_code_708050000,708050000,"Prohepcidin","Prohepcidin (substance)","subs_code
 subs_code_35466004,35466004,"Relaxin","Relaxin (substance)","subs_code_37276002",6,base.snomed,http://snomed.info
 subs_code_707603007,707603007,"Hepcidin 25 peptide","Hepcidin 25 peptide (substance)","subs_code_439159004",7,base.snomed,http://snomed.info
 subs_code_109198008,109198008,"Teriparatide acetate","Teriparatide acetate (substance)","subs_code_425438001",6,base.snomed,http://snomed.info
+subs_code_40789008,40789008,"Adrenocorticotropic hormone","Adrenocorticotropic hormone (substance)","subs_code_406463001,subs_code_37276002",6,base.snomed,http://snomed.info
 subs_code_420149003,420149003,"Corticotropic agent","Corticotropic agent (substance)","subs_code_40789008",7,base.snomed,http://snomed.info
 subs_code_707074004,707074004,"Corticotropin, big fragment","Corticotropin, big fragment (substance)","subs_code_40789008",7,base.snomed,http://snomed.info
 subs_code_264303006,264303006,"Ectopic adrenocorticotropic hormone","Ectopic adrenocorticotropic hormone (substance) aka Ectopic ACTH","subs_code_40789008",7,base.snomed,http://snomed.info
@@ -6576,7 +6577,6 @@ subs_code_387496009,387496009,"Acetylcholine chloride","Acetylcholine chloride (
 subs_code_409114008,409114008,"Adefovir dipivoxil","Adefovir dipivoxil (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_35431001,35431001,"Adenosine","Adenosine (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_412077000,412077000,"Adrenal hormone agent","Adrenal hormone agent (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
-subs_code_40789008,40789008,"Adrenocorticotropic hormone","Adrenocorticotropic hormone (substance)","subs_code_406463001,subs_code_37276002",6,base.snomed,http://snomed.info
 subs_code_386917000,386917000,"Aldesleukin","Aldesleukin (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_387560008,387560008,"Alfentanil","Alfentanil (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_391734004,391734004,"Alginic acid","Alginic acid (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
