@@ -152,14 +152,21 @@ class SubstanceIngredient(models.Model):
         comodel_name="product.uom",
         string="Quantity Denominator UOM",
         help="Quantity Denominator unit of measure.")
-    quantity_ratio = fields.Float(
+    quantity = fields.Float(
         string="Quantity Ratio",
-        compute="_compute_quantity_ratio",
+        compute="_compute_quantity",
         store="True",
         help="Optional amount (concentration).")
-    quantity_ratio_uom = fields.Char(
+    quantity_uom = fields.Char(
         string="Quantity Ratio UOM",
-        help="Quantity unit of measure.")
+        compute="_compute_quantity_uom",
+        store="True",
+        help="Optional amount (concentration) unit of measure.")
+    quantity_name = fields.Char(
+        string="Quantity",
+        compute="_compute_quantity_name",
+        store="True",
+        help="Numerator + Numerator UOM / Denominator + Denominator UOM.")
     substance_type = fields.Selection(
         string="Substance Type",
         required="True",
@@ -180,6 +187,20 @@ class SubstanceIngredient(models.Model):
         comodel_name="hc.res.substance",
         string="Substance",
         help="Substance component of the substance.")
+    # technical attribute
+    has_quantity_numerator = fields.Boolean(
+        string="Has Quantity Numerator",
+        invisible=True,
+        help="Indicates if quantity_numerator exists. Used to enforce constraint quantity_numerator and quantity_denominator.")
+
+    _sql_constraints = [
+        ('quantity_numerator_gt_zero',
+        'CHECK(quantity_numerator >= 0.0)',
+        'Quantity Numerator SHALL be a non-negative value.'),
+
+        ('quantity_denominator_gt_zero',
+        'CHECK(quantity_denominator >= 0.0)',
+        'Quantity Denominator SHALL be a non-negative value.')]
 
     @api.depends('substance_type')
     def _compute_substance_name(self):
@@ -189,13 +210,42 @@ class SubstanceIngredient(models.Model):
             elif hc_substance_ingredient.substance_type == 'substance':
                 hc_substance_ingredient.substance_name = hc_substance_ingredient.substance_id.name
 
+    @api.onchange('quantity_numerator')
+    def _onchange_quantity_numerator(self):
+        if self.quantity_numerator:
+            self.has_quantity_numerator = True
+        else:
+            self.has_quantity_numerator = False
 
-    # @api.depends('quantity_numerator', 'quantity_numerator_uom_id', 'quantity_denominator', 'quantity_denominator_uom_id')
-    # def _compute_quantity_ratio(self):
-    #     for hc_substance_ingredient in self:
-    #         if hc_substance_ingredient.quantity_denominator:
-    #             hc_substance_ingredient.quantity_ratio = hc_substance_ingredient.quantity_numerator/hc_substance_ingredient.quantity_denominator
-    #         hc_substance_ingredient.quantity_ratio_uom = hc_substance_ingredient.quantity_numerator_uom_id.code + "/" + hc_substance_ingredient.quantity_denominator_uom_id.code
+    @api.depends('quantity_numerator', 'quantity_denominator')
+    def _compute_quantity(self):
+        if self.quantity_numerator and self.quantity_denominator:
+            self.quantity = self.quantity_numerator / self.quantity_denominator
+
+    @api.depends('quantity_numerator_uom_id', 'quantity_denominator_uom_id')
+    def _compute_quantity_uom(self):
+        quantity_uom = '/'
+        if self.quantity_numerator_uom_id:
+            quantity_uom = self.quantity_numerator_uom_id.code
+        if self.quantity_denominator_uom_id:
+            quantity_uom = quantity_uom + ' per ' + self.quantity_denominator_uom_id.code
+        self.quantity_uom = quantity_uom
+
+    @api.depends('quantity_numerator', 'quantity_denominator', 'quantity_numerator_uom_id', 'quantity_denominator_uom_id')
+    def _compute_quantity_name(self):
+        quantity_name = '/'
+        if self.quantity_numerator and self.quantity_denominator:
+            self.quantity_name = str(self.quantity_numerator) + ' ' + str(self.quantity_numerator_uom_id.code) + '/' + str(self.quantity_denominator) + ' ' + str(self.quantity_denominator_uom_id.code)
+
+    @api.depends('item_type')
+    def _compute_item_name(self):
+        for hc_product_ingredient in self:
+            if hc_product_ingredient.item_type == 'code':
+                hc_product_ingredient.item_name = hc_product_ingredient.item_code_id.name
+            elif hc_product_ingredient.item_type == 'substance':
+                hc_product_ingredient.item_name = hc_product_ingredient.item_substance_id.name
+            elif hc_product_ingredient.item_type == 'medication':
+                hc_product_ingredient.item_name = hc_product_ingredient.item_medication_id.name
 
 class SubstanceIdentifier(models.Model):
     _name = "hc.substance.identifier"

@@ -786,6 +786,7 @@ subs_code_255620007,255620007,"Foods","Foods (substance)","subs_code_116273005",
 subs_code_229979003,229979003,"General food and drink types","General food and drink types (substance)","subs_code_116273005",3,base.snomed,http://snomed.info
 subs_code_226356005,226356005,"Protein and protein derivatives - dietary","Protein and protein derivatives - dietary (substance)","subs_code_116273005",3,base.snomed,http://snomed.info
 subs_code_440551000124102,440551000124102,"Bioactive substance","Bioactive substance (substance)","subs_code_116273005",3,base.snomed,http://snomed.info
+subs_code_414053005,414053005,"Drug allergen or pseudoallergen","Drug allergen or pseudoallergen (substance)","subs_code_413477004",4,base.snomed,http://snomed.info
 subs_code_406463001,406463001,"Drug allergen","Drug allergen (substance)","subs_code_414053005",5,base.snomed,http://snomed.info
 subs_code_372486003,372486003,"5-HT>3< receptor antagonist","5-HT>3< receptor antagonist (substance)","subs_code_410942007,subs_code_406463001",3,base.snomed,http://snomed.info
 subs_code_24686008,24686008,"Acaricide","Acaricide (substance)","subs_code_410942007",3,base.snomed,http://snomed.info
@@ -6566,7 +6567,6 @@ subs_code_106217008,106217008,"Independent blood group antigen","Independent blo
 subs_code_259764003,259764003,"Low incidence blood group antigen","Low incidence blood group antigen (substance)","subs_code_4422003",6,base.snomed,http://snomed.info
 subs_code_77160006,77160006,"Private blood group antigen","Private blood group antigen (substance)","subs_code_4422003",6,base.snomed,http://snomed.info
 subs_code_11233001,11233001,"Public blood group antigen","Public blood group antigen (substance)","subs_code_4422003",6,base.snomed,http://snomed.info
-subs_code_414053005,414053005,"Drug allergen or pseudoallergen","Drug allergen or pseudoallergen (substance)","subs_code_413477004",4,base.snomed,http://snomed.info
 subs_code_414284002,414284002,"Food allergen or pseudoallergen","Food allergen or pseudoallergen (substance)","subs_code_413477004",4,base.snomed,http://snomed.info
 subs_code_414057006,414057006,"Drug pseudoallergen","Drug pseudoallergen (substance)","subs_code_414053005",5,base.snomed,http://snomed.info
 subs_code_72454006,72454006,"^99m^Technetium","^99m^Technetium (substance)","subs_code_406463001",6,base.snomed,http://snomed.info

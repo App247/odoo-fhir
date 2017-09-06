@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="view_generate_xml_wizard_form">
+            <field name="name">generate.xml.form</field>
+            <field name="model">generate.xml</field>
+            <field name="arch" type="xml">
+                <form string="XML File" version="9.0">
+                    <group>
+                        <field name="name" invisible="1"/>
+                        <field name="xml_file"/>
+                    </group>
+                    <footer>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</openerp>

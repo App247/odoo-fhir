@@ -55,8 +55,12 @@
             <field name="model">hc.res.allergy.intolerance</field>
             <field name="arch" type="xml">
                 <form string="Allergy Intolerance">
+                    <header>
+                        <button name="download_xml" string="Download XML" type="object"/>
+                    </header>
                     <sheet>
-                        <div class="oe_title oe_left">
+                        <div class="oe_title oe_left"><header>
+                    </header>
                             <h1>
                                 <field name="name" placeholder="Allergy Intolerance Event Name (e.g., Patient + DOB + Allergy + Asserted Date)"/>
                             </h1>

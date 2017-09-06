@@ -11,6 +11,19 @@ class AllergyIntolerance(models.Model):
     _inherit = ["hc.domain.resource"]
     _rec_name = "name"
 
+    @api.multi
+    def download_xml(self):
+        generate = self.env['generate.xml'].create(self.env['generate.xml'].default_generate())
+        return {
+            'name': 'Download XML',
+            'type': 'ir.actions.act_window',
+            'res_id': generate.id,
+            'res_model': 'generate.xml',
+            'view_mode': 'form',
+            'view_type': 'form',
+            'target': 'new',
+        }
+
     name = fields.Char(
         string="Event Name",
         compute="_compute_name",

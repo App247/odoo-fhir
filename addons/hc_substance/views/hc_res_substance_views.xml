@@ -105,8 +105,7 @@
                                     <tree>
                                         <field name="substance_name"/>
                                         <field name="substance_type"/>
-                                        <field name="quantity_ratio"/>
-                                        <field name="quantity_ratio_uom"/>
+                                        <field name="quantity_name"/>
                                     </tree>
                                     <form>
                                         <sheet>
@@ -118,12 +117,14 @@
                                                     <field name="substance_id" class="oe_edit_only" attrs="{'invisible': [('substance_type','!=','substance')], 'required': [('substance_type','=','substance')]}"/>
                                                 </group>
                                                 <group string="Ratio">
-                                                    <field name="quantity_numerator"/>
-                                                    <field name="quantity_numerator_uom_id"/>
-                                                    <field name="quantity_denominator"/>
-                                                    <field name="quantity_denominator_uom_id"/>
-                                                    <field name="quantity_ratio"/>
-                                                    <field name="quantity_ratio_uom"/>
+                                                    <field name="has_quantity_numerator" invisible="1"/>
+                                                    <field name="quantity_numerator" attrs="{'required': [('has_quantity_numerator','=',True)]}"/>
+                                                    <field name="quantity_numerator_uom_id" attrs="{'required': [('has_quantity_numerator','=',True)]}"/>
+                                                    <field name="quantity_denominator" attrs="{'required': [('has_quantity_numerator','=',True)]}"/>
+                                                    <field name="quantity_denominator_uom_id" attrs="{'required': [('has_quantity_numerator','=',True)]}"/>
+                                                    <field name="quantity" readonly="1"/>
+                                                    <field name="quantity_uom" readonly="1"/>
+                                                    <field name="quantity_name" readonly="1"/>
                                                 </group>
                                             </group>
                                         </sheet>

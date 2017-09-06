@@ -50,6 +50,7 @@
         'data/hc.vs.manifestation.code.csv',
         'report/hc_res_allergy_intolerance_report_views.xml',
         'report/hc_res_allergy_intolerance_report_templates.xml',
+        'wizard/generate_xml_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
