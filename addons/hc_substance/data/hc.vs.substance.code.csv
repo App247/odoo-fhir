@@ -108,7 +108,6 @@ subs_code_1607000,1607000,"Homoserine kinase","Homoserine kinase (substance)",,,
 subs_code_1609002,1609002,"N-octyl isosafrole sulfoxide","N-octyl isosafrole sulfoxide (substance)",,,base.snomed,http://hl7.org/fhir/ValueSet/substance-code
 subs_code_1634002,1634002,"Blood group antigen Ven","Blood group antigen Ven (substance)",,,base.snomed,http://hl7.org/fhir/ValueSet/substance-code
 subs_code_1649005,1649005,"Blood group antigen Sul","Blood group antigen Sul (substance)",,,base.snomed,http://hl7.org/fhir/ValueSet/substance-code
-subs_code_1660001,1660001,"Plant seeds","Plant seeds (substance)",,,base.snomed,http://hl7.org/fhir/ValueSet/substance-code
 subs_code_1668008,1668008,"Ceforanide","Ceforanide (substance)",,,base.snomed,http://hl7.org/fhir/ValueSet/substance-code
 subs_code_1675009,1675009,"^86^Rubidium","^86^Rubidium (substance)",,,base.snomed,http://hl7.org/fhir/ValueSet/substance-code
 subs_code_1676005,1676005,"Blood group antibody LW^ab^","Blood group antibody LW^ab^ (substance)",,,base.snomed,http://hl7.org/fhir/ValueSet/substance-code
@@ -160,7 +159,6 @@ subs_code_2260005,2260005,"HLA-DRw18 antigen","HLA-DRw18 antigen (substance)",,,
 subs_code_2262002,2262002,"Cellulose polysulfatase","Cellulose polysulfatase (substance)",,,base.snomed,http://hl7.org/fhir/ValueSet/substance-code
 subs_code_2309006,2309006,"Gold","Gold (substance)",,,base.snomed,http://hl7.org/fhir/ValueSet/substance-code
 subs_code_2329007,2329007,"Blood group antibody Vel","Blood group antibody Vel (substance)",,,base.snomed,http://hl7.org/fhir/ValueSet/substance-code
-subs_code_2338009,2338009,"Plant roots","Plant roots (substance)",,,base.snomed,http://hl7.org/fhir/ValueSet/substance-code
 subs_code_2343002,2343002,"Guthion","Guthion (substance)",,,base.snomed,http://hl7.org/fhir/ValueSet/substance-code
 subs_code_2346005,2346005,"Vascormone","Vascormone (substance)",,,base.snomed,http://hl7.org/fhir/ValueSet/substance-code
 subs_code_2354007,2354007,"3'-Nucleotidase","3'-Nucleotidase (substance)",,,base.snomed,http://hl7.org/fhir/ValueSet/substance-code
@@ -360,7 +358,6 @@ subs_code_4889002,4889002,"Xylulokinase","Xylulokinase (substance)",,,base.snome
 subs_code_4933007,4933007,"Lymphocyte antigen CD15","Lymphocyte antigen CD15 (substance)",,,base.snomed,http://hl7.org/fhir/ValueSet/substance-code
 subs_code_4940008,4940008,"Tattoo dye","Tattoo dye (substance)",,,base.snomed,http://hl7.org/fhir/ValueSet/substance-code
 subs_code_4955004,4955004,"Neoplastic structural gene","Neoplastic structural gene (substance)",,,base.snomed,http://hl7.org/fhir/ValueSet/substance-code
-subs_code_4962008,4962008,"Tree bark","Tree bark (substance)",,,base.snomed,http://hl7.org/fhir/ValueSet/substance-code
 subs_code_4963003,4963003,"Neutral amino acid","Neutral amino acid (substance)",,,base.snomed,http://hl7.org/fhir/ValueSet/substance-code
 subs_code_4986005,4986005,"Magnesium borate","Magnesium borate (substance)",,,base.snomed,http://hl7.org/fhir/ValueSet/substance-code
 subs_code_5004004,5004004,"Blood group antibody Panzar","Blood group antibody Panzar (substance)",,,base.snomed,http://hl7.org/fhir/ValueSet/substance-code
@@ -996,7 +993,7 @@ subs_code_710749000,710749000,"Soluble mesothelin related protein","Soluble meso
 subs_code_707996008,707996008,"Yersinia adhesion protein","Yersinia adhesion protein (substance)","subs_code_707995007",5,base.snomed,http://snomed.info
 subs_code_710190009,710190009,"High molecular weight adiponectin","High molecular weight adiponectin (substance)","subs_code_413451007",5,base.snomed,http://snomed.info
 subs_code_707213008,707213008,"alpha Fetoprotein, L3","alpha Fetoprotein, L3 (substance)","subs_code_49944008",5,base.snomed,http://snomed.info
-subs_code_278393006,278393006,"Animal milk protein","Animal milk protein (substance)","subs_code_272169002",5,base.snomed,http://snomed.info
+subs_code_278393006,278393006,"Animal milk protein","Animal milk protein (substance)","subs_code_272169002,subs_code_255620007",5,base.snomed,http://snomed.info
 subs_code_711062002,711062002,"Animal protein and epidermal substance","Animal protein and epidermal substance (substance)","subs_code_272169002",5,base.snomed,http://snomed.info
 subs_code_278391008,278391008,"Animal serum protein","Animal serum protein (substance)","subs_code_711062002",6,base.snomed,http://snomed.info
 subs_code_711315003,711315003,"Brine shrimp protein","Artemia salina protein (substance)","subs_code_272169002",5,base.snomed,http://snomed.info
@@ -2650,7 +2647,7 @@ subs_code_710618002,710618002,"Chlamydia trachomatis B IgM","Immunoglobulin M an
 subs_code_708106003,708106003,"Chlamydia trachomatis IgA","Immunoglobulin A antibody to Chlamydia trachomatis (substance)","subs_code_120652008,subs_code_116873002",11,base.snomed,http://snomed.info
 subs_code_710619005,710619005,"Chlamydia trachomatis C IgM","Immunoglobulin M antibody to Chlamydia trachomatis C (substance)","subs_code_710617007,subs_code_120708007",12,base.snomed,http://snomed.info
 subs_code_710620004,710620004,"Chlamydia trachomatis I IgM","Immunoglobulin M antibody to Chlamydia trachomatis I (substance)","subs_code_710617007,subs_code_259819005",12,base.snomed,http://snomed.info
-subs_code_710621000,710621000,"Chlamydia trachomatis L2 IgM","Immunoglobulin M antibody to Chlamydia trachomatis L2 (substance)","subs_code_710617007,subs_code_259822007,subs_code_259822007",12,base.snomed,http://snomed.info
+subs_code_710621000,710621000,"Chlamydia trachomatis L2 IgM","Immunoglobulin M antibody to Chlamydia trachomatis L2 (substance)","subs_code_710617007,subs_code_259822007",12,base.snomed,http://snomed.info
 subs_code_120882000,120882000,"Chlamydia trachomatis serotype A antibody","Chlamydia trachomatis serotype A antibody (substance)","subs_code_120652008",11,base.snomed,http://snomed.info
 subs_code_707571003,707571003,"Chlamydia trachomatis C IgA","Immunoglobulin A antibody to Chlamydia trachomatis C (substance)","subs_code_120708007,subs_code_707569003",12,base.snomed,http://snomed.info
 subs_code_710406000,710406000,"Chlamydia trachomatis C IgG","Immunoglobulin G antibody to Chlamydia trachomatis C (substance)","subs_code_120708007,subs_code_710404002",12,base.snomed,http://snomed.info
@@ -6644,7 +6641,7 @@ subs_code_105835002,105835002,"Bismuth AND/OR bismuth compound","Bismuth AND/OR 
 subs_code_372843005,372843005,"Bleomycin","Bleomycin (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_412103003,412103003,"Bone meal","Bone meal (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_406758004,406758004,"Bovine derived substance","Bovine derived substance (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
-subs_code_391858005,391858005,"Bran","Bran (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
+subs_code_391858005,391858005,"Bran","Bran (substance)","subs_code_406463001,subs_code_255620007",6,base.snomed,http://snomed.info
 subs_code_412102008,412102008,"Bromhexine hydrochloride","Bromhexine hydrochloride (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_16624005,16624005,"Bromide salt","Bromide salt (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_387173000,387173000,"Buprenorphine","Buprenorphine (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
@@ -6708,7 +6705,6 @@ subs_code_372559001,372559001,"Colony stimulating factor","Colony stimulating fa
 subs_code_311741002,311741002,"Copper chloride","Copper chloride (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_70168001,70168001,"Copper sulfate","Copper sulfate (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_412357001,412357001,"Corn","Corn (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
-subs_code_229936000,229936000,"Cornflour","Cornflour (substance)","subs_code_406463001,subs_code_406465008",6,base.snomed,http://snomed.info
 subs_code_304275008,304275008,"Corticosteroids and derivatives","Corticosteroids and derivatives (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_373307003,373307003,"Coumarin anticoagulant","Coumarin anticoagulant (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_373229001,373229001,"Cromoglycate and related antiallergenic","Cromoglycate and related antiallergenic (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
@@ -6816,8 +6812,9 @@ subs_code_372631007,372631007,"Imidazole antifungal","Imidazole antifungal (subs
 subs_code_386941002,386941002,"Imiquimod","Imiquimod (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_396435000,396435000,"Inactivated poliovirus vaccine","Inactivated poliovirus vaccine (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_412207007,412207007,"Indecainide","Indecainide (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
-subs_code_45475000,45475000,"Indigo carmine stain","Indigo carmine stain (substance)","subs_code_406463001,subs_code_406465008,subs_code_50825000",6,base.snomed,http://snomed.info
+subs_code_414287009,414287009,"Food pseudoallergen","Food pseudoallergen (substance)","subs_code_414284002",5,base.snomed,http://snomed.info
 subs_code_50825000,50825000,"Food coloring","Food coloring (substance)","subs_code_414287009,subs_code_59533004",6,base.snomed,http://snomed.info
+subs_code_45475000,45475000,"Indigo carmine stain","Indigo carmine stain (substance)","subs_code_406463001,subs_code_406465008,subs_code_50825000",6,base.snomed,http://snomed.info
 subs_code_412548006,412548006,"Indigotindisulfonate sodium","Indigotindisulfonate sodium (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_372529006,372529006,"Indinavir","Indinavir (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_125697001,125697001,"Interferon alfa-n1 lymphoblastoid","Interferon alfa-n1 lymphoblastoid (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
@@ -6895,10 +6892,10 @@ subs_code_386913001,386913001,"Mitoxantrone","Mitoxantrone (substance)","subs_co
 subs_code_280939008,280939008,"Insect venom","Insect venom (substance)","subs_code_406470001",4,base.snomed,http://snomed.info
 subs_code_125579000,125579000,"Hymenoptera venom","Hymenoptera venom (substance)","subs_code_280939008",5,base.snomed,http://snomed.info
 subs_code_256440004,256440004,"Wasp venom","Wasp venom (substance)","subs_code_125579000",6,base.snomed,http://snomed.info
-subs_code_260193001,260193001,"Common wasp venom","Common wasp venom (substance)","subs_code_256440004",7,base.snomed,http://snomed.info
 subs_code_288326000,288326000,"Hornet venom","Hornet venom (substance)","subs_code_256440004",7,base.snomed,http://snomed.info
 subs_code_260191004,260191004,"White faced hornet venom","White faced hornet venom (substance)","subs_code_288326000",8,base.snomed,http://snomed.info
 subs_code_260195008,260195008,"Yellow hornet venom","Yellow hornet venom (substance)","subs_code_288326000",8,base.snomed,http://snomed.info
+subs_code_260193001,260193001,"Common wasp venom","Common wasp venom (substance)","subs_code_256440004",7,base.snomed,http://hl7.org/fhir/ValueSet/substance-code
 subs_code_412436005,412436005,"Mixed vespid venom","Mixed vespid venom (substance)","subs_code_406463001,subs_code_260193001,subs_code_260191004,subs_code_260195008",6,base.snomed,http://snomed.info
 subs_code_387004007,387004007,"Modafinil","Modafinil (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_372799001,372799001,"Molindone","Molindone (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
@@ -7137,7 +7134,6 @@ subs_code_713473008,713473008,"Spirapril","Spirapril (substance)","subs_code_372
 subs_code_386871006,386871006,"Trandolapril","Trandolapril (substance)","subs_code_372913009",7,base.snomed,http://snomed.info
 subs_code_703340007,703340007,"Zofenopril","Zofenopril (substance)","subs_code_372913009",7,base.snomed,http://snomed.info
 subs_code_703342004,703342004,"Zofenoprilat","Zofenoprilat (substance)","subs_code_372913009",7,base.snomed,http://snomed.info
-subs_code_414287009,414287009,"Food pseudoallergen","Food pseudoallergen (substance)","subs_code_414284002",5,base.snomed,http://snomed.info
 subs_code_6249003,6249003,"Potassium metabisulfite","Potassium metabisulfite (substance)","subs_code_414287009",6,base.snomed,http://snomed.info
 subs_code_125706008,125706008,"Sodium benzoate","Sodium benzoate (substance)","subs_code_414287009",6,base.snomed,http://snomed.info
 subs_code_84791008,84791008,"Sodium metabisulfite","Sodium metabisulfite (substance)","subs_code_414287009",6,base.snomed,http://snomed.info
@@ -7165,7 +7161,6 @@ subs_code_228088002,228088002,"Brown HT","Brown HT (substance)","subs_code_50825
 subs_code_228085004,228085004,"Caramel","Caramel (substance)","subs_code_50825000",7,base.snomed,http://snomed.info
 subs_code_37575004,37575004,"Carmoisine A stain","Carmoisine A stain (substance)","subs_code_50825000",7,base.snomed,http://snomed.info
 subs_code_307059008,307059008,"Coal tar dyes","Coal tar dyes (substance)","subs_code_50825000",7,base.snomed,http://snomed.info
-subs_code_91606004,91606004,"Cochineal stain","Cochineal stain (substance)","subs_code_50825000",7,base.snomed,http://snomed.info
 subs_code_446273004,446273004,"Red food coloring","Red food coloring (substance)","subs_code_50825000",7,base.snomed,http://snomed.info
 subs_code_7434003,7434003,"Erythrosin B stain","Erythrosin B stain (substance)","subs_code_50825000,subs_code_446273004,subs_code_406465008",7,base.snomed,http://snomed.info
 subs_code_442391000124100,442391000124100,"Green food coloring","Green food coloring (substance)","subs_code_50825000",7,base.snomed,http://snomed.info
@@ -7194,8 +7189,6 @@ subs_code_75399008,75399008,"Citric acid","Citric acid (substance)","subs_code_4
 subs_code_227390009,227390009,"Coriander leaf","Coriander leaf (substance)","subs_code_406465008",6,base.snomed,http://snomed.info
 subs_code_226906005,226906005,"Corn oil - dietary","Corn oil - dietary (substance)","subs_code_406465008",6,base.snomed,http://snomed.info
 subs_code_412064009,412064009,"Corn syrup","Corn syrup (substance)","subs_code_406465008",6,base.snomed,http://snomed.info
-subs_code_226760005,226760005,"Dairy foods","Dairy foods (substance)","subs_code_406465008",6,base.snomed,http://snomed.info
-subs_code_102263004,102263004,"Eggs (edible)","Eggs (edible) (substance)","subs_code_406465008",6,base.snomed,http://snomed.info
 subs_code_227037002,227037002,"Fish - dietary","Fish - dietary (substance)","subs_code_406465008",6,base.snomed,http://snomed.info
 subs_code_260172004,260172004,"Garlic - dietary","Garlic - dietary (substance)","subs_code_406465008",6,base.snomed,http://snomed.info
 subs_code_373531009,373531009,"Gelatin","Gelatin (substance)","subs_code_406465008",6,base.snomed,http://snomed.info
@@ -7221,7 +7214,7 @@ subs_code_28230009,28230009,"Poultry","Poultry (substance)","subs_code_406465008
 subs_code_373687007,373687007,"Protein supplement","Protein supplement (substance)","subs_code_406465008",6,base.snomed,http://snomed.info
 subs_code_227362005,227362005,"Red kidney beans","Red kidney beans (substance)","subs_code_406465008",6,base.snomed,http://snomed.info
 subs_code_412067002,412067002,"Root beer","Root beer (substance)","subs_code_406465008",6,base.snomed,http://snomed.info
-subs_code_412068007,412068007,"Rye","Rye (substance)","subs_code_406465008",6,base.snomed,http://snomed.info
+subs_code_412068007,412068007,"Rye","Rye (substance)","subs_code_406465008,subs_code_255620007",6,base.snomed,http://snomed.info
 subs_code_27138006,27138006,"Saccharin","Saccharin (substance)","subs_code_406465008",6,base.snomed,http://snomed.info
 subs_code_89707004,89707004,"Sesame oil","Sesame oil (substance)","subs_code_406465008",6,base.snomed,http://snomed.info
 subs_code_412050009,412050009,"Sheep product derivatives","Sheep product derivatives (substance)","subs_code_406465008",6,base.snomed,http://snomed.info
@@ -7231,7 +7224,9 @@ subs_code_412065005,412065005,"Squash","Squash (substance)","subs_code_406465008
 subs_code_102261002,102261002,"Strawberry","Strawberry (substance)","subs_code_406465008",6,base.snomed,http://snomed.info
 subs_code_22968009,22968009,"Sunset yellow FCF stain","Sunset yellow FCF stain (substance)","subs_code_406465008,subs_code_50825000",6,base.snomed,http://snomed.info
 subs_code_412070003,412070003,"Vanilla","Vanilla (substance)","subs_code_406465008",6,base.snomed,http://snomed.info
-subs_code_412071004,412071004,"Wheat","Wheat (substance)","subs_code_406465008",6,base.snomed,http://snomed.info
+subs_code_256248008,256248008,"Plant material","Plant material (substance)","subs_code_289958009",4,base.snomed,http://snomed.info
+subs_code_264331002,264331002,"Grain","Grain (substance)","subs_code_256248008,subs_code_255620007",5,base.snomed,http://snomed.info
+subs_code_412071004,412071004,"Wheat","Wheat (substance)","subs_code_406465008,subs_code_264331002",6,base.snomed,http://snomed.info
 subs_code_229928009,229928009,"Wheatgerm oil","Wheatgerm oil (substance)","subs_code_406465008",6,base.snomed,http://snomed.info
 subs_code_11473005,11473005,"Trichlormethiazide","Trichlormethiazide (substance)","subs_code_372747003",7,base.snomed,http://snomed.info
 subs_code_37006008,37006008,"Cyclothiazide","Cyclothiazide (substance)","subs_code_372747003",7,base.snomed,http://snomed.info
@@ -7567,3 +7562,290 @@ subs_code_288460008,288460008,"Bumble bee venom","Bumble bee venom (substance)",
 subs_code_260194007,260194007,"Paper wasp venom","Paper wasp venom (substance)","subs_code_256440004",7,base.snomed,http://snomed.info
 subs_code_260192006,260192006,"Vespula venom","Vespula venom (substance)","subs_code_288326000",8,base.snomed,http://snomed.info
 subs_code_260196009,260196009,"European hornet venom","European hornet venom (substance)","subs_code_288326000",8,base.snomed,http://snomed.info
+subs_code_256363008,256363008,"Animal material","Animal material (substance)","subs_code_289958009",4,base.snomed,http://snomed.info
+subs_code_289954006,289954006,"Fungal material","Fungal material (substance)","subs_code_289958009",4,base.snomed,http://snomed.info
+subs_code_300901001,300901001,"Microbiological material","Microbiological material (substance)","subs_code_289958009",4,base.snomed,http://snomed.info
+subs_code_261273007,261273007,"Acorn","Acorn (substance)","subs_code_256248008",5,base.snomed,http://snomed.info
+subs_code_10126003,10126003,"Awn","Awn (substance)","subs_code_256248008",5,base.snomed,http://snomed.info
+subs_code_228657002,228657002,"Bulb","Bulb (substance)","subs_code_256248008",5,base.snomed,http://snomed.info
+subs_code_56163001,56163001,"Burr","Burr (substance)","subs_code_256248008",5,base.snomed,http://snomed.info
+subs_code_63852007,63852007,"Catkin","Catkin (substance)","subs_code_256248008",5,base.snomed,http://snomed.info
+subs_code_69059007,69059007,"Cone","Cone (substance)","subs_code_256248008",5,base.snomed,http://snomed.info
+subs_code_16719004,16719004,"Flowers","Flowers (substance)","subs_code_256248008",5,base.snomed,http://snomed.info
+subs_code_90737002,90737002,"Leaves","Leaves (substance)","subs_code_256248008",5,base.snomed,http://snomed.info
+subs_code_37202001,37202001,"Plant fiber","Plant fiber (substance)","subs_code_256248008",5,base.snomed,http://snomed.info
+subs_code_2338009,2338009,"Plant roots","Plant roots (substance)","subs_code_256248008",5,base.snomed,http://snomed.info
+subs_code_1660001,1660001,"Plant seeds","Plant seeds (substance)","subs_code_256248008",5,base.snomed,http://snomed.info
+subs_code_256259004,256259004,"Pollen","Pollen (substance)","subs_code_256248008",5,base.snomed,http://snomed.info
+subs_code_228658007,228658007,"Seedling","Seedling (substance)","subs_code_256248008",5,base.snomed,http://snomed.info
+subs_code_264233002,264233002,"Thorn","Thorn (substance)","subs_code_256248008",5,base.snomed,http://snomed.info
+subs_code_4962008,4962008,"Tree bark","Tree bark (substance)","subs_code_256248008",5,base.snomed,http://snomed.info
+subs_code_228659004,228659004,"Dried flowers","","subs_code_16719004",6,base.snomed,http://snomed.info
+subs_code_82566005,82566005,"Animal feed","Animal feed (substance)","subs_code_255620007",4,base.snomed,http://snomed.info
+subs_code_91606004,91606004,"Cochineal stain","Cochineal stain (substance)","subs_code_255620007,subs_code_50825000",4,base.snomed,http://snomed.info
+subs_code_226760005,226760005,"Dairy foods","Dairy foods (substance)","subs_code_255620007,subs_code_406465008",4,base.snomed,http://snomed.info
+subs_code_227682004,227682004,"Dessert","Dessert (substance)","subs_code_255620007",4,base.snomed,http://snomed.info
+subs_code_444021000124105,444021000124105,"Egg substitute","Egg substitute (substance)","subs_code_255620007",4,base.snomed,http://snomed.info
+subs_code_102263004,102263004,"Eggs (edible)","Eggs (edible) (substance)","subs_code_255620007,subs_code_406465008",4,base.snomed,http://snomed.info
+subs_code_226887002,226887002,"Fats and oils","Fats and oils (substance)","subs_code_255620007",4,base.snomed,http://snomed.info
+subs_code_39102003,39102003,"Food particle","Food particle (substance)","subs_code_255620007",4,base.snomed,http://snomed.info
+subs_code_74242007,74242007,"Food starch","Food starch (substance)","subs_code_255620007",4,base.snomed,http://snomed.info
+subs_code_227415002,227415002,"Fruit nuts and seeds","Fruit nuts and seeds (substance)","subs_code_255620007",4,base.snomed,http://snomed.info
+subs_code_89811004,89811004,"Gluten","Gluten (substance)","subs_code_255620007",4,base.snomed,http://snomed.info
+subs_code_395734009,395734009,"Guar gum","Guar gum (substance)","subs_code_255620007",4,base.snomed,http://snomed.info
+subs_code_28647000,28647000,"Meat","Meat (substance)","subs_code_255620007",4,base.snomed,http://snomed.info
+subs_code_711611001,711611001,"Pudding","Pudding (substance)","subs_code_255620007",4,base.snomed,http://snomed.info
+subs_code_229921003,229921003,"Sandwich - dietary","Sandwich - dietary (substance)","subs_code_255620007",4,base.snomed,http://snomed.info
+subs_code_227518002,227518002,"Sauces seasonings and soups","Sauces seasonings and soups (substance)","subs_code_255620007",4,base.snomed,http://snomed.info
+subs_code_230052002,230052002,"Savory food","Savory food (substance)","subs_code_255620007",4,base.snomed,http://snomed.info
+subs_code_44027008,44027008,"Seafood","Seafood (substance)","subs_code_255620007",4,base.snomed,http://snomed.info
+subs_code_226529007,226529007,"Starchy food","Starchy food (substance)","subs_code_255620007",4,base.snomed,http://snomed.info
+subs_code_227594001,227594001,"Sugary food","Sugary food (substance)","subs_code_255620007",4,base.snomed,http://snomed.info
+subs_code_709450000,709450000,"Terrestrial mollusk - dietary","Terrestrial mollusk - dietary (substance)","subs_code_255620007",4,base.snomed,http://snomed.info
+subs_code_227210005,227210005,"Vegetables pulses herbs and spices","Vegetables pulses herbs and spices (substance)","subs_code_255620007",4,base.snomed,http://snomed.info
+subs_code_226530002,226530002,"Baby cereal","Baby cereal (substance)","subs_code_226529007",5,base.snomed,http://snomed.info
+subs_code_226559002,226559002,"Bread","Bread (substance)","subs_code_226529007",5,base.snomed,http://snomed.info
+subs_code_226598007,226598007,"Breakfast cereal","Breakfast cereal (substance)","subs_code_226529007",5,base.snomed,http://snomed.info
+subs_code_226639005,226639005,"Cake","Cake (substance)","subs_code_226529007",5,base.snomed,http://snomed.info
+subs_code_23182003,23182003,"Cereal","Cereal (substance)","subs_code_226529007",5,base.snomed,http://snomed.info
+subs_code_226539001,226539001,"Cookie and/or cracker","Cookie and/or cracker (substance)","subs_code_226529007",5,base.snomed,http://snomed.info
+subs_code_63766005,63766005,"Flour","Flour (substance)","subs_code_226529007",5,base.snomed,http://snomed.info
+subs_code_226735005,226735005,"Noodles","Noodles (substance)","subs_code_226529007",5,base.snomed,http://snomed.info
+subs_code_415842005,415842005,"Wheat product","Wheat product (substance)","subs_code_412071004",7,base.snomed,http://snomed.info
+subs_code_226740002,226740002,"Pasta","Pasta (substance)","subs_code_226529007,subs_code_415842005",5,base.snomed,http://snomed.info
+subs_code_226749001,226749001,"Pastry","Pastry (substance)","subs_code_226529007,subs_code_415842005",5,base.snomed,http://snomed.info
+subs_code_67324005,67324005,"Rice","Rice (substance)","subs_code_226529007",5,base.snomed,http://snomed.info
+subs_code_226587006,226587006,"Tortilla","Tortilla (substance)","subs_code_226559002",6,base.snomed,http://snomed.info
+subs_code_226536008,226536008,"Rice-based baby cereal","Rice-based baby cereal (substance)","subs_code_226530002",6,base.snomed,http://snomed.info
+subs_code_226537004,226537004,"Mixed cereal-based baby cereal","Mixed cereal-based baby cereal (substance)","subs_code_226530002",6,base.snomed,http://snomed.info
+subs_code_418504009,418504009,"Oats","Oats (substance)","subs_code_264331002",6,base.snomed,http://snomed.info
+subs_code_443841000124105,443841000124105,"Club wheat","Club wheat (substance)","subs_code_412071004",7,base.snomed,http://snomed.info
+subs_code_443831000124100,443831000124100,"Durum wheat","Durum wheat (substance)","subs_code_412071004",7,base.snomed,http://snomed.info
+subs_code_443821000124103,443821000124103,"Einkorn wheat","Einkorn wheat (substance)","subs_code_412071004",7,base.snomed,http://snomed.info
+subs_code_443811000124106,443811000124106,"Emmer wheat","Emmer wheat (substance)","subs_code_412071004",7,base.snomed,http://snomed.info
+subs_code_443801000124108,443801000124108,"Khorasan wheat","Khorasan wheat (substance)","subs_code_412071004",7,base.snomed,http://snomed.info
+subs_code_443661000124108,443661000124108,"Spelt","Spelt (substance)","subs_code_412071004",7,base.snomed,http://snomed.info
+subs_code_443651000124106,443651000124106,"Wheat berry","Wheat berry (substance)","subs_code_412071004",7,base.snomed,http://snomed.info
+subs_code_426701005,426701005,"Wheat grain fibrous extract","Wheat grain fibrous extract (substance)","subs_code_412071004",7,base.snomed,http://snomed.info
+subs_code_226562004,226562004,"Breadcrumbs","Breadcrumbs (substance)","subs_code_415842005,subs_code_226559002",8,base.snomed,http://snomed.info
+subs_code_226560007,226560007,"Brown bread","Brown bread (substance)","subs_code_415842005,subs_code_226559002",8,base.snomed,http://snomed.info
+subs_code_226563009,226563009,"Chapati","Chapati (substance)","subs_code_415842005,subs_code_226559002",8,base.snomed,http://snomed.info
+subs_code_226570009,226570009,"Currant bread","Currant bread (substance)","subs_code_415842005",8,base.snomed,http://snomed.info
+subs_code_226571008,226571008,"Granary bread","Granary bread (substance)","subs_code_415842005,subs_code_226559002",8,base.snomed,http://snomed.info
+subs_code_226574000,226574000,"Malt bread","Malt bread (substance)","subs_code_415842005,subs_code_226559002",8,base.snomed,http://snomed.info
+subs_code_226583005,226583005,"Milk bread","Milk bread (substance)","subs_code_415842005,subs_code_226559002",8,base.snomed,http://snomed.info
+subs_code_226575004,226575004,"Naan bread","Naan bread (substance)","subs_code_415842005,subs_code_226559002",8,base.snomed,http://snomed.info
+subs_code_226576003,226576003,"Papadum","Papadum (substance)","subs_code_415842005,subs_code_226559002",8,base.snomed,http://snomed.info
+subs_code_226579005,226579005,"Paratha","Paratha (substance)","subs_code_415842005,subs_code_226559002",8,base.snomed,http://snomed.info
+subs_code_226580008,226580008,"Pitta bread","Pitta bread (substance)","subs_code_415842005,subs_code_226559002",8,base.snomed,http://snomed.info
+subs_code_226531003,226531003,"Rusk","Rusk (substance)","subs_code_415842005,subs_code_226530002",8,base.snomed,http://snomed.info
+subs_code_443791000124107,443791000124107,"Shoyu","Shoyu (substance)","subs_code_415842005",8,base.snomed,http://snomed.info
+subs_code_226585003,226585003,"Soda bread","Soda bread (substance)","subs_code_415842005,subs_code_226559002",8,base.snomed,http://snomed.info
+subs_code_412533000,412533000,"Wheat bran","Wheat bran (substance)","subs_code_415842005",8,base.snomed,http://snomed.info
+subs_code_226538009,226538009,"Wheat-based baby cereal","Wheat-based baby cereal (substance)","subs_code_415842005,subs_code_226530002",8,base.snomed,http://snomed.info
+subs_code_226589009,226589009,"Wheatgerm bread","Wheatgerm bread (substance)","subs_code_415842005,subs_code_226559002",8,base.snomed,http://snomed.info
+subs_code_226590000,226590000,"White bread","White bread (substance)","subs_code_415842005,subs_code_226559002",8,base.snomed,http://snomed.info
+subs_code_226596006,226596006,"Wholemeal bread","Wholemeal bread (substance)","subs_code_415842005,subs_code_226559002",8,base.snomed,http://snomed.info
+subs_code_226561006,226561006,"Brown bread roll","Brown bread roll (substance)","subs_code_226560007",9,base.snomed,http://snomed.info
+subs_code_226564003,226564003,"White chapati","White chapati (substance)","subs_code_226563009",9,base.snomed,http://snomed.info
+subs_code_226567005,226567005,"Wholemeal chapati","Wholemeal chapati (substance)","subs_code_226563009",9,base.snomed,http://snomed.info
+subs_code_226565002,226565002,"White chapati made with fat","White chapati made with fat (substance)","subs_code_226564003",10,base.snomed,http://snomed.info
+subs_code_226566001,226566001,"White chapati made without fat","White chapati made without fat (substance)","subs_code_226564003",10,base.snomed,http://snomed.info
+subs_code_226568000,226568000,"Wholemeal chapati made with fat","Wholemeal chapati made with fat (substance)","subs_code_226567005",10,base.snomed,http://snomed.info
+subs_code_226569008,226569008,"Wholemeal chapati made without fat","Wholemeal chapati made without fat (substance)","subs_code_226567005",10,base.snomed,http://snomed.info
+subs_code_226572001,226572001,"Granary bread roll","Granary bread roll (substance)","subs_code_226571008",10,base.snomed,http://snomed.info
+subs_code_226577007,226577007,"Fried papadum","Fried papadum (substance)","subs_code_226576003",10,base.snomed,http://snomed.info
+subs_code_226578002,226578002,"Grilled papadum","Grilled papadum (substance)","subs_code_226576003",10,base.snomed,http://snomed.info
+subs_code_226741003,226741003,"Cannelloni","Cannelloni (substance)","subs_code_226740002",10,base.snomed,http://snomed.info
+subs_code_226742005,226742005,"Macaroni","Macaroni (substance)","subs_code_226740002",10,base.snomed,http://snomed.info
+subs_code_226743000,226743000,"Ravioli","Ravioli (substance)","subs_code_226740002",10,base.snomed,http://snomed.info
+subs_code_226744006,226744006,"Spaghetti","Spaghetti (substance)","subs_code_226740002",10,base.snomed,http://snomed.info
+subs_code_226748009,226748009,"Vermicelli","Vermicelli (substance)","subs_code_226740002",10,base.snomed,http://snomed.info
+subs_code_227631002,227631002,"Macaroni cheese","Macaroni cheese (substance)","subs_code_226742005",11,base.snomed,http://snomed.info
+subs_code_226745007,226745007,"White spaghetti","White spaghetti (substance)","subs_code_226744006",11,base.snomed,http://snomed.info
+subs_code_226746008,226746008,"Wholemeal spaghetti","Wholemeal spaghetti (substance)","subs_code_226744006",11,base.snomed,http://snomed.info
+subs_code_226747004,226747004,"Tinned spaghetti","Tinned spaghetti (substance)","subs_code_226744006",11,base.snomed,http://snomed.info
+subs_code_226754005,226754005,"Shortcrust pastry","Shortcrust pastry (substance)","subs_code_226749001",11,base.snomed,http://snomed.info
+subs_code_226755006,226755006,"Wholemeal pastry","Wholemeal pastry (substance)","subs_code_226749001",11,base.snomed,http://snomed.info
+subs_code_226581007,226581007,"White pitta bread","White pitta bread (substance)","subs_code_226580008",11,base.snomed,http://snomed.info
+subs_code_226582000,226582000,"Wholemeal pitta bread","Wholemeal pitta bread (substance)","subs_code_226580008",11,base.snomed,http://snomed.info
+subs_code_226532005,226532005,"Flavored rusk","Flavored rusk (substance)","subs_code_226531003,subs_code_226531003",11,base.snomed,http://snomed.info
+subs_code_226533000,226533000,"Low sugar rusk","Low sugar rusk (substance)","subs_code_226531003,subs_code_226531003",11,base.snomed,http://snomed.info
+subs_code_226534006,226534006,"Plain rusk","Plain rusk (substance)","subs_code_226531003,subs_code_226531003",11,base.snomed,http://snomed.info
+subs_code_226535007,226535007,"Wholemeal rusk","Wholemeal rusk (substance)","subs_code_226531003,subs_code_226531003",11,base.snomed,http://snomed.info
+subs_code_229944000,229944000,"Wheat flour","Wheat flour (substance)","subs_code_63766005,subs_code_415842005",6,base.snomed,http://snomed.info
+subs_code_229954001,229954001,"Wholemeal flour","Wholemeal flour (substance)","subs_code_229944000",11,base.snomed,http://snomed.info
+subs_code_226592008,226592008,"Fried white bread","Fried white bread (substance)","subs_code_226590000",9,base.snomed,http://snomed.info
+subs_code_226593003,226593003,"West Indian white bread","West Indian white bread (substance)","subs_code_226590000",9,base.snomed,http://snomed.info
+subs_code_226595005,226595005,"White bread roll","White bread roll (substance)","subs_code_226590000",9,base.snomed,http://snomed.info
+subs_code_226597002,226597002,"Wholemeal bread roll","Wholemeal bread roll (substance)","subs_code_226596006",9,base.snomed,http://snomed.info
+subs_code_226601002,226601002,"Bran flakes","Bran flakes (substance)","subs_code_226598007,subs_code_415842005",6,base.snomed,http://snomed.info
+subs_code_444041000124103,444041000124103,"Cold cereal","Cold cereal (substance)","subs_code_226598007",6,base.snomed,http://snomed.info
+subs_code_226604005,226604005,"Cornflakes","Cornflakes (substance)","subs_code_226598007",6,base.snomed,http://snomed.info
+subs_code_226605006,226605006,"Crunchy nut cornflakes","Crunchy nut cornflakes (substance)","subs_code_226598007",6,base.snomed,http://snomed.info
+subs_code_226611009,226611009,"Muesli","Muesli (substance)","subs_code_226598007",6,base.snomed,http://snomed.info
+subs_code_226616004,226616004,"Oat and wheat bran","Oat and wheat bran (substance)","subs_code_226598007,subs_code_418504009,subs_code_415842005",6,base.snomed,http://snomed.info
+subs_code_226617008,226617008,"Porridge","Porridge (substance)","subs_code_226598007",6,base.snomed,http://snomed.info
+subs_code_226612002,226612002,"Muesli Swiss style","Muesli Swiss style (substance)","subs_code_226611009",7,base.snomed,http://snomed.info
+subs_code_226613007,226613007,"Muesli with extra fruit","Muesli with extra fruit (substance)","subs_code_226611009",7,base.snomed,http://snomed.info
+subs_code_226614001,226614001,"Muesli with no added sugar","Muesli with no added sugar (substance)","subs_code_226611009",7,base.snomed,http://snomed.info
+subs_code_226618003,226618003,"Porridge made with milk","Porridge made with milk (substance)","subs_code_226617008",7,base.snomed,http://snomed.info
+subs_code_226622008,226622008,"Porridge made with water","Porridge made with water (substance)","subs_code_226617008",7,base.snomed,http://snomed.info
+subs_code_226619006,226619006,"Porridge made with semi-skimmed milk","Porridge made with semi-skimmed milk (substance)","subs_code_226618003",8,base.snomed,http://snomed.info
+subs_code_226620000,226620000,"Porridge made with skimmed milk","Porridge made with skimmed milk (substance)","subs_code_226618003",8,base.snomed,http://snomed.info
+subs_code_226621001,226621001,"Porridge made with whole milk","Porridge made with whole milk (substance)","subs_code_226618003",8,base.snomed,http://snomed.info
+subs_code_226640007,226640007,"All bran loaf","All bran loaf (substance)","subs_code_226639005,subs_code_415842005",6,base.snomed,http://snomed.info
+subs_code_226641006,226641006,"Battenburg cake","Battenburg cake (substance)","subs_code_226639005",6,base.snomed,http://snomed.info
+subs_code_226023004,226023004,"Cheesecake","Cheesecake (substance)","subs_code_226639005",6,base.snomed,http://snomed.info
+subs_code_226643009,226643009,"Cherry cake","Cherry cake (substance)","subs_code_226639005",6,base.snomed,http://snomed.info
+subs_code_226644003,226644003,"Chinese cake","Chinese cake (substance)","subs_code_226639005",6,base.snomed,http://snomed.info
+subs_code_226645002,226645002,"Chinese glutinous rice flour cake","Chinese glutinous rice flour cake (substance)","subs_code_226639005",6,base.snomed,http://snomed.info
+subs_code_226647005,226647005,"Chocolate cake","Chocolate cake (substance)","subs_code_226639005",6,base.snomed,http://snomed.info
+subs_code_226648000,226648000,"Chocolate cake with butter icing","Chocolate cake with butter icing (substance)","subs_code_226639005",6,base.snomed,http://snomed.info
+subs_code_226649008,226649008,"Coconut cake","Coconut cake (substance)","subs_code_226639005",6,base.snomed,http://snomed.info
+subs_code_226650008,226650008,"Crispie cake","Crispie cake (substance)","subs_code_226639005",6,base.snomed,http://snomed.info
+subs_code_226651007,226651007,"Fancy iced cake","Fancy iced cake (substance)","subs_code_226639005",6,base.snomed,http://snomed.info
+subs_code_226652000,226652000,"Fruit cake","Fruit cake (substance)","subs_code_226639005",6,base.snomed,http://snomed.info
+subs_code_226657006,226657006,"Gateau","Gateau (substance)","subs_code_226639005",6,base.snomed,http://snomed.info
+subs_code_226658001,226658001,"Gingerbread","Gingerbread (substance)","subs_code_226639005",6,base.snomed,http://snomed.info
+subs_code_229893009,229893009,"Halva","Halva (substance)","subs_code_226639005",6,base.snomed,http://snomed.info
+subs_code_226675007,226675007,"Individual cakes and pastries","Individual cakes and pastries (substance)","subs_code_226639005",6,base.snomed,http://snomed.info
+subs_code_226659009,226659009,"Lardy cake","Lardy cake (substance)","subs_code_226639005",6,base.snomed,http://snomed.info
+subs_code_226660004,226660004,"Madeira cake","Madeira cake (substance)","subs_code_226639005",6,base.snomed,http://snomed.info
+subs_code_443981000124106,443981000124106,"Pancake","Pancake (substance)","subs_code_226639005",6,base.snomed,http://snomed.info
+subs_code_226661000,226661000,"Rock cake","Rock cake (substance)","subs_code_226639005",6,base.snomed,http://snomed.info
+subs_code_226662007,226662007,"Sevyiann","Sevyiann (substance)","subs_code_226639005",6,base.snomed,http://snomed.info
+subs_code_226663002,226663002,"Sponge cake","Sponge cake (substance)","subs_code_226639005",6,base.snomed,http://snomed.info
+subs_code_226670002,226670002,"Swiss roll","Swiss roll (substance)","subs_code_226639005",6,base.snomed,http://snomed.info
+subs_code_226674006,226674006,"Welsh cake","Welsh cake (substance)","subs_code_226639005",6,base.snomed,http://snomed.info
+subs_code_226642004,226642004,"Welsh cheesecake","Welsh cheesecake (substance)","subs_code_226023004",7,base.snomed,http://snomed.info
+subs_code_226653005,226653005,"Plain fruit cake","Plain fruit cake (substance)","subs_code_226652000",7,base.snomed,http://snomed.info
+subs_code_226654004,226654004,"Rich fruit cake","Rich fruit cake (substance)","subs_code_226652000",7,base.snomed,http://snomed.info
+subs_code_226655003,226655003,"Iced fruit cake","Iced fruit cake (substance)","subs_code_226652000",7,base.snomed,http://snomed.info
+subs_code_226656002,226656002,"Wholemeal fruit cake","Wholemeal fruit cake (substance)","subs_code_226652000",7,base.snomed,http://snomed.info
+subs_code_229894003,229894003,"Carrot halva","Carrot halva (substance)","subs_code_229893009",7,base.snomed,http://snomed.info
+subs_code_229895002,229895002,"Semolina halva","Semolina halva (substance)","subs_code_229893009",7,base.snomed,http://snomed.info
+subs_code_226676008,226676008,"Asian pastry","Asian pastry (substance)","subs_code_226675007",7,base.snomed,http://snomed.info
+subs_code_226677004,226677004,"Brandy snap","Brandy snap (substance)","subs_code_226675007",7,base.snomed,http://snomed.info
+subs_code_226678009,226678009,"Burfi","Burfi (substance)","subs_code_226675007",7,base.snomed,http://snomed.info
+subs_code_226679001,226679001,"Chelsea bun","Chelsea bun (substance)","subs_code_226675007",7,base.snomed,http://snomed.info
+subs_code_226680003,226680003,"Choux bun","Choux bun (substance)","subs_code_226675007",7,base.snomed,http://snomed.info
+subs_code_226681004,226681004,"Cream horn","Cream horn (substance)","subs_code_226675007",7,base.snomed,http://snomed.info
+subs_code_226682006,226682006,"Crumpet","Crumpet (substance)","subs_code_226675007",7,base.snomed,http://snomed.info
+subs_code_226683001,226683001,"Currant bun","Currant bun (substance)","subs_code_226675007",7,base.snomed,http://snomed.info
+subs_code_226684007,226684007,"Custard tart","Custard tart (substance)","subs_code_226675007",7,base.snomed,http://snomed.info
+subs_code_226685008,226685008,"Danish pastry","Danish pastry (substance)","subs_code_226675007",7,base.snomed,http://snomed.info
+subs_code_226686009,226686009,"Doughnut","Doughnut (substance)","subs_code_226675007",7,base.snomed,http://snomed.info
+subs_code_226690006,226690006,"Eccles cake","Eccles cake (substance)","subs_code_226675007",7,base.snomed,http://snomed.info
+subs_code_226691005,226691005,"Eclair","Eclair (substance)","subs_code_226675007",7,base.snomed,http://snomed.info
+subs_code_226692003,226692003,"Flapjack","Flapjack (substance)","subs_code_226675007",7,base.snomed,http://snomed.info
+subs_code_226693008,226693008,"Greek pastry","Greek pastry (substance)","subs_code_226675007",7,base.snomed,http://snomed.info
+subs_code_226694002,226694002,"Gulab jamen","Gulab jamen (substance)","subs_code_226675007",7,base.snomed,http://snomed.info
+subs_code_226695001,226695001,"Halwa","Halwa (substance)","subs_code_226675007",7,base.snomed,http://snomed.info
+subs_code_226697009,226697009,"Hot cross bun","Hot cross bun (substance)","subs_code_226675007",7,base.snomed,http://snomed.info
+subs_code_226698004,226698004,"Jaffa cake","Jaffa cake (substance)","subs_code_226675007",7,base.snomed,http://snomed.info
+subs_code_226699007,226699007,"Jam tart","Jam tart (substance)","subs_code_226675007",7,base.snomed,http://snomed.info
+subs_code_226700008,226700008,"Jellabi","Jellabi (substance)","subs_code_226675007",7,base.snomed,http://snomed.info
+subs_code_226701007,226701007,"Melting moment","Melting moment (substance)","subs_code_226675007",7,base.snomed,http://snomed.info
+subs_code_226702000,226702000,"Mince pie","Mince pie (substance)","subs_code_226675007",7,base.snomed,http://snomed.info
+subs_code_226703005,226703005,"Mincemeat tart","Mincemeat tart (substance)","subs_code_226675007",7,base.snomed,http://snomed.info
+subs_code_226704004,226704004,"Muffin","Muffin (substance)","subs_code_226675007",7,base.snomed,http://snomed.info
+subs_code_226705003,226705003,"Pinni","Pinni (substance)","subs_code_226675007",7,base.snomed,http://snomed.info
+subs_code_226706002,226706002,"Rum baba","Rum baba (substance)","subs_code_226675007",7,base.snomed,http://snomed.info
+subs_code_226707006,226707006,"Scone","Scone (substance)","subs_code_226675007",7,base.snomed,http://snomed.info
+subs_code_226714008,226714008,"Scotch pancake","Scotch pancake (substance)","subs_code_226675007",7,base.snomed,http://snomed.info
+subs_code_226715009,226715009,"Shortbread","Shortbread (substance)","subs_code_226675007",7,base.snomed,http://snomed.info
+subs_code_226716005,226716005,"Strawberry tartlet","Strawberry tartlet (substance)","subs_code_226675007",7,base.snomed,http://snomed.info
+subs_code_226717001,226717001,"Teacake","Teacake (substance)","subs_code_226675007",7,base.snomed,http://snomed.info
+subs_code_226718006,226718006,"Vanilla slice","Vanilla slice (substance)","subs_code_226675007",7,base.snomed,http://snomed.info
+subs_code_226719003,226719003,"Waffle","Waffle (substance)","subs_code_226675007",7,base.snomed,http://snomed.info
+subs_code_226687000,226687000,"Jam doughnut","Jam doughnut (substance)","subs_code_226686009",8,base.snomed,http://snomed.info
+subs_code_226688005,226688005,"Ring doughnut","Ring doughnut (substance)","subs_code_226686009",8,base.snomed,http://snomed.info
+subs_code_226689002,226689002,"Fresh cream doughnut","Fresh cream doughnut (substance)","subs_code_226686009",8,base.snomed,http://snomed.info
+subs_code_226708001,226708001,"Cheese scone","Cheese scone (substance)","subs_code_226707006",8,base.snomed,http://snomed.info
+subs_code_226709009,226709009,"Fruit scone","Fruit scone (substance)","subs_code_226707006",8,base.snomed,http://snomed.info
+subs_code_226710004,226710004,"Plain scone","Plain scone (substance)","subs_code_226707006",8,base.snomed,http://snomed.info
+subs_code_226711000,226711000,"Potato scone","Potato scone (substance)","subs_code_226707006",8,base.snomed,http://snomed.info
+subs_code_226712007,226712007,"Wholemeal scone","Wholemeal scone (substance)","subs_code_226707006",8,base.snomed,http://snomed.info
+subs_code_226713002,226713002,"Wholemeal fruit scone","Wholemeal fruit scone (substance)","subs_code_226707006",8,base.snomed,http://snomed.info
+subs_code_226664008,226664008,"Fatless sponge cake","Fatless sponge cake (substance)","subs_code_226663002",7,base.snomed,http://snomed.info
+subs_code_226665009,226665009,"Frozen sponge cake","Frozen sponge cake (substance)","subs_code_226663002",7,base.snomed,http://snomed.info
+subs_code_226666005,226666005,"Jam-filled sponge cake","Jam-filled sponge cake (substance)","subs_code_226663002",7,base.snomed,http://snomed.info
+subs_code_226667001,226667001,"Fresh cream-filled sponge cake","Fresh cream-filled sponge cake (substance)","subs_code_226663002",7,base.snomed,http://snomed.info
+subs_code_226668006,226668006,"Sponge cake with butter icing","Sponge cake with butter icing (substance)","subs_code_226663002",7,base.snomed,http://snomed.info
+subs_code_226669003,226669003,"Sponge cake made with cake mix","Sponge cake made with cake mix (substance)","subs_code_226663002",7,base.snomed,http://snomed.info
+subs_code_226671003,226671003,"Chocolate filled swiss roll","Chocolate filled swiss roll (substance)","subs_code_226670002",7,base.snomed,http://snomed.info
+subs_code_226672005,226672005,"Jam filled swiss roll","Jam filled swiss roll (substance)","subs_code_226670002",7,base.snomed,http://snomed.info
+subs_code_226673000,226673000,"Individual swiss roll","Individual swiss roll (substance)","subs_code_226670002",7,base.snomed,http://snomed.info
+subs_code_226720009,226720009,"Arrowroot","Arrowroot (substance)","subs_code_23182003",6,base.snomed,http://snomed.info
+subs_code_278839003,278839003,"Barley - dietary","Barley - dietary (substance)","subs_code_23182003",6,base.snomed,http://snomed.info
+subs_code_226723006,226723006,"Buckwheat - cereal","Buckwheat - cereal (substance)","subs_code_23182003",6,base.snomed,http://snomed.info
+subs_code_226724000,226724000,"Bulgur wheat","Bulgur wheat (substance)","subs_code_23182003,subs_code_415842005",6,base.snomed,http://snomed.info
+subs_code_226725004,226725004,"Oatmeal","Oatmeal (substance)","subs_code_23182003,subs_code_418504009",6,base.snomed,http://snomed.info
+subs_code_226731001,226731001,"Sago","Sago (substance)","subs_code_23182003",6,base.snomed,http://snomed.info
+subs_code_226732008,226732008,"Semolina","Semolina (substance)","subs_code_23182003,subs_code_415842005",6,base.snomed,http://snomed.info
+subs_code_226733003,226733003,"Tapioca","Tapioca (substance)","subs_code_23182003",6,base.snomed,http://snomed.info
+subs_code_226734009,226734009,"Wheatgerm","Wheatgerm (substance)","subs_code_23182003,subs_code_415842005",6,base.snomed,http://snomed.info
+subs_code_226721008,226721008,"Pearl barley","Pearl barley (substance)","subs_code_278839003",7,base.snomed,http://snomed.info
+subs_code_226722001,226722001,"Whole grain barley","Whole grain barley (substance)","subs_code_278839003",7,base.snomed,http://snomed.info
+subs_code_226540004,226540004,"Chocolate biscuit","Chocolate biscuit (substance)","subs_code_226539001",6,base.snomed,http://snomed.info
+subs_code_444001000124100,444001000124100,"Cookie","Cookie (substance)","subs_code_226539001",6,base.snomed,http://snomed.info
+subs_code_226543002,226543002,"Cracker","Cracker (substance)","subs_code_226539001",6,base.snomed,http://snomed.info
+subs_code_226547001,226547001,"Crispbread","Crispbread (substance)","subs_code_226539001",6,base.snomed,http://snomed.info
+subs_code_226548006,226548006,"Digestive biscuit","Digestive biscuit (substance)","subs_code_226539001",6,base.snomed,http://snomed.info
+subs_code_226549003,226549003,"Gingernut biscuit","Gingernut biscuit (substance)","subs_code_226539001",6,base.snomed,http://snomed.info
+subs_code_226550003,226550003,"Home-made biscuit","Home-made biscuit (substance)","subs_code_226539001",6,base.snomed,http://snomed.info
+subs_code_314113006,314113006,"Low fat biscuit","Low fat biscuit (substance)","subs_code_226539001",6,base.snomed,http://snomed.info
+subs_code_226551004,226551004,"Matzo","Matzo (substance)","subs_code_226539001",6,base.snomed,http://snomed.info
+subs_code_226552006,226552006,"Oatcake","Oatcake (substance)","subs_code_226539001,subs_code_418504009",6,base.snomed,http://snomed.info
+subs_code_226553001,226553001,"Sandwich biscuit","Sandwich biscuit (substance)","subs_code_226539001",6,base.snomed,http://snomed.info
+subs_code_226554007,226554007,"Semi-sweet biscuit","Semi-sweet biscuit (substance)","subs_code_226539001",6,base.snomed,http://snomed.info
+subs_code_226556009,226556009,"Shortbread biscuit","Shortbread biscuit (substance)","subs_code_226539001",6,base.snomed,http://snomed.info
+subs_code_226555008,226555008,"Short-sweet biscuit","Short-sweet biscuit (substance)","subs_code_226539001",6,base.snomed,http://snomed.info
+subs_code_226557000,226557000,"Wafer biscuit","Wafer biscuit (substance)","subs_code_226539001",6,base.snomed,http://snomed.info
+subs_code_226558005,226558005,"Water biscuit","Water biscuit (substance)","subs_code_226539001",6,base.snomed,http://snomed.info
+subs_code_226541000,226541000,"Full coated chocolate biscuit","Full coated chocolate biscuit (substance)","subs_code_226540004",7,base.snomed,http://snomed.info
+subs_code_226542007,226542007,"Half-coated chocolate biscuit","Half-coated chocolate biscuit (substance)","subs_code_226540004",7,base.snomed,http://snomed.info
+subs_code_226544008,226544008,"Cream cracker","Cream cracker (substance)","subs_code_226543002",7,base.snomed,http://snomed.info
+subs_code_226546005,226546005,"Wholemeal cracker","Wholemeal cracker (substance)","subs_code_226543002",7,base.snomed,http://snomed.info
+subs_code_442721000124103,442721000124103,"Graham cracker","Graham cracker (substance)","subs_code_226543002",7,base.snomed,http://snomed.info
+subs_code_226024005,226024005,"Chocolate digestive biscuit","Chocolate digestive biscuit (substance)","subs_code_226548006,subs_code_226540004",7,base.snomed,http://snomed.info
+subs_code_226046002,226046002,"Plain digestive biscuit","Plain digestive biscuit (substance)","subs_code_226548006,subs_code_226540004",7,base.snomed,http://snomed.info
+subs_code_229933008,229933008,"Chapati flour","Chapati flour (substance)","subs_code_63766005",6,base.snomed,http://snomed.info
+subs_code_229934002,229934002,"Chick pea flour","Chick pea flour (substance)","subs_code_63766005",6,base.snomed,http://snomed.info
+subs_code_229936000,229936000,"Cornflour","Cornflour (substance)","subs_code_63766005,subs_code_406463001,subs_code_406465008",6,base.snomed,http://snomed.info
+subs_code_229937009,229937009,"Custard powder","Custard powder (substance)","subs_code_63766005",6,base.snomed,http://snomed.info
+subs_code_229938004,229938004,"Gari","Gari (substance)","subs_code_63766005",6,base.snomed,http://snomed.info
+subs_code_229939007,229939007,"Hominy","Hominy (substance)","subs_code_63766005",6,base.snomed,http://snomed.info
+subs_code_229942001,229942001,"Millet flour","Millet flour (substance)","subs_code_63766005",6,base.snomed,http://snomed.info
+subs_code_229943006,229943006,"Potato flour","Potato flour (substance)","subs_code_63766005",6,base.snomed,http://snomed.info
+subs_code_229941008,229941008,"Soya flour","Soya flour (substance)","subs_code_63766005",6,base.snomed,http://snomed.info
+subs_code_229946003,229946003,"Brown chapati flour","Brown chapati flour (substance)","subs_code_229933008",7,base.snomed,http://snomed.info
+subs_code_229947007,229947007,"White chapati flour","White chapati flour (substance)","subs_code_229933008",7,base.snomed,http://snomed.info
+subs_code_229948002,229948002,"Cornmeal","Cornmeal (substance)","subs_code_229936000",7,base.snomed,http://snomed.info
+subs_code_442541000124100,442541000124100,"Grits","Grits (substance)","subs_code_229939007",7,base.snomed,http://snomed.info
+subs_code_229949005,229949005,"Low fat soya flour","Low fat soya flour (substance)","subs_code_229941008",7,base.snomed,http://snomed.info
+subs_code_229950005,229950005,"Brown flour","Brown flour (substance)","subs_code_229944000",7,base.snomed,http://snomed.info
+subs_code_229951009,229951009,"White flour","White flour (substance)","subs_code_229944000",7,base.snomed,http://snomed.info
+subs_code_229952002,229952002,"White plain flour","White plain flour (substance)","subs_code_229951009",8,base.snomed,http://snomed.info
+subs_code_229953007,229953007,"White self-raising flour","White self-raising flour (substance)","subs_code_229951009",8,base.snomed,http://snomed.info
+subs_code_226736006,226736006,"Egg noodles","Egg noodles (substance)","subs_code_226735005",6,base.snomed,http://snomed.info
+subs_code_226737002,226737002,"Fried noodles","Fried noodles (substance)","subs_code_226735005",6,base.snomed,http://snomed.info
+subs_code_226738007,226738007,"Plain noodles","Plain noodles (substance)","subs_code_226735005",6,base.snomed,http://snomed.info
+subs_code_226739004,226739004,"Pot noodles","Pot noodles (substance)","subs_code_226735005",6,base.snomed,http://snomed.info
+subs_code_226037008,226037008,"Lasagne","Lasagne (substance)","subs_code_226740002,subs_code_226740002",6,base.snomed,http://snomed.info
+subs_code_226022009,226022009,"Cheese pastry","Cheese pastry (substance)","subs_code_226749001,subs_code_226749001",6,base.snomed,http://snomed.info
+subs_code_226750001,226750001,"Choux pastry","Choux pastry (substance)","subs_code_226749001",6,base.snomed,http://snomed.info
+subs_code_226751002,226751002,"Flaky pastry","Flaky pastry (substance)","subs_code_226749001",6,base.snomed,http://snomed.info
+subs_code_226752009,226752009,"Flan case pastry","Flan case pastry (substance)","subs_code_226749001",6,base.snomed,http://snomed.info
+subs_code_226753004,226753004,"Puff pastry","Puff pastry (substance)","subs_code_226749001",6,base.snomed,http://snomed.info
+subs_code_226756007,226756007,"Brown rice","Brown rice (substance)","subs_code_67324005",6,base.snomed,http://snomed.info
+subs_code_226757003,226757003,"Red rice","Red rice (substance)","subs_code_67324005",6,base.snomed,http://snomed.info
+subs_code_226758008,226758008,"Savory rice","Savory rice (substance)","subs_code_67324005",6,base.snomed,http://snomed.info
+subs_code_226759000,226759000,"White rice","White rice (substance)","subs_code_67324005",6,base.snomed,http://snomed.info
+subs_code_443681000124103,443681000124103,"Rice milk","Rice milk (substance)","subs_code_67324005",6,base.snomed,http://snomed.info
+subs_code_443861000124109,443861000124109,"Rice product","Rice product (substance)","subs_code_67324005",6,base.snomed,http://snomed.info
+subs_code_443851000124107,443851000124107,"Rice bran","Rice bran (substance)","subs_code_443861000124109",7,base.snomed,http://snomed.info
+subs_code_226584004,226584004,"Rye bread","Rye bread (substance)","subs_code_412068007,subs_code_226559002",6,base.snomed,http://snomed.info
+subs_code_229940009,229940009,"Rye flour","Rye flour (substance)","subs_code_412068007,subs_code_63766005",6,base.snomed,http://snomed.info
+subs_code_443671000124101,443671000124101,"Triticale","Triticale (substance)","subs_code_412068007,subs_code_226749001,subs_code_412071004",6,base.snomed,http://snomed.info
