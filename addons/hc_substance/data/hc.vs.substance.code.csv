@@ -1103,7 +1103,6 @@ subs_code_116648000,116648000,"gamma globulin","gamma globulin (substance)","sub
 subs_code_44411007,44411007,"GC globulin","GC globulin (substance)","subs_code_81905004",5,base.snomed,http://snomed.info
 subs_code_52454007,52454007,"Albumin","Albumin (substance)","subs_code_395835001,subs_code_406463001,subs_code_91309004",5,base.snomed,http://snomed.info
 subs_code_102688002,102688002,"Glycated albumin","Glycated albumin (substance)","subs_code_102686003,subs_code_52454007",5,base.snomed,http://snomed.info
-subs_code_414355008,414355008,"Glycopeptide antibiotic","Glycopeptide antibiotic (substance)","subs_code_301844007",5,base.snomed,http://snomed.info
 subs_code_259587008,259587008,"3.8S Alpha-2 glycoprotein","3.8S Alpha-2 glycoprotein (substance)","subs_code_59804006",5,base.snomed,http://snomed.info
 subs_code_17003006,17003006,"alpha-1- Acid glycoprotein","alpha-1- Acid glycoprotein (substance)","subs_code_59804006,subs_code_91309004",5,base.snomed,http://snomed.info
 subs_code_259596008,259596008,"Alpha-2 pregnancy associated glycoprotein","Alpha-2 pregnancy associated glycoprotein (substance)","subs_code_59804006",5,base.snomed,http://snomed.info
@@ -6614,7 +6613,6 @@ subs_code_413592000,413592000,"Atazanavir","Atazanavir (substance)","subs_code_4
 subs_code_407037005,407037005,"Atomoxetine","Atomoxetine (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_406776006,406776006,"Azasteroid","Azasteroid (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_386936005,386936005,"Azelaic acid","Azelaic acid (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
-subs_code_5220000,5220000,"Bacitracin","Bacitracin (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_387342009,387342009,"Baclofen","Baclofen (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_420557005,420557005,"Balsalazide","Balsalazide (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_412429009,412429009,"Barley malt extract","Barley malt extract (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
@@ -6646,7 +6644,6 @@ subs_code_412102008,412102008,"Bromhexine hydrochloride","Bromhexine hydrochlori
 subs_code_16624005,16624005,"Bromide salt","Bromide salt (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_387173000,387173000,"Buprenorphine","Buprenorphine (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_387523009,387523009,"Buspirone","Buspirone (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
-subs_code_96025001,96025001,"Butirosin","Butirosin (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_48078005,48078005,"Butyl aminobenzoate","Butyl aminobenzoate (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_372808009,372808009,"Butyrophenone derivative antipsychotic agent","Butyrophenone derivative antipsychotic agent (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_84270004,84270004,"Cade oil","Cade oil (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
@@ -6673,7 +6670,6 @@ subs_code_412114000,412114000,"Cetrorelix acetate","Cetrorelix acetate (substanc
 subs_code_372627001,372627001,"Chelating agent","Chelating agent (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_256310000,256310000,"Cherry - dietary","Cherry - dietary (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_418037002,418037002,"Chloral derivative","Chloral derivative (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
-subs_code_105907002,105907002,"Chloramphenicol (class of antibiotic, substance)","Chloramphenicol (class of antibiotic, substance) (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_387400008,387400008,"Chlormezanone","Chlormezanone (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_412117007,412117007,"Chlorophyllin","Chlorophyllin (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_395941009,395941009,"Chromium[51Cr] edetate","Chromium[51Cr] edetate (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
@@ -6768,7 +6764,6 @@ subs_code_407017006,407017006,"Fosamprenavir","Fosamprenavir (substance)","subs_
 subs_code_372902006,372902006,"Foscarnet","Foscarnet (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_372534005,372534005,"Fosfomycin","Fosfomycin (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_385519002,385519002,"Fulvestrant","Fulvestrant (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
-subs_code_387530003,387530003,"Fusidic acid","Fusidic acid (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_386845007,386845007,"Gabapentin","Gabapentin (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_105879004,105879004,"Gadolinium AND/OR gadolinium compound","Gadolinium AND/OR gadolinium compound (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_387239001,387239001,"Gentian violet","Gentian violet (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
@@ -6840,7 +6835,6 @@ subs_code_386955005,386955005,"Lepirudin","Lepirudin (substance)","subs_code_406
 subs_code_386911004,386911004,"Letrozole","Letrozole (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_372517002,372517002,"Leukotriene receptor inhibitor","Leukotriene receptor inhibitor (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_387296006,387296006,"Levamisole","Levamisole (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
-subs_code_373234002,373234002,"Lincomycin and derivatives","Lincomycin and derivatives (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_387056004,387056004,"Linezolid","Linezolid (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_41573001,41573001,"Linseed oil","Linseed oil (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_105864006,105864006,"Lithium AND/OR lithium compound","Lithium AND/OR lithium compound (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
@@ -6849,7 +6843,6 @@ subs_code_387227009,387227009,"Lomustine","Lomustine (substance)","subs_code_406
 subs_code_372691009,372691009,"Loop diuretic","Loop diuretic (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_387040009,387040009,"Loperamide","Loperamide (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_387067003,387067003,"Lopinavir","Lopinavir (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
-subs_code_372480009,372480009,"Macrolide (class of antibiotic, substance)","Macrolide (class of antibiotic, substance) (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_419501005,419501005,"Macrolide immunosuppressant","Macrolide immunosuppressant (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_387401007,387401007,"Magnesium carbonate","Magnesium carbonate (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_387052002,387052002,"Magnesium citrate","Magnesium citrate (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
@@ -6903,7 +6896,6 @@ subs_code_373281001,373281001,"Monoamine oxidase inhibitor","Monoamine oxidase i
 subs_code_108671000,108671000,"Monoctanoin","Monoctanoin (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_373529000,373529000,"Morphine","Morphine (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_78859001,78859001,"Morrhuate sodium","Morrhuate sodium (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
-subs_code_387397004,387397004,"Mupirocin","Mupirocin (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_386976000,386976000,"Mycophenolate mofetil","Mycophenolate mofetil (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_409330005,409330005,"Mycophenolic acid","Mycophenolic acid (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_395992001,395992001,"Nafronyl","Nafronyl (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
@@ -7048,7 +7040,6 @@ subs_code_387068008,387068008,"Terazosin","Terazosin (substance)","subs_code_406
 subs_code_412375000,412375000,"Tetanus vaccine","Tetanus vaccine (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_387309008,387309008,"Tetracaine","Tetracaine (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_372576002,372576002,"Tetracyclic antidepressant","Tetracyclic antidepressant (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
-subs_code_373206009,373206009,"Tetracycline (class of antibiotic, substance)","Tetracycline (class of antibiotic, substance) (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_78702007,78702007,"Thalidomide","Thalidomide (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_372747003,372747003,"Thiazide diuretic","Thiazide diuretic (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_387508004,387508004,"Thiotepa","Thiotepa (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
@@ -7072,7 +7063,6 @@ subs_code_20887007,20887007,"Triethylenemelamine","Triethylenemelamine (substanc
 subs_code_373512003,373512003,"Trifluridine","Trifluridine (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_412291000,412291000,"Trifolium pratense extract","Trifolium pratense extract (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_70732003,70732003,"Trimethadione","Trimethadione (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
-subs_code_412052001,412052001,"Trimethoprim and derivatives","Trimethoprim and derivatives (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_35464001,35464001,"Trioxsalen","Trioxsalen (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_412112001,412112001,"Uncaria tomentosa extract","Uncaria tomentosa extract (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
 subs_code_412053006,412053006,"Urea and derivatives","Urea and derivatives (substance)","subs_code_406463001",6,base.snomed,http://snomed.info
@@ -7327,7 +7317,6 @@ subs_code_58674002,58674002,"Naphthol","Naphthol (substance)","subs_code_3000700
 subs_code_3232003,3232003,"o-Benzyl-parachlorophenol","o-Benzyl-parachlorophenol (substance)","subs_code_300070004",6,base.snomed,http://snomed.info
 subs_code_373223000,373223000,"Phenolics","Phenolics (substance)","subs_code_300070004",6,base.snomed,http://snomed.info
 subs_code_19595005,19595005,"Phenolphthalein","Phenolphthalein (substance)","subs_code_300070004",6,base.snomed,http://snomed.info
-subs_code_713335008,713335008,"Phenoxyisopropanol","Phenoxyisopropanol (substance)","subs_code_300070004",6,base.snomed,http://snomed.info
 subs_code_21556007,21556007,"p-Methylaminophenol sulfate","p-Methylaminophenol sulfate (substance)","subs_code_300070004",6,base.snomed,http://snomed.info
 subs_code_416908008,416908008,"Polyphenol","Polyphenol (substance)","subs_code_300070004",6,base.snomed,http://snomed.info
 subs_code_58687008,58687008,"p-tert-Butylphenol","p-tert-Butylphenol (substance)","subs_code_300070004",6,base.snomed,http://snomed.info
@@ -7344,7 +7333,6 @@ subs_code_91455001,91455001,"Wood tar","Wood tar (substance)","subs_code_3000700
 subs_code_1673002,1673002,"Xylenol","Xylenol (substance)","subs_code_300070004",6,base.snomed,http://snomed.info
 subs_code_32948009,32948009,"Radical","Radical (substance)","subs_code_58295004",5,base.snomed,http://snomed.info
 subs_code_33638001,33638001,"Isotope","Isotope (substance)","subs_code_58295004",5,base.snomed,http://snomed.info
-subs_code_424866007,424866007,"Cerium nitrate","Cerium nitrate (substance)","subs_code_58295004",5,base.snomed,http://snomed.info
 subs_code_52646004,52646004,"Actinium isotope","Actinium isotope (substance)","subs_code_33638001",6,base.snomed,http://snomed.info
 subs_code_54256005,54256005,"Aluminum isotope","Aluminum isotope (substance)","subs_code_33638001",6,base.snomed,http://snomed.info
 subs_code_29170002,29170002,"Antimony isotope","Antimony isotope (substance)","subs_code_33638001",6,base.snomed,http://snomed.info
@@ -7849,3 +7837,261 @@ subs_code_443851000124107,443851000124107,"Rice bran","Rice bran (substance)","s
 subs_code_226584004,226584004,"Rye bread","Rye bread (substance)","subs_code_412068007,subs_code_226559002",6,base.snomed,http://snomed.info
 subs_code_229940009,229940009,"Rye flour","Rye flour (substance)","subs_code_412068007,subs_code_63766005",6,base.snomed,http://snomed.info
 subs_code_443671000124101,443671000124101,"Triticale","Triticale (substance)","subs_code_412068007,subs_code_226749001,subs_code_412071004",6,base.snomed,http://snomed.info
+subs_code_373873005,373873005,"Pharmaceutical / biologic product","Pharmaceutical / biologic product (product)",,1,base.snomed,http://snomed.info
+subs_code_326289007,326289007,"Acetic acid product","Acetic acid product (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_333164008,333164008,"Alcohol products","Alcohol products (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_312054001,312054001,"Alkalizing agent","Alkalizing agent (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_409436003,409436003,"Alopecia preparation","Alopecia preparation (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_53009005,53009005,"Analgesic","Analgesic (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_5776009,5776009,"Anesthetic","Anesthetic (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_409407003,409407003,"Angiogenesis inhibitor","Angiogenesis inhibitor (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_386757008,386757008,"Anti glaucoma preparation","Anti glaucoma preparation (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_135394005,135394005,"Antiallergenic drugs","Antiallergenic drugs (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_384953001,384953001,"Antidiabetic preparation","Antidiabetic preparation (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_17386008,17386008,"Anti-infective agent","Anti-infective agent (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_27867009,27867009,"Antineoplastic agent","Antineoplastic agent (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_60533005,60533005,"Astringent drug","Astringent drug (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_85417000,85417000,"Autonomic drug","Autonomic drug (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_69509008,69509008,"Biological agent","Biological agent (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_356497001,356497001,"Bone cements","Bone cements (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_409248003,409248003,"Bone graft material","Bone graft material (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_96280000,96280000,"Bone resorption inhibitor","Bone resorption inhibitor (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_1434005,1434005,"Calamine","Calamine (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_429601000124107,429601000124107,"Campy CVA agar","Campy CVA agar (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_398879004,398879004,"Carbamide peroxide","Carbamide peroxide (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_400305001,400305001,"Carboxymethylcellulose sodium","Carboxymethylcellulose sodium (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_14833006,14833006,"Cardiovascular drug","Cardiovascular drug (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_422888008,422888008,"Cetalkonium","Cetalkonium (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_350074002,350074002,"Chelating agents and antidotes","Chelating agents and antidotes (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_370179008,370179008,"Choline salicylate product","Choline salicylate product (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_321087001,321087001,"CNS drug","CNS drug (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_350476009,350476009,"Collagen product","Collagen product (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_413969007,413969007,"Dental disclosing preparation","Dental disclosing preparation (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_13132007,13132007,"Dextran","Dextran (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_2949005,2949005,"Diagnostic aid","Diagnostic aid (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_373783004,373783004,"Dietary product","Dietary product (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_412192002,412192002,"Dimethyl sulfone","Dimethyl sulfone (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_418528006,418528006,"Docusate","Docusate (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_350060009,350060009,"Drug groups primarily affecting the musculoskeletal system","Drug groups primarily affecting the musculoskeletal system (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_312416005,312416005,"Drug values","Drug values (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_411115002,411115002,"Drug-device combination product","Drug-device combination product (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_406450007,406450007,"Drugs treating radiation contamination","Drugs treating radiation contamination (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_329464003,329464003,"Drugs used in metabolic disorders","Drugs used in metabolic disorders (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_425288007,425288007,"Drugs used to treat addiction","Drugs used to treat addiction (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_429591000124104,429591000124104,"Enteric transport medium","Enteric transport medium (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_407314008,407314008,"Enzyme inhibitor","Enzyme inhibitor (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_11402001,11402001,"Enzyme preparation","Enzyme preparation (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_349893001,349893001,"Ergoline drug","Ergoline drug (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_350594000,350594000,"Fluoride product","Fluoride product (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_440129000,440129000,"Gastroenteral dosage form product","Gastroenteral dosage form product (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_39741008,39741008,"Gastrointestinal drug","Gastrointestinal drug (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_79138004,79138004,"Gelatin","Gelatin (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_407315009,407315009,"Genital system agent","Genital system agent (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_325281002,325281002,"Guar gum","Guar gum (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_716000,716000,"Hematologic drug","Hematologic drug (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_346641004,346641004,"Hemorrhoid preparation","Hemorrhoid preparation (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_349365008,349365008,"Herbal medicine","Herbal medicine (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_349363001,349363001,"Homeopathic medicine","Homeopathic medicine (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_350345004,350345004,"Hormones, synthetic substitutes and antagonists","Hormones, synthetic substitutes and antagonists (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_255683006,255683006,"Immunotherapeutic agent","Immunotherapeutic agent (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_333308000,333308000,"Iodine compounds","Iodine compounds (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_412453003,412453003,"Irritant","Irritant (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_423028001,423028001,"Lavender oil","Lavender oil (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_88566002,88566002,"Liver preparation","Liver preparation (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_30761007,30761007,"Mannitol","Mannitol (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_349362006,349362006,"Medical gases","Medical gases (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_73170009,73170009,"Menthol","Menthol (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_24504000,24504000,"Methylcellulose","Methylcellulose (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_69242008,69242008,"Miotic","Miotic (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_82804004,82804004,"Nasal dosage form product","Nasal dosage form product (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_440130005,440130005,"Ocular dosage form product","Ocular dosage form product (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_440131009,440131009,"Oral dosage form product","Oral dosage form product (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_353613001,353613001,"Oropharyngeal dosage form product","Oropharyngeal dosage form product (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_38413003,38413003,"Otic dosage form product","Otic dosage form product (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_412342008,412342008,"Oxidized cellulose","Oxidized cellulose (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_440132002,440132002,"Parenteral dosage form product","Parenteral dosage form product (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_350232000,350232000,"Pesticide product","Pesticide product (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_419678005,419678005,"Pharmaceutical fluid or solution","Pharmaceutical fluid or solution (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_66742008,66742008,"Pigmenting agent","Pigmenting agent (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_412485000,412485000,"Policosanol","Policosanol (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_350096008,350096008,"Product bases and inactive substances","Product bases and inactive substances (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_38900001,38900001,"Proliferant agent","Proliferant agent (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_349358000,349358000,"Radiopharmaceuticals","Radiopharmaceuticals (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_440133007,440133007,"Rectal dosage form product","Rectal dosage form product (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_116068007,116068007,"Renal drug","Renal drug (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_8661009,8661009,"Replacement preparation","Replacement preparation (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_366737002,366737002,"Reproductive system drug","Reproductive system drug (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_320072000,320072000,"Respiratory drugs","Respiratory drugs (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_116085009,116085009,"Retinoid","Retinoid (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_350057002,350057002,"Selenium product","Selenium product (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_65628000,65628000,"Skin agent","Skin agent (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_409109009,409109009,"Talc","Talc (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_108888009,108888009,"Tyloxapol","Tyloxapol (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_16858004,16858004,"Urea","Urea (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_440134001,440134001,"Vaginal dosage form product","Vaginal dosage form product (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_12968008,12968008,"Vitamin preparation","Vitamin preparation (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_312072007,312072007,"Water, mineral or uric acid metabolism drug","Water, mineral or uric acid metabolism drug (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_420444000,420444000,"Zinc gluconate","Zinc gluconate (product)","subs_code_373873005",2,base.snomed,http://snomed.info
+subs_code_346325008,346325008,"Antibacterial drugs","Antibacterial drugs (product)","subs_code_17386008",3,base.snomed,http://snomed.info
+subs_code_324643005,324643005,"Antifungal drugs","Antifungal drugs (product)","subs_code_17386008",3,base.snomed,http://snomed.info
+subs_code_32249005,32249005,"Antiviral agent","Antiviral agent (product)","subs_code_17386008",3,base.snomed,http://snomed.info
+subs_code_411184009,411184009,"Benzalkonium chloride (in water)","Benzalkonium chloride (in water) (product)","subs_code_17386008",3,base.snomed,http://snomed.info
+subs_code_422536009,422536009,"Cerium nitrate","Cerium nitrate (product)","subs_code_17386008",3,base.snomed,http://snomed.info
+subs_code_169529008,169529008,"Contraceptive sponge","Contraceptive sponge (product)","subs_code_17386008",3,base.snomed,http://snomed.info
+subs_code_333163002,333163002,"Disinfectants and cleansers","Disinfectants and cleansers (product)","subs_code_17386008",3,base.snomed,http://snomed.info
+subs_code_411311001,411311001,"Halquinol","Halquinol (product)","subs_code_17386008",3,base.snomed,http://snomed.info
+subs_code_363740009,363740009,"Heavy metal anti-infective","Heavy metal anti-infective (product)","subs_code_17386008",3,base.snomed,http://snomed.info
+subs_code_36168000,36168000,"Nasal anti-infective preparation","Nasal anti-infective preparation (product)","subs_code_17386008",3,base.snomed,http://snomed.info
+subs_code_11260008,11260008,"Ophthalmic anti-infective preparation","Ophthalmic anti-infective preparation (product)","subs_code_17386008",3,base.snomed,http://snomed.info
+subs_code_3593009,3593009,"Otic anti-infective preparation","Otic anti-infective preparation (product)","subs_code_17386008",3,base.snomed,http://snomed.info
+subs_code_333032003,333032003,"Parasiticidal preparations","Parasiticidal preparations (product)","subs_code_17386008",3,base.snomed,http://snomed.info
+subs_code_56934003,56934003,"Povidone","Povidone (product)","subs_code_17386008",3,base.snomed,http://snomed.info
+subs_code_10668002,10668002,"Skin anti-infective","Skin anti-infective (product)","subs_code_17386008",3,base.snomed,http://snomed.info
+subs_code_713930007,713930007,"Topical anti-infective","Topical anti-infective (product)","subs_code_17386008",3,base.snomed,http://snomed.info
+subs_code_324116004,324116004,"Aminoglycosides","Aminoglycosides (product)","subs_code_346325008",4,base.snomed,http://snomed.info
+subs_code_350216003,350216003,"Antimycobacterial agent","Antimycobacterial agent (product)","subs_code_346325008",4,base.snomed,http://snomed.info
+subs_code_370330005,370330005,"Bacitracin product","Bacitracin product (product)","subs_code_346325008",4,base.snomed,http://snomed.info
+subs_code_90614001,90614001,"beta-Lactam antibiotic","beta-Lactam antibiotic (product)","subs_code_346325008",4,base.snomed,http://snomed.info
+subs_code_425481003,425481003,"Chloramphenicol derivative","Chloramphenicol derivative (product)","subs_code_346325008",4,base.snomed,http://snomed.info
+subs_code_406437006,406437006,"Cyclic lipopeptide antibiotic","Cyclic lipopeptide antibiotic (product)","subs_code_346325008",4,base.snomed,http://snomed.info
+subs_code_422822006,422822006,"Fusafungine","Fusafungine (product)","subs_code_346325008",4,base.snomed,http://snomed.info
+subs_code_96015006,96015006,"Fusidic acid","Fusidic acid (product)","subs_code_346325008",4,base.snomed,http://snomed.info
+subs_code_414354007,414354007,"Glycopeptide antibiotic","Glycopeptide antibiotic (product)","subs_code_346325008",4,base.snomed,http://snomed.info
+subs_code_91479004,91479004,"Gramicidin","Gramicidin (product)","subs_code_346325008",4,base.snomed,http://snomed.info
+subs_code_422494007,422494007,"Iodoform","Iodoform (product)","subs_code_346325008",4,base.snomed,http://snomed.info
+subs_code_423967005,423967005,"Lincosamide","Lincosamide (product)","subs_code_346325008",4,base.snomed,http://snomed.info
+subs_code_105908007,105908007,"Macrolide (class of antibiotic)","Macrolide (class of antibiotic) (product)","subs_code_346325008",4,base.snomed,http://snomed.info
+subs_code_71453003,71453003,"Mupirocin","Mupirocin (product)","subs_code_346325008",4,base.snomed,http://snomed.info
+subs_code_713382001,713382001,"Nitrofuran","Nitrofuran (product)","subs_code_346325008",4,base.snomed,http://snomed.info
+subs_code_350157004,350157004,"Nitroimidazole","Nitroimidazole (product)","subs_code_346325008",4,base.snomed,http://snomed.info
+subs_code_371187001,371187001,"Novobiocin product","Novobiocin product (product)","subs_code_346325008",4,base.snomed,http://snomed.info
+subs_code_11777007,11777007,"Ophthalmic antibiotic","Ophthalmic antibiotic (product)","subs_code_346325008",4,base.snomed,http://snomed.info
+subs_code_125686001,125686001,"Oxazolidinone -class of antibiotic-","Oxazolidinone -class of antibiotic- (product)","subs_code_346325008",4,base.snomed,http://snomed.info
+subs_code_427045005,427045005,"Pleuromutilin","Pleuromutilin (product)","subs_code_346325008",4,base.snomed,http://snomed.info
+subs_code_346638008,346638008,"Polymyxins","Polymyxins (product)","subs_code_346325008",4,base.snomed,http://snomed.info
+subs_code_37084008,37084008,"Quinolone -class of antibiotic-","Quinolone -class of antibiotic- (product)","subs_code_346325008",4,base.snomed,http://snomed.info
+subs_code_713764001,713764001,"Rifamycin","Rifamycin (product)","subs_code_346325008",4,base.snomed,http://snomed.info
+subs_code_422292008,422292008,"Streptogramin","Streptogramin (product)","subs_code_346325008",4,base.snomed,http://snomed.info
+subs_code_59255006,59255006,"Sulfonamide -class of antibiotic-","Sulfonamide -class of antibiotic- (product)","subs_code_346325008",4,base.snomed,http://snomed.info
+subs_code_282831004,282831004,"Tetracyclines","Tetracyclines (product)","subs_code_346325008",4,base.snomed,http://snomed.info
+subs_code_714248004,714248004,"Topical antibacterial","Topical antibacterial (product)","subs_code_346325008",4,base.snomed,http://snomed.info
+subs_code_32792001,32792001,"Trimethoprim","Trimethoprim (product)","subs_code_346325008",4,base.snomed,http://snomed.info
+subs_code_324557001,324557001,"Urinary antimicrobial drugs","Urinary antimicrobial drugs (product)","subs_code_346325008",4,base.snomed,http://snomed.info
+subs_code_350134005,350134005,"Carbapenem","Carbapenem (product)","subs_code_90614001",5,base.snomed,http://snomed.info
+subs_code_51779009,51779009,"Cephalosporin -class of antibiotic-","Cephalosporin -class of antibiotic- (product)","subs_code_90614001",5,base.snomed,http://snomed.info
+subs_code_412318009,412318009,"Clavulanic acid","Clavulanic acid (product)","subs_code_90614001",5,base.snomed,http://snomed.info
+subs_code_409133003,409133003,"Monobactam","Monobactam (product)","subs_code_90614001",5,base.snomed,http://snomed.info
+subs_code_350135006,350135006,"Moxalactam","Moxalactam (product)","subs_code_90614001",5,base.snomed,http://snomed.info
+subs_code_6369005,6369005,"Penicillin -class of antibiotic-","Penicillin -class of antibiotic- (product)","subs_code_90614001",5,base.snomed,http://snomed.info
+subs_code_398916003,398916003,"Sulbactam","Sulbactam (product)","subs_code_90614001",5,base.snomed,http://snomed.info
+subs_code_410931003,410931003,"Tazobactam","Tazobactam (product)","subs_code_90614001",5,base.snomed,http://snomed.info
+subs_code_323746002,323746002,"Antipseudomonal penicillins","Antipseudomonal penicillins (product)","subs_code_6369005",6,base.snomed,http://snomed.info
+subs_code_323508007,323508007,"Broad spectrum penicillins","Broad spectrum penicillins (product)","subs_code_6369005",6,base.snomed,http://snomed.info
+subs_code_73763003,73763003,"Extended spectrum penicillin","Extended spectrum penicillin (product)","subs_code_6369005",6,base.snomed,http://snomed.info
+subs_code_86536001,86536001,"Natural penicillin","Natural penicillin (product)","subs_code_6369005",6,base.snomed,http://snomed.info
+subs_code_323388008,323388008,"Penicillinase sensitive penicillins","Penicillinase sensitive penicillins (product)","subs_code_6369005",6,base.snomed,http://snomed.info
+subs_code_68892006,68892006,"Penicillinase-resistant penicillin","Penicillinase-resistant penicillin (product)","subs_code_6369005",6,base.snomed,http://snomed.info
+subs_code_34731007,34731007,"Carbenicillin","Carbenicillin (product)","subs_code_323508007",7,base.snomed,http://snomed.info
+subs_code_78174002,78174002,"Mezlocillin","Mezlocillin (product)","subs_code_323508007",7,base.snomed,http://snomed.info
+subs_code_90704004,90704004,"Aminopenicillin","Aminopenicillin (product)","subs_code_323508007",7,base.snomed,http://snomed.info
+subs_code_27658006,27658006,"Amoxicillin","Amoxicillin (product)","subs_code_90704004",8,base.snomed,http://snomed.info
+subs_code_31087008,31087008,"Ampicillin","Ampicillin (product)","subs_code_90704004",8,base.snomed,http://snomed.info
+subs_code_82312001,82312001,"Bacampicillin","Bacampicillin (product)","subs_code_90704004",8,base.snomed,http://snomed.info
+subs_code_69331001,69331001,"Cyclacillin","Cyclacillin (product)","subs_code_90704004",8,base.snomed,http://snomed.info
+subs_code_96072001,96072001,"Pivampicillin","Pivampicillin (product)","subs_code_90704004",8,base.snomed,http://snomed.info
+subs_code_96073006,96073006,"Talampicillin","Talampicillin (product)","subs_code_90704004",8,base.snomed,http://snomed.info
+subs_code_89519005,89519005,"Amoxycillin with clavulanate potassium (product)","Amoxycillin with clavulanate potassium (product)","subs_code_27658006",9,base.snomed,http://snomed.info
+subs_code_350162003,350162003,"Oral form amoxycillin (product)","Oral form amoxycillin (product)","subs_code_27658006",9,base.snomed,http://snomed.info
+subs_code_350163008,350163008,"Parenteral form amoxycillin (product)","Parenteral form amoxycillin (product)","subs_code_27658006",9,base.snomed,http://snomed.info
+subs_code_392251008,392251008,"Oral form amoxycillin with clavulanate potassium (product)","Oral form amoxycillin with clavulanate potassium (product)","subs_code_89519005",10,base.snomed,http://snomed.info
+subs_code_392253006,392253006,"Parenteral form amoxycillin with clavulanate potassium (product)","Parenteral form amoxycillin with clavulanate potassium (product)","subs_code_89519005",10,base.snomed,http://snomed.info
+subs_code_370409000,370409000,"Amoxicillin + clavulanate potassium 125mg/31mg chewable tablet (product)","Amoxicillin + clavulanate potassium 125mg/31mg chewable tablet (product)","subs_code_392251008",11,base.snomed,http://snomed.info
+subs_code_323535003,323535003,"Amoxicillin + clavulanate potassium 125mg/31mg/5mL s/f suspension (product)","Amoxicillin + clavulanate potassium 125mg/31mg/5mL s/f suspension (product)","subs_code_392251008",11,base.snomed,http://snomed.info
+subs_code_412558005,412558005,"Amoxicillin + clavulanate potassium 1g/62.5mg m/r tablet (product)","Amoxicillin + clavulanate potassium 1g/62.5mg m/r tablet (product)","subs_code_392251008",11,base.snomed,http://snomed.info
+subs_code_370410005,370410005,"Amoxicillin + clavulanate potassium 200mg/28.5mg chewable tablet (product)","Amoxicillin + clavulanate potassium 200mg/28.5mg chewable tablet (product)","subs_code_392251008",11,base.snomed,http://snomed.info
+subs_code_417466009,417466009,"Amoxicillin + clavulanate potassium 200mg/28.5mg/5mL oral (product)","Amoxicillin + clavulanate potassium 200mg/28.5mg/5mL oral (product)","subs_code_392251008",11,base.snomed,http://snomed.info
+subs_code_370413007,370413007,"Amoxicillin + clavulanate potassium 200mg/28.5mg/5mL s/f suspension (product)","Amoxicillin + clavulanate potassium 200mg/28.5mg/5mL s/f suspension (product)","subs_code_392251008",11,base.snomed,http://snomed.info
+subs_code_323564007,323564007,"Amoxicillin + clavulanate potassium 250mg/125mg s/f dispersible tablet (product)","Amoxicillin + clavulanate potassium 250mg/125mg s/f dispersible tablet (product)","subs_code_392251008",11,base.snomed,http://snomed.info
+subs_code_323563001,323563001,"Amoxicillin + clavulanate potassium 250mg/125mg tablet (product)","Amoxicillin + clavulanate potassium 250mg/125mg tablet (product)","subs_code_392251008",11,base.snomed,http://snomed.info
+subs_code_370411009,370411009,"Amoxicillin + clavulanate potassium 250mg/62.5mg chewable tablet (product)","Amoxicillin + clavulanate potassium 250mg/62.5mg chewable tablet (product)","subs_code_392251008",11,base.snomed,http://snomed.info
+subs_code_323569002,323569002,"Amoxicillin + clavulanate potassium 250mg/62.5mg/5mL s/f suspension (product)","Amoxicillin + clavulanate potassium 250mg/62.5mg/5mL s/f suspension (product)","subs_code_392251008",11,base.snomed,http://snomed.info
+subs_code_370412002,370412002,"Amoxicillin + clavulanate potassium 400mg/57mg chewable tablet (product)","Amoxicillin + clavulanate potassium 400mg/57mg chewable tablet (product)","subs_code_392251008",11,base.snomed,http://snomed.info
+subs_code_377596000,377596000,"Amoxicillin + clavulanate potassium 400mg/57mg/5mL oral suspension (product)","Amoxicillin + clavulanate potassium 400mg/57mg/5mL oral suspension (product)","subs_code_392251008",11,base.snomed,http://snomed.info
+subs_code_323542003,323542003,"Amoxicillin + clavulanate potassium 400mg/57mg/5mL s/f suspension (product)","Amoxicillin + clavulanate potassium 400mg/57mg/5mL s/f suspension (product)","subs_code_392251008",11,base.snomed,http://snomed.info
+subs_code_323539009,323539009,"Amoxicillin + clavulanate potassium 500mg/125mg tablet (product)","Amoxicillin + clavulanate potassium 500mg/125mg tablet (product)","subs_code_392251008",11,base.snomed,http://snomed.info
+subs_code_392260000,392260000,"Amoxicillin + clavulanate potassium 600mg/42.9mg/5mL s/f suspension (product)","Amoxicillin + clavulanate potassium 600mg/42.9mg/5mL s/f suspension (product)","subs_code_392251008",11,base.snomed,http://snomed.info
+subs_code_370408008,370408008,"Amoxicillin + clavulanate potassium 800mg/125mg tablet (product)","Amoxicillin + clavulanate potassium 800mg/125mg tablet (product)","subs_code_392251008",11,base.snomed,http://snomed.info
+subs_code_392259005,392259005,"Amoxicillin + clavulanate potassium 875mg/125mg tablet (product)","Amoxicillin + clavulanate potassium 875mg/125mg tablet (product)","subs_code_392251008",11,base.snomed,http://snomed.info
+subs_code_373219008,373219008,"Antifungal","Antifungal (substance)","subs_code_373249005",4,base.snomed,http://snomed.info
+subs_code_250428009,250428009,"Antimicrobial substance","Antimicrobial substance (substance)","subs_code_373249005",4,base.snomed,http://snomed.info
+subs_code_373300001,373300001,"Antiparasite agent","Antiparasite agent (substance)","subs_code_373249005",4,base.snomed,http://snomed.info
+subs_code_372701006,372701006,"Antiviral agent","Antiviral agent (substance)","subs_code_373249005",4,base.snomed,http://snomed.info
+subs_code_424866007,424866007,"Cerium nitrate","Cerium nitrate (substance)","subs_code_373249005,subs_code_58295004",4,base.snomed,http://snomed.info
+subs_code_373222005,373222005,"Disinfectants and cleansers","Disinfectants and cleansers (substance)","subs_code_373249005",4,base.snomed,http://snomed.info
+subs_code_425924000,425924000,"Heavy metal anti-infective agent","Heavy metal anti-infective agent (substance)","subs_code_373249005",4,base.snomed,http://snomed.info
+subs_code_373767004,373767004,"Mucous membrane anti-infective","Mucous membrane anti-infective (substance)","subs_code_373249005",4,base.snomed,http://snomed.info
+subs_code_419241000,419241000,"Antibacterial agent","Antibacterial agent (substance)","subs_code_250428009",5,base.snomed,http://snomed.info
+subs_code_84123005,84123005,"Nitrofurfuryl methylether","Nitrofurfuryl methylether (substance)","subs_code_250428009",5,base.snomed,http://snomed.info
+subs_code_14443002,14443002,"Aminoglycoside -class of antibiotic-","Aminoglycoside -class of antibiotic- (substance)","subs_code_419241000",6,base.snomed,http://snomed.info
+subs_code_43048003,43048003,"Amphomycin","Amphomycin (substance)","subs_code_419241000",6,base.snomed,http://snomed.info
+subs_code_419278002,419278002,"Antimycobacterial agent","Antimycobacterial agent (substance)","subs_code_419241000",6,base.snomed,http://snomed.info
+subs_code_46122001,46122001,"Antitreponemal agent","Antitreponemal agent (substance)","subs_code_419241000",6,base.snomed,http://snomed.info
+subs_code_5220000,5220000,"Bacitracin","Bacitracin (substance)","subs_code_419241000,subs_code_406463001",6,base.snomed,http://snomed.info
+subs_code_373297006,373297006,"Beta-lactam antibiotic","Beta-lactam antibiotic (substance)","subs_code_419241000,subs_code_250428009",6,base.snomed,http://snomed.info
+subs_code_96025001,96025001,"Butirosin","Butirosin (substance)","subs_code_419241000,subs_code_406463001",6,base.snomed,http://snomed.info
+subs_code_96016007,96016007,"Carbadox","Carbadox (substance)","subs_code_419241000",6,base.snomed,http://snomed.info
+subs_code_105907002,105907002,"Chloramphenicol (class of antibiotic, substance)","Chloramphenicol (class of antibiotic, substance) (substance)","subs_code_419241000,subs_code_406463001",6,base.snomed,http://snomed.info
+subs_code_406440006,406440006,"Cyclic lipopeptide antibiotic","Cyclic lipopeptide antibiotic (substance)","subs_code_419241000",6,base.snomed,http://snomed.info
+subs_code_29765001,29765001,"Fumagillin","Fumagillin (substance)","subs_code_419241000",6,base.snomed,http://snomed.info
+subs_code_422751003,422751003,"Fusafungine","Fusafungine (substance)","subs_code_419241000",6,base.snomed,http://snomed.info
+subs_code_387530003,387530003,"Fusidic acid","Fusidic acid (substance)","subs_code_419241000,subs_code_406463001",6,base.snomed,http://snomed.info
+subs_code_414355008,414355008,"Glycopeptide antibiotic","Glycopeptide antibiotic (substance)","subs_code_419241000,subs_code_301844007",6,base.snomed,http://snomed.info
+subs_code_387524003,387524003,"Gramicidin","Gramicidin (substance)","subs_code_419241000",6,base.snomed,http://snomed.info
+subs_code_418692007,418692007,"Iodoform agent","Iodoform agent (substance)","subs_code_419241000",6,base.snomed,http://snomed.info
+subs_code_373234002,373234002,"Lincomycin and derivatives","Lincomycin and derivatives (substance)","subs_code_419241000,subs_code_406463001",6,base.snomed,http://snomed.info
+subs_code_372480009,372480009,"Macrolide (class of antibiotic, substance)","Macrolide (class of antibiotic, substance) (substance)","subs_code_419241000,subs_code_406463001",6,base.snomed,http://snomed.info
+subs_code_387397004,387397004,"Mupirocin","Mupirocin (substance)","subs_code_419241000,subs_code_406463001",6,base.snomed,http://snomed.info
+subs_code_61178007,61178007,"Neamine","Neamine (substance)","subs_code_419241000",6,base.snomed,http://snomed.info
+subs_code_373235001,373235001,"Nitroimidazole","Nitroimidazole (substance)","subs_code_419241000",6,base.snomed,http://snomed.info
+subs_code_90220005,90220005,"Novobiocin","Novobiocin (substance)","subs_code_419241000",6,base.snomed,http://snomed.info
+subs_code_372649007,372649007,"Oxazolidinone -class of antibiotic-","Oxazolidinone -class of antibiotic- (substance)","subs_code_419241000",6,base.snomed,http://snomed.info
+subs_code_713335008,713335008,"Phenoxyisopropanol","Phenoxyisopropanol (substance)","subs_code_419241000,subs_code_300070004",6,base.snomed,http://snomed.info
+subs_code_426045001,426045001,"Pleuromutilin","Pleuromutilin (substance)","subs_code_419241000",6,base.snomed,http://snomed.info
+subs_code_373224006,373224006,"Polymyxins","Polymyxins (substance)","subs_code_419241000",6,base.snomed,http://snomed.info
+subs_code_372722000,372722000,"Quinolone -class of antibiotic-","Quinolone -class of antibiotic- (substance)","subs_code_419241000",6,base.snomed,http://snomed.info
+subs_code_406756000,406756000,"Rifamycins","Rifamycins (substance)","subs_code_419241000",6,base.snomed,http://snomed.info
+subs_code_420946006,420946006,"Streptogramin","Streptogramin (substance)","subs_code_419241000",6,base.snomed,http://snomed.info
+subs_code_372788003,372788003,"Sulfonamide -class of antibiotic-","Sulfonamide -class of antibiotic- (substance)","subs_code_419241000",6,base.snomed,http://snomed.info
+subs_code_373206009,373206009,"Tetracycline (class of antibiotic, substance)","Tetracycline (class of antibiotic, substance) (substance)","subs_code_419241000,subs_code_406463001",6,base.snomed,http://snomed.info
+subs_code_96017003,96017003,"Thiostrepton","Thiostrepton (substance)","subs_code_419241000",6,base.snomed,http://snomed.info
+subs_code_412052001,412052001,"Trimethoprim and derivatives","Trimethoprim and derivatives (substance)","subs_code_419241000,subs_code_406463001",6,base.snomed,http://snomed.info
+subs_code_49053003,49053003,"Tuftsin","Tuftsin (substance)","subs_code_419241000",6,base.snomed,http://snomed.info
+subs_code_372686008,372686008,"Urinary anti-infective","Urinary anti-infective (substance)","subs_code_419241000",6,base.snomed,http://snomed.info
+subs_code_396345004,396345004,"Carbapenem","Carbapenem (substance)","subs_code_373297006",7,base.snomed,http://snomed.info
+subs_code_373262009,373262009,"Cephalosporin -class of antibiotic-","Cephalosporin -class of antibiotic- (substance)","subs_code_373297006",7,base.snomed,http://snomed.info
+subs_code_395939008,395939008,"Clavulanic acid","Clavulanic acid (substance)","subs_code_373297006",7,base.snomed,http://snomed.info
+subs_code_409132008,409132008,"Monobactam","Monobactam (substance)","subs_code_373297006",7,base.snomed,http://snomed.info
+subs_code_387099009,387099009,"Moxalactam","Moxalactam (substance)","subs_code_373297006",7,base.snomed,http://snomed.info
+subs_code_373270004,373270004,"Penicillin -class of antibiotic-","Penicillin -class of antibiotic- (substance)","subs_code_373297006",7,base.snomed,http://snomed.info
+subs_code_96008003,96008003,"Sulbactam","Sulbactam (substance)","subs_code_373297006",7,base.snomed,http://snomed.info
+subs_code_96007008,96007008,"Tazobactam","Tazobactam (substance)","subs_code_373297006",7,base.snomed,http://snomed.info
+subs_code_117147001,117147001,"Almecillin","Almecillin (substance)","subs_code_373270004",8,base.snomed,http://snomed.info
+subs_code_373218000,373218000,"Antipseudomonal penicillins","Antipseudomonal penicillins (substance)","subs_code_373270004",8,base.snomed,http://snomed.info
+subs_code_373217005,373217005,"Broad spectrum penicillins","Broad spectrum penicillins (substance)","subs_code_373270004",8,base.snomed,http://snomed.info
+subs_code_34983009,34983009,"Epicillin","Epicillin (substance)","subs_code_373270004",8,base.snomed,http://snomed.info
+subs_code_373284009,373284009,"Extended spectrum penicillin","Extended spectrum penicillin (substance)","subs_code_373270004",8,base.snomed,http://snomed.info
+subs_code_37691005,37691005,"Hetacillin","Hetacillin (substance)","subs_code_373270004",8,base.snomed,http://snomed.info
+subs_code_373291007,373291007,"Natural penicillin","Natural penicillin (substance)","subs_code_373270004",8,base.snomed,http://snomed.info
+subs_code_372598006,372598006,"Penicillinase sensitive penicillins","Penicillinase sensitive penicillins (substance)","subs_code_373270004",8,base.snomed,http://snomed.info
+subs_code_373277001,373277001,"Penicillinase-resistant penicillin","Penicillinase-resistant penicillin (substance)","subs_code_373270004",8,base.snomed,http://snomed.info
+subs_code_373298001,373298001,"Aminopenicillin","Aminopenicillin (substance)","subs_code_373217005",9,base.snomed,http://snomed.info
+subs_code_372713001,372713001,"Carbenicillin","Carbenicillin (substance)","subs_code_373217005",9,base.snomed,http://snomed.info
+subs_code_387446008,387446008,"Mezlocillin","Mezlocillin (substance)","subs_code_373217005",9,base.snomed,http://snomed.info
+subs_code_372687004,372687004,"Amoxicillin","Amoxicillin (substance)","subs_code_373298001",10,base.snomed,http://snomed.info
+subs_code_708558004,708558004,"Amoxicillin + clavulanate","Amoxicillin + clavulanate (substance)","subs_code_373298001",10,base.snomed,http://snomed.info
+subs_code_387170002,387170002,"Ampicillin","Ampicillin (substance)","subs_code_373298001",10,base.snomed,http://snomed.info
+subs_code_703744001,703744001,"Ampicillin + sulbactam","Ampicillin + sulbactam (substance)","subs_code_373298001",10,base.snomed,http://snomed.info
+subs_code_372865005,372865005,"Bacampicillin","Bacampicillin (substance)","subs_code_373298001",10,base.snomed,http://snomed.info
+subs_code_387382002,387382002,"Cyclacillin","Cyclacillin (substance)","subs_code_373298001",10,base.snomed,http://snomed.info
+subs_code_387545005,387545005,"Pivampicillin","Pivampicillin (substance)","subs_code_373298001",10,base.snomed,http://snomed.info
+subs_code_387546006,387546006,"Talampicillin","Talampicillin (substance)","subs_code_373298001",10,base.snomed,http://snomed.info

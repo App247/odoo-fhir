@@ -320,15 +320,18 @@
                         <h1>
                             <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>
                         </h1>
+                        <label for="code" string="Code"/>
                         <field name="code" placeholder="Code (e.g., biological)"/>
+                        <label for="definition" string="Definition"/>
                         <field name="definition" placeholder="Definition"/>
+                        <label for="comments" string="Comments"/>
                         <field name="comments" placeholder="Comments"/>
                         <group>
                             <group>
-                                <field name="contains_id"/>
-                                <field name="level" placeholder="An integer (e.g., 1, 2)"/>
-                                <field name="is_abstract"/>
-                                <field name="version" placeholder="e.g., v2.5"/>
+                                <field name="contains_id" invisible="1"/>
+                                <field name="level" placeholder="An integer (e.g., 1, 2)" invisible="0"/>
+                                <field name="is_abstract" invisible="0"/>
+                                <field name="version" placeholder="e.g., v2.5" invisible="0"/>
                             </group>
                             <group>
                                 <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
@@ -340,6 +343,7 @@
                                 <field name="parent_child_ids" mode="tree">
                                     <tree default_order="level">
                                         <field name="name"/>
+                                        <field name="code"/>
                                         <field name="level"/>
                                     </tree>
                                     <form>
@@ -348,9 +352,20 @@
                                                 <group>
                                                     <field name="name"/>
                                                     <field name="code"/>
-                                                    <field name="level_attribute"/>
+                                                    <field name="level"/>
                                                 </group>
                                             </group>
+                                            <notebook>
+                                                 <page string="Parents">
+                                                    <field name="parent_child_ids" mode="tree">
+                                                        <tree default_order="level">
+                                                            <field name="name"/>
+                                                            <field name="code"/>
+                                                            <field name="level"/>
+                                                        </tree>
+                                                    </field>
+                                                </page>
+                                            </notebook>
                                         </sheet>
                                     </form>
                                 </field>
