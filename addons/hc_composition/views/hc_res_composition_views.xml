@@ -218,7 +218,7 @@
                                     </form>
                                 </field>
                             </page>
-                            <page string="Extensions">
+<!--                             <page string="Extensions">
                                 <field name="extension_ids" mode="tree">
                                     <tree>
                                         <field name="url"/>
@@ -274,7 +274,7 @@
                                         </sheet>
                                     </form>
                                 </field>
-                            </page>
+                            </page> -->
                             <page string="Status History">
                                 <field name="status_history_ids" mode="tree">
                                     <tree>

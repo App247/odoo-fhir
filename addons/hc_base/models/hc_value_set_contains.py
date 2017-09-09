@@ -45,11 +45,6 @@ class ValueSetContains(models.Model):
         ondelete="restrict",
         index="True",
         help="Parent concept.")
-    child_ids = fields.One2many(
-        comodel_name="hc.value.set.contains",
-        inverse_name="contains_id",
-        string="Children",
-        help="Child concept.")
     parent_left = fields.Integer(
         string="Left Parent",
         index="True",

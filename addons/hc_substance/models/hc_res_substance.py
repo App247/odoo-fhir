@@ -342,11 +342,21 @@ class SubstanceCode(models.Model):
         help="Level as a parent in a hierarchy of codes.")
     parent_child_ids = fields.Many2many(
         comodel_name="hc.vs.substance.code",
-        relation="parent_child_rel",
+        relation="substance_code_parent_child_rel",
         column1="parent_id",
         column2="child_id",
         string="Parents",
         help="Parent substance code.")
+    child_parent_ids = fields.Many2many(
+        comodel_name="hc.vs.substance.code",
+        relation="substance_code_child_parent_rel",
+        column1="child_id",
+        column2="parent_id",
+        string="Children",
+        help="Child substance code.")
+    child_count = fields.Integer(
+        string="Count",
+        help="Number of child members.")
 
     @api.constrains('parent_child_ids')
     def _check_recursive_parent_child(self):

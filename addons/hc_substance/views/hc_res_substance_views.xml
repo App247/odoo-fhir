@@ -298,15 +298,16 @@
             <field name="model">hc.vs.substance.code</field>
             <field name="arch" type="xml">
                 <tree string="Substance Codes" default_order="level,name">
-                    <field name="id" invisible="0"/>
+                    <field name="id" invisible="1"/>
                     <field name="name"/>
                     <field name="code"/>
-                    <field name="definition" invisible="1"/>
+                    <field name="definition" invisible="0"/>
+                    <field name="child_count" string="Child Count"/>
                     <field name="contains_id" invisible="1"/>
                     <field name="level" invisible="1"/>
                     <field name="parent_child_ids" widget="many2many_tags" invisible="0"/>
                     <field name="level_attribute" invisible="1"/>
-                    <field name="source_id" invisible="0"/>
+                    <field name="source_id" invisible="1"/>
                 </tree>
             </field>
         </record>
@@ -365,9 +366,31 @@
                                                         </tree>
                                                     </field>
                                                 </page>
+                                                <page string="Children">
+                                                    <field name="child_parent_ids" mode="tree">
+                                                        <tree default_order="name">
+                                                            <field name="child_count"/>
+                                                            <field name="name"/>
+                                                            <field name="code"/>
+                                                            <field name="level"/>
+                                                            <field name="parent_child_ids" widget="many2many_tags"/>
+                                                        </tree>
+                                                    </field>
+                                                </page>
                                             </notebook>
                                         </sheet>
                                     </form>
+                                </field>
+                            </page>
+                            <page string="Children">
+                                <field name="child_parent_ids" mode="tree">
+                                    <tree default_order="name">
+                                        <field name="child_count"/>
+                                        <field name="name"/>
+                                        <field name="code"/>
+                                        <field name="level"/>
+                                        <field name="parent_child_ids" widget="many2many_tags"/>
+                                    </tree>
                                 </field>
                             </page>
                         </notebook>
@@ -390,94 +413,6 @@
                   action="hc_vs_substance_code_action"
                   groups="hc_base.group_hc_base_manager"
                   sequence="20"/>
-
-        <!-- Parent Substance Code Views -->
-
-        <!-- <record id="hc_parent_substance_code_view_search" model="ir.ui.view">
-            <field name="name">Parent Substance Code Search</field>
-            <field name="model">hc.parent.substance.code</field>
-            <field name="arch" type="xml">
-                <search string="Parent Substance Codes">
-                    <field name="name"/>
-                    <field name="code"/>
-                    <field name="definition"/>
-                </search>
-            </field>
-        </record>
-
-        <record id="hc_parent_substance_code_view_tree" model="ir.ui.view">
-            <field name="name">Parent Substance Code Tree</field>
-            <field name="model">hc.parent.substance.code</field>
-            <field name="arch" type="xml">
-                <tree string="Parent Substance Codes" default_order="name, code">
-                    <field name="name"/>
-                    <field name="code"/>
-                    <field name="definition"/>
-                    <field name="source_id" invisible="0"/>
-                </tree>
-            </field>
-        </record>
-
-        <record id="hc_parent_substance_code_view_form" model="ir.ui.view">
-            <field name="name">Parent Substance Code Form</field>
-            <field name="model">hc.parent.substance.code</field>
-            <field name="arch" type="xml">
-                <form string="Parent Substance Codes" >
-                    <sheet>
-                        <h1>
-                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>
-                        </h1>
-                        <field name="code" placeholder="Code (e.g., biological)"/>
-                        <field name="definition" placeholder="Definition"/>
-                        <field name="comments" placeholder="Comments"/>
-                        <group>
-                            <group>
-                                <field name="level"/>
-                            </group>
-                            <group>
-                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
-                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
-                            </group>
-                        </group> -->
-                        <!-- <notebook>
-                            <page string="Children">
-                                <field name="child_ids" mode="tree">
-                                    <tree>
-                                        <field name="parent_substance_code_id"/>
-                                    </tree>
-                                    <form>
-                                        <sheet>
-                                            <h1>
-                                                <field name="parent_substance_code_id" placeholder="Parent Substance Name (e.g., Biological Substance)"/>
-                                            </h1>
-                                            <group>
-                                                <group>
-                                                </group>
-                                            </group>
-                                        </sheet>
-                                    </form>
-                                </field>
-                            </page>
-                        </notebook> -->
-       <!--              </sheet>
-                </form>
-            </field>
-        </record>
-
-        <act_window id="hc_parent_substance_code_action"
-                    name="HC Parent Substance Codes"
-                    res_model="hc.parent.substance.code"
-                    view_mode="tree,form"
-                    domain=""
-                    context=""
-                    limit=""/>
-
-        <menuitem id="hc_substance.menu_par_subs_code"
-                  name="Parent Substance Code"
-                  parent="hc_substance.menu_substance_conf"
-                  action="hc_parent_substance_code_action"
-                  groups="hc_base.group_hc_base_manager"
-                  sequence="15"/> -->
 
     </data>
 </openerp>

@@ -92,11 +92,6 @@ class Composition(models.Model):
         inverse_name="composition_id",
         string="Sections",
         help="Composition is broken into sections.")
-    extension_ids = fields.One2many(
-        comodel_name="hc.composition.extension",
-        inverse_name="composition_id",
-        string="Extensions",
-        help="Additional Content defined by implementations.")
     # Added for CDA
     version = fields.Char(
         string="Version",
@@ -168,6 +163,7 @@ class Composition(models.Model):
 class CompositionAttester(models.Model):
     _name = "hc.composition.attester"
     _description = "Composition Attester"
+    _inherit = ["hc.backbone.element"]
 
     composition_id = fields.Many2one(
         comodel_name="hc.res.composition",
@@ -180,6 +176,7 @@ class CompositionAttester(models.Model):
             ("professional", "Professional"),
             ("legal", "Legal"),
             ("official", "Official")],
+        required="True",
         help="The type of attestation the authenticator offers.")
     time = fields.Datetime(
         string="Attester Time",
@@ -189,6 +186,7 @@ class CompositionAttester(models.Model):
         selection=[
             ("patient", "Patient"),
             ("practitioner", "Practitioner"),
+            ("practitioner_role", "Practitioner Role"),
             ("organization", "Organization")],
         help="Type of who attested the composition.")
     party_name = fields.Char(
@@ -204,6 +202,10 @@ class CompositionAttester(models.Model):
         comodel_name="hc.res.practitioner",
         string="Party Practitioner",
         help="Practitioner who attested the composition.")
+    party_practitioner_role_id = fields.Many2one(
+        comodel_name="hc.res.practitioner.role",
+        string="Party Practitioner Role",
+        help="Practitioner Role who attested the composition.")
     party_organization_id = fields.Many2one(
         comodel_name="hc.res.organization",
         string="Party Organization",
@@ -216,12 +218,15 @@ class CompositionAttester(models.Model):
                 hc_composition_attester.party_name = hc_composition_attester.party_patient_id.name
             elif hc_composition_attester.party_type == 'practitioner':
                 hc_composition_attester.party_name = hc_composition_attester.party_practitioner_id.name
+            elif hc_composition_attester.party_type == 'practitioner_role':
+                hc_composition_attester.party_name = hc_composition_attester.party_practitioner_role_id.name
             elif hc_composition_attester.party_type == 'organization':
                 hc_composition_attester.party_name = hc_composition_attester.party_organization_id.name
 
 class CompositionRelatesTo(models.Model):
     _name = "hc.composition.relates.to"
     _description = "Composition Relates To"
+    _inherit = ["hc.backbone.element"]
 
     composition_id = fields.Many2one(
         comodel_name="hc.res.composition",
@@ -273,6 +278,7 @@ class CompositionRelatesToIdentifier(models.Model):
 class CompositionEvent(models.Model):
     _name = "hc.composition.event"
     _description = "Composition Event"
+    _inherit = ["hc.backbone.element"]
 
     composition_id = fields.Many2one(
         comodel_name="hc.res.composition",
@@ -297,6 +303,7 @@ class CompositionEvent(models.Model):
 class CompositionSection(models.Model):
     _name = "hc.composition.section"
     _description = "Composition Section"
+    _inherit = ["hc.backbone.element"]    
 
     composition_id = fields.Many2one(
         comodel_name="hc.res.composition",
@@ -349,6 +356,7 @@ class CompositionAuthor(models.Model):
         string="Author Type",
         selection=[
             ("practitioner", "Practitioner"),
+            ("practitioner_role", "Practitioner Role"),
             ("device", "Device"),
             ("patient", "Patient"),
             ("related_person", "Related Person")],
@@ -361,11 +369,15 @@ class CompositionAuthor(models.Model):
     author_practitioner_id = fields.Many2one(
         comodel_name="hc.res.practitioner",
         string="Author Practitioner",
-        help="Practitioner who and/or what authored the composition.")
+        help="Practitioner who authored the composition.")
+    author_practitioner_role_id = fields.Many2one(
+        comodel_name="hc.res.practitioner.role",
+        string="Author Practitioner Role",
+        help="Practitioner Role who authored the composition.")
     author_device_id = fields.Many2one(
         comodel_name="hc.res.device",
         string="Author Device",
-        help="Device who and/or what authored the composition.")
+        help="Device what authored the composition.")
     author_patient_id = fields.Many2one(
         comodel_name="hc.res.patient",
         string="Author Patient",
@@ -373,13 +385,15 @@ class CompositionAuthor(models.Model):
     author_related_person_id = fields.Many2one(
         comodel_name="hc.res.related.person",
         string="Author Related Person",
-        help="Related Person who and/or what authored the composition.")
+        help="Related Person who authored the composition.")
 
     @api.depends('author_type')
     def _compute_author_name(self):
         for hc_composition_author in self:
             if hc_composition_author.author_type == 'practitioner':
                 hc_composition_author.author_name = hc_composition_author.author_practitioner_id.name
+            elif hc_composition_author.author_type == 'practitioner_role':
+                hc_composition_author.author_name = hc_composition_author.author_practitioner_role_id.name
             elif hc_composition_author.author_type == 'device':
                 hc_composition_author.author_name = hc_composition_author.author_device_id.name
             elif hc_composition_author.author_type == 'patient':
@@ -485,16 +499,6 @@ class CompositionSectionEntry(models.Model):
         for this in self:
             if this.entry_name:
                 this.entry_type = this.entry_name._description
-
-class CompositionExtension(models.Model):
-    _name = "hc.composition.extension"
-    _description = "Composition Extension"
-    _inherit = ["hc.basic.association", "hc.extension"]
-
-    composition_id = fields.Many2one(
-        comodel_name="hc.res.composition",
-        string="Composition",
-        help="Composition associated with this Composition Extension.")
 
 class CompositionAttestationMode(models.Model):
     _name = "hc.vs.composition.attestation.mode"
