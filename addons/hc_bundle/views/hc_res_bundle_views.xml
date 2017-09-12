@@ -36,16 +36,17 @@
             <field name="arch" type="xml">
                 <form string="Bundle">
                     <sheet>
+                        <h1>
+                            <field name="identifier_id" string="Identifier"/>
+                        </h1>
                         <group>
-                            <group string="Resource">
-                                <field name="identifier" string="Resource ID"/>
-                                <field name="meta_id" string="Profile URI"/>
-                            </group>
-                            <group string="Bundle">
-                                <field name="identifier_id" string="Identifier"/>
+                            <group>
+
                                 <field name="type" string="Type"/>
                                 <field name="total"/>
                                 <field name="signature_id"/>
+                            </group>
+                            <group>
                             </group>
                         </group>
                         <notebook>
@@ -185,6 +186,22 @@
                                     </form>
                                 </field>
                             </page>
+                            <page string="Resource">
+                                <sheet>
+                                    <h1>
+                                        <field name="identifier" placeholder="ID"/>
+                                    </h1>
+                                    <group>
+                                        <group>
+                                            <field name="meta_id" string="Profile URI"/>
+                                            <field name="language_id"/>
+                                            <field name="implicit_rules"/>
+                                        </group>
+                                        <group>
+                                        </group>
+                                    </group>
+                                </sheet>
+                            </page>
                         </notebook>
                     </sheet>
                 </form>
@@ -263,10 +280,6 @@
             <field name="arch" type="xml">
                 <form string="Meta">
                     <sheet>
-                        <h1>
-                            <label for="profile" string="Profile URI"/>
-                            <field name="profile" default_focus="1" placeholder="Profile URI"/>
-                        </h1>
                         <group>
                             <group>
                                 <field name="version_id"/>
@@ -277,10 +290,150 @@
                             <group>
                             </group>
                         </group>
+                        <notebook>
+                            <page string="Profiles">
+                                <field name="profile_ids" mode="tree">
+                                    <tree>
+                                        <field name="profile"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                    <field name="profile"/>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
                     </sheet>
                 </form>
             </field>
         </record>
+
+        <!-- Bundle Identifier Views -->
+
+        <record id="hc_bundle_identifier_view_search" model="ir.ui.view">
+            <field name="name">Bundle Identifier Search</field>
+            <field name="model">hc.bundle.identifier</field>
+            <field name="arch" type="xml">
+                <search string="Bundle Identifiers">
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_bundle_identifier_view_tree" model="ir.ui.view">
+            <field name="name">Bundle Identifier Tree</field>
+            <field name="model">hc.bundle.identifier</field>
+            <field name="arch" type="xml">
+                <tree string="Bundle Identifiers">
+                    <field name="is_preferred"/>
+                    <field name="name"/>
+                    <field name="value"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_bundle_identifier_view_form" model="ir.ui.view">
+            <field name="name">Bundle Identifier Form</field>
+            <field name="model">hc.bundle.identifier</field>
+            <field name="arch" type="xml">
+                <form string="Bundle Identifier">
+                    <sheet>
+                        <div>
+                            <h1>
+                                <field name="name" placeholder="Identifier"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="value"/>
+                                <field name="is_preferred"/>
+                                <field name="is_active"/>
+                            </group>
+                            <group>
+                                <field name="start_date" placeholder="Valid From"/>
+                                <field name="end_date" placeholder="Valid To"/>
+                            </group>
+                            <group string="Element">
+                                <field name="identifier"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Extensions">
+                                <field name="extension_ids" mode="tree">
+<!--                                     <tree>
+                                        <field name="url"/>
+                                        <field name="value_name"/>
+                                        <field name="value_type"/>
+                                    </tree> -->
+<!--                                     <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                    <field name="url"/>
+                                                    <field name="value_name"/>
+                                                    <field name="value_type" class="oe_edit_only"/>
+                                                    <field name="value_integer" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','integer')], 'required': [('value_type','=','integer')]}"/>
+                                                    <field name="value_decimal" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','decimal')], 'required': [('value_type','=','decimal')]}"/>
+                                                    <field name="value_date_time" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','date_time')], 'required': [('value_type','=','date_time')]}"/>
+                                                    <field name="value_date" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','date')], 'required': [('value_type','=','date')]}"/>
+                                                    <field name="value_instant" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','instant')], 'required': [('value_type','=','instant')]}"/>
+                                                    <field name="value_string" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','string')], 'required': [('value_type','=','string')]}"/>
+                                                    <field name="value_uri" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','uri')], 'required': [('value_type','=','uri')]}"/>
+                                                    <field name="value_boolean" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','boolean')], 'required': [('value_type','=','boolean')]}"/>
+                                                    <field name="value_code_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','code')], 'required': [('value_type','=','code')]}"/>
+                                                    <field name="value_markdown" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','markdown')], 'required': [('value_type','=','markdown')]}"/>
+                                                    <field name="value_base_64_binary" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','base_64_binary')], 'required': [('value_type','=','base_64_binary')]}"/>
+                                                    <field name="value_coding_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','coding')], 'required': [('value_type','=','coding')]}"/>
+                                                    <field name="value_codeable_concept_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','codeable_concept')], 'required': [('value_type','=','codeable_concept')]}"/>
+                                                    <field name="value_attachment_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','attachment')], 'required': [('value_type','=','attachment')]}"/>
+                                                    <field name="value_identifier_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','identifier')], 'required': [('value_type','=','identifier')]}"/>
+                                                    <field name="value_quantity" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','quantity')], 'required': [('value_type','=','quantity')]}"/>
+                                                    <field name="value_quantity_uom_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','quantity')], 'required': [('value_type','=','quantity')]}"/>
+                                                    <field name="value_range" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','range')], 'required': [('value_type','=','range')]}"/>
+                                                    <field name="value_period" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','period')], 'required': [('value_type','=','period')]}"/>
+                                                    <field name="value_period_uom_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','period')], 'required': [('value_type','=','period')]}"/>
+                                                    <field name="value_ratio" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','ratio')], 'required': [('value_type','=','ratio')]}"/>
+                                                    <field name="value_human_name_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','human_name')], 'required': [('value_type','=','human_name')]}"/>
+                                                    <field name="value_address_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','address')], 'required': [('value_type','=','address')]}"/>
+                                                    <field name="value_contact_point_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','contact_point')], 'required': [('value_type','=','contact_point')]}"/>
+                                                    <field name="value_timing_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','timing')], 'required': [('value_type','=','timing')]}"/>
+                                                    <field name="value_signature_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','signature')], 'required': [('value_type','=','signature')]}"/>
+                                                    <field name="value_reference_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','reference')], 'required': [('value_type','=','reference')]}"/>
+                                                    <field name="value_time" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','time')], 'required': [('value_type','=','time')]}"/>
+                                                    <field name="value_oid" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','oid')], 'required': [('value_type','=','oid')]}"/>
+                                                    <field name="value_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','id')], 'required': [('value_type','=','id')]}"/>
+                                                    <field name="value_unsigned_int" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','unsigned_int')], 'required': [('value_type','=','unsigned_int')]}"/>
+                                                    <field name="value_positive_int" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','positive_int')], 'required': [('value_type','=','positive_int')]}"/>
+                                                    <field name="value_annotation_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','annotation')], 'required': [('value_type','=','annotation')]}"/>
+                                                    <field name="value_sampled_data_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','sampled_data')], 'required': [('value_type','=','sampled_data')]}"/>
+                                                    <field name="value_meta_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','meta')], 'required': [('value_type','=','meta')]}"/>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form> -->
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_bundle_identifier_action"
+                    name="HC Bundle Identifiers"
+                    res_model="hc.bundle.identifier"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
 
     </data>
 </openerp>

@@ -144,6 +144,7 @@ access_hc_base_hc_vs_encounter_reason_manager,hc.base.hc.vs.encounter.reason.man
 access_hc_base_hc_resource_user,hc.base.hc.resource.user,model_hc_resource,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_resource_meta_user,hc.base.hc.resource.meta.user,model_hc_resource_meta,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_meta_user,hc.base.hc.meta.user,model_hc_meta,hc_base.group_hc_base_user,1,0,0,0
+access_hc_base_hc_meta_profile_user,hc.base.hc.meta.profile.user,model_hc_meta_profile,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_vs_common_tag_manager,hc.base.hc.vs.common.tag.manager,model_hc_vs_common_tag,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_vs_additional_instruction_code_manager,hc.base.hc.vs.additional.instruction.code.manager,model_hc_vs_additional_instruction_code,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_vs_medication_as_needed_reason_manager,hc.base.hc.vs.medication.as.needed.reason.manager,model_hc_vs_medication_as_needed_reason,hc_base.group_hc_base_manager,1,1,1,1

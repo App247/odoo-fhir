@@ -6,7 +6,6 @@ class Meta(models.Model):
     _name = "hc.meta"
     _description = "Meta"
     _inherit = ["hc.element"]
-    _rec_name = "profile"
 
     version_id = fields.Char(
         string="Version Id",
@@ -14,8 +13,10 @@ class Meta(models.Model):
     last_updated = fields.Datetime(
         string="Last Updated",
         help="When the resource version last changed.")
-    profile = fields.Char(
-        string="Profile URI",
+    profile_ids = fields.One2many(
+        comodel_name="hc.meta.profile",
+        inverse_name="meta_id",
+        string="Profile URIs",
         help="URL of profiles this resource claims to conform to.")
     security_ids = fields.Many2many(
         comodel_name="hc.vs.security.label",
@@ -25,6 +26,19 @@ class Meta(models.Model):
         comodel_name="hc.vs.common.tag",
         string="Tags",
         help="Tags applied to this resource.")
+
+class MetaProfile(models.Model):
+    _name = "hc.meta.profile"
+    _description = "Meta Profile"
+    _inherit = ["hc.basic.association"]
+
+    meta_id = fields.Many2one(
+        comodel_name="hc.meta",
+        string="Meta",
+        help="Meta associated with this Meta Profile.")
+    profile = fields.Char(
+        string="Profile URI",
+        help="URI associated with this Meta Profile.")
 
 class CommonTag(models.Model):
     _name = "hc.vs.common.tag"

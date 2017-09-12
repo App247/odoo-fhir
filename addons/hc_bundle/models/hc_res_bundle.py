@@ -5,7 +5,7 @@ from openerp import models, fields, api
 class Bundle(models.Model):
     _name = "hc.res.bundle"
     _description = "Bundle"
-    _inherit = ["hc.resource"]       
+    _inherit = ["hc.resource"]
 
     identifier_id = fields.Many2one(
         comodel_name="hc.bundle.identifier",
@@ -28,10 +28,6 @@ class Bundle(models.Model):
     total = fields.Integer(
         string="Total",
         help="If search, the total number of matches.")
-    signature_id = fields.Many2one(
-        comodel_name="hc.bundle.signature",
-        string="Signature",
-        help="Digital Signature.")
     link_ids = fields.One2many(
         comodel_name="hc.bundle.link",
         inverse_name="bundle_id",
@@ -42,10 +38,15 @@ class Bundle(models.Model):
         inverse_name="bundle_id",
         string="Entries",
         help="Entry in the bundle - will have a resource, or information.")
+    signature_id = fields.Many2one(
+        comodel_name="hc.bundle.signature",
+        string="Signature",
+        help="Digital Signature.")
 
 class BundleLink(models.Model):
     _name = "hc.bundle.link"
     _description = "Bundle Link"
+    _inherit = ["hc.backbone.element"]
 
     bundle_id = fields.Many2one(
         comodel_name="hc.res.bundle",
@@ -67,6 +68,7 @@ class BundleLink(models.Model):
 class BundleEntry(models.Model):
     _name = "hc.bundle.entry"
     _description = "Bundle Entry"
+    _inherit = ["hc.backbone.element"]
 
     bundle_id = fields.Many2one(
         comodel_name="hc.res.bundle",
@@ -103,6 +105,7 @@ class BundleEntry(models.Model):
 class BundleEntrySearch(models.Model):
     _name = "hc.bundle.entry.search"
     _description = "Bundle Entry Search"
+    _inherit = ["hc.backbone.element"]
 
     entry_id = fields.Many2one(
         comodel_name="hc.bundle.entry",
@@ -122,6 +125,7 @@ class BundleEntrySearch(models.Model):
 class BundleEntryRequest(models.Model):
     _name = "hc.bundle.entry.request"
     _description = "Bundle Entry Request"
+    _inherit = ["hc.backbone.element"]
 
     entry_id = fields.Many2one(
         comodel_name="hc.bundle.entry",
@@ -156,6 +160,7 @@ class BundleEntryRequest(models.Model):
 class BundleEntryResponse(models.Model):
     _name = "hc.bundle.entry.response"
     _description = "Bundle Entry Response"
+    _inherit = ["hc.backbone.element"]
 
     entry_id = fields.Many2one(
         comodel_name="hc.bundle.entry",

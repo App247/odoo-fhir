@@ -9,6 +9,7 @@ class Resource(models.Model):
 
     identifier = fields.Char(
         string="Id",
+        required="True",
         help="How the resource reference is interpreted when testing consent restrictions.")
     meta_id = fields.Many2one(
         comodel_name="hc.resource.meta",
@@ -26,3 +27,8 @@ class ResourceMeta(models.Model):
     _name = "hc.resource.meta"
     _description = "Resource Meta"
     _inherit = ["hc.basic.association", "hc.meta"]
+
+    resource_id = fields.Many2one(
+        comodel_name="hc.resource",
+        string="Meta",
+        help="Resource associated with this Resource Meta.")

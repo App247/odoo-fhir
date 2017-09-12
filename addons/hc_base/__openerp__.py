@@ -75,6 +75,8 @@
         'views/hc_address_views.xml',
         'views/hc_annotation_views.xml',
         'views/hc_attachment_views.xml',
+        'views/hc_codeable_concept_views.xml',
+        'views/hc_coding_views.xml',
         'views/hc_human_name_views.xml',
         'views/hc_identifier_views.xml',
         'views/hc_language_views.xml',

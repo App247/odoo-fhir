@@ -23,6 +23,7 @@ class BasicAssociation(models.Model):
 class Coding(models.Model):
     _name = "hc.coding"
     _description = "Coding"
+    _rec_name= "code"
 
     system = fields.Char(
         string="System URI",
@@ -46,6 +47,7 @@ class Coding(models.Model):
 class CodeableConcept(models.Model):
     _name = "hc.codeable.concept"
     _description = "Codeable Concept"
+    _rec_name= "text"
 
     coding_ids = fields.One2many(
         comodel_name="hc.codeable.concept.coding",

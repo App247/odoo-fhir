@@ -1,0 +1,80 @@
+<odoo>
+    <data>
+
+        <!-- Codeable Concept Views -->
+
+        <record id="hc_codeable_concept_view_search" model="ir.ui.view">
+            <field name="name">Codeable Concept Search</field>
+            <field name="model">hc.codeable.concept</field>
+            <field name="arch" type="xml">
+                <search string="Codeable Concepts">
+                    <field name="text"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_codeable_concept_view_tree" model="ir.ui.view">
+            <field name="name">Codeable Concept Tree</field>
+            <field name="model">hc.codeable.concept</field>
+            <field name="arch" type="xml">
+                <tree string="Codeable Concepts">
+                    <field name="text"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_codeable_concept_view_form" model="ir.ui.view">
+            <field name="name">Codeable Concept Form</field>
+            <field name="model">hc.codeable.concept</field>
+            <field name="arch" type="xml">
+                <form string="Codeable Concept">
+                    <sheet>
+                        <h1>
+                            <field name="text" default_focus="1" placeholder="Text"/>
+                        </h1>
+                        <group>
+                            <group>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Codings">
+                                <field name="coding_ids" mode="tree">
+                                    <tree>
+                                        <field name="codeable_concept_id"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                    <field name="codeable_concept_id"/>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_codeable_concept_action"
+                    name="HC Codeable Concepts"
+                    res_model="hc.codeable.concept"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <menuitem id="hc_base.menu_cc"
+                  name="Codeable Concept"
+                  parent="hc_base.menu_datatype"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="33"/>
+    </data>
+</odoo>
