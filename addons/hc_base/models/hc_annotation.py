@@ -8,6 +8,7 @@ class Annotation(models.Model):
     _name = "hc.annotation"
     _description = "Annotation"
     _inherit = ["hc.element"]
+    _rec_name = "name"
 
     name = fields.Char(
         string="Name",

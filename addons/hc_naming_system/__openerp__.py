@@ -7,12 +7,12 @@
         """,
 
     'description': """
-        A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc. 
-        Represents a "System" used within the Identifier and Coding data types. 
+        A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.
+        Represents a "System" used within the Identifier and Coding data types.
 
         **Scope and Usage**
 
-        Defines a specific code system or identifier system, so that it can be noted in a registry for other systems to find and understand the identifier. 
+        Defines a specific code system or identifier system, so that it can be noted in a registry for other systems to find and understand the identifier.
     """,
 
     'author': "Luigi Sison",
@@ -25,7 +25,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['hc_base'],
+    'depends': ['hc_base_metadata_type'],
 
     # always loaded
     'data': [

@@ -6,6 +6,7 @@ class RelatedArtifact(models.Model):
     _name = "hc.related.artifact"
     _description = "Related Artifact"
     _inherit = ["hc.element"]
+    _rec_name = "identifier"
 
     type = fields.Selection(string="Type",
         required="True",
@@ -19,10 +20,10 @@ class RelatedArtifact(models.Model):
             ("depends-on", "Depends On"),
             ("composed-of", "Composed Of")],
         help="The type of relationship to the related artifact.")
-    display = fields.Char(
+    display = fields.Text(
         string="Display",
         help="Brief description of the related artifact.")
-    citation = fields.Char(
+    citation = fields.Text(
         string="Citation",
         help="Bibliographic citation for the artifact.")
     url = fields.Char(
@@ -31,24 +32,28 @@ class RelatedArtifact(models.Model):
     document_id = fields.Many2one(
         comodel_name="hc.related.artifact.document",
         string="Document", help="The related document.")
-    resource_type = fields.Selection(
+    resource_type = fields.Char(
         string="Resource Type",
-        selection=[
-            ("string", "String"),
-            ("code", "Code")],
-        help="Type of related resource.")
-    resource_name = fields.Char(
-        string="Resource",
-        compute="_compute_resource_name",
+        compute="_compute_resource_type",
         store="True",
+        help="Type of related resource.")
+    resource_name = fields.Reference(
+        string="Resource",
+        selection="_reference_models",
         help="The related resource.")
-    resource_string = fields.Char(
-        string="Resource String",
-        help="String of the related resource.")
-    resource_code_id = fields.Many2one(
-        comodel_name="hc.vs.resource.type",
-        string="Resource Code",
-        help="Type of resource of the related resource.")
+
+    @api.model
+    def _reference_models(self):
+        models = self.env['ir.model'].search([('state', '!=', 'manual')])
+        return [(model.model, model.name)
+            for model in models
+                if model.model.startswith('hc.res')]
+
+    @api.depends('resource_name')
+    def _compute_resource_type(self):
+        for this in self:
+            if this.resource_name:
+                this.resource_type = this.resource_name._description
 
 class RelatedArtifactDocument(models.Model):
     _name = "hc.related.artifact.document"

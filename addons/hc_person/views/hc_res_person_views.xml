@@ -93,6 +93,7 @@
                                     <tree default_order="is_preferred">
                                         <field name="is_preferred"/>
                                         <field name="name"/>
+                                        <field name="code_id"/>
                                         <field name="value"/>
                                         <field name="start_date"/>
                                         <field name="end_date"/>
@@ -109,6 +110,9 @@
                                                     <field name="is_active"/>
                                                 </group>
                                                 <group>
+                                                    <field name="code_id"/>
+                                                    <field name="type_id"/>
+                                                    <field name="use"/>
                                                     <field name="start_date" placeholder="Valid From"/>
                                                     <field name="end_date" placeholder="Valid To"/>
                                                </group>
@@ -281,6 +285,75 @@
                   action="hc_res_person_action"
                   groups="hc_base.group_hc_base_manager"
                   sequence="50"/>
+
+        <!-- Person Identifier Views -->
+
+        <record id="hc_person_identifier_view_search" model="ir.ui.view">
+            <field name="name">Person Identifier Search</field>
+            <field name="model">hc.person.identifier</field>
+            <field name="arch" type="xml">
+                <search string="Person Identifiers">
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_person_identifier_view_tree" model="ir.ui.view">
+            <field name="name">Person Identifier Tree</field>
+            <field name="model">hc.person.identifier</field>
+            <field name="arch" type="xml">
+                <tree string="Person Identifiers">
+                    <field name="value"/>
+                    <field name="code_id"/>
+                    <field name="type_id"/>
+                    <field name="use"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_person_identifier_view_form" model="ir.ui.view">
+            <field name="name">Person Identifier Form</field>
+            <field name="model">hc.person.identifier</field>
+            <field name="arch" type="xml">
+                <form string="Person Identifier">
+                    <sheet>
+                        <h1>
+                            <field name="name" placeholder="Identifier"/>
+                        </h1>
+                        <group col="4" colspan="4">
+                            <group>
+                                <field name="value"/>
+                                <field name="is_preferred"/>
+                                <field name="is_active"/>
+                            </group>
+                            <group>
+                                <field name="code_id"/>
+                                <field name="type_id"/>
+                                <field name="use"/>
+                                <field name="start_date" placeholder="Valid From"/>
+                                <field name="end_date" placeholder="Valid To"/>
+                           </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Person Identifier Action and Menu -->
+
+        <act_window id="hc_person_identifier_action"
+                    name="HC Person Identifiers"
+                    res_model="hc.person.identifier"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <menuitem id="hc_person.menu_id"
+                  name="Person Identifiers"
+                  parent="hc_person.menu_pers"
+                  action="hc_person_identifier_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="10"/>
 
         <!-- External Reference View -->
 

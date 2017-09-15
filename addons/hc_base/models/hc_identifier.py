@@ -47,14 +47,6 @@ class Identifier(models.Model):
     value = fields.Char(
         string="Value",
         help="The value that is unique.")
-    use = fields.Selection(
-        string="Use",
-        selection=[
-            ("usual", "Usual"),
-            ("official", "Official"),
-            ("temp", "Temporary"),
-            ("secondary", "Secondary")],
-        help="The purpose of this identifier.")
     type_id = fields.Many2one(
         string="Type",
         related="code_id.type_id",
@@ -108,3 +100,17 @@ class IdentifierCode(models.Model):
         comodel_name="res.country",
         string="Country",
         help="Country associated with the identifier.")
+
+class IdentifierUse(models.Model):
+    _name = "hc.identifier.use"
+    _description = "Identifier Use"
+    _inherit = ["hc.basic.association"]
+
+    use = fields.Selection(
+        string="Use",
+        selection=[
+            ("usual", "Usual"),
+            ("official", "Official"),
+            ("temp", "Temporary"),
+            ("secondary", "Secondary")],
+        help="The purpose of this identifier.")

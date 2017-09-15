@@ -328,7 +328,7 @@ class CodeSystemConceptProperty(models.Model):
 class CodeSystemIdentifier(models.Model):
     _name = "hc.code.system.identifier"
     _description = "Code System Identifier"
-    _inherit = ["hc.basic.association", "hc.identifier"]
+    _inherit = ["hc.basic.association", "hc.identifier", "hc.identifier.use"]
 
     system = fields.Char(
         string="System URI",

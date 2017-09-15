@@ -53,6 +53,7 @@ class ContactPointUse(models.Model):
         selection=[
             ("home", "Home"),
             ("work", "Work"),
+            ("mobile", "Mobile"),
             ("vacation", "Vacation"),
             ("temp", "Temp"),
             ("old", "Old")],

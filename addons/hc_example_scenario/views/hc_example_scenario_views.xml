@@ -1,0 +1,22 @@
+<odoo>
+    <data>
+
+        <!-- Example Scenario Action and Menu -->
+
+        <act_window id="hc_res_example_scenario_action"
+                    name="HC Example Scenarios"
+                    res_model="hc.res.example.scenario"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <menuitem id="hc_example_scenario.menu_ex_scenario"
+                  name="Example Scenarios"
+                  parent="hc_base.menu_work"
+                  action="hc_res_example_scenario_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="80"/>
+
+    </data>
+</odoo>

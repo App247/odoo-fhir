@@ -238,7 +238,7 @@ class AccountGuarantor(models.Model):
 class AccountIdentifier(models.Model):
     _name = "hc.account.identifier"
     _description = "Account Identifier"
-    _inherit = ["hc.basic.association", "hc.identifier"]
+    _inherit = ["hc.basic.association", "hc.identifier", "hc.identifier.use"]
 
     account_id = fields.Many2one(
         comodel_name="hc.res.account",

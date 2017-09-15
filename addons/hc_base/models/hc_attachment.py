@@ -16,6 +16,7 @@ class Attachment(models.Model):
     _name = "hc.attachment"
     _description = "Attachment"
     _inherit = ["ir.attachment", "hc.element"]
+    _rec_name = "name"
 
     attachment_type_id = fields.Many2one(
         comodel_name="hc.vs.attachment.type",

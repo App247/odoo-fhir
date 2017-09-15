@@ -5,7 +5,8 @@ from openerp import models, fields, api
 class TriggerDefinition(models.Model):
     _name = "hc.trigger.definition"
     _description = "Trigger Definition"
-    _inherit = ["hc.element"]            
+    _inherit = ["hc.element"]
+    _rec_name = "name"
 
     type = fields.Selection(
         string="Type",
@@ -19,9 +20,9 @@ class TriggerDefinition(models.Model):
             ("data-accessed", "Data-Accessed"),
             ("data-access-ended", "Data-Access-Ended")],
         help="The type of triggering event.")
-    event_name = fields.Char(
-        string="Event Name",
-        help="Name of the event.")
+    name = fields.Char(
+        string="Name",
+        help="Name or URI that identifies the event.")
     event_timing_type = fields.Selection(
         string="Event Timing Type",
         selection=[
@@ -49,17 +50,53 @@ class TriggerDefinition(models.Model):
     event_timing_datetime = fields.Datetime(
         string="Event Timing Datetime",
         help="Datetime timing of the event.")
-    event_data_id = fields.Many2one(
-        comodel_name="hc.trigger.definition.event.data",
-        string="Event Data",
+    data_id = fields.Many2one(
+        comodel_name="hc.trigger.definition.data",
+        string="Data",
         help="Triggering data of the event.")
+    condition_id = fields.Many2one(
+        comodel_name="hc.trigger.definition.condition",
+        string="Condition",
+        help="Whether the event triggers.")
 
 class TriggerDefinitionEventTiming(models.Model):
     _name = "hc.trigger.definition.event.timing"
     _description = "Trigger Definition Event Timing"
     _inherit = ["hc.basic.association", "hc.timing"]
 
-class TriggerDefinitionEventData(models.Model):
-    _name = "hc.trigger.definition.event.data"
-    _description = "Trigger Definition Event Data"
+class TriggerDefinitionData(models.Model):
+    _name = "hc.trigger.definition.data"
+    _description = "Trigger Definition Data"
     _inherit = ["hc.basic.association", "hc.data.requirement"]
+
+    trigger_definition_id = fields.Many2one(
+        comodel_name="hc.trigger.definition",
+        string="Trigger Definition",
+        help="Trigger Definition associated with this Trigger Definition Data.")
+
+class TriggerDefinitionCondition(models.Model):
+    _name = "hc.trigger.definition.condition"
+    _description = "Trigger Definition Condition"
+
+    trigger_definition_id = fields.Many2one(
+        comodel_name="hc.trigger.definition",
+        string="Trigger Definition",
+        help="Trigger Definition associated with this Trigger Definition Condition.")
+    name = fields.Char(
+        string="Name",
+        required="True",
+        help="Human-readable label for this trigger definition condition.")
+    description = fields.Text(
+        string="Description",
+        help="Natural language description of the condition.")
+    language = fields.Selection(
+        string="Language",
+        required="True",
+        selection=[
+            ("text/cql", "Text/CQL"),
+            ("text/fhirpath", "Text/FHIRPath")],
+        help="The media type of the language for the expression.")
+    expression = fields.Text(
+        string="Exression",
+        required="True",
+        help="Boolean-valued expression.")

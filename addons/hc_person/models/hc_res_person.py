@@ -9,7 +9,7 @@ class Person(models.Model):
     _description = "Person"
     _inherit = ["hc.domain.resource"]
     _inherits = {"res.partner": "partner_id"}
-    _rec_name = "name_id"
+    # _rec_name = "name_id"
 
     partner_id = fields.Many2one(
         comodel_name="res.partner",
@@ -288,7 +288,7 @@ class PersonLink(models.Model):
 class PersonIdentifier(models.Model):
     _name = "hc.person.identifier"
     _description = "Person Identifier"
-    _inherit = ["hc.basic.association", "hc.identifier"]
+    _inherit = ["hc.basic.association", "hc.identifier", "hc.identifier.use"]
 
     person_id = fields.Many2one(
         comodel_name="hc.res.person",

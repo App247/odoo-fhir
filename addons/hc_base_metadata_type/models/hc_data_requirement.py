@@ -5,7 +5,8 @@ from openerp import models, fields, api
 class DataRequirement(models.Model):
     _name = "hc.data.requirement"
     _description = "Data Requirement"
-    _inherit = ["hc.element"]        
+    _inherit = ["hc.element"]
+    _rec_name = "identifier"        
 
     type_id = fields.Many2one(
         comodel_name="hc.vs.fhir.all.type",

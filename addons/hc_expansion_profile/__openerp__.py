@@ -7,12 +7,12 @@
         """,
 
     'description': """
-        Resource to define constraints on the Expansion of a FHIR ValueSet. 
+        Resource to define constraints on the Expansion of a FHIR ValueSet.
 
         **Scope and Usage**
 
-        The purpose of the expansion profile is to allow a client that is using a terminology service to configure the behaviour of the terminology server in regard to how it 
-        builds expansions - and, in a similar manner, how it validates codes in value set. 
+        The purpose of the expansion profile is to allow a client that is using a terminology service to configure the behaviour of the terminology server in regard to how it
+        builds expansions - and, in a similar manner, how it validates codes in value set.
     """,
 
     'author': "Luigi Sison",
@@ -25,7 +25,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['hc_base'],
+    'depends': ['hc_base_metadata_type'],
 
     # always loaded
     'data': [

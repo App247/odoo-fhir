@@ -6,6 +6,7 @@ class ContactDetail(models.Model):
     _name = "hc.contact.detail"
     _description = "Contact Detail"
     _inherit = ["hc.element"]
+    _rec_name = "name"
     # _inherits = {"hc.res.person": "person_id"}
 
     # person_id = fields.Many2one(

@@ -5,13 +5,14 @@ from openerp import models, fields, api
 class ParameterDefinition(models.Model):
     _name = "hc.parameter.definition"
     _description = "Parameter Definition"
-    _inherit = ["hc.element"]        
+    _inherit = ["hc.element"]
+    _rec_name = "name"
 
     name = fields.Char(
         string="Name",
         help="Parameter name.")
     use = fields.Selection(
-        string="Parameter Definition Use",
+        string="Use",
         required="True",
         selection=[
             ("in", "In"),

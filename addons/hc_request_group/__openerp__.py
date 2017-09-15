@@ -7,9 +7,9 @@
         """,
 
     'description': """
-        A group of related requests that can be used to capture intended activities that have inter-dependencies such as "give this medication after that one". 
+        A group of related requests that can be used to capture intended activities that have inter-dependencies such as "give this medication after that one".
 
-        **Scope and Usage** 
+        **Scope and Usage**
 
         The RequestGroup resource is used to represent a group of optional activities that may be performed for a specific patient or context.
     """,
@@ -24,7 +24,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['hc_encounter'],
+    'depends': ['hc_base_metadata_type', 'hc_encounter'],
 
     # always loaded
     'data': [

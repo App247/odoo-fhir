@@ -277,6 +277,9 @@ class CountryPostalCode(models.Model):
     postal_code = fields.Char(
         string="Postal/ZIP Code",
         help="A group of numbers or letters and numbers that are added to a postal address to assist the sorting of mail.")
+    # name = fields.Char(
+    #     string="Postal/ZIP Code",
+    #     help="A group of numbers or letters and numbers that are added to a postal address to assist the sorting of mail.")
     name = fields.Char(
         compute="_compute_code",
         store="True")

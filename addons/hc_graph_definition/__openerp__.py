@@ -7,14 +7,14 @@
         """,
 
     'description': """
-    A formal computable definition of a graph of resources - that is, a coherent set of resources that form a graph by following references. 
-    The Graph Definition resource defines a set and makes rules about the set. 
+    A formal computable definition of a graph of resources - that is, a coherent set of resources that form a graph by following references.
+    The Graph Definition resource defines a set and makes rules about the set.
 
     **Scope and Usage**
 
-    The GraphDefinition resource provides a formal computable definition of a graph of resources - that is, a coherent set of resources that form a graph by following references. 
-    The Graph Definition resource defines a set and makes rules about the set. The GraphDefinition resource can be used to: 
-    
+    The GraphDefinition resource provides a formal computable definition of a graph of resources - that is, a coherent set of resources that form a graph by following references.
+    The Graph Definition resource defines a set and makes rules about the set. The GraphDefinition resource can be used to:
+
     * Summarize a set of profiles on resources
     * Define a graph of resources to return in a query
     * Define a graph of resources to include in a document
@@ -31,7 +31,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['hc_base'],
+    'depends': ['hc_base_metadata_type'],
 
     # always loaded
     'data': [

@@ -105,6 +105,7 @@ class HumanName(models.Model):
     _name = "hc.human.name"
     _description = "Human Name"
     _inherit = ["hc.element"]
+    _rec_name = "name"
 
     name = fields.Char(
         compute='_compute_full_name',

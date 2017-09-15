@@ -97,7 +97,7 @@ class EventDefinition(models.Model):
         comodel_name="hc.event.definition.trigger",
         string="Trigger",
         required="True",
-        help='"+when" the event occurs.')
+        help='"when" the event occurs.')
 
 class EventDefinitionIdentifier(models.Model):
     _name = "hc.event.definition.identifier"

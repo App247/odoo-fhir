@@ -6,10 +6,11 @@ from openerp import _, exceptions
 class Timing(models.Model):
     _name = "hc.timing"
     _description = "Timing"
-    _inherit = ["hc.element"]        
+    _inherit = ["hc.element"]
+    _rec_name = "name"
 
     name = fields.Char(
-        string="Timing Name",
+        string="Name",
         required="True",
         help="Human-readable label for this timing definition.")
     event_ids = fields.One2many(

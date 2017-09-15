@@ -1,30 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
 <openerp>
-    <data>
-        <!--  -->
-        <!--   <record id="object0" model="hc_patient.hc_patient"> -->
-        <!--     <field name="name">Object 0</field> -->
-        <!--     <field name="value">0</field> -->
-        <!--   </record> -->
-        <!--  -->
-        <!--   <record id="object1" model="hc_patient.hc_patient"> -->
-        <!--     <field name="name">Object 1</field> -->
-        <!--     <field name="value">10</field> -->
-        <!--   </record> -->
-        <!--  -->
-        <!--   <record id="object2" model="hc_patient.hc_patient"> -->
-        <!--     <field name="name">Object 2</field> -->
-        <!--     <field name="value">20</field> -->
-        <!--   </record> -->
-        <!--  -->
-        <!--   <record id="object3" model="hc_patient.hc_patient"> -->
-        <!--     <field name="name">Object 3</field> -->
-        <!--     <field name="value">30</field> -->
-        <!--   </record> -->
-        <!--  -->
-        <!--   <record id="object4" model="hc_patient.hc_patient"> -->
-        <!--     <field name="name">Object 4</field> -->
-        <!--     <field name="value">40</field> -->
-        <!--   </record> -->
-        <!--  -->
+    <data noupdate="0">
+
+        <!-- Example Identifier -->
+
+        <record id="base.partner_example_assigner" model="res.partner">
+            <field name="name">Acme Healthcare</field>
+            <field name="company_type">company</field>
+        </record>
+
+        <record id="hc_organization.organization_example" model="hc.res.organization">
+            <field name="partner_id" ref="base.partner_example_assigner"/>
+        </record>
+
+        <record id="hc_base.identifier_code_example" model="hc.vs.identifier.code">
+            <field name="assigner_id" ref="hc_organization.organization_example"/>
+        </record>
+
+        <record id="hc_patient.identifier_example" model="hc.patient.identifier">
+            <field name="patient_id" ref="patient_example"/>
+            <field name="identifier_id" ref="hc_person.identifier_example"/>
+        </record>
+
+        <!-- Example Patient -->
+
+        <record id="patient_example" model="hc.res.patient">
+            <field name="person_id" ref="hc_person.person_example"/>
+            <field name="partner_id" ref="base.partner_example"/>
+            <field name="birth_time">14:35:45-05:00</field>
+            <field name="managing_organization_id" ref="hc_organization.organization_example"/>
+        </record>
+
+        <!-- Example Address -->
+
+        <record id="hc_base.city_example" model="hc.vs.country.city">
+            <field name="name">Pleasantville</field>
+            <field name="code">Pleasantville</field>
+        </record>
+
+        <record id="hc_base.post_code_example" model="hc.vs.country.postal.code">
+            <field name="postal_code">3999</field>
+            <field name="name">3999</field>
+            <field name="code">3999</field>
+        </record>
+
+        <record id="hc_base.addr_example" model="hc.address">
+            <field name="line1">534 Erewhon St</field>
+            <field model="hc.vs.country.city" name="city_id" search="[('name','=','Pleasantville')]"/>
+<!--             <field model="hc.vs.country.district" name="district_id" search="[('name','=','Rainbow')]"/> -->
+            <field model="res.country.state" name="state_id" search="[('code','=','VIC')]"/>
+            <field model="hc.vs.country.postal.code" name="postal_code_id" search="[('name','=','3999')]"/>
+        </record>
+
+        <record id="hc_person.address_example" model="hc.person.address">
+            <field name="person_id" ref="hc_person.person_example"/>
+            <field name="address_id" ref="hc_base.addr_example"/>
+            <field name="use">home</field>
+            <field name="type">both</field>
+            <field name="start_date">1974-12-25</field>
+        </record>
+
+        <!-- Example Contact Point -->
+
+        <record id="hc_base.cont_pnt_unknown" model="hc.contact.point">
+            <field name="value">unknown</field>
+            <field name="system">phone</field>
+        </record>
+
+        <record id="hc_base.cont_pnt_0355556573" model="hc.contact.point">
+            <field name="value">(03) 5555 6473</field>
+            <field name="system">phone</field>
+        </record>
+
+        <record id="hc_base.cont_pnt_0334105613" model="hc.contact.point">
+            <field name="value">(03) 3410 5613</field>
+            <field name="system">phone</field>
+        </record>
+
+        <record id="hc_base.cont_pnt_0355558834" model="hc.contact.point">
+            <field name="value">(03) 5555 8834</field>
+            <field name="system">phone</field>
+        </record>
+
+        <record id="hc_person.telecom_example" model="hc.person.telecom">
+            <field name="person_id" ref="hc_person.person_example"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_unknown"/>
+            <field name="use">home</field>
+        </record>
+
+        <record id="hc_person.telecom_example_1" model="hc.person.telecom">
+            <field name="person_id" ref="hc_person.person_example"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_0355556573"/>
+            <field name="use">work</field>
+            <field name="rank">1</field>
+        </record>
+
+        <record id="hc_person.telecom_example_2" model="hc.person.telecom">
+            <field name="person_id" ref="hc_person.person_example"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_0334105613"/>
+            <field name="use">mobile</field>
+            <field name="rank">2</field>
+        </record>
+
+        <record id="hc_person.telecom_example_3" model="hc.person.telecom">
+            <field name="person_id" ref="hc_person.person_example"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_0355558834"/>
+            <field name="use">old</field>
+            <field name="rank">3</field>
+            <field name="end_date">2014-12-31</field>
+        </record>
+
+        <!-- Example Contact -->
+
+        <record id="hc_base.human_name_term_170" model="hc.human.name.term">
+            <field name="name">Bénédicte</field>
+        </record>
+
+        <record id="hc_base.human_name_term_171" model="hc.human.name.term">
+            <field name="name">du Marché</field>
+        </record>
+
+        <record id="hc_base.human_name_example_contact" model="hc.human.name">
+            <field model="hc.human.name.term" name="first_id" search="[('name','=','Bénédicte')]"/>
+            <field model="hc.human.name.term" name="surname_id" search="[('name','=','du Marché')]"/>
+        </record>
+
+        <record id="base.partner_patient_contact_example" model="res.partner">
+            <field name="name">Bénédicte du Marché</field>
+        </record>
+
+<!--         <record id="patient_contact_example" model="hc.patient.contact">
+            <field name="partner_id" ref="base.partner_patient_contact_example"/>
+            <field name="patient_id" ref="patient_example"/>
+            <field name="name_id" ref="hc_base.human_name_example_contact"/>
+            <field eval="[(6, 0, [ref('hc_patient.cont_role_n')])]" name="relationship_ids"/>
+            <field name="gender">female</field>
+            <field name="start_date">2012-01-01</field>
+        </record> -->
+
+
+
+
     </data>
 </openerp>

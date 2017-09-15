@@ -7,12 +7,12 @@
         """,
 
     'description': """
-        A compartment definition that defines how resources are accessed on a server. 
+        A compartment definition that defines how resources are accessed on a server.
 
-        **Scope and Usage** 
+        **Scope and Usage**
 
-        Each resource may belong to one or more logical compartments. A compartment is a logical grouping of resources which share a common property. Compartments have two principal roles: 
-        
+        Each resource may belong to one or more logical compartments. A compartment is a logical grouping of resources which share a common property. Compartments have two principal roles:
+
         * Function as an access mechanism for finding a set of related resources quickly
         * Provide a definitional basis for applying access control to resources quickly
     """,
@@ -27,7 +27,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['hc_base'],
+    'depends': ['hc_base_metadata_type'],
 
     # always loaded
     'data': [

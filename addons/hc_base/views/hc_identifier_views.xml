@@ -169,7 +169,6 @@
                     <field name="name"/>
                     <field name="code_id"/>
                     <field name="value"/>
-                    <field name="use"/>
                 </tree>
             </field>
         </record>
@@ -187,11 +186,12 @@
                         </div>
                         <group>
                             <group>
-                                <field name="code_id"/>
+
                                 <field name="value"/>
-                                <field name="use"/>
                             </group>
                             <group>
+                                <field name="code_id"/>
+                                <field name="type_id"/>
                             </group>
                         </group>
                     </sheet>

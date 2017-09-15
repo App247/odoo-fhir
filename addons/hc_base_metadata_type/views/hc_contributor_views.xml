@@ -1,0 +1,117 @@
+<odoo>
+    <data>
+
+
+        <!-- Contributor Views -->
+
+        <record id="hc_contributor_view_search" model="ir.ui.view">
+            <field name="name">Contributor Search</field>
+            <field name="model">hc.contributor</field>
+            <field name="arch" type="xml">
+                <search string="Contributors">
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_contributor_view_tree" model="ir.ui.view">
+            <field name="name">Contributor Tree</field>
+            <field name="model">hc.contributor</field>
+            <field name="arch" type="xml">
+                <tree string="Contributors">
+                    <field name="name"/>
+                    <field name="type"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_contributor_view_form" model="ir.ui.view">
+            <field name="name">Contributor Form</field>
+            <field name="model">hc.contributor</field>
+            <field name="arch" type="xml">
+                <form string="Contributor">
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name"/>
+                        </h1>
+                        <group>
+                            <group>
+                                <field name="type"/>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Contacts">
+                                <field name="contact_ids" mode="tree">
+                                    <tree>
+                                        <field name="name"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                    <field name="name"/>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                            <notebook>
+                                                <page string="Telecom">
+                                                    <field name="telecom_ids" mode="tree">
+                                                        <tree default_order="is_preferred">
+                                                            <field name="is_preferred"/>
+                                                            <field name="use"/>
+                                                            <field name="telecom_id"/>
+                                                            <field name="rank"/>
+                                                            <field name="start_date"/>
+                                                            <field name="end_date"/>
+                                                        </tree>
+                                                        <form>
+                                                            <sheet>
+                                                                <group>
+                                                                    <group>
+                                                                        <field name="use"/>
+                                                                        <field name="telecom_id"/>
+                                                                        <field name="rank"/>
+                                                                    </group>
+                                                                    <group>
+                                                                        <field name="is_preferred"/>
+                                                                        <field name="is_active"/>
+                                                                        <field name="start_date" placeholder="Valid From"/>
+                                                                        <field name="end_date" placeholder="Valid To"/>
+                                                                    </group>
+                                                                </group>
+                                                            </sheet>
+                                                        </form>
+                                                    </field>
+                                                </page>
+                                            </notebook>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Contributor Action and Menu -->
+
+        <act_window id="hc_contributor_action"
+                    name="HC Contributors"
+                    res_model="hc.contributor"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <menuitem id="hc_base.menu_contr"
+                  name="Contributors"
+                  parent="hc_base.menu_meta_data"
+                  action="hc_contributor_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="20"/>
+
+    </data>
+</odoo>

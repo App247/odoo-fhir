@@ -18,7 +18,9 @@ class Patient(models.Model):
         related="person_id.partner_id",
         help="Partner associated with this Patient.")
     identifier_ids = fields.One2many(
-        related="person_id.identifier_ids",
+        comodel_name = "hc.patient.identifier",
+        inverse_name = "patient_id",
+        # related="person_id.identifier_ids",
         string="Identifiers",
         help="A human identifier for this patient.")
     type = fields.Selection(
@@ -305,21 +307,21 @@ class PatientNationality(models.Model):
         string="Valid to",
         help="End of the nationality period.")
 
-# class PatientIdentifier(models.Model):
-#     _name = "hc.patient.identifier"
-#     _description = "Patient Identifier"
-#     _inherits = {"hc.person.identifier": "identifier_id"}
+class PatientIdentifier(models.Model):
+    _name = "hc.patient.identifier"
+    _description = "Patient Identifier"
+    _inherits = {"hc.person.identifier": "identifier_id"}
 
-#     identifier_id = fields.Many2one(
-#         comodel_name="hc.person.identifier",
-#         string="Person Identifier",
-#         required="True",
-#         ondelete="restrict",
-#         help="Person Identifier associated with this Patient Identifier.")
-#     patient_id = fields.Many2one(
-#         comodel_name="hc.res.patient",
-#         string="Patient",
-#         help="Patient associated with this Patient Identifier.")
+    identifier_id = fields.Many2one(
+        comodel_name="hc.person.identifier",
+        string="Person Identifier",
+        required="True",
+        ondelete="restrict",
+        help="Person Identifier associated with this Patient Identifier.")
+    patient_id = fields.Many2one(
+        comodel_name="hc.res.patient",
+        string="Patient",
+        help="Patient associated with this Patient Identifier.")
 
 # class PatientName(models.Model):
 #     _name = "hc.patient.name"
@@ -522,7 +524,7 @@ class PatientContact(models.Model):
         string="Addresses",
         help="Address for the contact person.")
     address_id = fields.Many2one(
-        comodel_name="hc.address",
+        comodel_name="hc.patient.contact.address",
         string="Address",
         help="Address for the contact person.")
     gender = fields.Selection(
@@ -544,6 +546,29 @@ class PatientContact(models.Model):
     end_date = fields.Datetime(
         string="Valid to",
         help="End of the the period during which this contact person or organization is valid to be contacted relating to this patient.")
+
+
+class PatientContactAddress(models.Model):
+    _name = "hc.patient.contact.address"
+    _description = "Patient Contact Address"
+    _inherits = {"hc.person.address": "address_id"}
+
+    address_id = fields.Many2one(
+        comodel_name="hc.person.address",
+        string="Person Address",
+        required="True",
+        ondelete="restrict",
+        help="Address associated with this Patient Contact Address.")
+    patient_contact_id = fields.Many2one(
+        comodel_name="hc.patient.contact",
+        string="Patient Contact",
+        help="Patient Contact associated with this Patient Contact Address.")
+    address_start_date = fields.Datetime(
+        string="Valid from",
+        help="Start of the the period during which this contact address is valid.")
+    address_end_date = fields.Datetime(
+        string="Valid to",
+        help="End of the the period during which this contact address is valid.")
 
 class PatientLink(models.Model):
     _name = "hc.patient.link"

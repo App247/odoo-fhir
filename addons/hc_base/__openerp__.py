@@ -87,7 +87,6 @@
         'views/hc_resource_views.xml',
         'views/hc_domain_resource_views.xml',
         'views/hc_element_definition_views.xml',
-        'views/hc_contact_detail_views.xml',
         'views/hc_defined_type_views.xml',
         'views/hc_timing_views.xml',
         'views/hc_route_code_views.xml',

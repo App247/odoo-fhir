@@ -40,6 +40,9 @@
                                 <field name="value_code_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','code')], 'required': [('value_type','=','code')]}"/>
                                 <field name="value_quantity" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','quantity')], 'required': [('value_type','=','quantity')]}"/>
                                 <field name="value_quantity_uom_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','quantity')], 'required': [('value_type','=','quantity')]}"/>
+                                <field name="value_range_low" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','range')], 'required': [('value_type','=','range')]}"/>
+                                <field name="value_range_high" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','range')], 'required': [('value_type','=','range')]}"/>
+                                <field name="value_range_uom_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','range')], 'required': [('value_type','=','range')]}"/>
                                 <field name="value_range" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','range')], 'required': [('value_type','=','range')]}"/>
                             </group>
                             <group>
@@ -58,8 +61,8 @@
                     context=""
                     limit=""/>
 
-            <menuitem id="hc_base.menu_ident_ident"
-                      name="Usage Context"
+            <menuitem id="hc_base.menu_usage_cont"
+                      name="Usage Contexts"
                       parent="hc_base.menu_meta_data"
                       action="hc_usage_context_action"
                       groups="hc_base.group_hc_base_manager"

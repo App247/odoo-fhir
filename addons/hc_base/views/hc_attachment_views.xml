@@ -1,168 +1,176 @@
 <openerp>
     <data>
 
-         <!-- Attachment Views -->           
-                
-        <record id="hc_attachment_view_search" model="ir.ui.view">            
-            <field name="name">Attachment Search</field>          
-            <field name="model">hc.attachment</field>         
-            <field name="arch" type="xml">          
-                <search string="Attachments">       
-                    <field name="name"/>      
-                    <field name="mimetype"/>      
-                    <field name="language_id"/>     
-                </search>       
-            </field>          
-        </record>           
-        
-        <record id="hc_attachment_view_tree" model="ir.ui.view">            
-            <field name="name">Attachment Tree</field>          
-            <field name="model">hc.attachment</field>         
-            <field name="arch" type="xml">          
-            <tree string="Attachments">       
-                <field name="name"/>
-                <field name="creation_date"/>
-                <field name="attachment_type_id"/>           
-                <field name="mimetype"/>
-                <field name="language_id"/>
-            </tree>       
-            </field>          
-        </record>           
-        
-        <record id="hc_attachment_view_form" model="ir.ui.view">            
-            <field name="name">Attachment Form</field>          
-            <field name="model">hc.attachment</field>         
-            <field name="arch" type="xml">          
-                <form string="Attachment">        
-                    <sheet>     
-                        <div class="oe_title oe_left">    
-                            <h1>  
+         <!-- Attachment Views -->
+
+        <record id="hc_attachment_view_search" model="ir.ui.view">
+            <field name="name">Attachment Search</field>
+            <field name="model">hc.attachment</field>
+            <field name="arch" type="xml">
+                <search string="Attachments">
+                    <field name="name"/>
+                    <field name="mimetype"/>
+                    <field name="language_id"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_attachment_view_tree" model="ir.ui.view">
+            <field name="name">Attachment Tree</field>
+            <field name="model">hc.attachment</field>
+            <field name="arch" type="xml">
+                <tree string="Attachments">
+                    <field name="name"/>
+                    <field name="creation_date"/>
+                    <field name="attachment_type_id"/>
+                    <field name="mimetype"/>
+                    <field name="language_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_attachment_view_form" model="ir.ui.view">
+            <field name="name">Attachment Form</field>
+            <field name="model">hc.attachment</field>
+            <field name="arch" type="xml">
+                <form string="Attachment">
+                    <sheet>
+                        <div class="oe_title oe_left">
+                            <h1>
                             <field name="name" default_focus="1" placeholder="Title (e.g., ADT Form)"/>
-                            </h1> 
-                        </div>    
-                        <group>   
-                            <group> 
-                                <field name="creation_date"/> 
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="creation_date"/>
                                 <field name="attachment_type_id" placeholder="(e.g., ADT Form)"/>
                                 <field name="has_data" invisible="1"/>
                                 <field name="mimetype" attrs="{'required': [('has_data','=',True)]}"/>
                                 <field name="datas" attrs="{'required': [('mimetype','!=',False)]}"/>
-                            </group>  
+                            </group>
                             <group>
                                 <field name="language_id"/>
                                 <field name="url"/>
                                 <field name="file_size"/>
-                                <field name="hash_attachment"/> 
-                            </group>  
-                        </group>    
-                    </sheet>      
-                </form>       
-            </field>          
-        </record>           
-                    
-        <!-- Attachment Type Views -->                      
-                        
-        <record id="hc_vs_attachment_type_view_search" model="ir.ui.view">                      
-            <field name="name">Attachment Type Search</field>                    
-            <field name="model">hc.vs.attachment.type</field>                   
-            <field name="arch" type="xml">                  
-                <search string="Attachment Types">               
-                    <field name="name" string="Attachment Type Name"/>            
-                    <field name="code"/>            
-                </search>               
-            </field>                    
-        </record>                       
-        
-        <record id="hc_vs_attachment_type_view_tree" model="ir.ui.view">                        
-            <field name="name">Attachment Type Tree</field>                  
-            <field name="model">hc.vs.attachment.type</field>                   
-            <field name="arch" type="xml">                  
-                <tree string="Attachment Types">                
-                    <field name="name" string="Attachment Type Name"/>            
-                    <field name="code"/>            
-                </tree>             
-            </field>                    
-        </record>                       
-        
-        <record id="hc_vs_attachment_type_view_form" model="ir.ui.view">                        
-            <field name="name">Attachment Type Form</field>                  
-            <field name="model">hc.vs.attachment.type</field>                   
-            <field name="arch" type="xml">                  
-                <form string="Attachment Type">             
-                    <sheet>         
-                        <div class="oe_title oe_left">      
-                            <h1>    
-                                <field name="name" default_focus="1" placeholder="Attachment Type"/>
-                            </h1>   
-                        </div>      
-                        <group>     
-                            <group> 
-                                <field name="code"/>
-                            </group>    
-                            <group> 
-                            </group>    
-                        </group>        
-                    </sheet>            
-                </form>             
-            </field>                    
-        </record>                       
-         
-         <!-- MIME Type Views -->
-                                                                       
-        <record id="hc_vs_mime_type_view_search" model="ir.ui.view">                        
-            <field name="name">MIME Type Search</field>                  
-            <field name="model">hc.vs.mime.type</field>                 
-            <field name="arch" type="xml">                  
-                <search string="MIME Types">                
-                    <field name="name"/>            
-                    <field name="code"/>            
-                </search>               
-            </field>                    
-        </record>                       
-        <record id="hc_vs_mime_type_view_tree" model="ir.ui.view">                      
-            <field name="name">MIME Type Tree</field>                    
-            <field name="model">hc.vs.mime.type</field>                 
-            <field name="arch" type="xml">                  
-                <tree string="MIME Types">              
-                    <field name="name"/>            
-                    <field name="code"/>            
-                </tree>             
-            </field>                    
-        </record>                       
-        <record id="hc_vs_mime_type_view_form" model="ir.ui.view">                      
-            <field name="name">MIME Type Form</field>                    
-            <field name="model">hc.vs.mime.type</field>                 
-            <field name="arch" type="xml">                  
-                <form string="MIME Type">               
-                    <sheet>         
-                        <div class="oe_title oe_left">      
-                            <h1>    
-                                <field name="name" default_focus="1" placeholder="MIME Type"/>
-                            </h1>   
-                        </div>      
-                        <group>     
-                            <group> 
-                                <field name="code"/>
-                            </group>    
-                            <group> 
-                            </group>    
-                        </group>        
-                    </sheet>            
-                </form>             
-            </field>                    
-        </record>                       
-                                              
-<!-- Attachment Action and Menu -->           
+                                <field name="hash_attachment"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
-        <act_window id="hc_vs_attachment_type_action"   
+        <!-- Attachment Type Views -->
+
+        <record id="hc_vs_attachment_type_view_search" model="ir.ui.view">
+            <field name="name">Attachment Type Search</field>
+            <field name="model">hc.vs.attachment.type</field>
+            <field name="arch" type="xml">
+                <search string="Attachment Types">
+                    <field name="name" string="Attachment Type Name"/>
+                    <field name="code"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_vs_attachment_type_view_tree" model="ir.ui.view">
+            <field name="name">Attachment Type Tree</field>
+            <field name="model">hc.vs.attachment.type</field>
+            <field name="arch" type="xml">
+                <tree string="Attachment Types">
+                    <field name="name" string="Attachment Type Name"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_vs_attachment_type_view_form" model="ir.ui.view">
+            <field name="name">Attachment Type Form</field>
+            <field name="model">hc.vs.attachment.type</field>
+            <field name="arch" type="xml">
+                <form string="Attachment Type">
+                    <sheet>
+                        <div class="oe_title oe_left">
+                            <h1>
+                                <field name="name" default_focus="1" placeholder="Attachment Type"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="code"/>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+         <!-- MIME Type Views -->
+
+        <record id="hc_vs_mime_type_view_search" model="ir.ui.view">
+            <field name="name">MIME Type Search</field>
+            <field name="model">hc.vs.mime.type</field>
+            <field name="arch" type="xml">
+                <search string="MIME Types">
+                    <field name="name"/>
+                    <field name="code"/>
+                </search>
+            </field>
+        </record>
+        <record id="hc_vs_mime_type_view_tree" model="ir.ui.view">
+            <field name="name">MIME Type Tree</field>
+            <field name="model">hc.vs.mime.type</field>
+            <field name="arch" type="xml">
+                <tree string="MIME Types">
+                    <field name="name"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+        <record id="hc_vs_mime_type_view_form" model="ir.ui.view">
+            <field name="name">MIME Type Form</field>
+            <field name="model">hc.vs.mime.type</field>
+            <field name="arch" type="xml">
+                <form string="MIME Type">
+                    <sheet>
+                        <div class="oe_title oe_left">
+                            <h1>
+                                <field name="name" default_focus="1" placeholder="MIME Type"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="code"/>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Attachment Action and Menu -->
+
+        <act_window id="hc_attachment_action"
+                    name="HC Attachment"
+                    res_model="hc.attachment"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <act_window id="hc_vs_attachment_type_action"
                     name="HC Attachment Types"
                     res_model="hc.vs.attachment.type"
                     view_mode="tree,form"
                     domain=""
                     context=""
                     limit=""/>
-        
-        <act_window id="hc_vs_mime_type_action" 
+
+        <act_window id="hc_vs_mime_type_action"
                     name="HC Mime Types"
                     res_model="hc.vs.mime.type"
                     view_mode="tree,form"
@@ -170,25 +178,26 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_base.menu_attach" 
-                  name="Attachment" 
-                  parent="hc_base.menu_datatype" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="30"/>
+        <menuitem id="hc_base.menu_attach"
+                  name="Attachment"
+                  parent="hc_base.menu_datatype"
+                  action="hc_attachment_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="10"/>
 
-            <menuitem id="hc_base.menu_attach_type" 
-                      name="Attachment Types" 
-                      parent="hc_base.menu_attach" 
-                      action="hc_vs_attachment_type_action" 
-                      groups="hc_base.group_hc_base_manager" 
-                      sequence="10"/>
-                      
-            <menuitem id="hc_base.menu_attach_mime" 
-                      name="MIME Types" 
-                      parent="hc_base.menu_attach" 
-                      action="hc_vs_mime_type_action" 
-                      groups="hc_base.group_hc_base_manager" 
-                      sequence="20"/>
+        <menuitem id="hc_base.menu_attach_type"
+                  name="Attachment Types"
+                  parent="hc_base.menu_attach"
+                  action="hc_vs_attachment_type_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="20"/>
+
+        <menuitem id="hc_base.menu_attach_mime"
+                  name="MIME Types"
+                  parent="hc_base.menu_attach"
+                  action="hc_vs_mime_type_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="30"/>
 
     </data>
 </openerp>

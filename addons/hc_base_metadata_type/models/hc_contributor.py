@@ -5,7 +5,8 @@ from openerp import models, fields, api
 class Contributor(models.Model):
     _name = "hc.contributor"
     _description = "Contributor"
-    _inherit = ["hc.element"]        
+    _inherit = ["hc.element"]
+    _rec_name = "name"    
 
     type = fields.Selection(
         string="Type",

@@ -11,8 +11,8 @@
 
         **Scope and Usage**
 
-        The FHIR terminology specification is based two key concepts, originally defined in HL7 v3 Core Principles : 
-        
+        The FHIR terminology specification is based two key concepts, originally defined in HL7 v3 Core Principles :
+
         * CodeSystem - defines a set of codes with meanings (also known as enumeration, terminology, classification, and/or ontology) - e.g. define which codes (symbols and/or expressions) exist, and how they are understood
         * ValueSet - selects a set of codes from those defined by one or more code systems to specify which codes can be used in a particular context
     """,
@@ -27,7 +27,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['hc_base'],
+    'depends': ['hc_base_metadata_type'],
 
     # always loaded
     'data': [

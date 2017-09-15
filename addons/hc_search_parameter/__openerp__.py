@@ -7,12 +7,12 @@
         """,
 
     'description': """
-        A search parameter that defines a named search item that can be used to search/filter on a resource. 
+        A search parameter that defines a named search item that can be used to search/filter on a resource.
 
     **Scope and Usage**
 
-    A SearchParameter resource specifies a search parameter that may be used on the RESTful API to search or filter on a resource. The SearchParameter resource declares: 
-    
+    A SearchParameter resource specifies a search parameter that may be used on the RESTful API to search or filter on a resource. The SearchParameter resource declares:
+
     * how to refer to the search parameter from a client
     * how the search parameter is to be understood by the server
     * where in the source resource the parameter matches
@@ -28,7 +28,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['hc_base'],
+    'depends': ['hc_base_metadata_type'],
 
     # always loaded
     'data': [

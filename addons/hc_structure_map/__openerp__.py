@@ -9,8 +9,8 @@
     'description': """
         A Map of relationships between 2 structures that can be used to transform data.
 
-        The StructureMap resource defines a detailed set of of rules that describe how one Structure is related to another, and provides sufficient detail to 
-        allow for automated conversion of instances. 
+        The StructureMap resource defines a detailed set of of rules that describe how one Structure is related to another, and provides sufficient detail to
+        allow for automated conversion of instances.
     """,
 
     'author': "Luigi Sison",
@@ -23,7 +23,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['hc_base'],
+    'depends': ['hc_base_metadata_type'],
 
     # always loaded
     'data': [

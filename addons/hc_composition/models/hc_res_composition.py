@@ -273,7 +273,7 @@ class CompositionRelatesTo(models.Model):
 class CompositionRelatesToIdentifier(models.Model):
     _name = "hc.composition.relates.to.identifier"
     _description = "Composition Relates To Identifier"
-    _inherit = ["hc.basic.association", "hc.identifier"]
+    _inherit = ["hc.basic.association", "hc.identifier", "hc.identifier.use"]
 
 class CompositionEvent(models.Model):
     _name = "hc.composition.event"
@@ -303,7 +303,7 @@ class CompositionEvent(models.Model):
 class CompositionSection(models.Model):
     _name = "hc.composition.section"
     _description = "Composition Section"
-    _inherit = ["hc.backbone.element"]    
+    _inherit = ["hc.backbone.element"]
 
     composition_id = fields.Many2one(
         comodel_name="hc.res.composition",
@@ -404,7 +404,7 @@ class CompositionAuthor(models.Model):
 class CompositionIdentifier(models.Model):
     _name = "hc.composition.identifier"
     _description = "Composition Identifier"
-    _inherit = ["hc.basic.association", "hc.identifier"]
+    _inherit = ["hc.basic.association", "hc.identifier", "hc.identifier.use"]
 
 class CompositionStatusHistory(models.Model):
     _name = "hc.composition.status.history"

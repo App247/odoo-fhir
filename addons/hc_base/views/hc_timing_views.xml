@@ -3,151 +3,88 @@
 
         <!-- Timing Views -->
 
-        <record id="hc_timing_view_search" model="ir.ui.view">                  
-              <field name="name">Timing Search</field>                
-              <field name="model">hc.timing</field>               
-              <field name="arch" type="xml">                
-                    <search string="Timings">             
+        <record id="hc_timing_view_search" model="ir.ui.view">
+              <field name="name">Timing Search</field>
+              <field name="model">hc.timing</field>
+              <field name="arch" type="xml">
+                    <search string="Timings">
                         <field name="name"/>
-                        <field name="code_id"/>  
-                    </search>             
-              </field>                
-        </record>                 
-            
-        <record id="hc_timing_view_tree" model="ir.ui.view">                  
-              <field name="name">Timing Tree</field>                
-              <field name="model">hc.timing</field>               
-              <field name="arch" type="xml">                
-                    <tree string="Timings">
-                        <field name="name"/>         
-                        <field name="code_id"/>          
-                    </tree>             
-              </field>                
+                        <field name="code_id"/>
+                    </search>
+              </field>
         </record>
 
-        <record id="hc_timing_view_form" model="ir.ui.view">                  
-              <field name="name">Timing Form</field>                
-              <field name="model">hc.timing</field>               
-              <field name="arch" type="xml">                
-                    <form string="timing">              
-                          <sheet>           
-                                <div class="oe_title oe_left">          
-                                    <h1>        
-                                        <field name="name" default_focus="1" placeholder="Timing Name"/>
-                                    </h1>     
-                                </div>          
-                                <group>         
-                                    <group>
-                                        <field name="code_id"/>
-                                    </group>
-                                    <group>    
-                                    </group>
-                                </group>
-                                <notebook>
-                                    <page string="Repeats">
-                                        <field name="repeat_ids" mode="tree">
-                                            <tree>
-                                                <field name="bounds_name"/>
-                                                <field name="duration"/>
-                                                <field name="duration_unit_id"/>
-                                                <field name="frequency"/>
-                                                <field name="frequency_max"/>
-                                                <field name="period"/>
-                                                <field name="period_unit_id"/>
-                                                <field name="period_max"/>
-                                                <field name="count"/>
-                                                <field name="count_max"/>
-                                            </tree>
-                                            <form>
-                                                <sheet>
-                                                    <div class="oe_left">
-                                                    </div>
-                                                    <group>
-                                                        <group>
-                                                            <field name="bounds_name" readonly="1"/>
-                                                            <field name="bounds_type"/>
-                                                            <field name="bounds_duration" attrs="{'invisible': [('bounds_type','!=','duration')]}"/>
-                                                            <field name="bounds_duration_uom_id" attrs="{'invisible': [('bounds_type','!=','duration')], 'required': [('bounds_type','=','duration')]}"/>
-                                                            <field name="bounds_range_low" attrs="{'invisible': [('bounds_type','!=','range')], 'required': [('bounds_type','=','range')]}"/>
-                                                            <field name="bounds_range_high" attrs="{'invisible': [('bounds_type','!=','range')], 'required': [('bounds_type','=','range')]}"/>
-                                                            <field name="bounds_period_start_date" attrs="{'invisible': [('bounds_type','!=','period')], 'required': [('bounds_type','=','period')]}"/> 
-                                                            <field name="bounds_period_end_date" attrs="{'invisible': [('bounds_type','!=','period')], 'required': [('bounds_type','=','period')]}"/>
-                                                            <field name="count"/>
-                                                            <field name="count_max" attrs="{'invisible': [('count','=',0)]}"/>
-                                                            <field name="duration"/>
-                                                            <field name="duration_unit_id" attrs="{'invisible': [('duration','=',0.0)], 'required': [('duration','!=',0.0)]}"/>
-                                                            <field name="duration_max" attrs="{'invisible': [('duration','=',0.0)]}"/>
-                                                        </group>
-                                                        <group>
-                                                            <field name="frequency"/>
-                                                            <field name="frequency_max" attrs="{'invisible': [('frequency','=',0)]}"/>
-                                                            <field name="period"/>
-                                                            <field name="period_unit_id" attrs="{'invisible': [('period','=',0.0)], 'required': [('period','!=',0.0)]}"/>
-                                                            <field name="period_max" attrs="{'invisible': [('period','=',0.0)]}"/>
-                                                            <field name="day_of_week_ids" widget="many2many_tags"/>
-                                                            <field name="offset"/> 
-                                                            <field name="when_ids" attrs="{'invisible': [('offset','=',0)]}" widget="many2many_tags"/>     
-                                                        </group>
-                                                    </group>
-                                                    <notebook>
-                                                        <page string="Times of Day" attrs="{'invisible': [('offset','&gt;',0)]}">
-                                                            <field name="time_of_day_ids" mode="tree">
-                                                                <tree>
-                                                                    <field name="time_of_day" widget="float_time"/>
-                                                                </tree>
-                                                                <form>
-                                                                    <sheet>
-                                                                        <!-- <div class="oe_left">
-                                                                            <field name="text" placeholder="Annotation"/>
-                                                                        </div> -->
-                                                                        <group>
-                                                                            <group>
-                                                                                <field name="time_of_day" widget="float_time"/>
-                                                                            </group>
-                                                                            <group>
-                                                                            </group>
-                                                                        </group>
-                                                                    </sheet>
-                                                                </form>
-                                                            </field>
-                                                        </page>
-                                                    </notebook>
-                                                </sheet>
-                                            </form>
-                                        </field>
-                                    </page>
-                                    <page string="Event Dates">
-                                        <field name="event_ids" mode="tree">
-                                            <tree>
-                                                <field name="timing_id"/>
-                                                <field name="event_date"/>
-                                            </tree>
-                                            <form>
-                                                <sheet>
-                                                    <!-- <div class="oe_left">
-                                                        <field name="text" placeholder="Annotation"/>
-                                                    </div> -->
-                                                    <group>
-                                                        <group>
-                                                            <field name="event_date"/>
-                                                        </group>
-                                                        <group>
-                                                        </group>
-                                                    </group>
-                                                </sheet>
-                                            </form>
-                                        </field>
-                                    </page>
-                                </notebook>         
-                          </sheet>           
-                    </form>             
-              </field>                
-        </record>                                 
-        
-        <menuitem id="hc_base.menu_timing" 
-                  name="Timing" 
-                  parent="hc_base.menu_datatype" 
-                  groups="hc_base.group_hc_base_manager" 
+        <record id="hc_timing_view_tree" model="ir.ui.view">
+              <field name="name">Timing Tree</field>
+              <field name="model">hc.timing</field>
+              <field name="arch" type="xml">
+                    <tree string="Timings">
+                        <field name="name"/>
+                        <field name="code_id"/>
+                    </tree>
+              </field>
+        </record>
+
+        <record id="hc_timing_view_form" model="ir.ui.view">
+            <field name="name">Timing Form</field>
+            <field name="model">hc.timing</field>
+            <field name="arch" type="xml">
+                <form string="Timing">
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name"/>
+                        </h1>
+                        <group>
+                            <group>
+                                <field name="code_id"/>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Event Dates">
+                                <field name="event_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>         
+                                </field>
+                            </page>
+                            <page string="Repeats">
+                                <field name="repeat_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <menuitem id="hc_base.menu_timing"
+                  name="Timing"
+                  parent="hc_base.menu_datatype"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="61"/>
 
         <act_window id="hc_timing_action"
@@ -158,73 +95,73 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_base.menu_timing_timing" 
-                  name="Timings" 
-                  parent="hc_base.menu_timing" 
-                  action="hc_timing_action" 
-                  groups="hc_base.group_hc_base_manager" 
+        <menuitem id="hc_base.menu_timing_timing"
+                  name="Timings"
+                  parent="hc_base.menu_timing"
+                  action="hc_timing_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="1"/>
 
-        <!-- Timing Abbreviation View --> 
+        <!-- Timing Abbreviation View -->
 
-        <record id="hc_timing_abbreviation_view_search" model="ir.ui.view">          
-            <field name="name">Timing Abbreviation Search</field>        
-            <field name="model">hc.vs.timing.abbreviation</field>           
-            <field name="arch" type="xml">      
-                <search string="Timing Abbreviations">   
+        <record id="hc_timing_abbreviation_view_search" model="ir.ui.view">
+            <field name="name">Timing Abbreviation Search</field>
+            <field name="model">hc.vs.timing.abbreviation</field>
+            <field name="arch" type="xml">
+                <search string="Timing Abbreviations">
                     <field name="name"/>
                     <field name="code"/>
                     <field name="definition"/>
-                    <group> 
+                    <group>
                         <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>
                     </group>
-                </search>   
-            </field>        
-        </record>           
+                </search>
+            </field>
+        </record>
 
-        <record id="hc_timing_abbreviation_view_tree" model="ir.ui.view">           
-            <field name="name">Timing Abbreviation Tree</field>         
-            <field name="model">hc.vs.timing.abbreviation</field>          
-            <field name="arch" type="xml">          
-                  <tree string="Timing Abbreviations" default_order="name, code">       
-                        <field name="name"/>      
-                        <field name="code"/>      
+        <record id="hc_timing_abbreviation_view_tree" model="ir.ui.view">
+            <field name="name">Timing Abbreviation Tree</field>
+            <field name="model">hc.vs.timing.abbreviation</field>
+            <field name="arch" type="xml">
+                  <tree string="Timing Abbreviations" default_order="name, code">
+                        <field name="name"/>
+                        <field name="code"/>
                         <field name="definition"/>
-                        <field name="source_id" invisible="1"/>   
-                  </tree>       
-            </field>          
-        </record>           
-                  
-        <record id="hc_timing_abbreviation_view_form" model="ir.ui.view">           
-            <field name="name">Timing Abbreviation Form</field>         
-            <field name="model">hc.vs.timing.abbreviation</field>          
-            <field name="arch" type="xml">          
-                <form string="Timing Abbreviations">        
-                    <sheet>     
-                        <h1>  
+                        <field name="source_id" invisible="1"/>
+                  </tree>
+            </field>
+        </record>
+
+        <record id="hc_timing_abbreviation_view_form" model="ir.ui.view">
+            <field name="name">Timing Abbreviation Form</field>
+            <field name="model">hc.vs.timing.abbreviation</field>
+            <field name="arch" type="xml">
+                <form string="Timing Abbreviations">
+                    <sheet>
+                        <h1>
                             <field name="name" default_focus="1" placeholder="Name (e.g., subject)"/>
-                        </h1> 
-                        <field name="code" placeholder="Code (e.g., SBJ)"/> 
-                        <field name="definition" placeholder="Definition"/> 
-                        <field name="comments" placeholder="Comments"/>     
-                        <group>   
-                            <group> 
+                        </h1>
+                        <field name="code" placeholder="Code (e.g., SBJ)"/>
+                        <field name="definition" placeholder="Definition"/>
+                        <field name="comments" placeholder="Comments"/>
+                        <group>
+                            <group>
                                 <field name="contains_id" invisible="0"/>
                                 <field name="is_abstract" widget="upgrade_boolean"/>
                                 <field name="level" placeholder="An integer (e.g., 1, 2)"/>
                                 <field name="version" placeholder="e.g., v2.5"/>
-                            </group>  
-                            <group> 
+                            </group>
+                            <group>
                                 <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
                                 <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
-                            </group>  
-                        </group>    
-                    </sheet>      
-                </form>       
-            </field>          
-        </record>        
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
-        <act_window id="hc_vs_timing_abbreviation_action"           
+        <act_window id="hc_vs_timing_abbreviation_action"
                     name="HC Timing Abbreviations"
                     res_model="hc.vs.timing.abbreviation"
                     view_mode="tree,form"
@@ -232,73 +169,73 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_base.menu_timing_abbr" 
-                  name="Timing Abbreviations" 
-                  parent="hc_base.menu_timing" 
-                  action="hc_vs_timing_abbreviation_action" 
-                  groups="hc_base.group_hc_base_manager" 
+        <menuitem id="hc_base.menu_timing_abbr"
+                  name="Timing Abbreviations"
+                  parent="hc_base.menu_timing"
+                  action="hc_vs_timing_abbreviation_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="10"/>
-        
-        <!-- Timing Event View --> 
 
-        <record id="hc_timing_event_view_search" model="ir.ui.view">          
-            <field name="name">Timing Event Search</field>        
-            <field name="model">hc.vs.timing.event</field>           
-            <field name="arch" type="xml">      
-                <search string="Timing Events">   
+        <!-- Timing Event View -->
+
+        <record id="hc_timing_event_view_search" model="ir.ui.view">
+            <field name="name">Timing Event Search</field>
+            <field name="model">hc.vs.timing.event</field>
+            <field name="arch" type="xml">
+                <search string="Timing Events">
                     <field name="name"/>
                     <field name="code"/>
                     <field name="definition"/>
-                    <group> 
+                    <group>
                         <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>
                     </group>
-                </search>   
-            </field>        
-        </record>           
+                </search>
+            </field>
+        </record>
 
-        <record id="hc_timing_event_view_tree" model="ir.ui.view">           
-            <field name="name">Timing Event Tree</field>         
-            <field name="model">hc.vs.timing.event</field>          
-            <field name="arch" type="xml">          
-                  <tree string="Timing Events" default_order="name, code">       
-                        <field name="name"/>      
-                        <field name="code"/>      
+        <record id="hc_timing_event_view_tree" model="ir.ui.view">
+            <field name="name">Timing Event Tree</field>
+            <field name="model">hc.vs.timing.event</field>
+            <field name="arch" type="xml">
+                  <tree string="Timing Events" default_order="name, code">
+                        <field name="name"/>
+                        <field name="code"/>
                         <field name="definition"/>
-                        <field name="source_id" invisible="1"/>   
-                  </tree>       
-            </field>          
-        </record>           
-                  
-        <record id="hc_timing_event_view_form" model="ir.ui.view">           
-            <field name="name">Timing Event Form</field>         
-            <field name="model">hc.vs.timing.event</field>          
-            <field name="arch" type="xml">          
-                <form string="Timing Events">        
-                    <sheet>     
-                        <h1>  
+                        <field name="source_id" invisible="1"/>
+                  </tree>
+            </field>
+        </record>
+
+        <record id="hc_timing_event_view_form" model="ir.ui.view">
+            <field name="name">Timing Event Form</field>
+            <field name="model">hc.vs.timing.event</field>
+            <field name="arch" type="xml">
+                <form string="Timing Events">
+                    <sheet>
+                        <h1>
                             <field name="name" default_focus="1" placeholder="Name (e.g., subject)"/>
-                        </h1> 
-                        <field name="code" placeholder="Code (e.g., SBJ)"/> 
-                        <field name="definition" placeholder="Definition"/> 
-                        <field name="comments" placeholder="Comments"/>     
-                        <group>   
-                            <group> 
+                        </h1>
+                        <field name="code" placeholder="Code (e.g., SBJ)"/>
+                        <field name="definition" placeholder="Definition"/>
+                        <field name="comments" placeholder="Comments"/>
+                        <group>
+                            <group>
                                 <field name="contains_id" invisible="0"/>
                                 <field name="is_abstract" widget="upgrade_boolean"/>
                                 <field name="level" placeholder="An integer (e.g., 1, 2)"/>
                                 <field name="version" placeholder="e.g., v2.5"/>
-                            </group>  
-                            <group> 
+                            </group>
+                            <group>
                                 <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
                                 <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
-                            </group>  
-                        </group>    
-                    </sheet>      
-                </form>       
-            </field>          
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
         </record>
 
-        <act_window id="hc_vs_timing_event_action"          
+        <act_window id="hc_vs_timing_event_action"
                     name="HC Timing Events"
                     res_model="hc.vs.timing.event"
                     view_mode="tree,form"
@@ -306,11 +243,11 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_base.menu_timing_event" 
-                  name="Timing Events" 
-                  parent="hc_base.menu_timing" 
-                  action="hc_vs_timing_event_action" 
-                  groups="hc_base.group_hc_base_manager" 
+        <menuitem id="hc_base.menu_timing_event"
+                  name="Timing Events"
+                  parent="hc_base.menu_timing"
+                  action="hc_vs_timing_event_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="20"/>
 
     </data>

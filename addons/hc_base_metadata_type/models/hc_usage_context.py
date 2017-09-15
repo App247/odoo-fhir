@@ -48,6 +48,10 @@ class UsageContext(models.Model):
         comodel_name="product.uom",
         string="Value Range UOM",
         help="Value range unit of measure.")
+    value_range = fields.Char(
+        string="Value Range",
+        compute="_compute_value_range",
+        help="Limit of value that defines the context.")
 
     @api.depends('value_type')
     def _compute_value_name(self):
@@ -58,6 +62,12 @@ class UsageContext(models.Model):
                 hc_usage_context.value_name = str(hc_usage_context.value_quantity) + " " + str(hc_usage_context.value_quantity_uom_id.name)
             elif hc_usage_context.value_type == 'range':
                 hc_usage_context.value_name = "Between " + str(hc_usage_context.value_range_low) + " and " + str(hc_usage_context.value_range_high) + " " + str(hc_usage_context.value_range_uom_id.name)
+
+    @api.depends('value_range_low', 'value_range_high')
+    def _compute_value_range(self):
+        for hc_usage_context in self:
+            if hc_usage_context.value_type == 'range':
+                hc_usage_context.value_range = "Between " + str(hc_usage_context.value_range_low) + " and " + str(hc_usage_context.value_range_high) + " " + str(hc_usage_context.value_range_uom_id.code)
 
 class UsageContextType(models.Model):
     _name = "hc.vs.usage.context.type"
