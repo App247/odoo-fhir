@@ -11,10 +11,8 @@ class Quantity(models.Model):
         string="Value",
         help="Numerical value (with implicit precision).")
     comparator = fields.Selection(
-        string="Quantity Comparator",
-        default="=",
+        string="Comparator",
         selection=[
-            ("=", "="),
             ("<", "<"),
             ("<=", "<="),
             (">=", ">="),
@@ -38,7 +36,7 @@ class Quantity(models.Model):
 class Age(models.Model):
     _name = "hc.age"
     _description = "Age"
-    _inherit = "hc.quantity"
+    _inherit = ["hc.quantity"]
 
 
 # Rules
@@ -50,7 +48,7 @@ class Age(models.Model):
 class Count(models.Model):
     _name = "hc.count"
     _description = "Count"
-    _inherit = "hc.quantity"
+    _inherit = ["hc.quantity"]
 
     value = fields.Integer(
         string="Count",
@@ -65,7 +63,7 @@ class Count(models.Model):
 class Distance(models.Model):
     _name = "hc.distance"
     _description = "Distance"
-    _inherit = "hc.quantity"
+    _inherit = ["hc.quantity"]
 
 # Rules
 
@@ -75,7 +73,7 @@ class Distance(models.Model):
 class Duration(models.Model):
     _name = "hc.duration"
     _description = "Duration"
-    _inherit = "hc.quantity"
+    _inherit = ["hc.quantity"]
 
 # Rules
 
@@ -85,7 +83,7 @@ class Duration(models.Model):
 class Money(models.Model):
     _name = "hc.money"
     _description = "Money"
-    _inherit = "hc.quantity"
+    _inherit = ["hc.quantity"]
 
 # Rules
 
@@ -95,7 +93,7 @@ class Money(models.Model):
 class SimpleQuantity(models.Model):
     _name = "hc.simple.quantity"
     _description = "Simple Quantity"
-    _inherit = "hc.quantity"
+    _inherit = ["hc.quantity"]
 
 # Rules
 

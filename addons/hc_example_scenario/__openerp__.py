@@ -23,7 +23,7 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         'views/hc_example_scenario_views.xml',
         'views/hc_example_scenario_templates.xml',
     ],

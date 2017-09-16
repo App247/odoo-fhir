@@ -96,6 +96,7 @@ access_hc_base_hc_vs_user_type_manager,hc.base.hc.vs.user.type.manager,model_hc_
 access_hc_base_hc_vs_workflow_setting_manager,hc.base.hc.vs.workflow.setting.manager,model_hc_vs_workflow_setting,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_vs_workflow_task_manager,hc.base.hc.vs.workflow.task.manager,model_hc_vs_workflow_task,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_vs_jurisdiction_manager,hc.base.hc.vs.jurisdiction.manager,model_hc_vs_jurisdiction,hc_base.group_hc_base_manager,1,1,1,1
+access_hc_domain_resource_hc_domain_resource_user,hc.domain.resource.hc.domain.resource.user,model_hc_domain_resource,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_domain_resource_text_manager,hc.base.hc.domain.resource.text.manager,model_hc_domain_resource_text,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_domain_resource_contained_manager,hc.base.hc.domain.resource.contained.manager,model_hc_domain_resource_contained,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_domain_resource_extension_manager,hc.base.hc.domain.resource.extension.manager,model_hc_domain_resource_extension,hc_base.group_hc_base_manager,1,1,1,1
