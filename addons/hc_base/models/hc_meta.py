@@ -6,7 +6,6 @@ class Meta(models.Model):
     _name = "hc.meta"
     _description = "Meta"
     _inherit = ["hc.element"]
-    _rec_name = "identifier"
 
     version_id = fields.Char(
         string="Version Id",

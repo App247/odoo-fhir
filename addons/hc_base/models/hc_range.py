@@ -7,12 +7,24 @@ class Range(models.Model):
     _description = "Range"
     _inherit = ["hc.element"]
 
-    low = fields.Float(
+    low_id = fields.Many2one(
+        comodel_name="hc.range.low",
         string="Low",
         help="Low limit.")
-    high = fields.Float(
+    high_id = fields.Many2one(
+        comodel_name="hc.range.high",
         string="High",
         help="High limit.")
+
+class RangeLow(models.Model):
+    _name = "hc.range.low"
+    _description = "Range Low"
+    _inherit = ["hc.simple.quantity"]
+
+class RangeHigh(models.Model):
+    _name = "hc.range.high"
+    _description = "Range High"
+    _inherit = ["hc.simple.quantity"]
 
 # Constraints
 

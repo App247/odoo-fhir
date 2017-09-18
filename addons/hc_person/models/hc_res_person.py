@@ -9,7 +9,7 @@ class Person(models.Model):
     _description = "Person"
     _inherit = ["hc.domain.resource"]
     _inherits = {"res.partner": "partner_id"}
-    # _rec_name = "name_id"
+    _rec_name = "name_id"
 
     partner_id = fields.Many2one(
         comodel_name="res.partner",
@@ -37,6 +37,9 @@ class Person(models.Model):
         string="Full Name",
         required="True",
         help="A full text representation of this Person's name when the record was created.")
+    name = fields.Char(
+        related="name_id.name",
+        help="Human Readable name of the person.")
     # name_ids = fields.Many2many(
     #     comodel_name="hc.person.name",
     #     relation="person_person_name_rel",
@@ -75,7 +78,7 @@ class Person(models.Model):
         inverse_name="person_id",
         string="Photos",
         help="Image of the Person.")
-#     person_managing_organization_id = fields.Many2one(
+#     managing_organization_id = fields.Many2one(
 #         comodel_name="hc.res.organization",
 #         string="Managing Organization",
 #         help="The Organization that is the custodian of the person record.")

@@ -3,6 +3,7 @@ access_hc_patient_hc_res_patient_user,hc.patient.hc.res.patient.user,model_hc_re
 access_hc_patient_hc_patient_animal_user,hc.patient.hc.patient.animal.user,model_hc_patient_animal,hc_base.group_hc_base_user,1,0,0,0
 access_hc_patient_hc_patient_link_user,hc.patient.hc.patient.link.user,model_hc_patient_link,hc_base.group_hc_base_user,1,0,0,0
 access_hc_patient_hc_patient_contact_user,hc.patient.hc.patient.contact.user,model_hc_patient_contact,hc_base.group_hc_base_user,1,0,0,0
+access_hc_patient_hc_patient_contact_address_user,hc.patient.hc.patient.contact.address.user,model_hc_patient_contact_address,hc_base.group_hc_base_user,1,0,0,0
 access_hc_patient_hc_patient_communication_user,hc.patient.hc.patient.communication.user,model_hc_patient_communication,hc_base.group_hc_base_user,1,0,0,0
 access_hc_patient_hc_patient_citizenship_user,hc.patient.hc.patient.citizenship.user,model_hc_patient_citizenship,hc_base.group_hc_base_user,1,0,0,0
 access_hc_patient_hc_patient_clinical_trial_user,hc.patient.hc.patient.clinical.trial.user,model_hc_patient_clinical_trial,hc_base.group_hc_base_user,1,0,0,0
@@ -10,6 +11,7 @@ access_hc_patient_hc_patient_nationality_user,hc.patient.hc.patient.nationality.
 access_hc_patient_hc_patient_marital_history_user,hc.patient.hc.patient.marital.history.user,model_hc_patient_marital_history,hc_base.group_hc_base_user,1,0,0,0
 access_hc_patient_hc_patient_general_practitioner_user,hc.patient.hc.patient.general.practitioner.user,model_hc_patient_general_practitioner,hc_base.group_hc_base_user,1,0,0,0
 access_hc_patient_hc_patient_language_proficiency_user,hc.patient.hc.patient.language.proficiency.user,model_hc_patient_language_proficiency,hc_base.group_hc_base_user,1,0,0,0
+access_hc_patient_hc_patient_identifier_user,hc.patient.hc.patient.identifier.user,model_hc_patient_identifier,hc_base.group_hc_base_user,1,0,0,0
 access_hc_patient_hc_vs_marital_status_manager,hc.patient.hc.vs.marital.status.manager,model_hc_vs_marital_status,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_patient_hc_vs_race_manager,hc.patient.hc.vs.race.manager,model_hc_vs_race,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_patient_hc_vs_ethnicity_manager,hc.patient.hc.vs.ethnicity.manager,model_hc_vs_ethnicity,hc_base.group_hc_base_manager,1,1,1,1
@@ -25,6 +27,3 @@ access_hc_patient_hc_vs_clinical_trial_reason_manager,hc.patient.hc.vs.clinical.
 access_hc_patient_hc_vs_v3_race_manager,hc.patient.hc.vs.v3.race.manager,model_hc_vs_v3_race,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_patient_hc_vs_v3_race_value_set_manager,hc.patient.hc.vs.v3.race.value.set.manager,model_hc_vs_v3_race_value_set,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_patient_hc_vs_nationality_user,hc.patient.hc.vs.nationality.user,model_hc_vs_nationality,hc_base.group_hc_base_user,1,0,0,0
-
-
-

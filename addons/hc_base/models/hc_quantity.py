@@ -18,8 +18,7 @@ class Quantity(models.Model):
             (">=", ">="),
             (">", ">")],
         help="How to understand the value.")
-    unit_id = fields.Many2one(
-        comodel_name="product.uom",
+    unit = fields.Char(
         string="Unit of Measure",
         help="Unit representation.")
     system_uri = fields.Char(
@@ -38,6 +37,11 @@ class Age(models.Model):
     _description = "Age"
     _inherit = ["hc.quantity"]
 
+    code = fields.Many2one(
+        comodel_name="product.uom",
+        string="Code",
+        domain="[('category_id','=','Time (UCUM)')]",
+        help="Coded form of the unit.")
 
 # Rules
 
@@ -65,6 +69,12 @@ class Distance(models.Model):
     _description = "Distance"
     _inherit = ["hc.quantity"]
 
+    code = fields.Many2one(
+        comodel_name="product.uom",
+        string="Code",
+        domain="[('category_id','=','Time (UCUM)')]",
+        help="Coded form of the unit.")
+
 # Rules
 
 # There SHALL be a code if there is a value and it SHALL be an expression of length.
@@ -74,6 +84,12 @@ class Duration(models.Model):
     _name = "hc.duration"
     _description = "Duration"
     _inherit = ["hc.quantity"]
+
+    code = fields.Many2one(
+        comodel_name="product.uom",
+        string="Code",
+        domain="[('category_id','=','Time (UCUM)')]",
+        help="Coded form of the unit.")
 
 # Rules
 
@@ -93,7 +109,24 @@ class Money(models.Model):
 class SimpleQuantity(models.Model):
     _name = "hc.simple.quantity"
     _description = "Simple Quantity"
-    _inherit = ["hc.quantity"]
+    _inherit = ["hc.element"]
+
+    value = fields.Float(
+        string="Value",
+        help="Numerical value (with implicit precision).")
+    unit = fields.Char(
+        string="Unit of Measure",
+        help="Unit representation.")
+    # unit_id = fields.Many2one(
+    #     comodel_name="product.uom",
+    #     string="Unit of Measure",
+    #     help="Unit representation.")
+    system = fields.Char(
+        string="System URI",
+        help="System that defines coded unit form.")
+    code = fields.Char(
+        string="Code",
+        help="Coded form of the unit.")
 
 # Rules
 

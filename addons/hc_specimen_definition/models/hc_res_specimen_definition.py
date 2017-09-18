@@ -40,6 +40,7 @@ class SpecimenDefinition(models.Model):
 class SpecimenDefinitionSpecimenToLab(models.Model):
     _name = "hc.specimen.definition.specimen.to.lab"
     _description = "Specimen Definition Specimen To Lab"
+    _inherit = ["hc.backbone.element"]
 
     specimen_definition_id = fields.Many2one(
         comodel_name="hc.res.specimen.definition",
@@ -75,34 +76,44 @@ class SpecimenDefinitionSpecimenToLab(models.Model):
     container_description = fields.Char(
         string="Container Description",
         help="Container description.")
-    container_capacity = fields.Float(
+    container_capacity_id = fields.Many2one(
+        comodel_name="hc.specimen.definition.specimen.to.lab.container.capacity",
         string="Container Capacity",
         help="Container capacity.")
-    container_capacity_uom_id = fields.Many2one(
-        comodel_name="product.uom",
-        string="Container Capacity UOM",
-        help="Container Capacity unit of measure.")
-    container_minimum_volume = fields.Float(
+    container_minimum_volume_id = fields.Many2one(
+        comodel_name="hc.specimen.definition.specimen.to.lab.container.minimum.volume",
         string="Container Minimum Volume",
         help="Minimum volume.")
-    container_minimum_volume_uom_id = fields.Many2one(
-        comodel_name="product.uom",
-        string="Container Minimum Volume UOM",
-        help="Container Minimum Volume unit of measure.")
+    # container_capacity = fields.Float(
+    #     string="Container Capacity",
+    #     help="Container capacity.")
+    # container_capacity_uom_id = fields.Many2one(
+    #     comodel_name="product.uom",
+    #     string="Container Capacity UOM",
+    #     help="Container Capacity unit of measure.")
+    # container_minimum_volume = fields.Float(
+    #     string="Container Minimum Volume",
+    #     help="Minimum volume.")
+    # container_minimum_volume_uom_id = fields.Many2one(
+    #     comodel_name="product.uom",
+    #     string="Container Minimum Volume UOM",
+    #     help="Container Minimum Volume unit of measure.")
     container_preparation = fields.Char(
         string="Container Preparation",
         help="Specimen container preparation.")
     requirement = fields.Char(
         string="Requirement",
         help="Specimen requirements.")
-    retention_time = fields.Float(
-        string="Retention Time",
-        help="Specimen retention time.")
-    retention_time_uom_id = fields.Many2one(
-        comodel_name="product.uom",
-        string="Retection Time UOM",
-        domain="[('category_id','=','Time (UCUM)')]",
-        help="Retention time unit of measure.")
+    retention_time_id = fields.Many2one(comodel_name="hc.specimen.definition.specimen.to.lab.retention.time", string="Retention Time", help="Specimen retention time.")
+
+    # retention_time = fields.Float(
+    #     string="Retention Time",
+    #     help="Specimen retention time.")
+    # retention_time_uom_id = fields.Many2one(
+    #     comodel_name="product.uom",
+    #     string="Retection Time UOM",
+    #     domain="[('category_id','=','Time (UCUM)')]",
+    #     help="Retention time unit of measure.")
     rejection_criterion_ids = fields.Many2many(
         comodel_name="hc.vs.rejection.criteria",
         relation="specimen_definition_specimen_to_lab_rejection_criterion_rel",
@@ -122,6 +133,7 @@ class SpecimenDefinitionSpecimenToLab(models.Model):
 class SpecimenDefinitionSpecimenToLabContainerAdditive(models.Model):
     _name = "hc.specimen.definition.specimen.to.lab.container.additive"
     _description = "Specimen Definition Specimen To Lab Container Additive"
+    _inherit = ["hc.backbone.element"]
 
     specimen_to_lab_id = fields.Many2one(
         comodel_name="hc.specimen.definition.specimen.to.lab",
@@ -151,6 +163,7 @@ class SpecimenDefinitionSpecimenToLabContainerAdditive(models.Model):
 class SpecimenDefinitionSpecimenToLabHandling(models.Model):
     _name = "hc.specimen.definition.specimen.to.lab.handling"
     _description = "Specimen Definition Specimen To Lab Handling"
+    _inherit = ["hc.backbone.element"]
 
     specimen_to_lab_id = fields.Many2one(
         comodel_name="hc.specimen.definition.specimen.to.lab",
@@ -170,14 +183,18 @@ class SpecimenDefinitionSpecimenToLabHandling(models.Model):
         comodel_name="product.uom",
         string="Temp Range UOM",
         help="Temp range unit of measure.")
-    max_duration = fields.Float(
+    max_duration_id = fields.Many2one(
+        comodel_name="hc.specimen.definition.specimen.to.lab.handling.max.duration",
         string="Max Duration",
         help="Maximum conservation time.")
-    max_duration_uom_id = fields.Many2one(
-        comodel_name="product.uom",
-        string="Light Exposure UOM",
-        domain="[('category_id','=','Time (UCUM)')]",
-        help="Maxduration unit of measure.")
+    # max_duration = fields.Float(
+    #     string="Maximum Duration",
+    #     help="Maximum conservation time.")
+    # max_duration_uom_id = fields.Many2one(
+    #     comodel_name="product.uom",
+    #     string="Maximum Duration UOM",
+    #     domain="[('category_id','=','Time (UCUM)')]",
+    #     help="Maximum duration unit of measure.")
     light_exposure = fields.Char(
         string="Light Exposure",
         help="Light exposure.")
@@ -189,6 +206,51 @@ class SpecimenDefinitionIdentifier(models.Model):
     _name = "hc.specimen.definition.identifier"
     _description = "Specimen Definition Identifier"
     _inherit = ["hc.basic.association", "hc.identifier"]
+
+    specimen_definition_id = fields.Many2one(
+        comodel_name="hc.res.specimen.definition",
+        string="Specimen Definition",
+        help="Specimen Definition associated with this Specimen Definition Identifier.")
+
+class SpecimenDefinitionSpecimenToLabContainerCapacity(models.Model):
+    _name = "hc.specimen.definition.specimen.to.lab.container.capacity"
+    _description = "Specimen Definition Specimen To Lab Container Capacity"
+    _inherit = ["hc.basic.association", "hc.simple.quantity"]
+
+    specimen_to_lab_id = fields.Many2one(
+        comodel_name="hc.specimen.definition.specimen.to.lab",
+        string="Specimen To Lab",
+        help="Specimen To Lab associated with this Specimen Definition Specimen To Lab Container Capacity.")
+
+class SpecimenDefinitionSpecimenToLabContainerMinimumVolume(models.Model):
+    _name = "hc.specimen.definition.specimen.to.lab.container.minimum.volume"
+    _description = "Specimen Definition Specimen To Lab Container Minimum Volume"
+    _inherit = ["hc.basic.association", "hc.simple.quantity"]
+
+    specimen_to_lab_id = fields.Many2one(
+        comodel_name="hc.specimen.definition.specimen.to.lab",
+        string="Specimen To Lab",
+        help="Specimen To Lab associated with this Specimen Definition Specimen To Lab Container Minimum Volume.")
+
+class SpecimenDefinitionSpecimenToLabRetentionTime(models.Model):
+    _name = "hc.specimen.definition.specimen.to.lab.retention.time"
+    _description = "Specimen Definition Specimen To Lab Retention Time"
+    _inherit = ["hc.basic.association", "hc.duration"]
+
+    specimen_to_lab_id = fields.Many2one(
+        comodel_name="hc.specimen.definition.specimen.to.lab",
+        string="Specimen To Lab",
+        help="Specimen To Lab associated with this Specimen Definition Specimen To Lab Retention Time.")
+
+class SpecimenDefinitionSpecimenToLabHandlingMaxDuration(models.Model):
+    _name = "hc.specimen.definition.specimen.to.lab.handling.max.duration"
+    _description = "Specimen Definition Specimen To Lab Handling Max Duration"
+    _inherit = ["hc.basic.association", "hc.duration"]
+
+    handling_id = fields.Many2one(
+        comodel_name="hc.specimen.definition.specimen.to.lab.handling",
+        string="Handling",
+        help="Handling associated with this Specimen Definition Specimen To Lab Handling Max Duration.")
 
 class ContainerMaterial(models.Model):
     _name = "hc.vs.container.material"

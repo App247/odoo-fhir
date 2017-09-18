@@ -7,12 +7,24 @@ class Ratio(models.Model):
     _description = "Ratio"
     _inherit = ["hc.element"]
 
-    numerator = fields.Float(
-    	string="Numerator",
-    	help="Numerator value.")
-    denominator = fields.Float(
-    	string="Denominator",
-    	help="Denominator value.")
+    numerator_id = fields.Many2one(
+        comodel_name="hc.ratio.numerator",
+        string="Numerator",
+        help="Numerator value.")
+    denominator_id = fields.Many2one(
+        comodel_name="hc.ratio.denominator",
+        string="Denominator",
+        help="Denominator value.")
+
+class RatioNumerator(models.Model):
+    _name = "hc.ratio.numerator"
+    _description = "Ratio Numerator"
+    _inherit = ["hc.basic.association", "hc.quantity"]
+
+class RatioDenominator(models.Model):
+    _name = "hc.ratio.denominator"
+    _description = "Ratio Denominator"
+    _inherit = ["hc.basic.association", "hc.quantity"]
 
 # Constraints
 

@@ -112,7 +112,11 @@ access_hc_base_hc_duration_user,hc.base.hc.duration.user,model_hc_duration,hc_ba
 access_hc_base_hc_money_user,hc.base.hc.money.user,model_hc_money,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_simple_quantity_user,hc.base.hc.simple.quantity.user,model_hc_simple_quantity,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_range_user,hc.base.hc.range.user,model_hc_range,hc_base.group_hc_base_user,1,0,0,0
+access_hc_base_hc_range_low_user,hc.base.hc.range.low.user,model_hc_range_low,hc_base.group_hc_base_user,1,0,0,0
+access_hc_base_hc_range_high_user,hc.base.hc.range.high.user,model_hc_range_high,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_ratio_user,hc.base.hc.ratio.user,model_hc_ratio,hc_base.group_hc_base_user,1,0,0,0
+access_hc_base_hc_ratio_numerator_user,hc.base.hc.ratio.numerator.user,model_hc_ratio_numerator,hc_base.group_hc_base_user,1,0,0,0
+access_hc_base_hc_ratio_denominator_user,hc.base.hc.ratio.denominator.user,model_hc_ratio_denominator,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_period_user,hc.base.hc.period.user,model_hc_period,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_signature_user,hc.base.hc.signature.user,model_hc_signature,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_vs_commitment_type_indication_manager,hc.base.hc.vs.commitment.type.indication.manager,model_hc_vs_commitment_type_indication,hc_base.group_hc_base_manager,1,1,1,1

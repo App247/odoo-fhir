@@ -47,6 +47,19 @@
                                         <sheet>
                                             <group>
                                                 <group>
+                                                    <field name="is_derived"/>
+                                                    <field name="type_id"/>
+                                                    <field name="preference"/>
+                                                    <field name="container_material_id"/>
+                                                    <field name="container_type_id"/>
+                                                    <field name="container_cap_id"/>
+                                                    <field name="container_description"/>
+                                                    <field name="container_capacity_id"/>
+                                                    <field name="container_minimum_volume_id"/>
+                                                    <field name="container_preparation"/>
+                                                    <field name="requirement"/>
+                                                    <field name="retention_time_id"/>
+                                                    <field name="rejection_criterion_ids"/>
                                                 </group>
                                                 <group>
                                                 </group>
@@ -109,6 +122,52 @@
                   action="hc_res_specimen_definition_action"
                   groups="hc_base.group_hc_base_manager"
                   sequence="30"/>
+
+        <!-- Specimen Definition Specimen To Lab Container Capacity Views -->
+
+
+        <record id="hc_spec_defn_container_capacity_view_form" model="ir.ui.view">
+            <field name="name">Specimen Definition Specimen To Lab Container Capacity Form</field>
+            <field name="model">hc.specimen.definition.specimen.to.lab.container.capacity</field>
+            <field name="arch" type="xml">
+                <form string="Specimen Definition Specimen To Lab Container Capacity">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="value" placeholder="e.g., 25.45"/>
+                                <field name="unit" placeholder="e.g., US$"/>
+                                <field name="code" placeholder="e.g., USD"/>
+                                <field name="system" placeholder="e.g., urn:iso:std:iso:4217"/>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hc_spec_defn_container_minimum_volume_view_form" model="ir.ui.view">
+            <field name="name">Specimen Definition Specimen To Lab Container Minimum Volume Form</field>
+            <field name="model">hc.specimen.definition.specimen.to.lab.container.minimum.volume</field>
+            <field name="arch" type="xml">
+                <form string="Specimen Definition Specimen To Lab Container Minimum Volume">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="value" placeholder="e.g., 25.45"/>
+                                <field name="unit" placeholder="e.g., US$"/>
+                                <field name="code" placeholder="e.g., USD"/>
+                                <field name="system" placeholder="e.g., urn:iso:std:iso:4217"/>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
 
     </data>
 </odoo>
