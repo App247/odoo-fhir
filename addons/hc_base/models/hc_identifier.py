@@ -34,6 +34,7 @@ class Identifier(models.Model):
     _name = "hc.identifier"
     _description = "Identifier"
     _inherit = ["hc.element"]
+    _rec_name = "name"
 
     name = fields.Char(
         string="Name",

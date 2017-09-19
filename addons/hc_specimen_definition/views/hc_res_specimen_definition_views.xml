@@ -34,6 +34,11 @@
                         </h1>
                         <group>
                             <group>
+                                <field name="identifier_id"/>
+                                <field name="type_collected_id"/>
+                                <field name="patient_preparation"/>
+                                <field name="time_aspect"/>
+                                <field name="collection_ids" widget="many2many_tags"/>
                             </group>
                             <group>
                             </group>
@@ -42,6 +47,8 @@
                             <page string="Specimen To Lab">
                                 <field name="specimen_to_lab_ids" mode="tree">
                                     <tree>
+                                        <field name="type_id"/>
+                                        <field name="preference"/>
                                     </tree>
                                     <form>
                                         <sheet>
@@ -59,7 +66,7 @@
                                                     <field name="container_preparation"/>
                                                     <field name="requirement"/>
                                                     <field name="retention_time_id"/>
-                                                    <field name="rejection_criterion_ids"/>
+                                                    <field name="rejection_criterion_ids" widget="many2many_tags"/>
                                                 </group>
                                                 <group>
                                                 </group>
@@ -123,8 +130,57 @@
                   groups="hc_base.group_hc_base_manager"
                   sequence="30"/>
 
+        <!-- Specimen Definition Identifier Views -->
+
+        <record id="hc_specimen_definition_identifier_view_form" model="ir.ui.view">
+            <field name="name">Specimen Definition Identifier Form</field>
+            <field name="model">hc.specimen.definition.identifier</field>
+            <field name="arch" type="xml">
+                <form string="Specimen Definition Identifier">
+                    <sheet>
+                        <div class="oe_title oe_left">
+                            <h1>
+                                <field name="name" default_focus="1" placeholder="Name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+
+                                <field name="value"/>
+                            </group>
+                            <group>
+                                <field name="code_id"/>
+                                <field name="type_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_specimen_definition_identifier_action"
+                    name="HC Specimen Definition Identifiers"
+                    res_model="hc.specimen.definition.identifier"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
         <!-- Specimen Definition Specimen To Lab Container Capacity Views -->
 
+<!--
+        <record id="hc_value_set_contains_view_form_inherit_spec_defn_container_capacity" model="ir.ui.view">
+            <field name="name">Appointment Form Inherit</field>
+            <field name="model">hc.value.set.contains</field>
+            <field name="inherit_id" ref="hc_base.hc_value_set_contains_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='indication_ids']//form//field[@name='indication_type']" position="after">
+                <xpath expr="//div" position="after">
+                    <field name="indication_condition_id" class="oe_edit_only" attrs="{'invisible': [('indication_type','!=','condition')], 'required': [('indication_type','=','condition')]}"/>
+                    <field name="indication_procedure_id" class="oe_edit_only" attrs="{'invisible': [('indication_type','!=','procedure')], 'required': [('indication_type','=','procedure')]}"/>
+                </xpath>
+            </field>
+        </record> -->
 
         <record id="hc_spec_defn_container_capacity_view_form" model="ir.ui.view">
             <field name="name">Specimen Definition Specimen To Lab Container Capacity Form</field>
@@ -132,12 +188,17 @@
             <field name="arch" type="xml">
                 <form string="Specimen Definition Specimen To Lab Container Capacity">
                     <sheet>
+                        <div class="oe_title oe_left">
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
                         <group>
                             <group>
                                 <field name="value" placeholder="e.g., 25.45"/>
-                                <field name="unit" placeholder="e.g., US$"/>
-                                <field name="code" placeholder="e.g., USD"/>
-                                <field name="system" placeholder="e.g., urn:iso:std:iso:4217"/>
+                                <field name="unit" placeholder="e.g., liter"/>
+                                <field name="code" placeholder="e.g., L"/>
+                                <field name="system" readonly="1" placeholder="e.g., http://unitsofmeasure.org"/>
                             </group>
                             <group>
                             </group>
@@ -153,14 +214,224 @@
             <field name="arch" type="xml">
                 <form string="Specimen Definition Specimen To Lab Container Minimum Volume">
                     <sheet>
+                        <div class="oe_title oe_left">
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
                         <group>
                             <group>
                                 <field name="value" placeholder="e.g., 25.45"/>
-                                <field name="unit" placeholder="e.g., US$"/>
-                                <field name="code" placeholder="e.g., USD"/>
-                                <field name="system" placeholder="e.g., urn:iso:std:iso:4217"/>
+                                <field name="unit" placeholder="e.g., liter"/>
+                                <field name="code" placeholder="e.g., L"/>
+                                <field name="system" readonly="1" placeholder="e.g., http://unitsofmeasure.org"/>
                             </group>
                             <group>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Value Set Views -->
+
+        <record id="hc_vs_container_material_view_form" model="ir.ui.view">
+            <field name="name">Container Material Form</field>
+            <field name="model">hc.vs.container.material</field>
+            <field name="arch" type="xml">
+                <form string="Container Materials" >
+                    <sheet class="oe_title">
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name (e.g., United States)"/>
+                        </h1>
+                        <field name="code" placeholder="Code (e.g., US)"/>
+                        <field name="definition" placeholder="Definition"/>
+                        <field name="comments" placeholder="Comments"/>
+                        <group>
+                            <group>
+                                <field name="contains_id" invisible="0"/>
+                                <field name="is_abstract" widget="upgrade_boolean"/>
+                                <field name="level" placeholder="An integer (e.g., 1, 2)"/>
+                                <field name="version" placeholder="e.g., v2.5"/>
+                            </group>
+                            <group>
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hc_vs_specimen_contained_preference_view_form" model="ir.ui.view">
+            <field name="name">Specimen Contained Preference Form</field>
+            <field name="model">hc.vs.specimen.contained.preference</field>
+            <field name="arch" type="xml">
+                <form string="Specimen Contained Preferences" >
+                    <sheet class="oe_title">
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name (e.g., United States)"/>
+                        </h1>
+                        <field name="code" placeholder="Code (e.g., US)"/>
+                        <field name="definition" placeholder="Definition"/>
+                        <field name="comments" placeholder="Comments"/>
+                        <group>
+                            <group>
+                                <field name="contains_id" invisible="0"/>
+                                <field name="is_abstract" widget="upgrade_boolean"/>
+                                <field name="level" placeholder="An integer (e.g., 1, 2)"/>
+                                <field name="version" placeholder="e.g., v2.5"/>
+                            </group>
+                            <group>
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hc_vs_container_cap_view_form" model="ir.ui.view">
+            <field name="name">Container Cap Form</field>
+            <field name="model">hc.vs.container.cap</field>
+            <field name="arch" type="xml">
+                <form string="Container Caps" >
+                    <sheet class="oe_title">
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name (e.g., United States)"/>
+                        </h1>
+                        <field name="code" placeholder="Code (e.g., US)"/>
+                        <field name="definition" placeholder="Definition"/>
+                        <field name="comments" placeholder="Comments"/>
+                        <group>
+                            <group>
+                                <field name="contains_id" invisible="0"/>
+                                <field name="is_abstract" widget="upgrade_boolean"/>
+                                <field name="level" placeholder="An integer (e.g., 1, 2)"/>
+                                <field name="version" placeholder="e.g., v2.5"/>
+                            </group>
+                            <group>
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hc_vs_v2_additive_preservative_view_form" model="ir.ui.view">
+            <field name="name">V2 Additive Preservative Form</field>
+            <field name="model">hc.vs.v2.additive.preservative</field>
+            <field name="arch" type="xml">
+                <form string="V2 Additive Preservatives" >
+                    <sheet class="oe_title">
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name (e.g., United States)"/>
+                        </h1>
+                        <field name="code" placeholder="Code (e.g., US)"/>
+                        <field name="definition" placeholder="Definition"/>
+                        <field name="comments" placeholder="Comments"/>
+                        <group>
+                            <group>
+                                <field name="contains_id" invisible="0"/>
+                                <field name="is_abstract" widget="upgrade_boolean"/>
+                                <field name="level" placeholder="An integer (e.g., 1, 2)"/>
+                                <field name="version" placeholder="e.g., v2.5"/>
+                            </group>
+                            <group>
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hc_vs_rejection_criteria_view_form" model="ir.ui.view">
+            <field name="name">Rejection Criteria Form</field>
+            <field name="model">hc.vs.rejection.criteria</field>
+            <field name="arch" type="xml">
+                <form string="Rejection Criterias" >
+                    <sheet class="oe_title">
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name (e.g., United States)"/>
+                        </h1>
+                        <field name="code" placeholder="Code (e.g., US)"/>
+                        <field name="definition" placeholder="Definition"/>
+                        <field name="comments" placeholder="Comments"/>
+                        <group>
+                            <group>
+                                <field name="contains_id" invisible="0"/>
+                                <field name="is_abstract" widget="upgrade_boolean"/>
+                                <field name="level" placeholder="An integer (e.g., 1, 2)"/>
+                                <field name="version" placeholder="e.g., v2.5"/>
+                            </group>
+                            <group>
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hc_vs_handling_condition_view_form" model="ir.ui.view">
+            <field name="name">Handling Condition Form</field>
+            <field name="model">hc.vs.handling.condition</field>
+            <field name="arch" type="xml">
+                <form string="Handling Conditions" >
+                    <sheet class="oe_title">
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name (e.g., United States)"/>
+                        </h1>
+                        <field name="code" placeholder="Code (e.g., US)"/>
+                        <field name="definition" placeholder="Definition"/>
+                        <field name="comments" placeholder="Comments"/>
+                        <group>
+                            <group>
+                                <field name="contains_id" invisible="0"/>
+                                <field name="is_abstract" widget="upgrade_boolean"/>
+                                <field name="level" placeholder="An integer (e.g., 1, 2)"/>
+                                <field name="version" placeholder="e.g., v2.5"/>
+                            </group>
+                            <group>
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hc_vs_specimen_collected_view_form" model="ir.ui.view">
+            <field name="name">Specimen Collected Form</field>
+            <field name="model">hc.vs.specimen.collected</field>
+            <field name="arch" type="xml">
+                <form string="Specimens Collected" >
+                    <sheet class="oe_title">
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name (e.g., United States)"/>
+                        </h1>
+                        <field name="code" placeholder="Code (e.g., US)"/>
+                        <field name="definition" placeholder="Definition"/>
+                        <field name="comments" placeholder="Comments"/>
+                        <group>
+                            <group>
+                                <field name="contains_id" invisible="0"/>
+                                <field name="is_abstract" widget="upgrade_boolean"/>
+                                <field name="level" placeholder="An integer (e.g., 1, 2)"/>
+                                <field name="version" placeholder="e.g., v2.5"/>
+                            </group>
+                            <group>
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
                             </group>
                         </group>
                     </sheet>

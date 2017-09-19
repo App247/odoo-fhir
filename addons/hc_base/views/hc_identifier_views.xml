@@ -106,7 +106,7 @@
             <field name="model">hc.vs.identifier.type</field>
             <field name="arch" type="xml">
                 <form string="Identifier Type">
-                    <sheet>
+                    <sheet class="oe_title">
                         <h1>
                             <field name="name" default_focus="1" placeholder="Name (e.g., Driver's License Number)"/>
                         </h1>

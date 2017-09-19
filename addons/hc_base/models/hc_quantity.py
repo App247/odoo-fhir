@@ -6,7 +6,13 @@ class Quantity(models.Model):
     _name = "hc.quantity"
     _description = "Quantity"
     _inherit = ["hc.element"]
+    _rec_name = "name"
 
+    name = fields.Char(
+        string="Name",
+        compute="_compute_name",
+        store="True",
+        help="Text representation of the quantity. Value + Unit.")
     value = fields.Float(
         string="Value",
         help="Numerical value (with implicit precision).")
@@ -27,6 +33,16 @@ class Quantity(models.Model):
     code = fields.Char(
         string="Code",
         help="Coded form of the unit.")
+
+    @api.depends('value', 'unit')
+    def _compute_name(self):
+        comp_name = '/'
+        for hc_quantity in self:
+            if hc_quantity.value:
+                comp_name = str(hc_quantity.value) or ''
+            if hc_quantity.unit:
+                comp_name = comp_name + " " + hc_quantity.unit or ''
+            hc_quantity.name = comp_name
 
 # Constraints
 
@@ -109,24 +125,36 @@ class Money(models.Model):
 class SimpleQuantity(models.Model):
     _name = "hc.simple.quantity"
     _description = "Simple Quantity"
-    _inherit = ["hc.element"]
+    # _inherit = ["hc.element"]
+    _rec_name = "name"
 
+    name = fields.Char(
+        string="Name",
+        compute="_compute_name",
+        store="True",
+        help="Text representation of the quantity. Value + Unit.")
     value = fields.Float(
         string="Value",
         help="Numerical value (with implicit precision).")
     unit = fields.Char(
         string="Unit of Measure",
         help="Unit representation.")
-    # unit_id = fields.Many2one(
-    #     comodel_name="product.uom",
-    #     string="Unit of Measure",
-    #     help="Unit representation.")
     system = fields.Char(
         string="System URI",
         help="System that defines coded unit form.")
     code = fields.Char(
         string="Code",
         help="Coded form of the unit.")
+
+    @api.depends('value', 'unit')
+    def _compute_name(self):
+        comp_name = '/'
+        for hc_simple_quantity in self:
+            if hc_simple_quantity.value:
+                comp_name = str(hc_simple_quantity.value) or ''
+            if hc_simple_quantity.unit:
+                comp_name = comp_name + " " + hc_simple_quantity.unit or ''
+            hc_simple_quantity.name = comp_name
 
 # Rules
 

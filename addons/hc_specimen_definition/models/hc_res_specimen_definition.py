@@ -12,7 +12,7 @@ class SpecimenDefinition(models.Model):
         string="Name",
         compute="_compute_name",
         store="True",
-        help="Text representation of the specimen definition. Patient Preparation + Type Collected + Time Aspect.")
+        help="Text representation of the specimen definition. Identifier + Type Collected + Time Aspect.")
     identifier_id = fields.Many2one(
         comodel_name="hc.specimen.definition.identifier",
         string="Identifier",
@@ -25,7 +25,8 @@ class SpecimenDefinition(models.Model):
         string="Patient Preparation",
         help="Patient preparation for collection.")
     time_aspect = fields.Char(
-        string="Time Aspect", help="Time aspect for collection.")
+        string="Time Aspect",
+        help="Time aspect for collection.")
     collection_ids = fields.Many2many(
         comodel_name="hc.vs.specimen.collected",
         relation="specimen_definition_collection_rel",
@@ -36,6 +37,18 @@ class SpecimenDefinition(models.Model):
         inverse_name="specimen_definition_id",
         string="Specimen To Labs",
         help="Specimen in container intended for testing by lab.")
+
+    @api.depends('patient_preparation', 'type_collected_id', 'time_aspect')
+    def _compute_name(self):
+        comp_name = '/'
+        for hc_hc_res_specimen_definition in self:
+            if hc_hc_res_specimen_definition.identifier_id:
+                comp_name = hc_hc_res_specimen_definition.identifier_id.name or ''
+            if hc_hc_res_specimen_definition.type_collected_id:
+                comp_name = comp_name + ", " + hc_hc_res_specimen_definition.type_collected_id.name or ''
+            if hc_hc_res_specimen_definition.time_aspect:
+                comp_name = comp_name + ", " + hc_hc_res_specimen_definition.time_aspect or ''
+            hc_hc_res_specimen_definition.name = comp_name
 
 class SpecimenDefinitionSpecimenToLab(models.Model):
     _name = "hc.specimen.definition.specimen.to.lab"
@@ -49,6 +62,7 @@ class SpecimenDefinitionSpecimenToLab(models.Model):
     is_derived = fields.Boolean(
         string="Derived",
         required="True",
+        default="True",
         help="Primary or secondary specimen.")
     type_id = fields.Many2one(
         comodel_name="hc.vs.v2.specimen.type",
@@ -104,7 +118,10 @@ class SpecimenDefinitionSpecimenToLab(models.Model):
     requirement = fields.Char(
         string="Requirement",
         help="Specimen requirements.")
-    retention_time_id = fields.Many2one(comodel_name="hc.specimen.definition.specimen.to.lab.retention.time", string="Retention Time", help="Specimen retention time.")
+    retention_time_id = fields.Many2one(
+        comodel_name="hc.specimen.definition.specimen.to.lab.retention.time",
+        string="Retention Time",
+        help="Specimen retention time.")
 
     # retention_time = fields.Float(
     #     string="Retention Time",
@@ -217,10 +234,10 @@ class SpecimenDefinitionSpecimenToLabContainerCapacity(models.Model):
     _description = "Specimen Definition Specimen To Lab Container Capacity"
     _inherit = ["hc.basic.association", "hc.simple.quantity"]
 
-    specimen_to_lab_id = fields.Many2one(
-        comodel_name="hc.specimen.definition.specimen.to.lab",
-        string="Specimen To Lab",
-        help="Specimen To Lab associated with this Specimen Definition Specimen To Lab Container Capacity.")
+    # specimen_to_lab_id = fields.Many2one(
+    #     comodel_name="hc.specimen.definition.specimen.to.lab",
+    #     string="Specimen To Lab",
+    #     help="Specimen To Lab associated with this Specimen Definition Specimen To Lab Container Capacity.")
 
 class SpecimenDefinitionSpecimenToLabContainerMinimumVolume(models.Model):
     _name = "hc.specimen.definition.specimen.to.lab.container.minimum.volume"
