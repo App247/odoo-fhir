@@ -101,9 +101,6 @@ access_hc_base_hc_domain_resource_text_manager,hc.base.hc.domain.resource.text.m
 access_hc_base_hc_domain_resource_contained_manager,hc.base.hc.domain.resource.contained.manager,model_hc_domain_resource_contained,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_domain_resource_extension_manager,hc.base.hc.domain.resource.extension.manager,model_hc_domain_resource_extension,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_domain_resource_modifier_extension_manager,hc.base.hc.domain.resource.modifier.extension.manager,model_hc_domain_resource_modifier_extension,hc_base.group_hc_base_manager,1,1,1,1
-access_hc_base_hc_vs_value_code_manager,hc.base.hc.vs.value.code.manager,model_hc_vs_value_code,hc_base.group_hc_base_manager,1,1,1,1
-access_hc_base_hc_vs_value_code_concept_manager,hc.base.hc.vs.value.code.concept.manager,model_hc_vs_value_code_concept,hc_base.group_hc_base_manager,1,1,1,1
-access_hc_base_hc_vs_value_coding_manager,hc.base.hc.vs.value.coding.manager,model_hc_vs_value_coding,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_quantity_user,hc.base.hc.quantity.user,model_hc_quantity,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_age_user,hc.base.hc.age.user,model_hc_age,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_count_user,hc.base.hc.count.user,model_hc_count,hc_base.group_hc_base_user,1,0,0,0
