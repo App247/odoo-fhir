@@ -528,6 +528,22 @@ class EncounterReason(models.Model):
         string="Parent",
         help="Parent encounter reason.")
 
+class FHIRAllType(models.Model):
+    _name = "hc.vs.fhir.all.type"
+    _description = "FHIR All Type"
+    _inherit = ["hc.value.set.contains"]
+
+    name = fields.Char(
+        string="Name",
+        help="Name of this FHIR All Type.")
+    code = fields.Char(
+        string="Code",
+        help="Code of this FHIR All Type.")
+    contains_id = fields.Many2one(
+        comodel_name="hc.vs.fhir.all.type",
+        string="Parent",
+        help="Parent FHIR All Type.")
+
 class FormatCode(models.Model):
     _name = "hc.vs.format.code"
     _description = "Format Code"
