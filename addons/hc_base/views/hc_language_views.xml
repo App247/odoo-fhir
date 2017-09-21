@@ -1,27 +1,27 @@
 <openerp>
     <data>
 
-         <!-- Language Views -->           
-                         
-        <record id="res_lang_search_inherit" model="ir.ui.view">                
-            <field name="name">Language Search</field>          
-            <field name="model">res.lang</field>            
-            <field name="inherit_id" ref="base.res_lang_search"/>           
-            <field name="arch" type="xml">          
-                <field name="direction" position="after">      
-                    <field name="country_id"/>  
-                    <group> 
+         <!-- Language Views -->
+
+        <record id="res_lang_search_inherit" model="ir.ui.view">
+            <field name="name">Language Search</field>
+            <field name="model">res.lang</field>
+            <field name="inherit_id" ref="base.res_lang_search"/>
+            <field name="arch" type="xml">
+                <field name="direction" position="after">
+                    <field name="country_id"/>
+                    <group>
                         <filter name="group_by_language" string="Language" context="{'group_by': 'language'}"/>
                         <filter name="group_by_country" string="Country" context="{'group_by': 'country_id'}"/>
                     </group>
-                </field>    
-            </field>                    
-        </record>               
+                </field>
+            </field>
+        </record>
 
-        <record id="res_lang_tree_inherit" model="ir.ui.view">                
-            <field name="name">Language Tree</field>          
-            <field name="model">res.lang</field>            
-            <field name="inherit_id" ref="base.res_lang_tree"/>           
+        <record id="res_lang_tree_inherit" model="ir.ui.view">
+            <field name="name">Language Tree</field>
+            <field name="model">res.lang</field>
+            <field name="inherit_id" ref="base.res_lang_tree"/>
             <field name="arch" type="xml">
                 <field name="direction" invisible="1" position="replace"/>
                 <field name="translatable" invisible="1" position="replace"/>
@@ -30,39 +30,39 @@
                     <field name="iso3_code"/>
                     <field name="language"/>
                     <field name="country_id"/>
-                </field>            
-            </field>                    
-        </record>   
+                </field>
+            </field>
+        </record>
 
-        <record id="res_lang_form_inherit" model="ir.ui.view">                
-            <field name="name">Language Form</field>          
-            <field name="model">res.lang</field>            
-            <field name="inherit_id" ref="base.res_lang_form"/>           
+        <record id="res_lang_form_inherit" model="ir.ui.view">
+            <field name="name">Language Form</field>
+            <field name="model">res.lang</field>
+            <field name="inherit_id" ref="base.res_lang_form"/>
             <field name="arch" type="xml">
-                <field name="iso_code" position="after"> 
+                <field name="iso_code" position="after">
                     <field name="iso3_code"/>
                     <field name="language" />
                     <field name="country_id"/>
                 </field>
-            </field>                    
-        </record>   
-                                              
-<!-- Language Action and Menu -->           
-                    
-        <record id="hc_language_action" model="ir.actions.act_window">            
-            <field name="name">HC Language</field>         
-            <field name="type">ir.actions.act_window</field>          
-            <field name="res_model">res.lang</field>         
-            <field name="view_type">form</field>          
-            <field name="view_mode">tree,form</field>         
+            </field>
         </record>
 
-        <menuitem id="hc_base.menu_language" 
-                  name="Languages" 
-                  parent="hc_base.menu_vs" 
-                  action="hc_language_action" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="12"/>
+<!-- Language Action and Menu -->
+
+        <record id="hc_language_action" model="ir.actions.act_window">
+            <field name="name">HC Language</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.lang</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="hc_base.menu_language"
+                  name="Languages"
+                  parent="hc_base.menu_vs"
+                  action="hc_language_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="6"/>
 
     </data>
 </openerp>

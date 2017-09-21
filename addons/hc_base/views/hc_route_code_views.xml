@@ -1,82 +1,81 @@
 <openerp>
     <data>
 
-        <!-- Value Set View --> 
+        <!-- Value Set View -->
 
-        <record id="hc_vs_route_code_view_search" model="ir.ui.view">          
-            <field name="name">Route Code Search</field>        
-            <field name="model">hc.vs.route.code</field>           
-            <field name="arch" type="xml">      
-                <search string="Route Code">   
+        <record id="hc_vs_route_code_view_search" model="ir.ui.view">
+            <field name="name">Route Code Search</field>
+            <field name="model">hc.vs.route.code</field>
+            <field name="arch" type="xml">
+                <search string="Route Code">
                     <field name="name"/>
                     <field name="code"/>
                     <field name="definition"/>
-                    <group> 
+                    <group>
                         <filter name="group_by_parent" string="parent" context="{'group_by': 'contain_id'}"/>
                     </group>
-                </search>   
-            </field>        
-        </record>           
+                </search>
+            </field>
+        </record>
 
-        <record id="hc_vs_route_code_view_tree" model="ir.ui.view">           
-            <field name="name">Route Code Tree</field>         
-            <field name="model">hc.vs.route.code</field>          
-            <field name="arch" type="xml">          
-                  <tree string="Route Code">       
-                        <field name="code"/>      
-                        <field name="name"/>      
-                        <field name="definition"/>      
-                  </tree>       
-            </field>          
-        </record>           
-                  
-        <record id="hc_vs_route_code_view_form" model="ir.ui.view">           
-            <field name="name">Route Code Form</field>         
-            <field name="model">hc.vs.route.code</field>          
-            <field name="arch" type="xml">          
-                <form string="Route Code">        
-                    <sheet>     
-                        <div class="oe_title oe_left">    
-                            <h1>  
+        <record id="hc_vs_route_code_view_tree" model="ir.ui.view">
+            <field name="name">Route Code Tree</field>
+            <field name="model">hc.vs.route.code</field>
+            <field name="arch" type="xml">
+                  <tree string="Route Code">
+                        <field name="code"/>
+                        <field name="name"/>
+                        <field name="definition"/>
+                  </tree>
+            </field>
+        </record>
+
+        <record id="hc_vs_route_code_view_form" model="ir.ui.view">
+            <field name="name">Route Code Form</field>
+            <field name="model">hc.vs.route.code</field>
+            <field name="arch" type="xml">
+                <form string="Route Code">
+                    <sheet>
+                        <div class="oe_title oe_left">
+                            <h1>
                                 <field name="name" default_focus="1" placeholder="Name (e.g., United States)"/>
-                            </h1> 
-                            <field name="code" placeholder="Code (e.g., US)"/> 
-                            <field name="definition" placeholder="Definition" colwidth="100"/> 
-                            <field name="comments" placeholder="Comments"/> 
-                        </div>    
-                        <group>   
-                            <group> 
+                            </h1>
+                            <field name="code" placeholder="Code (e.g., US)"/>
+                            <field name="definition" placeholder="Definition" colwidth="100"/>
+                            <field name="comments" placeholder="Comments"/>
+                        </div>
+                        <group>
+                            <group>
                                 <field name="is_abstract" widget="upgrade_boolean"/>
                                 <field name="level" placeholder="An integer (e.g., 1, 2)"/>
                                 <field name="version" placeholder="e.g., v2.5"/>
-                            </group>  
-                            <group> 
+                            </group>
+                            <group>
                                 <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
                                 <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
-                            </group>  
-                        </group>    
-                    </sheet>      
-                </form>       
-            </field>          
-        </record>           
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
-        <!--  Route Codes Action and Menu -->		
-		
-        <act_window id="hc_vs_route_code_action"		
-        	        name="HC Route Codes"	
-                	res_model="hc.vs.route.code"	
-                	view_mode="tree,form"	
-                	domain=""	
-                	context=""	
-                	limit=""/>	
+        <!--  Route Codes Action and Menu -->
 
-        <menuitem id="hc_base.menu_vs_route_admin" 
-                  name="Routes of Administration" 
-                  parent="hc_base.menu_vs" 
+        <act_window id="hc_vs_route_code_action"
+        	        name="HC Route Codes"
+                	res_model="hc.vs.route.code"
+                	view_mode="tree,form"
+                	domain=""
+                	context=""
+                	limit=""/>
+
+        <menuitem id="hc_base.menu_vs_route_admin"
+                  name="Routes of Administration"
+                  parent="hc_base.menu_vs"
                   action="hc_vs_route_code_action"
                   groups="hc_base.group_hc_base_manager"
-                  sequence="11"/>
+                  sequence="12"/>
 
     </data>
 </openerp>
-

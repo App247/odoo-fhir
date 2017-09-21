@@ -1,13 +1,13 @@
 <openerp>
     <data>
 
-        <!-- Participation Type Views --> 
+        <!-- Participation Type Views -->
 
-        <record id="hc_vs_participation_type_view_search" model="ir.ui.view">           
-            <field name="name">Participation Type Search</field>        
-            <field name="model">hc.vs.participation.type</field>               
-            <field name="arch" type="xml">      
-                <search string="Participation Types">   
+        <record id="hc_vs_participation_type_view_search" model="ir.ui.view">
+            <field name="name">Participation Type Search</field>
+            <field name="model">hc.vs.participation.type</field>
+            <field name="arch" type="xml">
+                <search string="Participation Types">
                     <field name="name"/>
                     <field name="code"/>
                     <field name="definition"/>
@@ -23,139 +23,138 @@
                         <filter name="verifier" string="verifier" domain="[('subset_ids.name','=','verifier')]"/>
                         <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>
                     </group>
-                </search>   
-            </field>        
-        </record>           
+                </search>
+            </field>
+        </record>
 
-        <record id="hc_vs_participation_type_view_tree" model="ir.ui.view">         
-            <field name="name">Participation Type Tree</field>      
-            <field name="model">hc.vs.participation.type</field>        
-            <field name="arch" type="xml">      
+        <record id="hc_vs_participation_type_view_tree" model="ir.ui.view">
+            <field name="name">Participation Type Tree</field>
+            <field name="model">hc.vs.participation.type</field>
+            <field name="arch" type="xml">
                 <tree string="Participation Types">
                     <field name="name"/>
                     <field name="code"/>
                     <field name="definition"/>
                     <field name="subset_ids" widget="many2many_tags"/>
-                </tree> 
-            </field>        
+                </tree>
+            </field>
         </record>
-                  
-        <record id="hc_vs_participation_type_view_form" model="ir.ui.view">           
-            <field name="name">Participation Type Form</field>         
-            <field name="model">hc.vs.participation.type</field>       
-            <field name="arch" type="xml">          
-                <form string="Participation Types">        
-                    <sheet>     
-                        <div class="oe_title oe_left" colwidth="200">    
-                            <h1>  
+
+        <record id="hc_vs_participation_type_view_form" model="ir.ui.view">
+            <field name="name">Participation Type Form</field>
+            <field name="model">hc.vs.participation.type</field>
+            <field name="arch" type="xml">
+                <form string="Participation Types">
+                    <sheet>
+                        <div class="oe_title oe_left" colwidth="200">
+                            <h1>
                                 <field name="name" default_focus="1" placeholder="Name (e.g., subject)"/>
-                            </h1> 
-                            <field name="code" placeholder="Code (e.g., SBJ)"/> 
+                            </h1>
+                            <field name="code" placeholder="Code (e.g., SBJ)"/>
                         </div>
-                        <field name="definition" placeholder="Definition"/> 
-                        <field name="comments" placeholder="Comments"/>     
-                        <group>   
-                            <group> 
+                        <field name="definition" placeholder="Definition"/>
+                        <field name="comments" placeholder="Comments"/>
+                        <group>
+                            <group>
                                 <field name="contains_id"/>
                                 <field name="level" placeholder="An integer (e.g., 1, 2)"/>
                                 <field name="subset_ids" widget="many2many_tags"/>
                                 <field name="is_abstract" widget="upgrade_boolean"/>
                                 <field name="version" placeholder="e.g., v2.5"/>
-                            </group>  
-                            <group> 
+                            </group>
+                            <group>
                                 <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
                                 <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
-                            </group>  
-                        </group>    
-                    </sheet>      
-                </form>       
-            </field>          
-        </record>                  
-                  
-        <record id="hc_vs_participation_type_action" model="ir.actions.act_window"> 
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hc_vs_participation_type_action" model="ir.actions.act_window">
             <field name="name">HC Participation Types</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">hc.vs.participation.type</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
-        </record>   
+        </record>
 
-        <menuitem id="hc_base.menu_vs_part" 
-                  name="Participation Types" 
+        <menuitem id="hc_base.menu_vs_part"
+                  name="Participation Types"
                   parent="hc_base.menu_vs"
                   action="hc_vs_participation_type_action"
                   groups="hc_base.group_hc_base_manager"
-                  sequence="9"/>
+                  sequence="8"/>
 
-        <!-- Participation Type Subset Views -->                        
-                        
-        <record id="hc_vs_participation_type_subset_view_search" model="ir.ui.view">                        
-            <field name="name">Participation Type Subset Search</field>                 
-            <field name="model">hc.vs.participation.type.subset</field>                 
-            <field name="arch" type="xml">                  
-                <search string="Participation Type Subsets">                
-                    <field name="name"/>            
-                    <field name="code"/>            
-                    <field name="definition"/>                      
-                </search>               
-            </field>                    
-        </record>                       
-                                
-        <record id="hc_vs_participation_type_subset_view_tree" model="ir.ui.view">                      
-            <field name="name">Participation Type Subset Tree</field>                   
-            <field name="model">hc.vs.participation.type.subset</field>                 
-            <field name="arch" type="xml">                  
-                <tree string="Participation Type Subsets" default_order="name, code">               
-                    <field name="name"/>            
-                    <field name="code"/>            
-                    <field name="definition"/>          
-                    <field name="contains_id"/>         
-                    <field name="source_id" invisible="0"/>         
-                </tree>             
-            </field>                    
-        </record>                       
-                                
-        <record id="hc_vs_participation_type_subset_view_form" model="ir.ui.view">                      
-            <field name="name">Participation Type Subset Form</field>                   
-            <field name="model">hc.vs.participation.type.subset</field>                 
-            <field name="arch" type="xml">                  
-                <form string="Participation Type Subsets" >             
-                    <sheet>         
-                        <h1>        
-                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>  
-                        </h1>       
-                        <field name="code" placeholder="Code (e.g., biological)"/>      
-                        <field name="definition" placeholder="Definition"/>     
-                        <field name="comments" placeholder="Comments"/>     
-                        <group>     
-                            <group> 
-                                <field name="contains_id"/>
-                            </group>    
-                            <group> 
-                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
-                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
-                            </group>    
-                        </group>        
-                    </sheet>            
-                </form>             
-            </field>                    
+        <!-- Participation Type Subset Views -->
+
+        <record id="hc_vs_participation_type_subset_view_search" model="ir.ui.view">
+            <field name="name">Participation Type Subset Search</field>
+            <field name="model">hc.vs.participation.type.subset</field>
+            <field name="arch" type="xml">
+                <search string="Participation Type Subsets">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                </search>
+            </field>
         </record>
 
-        <act_window id="hc_vs_participation_type_subset_action"         
+        <record id="hc_vs_participation_type_subset_view_tree" model="ir.ui.view">
+            <field name="name">Participation Type Subset Tree</field>
+            <field name="model">hc.vs.participation.type.subset</field>
+            <field name="arch" type="xml">
+                <tree string="Participation Type Subsets" default_order="name, code">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                    <field name="contains_id"/>
+                    <field name="source_id" invisible="0"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_vs_participation_type_subset_view_form" model="ir.ui.view">
+            <field name="name">Participation Type Subset Form</field>
+            <field name="model">hc.vs.participation.type.subset</field>
+            <field name="arch" type="xml">
+                <form string="Participation Type Subsets" >
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>
+                        </h1>
+                        <field name="code" placeholder="Code (e.g., biological)"/>
+                        <field name="definition" placeholder="Definition"/>
+                        <field name="comments" placeholder="Comments"/>
+                        <group>
+                            <group>
+                                <field name="contains_id"/>
+                            </group>
+                            <group>
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_vs_participation_type_subset_action"
                     name="HC Participation Type Subsets"
                     res_model="hc.vs.participation.type.subset"
                     view_mode="tree,form"
                     domain=""
                     context=""
                     limit=""/>
-        
-        <menuitem id="hc_base.menu_vs_part_sub" 
-                  name="Participation Type Subsets" 
-                  parent="hc_base.menu_vs_part" 
-                  action="hc_vs_participation_type_subset_action" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="10"/>
+
+        <menuitem id="hc_base.menu_vs_part_sub"
+                  name="Participation Type Subsets"
+                  parent="hc_base.menu_vs"
+                  action="hc_vs_participation_type_subset_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="9"/>
 
     </data>
 </openerp>
-

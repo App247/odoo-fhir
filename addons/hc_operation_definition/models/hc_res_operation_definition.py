@@ -77,7 +77,7 @@ class OperationDefinition(models.Model):
         string="Base",
         help="Marks this as a profile of the base.")
     resource_ids = fields.Many2many(
-        comodel_name="hc.vs.operation.definition.type",
+        comodel_name="hc.vs.resource.type",
         relation="operation_definition_resource_rel",
         string="Resources",
         help="Types this operation applies to.")
@@ -85,11 +85,10 @@ class OperationDefinition(models.Model):
         string="System",
         required="True",
         help="Invoke at the system level?")
-    type_ids = fields.Many2many(
-        comodel_name="hc.vs.operation.definition.type",
-        relation="operation_definition_type_rel",
-        string="Types",
-        help="Invoke at resource level for these type.")
+    is_type = fields.Boolean(
+        string="Type",
+        required="True",
+        help="Invoke at the type level?")
     is_instance = fields.Boolean(
         string="Instance",
         required="True",
@@ -140,6 +139,18 @@ class OperationDefinitionParameter(models.Model):
         comodel_name="hc.vs.fhir.all.type",
         string="Type",
         help="What type this parameter has.")
+    search_type = fields.Selection(
+        string="Search Type",
+        selection=[
+            ("number", "Number"),
+            ("date", "Date"),
+            ("string","String"),
+            ("token","Token"),
+            ("reference","Reference"),
+            ("composite","Composite"),
+            ("quantity","Quantity"),
+            ("uri","URI")],
+        help="What type this parameter has.")
     profile_id = fields.Many2one(
         comodel_name="hc.res.structure.definition",
         string="Profile",
@@ -176,7 +187,7 @@ class OperationDefinitionParameterBinding(models.Model):
         required="True",
         selection=[
             ("uri", "URI"),
-            ("value set", "Value Set")],
+            ("value_set", "Value Set")],
         help="Type of source of value set.")
     value_set_name = fields.Char(
         string="Value Set",
@@ -252,11 +263,6 @@ class OperationDefinitionOverloadParameterName(models.Model):
 class OperationDefinitionCode(models.Model):
     _name = "hc.vs.operation.definition.code"
     _description = "Operation Definition Code"
-    _inherit = ["hc.value.set.contains"]
-
-class OperationDefinitionType(models.Model):
-    _name = "hc.vs.operation.definition.type"
-    _description = "Operation Definition Type"
     _inherit = ["hc.value.set.contains"]
 
 class OperationDefinitionParameterName(models.Model):

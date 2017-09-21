@@ -40,6 +40,8 @@
             <field name="currency_id" ref="base.US"/>
         </record>
 
+        <!-- Source: odoo/odoo/addons/base/base_data.xml -->
+
 <!--         <record id="user_demo" model="res.users">
             <field name="partner_id" ref="base.partner_demo"/>
             <field name="login">demo</field>

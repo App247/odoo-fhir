@@ -96,11 +96,11 @@
                     limit=""/>
 
         <menuitem id="hc_base.menu_act_code"
-                  name="Act Code"
+                  name="Act Codes"
                   parent="hc_base.menu_vs"
                   action="hc_vs_act_code_action"
                   groups="hc_base.group_hc_base_manager"
-                  sequence="25"/>
+                  sequence="2"/>
 
         <!-- Act Code Subset Views -->
 
@@ -171,7 +171,7 @@
                     limit=""/>
 
         <menuitem id="hc_base.menu_act_code_sub"
-                  name="Act Code Subset"
+                  name="Act Code Subsets"
                   parent="hc_base.menu_act_code"
                   action="hc_vs_act_code_subset_action"
                   groups="hc_base.group_hc_base_manager"
@@ -246,7 +246,7 @@
                     limit=""/>
 
         <menuitem id="hc_base.menu_act_code_val"
-                  name="Act Code Value Set"
+                  name="Act Code Value Sets"
                   parent="hc_base.menu_act_code"
                   action="hc_vs_act_code_value_set_action"
                   groups="hc_base.group_hc_base_manager"

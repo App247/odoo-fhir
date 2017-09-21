@@ -675,11 +675,11 @@
                     limit=""/>
 
         <menuitem id="hc_patient.menu_mar_stat"
-                  name="Marital Status"
+                  name="Marital Statuses"
                   parent="hc_patient.menu_pat"
                   action="hc_vs_marital_status_action"
                   groups="hc_base.group_hc_base_manager"
-                  sequence="5"/>
+                  sequence="25"/>
 
         <!-- Patient Animal Views -->
 
@@ -745,7 +745,7 @@
                   parent="hc_patient.menu_pat"
                   action="hc_patient_animal_action"
                   groups="hc_base.group_hc_base_manager"
-                  sequence="10"/>
+                  sequence="5"/>
 
         <!-- Animal Species Views -->
 
@@ -825,7 +825,7 @@
                   parent="hc_patient.menu_pat"
                   action="hc_vs_animal_species_action"
                   groups="hc_base.group_hc_base_manager"
-                  sequence="20"/>
+                  sequence="10"/>
 
         <!-- Animal Breed Views -->
 
@@ -904,7 +904,7 @@
                   parent="hc_patient.menu_pat"
                   action="hc_vs_animal_breed_action"
                   groups="hc_base.group_hc_base_manager"
-                  sequence="30"/>
+                  sequence="20"/>
 
         <!-- V3 Religious Affiliation Views -->
 

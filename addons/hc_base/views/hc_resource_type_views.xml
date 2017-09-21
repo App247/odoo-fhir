@@ -1,16 +1,16 @@
-<openerp>
+<odoo>
     <data>
 
-        <!-- Marital Status Views -->
+        <!-- Resource Type Views -->
 
-        <record id="hc_vs_marital_status_view_search" model="ir.ui.view">
-            <field name="name">Marital Status Search</field>
-            <field name="model">hc.vs.marital.status</field>
+        <record id="hc_vs_resource_type_view_search" model="ir.ui.view">
+            <field name="name">Resource Type Search</field>
+            <field name="model">hc.vs.resource.type</field>
             <field name="arch" type="xml">
-                <search string="Marital Statuses">
-                <field name="name"/>
-                <field name="code"/>
-                <field name="definition"/>
+                <search string="Resource Types">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
                     <group>
                         <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>
                     </group>
@@ -18,27 +18,25 @@
             </field>
         </record>
 
-        <record id="hc_vs_marital_status_view_tree" model="ir.ui.view">
-            <field name="name">Marital Status Tree</field>
-            <field name="model">hc.vs.marital.status</field>
+        <record id="hc_vs_resource_type_view_tree" model="ir.ui.view">
+            <field name="name">Resource Type Tree</field>
+            <field name="model">hc.vs.resource.type</field>
             <field name="arch" type="xml">
-                <tree string="Marital Statuses" default_order="name, code">
+                <tree string="Resource Types" default_order="name, code">
                     <field name="name"/>
                     <field name="code"/>
                     <field name="definition"/>
-                    <field name="may_have_spouse" widget="boolean_button"/>
-                    <field name="level"/>
                     <field name="contains_id"/>
                     <field name="source_id" invisible="0"/>
                 </tree>
             </field>
         </record>
 
-        <record id="hc_vs_marital_status_view_form" model="ir.ui.view">
-            <field name="name">Marital Status Form</field>
-            <field name="model">hc.vs.marital.status</field>
+        <record id="hc_vs_resource_type_view_form" model="ir.ui.view">
+            <field name="name">Resource Type Form</field>
+            <field name="model">hc.vs.resource.type</field>
             <field name="arch" type="xml">
-                <form string="Marital Status">
+                <form string="Resource Types" >
                     <sheet>
                         <h1>
                             <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>
@@ -48,8 +46,6 @@
                         <field name="comments" placeholder="Comments"/>
                         <group>
                             <group>
-                                <field name="may_have_spouse" widget="boolean_button"/>
-                                <field name="level"/>
                                 <field name="contains_id"/>
                             </group>
                             <group>
@@ -62,20 +58,20 @@
             </field>
         </record>
 
-        <act_window id="hc_vs_marital_status_action"
-                    name="HC Marital Statuses"
-                    res_model="hc.vs.marital.status"
+        <act_window id="hc_vs_resource_type_action"
+                    name="HC Resource Types"
+                    res_model="hc.vs.resource.type"
                     view_mode="tree,form"
                     domain=""
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_patient.menu_mar_stat"
-                  name="Marital Statuses"
-                  parent="hc_patient.menu_pat"
-                  action="hc_vs_marital_status_action"
+        <menuitem id="hc_base.menu_vs_rsrc_type"
+                  name="Resource Types"
+                  parent="hc_base.menu_vs"
+                  action="hc_vs_resource_type_action"
                   groups="hc_base.group_hc_base_manager"
-                  sequence="25"/>
+                  sequence="10"/>
 
     </data>
-</openerp>
+</odoo>

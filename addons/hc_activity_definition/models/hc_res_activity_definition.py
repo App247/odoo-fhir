@@ -112,7 +112,8 @@ class ActivityDefinition(models.Model):
         help="Kind of resource.")
     code_id = fields.Many2one(
         comodel_name="hc.vs.activity.definition.code",
-        string="Code", help="Detail type of activity.")
+        string="Code",
+        help="Detail type of activity.")
     timing_type = fields.Selection(
         string="Timing Type",
         selection=[

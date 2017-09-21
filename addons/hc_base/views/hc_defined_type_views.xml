@@ -1,77 +1,77 @@
 <odoo>
     <data>
 
-        <!-- Defined Type Views -->                        
-                                
-        <record id="hc_vs_defined_type_view_search" model="ir.ui.view">                        
-            <field name="name">Defined Type Search</field>                    
-            <field name="model">hc.vs.defined.type</field>                    
-            <field name="arch" type="xml">                    
-                <search string="Defined Types">                
-                    <field name="name"/>            
-                    <field name="code"/>            
-                    <field name="definition"/>            
-                    <group>            
-                        <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>        
-                    </group>            
-                </search>                
-            </field>                    
-        </record>                        
-                                
-        <record id="hc_vs_defined_type_view_tree" model="ir.ui.view">                        
-            <field name="name">Defined Type Tree</field>                    
-            <field name="model">hc.vs.defined.type</field>                    
-            <field name="arch" type="xml">                    
-                <tree string="Defined Types" default_order="name, code">                
-                    <field name="name"/>            
-                    <field name="code"/>            
-                    <field name="definition"/>                       
-                    <field name="source_id" invisible="0"/>            
-                </tree>                
-            </field>                    
-        </record>                        
-                                
-        <record id="hc_vs_defined_type_view_form" model="ir.ui.view">                        
-            <field name="name">Defined Type Form</field>                    
-            <field name="model">hc.vs.defined.type</field>                    
-            <field name="arch" type="xml">                    
-                <form string="Defined Types">                
-                    <sheet>            
-                        <h1>        
-                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>    
-                        </h1>        
-                        <field name="code" placeholder="Code (e.g., biological)"/>        
-                        <field name="definition" placeholder="Definition"/>        
-                        <field name="comments" placeholder="Comments"/>        
-                        <group>        
+        <!-- Defined Type Views -->
+
+        <record id="hc_vs_defined_type_view_search" model="ir.ui.view">
+            <field name="name">Defined Type Search</field>
+            <field name="model">hc.vs.defined.type</field>
+            <field name="arch" type="xml">
+                <search string="Defined Types">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                    <group>
+                        <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_vs_defined_type_view_tree" model="ir.ui.view">
+            <field name="name">Defined Type Tree</field>
+            <field name="model">hc.vs.defined.type</field>
+            <field name="arch" type="xml">
+                <tree string="Defined Types" default_order="name, code">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                    <field name="source_id" invisible="0"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_vs_defined_type_view_form" model="ir.ui.view">
+            <field name="name">Defined Type Form</field>
+            <field name="model">hc.vs.defined.type</field>
+            <field name="arch" type="xml">
+                <form string="Defined Types">
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>
+                        </h1>
+                        <field name="code" placeholder="Code (e.g., biological)"/>
+                        <field name="definition" placeholder="Definition"/>
+                        <field name="comments" placeholder="Comments"/>
+                        <group>
                             <group>
-                            </group>    
-                            <group>    
+                            </group>
+                            <group>
                                 <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
                                 <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
-                            </group>    
-                        </group>        
-                    </sheet>            
-                </form>                
-            </field>                    
-        </record>                        
-                                
-        <!-- Defined Type Action and Menu -->                        
-                                
-        <act_window id="hc_vs_defined_type_action"                        
-                    name="HC Defined Types"            
-                    res_model="hc.vs.defined.type"            
-                    view_mode="tree,form"            
-                    domain=""            
-                    context=""            
-                    limit=""/>            
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
-        <menuitem id="hc_base.menu_vs_part" 
-        	      name="Defined Types" 
-        	      parent="hc_base.menu_vs"
-        	      action="hc_vs_defined_type_action" 
-        	      groups="hc_base.group_hc_base_manager" 
-        	      sequence="8"/>
+        <!-- Defined Type Action and Menu -->
+
+        <act_window id="hc_vs_defined_type_action"
+                    name="HC Defined Types"
+                    res_model="hc.vs.defined.type"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <menuitem id="hc_base.menu_vs_part"
+                  name="Defined Types"
+                  parent="hc_base.menu_vs"
+                  action="hc_vs_defined_type_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="4"/>
 
     </data>
 </odoo>
