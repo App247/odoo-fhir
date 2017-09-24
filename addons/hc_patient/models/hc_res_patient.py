@@ -69,6 +69,7 @@ class Patient(models.Model):
         help="The time when the patient was born.")
     is_deceased = fields.Boolean(
         string="Deceased",
+        default="False",
         help="Indicates if the patient is deceased or not.")
     deceased_date = fields.Date(
         string="Deceased Date",
@@ -501,10 +502,6 @@ class PatientContact(models.Model):
         relation="patient_contact_role_rel",
         string="Relationships",
         help="The kind of relationship.")
-    # name_ids = fields.Many2many(
-    #     related="person_id.name_ids",
-    #     string="Names",
-    #     help="A name associated with this Patient Contact.")
     name_ids = fields.One2many(
         related="person_id.name_ids",
         string="Names",

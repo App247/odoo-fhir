@@ -20,9 +20,9 @@
         * Nursing and assisted living
         * Dietary services
         * Tracking of personal health and exercise data
-        
-        The data in the Resource covers the "who" information about the patient: its attributes are focused on the demographic information necessary 
-        to support the administrative, financial and logistic procedures. A Patient record is generally created and maintained by each organization providing care for a patient. 
+
+        The data in the Resource covers the "who" information about the patient: its attributes are focused on the demographic information necessary
+        to support the administrative, financial and logistic procedures. A Patient record is generally created and maintained by each organization providing care for a patient.
         A patient or animal receiving care at multiple organizations may therefore have its information present in multiple Patient Resources.
             """,
 
@@ -55,7 +55,7 @@
     ],
     # only loaded in demonstration mode
     'demo': [
-        'demo/demo.xml',
+        'demo/demo_example.xml',
     ],
     'installable': 'True',
     'auto-install': 'True',

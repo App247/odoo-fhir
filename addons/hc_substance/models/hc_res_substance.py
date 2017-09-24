@@ -349,14 +349,29 @@ class SubstanceCode(models.Model):
         help="Parent substance code.")
     child_parent_ids = fields.Many2many(
         comodel_name="hc.vs.substance.code",
+        compute="_calc_child",
+        store="True",
         relation="substance_code_child_parent_rel",
         column1="child_id",
         column2="parent_id",
         string="Children",
         help="Child substance code.")
     child_count = fields.Integer(
-        string="Count",
+        string="Child Count",
+        compute="_calc_child",
+        store="True",
         help="Number of child members.")
+
+    @api.depends('code')
+    def _calc_child(self):
+        sub_code_obj = self.env['hc.vs.substance.code']
+        for rec in self:
+            rec.child_parent_ids = False
+            if rec.code:
+                child_ids = sub_code_obj.search([('parent_child_ids.code', '=', rec.code)])
+                if child_ids:
+                    rec.child_count = len(child_ids)
+                    rec.child_parent_ids = [(6,0,child_ids.ids)]
 
     @api.constrains('parent_child_ids')
     def _check_recursive_parent_child(self):

@@ -298,13 +298,11 @@
             <field name="model">hc.vs.substance.code</field>
             <field name="arch" type="xml">
                 <tree string="Substance Codes" default_order="level,name">
-                    <field name="id" invisible="1"/>
-                    <field name="name"/>
                     <field name="code"/>
+                    <field name="name"/>
                     <field name="definition" invisible="0"/>
                     <field name="child_count" string="Child Count"/>
-                    <field name="contains_id" invisible="1"/>
-                    <field name="level" invisible="1"/>
+                    <field name="level"/>
                     <field name="parent_child_ids" widget="many2many_tags" invisible="0"/>
                     <field name="level_attribute" invisible="1"/>
                     <field name="source_id" invisible="1"/>

@@ -2,76 +2,7 @@
 <openerp>
     <data>
 
-        <!-- Patient Example -->
-
-        <record id="hc_base.human_name_term_168" model="hc.human.name.term">
-            <field name="name">Jim</field>
-        </record>
-
-        <record id="hc_base.human_name_term_169" model="hc.human.name.term">
-            <field name="name">Windsor</field>
-        </record>
-
-        <record id="hc_base.human_name_example_1" model="hc.human.name">
-            <field model="hc.human.name.term" name="first_id" search="[('name','=','Peter')]"/>
-            <field eval="[(6, 0, [ref('hc_base.human_name_term_1')])]" name="middle_ids"/>
-            <field model="hc.human.name.term" name="surname_id" search="[('name','=','Chalmers')]"/>
-        </record>
-
-        <record id="hc_base.human_name_example_2" model="hc.human.name">
-            <field eval="[(6, 0, [ref('hc_base.human_name_term_168')])]" name="nickname_ids"/>
-        </record>
-
-        <record id="hc_base.human_name_example_3" model="hc.human.name">
-            <field model="hc.human.name.term" name="first_id" search="[('name','=','Peter')]"/>
-            <field eval="[(6, 0, [ref('hc_base.human_name_term_1')])]" name="middle_ids"/>
-            <field model="hc.human.name.term" name="birth_surname_id" search="[('name','=','Windsor')]"/>
-        </record>
-
-        <record id="base.partner_example" model="res.partner">
-            <field name="name">Peter James Chalmers</field>
-        </record>
-
-        <record id="person_example" model="hc.res.person">
-            <field name="partner_id" ref="base.partner_example"/>
-            <field name="name_id" ref="hc_base.human_name_example_1"/>
-            <field name="gender">male</field>
-            <field name="birth_date">1974-12-25</field>
-        </record>
-
-        <record id="name_example_1" model="hc.person.name">
-            <field name="person_id" ref="person_example"/>
-            <field name="human_name_id" ref="hc_base.human_name_example_1"/>
-            <field name="use">official</field>
-        </record>
-
-        <record id="name_example_2" model="hc.person.name">
-            <field name="person_id" ref="person_example"/>
-            <field name="human_name_id" ref="hc_base.human_name_example_2"/>
-            <field name="use">usual</field>
-        </record>
-
-        <record id="name_example_3" model="hc.person.name">
-            <field name="person_id" ref="person_example"/>
-            <field name="human_name_id" ref="hc_base.human_name_example_3"/>
-            <field name="use">maiden</field>
-            <field name="start_date">1974-12-25</field>
-            <field name="end_date">2002-12-31</field>
-        </record>
-
-        <record id="hc_base.identifier_code_example" model="hc.vs.identifier.code">
-            <field name="name">Acme Healthcare MRN</field>
-            <field name="code">Acme Healthcare MRN</field>
-            <field name="type_id" ref="hc_base.ident_type_mr"/>
-        </record>
-
-        <record id="hc_person.identifier_example" model="hc.person.identifier">
-            <field name="person_id" ref="person_example"/>
-            <field name="value">12345</field>
-            <field name="code_id" ref="hc_base.identifier_code_example"/>
-            <field name="use">usual</field>
-            <field name="start_date">2001-05-06</field>
-        </record>
+   
 
     </data>
 </openerp>

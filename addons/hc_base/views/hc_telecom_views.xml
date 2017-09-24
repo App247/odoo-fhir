@@ -1,64 +1,66 @@
 <openerp>
     <data>
 
-    <!-- Telecom Views -->            
-            
-    <record id="hc_telecom_view_search" model="ir.ui.view">           
-        <field name="name">Telecom Search</field>         
-        <field name="model">hc.contact.point</field>          
-        <field name="arch" type="xml">          
-            <search string="Telecoms">        
+    <!-- Telecom Views -->
+
+    <record id="hc_telecom_view_search" model="ir.ui.view">
+        <field name="name">Telecom Search</field>
+        <field name="model">hc.contact.point</field>
+        <field name="arch" type="xml">
+            <search string="Telecoms">
+                <field name="name"/>
+                <field name="value"/>
+                <field name="system"/>
+                <group string="Group By">
+                    <filter name="group_by_system" string="System" context="{'group_by': 'system'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="hc_telecom_view_tree" model="ir.ui.view">
+        <field name="name">Telecom Tree</field>
+        <field name="model">hc.contact.point</field>
+        <field name="arch" type="xml">
+            <tree string="Telecoms">
                 <field name="name"/>
                 <field name="value"/>
                 <field name="system"/>      
-            </search>       
-        </field>          
-    </record>           
-                
-    <record id="hc_telecom_view_tree" model="ir.ui.view">           
-        <field name="name">Telecom Tree</field>         
-        <field name="model">hc.contact.point</field>          
-        <field name="arch" type="xml">          
-            <tree string="Telecoms">        
-                <field name="name"/>
-                <field name="value"/>      
-                <field name="system"/>      
-            </tree>       
-        </field>          
-    </record>           
-                
-    <record id="hc_telecom_view_form" model="ir.ui.view">           
-        <field name="name">Telecom Form</field>         
-        <field name="model">hc.contact.point</field>          
-        <field name="arch" type="xml">          
-            <form string="Telecom">       
-                <sheet>         
-                    <h1>  
+            </tree>
+        </field>
+    </record>
+
+    <record id="hc_telecom_view_form" model="ir.ui.view">
+        <field name="name">Telecom Form</field>
+        <field name="model">hc.contact.point</field>
+        <field name="arch" type="xml">
+            <form string="Telecom">
+                <sheet>
+                    <h1>
                         <field name="name" default_focus="1"/>
                     </h1>
                     <field name="value" placeholder="Tel: +22 607 123 4567, E-mail: jd@isp.com, Web: www.isp.com"/>
-                    <field name="system" widget="radio" options="{'horizontal': true}"/>        
-                </sheet>      
-            </form>       
-        </field>          
-    </record>           
-                
-    <!-- Telecom Action and Menu -->            
-                
-    <record id="hc_telecom_action" model="ir.actions.act_window">           
-        <field name="name">HC Telecoms</field>          
-        <field name="type">ir.actions.act_window</field>          
-        <field name="res_model">hc.contact.point</field>          
-        <field name="view_type">form</field>          
-        <field name="view_mode">tree,form</field>         
-    </record>           
+                    <field name="system" widget="radio" options="{'horizontal': true}"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
-    <menuitem name="Telecom" 
-              id="hc_base.menu_telecom" 
-              parent="hc_base.menu_datatype" 
-              action="hc_telecom_action" 
+    <!-- Telecom Action and Menu -->
+
+    <record id="hc_telecom_action" model="ir.actions.act_window">
+        <field name="name">HC Telecoms</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hc.contact.point</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Telecom"
+              id="hc_base.menu_telecom"
+              parent="hc_base.menu_datatype"
+              action="hc_telecom_action"
               sequence="60"/>
 
   </data>
 </openerp>
-

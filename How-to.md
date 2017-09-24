@@ -464,3 +464,62 @@ ctrl-z to quit
 * Find and Replace special characters
   
   - Enable regex in the find panel. Then use **\t** for tabs, **\r** for carriage returns, **\n** for newlines.
+
+#Video
+
+## Screen Capture with RecordMyDesktop
+[Source:](https://youtu.be/i-pIWSUB3I0)
+to record gtk-recordmydesktop
+translate to high res avi - devede
+
+```
+sudo apt-get install gtk-recordmydesktop devede
+```
+
+RecordMyDesktop settings
+In Performance, set Zero Compression, Full shots at every frame
+
+Devede settings
+Disk type selection: Divx / MPEG-4
+Advance options>Video format 1920x1080
+
+
+##Screen Capture with SimpleScreenRecorder
+[Source for Ubuntu before 17.04:](http://www.maartenbaert.be/simplescreenrecorder/)
+```
+sudo add-apt-repository ppa:maarten-baert/simplescreenrecorder
+sudo apt-get update
+sudo apt-get install simplescreenrecorder
+```
+# if you want to record 32-bit OpenGL applications on a 64-bit system:
+```
+sudo apt-get install simplescreenrecorder-lib:i386
+```
+
+Ubuntu 17.04 or newer
+```
+sudo apt-get update
+sudo apt-get install simplescreenrecorder
+```
+# if you want to record 32-bit OpenGL applications on a 64-bit system:
+```
+sudo apt-get install simplescreenrecorder-lib:i386
+```
+##Audio Recording with Audacity
+
+```
+sudo apt-get install audacity
+```
+
+##Video Editor with [Kdenlive](https://kdenlive.org/download/)
+
+```
+sudo apt-get install kdenlive
+```
+
+* For Ubuntu >= 16.04 and other *buntu based distros like LinuxMint you can download latest Kdenlive from our official PPA’s:
+```
+sudo add-apt-repository ppa:kdenlive/kdenlive-stable
+sudo apt-get update
+sudo apt-get install kdenlive
+```

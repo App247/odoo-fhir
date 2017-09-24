@@ -467,6 +467,7 @@
             <field name="model">hc.person.identifier</field>
             <field name="arch" type="xml">
                 <tree string="Person Identifiers">
+                    <field name="person_id"/>
                     <field name="value"/>
                     <field name="code_id"/>
                     <field name="type_id"/>
@@ -481,21 +482,24 @@
             <field name="arch" type="xml">
                 <form string="Person Identifier">
                     <sheet>
-                        <h1>
-                            <field name="name" placeholder="Identifier"/>
-                        </h1>
-                        <group col="4" colspan="4">
+                        <group>
                             <group>
+                                <field name="person_id"/>
+                                <field name="name"/>
                                 <field name="value"/>
-                                <field name="is_preferred"/>
-                                <field name="is_active"/>
                             </group>
                             <group>
                                 <field name="code_id"/>
                                 <field name="type_id"/>
                                 <field name="use"/>
+                           </group>
+                           <group>
+                                <field name="is_preferred"/>
+                                <field name="is_active"/>
                                 <field name="start_date" placeholder="Valid From"/>
                                 <field name="end_date" placeholder="Valid To"/>
+                           </group>
+                           <group>
                            </group>
                         </group>
                     </sheet>
@@ -519,6 +523,350 @@
                   action="hc_person_identifier_action"
                   groups="hc_base.group_hc_base_manager"
                   sequence="10"/>
+
+        <!-- Person Name Views -->
+
+        <record id="hc_person_name_view_search" model="ir.ui.view">
+            <field name="name">Person Name Search</field>
+            <field name="model">hc.person.name</field>
+            <field name="arch" type="xml">
+                <search string="Person Names">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_person_name_view_tree" model="ir.ui.view">
+            <field name="name">Person Name Tree</field>
+            <field name="model">hc.person.name</field>
+            <field name="arch" type="xml">
+                <tree string="Person Names">
+                    <field name="person_id"/>
+                    <field name="name"/>
+                    <field name="use"/>
+                    <field name="is_preferred"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_person_name_view_form" model="ir.ui.view">
+            <field name="name">Person Name Form</field>
+            <field name="model">hc.person.name</field>
+            <field name="arch" type="xml">
+                <form string="Person Name">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="person_id"/>
+                                <field name="human_name_id"/>
+                                <field name="use" widget="radio" options="{'horizontal': true}"/>
+                            </group>
+                            <group>
+                                <field name="first_id"/>
+                                <field name="surname_id"/>
+                                <field name="nickname_ids" widget="many2many_tags"/>
+                                <field name="initial_ids" widget="many2many_tags"/>
+                                <field name="middle_ids" widget="many2many_tags"/>
+                                <field name="mother_maiden_id"/>
+                                <field name="prefix_ids" widget="many2many_tags"/>
+                                <field name="suffix_ids" widget="many2many_tags"/>
+                            </group>
+                            <group>
+                                <field name="is_preferred"/>
+                                <field name="is_active"/>
+                                <field name="start_date" placeholder="Valid From"/>
+                                <field name="end_date" placeholder="Valid To"/>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_person_name_action"
+                    name="HC Person Names"
+                    res_model="hc.person.name"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <menuitem id="hc_person.menu_name"
+                  name="Person Names"
+                  parent="hc_person.menu_pers"
+                  action="hc_person_name_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="20"/>
+
+
+        <!-- Person Telecom Views -->
+
+        <record id="hc_person_telecom_view_search" model="ir.ui.view">
+            <field name="name">Person Telecom Search</field>
+            <field name="model">hc.person.telecom</field>
+            <field name="arch" type="xml">
+                <search string="Person Telecoms">
+                    <field name="person_id"/>
+                    <field name="name"/>
+                    <field name="value"/>
+                    <field name="system"/>
+                    <group string="Group By">
+                        <filter name="group_by_system" string="System" context="{'group_by': 'system'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_person_telecom_view_tree" model="ir.ui.view">
+            <field name="name">Person Telecom Tree</field>
+            <field name="model">hc.person.telecom</field>
+            <field name="arch" type="xml">
+                <tree string="Person Telecoms">
+                    <field name="person_id"/>
+                    <field name="name"/>
+                    <field name="value"/>
+                    <field name="system"/>
+                    <field name="use"/>
+                    <field name="rank"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_person_telecom_view_form" model="ir.ui.view">
+            <field name="name">Person Telecom Form</field>
+            <field name="model">hc.person.telecom</field>
+            <field name="arch" type="xml">
+                <form string="Person Telecom">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="person_id"/>
+                                <field name="name"/>
+                                <field name="value" placeholder="Tel: +22 607 123 4567, E-mail: jd@isp.com, Web: www.isp.com"/>
+                                <field name="system" widget="radio" options="{'horizontal': true}"/>
+                            </group>
+                            <group>
+                                <field name="use" widget="radio" options="{'horizontal': true}"/>
+                                <field name="rank"/>
+                            </group>
+                            <group>
+                                <field name="is_preferred"/>
+                                <field name="is_active"/>
+                                <field name="start_date" placeholder="Valid From"/>
+                                <field name="end_date" placeholder="Valid To"/>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_person_telecom_action"
+                    name="HC Person Telecoms"
+                    res_model="hc.person.telecom"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <menuitem id="hc_person.menu_telecom"
+                  name="Person Telecoms"
+                  parent="hc_person.menu_pers"
+                  action="hc_person_telecom_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="30"/>
+
+        <!-- Person Address Views -->
+
+        <record id="hc_person_address_view_search" model="ir.ui.view">
+            <field name="name">Person Address Search</field>
+            <field name="model">hc.person.address</field>
+            <field name="arch" type="xml">
+                <search string="Person Addresses">
+                    <field name="person_id"/>
+                    <field name="text"/>
+                    <field name="postal_code_id" string="Postal/ZIP Code"/>
+                    <field name="city_id" string="City/Place"/>
+                    <field name="district_id" string="District/County"/>
+                    <field name="state_id" string="State/Province"/>
+                    <field name="division_id"/>
+                    <field name="region_id"/>
+                    <field name="country_id"/>
+                    <filter name="state_id" string="California" domain="[('state_id', '=', 'base.state_us_5')]"/>
+                    <group string="Group By">
+                        <filter name="group_by_state" string="State" context="{'group_by': 'state_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_person_address_view_tree" model="ir.ui.view">
+            <field name="name">Person Address Tree</field>
+            <field name="model">hc.person.address</field>
+            <field name="arch" type="xml">
+                <tree string="Person Addresses">
+                    <field name="person_id"/>
+                    <field name="use"/>
+                    <field name="type"/>
+                    <field name="line1" string="Street"/>
+                    <field name="city_id" string="City/Place"/>
+                    <field name="postal_code_id" string="Postal/ZIP Code"/>
+                    <field name="district_id" string="District/County"/>
+                    <field name="state_id" string="State/Province"/>
+                    <field name="division_id" invisible="1"/>
+                    <field name="region_id" invisible="1"/>
+                    <field name="country_id"/>
+                    <field name="geolocation_id" string="Latitude Longitude"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_person_address_view_form" model="ir.ui.view">
+            <field name="name">Person Address Form</field>
+            <field name="model">hc.person.address</field>
+            <field name="arch" type="xml">
+                <form string="Person Address">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="person_id"/>
+                                <field name="text" default_focus="1" readonly="1" placeholder="Full Address"/>
+                                <field name="geolocation_id" placeholder="Geolocation"/>
+                                <field name="use" widget="radio" options="{'horizontal': true}"/>
+                                <field name="type" widget="radio" options="{'horizontal': true}"/>
+                            </group>
+                            <group>
+                                <field name="line1"/>
+                                <field name="line2"/>
+                                <field name="line3"/>
+                                <field name="city_id" string="City/Place"/>
+                                <field name="postal_code_id" string="Postal/ZIP Code"/>
+                            </group>
+                            <group>
+                                <field name="district_id" string="District/County"/>
+                                <field name="state_id" placeholder="State/Province"/>
+                                <field name="division_id"/>
+                                <field name="region_id"/>
+                                <field name="country_id"/>
+                            </group>
+                            <group>
+                                <field name="is_preferred"/>
+                                <field name="is_active"/>
+                                <field name="start_date" placeholder="Valid From"/>
+                                <field name="end_date" placeholder="Valid To"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_person_address_action"
+                    name="HC Person Addresses"
+                    res_model="hc.person.address"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <menuitem id="hc_person.menu_addr"
+                  name="Person Addresses"
+                  parent="hc_person.menu_pers"
+                  action="hc_person_address_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="40"/>
+
+        <!-- Person Photo Views -->
+
+        <record id="hc_person_photo_view_search" model="ir.ui.view">
+            <field name="name">Person Photo Search</field>
+            <field name="model">hc.person.photo</field>
+            <field name="arch" type="xml">
+                <search string="Person Photos">
+                    <field name="person_id"/>
+                    <field name="name"/>
+                    <field name="mimetype"/>
+                    <field name="language_id"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_person_photo_view_tree" model="ir.ui.view">
+            <field name="name">Person Photo Tree</field>
+            <field name="model">hc.person.photo</field>
+            <field name="arch" type="xml">
+                <tree string="Person Photos">
+                    <field name="person_id"/>
+                    <field name="name"/>
+                    <field name="creation_date"/>
+                    <field name="attachment_type_id"/>
+                    <field name="mimetype"/>
+                    <field name="language_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_person_photo_view_form" model="ir.ui.view">
+            <field name="name">Person Photo Form</field>
+            <field name="model">hc.person.photo</field>
+            <field name="arch" type="xml">
+                <form string="Person Photo">
+                    <sheet>
+                        <div class="oe_title oe_left">
+                            <h1>
+                                <field name="name" default_focus="1" placeholder="Title (e.g., ADT Form)"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="person_id"/>
+                                <field name="name"/>
+                                <field name="creation_date"/>
+                                <field name="attachment_type_id" placeholder="(e.g., ADT Form)"/>
+                                <field name="has_data" invisible="1"/>
+                                <field name="mimetype" attrs="{'required': [('has_data','=',True)]}"/>
+                            </group>
+                            <group>
+                                <field name="language_id"/>
+                                <field name="url"/>
+                                <field name="file_size"/>
+                                <field name="hash_attachment"/>
+                                <field name="datas" attrs="{'required': [('mimetype','!=',False)]}"/>
+                            </group>
+                            <group>
+                                <field name="is_preferred"/>
+                                <field name="is_active"/>
+                                <field name="start_date" placeholder="Valid From"/>
+                                <field name="end_date" placeholder="Valid To"/>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_person_photo_action"
+                    name="HC Person Photos"
+                    res_model="hc.person.photo"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <menuitem id="hc_person.menu_photo"
+                  name="Person Photos"
+                  parent="hc_person.menu_pers"
+                  action="hc_person_photo_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="50"/>
 
         <!-- External Reference View -->
 
