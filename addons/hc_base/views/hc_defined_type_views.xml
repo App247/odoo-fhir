@@ -67,7 +67,7 @@
                     limit=""/>
 
         <menuitem id="hc_base.menu_vs_part"
-                  name="Defined Types"
+                  name="Defined Type"
                   parent="hc_base.menu_vs"
                   action="hc_vs_defined_type_action"
                   groups="hc_base.group_hc_base_manager"

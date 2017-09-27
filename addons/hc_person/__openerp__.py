@@ -7,16 +7,16 @@
     """,
 
     'description': """
-        
+
         Demographics and administrative information about a person independent of a specific health-related context.
 
         **Scope and Usage**
-        
-        An individual has identity outside of a healthcare setting. The Person resource is used to capture 
+
+        An individual has identity outside of a healthcare setting. The Person resource is used to capture
         this information and to relate the person as an individual to other resources that do have a health-related context.
 
-        For example, while a patient resource may be created and maintained by each organization providing 
-        care for that person as a patient, a person resource provides a mechanism for linking patient resources 
+        For example, while a patient resource may be created and maintained by each organization providing
+        care for that person as a patient, a person resource provides a mechanism for linking patient resources
         across different organizations and their unique patient identity domains.
     """,
 
@@ -45,6 +45,7 @@
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
+        'demo/demo_patient.xml',
     ],
     'installable': 'True',
     # 'auto-install': 'True',

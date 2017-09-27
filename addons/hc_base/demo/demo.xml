@@ -65,12 +65,22 @@
             <field name="image" type="base64" file="hc_base/static/img/partner_root_image.jpg"/>
         </record>
 
-<!--         <record id="example" model="hc.human.name">
-            <field model="hc.human.name.term" name="first_id" search="[('name','=','Peter')]"/>
-            <field model="hc.human.name.term" name="surname_id" search="[('name','=','Chalmers')]"/>
-            <field eval="[(6, 0, [ref('human_name_term_1')])]" name="middle_ids"/>
-            <field eval="[(6, 0, [ref('human_name_term_168')])]" name="nickname_ids"/>
-        </record> -->
+       <!-- Patient Example Partner -->
+
+        <record id="base.patient_example" model="res.partner">
+            <field name="name">Peter James Chalmers</field>
+            <field name="company_type">person</field>
+        </record>
+
+        <record id="base.patient_example_contact" model="res.partner">
+            <field name="name">Bénédicte du Marché</field>
+            <field name="company_type">person</field>
+        </record>
+
+        <record id="base.patient_example_organization" model="res.partner">
+            <field name="name">Acme Healthcare, Inc.</field>
+            <field name="company_type">company</field>
+        </record>
 
     </data>
 </odoo>
