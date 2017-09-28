@@ -11,9 +11,9 @@
 
         **Scope and Usage**
 
-        This resource may be used in a shared registry of contact and other information for various organizations or it can be used merely as a support 
-        for other resources that need to reference organizations, perhaps as a document, message or as a contained resource. 
-        
+        This resource may be used in a shared registry of contact and other information for various organizations or it can be used merely as a support
+        for other resources that need to reference organizations, perhaps as a document, message or as a contained resource.
+
         If using a registry approach, it's entirely possible for multiple registries to exist, each dealing with different types or levels of organization.
     """,
 
@@ -33,6 +33,7 @@
     'data': [
         'security/ir.model.access.csv',
         'data/data_organization.xml',
+        'examples/example.xml',
         'views/hc_res_organization_views.xml',
         'views/hc_res_organization_templates.xml',
     ],

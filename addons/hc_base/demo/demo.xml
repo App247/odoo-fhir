@@ -82,5 +82,24 @@
             <field name="company_type">company</field>
         </record>
 
+        <!-- Patient Pat1 Partner -->
+
+        <record id="base.patient_pat1" model="res.partner">
+            <field name="name">Donald Duck</field>
+            <field name="company_type">person</field>
+        </record>
+
+        <record id="base.patient_pat1_organization" model="res.partner">
+            <field name="name">Walt Disney Corporation</field>
+            <field name="company_type">company</field>
+        </record>
+
+        <!-- Patient Pat2 Partner -->
+
+        <record id="base.patient_pat2" model="res.partner">
+            <field name="name">Donald D Duck</field>
+            <field name="company_type">person</field>
+        </record>   
+
     </data>
 </odoo>

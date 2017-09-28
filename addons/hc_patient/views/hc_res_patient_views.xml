@@ -11,6 +11,7 @@
                 <search string="Patients">
                     <field name="name"/>
                     <field name="birth_date" string="DOB"/>
+                    <field name="managing_organization_id"/>
                 </search>
             </field>
         </record>
@@ -22,6 +23,7 @@
                 <tree string="Patients">
                     <field name="name"/>
                     <field name="birth_date" string="DOB"/>
+                    <field name="managing_organization_id"/>
                 </tree>
             </field>
         </record>
@@ -41,6 +43,7 @@
                                 <field name="person_id" default_focus="1" placeholder="Name" context="{'is_patient': True}"/>
                             </h1>
                         </div>
+                        <field name="managing_organization_id"/>
                         <div name="buttons" class="oe_right oe_button_box"></div>
                         <group>
                             <group string = "Demographics">
@@ -262,7 +265,7 @@
                             <page string="Contacts">
                                 <field name="contact_ids" mode="tree">
                                     <tree>
-                                        <field name="name_id"/>
+                                        <field name="person_id" string="Name"/>
                                         <field name="relationship_ids"/>
                                         <field name="organization_id"/>
                                         <field name="start_date" string="Valid From"/>
@@ -271,7 +274,7 @@
                                     <form>
                                         <sheet>
                                             <h1>
-                                                <field name="name_id" default_focus="1" placeholder="Name"/>
+                                                <field name="person_id" default_focus="1" placeholder="Name"/>
                                             </h1>
                                             <group>
                                                 <group>

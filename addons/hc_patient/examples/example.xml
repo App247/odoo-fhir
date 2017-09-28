@@ -7,8 +7,9 @@
         <record id="patient_example" model="hc.res.patient">
             <field name="person_id" ref="hc_person.patient_example"/>
             <field name="birth_time">14:35:45-05:00</field>
-            <field name="is_deceased">false</field>
-            <field name="managing_organization_id" ref="hc_organization.patient_example_organization"/>
+            <field name="is_deceased" eval="False"/>
+<!--             <field name="managing_organization_id" ref="hc_organization.patient_example_organization"/> -->
+            <field name="managing_organization_id" ref="hc_organization.patient_example_organization_res_partner"/>
         </record>
 
         <!-- Example Patient Contact -->
@@ -22,7 +23,7 @@
         </record>
 
         <record id="patient_example" model="hc.patient.contact.address">
-            <field name="address_id" ref="hc_person.patient_example"/>
+            <field name="address_id" ref="hc_base.patient_example"/>
             <field name="patient_contact_id" ref="patient_example_contact"/>
             <field name="use">home</field>
             <field name="type">both</field>
@@ -41,7 +42,7 @@
         <record id="patient_example" model="hc.patient.identifier">
             <field name="patient_id" ref="patient_example"/>
             <field name="value">12345</field>
-            <field name="code_id" ref="hc_base.identifier_code_example"/>
+            <field name="code_id" ref="hc_base.ident_code_patient_example"/>
             <field name="use">usual</field>
             <field name="start_date">2001-05-06</field>
         </record>

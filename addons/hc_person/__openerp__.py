@@ -39,13 +39,13 @@
     'data': [
         'security/ir.model.access.csv',
         'security/hc_person_security.xml',
+        'examples/example.xml',
         'views/hc_res_person_views.xml',
         'views/hc_res_person_templates.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
-        'demo/demo.xml',
-        'demo/demo_patient.xml',
+        # 'demo/demo.xml',
     ],
     'installable': 'True',
     # 'auto-install': 'True',

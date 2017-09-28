@@ -1,0 +1,19 @@
+<odoo>
+    <data>
+
+        <!-- Patient Example -->
+
+        <record id="patient_example_organization" model="hc.res.organization">
+            <field name="partner_id" ref="base.patient_example_organization"/>
+            <field name="name">Acme Healthcare</field>
+        </record>
+
+        <!-- Patient Pat1 -->
+
+        <record id="hc_organization.patient_pat1" model="hc.res.organization">
+            <field name="partner_id" ref="base.patient_pat1_organization"/>
+            <field name="name">Walt Disney Corporation</field>
+        </record>
+
+    </data>
+</odoo>

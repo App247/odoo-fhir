@@ -115,8 +115,8 @@
         </record>
 
         <record id="patient_example" model="hc.person.address">
-            <field name="address_id" ref="hc_base.patient_example"/>
             <field name="person_id" ref="patient_example"/>
+            <field name="address_id" ref="hc_base.patient_example"/>
             <field name="use">home</field>
             <field name="type">both</field>
             <field name="start_date">1974-12-25</field>
@@ -146,14 +146,14 @@
 
         <!-- Patient Example Person Telecom -->
 
-<!--         <record id="patient_example" model="hc.person.telecom">
-            <field name="person_id" ref="patient_example"/>
+        <record id="patient_example" model="hc.person.telecom">
+            <field name="person_id" ref="hc_patient.patient_example_hc_res_person"/>
             <field name="telecom_id" ref="hc_base.cont_pnt_unknown"/>
             <field name="use">home</field>
         </record>
 
         <record id="patient_example_1" model="hc.person.telecom">
-            <field name="person_id" ref="patient_example"/>
+            <field name="person_id" ref="hc_patient.patient_example_hc_res_person"/>
             <field name="telecom_id" ref="hc_base.cont_pnt_0355556573"/>
             <field name="use">work</field>
             <field name="rank">1</field>
@@ -172,7 +172,7 @@
             <field name="use">old</field>
             <field name="rank">3</field>
             <field name="end_date">2014-12-31</field>
-        </record> -->
+        </record>
 
     </data>
 </openerp>

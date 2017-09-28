@@ -7,10 +7,10 @@
             <field name="name">Acme Healthcare, Inc.</field>
             <field name="company_type">company</field>
         </record> -->
-
+<!--
         <record id="patient_example_organization" model="hc.res.organization">
             <field name="partner_id" ref="base.patient_example_organization"/>
-        </record>
+        </record> -->
 
     </data>
 </openerp>

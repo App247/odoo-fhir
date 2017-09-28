@@ -458,6 +458,11 @@
             <field name="model">hc.person.identifier</field>
             <field name="arch" type="xml">
                 <search string="Person Identifiers">
+                    <field name="person_id"/>
+                    <field name="value"/>
+                    <field name="code_id"/>
+                    <field name="type_id"/>
+                    <field name="use"/>
                 </search>
             </field>
         </record>
@@ -531,7 +536,8 @@
             <field name="model">hc.person.name</field>
             <field name="arch" type="xml">
                 <search string="Person Names">
-                    <field name="name"/>
+                    <field name="person_id"/>
+                    <field name="human_name_id"/>
                 </search>
             </field>
         </record>
@@ -542,11 +548,8 @@
             <field name="arch" type="xml">
                 <tree string="Person Names">
                     <field name="person_id"/>
-                    <field name="name"/>
+                    <field name="human_name_id"/>
                     <field name="use"/>
-                    <field name="is_preferred"/>
-                    <field name="start_date"/>
-                    <field name="end_date"/>
                 </tree>
             </field>
         </record>
@@ -611,9 +614,7 @@
             <field name="arch" type="xml">
                 <search string="Person Telecoms">
                     <field name="person_id"/>
-                    <field name="name"/>
-                    <field name="value"/>
-                    <field name="system"/>
+                    <field name="telecom_id"/>
                     <group string="Group By">
                         <filter name="group_by_system" string="System" context="{'group_by': 'system'}"/>
                     </group>
@@ -627,9 +628,7 @@
             <field name="arch" type="xml">
                 <tree string="Person Telecoms">
                     <field name="person_id"/>
-                    <field name="name"/>
-                    <field name="value"/>
-                    <field name="system"/>
+                    <field name="telecom_id"/>
                     <field name="use"/>
                     <field name="rank"/>
                 </tree>
@@ -645,7 +644,7 @@
                         <group>
                             <group>
                                 <field name="person_id"/>
-                                <field name="name"/>
+                                <field name="telecom_id"/>
                                 <field name="value" placeholder="Tel: +22 607 123 4567, E-mail: jd@isp.com, Web: www.isp.com"/>
                                 <field name="system" widget="radio" options="{'horizontal': true}"/>
                             </group>
@@ -690,14 +689,7 @@
             <field name="arch" type="xml">
                 <search string="Person Addresses">
                     <field name="person_id"/>
-                    <field name="text"/>
-                    <field name="postal_code_id" string="Postal/ZIP Code"/>
-                    <field name="city_id" string="City/Place"/>
-                    <field name="district_id" string="District/County"/>
-                    <field name="state_id" string="State/Province"/>
-                    <field name="division_id"/>
-                    <field name="region_id"/>
-                    <field name="country_id"/>
+                    <field name="address_id"/>
                     <filter name="state_id" string="California" domain="[('state_id', '=', 'base.state_us_5')]"/>
                     <group string="Group By">
                         <filter name="group_by_state" string="State" context="{'group_by': 'state_id'}"/>
@@ -712,17 +704,9 @@
             <field name="arch" type="xml">
                 <tree string="Person Addresses">
                     <field name="person_id"/>
+                    <field name="address_id"/>
                     <field name="use"/>
                     <field name="type"/>
-                    <field name="line1" string="Street"/>
-                    <field name="city_id" string="City/Place"/>
-                    <field name="postal_code_id" string="Postal/ZIP Code"/>
-                    <field name="district_id" string="District/County"/>
-                    <field name="state_id" string="State/Province"/>
-                    <field name="division_id" invisible="1"/>
-                    <field name="region_id" invisible="1"/>
-                    <field name="country_id"/>
-                    <field name="geolocation_id" string="Latitude Longitude"/>
                 </tree>
             </field>
         </record>
@@ -736,10 +720,10 @@
                         <group>
                             <group>
                                 <field name="person_id"/>
-                                <field name="text" default_focus="1" readonly="1" placeholder="Full Address"/>
-                                <field name="geolocation_id" placeholder="Geolocation"/>
+                                <field name="address_id"/>
                                 <field name="use" widget="radio" options="{'horizontal': true}"/>
                                 <field name="type" widget="radio" options="{'horizontal': true}"/>
+                                <field name="geolocation_id" placeholder="Geolocation"/>
                             </group>
                             <group>
                                 <field name="line1"/>
@@ -818,11 +802,6 @@
             <field name="arch" type="xml">
                 <form string="Person Photo">
                     <sheet>
-                        <div class="oe_title oe_left">
-                            <h1>
-                                <field name="name" default_focus="1" placeholder="Title (e.g., ADT Form)"/>
-                            </h1>
-                        </div>
                         <group>
                             <group>
                                 <field name="person_id"/>
