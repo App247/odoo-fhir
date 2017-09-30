@@ -50,6 +50,7 @@
         'data/hc.vs.v3.religious.affiliation.csv',
         # 'data/hc.vs.v2.contact.role.csv',
         'examples/example.xml',
+        'examples/example_stock_persons.xml',
         # 'views/hc_marital_status_views.xml',
         'views/hc_res_patient_views.xml',
         'views/hc_res_patient_templates.xml',

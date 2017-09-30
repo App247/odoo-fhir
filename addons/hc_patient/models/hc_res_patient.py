@@ -69,7 +69,6 @@ class Patient(models.Model):
         help="The time when the patient was born.")
     is_deceased = fields.Boolean(
         string="Deceased",
-        default="False",
         help="Indicates if the patient is deceased or not.")
     deceased_date = fields.Date(
         string="Deceased Date",
@@ -485,18 +484,35 @@ class PatientLanguageProficiency(models.Model):
 class PatientContact(models.Model):
     _name = "hc.patient.contact"
     _description = "Patient Contact"
-    _inherits = {"hc.res.person": "person_id"}
+    # _inherits = {"hc.res.person": "person_id"}
 
-    person_id = fields.Many2one(
-        comodel_name="hc.res.person",
-        string="Person",
-        ondelete="restrict",
-        required="True",
-        help="Person associated with this Patient Contact.")
+    # person_id = fields.Many2one(
+    #     comodel_name="hc.res.person",
+    #     string="Person",
+    #     ondelete="restrict",
+    #     required="True",
+    #     help="Person associated with this Patient Contact.")
+
+    name = fields.Char(
+        string="Name",
+        compute="_compute_name",
+        store="True",
+        help="Text representation of the Patient Contact Name.")
+    type = fields.Selection(
+        string="Type",
+        selection=[
+            ("person", "Person"),
+            ("organization", "Organization")],
+        default="person",
+        help="Patient Contact is a person or an organization.")
     patient_id = fields.Many2one(
         comodel_name="hc.res.patient",
         string="Patient",
         help="Patient associated with this Patient Contact.")
+    person_id = fields.Many2one(
+        comodel_name="hc.res.person",
+        string="Person",
+        help="Person associated with this Patient Contact.")
     relationship_ids = fields.Many2many(
         comodel_name="hc.vs.v2.contact.role",
         relation="patient_contact_role_rel",
@@ -509,7 +525,7 @@ class PatientContact(models.Model):
     name_id = fields.Many2one(
         comodel_name="hc.human.name",
         string="Name",
-        help="A name associated with the contact person.")
+        help="A name associated with the contact.")
     telecom_ids = fields.One2many(
         # comodel_name="hc.patient.contact.telecom",
         # inverse_name="contact_id",
@@ -544,6 +560,15 @@ class PatientContact(models.Model):
         string="Valid to",
         help="End of the the period during which this contact person or organization is valid to be contacted relating to this patient.")
 
+    @api.depends('name_id', 'organization_id')
+    def _compute_name(self):
+        comp_name = '/'
+        for hc_patient_contact in self:
+            if hc_patient_contact.name_id:
+                comp_name = hc_patient_contact.name_id.name or ''
+            if hc_patient_contact.organization_id:
+                comp_name = hc_patient_contact.organization_id.name or ''
+            hc_patient_contact.name = comp_name
 
 class PatientContactAddress(models.Model):
     _name = "hc.patient.contact.address"

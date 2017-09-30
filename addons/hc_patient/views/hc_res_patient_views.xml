@@ -34,16 +34,15 @@
             <field name="arch" type="xml">
                 <form string="Patient">
                     <sheet>
-                        <field name="image"
-                            widget="image"
-                            class="oe_left oe_avatar"
-                            options="{'preview_image': 'image_medium', 'size': [90, 90]}"/>
+                        <field name="image" widget="image" class="oe_left oe_avatar" options="{'preview_image': 'image_medium', 'size': [90, 90]}"/>
                         <div class="oe_title">
                             <h1>
                                 <field name="person_id" default_focus="1" placeholder="Name" context="{'is_patient': True}"/>
                             </h1>
+                            <h3>
+                                <field name="managing_organization_id" placeholder="Managing Organization (e.g., Provider Organization"/>
+                            </h3>
                         </div>
-                        <field name="managing_organization_id"/>
                         <div name="buttons" class="oe_right oe_button_box"></div>
                         <group>
                             <group string = "Demographics">
@@ -72,14 +71,9 @@
                                 <field name="importance_id" attrs="{'invisible': [('type','=','animal')]}"/>
                                 <field name="is_interpreter_required" attrs="{'invisible': [('type','=','animal')]}"/>
                                 <field name="mothers_maiden_name_id" attrs="{'invisible': [('type','=','animal')]}"/>
-                                <field name="partner_id"/>
                             </group>
                             <group string = "Animal">
                                 <field name="animal_id" attrs="{'invisible': [('type','!=','animal')], 'required': [('type','=','animal')]}"/>
-                            </group>
-                            <group string="Resource">
-                                <field name="identifier" string="Resource ID"/>
-                                <field name="meta_id" string="Profile URI"/>
                             </group>
                         </group>
                         <notebook colspan="4">
@@ -265,9 +259,9 @@
                             <page string="Contacts">
                                 <field name="contact_ids" mode="tree">
                                     <tree>
-                                        <field name="person_id" string="Name"/>
+                                        <field name="name"/>
+                                        <field name="type"/>
                                         <field name="relationship_ids"/>
-                                        <field name="organization_id"/>
                                         <field name="start_date" string="Valid From"/>
                                         <field name="end_date" string="Valid To"/>
                                     </tree>
@@ -278,17 +272,19 @@
                                             </h1>
                                             <group>
                                                 <group>
-                                                    <field name="gender"/>
+                                                    <field name="type"/>
+                                                    <field name="person_id" attrs="{'invisible': [('type','=','organization')]}"/>
+                                                    <field name="organization_id" attrs="{'invisible': [('type','!=','organization')]}"/>
+                                                    <field name="gender" attrs="{'invisible': [('type','=','organization')]}"/>
                                                     <field name="relationship_ids" widget="many2many_tags"/>
                                                     <field name="start_date" placeholder="Valid From"/>
                                                     <field name="end_date" placeholder="Valid To"/>
                                                 </group>
                                                 <group>
-                                                    <field name="address_id"/>
-                                                    <field name="organization_id"/>
+                                                    <field name="address_id"  attrs="{'invisible': [('type','=','organization')]}"/>
                                                 </group>
                                             </group>
-                                            <notebook>
+                                            <notebook attrs="{'invisible': [('type','=','organization')]}">
                                                 <page string="Names">
                                                     <field name="name_ids" mode="tree">
                                                         <tree>
@@ -524,6 +520,169 @@
                                     </form>
                                 </field>
                             </page>
+                            <page string="Meta">
+                                <form>
+                                    <sheet>
+                                        <group string="Resource">
+                                            <group>
+                                                <field name="identifier"/>
+                                                <field name="implicit_rules"/>
+                                                <field name="language_id"/>
+                                                <field name="meta_id"/>
+                                            </group>
+                                            <group>
+                                            </group>
+                                        </group>
+                                        <group string="Domain Resource">
+                                            <group>
+                                                <field name="text_id"/>
+                                            </group>
+                                            <group>
+                                            </group>
+                                        </group>
+                                        <notebook>
+                                            <page string="Contained">
+                                                <field name="contained_ids" mode="tree">
+                                                    <tree>
+                                                        <field name="identifier"/>
+                                                        <field name="meta_id"/>
+                                                        <field name="implicit_rules"/>
+                                                        <field name="language_id"/>
+                                                    </tree>
+                                                    <form>
+                                                        <sheet>
+                                                            <group>
+                                                                <group>
+                                                                    <field name="identifier"/>
+                                                                    <field name="meta_id"/>
+                                                                    <field name="implicit_rules"/>
+                                                                    <field name="language_id"/>
+                                                                </group>
+                                                                <group>
+                                                                </group>
+                                                            </group>
+                                                        </sheet>
+                                                    </form>
+                                                </field>
+                                            </page>
+                                            <page string="Extensions">
+                                                <field name="extension_ids" mode="tree">
+                                                    <tree>
+                                                        <field name="url"/>
+                                                        <field name="value_name"/>
+                                                        <field name="value_type"/>
+                                                    </tree>
+                                                    <form>
+                                                        <sheet>
+                                                            <group>
+                                                                <group>
+                                                                    <field name="url"/>
+                                                                    <field name="value_name"/>
+                                                                    <field name="value_type" class="oe_edit_only"/>
+                                                                    <field name="value_integer" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','integer')], 'required': [('value_type','=','integer')]}"/>
+                                                                    <field name="value_decimal" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','decimal')], 'required': [('value_type','=','decimal')]}"/>
+                                                                    <field name="value_date_time" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','date_time')], 'required': [('value_type','=','date_time')]}"/>
+                                                                    <field name="value_date" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','date')], 'required': [('value_type','=','date')]}"/>
+                                                                    <field name="value_instant" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','instant')], 'required': [('value_type','=','instant')]}"/>
+                                                                    <field name="value_string" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','string')], 'required': [('value_type','=','string')]}"/>
+                                                                    <field name="value_uri" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','uri')], 'required': [('value_type','=','uri')]}"/>
+                                                                    <field name="value_boolean" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','boolean')], 'required': [('value_type','=','boolean')]}"/>
+                                                                    <field name="value_code_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','code')], 'required': [('value_type','=','code')]}"/>
+                                                                    <field name="value_markdown" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','markdown')], 'required': [('value_type','=','markdown')]}"/>
+                                                                    <field name="value_base_64_binary" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','base_64_binary')], 'required': [('value_type','=','base_64_binary')]}"/>
+                                                                    <field name="value_coding_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','coding')], 'required': [('value_type','=','coding')]}"/>
+                                                                    <field name="value_codeable_concept_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','codeable_concept')], 'required': [('value_type','=','codeable_concept')]}"/>
+                                                                    <field name="value_attachment_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','attachment')], 'required': [('value_type','=','attachment')]}"/>
+                                                                    <field name="value_identifier_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','identifier')], 'required': [('value_type','=','identifier')]}"/>
+                                                                    <field name="value_quantity" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','quantity')], 'required': [('value_type','=','quantity')]}"/>
+                                                                    <field name="value_quantity_uom_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','quantity')], 'required': [('value_type','=','quantity')]}"/>
+                                                                    <field name="value_range" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','range')], 'required': [('value_type','=','range')]}"/>
+                                                                    <field name="value_period" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','period')], 'required': [('value_type','=','period')]}"/>
+                                                                    <field name="value_period_uom_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','period')], 'required': [('value_type','=','period')]}"/>
+                                                                    <field name="value_ratio" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','ratio')], 'required': [('value_type','=','ratio')]}"/>
+                                                                    <field name="value_human_name_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','human_name')], 'required': [('value_type','=','human_name')]}"/>
+                                                                    <field name="value_address_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','address')], 'required': [('value_type','=','address')]}"/>
+                                                                    <field name="value_contact_point_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','contact_point')], 'required': [('value_type','=','contact_point')]}"/>
+                                                                    <field name="value_timing_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','timing')], 'required': [('value_type','=','timing')]}"/>
+                                                                    <field name="value_signature_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','signature')], 'required': [('value_type','=','signature')]}"/>
+                                                                    <field name="value_reference_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','reference')], 'required': [('value_type','=','reference')]}"/>
+                                                                    <field name="value_time" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','time')], 'required': [('value_type','=','time')]}"/>
+                                                                    <field name="value_oid" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','oid')], 'required': [('value_type','=','oid')]}"/>
+                                                                    <field name="value_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','id')], 'required': [('value_type','=','id')]}"/>
+                                                                    <field name="value_unsigned_int" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','unsigned_int')], 'required': [('value_type','=','unsigned_int')]}"/>
+                                                                    <field name="value_positive_int" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','positive_int')], 'required': [('value_type','=','positive_int')]}"/>
+                                                                    <field name="value_annotation_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','annotation')], 'required': [('value_type','=','annotation')]}"/>
+                                                                    <field name="value_sampled_data_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','sampled_data')], 'required': [('value_type','=','sampled_data')]}"/>
+                                                                    <field name="value_meta_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','meta')], 'required': [('value_type','=','meta')]}"/>
+                                                                </group>
+                                                                <group>
+                                                                </group>
+                                                            </group>
+                                                        </sheet>
+                                                    </form>
+                                                </field>
+                                            </page>
+                                            <page string="Modifier Extensions">
+                                                <field name="modifier_extension_ids" mode="tree">
+                                                    <tree>
+                                                        <field name="url"/>
+                                                        <field name="value_name"/>
+                                                        <field name="value_type"/>
+                                                    </tree>
+                                                    <form>
+                                                        <sheet>
+                                                            <group>
+                                                                <group>
+                                                                    <field name="url"/>
+                                                                    <field name="value_name"/>
+                                                                    <field name="value_type" class="oe_edit_only"/>
+                                                                    <field name="value_integer" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','integer')], 'required': [('value_type','=','integer')]}"/>
+                                                                    <field name="value_decimal" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','decimal')], 'required': [('value_type','=','decimal')]}"/>
+                                                                    <field name="value_date_time" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','date_time')], 'required': [('value_type','=','date_time')]}"/>
+                                                                    <field name="value_date" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','date')], 'required': [('value_type','=','date')]}"/>
+                                                                    <field name="value_instant" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','instant')], 'required': [('value_type','=','instant')]}"/>
+                                                                    <field name="value_string" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','string')], 'required': [('value_type','=','string')]}"/>
+                                                                    <field name="value_uri" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','uri')], 'required': [('value_type','=','uri')]}"/>
+                                                                    <field name="value_boolean" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','boolean')], 'required': [('value_type','=','boolean')]}"/>
+                                                                    <field name="value_code_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','code')], 'required': [('value_type','=','code')]}"/>
+                                                                    <field name="value_markdown" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','markdown')], 'required': [('value_type','=','markdown')]}"/>
+                                                                    <field name="value_base_64_binary" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','base_64_binary')], 'required': [('value_type','=','base_64_binary')]}"/>
+                                                                    <field name="value_coding_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','coding')], 'required': [('value_type','=','coding')]}"/>
+                                                                    <field name="value_codeable_concept_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','codeable_concept')], 'required': [('value_type','=','codeable_concept')]}"/>
+                                                                    <field name="value_attachment_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','attachment')], 'required': [('value_type','=','attachment')]}"/>
+                                                                    <field name="value_identifier_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','identifier')], 'required': [('value_type','=','identifier')]}"/>
+                                                                    <field name="value_quantity" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','quantity')], 'required': [('value_type','=','quantity')]}"/>
+                                                                    <field name="value_quantity_uom_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','quantity')], 'required': [('value_type','=','quantity')]}"/>
+                                                                    <field name="value_range" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','range')], 'required': [('value_type','=','range')]}"/>
+                                                                    <field name="value_period" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','period')], 'required': [('value_type','=','period')]}"/>
+                                                                    <field name="value_period_uom_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','period')], 'required': [('value_type','=','period')]}"/>
+                                                                    <field name="value_ratio" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','ratio')], 'required': [('value_type','=','ratio')]}"/>
+                                                                    <field name="value_human_name_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','human_name')], 'required': [('value_type','=','human_name')]}"/>
+                                                                    <field name="value_address_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','address')], 'required': [('value_type','=','address')]}"/>
+                                                                    <field name="value_contact_point_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','contact_point')], 'required': [('value_type','=','contact_point')]}"/>
+                                                                    <field name="value_timing_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','timing')], 'required': [('value_type','=','timing')]}"/>
+                                                                    <field name="value_signature_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','signature')], 'required': [('value_type','=','signature')]}"/>
+                                                                    <field name="value_reference_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','reference')], 'required': [('value_type','=','reference')]}"/>
+                                                                    <field name="value_time" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','time')], 'required': [('value_type','=','time')]}"/>
+                                                                    <field name="value_oid" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','oid')], 'required': [('value_type','=','oid')]}"/>
+                                                                    <field name="value_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','id')], 'required': [('value_type','=','id')]}"/>
+                                                                    <field name="value_unsigned_int" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','unsigned_int')], 'required': [('value_type','=','unsigned_int')]}"/>
+                                                                    <field name="value_positive_int" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','positive_int')], 'required': [('value_type','=','positive_int')]}"/>
+                                                                    <field name="value_annotation_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','annotation')], 'required': [('value_type','=','annotation')]}"/>
+                                                                    <field name="value_sampled_data_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','sampled_data')], 'required': [('value_type','=','sampled_data')]}"/>
+                                                                    <field name="value_meta_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','meta')], 'required': [('value_type','=','meta')]}"/>
+                                                                </group>
+                                                                <group>
+                                                                </group>
+                                                            </group>
+                                                        </sheet>
+                                                    </form>
+                                                </field>
+                                            </page>
+                                        </notebook>
+                                    </sheet>
+                                </form>
+                            </page>
                         </notebook>
                     </sheet>
                 </form>
@@ -757,7 +916,7 @@
             <field name="model">hc.patient.identifier</field>
             <field name="arch" type="xml">
                 <search string="Patient Identifiers">
-                    <field name="person_id"/>
+                    <field name="patient_id"/>
                     <field name="value"/>
                     <field name="code_id"/>
                     <field name="type_id"/>
@@ -771,7 +930,7 @@
             <field name="model">hc.patient.identifier</field>
             <field name="arch" type="xml">
                 <tree string="Patient Identifiers">
-                    <field name="person_id"/>
+                    <field name="patient_id"/>
                     <field name="value"/>
                     <field name="code_id"/>
                     <field name="type_id"/>

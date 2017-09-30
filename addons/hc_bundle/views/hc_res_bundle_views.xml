@@ -39,6 +39,7 @@
                         <h1>
                             <field name="identifier_id" string="Identifier"/>
                         </h1>
+                        <field name="identifier"/>
                         <group>
                             <group>
 
@@ -352,6 +353,7 @@
                         <group>
                             <group>
                                 <field name="value"/>
+                                <field name="code_id"/>
                                 <field name="is_preferred"/>
                                 <field name="is_active"/>
                             </group>

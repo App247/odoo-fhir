@@ -1,0 +1,106 @@
+<odoo>
+    <data>
+
+    <!-- Sp01 Everywoman, Eve. SSN: 444222222 -->
+
+        <!-- Sp01 Organization -->
+
+        <record id="base.gov_us" model="res.partner">
+            <field name="name">US Government</field>
+            <field name="company_type">company</field>
+        </record>
+
+        <record id="hc_organization.hl7" model="hc.res.organization">
+            <field name="partner_id" ref="base.hl7"/>
+            <field name="name">HL7</field>
+        </record>
+
+        <record id="hc_organization.gov_us" model="hc.res.organization">
+            <field name="partner_id" ref="base.gov_us"/>
+            <field name="name">United States Government</field>
+        </record>
+
+        <!-- Sp01 Person -->
+
+        <record id="base.patient_sp01" model="res.partner">
+            <field name="name">Eve Everywoman</field>
+            <field name="company_type">person</field>
+        </record>
+
+        <record id="hc_base.human_name_term_180" model="hc.human.name.term">
+            <field name="name">Eve</field>
+        </record>
+
+        <record id="hc_base.human_name_term_181" model="hc.human.name.term">
+            <field name="name">Everywoman</field>
+        </record>
+
+        <record id="hc_base.patient_sp01_name" model="hc.human.name">
+            <field model="hc.human.name.term" name="first_id" search="[('name','=','Eve')]"/>
+            <field model="hc.human.name.term" name="surname_id" search="[('name','=','Everywoman')]"/>
+        </record>
+
+        <record id="hc_person.patient_sp01" model="hc.res.person">
+            <field name="partner_id" ref="base.patient_sp01"/>
+            <field name="name_id" ref="hc_base.patient_sp01_name"/>
+            <field name="gender">female</field>
+            <field name="birth_date">1973-05-31</field>
+        </record>
+
+        <record id="hc_person.patient_sp01_name" model="hc.person.name">
+            <field name="person_id" ref="hc_person.patient_sp01"/>
+            <field name="human_name_id" ref="hc_base.patient_sp01_name"/>
+            <field name="use">official</field>
+        </record>
+
+        <!-- Sp01 Person Address -->
+
+        <record id="hc_base.patient_sp01_address" model="hc.address">
+            <field name="line1">2222 Home Street</field>
+        </record>
+
+        <record id="hc_person.patient_sp01_address" model="hc.person.address">
+            <field name="person_id" ref="hc_person.patient_sp01"/>
+            <field name="address_id" ref="hc_base.patient_sp01_address"/>
+            <field name="use">home</field>
+        </record>
+
+        <!-- Sp01 Person Telecom -->
+
+        <record id="hc_base.cont_pnt_5555552003" model="hc.contact.point">
+            <field name="value">555-555-2003</field>
+            <field name="system">phone</field>
+        </record>
+
+        <record id="hc_person.patient_sp01_telecom" model="hc.person.telecom">
+            <field name="person_id" ref="hc_person.patient_sp01"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_5555552003"/>
+            <field name="use">work</field>
+        </record>
+
+        <!-- Sp01 Patient -->
+
+        <record id="patient_sp01" model="hc.res.patient">
+            <field name="person_id" ref="hc_person.patient_sp01"/>
+            <field name="managing_organization_id" ref="hc_organization.hl7"/>
+        </record>
+
+        <!-- Sp01 Patient Identifier -->
+
+        <record id="hc_base.ident_code_ss_us" model="hc.vs.identifier.code">
+            <field name="name">SSN</field>
+            <field name="code">SSN</field>
+            <field name="type_id" ref="hc_base.ident_type_ss"/>
+            <field name="assigner_id" ref="hc_organization.gov_us"/>
+            <field name="country_id" ref="base.us"/>
+        </record>
+
+        <record id="patient_sp01_identifier" model="hc.patient.identifier">
+            <field name="patient_id" ref="patient_sp01"/>
+            <field name="person_id" ref="hc_person.patient_sp01"/>
+            <field name="value">444222222</field>
+            <field name="code_id" ref="hc_base.ident_code_ss_us"/>
+        </record>
+
+    </data>
+</odoo>
