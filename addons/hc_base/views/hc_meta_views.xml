@@ -32,18 +32,18 @@
                 <form string="Meta">
                     <sheet>
                         <h1>
-                            <field name="identifier" placeholder="ID"/>    
+                            <field name="identifier" placeholder="ID"/>
                         </h1>
                         <group>
                             <group>
-                                <field name="version_id"/>
+<!--                                 <field name="version_id"/> -->
                                 <field name="last_updated"/>
                                 <field name="security_ids" widget="many2many_tags"/>
                                 <field name="tag_ids" widget="many2many_tags"/>
                             </group>
-                            <group string="Element">
+<!--                             <group string="Element">
                                 <field name="identifier"/>
-                            </group>
+                            </group> -->
                         </group>
                         <notebook>
                             <page string="Profiles">

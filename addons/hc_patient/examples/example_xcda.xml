@@ -1,0 +1,70 @@
+<odoo>
+    <data>
+
+        <!-- Xcda Organization -->
+
+        <record id="base.patient_xcda_organization" model="res.partner">
+            <field name="name">Good Health Clinic</field>
+            <field name="company_type">company</field>
+        </record>
+
+
+        <record id="hc_organization.patient_xcda_organization" model="hc.res.organization">
+            <field name="partner_id" ref="base.patient_xcda_organization"/>
+            <field name="name">Good Health Clinic</field>
+        </record>
+
+        <!-- Xcda Person -->
+
+        <record id="hc_base.human_name_term_544" model="hc.human.name.term">
+            <field name="name">Levin</field>
+        </record>
+
+        <record id="hc_base.patient_xcda_name" model="hc.human.name">
+            <field model="hc.human.name.term" name="first_id" search="[('name','=','Henry')]"/>
+            <field model="hc.human.name.term" name="surname_id" search="[('name','=','Levin')]"/>
+        </record>
+
+        <record id="base.patient_xcda" model="res.partner">
+            <field name="name">Henry Levin</field>
+            <field name="company_type">person</field>
+        </record>
+
+        <record id="hc_person.patient_xcda" model="hc.res.person">
+            <field name="partner_id" ref="base.patient_xcda"/>
+            <field name="name_id" ref="hc_base.patient_xcda_name"/>
+            <field name="gender">male</field>
+            <field name="birth_date">1932-09-24</field>
+        </record>
+
+        <record id="hc_person.patient_xcda_name" model="hc.person.name">
+            <field name="person_id" ref="hc_person.patient_xcda"/>
+            <field name="human_name_id" ref="hc_base.patient_xcda_name"/>
+            <field name="use">official</field>
+        </record>
+
+        <!-- Xcda Patient -->
+
+        <record id="patient_xcda" model="hc.res.patient">
+            <field name="person_id" ref="hc_person.patient_xcda"/>
+            <field name="is_active" eval="True"/>
+            <field name="managing_organization_id" ref="hc_organization.patient_xcda_organization"/>
+        </record>
+
+        <!-- Xcda Patient Identifier -->
+
+        <record id="hc_base.ident_code_patient_xcda" model="hc.vs.identifier.code">
+            <field name="name">MRN</field>
+            <field name="code">MRN</field>
+            <field name="type_id" ref="hc_base.ident_type_mr"/>
+        </record>
+
+        <record id="patient_xcda_identifier" model="hc.patient.identifier">
+            <field name="patient_id" ref="patient_xcda"/>
+            <field name="person_id" ref="hc_person.patient_xcda"/>
+            <field name="value">12345</field>
+            <field name="code_id" ref="hc_base.ident_code_patient_xcda"/>
+        </record>
+
+    </data>
+</odoo>

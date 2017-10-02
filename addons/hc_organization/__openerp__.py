@@ -33,7 +33,7 @@
     'data': [
         'security/ir.model.access.csv',
         'data/data_organization.xml',
-        'examples/example.xml',
+        # 'examples/example.xml',
         'views/hc_res_organization_views.xml',
         'views/hc_res_organization_templates.xml',
     ],

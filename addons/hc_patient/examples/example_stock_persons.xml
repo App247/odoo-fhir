@@ -22,11 +22,6 @@
 
         <!-- Sp01 Person -->
 
-        <record id="base.patient_sp01" model="res.partner">
-            <field name="name">Eve Everywoman</field>
-            <field name="company_type">person</field>
-        </record>
-
         <record id="hc_base.human_name_term_180" model="hc.human.name.term">
             <field name="name">Eve</field>
         </record>
@@ -38,6 +33,11 @@
         <record id="hc_base.patient_sp01_name" model="hc.human.name">
             <field model="hc.human.name.term" name="first_id" search="[('name','=','Eve')]"/>
             <field model="hc.human.name.term" name="surname_id" search="[('name','=','Everywoman')]"/>
+        </record>
+
+        <record id="base.patient_sp01" model="res.partner">
+            <field name="name">Eve Everywoman</field>
+            <field name="company_type">person</field>
         </record>
 
         <record id="hc_person.patient_sp01" model="hc.res.person">
@@ -99,6 +99,771 @@
             <field name="patient_id" ref="patient_sp01"/>
             <field name="person_id" ref="hc_person.patient_sp01"/>
             <field name="value">444222222</field>
+            <field name="code_id" ref="hc_base.ident_code_ss_us"/>
+        </record>
+
+    <!-- Sp02 Everyman, Adam. SSN: 444333333 -->
+
+        <!-- Sp02 Person -->
+
+        <record id="hc_base.patient_sp02_name" model="hc.human.name">
+            <field model="hc.human.name.term" name="first_id" search="[('name','=','Adam')]"/>
+            <field model="hc.human.name.term" name="surname_id" search="[('name','=','Everywoman')]"/>
+        </record>
+
+        <record id="base.patient_sp02" model="res.partner">
+            <field name="name">Eve Everywoman</field>
+            <field name="company_type">person</field>
+        </record>
+
+        <record id="hc_person.patient_sp02" model="hc.res.person">
+            <field name="partner_id" ref="base.patient_sp02"/>
+            <field name="name_id" ref="hc_base.patient_sp02_name"/>
+            <field name="gender">male</field>
+        </record>
+
+        <record id="hc_person.patient_sp02_name" model="hc.person.name">
+            <field name="person_id" ref="hc_person.patient_sp02"/>
+            <field name="human_name_id" ref="hc_base.patient_sp02_name"/>
+            <field name="use">official</field>
+        </record>
+
+        <!-- Sp02 Person Address -->
+
+        <record id="hc_person.patient_sp02_address" model="hc.person.address">
+            <field name="person_id" ref="hc_person.patient_sp02"/>
+            <field name="address_id" ref="hc_base.patient_sp01_address"/>
+            <field name="use">home</field>
+        </record>
+
+        <!-- Sp02 Person Telecom -->
+
+        <record id="hc_base.cont_pnt_5555552004" model="hc.contact.point">
+            <field name="value">555-555-2004</field>
+            <field name="system">phone</field>
+        </record>
+
+        <record id="hc_person.patient_sp02_telecom" model="hc.person.telecom">
+            <field name="person_id" ref="hc_person.patient_sp02"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_5555552004"/>
+            <field name="use">work</field>
+        </record>
+
+        <!-- Sp02 Patient -->
+
+        <record id="patient_sp02" model="hc.res.patient">
+            <field name="person_id" ref="hc_person.patient_sp02"/>
+            <field name="is_active" eval="True"/>
+            <field name="managing_organization_id" ref="hc_organization.hl7"/>
+        </record>
+
+        <!-- Sp02 Patient Identifier -->
+
+        <record id="patient_sp02_identifier" model="hc.patient.identifier">
+            <field name="patient_id" ref="patient_sp02"/>
+            <field name="person_id" ref="hc_person.patient_sp02"/>
+            <field name="value">444333333</field>
+            <field name="code_id" ref="hc_base.ident_code_ss_us"/>
+        </record>
+
+    <!-- Sp03 Kidd, Kari. SSN: 444555555 -->
+
+        <!-- Sp03 Person -->
+
+        <record id="hc_base.human_name_term_182" model="hc.human.name.term">
+            <field name="name">Kari</field>
+        </record>
+
+        <record id="hc_base.human_name_term_183" model="hc.human.name.term">
+            <field name="name">Kidd</field>
+        </record>
+
+        <record id="hc_base.patient_sp03_name" model="hc.human.name">
+            <field model="hc.human.name.term" name="first_id" search="[('name','=','Kari')]"/>
+            <field model="hc.human.name.term" name="surname_id" search="[('name','=','Kidd')]"/>
+        </record>
+
+        <record id="base.patient_sp03" model="res.partner">
+            <field name="name">Kari Kidd</field>
+            <field name="company_type">person</field>
+        </record>
+
+        <record id="hc_person.patient_sp03" model="hc.res.person">
+            <field name="partner_id" ref="base.patient_sp03"/>
+            <field name="name_id" ref="hc_base.patient_sp03_name"/>
+            <field name="gender">female</field>
+        </record>
+
+        <record id="hc_person.patient_sp03_name" model="hc.person.name">
+            <field name="person_id" ref="hc_person.patient_sp03"/>
+            <field name="human_name_id" ref="hc_base.patient_sp03_name"/>
+            <field name="use">official</field>
+        </record>
+
+        <!-- Sp03 Person Address -->
+
+        <record id="hc_person.patient_sp03_address" model="hc.person.address">
+            <field name="person_id" ref="hc_person.patient_sp03"/>
+            <field name="address_id" ref="hc_base.patient_sp01_address"/>
+            <field name="use">home</field>
+        </record>
+
+        <!-- Sp03 Person Telecom -->
+
+        <record id="hc_base.cont_pnt_5555552005" model="hc.contact.point">
+            <field name="value">555-555-2005</field>
+            <field name="system">phone</field>
+        </record>
+
+        <record id="hc_person.patient_sp03_telecom" model="hc.person.telecom">
+            <field name="person_id" ref="hc_person.patient_sp03"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_5555552005"/>
+            <field name="use">work</field>
+        </record>
+
+        <!-- Sp03 Patient -->
+
+        <record id="patient_sp03" model="hc.res.patient">
+            <field name="person_id" ref="hc_person.patient_sp03"/>
+            <field name="is_active" eval="True"/>
+            <field name="managing_organization_id" ref="hc_organization.hl7"/>
+        </record>
+
+        <!-- Sp03 Patient Identifier -->
+
+        <record id="patient_sp03_identifier" model="hc.patient.identifier">
+            <field name="patient_id" ref="patient_sp03"/>
+            <field name="person_id" ref="hc_person.patient_sp03"/>
+            <field name="value">444555555</field>
+            <field name="code_id" ref="hc_base.ident_code_ss_us"/>
+        </record>
+
+    <!-- Sp04 Nuclear, Nancy. SSN:444114567 -->
+
+        <!-- Sp04 Person -->
+
+        <record id="hc_base.human_name_term_182" model="hc.human.name.term">
+            <field name="name">Nancy</field>
+        </record>
+
+        <record id="hc_base.human_name_term_183" model="hc.human.name.term">
+            <field name="name">Nuclear</field>
+        </record>
+
+        <record id="hc_base.patient_sp04_name" model="hc.human.name">
+            <field model="hc.human.name.term" name="first_id" search="[('name','=','Nancy')]"/>
+            <field model="hc.human.name.term" name="surname_id" search="[('name','=','Nuclear')]"/>
+        </record>
+
+        <record id="base.patient_sp04" model="res.partner">
+            <field name="name">Nancy Nuclear</field>
+            <field name="company_type">person</field>
+        </record>
+
+        <record id="hc_person.patient_sp04" model="hc.res.person">
+            <field name="partner_id" ref="base.patient_sp04"/>
+            <field name="name_id" ref="hc_base.patient_sp04_name"/>
+            <field name="gender">female</field>
+        </record>
+
+        <record id="hc_person.patient_sp04_name" model="hc.person.name">
+            <field name="person_id" ref="hc_person.patient_sp04"/>
+            <field name="human_name_id" ref="hc_base.patient_sp04_name"/>
+            <field name="use">official</field>
+        </record>
+
+        <!-- Sp04 Person Address -->
+
+        <record id="hc_base.patient_sp04_address" model="hc.address">
+            <field name="line1">6666 Home Street</field>
+        </record>
+
+        <record id="hc_person.patient_sp04_address" model="hc.person.address">
+            <field name="person_id" ref="hc_person.patient_sp04"/>
+            <field name="address_id" ref="hc_base.patient_sp04_address"/>
+            <field name="use">home</field>
+        </record>
+
+        <!-- Sp04 Person Telecom -->
+
+        <record id="hc_base.cont_pnt_5555555001" model="hc.contact.point">
+            <field name="value">555-555-5001</field>
+            <field name="system">phone</field>
+        </record>
+
+        <record id="hc_person.patient_sp04_telecom" model="hc.person.telecom">
+            <field name="person_id" ref="hc_person.patient_sp04"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_5555555001"/>
+            <field name="use">work</field>
+        </record>
+
+        <!-- Sp04 Patient -->
+
+        <record id="patient_sp04" model="hc.res.patient">
+            <field name="person_id" ref="hc_person.patient_sp04"/>
+            <field name="is_active" eval="True"/>
+            <field name="managing_organization_id" ref="hc_organization.hl7"/>
+        </record>
+
+        <!-- Sp04 Patient Identifier -->
+
+        <record id="patient_sp04_identifier" model="hc.patient.identifier">
+            <field name="patient_id" ref="patient_sp04"/>
+            <field name="person_id" ref="hc_person.patient_sp04"/>
+            <field name="value">444114567</field>
+            <field name="code_id" ref="hc_base.ident_code_ss_us"/>
+        </record>
+
+    <!-- Sp05 Nuclear, Neville. SSN:444111234 -->
+
+        <!-- Sp05 Person -->
+
+        <record id="hc_base.human_name_term_184" model="hc.human.name.term">
+            <field name="name">Neville</field>
+        </record>
+
+
+        <record id="hc_base.patient_sp05_name" model="hc.human.name">
+            <field model="hc.human.name.term" name="first_id" search="[('name','=','Neville')]"/>
+            <field model="hc.human.name.term" name="surname_id" search="[('name','=','Nuclear')]"/>
+        </record>
+
+        <record id="base.patient_sp05" model="res.partner">
+            <field name="name">Neville Nuclear</field>
+            <field name="company_type">person</field>
+        </record>
+
+        <record id="hc_person.patient_sp05" model="hc.res.person">
+            <field name="partner_id" ref="base.patient_sp05"/>
+            <field name="name_id" ref="hc_base.patient_sp05_name"/>
+            <field name="gender">male</field>
+        </record>
+
+        <record id="hc_person.patient_sp05_name" model="hc.person.name">
+            <field name="person_id" ref="hc_person.patient_sp05"/>
+            <field name="human_name_id" ref="hc_base.patient_sp05_name"/>
+            <field name="use">official</field>
+        </record>
+
+        <!-- Sp05 Person Address -->
+
+        <record id="hc_person.patient_sp05_address" model="hc.person.address">
+            <field name="person_id" ref="hc_person.patient_sp05"/>
+            <field name="address_id" ref="hc_base.patient_sp04_address"/>
+            <field name="use">home</field>
+        </record>
+
+        <!-- Sp05 Person Telecom -->
+
+        <record id="hc_person.patient_sp05_telecom" model="hc.person.telecom">
+            <field name="person_id" ref="hc_person.patient_sp05"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_5555555001"/>
+            <field name="use">work</field>
+        </record>
+
+        <!-- Sp05 Patient -->
+
+        <record id="patient_sp05" model="hc.res.patient">
+            <field name="person_id" ref="hc_person.patient_sp05"/>
+            <field name="is_active" eval="True"/>
+            <field name="managing_organization_id" ref="hc_organization.hl7"/>
+        </record>
+
+        <!-- Sp05 Patient Identifier -->
+
+        <record id="patient_sp05_identifier" model="hc.patient.identifier">
+            <field name="patient_id" ref="patient_sp05"/>
+            <field name="person_id" ref="hc_person.patient_sp05"/>
+            <field name="value">444111234</field>
+            <field name="code_id" ref="hc_base.ident_code_ss_us"/>
+        </record>
+
+    <!-- Sp06 Nuclear, Ned. SSN:444113456 -->
+
+        <!-- Sp06 Person -->
+
+        <record id="hc_base.human_name_term_185" model="hc.human.name.term">
+            <field name="name">Ned</field>
+        </record>
+
+        <record id="hc_base.patient_sp06_name" model="hc.human.name">
+            <field model="hc.human.name.term" name="first_id" search="[('name','=','Ned')]"/>
+            <field model="hc.human.name.term" name="surname_id" search="[('name','=','Nuclear')]"/>
+        </record>
+
+        <record id="base.patient_sp06" model="res.partner">
+            <field name="name">Ned Nuclear</field>
+            <field name="company_type">person</field>
+        </record>
+
+        <record id="hc_person.patient_sp06" model="hc.res.person">
+            <field name="partner_id" ref="base.patient_sp06"/>
+            <field name="name_id" ref="hc_base.patient_sp06_name"/>
+            <field name="gender">male</field>
+        </record>
+
+        <record id="hc_person.patient_sp06_name" model="hc.person.name">
+            <field name="person_id" ref="hc_person.patient_sp06"/>
+            <field name="human_name_id" ref="hc_base.patient_sp06_name"/>
+            <field name="use">official</field>
+        </record>
+
+        <!-- Sp06 Person Address -->
+
+        <record id="hc_person.patient_sp06_address" model="hc.person.address">
+            <field name="person_id" ref="hc_person.patient_sp06"/>
+            <field name="address_id" ref="hc_base.patient_sp04_address"/>
+            <field name="use">home</field>
+        </record>
+
+        <!-- Sp06 Person Telecom -->
+
+        <record id="hc_person.patient_sp06_telecom" model="hc.person.telecom">
+            <field name="person_id" ref="hc_person.patient_sp06"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_5555555001"/>
+            <field name="use">work</field>
+        </record>
+
+        <!-- Sp06 Patient -->
+
+        <record id="patient_sp06" model="hc.res.patient">
+            <field name="person_id" ref="hc_person.patient_sp06"/>
+            <field name="is_active" eval="True"/>
+            <field name="managing_organization_id" ref="hc_organization.hl7"/>
+        </record>
+
+        <!-- Sp06 Patient Identifier -->
+
+        <record id="patient_sp06_identifier" model="hc.patient.identifier">
+            <field name="patient_id" ref="patient_sp06"/>
+            <field name="person_id" ref="hc_person.patient_sp06"/>
+            <field name="value">444113456</field>
+            <field name="code_id" ref="hc_base.ident_code_ss_us"/>
+        </record>
+
+    <!-- Sp07 Nuclear, Nelda. SSN:444112345 -->
+
+        <!-- Sp07 Person -->
+
+        <record id="hc_base.human_name_term_186" model="hc.human.name.term">
+            <field name="name">Nelda</field>
+        </record>
+
+        <record id="hc_base.patient_sp07_name" model="hc.human.name">
+            <field model="hc.human.name.term" name="first_id" search="[('name','=','Nelda')]"/>
+            <field model="hc.human.name.term" name="surname_id" search="[('name','=','Nuclear')]"/>
+        </record>
+
+        <record id="base.patient_sp07" model="res.partner">
+            <field name="name">Nelda Nuclear</field>
+            <field name="company_type">person</field>
+        </record>
+
+        <record id="hc_person.patient_sp07" model="hc.res.person">
+            <field name="partner_id" ref="base.patient_sp07"/>
+            <field name="name_id" ref="hc_base.patient_sp07_name"/>
+            <field name="gender">female</field>
+        </record>
+
+        <record id="hc_person.patient_sp07_name" model="hc.person.name">
+            <field name="person_id" ref="hc_person.patient_sp07"/>
+            <field name="human_name_id" ref="hc_base.patient_sp07_name"/>
+            <field name="use">official</field>
+        </record>
+
+        <!-- Sp07 Person Address -->
+
+        <record id="hc_person.patient_sp07_address" model="hc.person.address">
+            <field name="person_id" ref="hc_person.patient_sp07"/>
+            <field name="address_id" ref="hc_base.patient_sp04_address"/>
+            <field name="use">home</field>
+        </record>
+
+        <!-- Sp07 Person Telecom -->
+
+        <record id="hc_person.patient_sp07_telecom" model="hc.person.telecom">
+            <field name="person_id" ref="hc_person.patient_sp07"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_5555555001"/>
+            <field name="use">work</field>
+        </record>
+
+        <!-- Sp07 Patient -->
+
+        <record id="patient_sp07" model="hc.res.patient">
+            <field name="person_id" ref="hc_person.patient_sp07"/>
+            <field name="is_active" eval="True"/>
+            <field name="managing_organization_id" ref="hc_organization.hl7"/>
+        </record>
+
+        <!-- Sp07 Patient Identifier -->
+
+        <record id="patient_sp07_identifier" model="hc.patient.identifier">
+            <field name="patient_id" ref="patient_sp07"/>
+            <field name="person_id" ref="hc_person.patient_sp07"/>
+            <field name="value">444112345</field>
+            <field name="code_id" ref="hc_base.ident_code_ss_us"/>
+        </record>
+
+    <!-- Sp08 Mum, Martha. SSN:444666666 -->
+
+        <!-- Sp08 Person -->
+
+        <record id="hc_base.human_name_term_187" model="hc.human.name.term">
+            <field name="name">Mum</field>
+        </record>
+
+        <record id="hc_base.patient_sp08_name" model="hc.human.name">
+            <field model="hc.human.name.term" name="first_id" search="[('name','=','Martha')]"/>
+            <field model="hc.human.name.term" name="surname_id" search="[('name','=','Mum')]"/>
+        </record>
+
+        <record id="base.patient_sp08" model="res.partner">
+            <field name="name">Martha Mum</field>
+            <field name="company_type">person</field>
+        </record>
+
+        <record id="hc_person.patient_sp08" model="hc.res.person">
+            <field name="partner_id" ref="base.patient_sp08"/>
+            <field name="name_id" ref="hc_base.patient_sp08_name"/>
+            <field name="gender">female</field>
+        </record>
+
+        <record id="hc_person.patient_sp08_name" model="hc.person.name">
+            <field name="person_id" ref="hc_person.patient_sp08"/>
+            <field name="human_name_id" ref="hc_base.patient_sp08_name"/>
+            <field name="use">official</field>
+        </record>
+
+        <!-- Sp08 Person Address -->
+
+        <record id="hc_base.patient_sp08_address" model="hc.address">
+            <field name="line1">4444 Home Street</field>
+        </record>
+
+        <record id="hc_person.patient_sp08_address" model="hc.person.address">
+            <field name="person_id" ref="hc_person.patient_sp08"/>
+            <field name="address_id" ref="hc_base.patient_sp08_address"/>
+            <field name="use">home</field>
+        </record>
+
+        <!-- Sp08 Person Telecom -->
+
+        <record id="hc_base.cont_pnt_5555552006" model="hc.contact.point">
+            <field name="value">555-555-2006</field>
+            <field name="system">phone</field>
+        </record>
+
+        <record id="hc_person.patient_sp08_telecom" model="hc.person.telecom">
+            <field name="person_id" ref="hc_person.patient_sp08"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_5555552006"/>
+            <field name="use">work</field>
+        </record>
+
+        <!-- Sp08 Patient -->
+
+        <record id="patient_sp08" model="hc.res.patient">
+            <field name="person_id" ref="hc_person.patient_sp08"/>
+            <field name="is_active" eval="True"/>
+            <field name="managing_organization_id" ref="hc_organization.hl7"/>
+        </record>
+
+        <!-- Sp08 Patient Identifier -->
+
+        <record id="patient_sp08_identifier" model="hc.patient.identifier">
+            <field name="patient_id" ref="patient_sp08"/>
+            <field name="person_id" ref="hc_person.patient_sp08"/>
+            <field name="value">444666666</field>
+            <field name="code_id" ref="hc_base.ident_code_ss_us"/>
+        </record>
+
+    <!-- Sp09 Sons, Stuart. SSN:444777777 -->
+
+        <!-- Sp09 Person -->
+
+        <record id="hc_base.human_name_term_188" model="hc.human.name.term">
+            <field name="name">Stuart</field>
+        </record>
+
+        <record id="hc_base.human_name_term_189" model="hc.human.name.term">
+            <field name="name">Sons</field>
+        </record>
+
+        <record id="hc_base.patient_sp09_name" model="hc.human.name">
+            <field model="hc.human.name.term" name="first_id" search="[('name','=','Stuart')]"/>
+            <field model="hc.human.name.term" name="surname_id" search="[('name','=','Sons')]"/>
+        </record>
+
+        <record id="base.patient_sp09" model="res.partner">
+            <field name="name">Stuart Sons</field>
+            <field name="company_type">person</field>
+        </record>
+
+        <record id="hc_person.patient_sp09" model="hc.res.person">
+            <field name="partner_id" ref="base.patient_sp09"/>
+            <field name="name_id" ref="hc_base.patient_sp09_name"/>
+            <field name="gender">other</field>
+            <field name="gender_other">FTM</field>
+        </record>
+
+        <record id="hc_person.patient_sp09_name" model="hc.person.name">
+            <field name="person_id" ref="hc_person.patient_sp09"/>
+            <field name="human_name_id" ref="hc_base.patient_sp09_name"/>
+            <field name="use">official</field>
+        </record>
+
+        <!-- Sp09 Person Address -->
+
+        <record id="hc_person.patient_sp09_address" model="hc.person.address">
+            <field name="person_id" ref="hc_person.patient_sp09"/>
+            <field name="address_id" ref="hc_base.patient_sp08_address"/>
+            <field name="use">home</field>
+        </record>
+
+        <!-- Sp09 Person Telecom -->
+
+        <record id="hc_base.cont_pnt_5555552007" model="hc.contact.point">
+            <field name="value">555-555-2007</field>
+            <field name="system">phone</field>
+        </record>
+
+        <record id="hc_person.patient_sp09_telecom" model="hc.person.telecom">
+            <field name="person_id" ref="hc_person.patient_sp09"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_5555552007"/>
+            <field name="use">work</field>
+        </record>
+
+        <!-- Sp09 Patient -->
+
+        <record id="patient_sp09" model="hc.res.patient">
+            <field name="person_id" ref="hc_person.patient_sp09"/>
+            <field name="is_active" eval="True"/>
+            <field name="deceased_date">2002-08-24</field>
+            <field name="managing_organization_id" ref="hc_organization.hl7"/>
+        </record>
+
+        <!-- Sp09 Patient Identifier -->
+
+        <record id="patient_sp09_identifier" model="hc.patient.identifier">
+            <field name="patient_id" ref="patient_sp09"/>
+            <field name="person_id" ref="hc_person.patient_sp09"/>
+            <field name="value">444777777</field>
+            <field name="code_id" ref="hc_base.ident_code_ss_us"/>
+        </record>
+
+    <!-- Sp10 Betterhalf, Boris. SSN:444888888 -->
+
+        <!-- Sp10 Person -->
+
+        <record id="hc_base.human_name_term_190" model="hc.human.name.term">
+            <field name="name">Boris</field>
+        </record>
+
+        <record id="hc_base.human_name_term_191" model="hc.human.name.term">
+            <field name="name">Betterhalf</field>
+        </record>
+
+        <record id="hc_base.patient_sp10_name" model="hc.human.name">
+            <field model="hc.human.name.term" name="first_id" search="[('name','=','Boris')]"/>
+            <field model="hc.human.name.term" name="surname_id" search="[('name','=','Betterhalf')]"/>
+        </record>
+
+        <record id="base.patient_sp10" model="res.partner">
+            <field name="name">Boris Betterhalf</field>
+            <field name="company_type">person</field>
+        </record>
+
+        <record id="hc_person.patient_sp10" model="hc.res.person">
+            <field name="partner_id" ref="base.patient_sp10"/>
+            <field name="name_id" ref="hc_base.patient_sp10_name"/>
+            <field name="gender">male</field>
+        </record>
+
+        <record id="hc_person.patient_sp10_name" model="hc.person.name">
+            <field name="person_id" ref="hc_person.patient_sp10"/>
+            <field name="human_name_id" ref="hc_base.patient_sp10_name"/>
+            <field name="use">official</field>
+        </record>
+
+        <!-- Sp10 Person Address -->
+
+        <record id="hc_person.patient_sp10_address" model="hc.person.address">
+            <field name="person_id" ref="hc_person.patient_sp10"/>
+            <field name="address_id" ref="hc_base.patient_sp01_address"/>
+            <field name="use">home</field>
+        </record>
+
+        <!-- Sp10 Person Telecom -->
+
+        <record id="hc_base.cont_pnt_5555552008" model="hc.contact.point">
+            <field name="value">555-555-2008</field>
+            <field name="system">phone</field>
+        </record>
+
+        <record id="hc_person.patient_sp10_telecom" model="hc.person.telecom">
+            <field name="person_id" ref="hc_person.patient_sp10"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_5555552008"/>
+            <field name="use">work</field>
+        </record>
+
+        <!-- Sp10 Patient -->
+
+        <record id="patient_sp10" model="hc.res.patient">
+            <field name="person_id" ref="hc_person.patient_sp10"/>
+            <field name="is_active" eval="True"/>
+            <field name="managing_organization_id" ref="hc_organization.hl7"/>
+        </record>
+
+        <!-- Sp10 Patient Identifier -->
+
+        <record id="patient_sp10_identifier" model="hc.patient.identifier">
+            <field name="patient_id" ref="patient_sp10"/>
+            <field name="person_id" ref="hc_person.patient_sp10"/>
+            <field name="value">444888888</field>
+            <field name="code_id" ref="hc_base.ident_code_ss_us"/>
+        </record>
+
+    <!-- Sp11 Relative, Ralph. SSN:444999999 -->
+
+        <!-- Sp11 Person -->
+        <record id="hc_base.human_name_term_192" model="hc.human.name.term">
+            <field name="name">Ralph</field>
+        </record>
+
+        <record id="hc_base.patient_sp11_name" model="hc.human.name">
+            <field model="hc.human.name.term" name="first_id" search="[('name','=','Ralph')]"/>
+            <field model="hc.human.name.term" name="surname_id" search="[('name','=','Relative')]"/>
+        </record>
+
+        <record id="base.patient_sp11" model="res.partner">
+            <field name="name">Ralph Relative</field>
+            <field name="company_type">person</field>
+        </record>
+
+        <record id="hc_person.patient_sp11" model="hc.res.person">
+            <field name="partner_id" ref="base.patient_sp11"/>
+            <field name="name_id" ref="hc_base.patient_sp11_name"/>
+            <field name="gender">male</field>
+        </record>
+
+        <record id="hc_person.patient_sp11_name" model="hc.person.name">
+            <field name="person_id" ref="hc_person.patient_sp11"/>
+            <field name="human_name_id" ref="hc_base.patient_sp11_name"/>
+            <field name="use">official</field>
+        </record>
+
+        <!-- Sp11 Person Address -->
+
+        <record id="hc_person.patient_sp11_address" model="hc.person.address">
+            <field name="person_id" ref="hc_person.patient_sp11"/>
+            <field name="address_id" ref="hc_base.patient_sp08_address"/>
+            <field name="use">home</field>
+        </record>
+
+        <!-- Sp11 Person Telecom -->
+
+        <record id="hc_base.cont_pnt_5555552009" model="hc.contact.point">
+            <field name="value">555-555-2009</field>
+            <field name="system">phone</field>
+        </record>
+
+        <record id="hc_person.patient_sp11_telecom" model="hc.person.telecom">
+            <field name="person_id" ref="hc_person.patient_sp11"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_5555552009"/>
+            <field name="use">work</field>
+        </record>
+
+        <!-- Sp11 Patient -->
+
+        <record id="patient_sp11" model="hc.res.patient">
+            <field name="person_id" ref="hc_person.patient_sp11"/>
+            <field name="is_active" eval="True"/>
+            <field name="managing_organization_id" ref="hc_organization.hl7"/>
+        </record>
+
+        <!-- Sp11 Patient Identifier -->
+
+        <record id="patient_sp11_identifier" model="hc.patient.identifier">
+            <field name="patient_id" ref="patient_sp11"/>
+            <field name="person_id" ref="hc_person.patient_sp11"/>
+            <field name="value">444999999</field>
+            <field name="code_id" ref="hc_base.ident_code_ss_us"/>
+        </record>
+
+    <!-- Sp12 Contact, Carrie. SSN:555222222 -->
+
+        <!-- Sp12 Person -->
+
+        <record id="hc_base.human_name_term_193" model="hc.human.name.term">
+            <field name="name">Carrie</field>
+        </record>
+
+
+        <record id="hc_base.human_name_term_194" model="hc.human.name.term">
+            <field name="name">Contact</field>
+        </record>
+
+
+        <record id="hc_base.patient_sp12_name" model="hc.human.name">
+            <field model="hc.human.name.term" name="first_id" search="[('name','=','Carrie')]"/>
+            <field model="hc.human.name.term" name="surname_id" search="[('name','=','Contact')]"/>
+        </record>
+
+        <record id="base.patient_sp12" model="res.partner">
+            <field name="name">Carrie Contact</field>
+            <field name="company_type">person</field>
+        </record>
+
+        <record id="hc_person.patient_sp12" model="hc.res.person">
+            <field name="partner_id" ref="base.patient_sp12"/>
+            <field name="name_id" ref="hc_base.patient_sp12_name"/>
+            <field name="gender">female</field>
+        </record>
+
+        <record id="hc_person.patient_sp12_name" model="hc.person.name">
+            <field name="person_id" ref="hc_person.patient_sp12"/>
+            <field name="human_name_id" ref="hc_base.patient_sp12_name"/>
+            <field name="use">official</field>
+        </record>
+
+        <!-- Sp12 Person Address -->
+
+        <record id="hc_base.patient_sp12_address" model="hc.address">
+            <field name="line1">5555 Home Street</field>
+        </record>
+
+        <record id="hc_person.patient_sp12_address" model="hc.person.address">
+            <field name="person_id" ref="hc_person.patient_sp12"/>
+            <field name="address_id" ref="hc_base.patient_sp12_address"/>
+            <field name="use">home</field>
+        </record>
+
+        <!-- Sp12 Person Telecom -->
+
+        <record id="hc_base.cont_pnt_5555552010" model="hc.contact.point">
+            <field name="value">555-555-2010</field>
+            <field name="system">phone</field>
+        </record>
+
+        <record id="hc_person.patient_sp12_telecom" model="hc.person.telecom">
+            <field name="person_id" ref="hc_person.patient_sp12"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_5555552010"/>
+            <field name="use">work</field>
+        </record>
+
+        <!-- Sp12 Patient -->
+
+        <record id="patient_sp12" model="hc.res.patient">
+            <field name="person_id" ref="hc_person.patient_sp12"/>
+            <field name="is_active" eval="True"/>
+            <field name="managing_organization_id" ref="hc_organization.hl7"/>
+        </record>
+
+        <!-- Sp12 Patient Identifier -->
+
+        <record id="patient_sp12_identifier" model="hc.patient.identifier">
+            <field name="patient_id" ref="patient_sp12"/>
+            <field name="person_id" ref="hc_person.patient_sp12"/>
+            <field name="value">555222222</field>
             <field name="code_id" ref="hc_base.ident_code_ss_us"/>
         </record>
 

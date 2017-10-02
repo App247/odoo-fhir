@@ -1,0 +1,57 @@
+<odoo>
+    <data>
+
+        <!-- Pat3 Person -->
+
+        <record id="hc_base.human_name_term_177" model="hc.human.name.term">
+            <field name="name">Simon</field>
+        </record>
+
+        <record id="hc_base.human_name_term_178" model="hc.human.name.term">
+            <field name="name">Notsowell</field>
+        </record>
+
+        <record id="hc_base.patient_pat3_name" model="hc.human.name">
+            <field model="hc.human.name.term" name="first_id" search="[('name','=','Simon')]"/>
+            <field model="hc.human.name.term" name="surname_id" search="[('name','=','Notsowell')]"/>
+        </record>
+
+        <record id="patient_pat3_name" model="hc.person.name">
+            <field name="person_id" ref="hc_person.patient_pat3"/>
+            <field name="human_name_id" ref="hc_base.patient_pat3_name"/>
+            <field name="use">official</field>
+        </record>
+
+        <record id="base.patient_pat3" model="res.partner">
+            <field name="name">Simon Notsowell</field>
+            <field name="company_type">person</field>
+        </record>
+
+        <record id="hc_person.patient_pat3" model="hc.res.person">
+            <field name="name_id" ref="hc_base.patient_pat3_name"/>
+            <field name="partner_id" ref="base.patient_pat3"/>
+            <field name="gender">male</field>
+            <field name="birth_date">1982-01-23</field>
+        </record>
+
+        <!-- Pat3 Patient -->
+
+        <record id="patient_pat3" model="hc.res.patient">
+            <field name="person_id" ref="hc_person.patient_pat3"/>
+            <field name="is_active" eval="True"/>
+            <field name="is_deceased" eval="True"/>
+            <field name="deceased_date">2015-02-14</field>
+            <field name="deceased_time">13:42:00+10:00</field>
+            <field name="managing_organization_id" ref="hc_organization.patient_example"/>
+        </record>
+
+        <record id="patient_pat3_identifier" model="hc.patient.identifier">
+            <field name="patient_id" ref="patient_pat3"/>
+            <field name="person_id" ref="hc_person.patient_pat3"/>
+            <field name="value">123457</field>
+            <field name="code_id" ref="hc_base.ident_code_patient_example"/>
+            <field name="use">usual</field>
+        </record>
+
+    </data>
+</odoo>

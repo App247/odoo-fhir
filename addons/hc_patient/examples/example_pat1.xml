@@ -1,0 +1,73 @@
+<odoo>
+    <data>
+
+    <!-- Pat1 Organization -->
+
+        <record id="base.patient_pat1_organization" model="res.partner">
+            <field name="name">Walt Disney Corporation</field>
+            <field name="company_type">company</field>
+        </record>
+
+        <record id="patient_pat1" model="hc.res.organization">
+            <field name="partner_id" ref="base.patient_pat1_organization"/>
+            <field name="name">Walt Disney Corporation</field>
+        </record>
+
+    <!-- Pat1 Person -->
+
+        <record id="hc_base.human_name_term_174" model="hc.human.name.term">
+            <field name="name">Donald</field>
+        </record>
+
+        <record id="hc_base.human_name_term_175" model="hc.human.name.term">
+            <field name="name">Duck</field>
+        </record>
+
+        <record id="hc_base.patient_pat1_name" model="hc.human.name">
+            <field model="hc.human.name.term" name="first_id" search="[('name','=','Donald')]"/>
+            <field model="hc.human.name.term" name="surname_id" search="[('name','=','Duck')]"/>
+        </record>
+
+        <record id="base.patient_pat1" model="res.partner">
+            <field name="name">Donald Duck</field>
+            <field name="company_type">person</field>
+        </record>
+
+        <record id="hc_person.patient_pat1" model="hc.res.person">
+            <field name="name_id" ref="hc_base.patient_pat1_name"/>
+            <field name="partner_id" ref="base.patient_pat1"/>
+            <field name="gender">male</field>
+        </record>
+
+        <record id="hc_person.patient_pat1_name" model="hc.person.name">
+            <field name="person_id" ref="hc_person.patient_pat1"/>
+            <field name="human_name_id" ref="hc_base.patient_pat1_name"/>
+            <field name="use">official</field>
+        </record>
+
+    <!-- Pat1 Patient -->
+
+        <record id="patient_pat1" model="hc.res.patient">
+            <field name="person_id" ref="hc_person.patient_pat1"/>
+            <field name="is_active" eval="True"/>
+            <field name="managing_organization_id" ref="hc_organization.patient_example"/>
+        </record>
+
+        <record id="patient_pat1_contact" model="hc.patient.contact">
+            <field name="patient_id" ref="patient_pat1"/>
+            <field name="organization_id" ref="hc_organization.patient_pat1"/>
+            <field name="name">Walt Disney Corporation</field>
+            <field name="type">organization</field>
+            <field eval="[(6, 0, [ref('hc_patient.cont_role_e')])]" name="relationship_ids"/>
+        </record>
+
+        <record id="patient_pat1_identifier" model="hc.patient.identifier">
+            <field name="patient_id" ref="patient_pat1"/>
+            <field name="person_id" ref="hc_person.patient_pat1"/>
+            <field name="value">654321</field>
+            <field name="code_id" ref="hc_base.ident_code_patient_example"/>
+            <field name="use">usual</field>
+        </record>
+
+    </data>
+</odoo>

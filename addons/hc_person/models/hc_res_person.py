@@ -64,6 +64,13 @@ class Person(models.Model):
             ("other", "Other"),
             ("unknown", "Unknown")],
         help="The gender of a person used for administrative purposes.")
+    gender_other = fields.Selection(
+        string="Other Gender",
+        selection=[
+            ("A", "Ambiguous"),
+            ("MTF", "male-to-female"),
+            ("FTM", "female-to-male")],
+        help="Type of other gender. An extension of the standard gender value set.")
     birth_date = fields.Date(
         string="Birth Date",
         # required="True", # Standard is False

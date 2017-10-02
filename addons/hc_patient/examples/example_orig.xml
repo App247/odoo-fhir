@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+
+        <!-- Example Patient -->
+
+        <record id="patient_example" model="hc.res.patient">
+            <field name="person_id" ref="hc_person.patient_example"/>
+            <field name="birth_time">14:35:45-05:00</field>
+            <field name="is_deceased" eval="False"/>
+            <field name="managing_organization_id" ref="hc_organization.patient_example"/>
+        </record>
+
+        <!-- Example Patient Contact -->
+
+        <record id="patient_example_contact" model="hc.patient.contact">
+            <field name="patient_id" ref="patient_example"/>
+            <field name="person_id" ref="hc_person.patient_example_contact"/>
+            <field eval="[(6, 0, [ref('cont_role_n')])]" name="relationship_ids"/>
+            <field name="start_date">2012-01-01</field>
+        </record>
+
+        <record id="patient_example_contact_address" model="hc.patient.contact.address">
+            <field name="address_id" ref="hc_person.patient_example_address"/>
+            <field name="patient_contact_id" ref="patient_example_contact"/>
+            <field name="use">home</field>
+            <field name="type">both</field>
+            <field name="start_date">1974-12-25</field>
+        </record>
+
+        <!-- Example Patient Identifier -->
+
+        <record id="hc_base.ident_code_patient_example" model="hc.vs.identifier.code">
+            <field name="name">MRN Acme Healthcare</field>
+            <field name="code">MRN Acme Healthcare</field>
+            <field name="type_id" ref="hc_base.ident_type_mr"/>
+            <field name="assigner_id" ref="hc_organization.patient_example"/>
+        </record>
+
+        <record id="patient_example_identifier" model="hc.patient.identifier">
+            <field name="patient_id" ref="patient_example"/>
+            <field name="person_id" ref="hc_person.patient_example"/>
+            <field name="value">12345</field>
+            <field name="code_id" ref="hc_base.ident_code_patient_example"/>
+            <field name="use">usual</field>
+            <field name="start_date">2001-05-06</field>
+        </record>
+
+        <!-- Pat1 Patient -->
+
+        <record id="patient_pat1" model="hc.res.patient">
+            <field name="person_id" ref="hc_person.patient_pat1"/>
+            <field name="active" eval="True"/>
+            <field name="managing_organization_id" ref="hc_organization.patient_example"/>
+        </record>
+
+        <record id="patient_pat1_contact" model="hc.patient.contact">
+            <field name="patient_id" ref="patient_pat1"/>
+            <field name="organization_id" ref="hc_organization.patient_pat1"/>
+            <field name="name">Walt Disney Corporation</field>
+            <field name="type">organization</field>
+            <field eval="[(6, 0, [ref('hc_patient.cont_role_e')])]" name="relationship_ids"/>
+        </record>
+
+        <record id="patient_pat1_identifier" model="hc.patient.identifier">
+            <field name="patient_id" ref="patient_pat1"/>
+            <field name="person_id" ref="hc_person.patient_pat1"/>
+            <field name="value">654321</field>
+            <field name="code_id" ref="hc_base.ident_code_patient_example"/>
+            <field name="use">usual</field>
+        </record>
+
+        <!-- Pat2 Patient -->
+
+        <record id="patient_pat2" model="hc.res.patient">
+            <field name="person_id" ref="hc_person.patient_pat2"/>
+            <field name="active" eval="True"/>
+            <field name="managing_organization_id" ref="hc_organization.patient_example"/>
+        </record>
+
+        <record id="patient_pat2_identifier" model="hc.patient.identifier">
+            <field name="patient_id" ref="patient_pat2"/>
+            <field name="person_id" ref="hc_person.patient_pat2"/>
+            <field name="value">123456</field>
+            <field name="code_id" ref="hc_base.ident_code_patient_example"/>
+            <field name="use">usual</field>
+        </record>
+
+        <record id="patient_pat2_link" model="hc.patient.link">
+            <field name="patient_id" ref="patient_pat2"/>
+            <field name="other_type">patient</field>
+            <field name="other_name">Donald Duck</field>
+            <field name="other_patient_id" ref="patient_pat1"/>
+            <field name="type">seealso</field>
+        </record>
+
+        <!-- Pat3 Patient -->
+
+        <record id="patient_pat3" model="hc.res.patient">
+            <field name="person_id" ref="hc_person.patient_pat3"/>
+            <field name="active" eval="True"/>
+            <field name="is_deceased" eval="True"/>
+            <field name="deceased_date">2015-02-14</field>
+            <field name="deceased_time">13:42:00+10:00</field>
+            <field name="managing_organization_id" ref="hc_organization.patient_example"/>
+        </record>
+
+        <record id="patient_pat3_identifier" model="hc.patient.identifier">
+            <field name="patient_id" ref="patient_pat3"/>
+            <field name="person_id" ref="hc_person.patient_pat3"/>
+            <field name="value">123457</field>
+            <field name="code_id" ref="hc_base.ident_code_patient_example"/>
+            <field name="use">usual</field>
+        </record>
+
+        <!-- Pat4 Patient -->
+
+        <record id="patient_pat4" model="hc.res.patient">
+            <field name="person_id" ref="hc_person.patient_pat4"/>
+            <field name="active" eval="True"/>
+            <field name="is_deceased" eval="True"/>
+            <field name="managing_organization_id" ref="hc_organization.patient_example"/>
+        </record>
+
+        <record id="patient_pat4_identifier" model="hc.patient.identifier">
+            <field name="patient_id" ref="patient_pat4"/>
+            <field name="person_id" ref="hc_person.patient_pat4"/>
+            <field name="value">123458</field>
+            <field name="code_id" ref="hc_base.ident_code_patient_example"/>
+            <field name="use">usual</field>
+        </record>
+
+    </data>
+</openerp>

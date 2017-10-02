@@ -67,6 +67,7 @@
                                 <field name="is_cadaveric_donor" attrs="{'invisible': [('type','=','animal')]}"/>
                             </group>
                             <group string="Miscl">
+                                <field name="is_active"/>
                                 <field name="congregation" attrs="{'invisible': [('type','=','animal')]}"/>
                                 <field name="importance_id" attrs="{'invisible': [('type','=','animal')]}"/>
                                 <field name="is_interpreter_required" attrs="{'invisible': [('type','=','animal')]}"/>
