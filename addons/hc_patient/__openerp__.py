@@ -49,7 +49,7 @@
         'data/hc.vs.v3.race.csv',
         'data/hc.vs.v3.religious.affiliation.csv',
         # 'data/hc.vs.v2.contact.role.csv',
-        'examples/example.xml',
+        # 'examples/example.xml',
         # 'examples/example_cypress.xml',
         # 'examples/example_pat1.xml',
         # 'examples/example_pat2.xml',

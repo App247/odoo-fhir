@@ -91,11 +91,11 @@ class SpecimenDefinitionSpecimenToLab(models.Model):
         string="Container Description",
         help="Container description.")
     container_capacity_id = fields.Many2one(
-        comodel_name="hc.specimen.definition.specimen.to.lab.container.capacity",
+        comodel_name="hc.specimen.definition.container.capacity",
         string="Container Capacity",
         help="Container capacity.")
     container_minimum_volume_id = fields.Many2one(
-        comodel_name="hc.specimen.definition.specimen.to.lab.container.minimum.volume",
+        comodel_name="hc.specimen.definition.container.minimum.volume",
         string="Container Minimum Volume",
         help="Minimum volume.")
     # container_capacity = fields.Float(
@@ -229,8 +229,8 @@ class SpecimenDefinitionIdentifier(models.Model):
         string="Specimen Definition",
         help="Specimen Definition associated with this Specimen Definition Identifier.")
 
-class SpecimenDefinitionSpecimenToLabContainerCapacity(models.Model):
-    _name = "hc.specimen.definition.specimen.to.lab.container.capacity"
+class SpecimenDefinitionContainerCapacity(models.Model):
+    _name = "hc.specimen.definition.container.capacity"
     _description = "Specimen Definition Specimen To Lab Container Capacity"
     _inherit = ["hc.basic.association", "hc.simple.quantity"]
 
@@ -239,8 +239,8 @@ class SpecimenDefinitionSpecimenToLabContainerCapacity(models.Model):
     #     string="Specimen To Lab",
     #     help="Specimen To Lab associated with this Specimen Definition Specimen To Lab Container Capacity.")
 
-class SpecimenDefinitionSpecimenToLabContainerMinimumVolume(models.Model):
-    _name = "hc.specimen.definition.specimen.to.lab.container.minimum.volume"
+class SpecimenDefinitionContainerMinimumVolume(models.Model):
+    _name = "hc.specimen.definition.container.minimum.volume"
     _description = "Specimen Definition Specimen To Lab Container Minimum Volume"
     _inherit = ["hc.basic.association", "hc.simple.quantity"]
 
