@@ -2,49 +2,5 @@
 <openerp>
     <data noupdate="0">
 
-        <!-- Example Patient -->
-
-        <record id="patient_example" model="hc.res.patient">
-            <field name="person_id" ref="hc_person.patient_example"/>
-            <field name="birth_time">14:35:45-05:00</field>
-            <field name="is_deceased">false</field>
-            <field name="managing_organization_id" ref="hc_organization.patient_example_organization"/>
-        </record>
-
-        <!-- Example Patient Contact -->
-
-        <record id="patient_example_contact" model="hc.patient.contact">
-            <field name="person_id" ref="hc_person.patient_example_contact"/>
-            <field name="patient_id" ref="patient_example"/>
-            <field eval="[(6, 0, [ref('cont_role_n')])]" name="relationship_ids"/>
-            <field name="gender">female</field>
-            <field name="start_date">2012-01-01</field>
-        </record>
-
-        <record id="patient_example" model="hc.patient.contact.address">
-            <field name="address_id" ref="hc_person.patient_example"/>
-            <field name="patient_contact_id" ref="patient_example_contact"/>
-            <field name="use">home</field>
-            <field name="type">both</field>
-            <field name="start_date">1974-12-25</field>
-        </record>
-
-        <!-- Example Patient Identifier -->
-
-        <record id="hc_base.ident_code_patient_example" model="hc.vs.identifier.code">
-            <field name="name">MRN Acme Healthcare</field>
-            <field name="code">MRN Acme Healthcare</field>
-            <field name="type_id" ref="hc_base.ident_type_mr"/>
-            <field name="assigner_id" ref="hc_organization.patient_example_organization"/>
-        </record>
-
-        <record id="patient_example" model="hc.patient.identifier">
-            <field name="patient_id" ref="patient_example"/>
-            <field name="value">12345</field>
-            <field name="code_id" ref="hc_base.identifier_code_example"/>
-            <field name="use">usual</field>
-            <field name="start_date">2001-05-06</field>
-        </record>
-
     </data>
 </openerp>

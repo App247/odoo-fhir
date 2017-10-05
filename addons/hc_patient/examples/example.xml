@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-    <data noupdate="0">
+    <data noupdate="1">
 
         <!-- Example Organization -->
 
@@ -9,7 +9,7 @@
             <field name="company_type">company</field>
         </record>
 
-        <record id="patient_example" model="hc.res.organization">
+        <record id="hc_organization.patient_example" model="hc.res.organization">
             <field name="partner_id" ref="base.patient_example_organization"/>
             <field name="name">Acme Healthcare</field>
         </record>
@@ -32,17 +32,17 @@
             <field name="name">Windsor</field>
         </record>
 
-        <record id="hc_base.patient_example_name_1" model="hc.human.name">
+        <record id="hc_base.patient_example_1_name" model="hc.human.name">
             <field model="hc.human.name.term" name="first_id" search="[('name','=','Peter')]"/>
             <field eval="[(6, 0, [ref('hc_base.human_name_term_1')])]" name="middle_ids"/>
             <field model="hc.human.name.term" name="surname_id" search="[('name','=','Chalmers')]"/>
         </record>
 
-        <record id="hc_base.patient_example_name_2" model="hc.human.name">
+        <record id="hc_base.patient_example_2_name" model="hc.human.name">
             <field eval="[(6, 0, [ref('hc_base.human_name_term_168')])]" name="nickname_ids"/>
         </record>
 
-        <record id="hc_base.patient_example_name_3" model="hc.human.name">
+        <record id="hc_base.patient_example_3_name" model="hc.human.name">
             <field model="hc.human.name.term" name="first_id" search="[('name','=','Peter')]"/>
             <field eval="[(6, 0, [ref('hc_base.human_name_term_1')])]" name="middle_ids"/>
             <field model="hc.human.name.term" name="birth_surname_id" search="[('name','=','Windsor')]"/>
@@ -55,54 +55,28 @@
 
         <record id="hc_person.patient_example" model="hc.res.person">
             <field name="partner_id" ref="base.patient_example"/>
-            <field name="name_id" ref="hc_base.patient_example_name_1"/>
+            <field name="name_id" ref="hc_base.patient_example_1_name"/>
             <field name="gender">male</field>
             <field name="birth_date">1970-06-20</field>
         </record>
 
-        <record id="hc_person.patient_example_name_1" model="hc.person.name">
+        <record id="hc_person.patient_example_1_name" model="hc.person.name">
             <field name="person_id" ref="hc_person.patient_example"/>
-            <field name="human_name_id" ref="hc_base.patient_example_name_1"/>
+            <field name="human_name_id" ref="hc_base.patient_example_1_name"/>
             <field name="use">official</field>
         </record>
 
-        <record id="hc_person.patient_example_name_2" model="hc.person.name">
+        <record id="hc_person.patient_example_2_name" model="hc.person.name">
             <field name="person_id" ref="hc_person.patient_example"/>
-            <field name="human_name_id" ref="hc_base.patient_example_name_2"/>
+            <field name="human_name_id" ref="hc_base.patient_example_2_name"/>
             <field name="use">usual</field>
         </record>
 
-        <record id="hc_person.patient_example_name_3" model="hc.person.name">
+        <record id="hc_person.patient_example_3_name" model="hc.person.name">
             <field name="person_id" ref="hc_person.patient_example"/>
-            <field name="human_name_id" ref="hc_base.patient_example_name_3"/>
+            <field name="human_name_id" ref="hc_base.patient_example_3_name"/>
             <field name="use">maiden</field>
             <field name="end_date">2002-12-31</field>
-        </record>
-
-        <!-- Example Person Contact -->
-
-        <record id="hc_base.human_name_term_170" model="hc.human.name.term">
-            <field name="name">Bénédicte</field>
-        </record>
-
-        <record id="hc_base.human_name_term_171" model="hc.human.name.term">
-            <field name="name">du Marché</field>
-        </record>
-
-        <record id="hc_base.patient_example_contact" model="hc.human.name">
-            <field model="hc.human.name.term" name="first_id" search="[('name','=','Bénédicte')]"/>
-            <field model="hc.human.name.term" name="surname_id" search="[('name','=','du Marché')]"/>
-        </record>
-
-        <record id="base.patient_example_contact" model="res.partner">
-            <field name="name">Bénédicte du Marché</field>
-            <field name="company_type">person</field>
-        </record>
-
-        <record id="hc_person.patient_example_contact" model="hc.res.person">
-            <field name="partner_id" ref="base.patient_example_contact"/>
-            <field name="name_id" ref="hc_base.patient_example_contact"/>
-            <field name="gender">female</field>
         </record>
 
         <!-- Example Person Address -->
@@ -177,7 +151,7 @@
         </record>
 
         <record id="patient_example_3_telecom" model="hc.person.telecom">
-            <field name="person_id" ref="patient_example"/>
+            <field name="person_id" ref="hc_person.patient_example"/>
             <field name="telecom_id" ref="hc_base.cont_pnt_0355558834"/>
             <field name="use">old</field>
             <field name="rank">3</field>
@@ -196,15 +170,46 @@
 
         <!-- Example Patient Contact -->
 
+        <record id="hc_base.human_name_term_170" model="hc.human.name.term">
+            <field name="name">Bénédicte</field>
+        </record>
+
+        <record id="hc_base.human_name_term_171" model="hc.human.name.term">
+            <field name="name">du Marché</field>
+        </record>
+
+        <record id="hc_base.patient_example_contact_name" model="hc.human.name">
+            <field model="hc.human.name.term" name="first_id" search="[('name','=','Bénédicte')]"/>
+            <field model="hc.human.name.term" name="surname_id" search="[('name','=','du Marché')]"/>
+        </record>
+
+        <record id="base.patient_example_contact" model="res.partner">
+            <field name="name">Bénédicte du Marché</field>
+            <field name="company_type">person</field>
+        </record>
+
+        <record id="hc_person.patient_example_contact" model="hc.res.person">
+            <field name="partner_id" ref="base.patient_example_contact"/>
+            <field name="name_id" ref="hc_base.patient_example_contact_name"/>
+            <field name="gender">female</field>
+        </record>
+
+<!--         <record id="hc_person.patient_example_contact_name" model="hc.person.name">
+            <field name="person_id" ref="hc_person.patient_example_contact"/>
+            <field name="human_name_id" ref="hc_base.patient_example_contact_name"/>
+            <field name="use">official</field>
+        </record> -->
+
         <record id="patient_example_contact" model="hc.patient.contact">
             <field name="patient_id" ref="patient_example"/>
             <field name="person_id" ref="hc_person.patient_example_contact"/>
+            <field name="type">person</field>
             <field eval="[(6, 0, [ref('cont_role_n')])]" name="relationship_ids"/>
             <field name="start_date">2012-01-01</field>
         </record>
 
         <record id="patient_example_contact_address" model="hc.patient.contact.address">
-            <field name="address_id" ref="hc_person.patient_example_address"/>
+            <field name="address_id" ref="hc_base.patient_example_address"/>
             <field name="patient_contact_id" ref="patient_example_contact"/>
             <field name="use">home</field>
             <field name="type">both</field>

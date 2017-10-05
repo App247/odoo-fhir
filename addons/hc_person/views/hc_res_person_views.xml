@@ -19,6 +19,7 @@
             <field name="model">hc.res.person</field>
             <field name="arch" type="xml">
                 <tree string="Persons">
+                     <field name="id"/>
                     <field name="name"/>
                     <field name="gender"/>
                     <field name="birth_date"/>
@@ -43,8 +44,8 @@
                         </div>
                         <group>
                             <group>
-                                <!-- <field name="name_id"/> -->
                                 <field name="gender"/>
+                                <field name="gender_other" attrs="{'invisible': [('gender','!=','other')]}"/>
                                 <field name="birth_date"/>
                                 <field name="partner_id"/>
                             </group>
@@ -412,6 +413,8 @@
             </field>
         </record>
 
+
+
         <record id="hc_res_person_view_form_inherit" model="ir.ui.view">
             <field name="name">Person Form Inherit</field>
             <field name="model">hc.res.person</field>
@@ -472,6 +475,7 @@
             <field name="model">hc.person.identifier</field>
             <field name="arch" type="xml">
                 <tree string="Person Identifiers">
+                    <field name="id"/>
                     <field name="person_id"/>
                     <field name="value"/>
                     <field name="code_id"/>
@@ -547,6 +551,7 @@
             <field name="model">hc.person.name</field>
             <field name="arch" type="xml">
                 <tree string="Person Names">
+                    <field name="id"/>
                     <field name="person_id"/>
                     <field name="human_name_id"/>
                     <field name="use"/>
@@ -627,6 +632,7 @@
             <field name="model">hc.person.telecom</field>
             <field name="arch" type="xml">
                 <tree string="Person Telecoms">
+                    <field name="id"/>
                     <field name="person_id"/>
                     <field name="telecom_id"/>
                     <field name="use"/>
@@ -703,6 +709,7 @@
             <field name="model">hc.person.address</field>
             <field name="arch" type="xml">
                 <tree string="Person Addresses">
+                    <field name="id"/>
                     <field name="person_id"/>
                     <field name="address_id"/>
                     <field name="use"/>
@@ -786,6 +793,7 @@
             <field name="model">hc.person.photo</field>
             <field name="arch" type="xml">
                 <tree string="Person Photos">
+                    <field name="id"/>                    
                     <field name="person_id"/>
                     <field name="name"/>
                     <field name="creation_date"/>

@@ -13,7 +13,9 @@ class AllergyIntolerance(models.Model):
 
     @api.multi
     def download_xml(self):
-        generate = self.env['generate.xml'].create(self.env['generate.xml'].default_generate())
+        context = dict(self._context) or {}
+        context.update({'intolerance_id': self.id})
+        generate = self.env['generate.xml'].create(self.env['generate.xml'].with_context(context).default_generate())
         return {
             'name': 'Download XML',
             'type': 'ir.actions.act_window',

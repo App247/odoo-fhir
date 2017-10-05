@@ -12,12 +12,6 @@
             <field model="hc.human.name.term" name="surname_id" search="[('name','=','Notsowell')]"/>
         </record>
 
-        <record id="patient_pat4_name" model="hc.person.name">
-            <field name="person_id" ref="hc_person.patient_pat4"/>
-            <field name="human_name_id" ref="hc_base.patient_pat4_name"/>
-            <field name="use">official</field>
-        </record>
-
         <record id="base.patient_pat4" model="res.partner">
             <field name="name">Sandy Notsowell</field>
             <field name="company_type">person</field>
@@ -28,6 +22,12 @@
             <field name="partner_id" ref="base.patient_pat4"/>
             <field name="gender">female</field>
             <field name="birth_date">1982-08-02</field>
+        </record>
+
+        <record id="hc_person.patient_pat4_name" model="hc.person.name">
+            <field name="person_id" ref="hc_person.patient_pat4"/>
+            <field name="human_name_id" ref="hc_base.patient_pat4_name"/>
+            <field name="use">official</field>
         </record>
 
         <!-- Pat4 Patient -->

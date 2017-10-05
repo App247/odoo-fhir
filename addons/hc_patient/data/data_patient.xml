@@ -295,7 +295,7 @@
 
         <!--V2 Contact Role -->
 
-        <record id="hc_patient.cont_role_bp" model="hc.vs.v2.contact.role">
+        <record id="cont_role_bp" model="hc.vs.v2.contact.role">
             <field name="code">BP</field>
             <field name="name">Billing Contact Person</field>
             <field name="version">added v2.3, removed after v2.3</field>
@@ -304,7 +304,7 @@
             <field name="system">http://hl7.org/fhir/ValueSet/v2-0131</field>
         </record>
 
-        <record id="hc_patient.cont_role_c" model="hc.vs.v2.contact.role">
+        <record id="cont_role_c" model="hc.vs.v2.contact.role">
             <field name="code">C</field>
             <field name="name">Emergency Contact</field>
             <field name="version">added v2.5</field>
@@ -313,7 +313,7 @@
             <field name="system">http://hl7.org/fhir/ValueSet/v2-0131</field>
         </record>
 
-        <record id="hc_patient.cont_role_cp" model="hc.vs.v2.contact.role">
+        <record id="cont_role_cp" model="hc.vs.v2.contact.role">
             <field name="code">CP</field>
             <field name="name">Contact Person</field>
             <field name="version">added v2.3, removed after v2.3</field>
@@ -322,7 +322,7 @@
             <field name="system">http://hl7.org/fhir/ValueSet/v2-0131</field>
         </record>
 
-        <record id="hc_patient.cont_role_e" model="hc.vs.v2.contact.role">
+        <record id="cont_role_e" model="hc.vs.v2.contact.role">
             <field name="code">E</field>
             <field name="name">Employer</field>
             <field name="version">added v2.5</field>
@@ -331,7 +331,7 @@
             <field name="system">http://hl7.org/fhir/ValueSet/v2-0131</field>
         </record>
 
-        <record id="hc_patient.cont_role_ep" model="hc.vs.v2.contact.role">
+        <record id="cont_role_ep" model="hc.vs.v2.contact.role">
             <field name="code">EP</field>
             <field name="name">Emergency Contact Person</field>
             <field name="version">added v2.3, removed after v2.3</field>
@@ -340,7 +340,7 @@
             <field name="system">http://hl7.org/fhir/ValueSet/v2-0131</field>
         </record>
 
-        <record id="hc_patient.cont_role_f" model="hc.vs.v2.contact.role">
+        <record id="cont_role_f" model="hc.vs.v2.contact.role">
             <field name="code">F</field>
             <field name="name">Federal Agency</field>
             <field name="version">added v2.5</field>
@@ -349,7 +349,7 @@
             <field name="system">http://hl7.org/fhir/ValueSet/v2-0131</field>
         </record>
 
-        <record id="hc_patient.cont_role_i" model="hc.vs.v2.contact.role">
+        <record id="cont_role_i" model="hc.vs.v2.contact.role">
             <field name="code">I</field>
             <field name="name">Insurance Company</field>
             <field name="version">added v2.5</field>
@@ -358,7 +358,7 @@
             <field name="system">http://hl7.org/fhir/ValueSet/v2-0131</field>
         </record>
 
-        <record id="hc_patient.cont_role_n" model="hc.vs.v2.contact.role">
+        <record id="cont_role_n" model="hc.vs.v2.contact.role">
             <field name="code">N</field>
             <field name="name">Next-Of-Kin</field>
             <field name="version">added v2.5</field>
@@ -367,7 +367,7 @@
             <field name="system">http://hl7.org/fhir/ValueSet/v2-0131</field>
         </record>
 
-        <record id="hc_patient.cont_role_o" model="hc.vs.v2.contact.role">
+        <record id="cont_role_o" model="hc.vs.v2.contact.role">
             <field name="code">O</field>
             <field name="name">Other</field>
             <field name="version">added v2.5</field>
@@ -376,7 +376,7 @@
             <field name="system">http://hl7.org/fhir/ValueSet/v2-0131</field>
         </record>
 
-        <record id="hc_patient.cont_role_pr" model="hc.vs.v2.contact.role">
+        <record id="cont_role_pr" model="hc.vs.v2.contact.role">
             <field name="code">PR</field>
             <field name="name">Person Preparing Referral</field>
             <field name="version">added v2.3, removed after v2.3</field>
@@ -385,7 +385,7 @@
             <field name="system">http://hl7.org/fhir/ValueSet/v2-0131</field>
         </record>
 
-        <record id="hc_patient.cont_role_s" model="hc.vs.v2.contact.role">
+        <record id="cont_role_s" model="hc.vs.v2.contact.role">
             <field name="code">S</field>
             <field name="name">State Agency</field>
             <field name="version">added v2.5</field>
@@ -394,7 +394,7 @@
             <field name="system">http://hl7.org/fhir/ValueSet/v2-0131</field>
         </record>
 
-        <record id="hc_patient.cont_role_u" model="hc.vs.v2.contact.role">
+        <record id="cont_role_u" model="hc.vs.v2.contact.role">
             <field name="code">U</field>
             <field name="name">Unknown</field>
             <field name="version">added v2.5</field>

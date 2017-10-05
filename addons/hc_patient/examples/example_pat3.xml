@@ -16,12 +16,6 @@
             <field model="hc.human.name.term" name="surname_id" search="[('name','=','Notsowell')]"/>
         </record>
 
-        <record id="patient_pat3_name" model="hc.person.name">
-            <field name="person_id" ref="hc_person.patient_pat3"/>
-            <field name="human_name_id" ref="hc_base.patient_pat3_name"/>
-            <field name="use">official</field>
-        </record>
-
         <record id="base.patient_pat3" model="res.partner">
             <field name="name">Simon Notsowell</field>
             <field name="company_type">person</field>
@@ -32,6 +26,12 @@
             <field name="partner_id" ref="base.patient_pat3"/>
             <field name="gender">male</field>
             <field name="birth_date">1982-01-23</field>
+        </record>
+
+        <record id="hc_person.patient_pat3_name" model="hc.person.name">
+            <field name="person_id" ref="hc_person.patient_pat3"/>
+            <field name="human_name_id" ref="hc_base.patient_pat3_name"/>
+            <field name="use">official</field>
         </record>
 
         <!-- Pat3 Patient -->

@@ -244,6 +244,7 @@
             <field name="model">hc.human.name</field>
             <field name="arch" type="xml">
                 <tree string="Human Names" editable="top">
+                    <field name="id"/>                    
                     <field name="name"/>
                     <field name="first_id"/>
                     <field name="nickname_ids" widget="many2many_tags"/>

@@ -532,10 +532,10 @@ class PatientContact(models.Model):
         related="person_id.telecom_ids",
         string="Telecoms",
         help="A contact detail for the contact person.")
-    address_ids = fields.One2many(
-        related="person_id.address_ids",
-        string="Addresses",
-        help="Address for the contact person.")
+    # address_ids = fields.One2many(
+    #     related="person_id.address_ids",
+    #     string="Addresses",
+    #     help="Address for the contact person.")
     address_id = fields.Many2one(
         comodel_name="hc.patient.contact.address",
         string="Address",
@@ -560,12 +560,12 @@ class PatientContact(models.Model):
         string="Valid to",
         help="End of the the period during which this contact person or organization is valid to be contacted relating to this patient.")
 
-    @api.depends('name_id', 'organization_id')
+    @api.depends('person_id', 'organization_id')
     def _compute_name(self):
         comp_name = '/'
         for hc_patient_contact in self:
             if hc_patient_contact.name_id:
-                comp_name = hc_patient_contact.name_id.name or ''
+                comp_name = hc_patient_contact.person_id.name or ''
             if hc_patient_contact.organization_id:
                 comp_name = hc_patient_contact.organization_id.name or ''
             hc_patient_contact.name = comp_name
@@ -573,11 +573,13 @@ class PatientContact(models.Model):
 class PatientContactAddress(models.Model):
     _name = "hc.patient.contact.address"
     _description = "Patient Contact Address"
-    _inherits = {"hc.person.address": "address_id"}
+    _inherit = ["hc.address.use"]
+    _inherits = {"hc.address": "address_id"}
+    _rec_name = "text"
 
     address_id = fields.Many2one(
-        comodel_name="hc.person.address",
-        string="Person Address",
+        comodel_name="hc.address",
+        string="Address",
         required="True",
         ondelete="restrict",
         help="Address associated with this Patient Contact Address.")
@@ -585,12 +587,6 @@ class PatientContactAddress(models.Model):
         comodel_name="hc.patient.contact",
         string="Patient Contact",
         help="Patient Contact associated with this Patient Contact Address.")
-    address_start_date = fields.Datetime(
-        string="Valid from",
-        help="Start of the the period during which this contact address is valid.")
-    address_end_date = fields.Datetime(
-        string="Valid to",
-        help="End of the the period during which this contact address is valid.")
 
 class PatientLink(models.Model):
     _name = "hc.patient.link"
