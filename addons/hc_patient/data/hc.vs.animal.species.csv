@@ -1,13 +1,13 @@
-id,"code","name","definition","source_id/id","system"
-species_425134008,"425134008","turkey","Subfamily Meleagridinae (organism)","base.snomed","http://hl7.org/fhir/ValueSet/animal-species"
-species_388445009,"388445009","horse","Genus Equus (organism) Includes donkey, mule","base.snomed","http://hl7.org/fhir/ValueSet/animal-species"
-species_396620009,"396620009","duck","Genus Anas (organism) aka dabbling duck","base.snomed","http://hl7.org/fhir/ValueSet/animal-species"
-species_15778005,"15778005","goose","Genus Anser (organism) aka gray goose","base.snomed","http://hl7.org/fhir/ValueSet/animal-species"
-species_47290002,"47290002","chicken","Gallus gallus (organism) aka domestic fowl ancestor, red junglefowl","base.snomed","http://hl7.org/fhir/ValueSet/animal-species"
-species_34618005,"34618005","cow","Bos taurus (organism) aka auroch","base.snomed","http://hl7.org/fhir/ValueSet/animal-species"
-species_125097000,"125097000","goat","Capra hircus (organism) Includes domestic goat","base.snomed","http://hl7.org/fhir/ValueSet/animal-species"
-species_125099002,"125099002","sheep","Ovis aries (organism) Includes mouflon, ovis musimon","base.snomed","http://hl7.org/fhir/ValueSet/animal-species"
-species_85626006,"85626006","donkey","Equus asinus (organism) Includes ass, burro","base.snomed","http://hl7.org/fhir/ValueSet/animal-species"
-species_448169003,"448169003","cat","Felis catus (organism) Includes domestic cat","base.snomed","http://snomed.info"
-species_448771007,"448771007","dog","Canis lupus subspecies familiaris (organism) Includes domestic dog","base.snomed","http://snomed.info"
-species_78678003,"78678003","pig","Sus scrofa (organism) aka pig, feral pig, domestic pig subspecies","base.snomed","http://snomed.info"
+id,code,name,definition,source_id/id,system
+species_425134008,425134008,turkey,"Subfamily Meleagridinae (organism)",base.snomed,http://hl7.org/fhir/ValueSet/animal-species
+species_388445009,388445009,horse,"Genus Equus (organism) Includes donkey, mule",base.snomed,http://hl7.org/fhir/ValueSet/animal-species
+species_396620009,396620009,duck,"Genus Anas (organism) aka dabbling duck",base.snomed,http://hl7.org/fhir/ValueSet/animal-species
+species_15778005,15778005,goose,"Genus Anser (organism) aka gray goose",base.snomed,http://hl7.org/fhir/ValueSet/animal-species
+species_47290002,47290002,chicken,"Gallus gallus (organism) aka domestic fowl ancestor, red junglefowl",base.snomed,http://hl7.org/fhir/ValueSet/animal-species
+species_34618005,34618005,cow,"Bos taurus (organism) aka auroch",base.snomed,http://hl7.org/fhir/ValueSet/animal-species
+species_125097000,125097000,goat,"Capra hircus (organism) Includes domestic goat",base.snomed,http://hl7.org/fhir/ValueSet/animal-species
+species_125099002,125099002,sheep,"Ovis aries (organism) Includes mouflon, ovis musimon",base.snomed,http://hl7.org/fhir/ValueSet/animal-species
+species_85626006,85626006,donkey,"Equus asinus (organism) Includes ass, burro",base.snomed,http://hl7.org/fhir/ValueSet/animal-species
+species_448169003,448169003,cat,"Felis catus (organism) Includes domestic cat",base.snomed,http://snomed.info
+species_448771007,448771007,dog,"Canis lupus subspecies familiaris (organism) Includes domestic dog",base.snomed,http://snomed.info
+species_78678003,78678003,pig,"Sus scrofa (organism) aka pig, feral pig, domestic pig subspecies",base.snomed,http://snomed.info

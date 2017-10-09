@@ -1,7 +1,9 @@
 <odoo>
-    <data>
+    <data noupdate="1">
 
-        <!-- Pat3 Person -->
+<!-- Deceased patient (using time) -->
+
+    <!-- Pat3 Person -->
 
         <record id="hc_base.human_name_term_177" model="hc.human.name.term">
             <field name="name">Simon</field>
@@ -34,7 +36,7 @@
             <field name="use">official</field>
         </record>
 
-        <!-- Pat3 Patient -->
+    <!-- Pat3 Patient -->
 
         <record id="patient_pat3" model="hc.res.patient">
             <field name="person_id" ref="hc_person.patient_pat3"/>

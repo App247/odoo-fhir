@@ -1,5 +1,7 @@
 <odoo>
-    <data>
+    <data noupdate="1">
+
+<!-- Patient 1 for linking -->
 
     <!-- Pat1 Organization -->
 
@@ -8,7 +10,7 @@
             <field name="company_type">company</field>
         </record>
 
-        <record id="patient_pat1" model="hc.res.organization">
+        <record id="hc_organization.patient_pat1" model="hc.res.organization">
             <field name="partner_id" ref="base.patient_pat1_organization"/>
             <field name="name">Walt Disney Corporation</field>
         </record>
@@ -45,7 +47,7 @@
             <field name="use">official</field>
         </record>
 
-    <!-- Pat1 Patient -->
+    <!-- Pat1 Patient, Contact, Identifier -->
 
         <record id="patient_pat1" model="hc.res.patient">
             <field name="person_id" ref="hc_person.patient_pat1"/>
@@ -69,7 +71,9 @@
             <field name="use">usual</field>
         </record>
 
-        <!-- Pat2 Person -->
+<!-- Patient 2 for linking -->
+
+    <!-- Pat2 Person -->
 
         <record id="hc_base.human_name_term_176" model="hc.human.name.term">
             <field name="name">D</field>
@@ -99,7 +103,7 @@
             <field name="use">official</field>
         </record>
 
-        <!-- Pat2 Patient -->
+    <!-- Pat2 Patient, Identifier, Link -->
 
         <record id="patient_pat2" model="hc.res.patient">
             <field name="person_id" ref="hc_person.patient_pat2"/>

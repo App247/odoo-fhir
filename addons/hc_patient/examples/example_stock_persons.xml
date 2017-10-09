@@ -1,5 +1,7 @@
 <odoo>
-    <data>
+    <data noupdate="1">
+
+<!-- Stock people (defined by HL7 publishing)     -->
 
     <!-- Sp01 Everywoman, Eve. SSN: 444222222 -->
 
@@ -108,11 +110,11 @@
 
         <record id="hc_base.patient_sp02_name" model="hc.human.name">
             <field model="hc.human.name.term" name="first_id" search="[('name','=','Adam')]"/>
-            <field model="hc.human.name.term" name="surname_id" search="[('name','=','Everywoman')]"/>
+            <field model="hc.human.name.term" name="surname_id" search="[('name','=','Everyman')]"/>
         </record>
 
         <record id="base.patient_sp02" model="res.partner">
-            <field name="name">Eve Everywoman</field>
+            <field name="name">Adam Everyman</field>
             <field name="company_type">person</field>
         </record>
 

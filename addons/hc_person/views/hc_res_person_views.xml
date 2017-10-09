@@ -466,6 +466,10 @@
                     <field name="code_id"/>
                     <field name="type_id"/>
                     <field name="use"/>
+                    <group>
+                        <filter name="group_by_code" string="Code" context="{'group_by': 'code_id'}"/>
+                        <filter name="group_by_use" string="Use" context="{'group_by': 'use'}"/>
+                    </group>
                 </search>
             </field>
         </record>
@@ -515,8 +519,6 @@
                 </form>
             </field>
         </record>
-
-        <!-- Person Identifier Action and Menu -->
 
         <act_window id="hc_person_identifier_action"
                     name="HC Person Identifiers"
@@ -793,7 +795,7 @@
             <field name="model">hc.person.photo</field>
             <field name="arch" type="xml">
                 <tree string="Person Photos">
-                    <field name="id"/>                    
+                    <field name="id"/>
                     <field name="person_id"/>
                     <field name="name"/>
                     <field name="creation_date"/>

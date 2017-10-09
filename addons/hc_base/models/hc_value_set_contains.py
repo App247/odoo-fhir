@@ -11,6 +11,7 @@ class ValueSetContains(models.Model):
     _parent_order = "name"
     _order = "parent_left"
     _inherit = ["hc.codeable.concept.coding"]
+    _rec_name = "name"
 
     is_abstract = fields.Boolean(
         string="Abstract",

@@ -12,6 +12,10 @@
                     <field name="name"/>
                     <field name="birth_date" string="DOB"/>
                     <field name="managing_organization_id"/>
+                    <group>
+                        <filter name="group_by_gender" string="Gender" context="{'group_by': 'gender'}"/>
+                        <filter name="group_by_managing_organization" string="Managing Organization" context="{'group_by': 'managing_organization_id'}"/>
+                    </group>
                 </search>
             </field>
         </record>
@@ -24,6 +28,7 @@
                     <field name="id"/>
                     <field name="name"/>
                     <field name="birth_date" string="DOB"/>
+                    <field name="gender"/>
                     <field name="managing_organization_id"/>
                 </tree>
             </field>
@@ -921,6 +926,10 @@
                     <field name="code_id"/>
                     <field name="type_id"/>
                     <field name="use"/>
+                    <group>
+                        <filter name="group_by_code" string="Code" context="{'group_by': 'code_id'}"/>
+                        <filter name="group_by_use" string="Use" context="{'group_by': 'use'}"/>
+                    </group>
                 </search>
             </field>
         </record>
