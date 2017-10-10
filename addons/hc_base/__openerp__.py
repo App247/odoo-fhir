@@ -47,7 +47,7 @@
         'data/data_base.xml',
         'data/data_base_v3.xml',
         'data/data_identifier_type.xml',
-        'data/data_language.xml',
+        # 'data/data_language.xml',
         'data/data_timing.xml',
         'data/data_uom_basic.xml',
         # 'data/data_uom_advanced.xml',

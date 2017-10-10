@@ -55,7 +55,7 @@
         'examples/example_pat3.xml',
         'examples/example_pat4.xml',
         'examples/example_stock_persons.xml',
-        # 'examples/example_xcda.xml',
+        'examples/example_xcda.xml',
         # 'views/hc_marital_status_views.xml',
         'views/hc_res_patient_views.xml',
         'views/hc_res_patient_templates.xml',

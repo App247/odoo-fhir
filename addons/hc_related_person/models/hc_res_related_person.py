@@ -86,21 +86,21 @@ class RelatedPerson(models.Model):
         vals['is_related_person'] = self.env.context.get('is_related_person', False)
         return super(RelatedPerson, self).create(vals)
 
-# class RelatedPersonIdentifier(models.Model):
-#     _name = "hc.related.person.identifier"
-#     _description = "Related Person Identifier"
-#     _inherits = {"hc.person.identifier": "person_identifier_id"}
+class RelatedPersonIdentifier(models.Model):
+    _name = "hc.related.person.identifier"
+    _description = "Related Person Identifier"
+    _inherits = {"hc.person.identifier": "identifier_id"}
 
-#     person_identifier_id = fields.Many2one(
-#         comodel_name="hc.person.identifier",
-#         string="Person Identifier",
-#         required="True",
-#         ondelete="restrict",
-#         help="Person identifier associated with this related person.")
-#     related_person_id = fields.Many2one(
-#         comodel_name="hc.res.related.person",
-#         string="Related Person",
-#         help="Related person associated with this person identifier.")
+    identifier_id = fields.Many2one(
+        comodel_name="hc.person.identifier",
+        string="Person Identifier",
+        required="True",
+        ondelete="restrict",
+        help="Person identifier associated with this related person.")
+    related_person_id = fields.Many2one(
+        comodel_name="hc.res.related.person",
+        string="Related Person",
+        help="Related person associated with this person identifier.")
 
 # class RelatedPersonName(models.Model):
 #     _name = "hc.related.person.name"

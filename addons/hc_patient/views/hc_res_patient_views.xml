@@ -1032,6 +1032,7 @@
                     <sheet>
                         <group>
                             <group>
+                                <field name="patient_id"/>
                                 <field name="type"/>
                                 <field name="person_id" attrs="{'invisible': [('type','=','organization')]}"/>
                                 <field name="organization_id" attrs="{'invisible': [('type','=','person')]}"/>

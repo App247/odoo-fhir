@@ -194,11 +194,11 @@
             <field name="gender">female</field>
         </record>
 
-<!--         <record id="hc_person.patient_example_contact_name" model="hc.person.name">
+        <record id="hc_person.patient_example_contact_name" model="hc.person.name">
             <field name="person_id" ref="hc_person.patient_example_contact"/>
             <field name="human_name_id" ref="hc_base.patient_example_contact_name"/>
             <field name="use">official</field>
-        </record> -->
+        </record>
 
         <record id="patient_example_contact" model="hc.patient.contact">
             <field name="patient_id" ref="patient_example"/>

@@ -127,6 +127,31 @@
                                 </field>
                             </page>
                             <page string="Addresses">
+                                <field name="address_ids" mode="tree">
+                                    <tree>
+                                        <field name="use" widget="radio"/>
+                                        <field name="is_preferred"/>
+                                        <field name="line1"/>
+                                        <field name="line2"/>
+                                        <field name="city_id"/>
+                                        <field name="postal_code_id"/>
+                                        <field name="country_id"/>
+                                        <field name="start_date"/>
+                                        <field name="end_date"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group col="4" colspan="4">
+                                                <field name="use" widget="radio" colspan="4"/>
+                                                <field name="address_id" class="oe_no_button"/>
+                                                <field name="is_preferred"/>
+                                                <field name="is_active"/>
+                                                <field name="start_date" placeholder="Valid From"/>
+                                                <field name="end_date" placeholder="Valid To"/>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
                             </page>
                             <page string="Telecom">
                                 <field name="telecom_ids" mode="tree">

@@ -88,7 +88,8 @@
         <menuitem name="Address"
                   id="hc_base.menu_addr"
                   parent="hc_base.menu_datatype"
-                  sequence="10"/>
+                  sequence="5"/>
+        
         <menuitem name="Addresses"
                   id="hc_base.menu_addr_addr"
                   parent="hc_base.menu_addr"
@@ -496,7 +497,7 @@
                   <group>
                     <field name="code"/>
                     <field name="type_id"/>
-                    <field name="city_ids" widget="many2many_tags" string="Cities/Places"/> 
+                    <field name="city_ids" widget="many2many_tags" string="Cities/Places"/>
                     <field name="state_id" string="State/Province"/>
                   </group>
                   <group>

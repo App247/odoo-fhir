@@ -522,10 +522,10 @@ class PatientContact(models.Model):
         related="person_id.name_ids",
         string="Names",
         help="A name associated with the contact person.")
-    name_id = fields.Many2one(
-        comodel_name="hc.human.name",
-        string="Name",
-        help="A name associated with the contact.")
+    # name_id = fields.Many2one(
+    #     comodel_name="hc.human.name",
+    #     string="Name",
+    #     help="A name associated with the contact.")
     telecom_ids = fields.One2many(
         # comodel_name="hc.patient.contact.telecom",
         # inverse_name="contact_id",
@@ -564,7 +564,7 @@ class PatientContact(models.Model):
     def _compute_name(self):
         comp_name = '/'
         for hc_patient_contact in self:
-            if hc_patient_contact.name_id:
+            if hc_patient_contact.person_id:
                 comp_name = hc_patient_contact.person_id.name or ''
             if hc_patient_contact.organization_id:
                 comp_name = hc_patient_contact.organization_id.name or ''

@@ -1,7 +1,7 @@
 <odoo>
     <data>
 
-        <!-- HC Domain Resource Views -->
+    <!-- HC Domain Resource Views -->
 
         <record id="hc_domain_resource_view_search" model="ir.ui.view">
             <field name="name">Domain Resource Search</field>

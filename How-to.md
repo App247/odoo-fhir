@@ -46,6 +46,15 @@ sudo wget https://raw.githubusercontent.com/luigisison/moxylus/master/Odoo8/odoo
 
 ## Update Odoo, Thank you, [Yenthe](http://www.odoo.yenthevg.com/update-odoo-environment-github/)
 
+* V11 install
+```
+cd/odoo/odoo-server
+python odoo-bin --addons addons # shows missing files
+sudo apt-get install python-html2text
+sudo pip install num2words
+python odoo-bin --addons addons
+```
+
 * Go to directory where Odoo is installed
 ```
 cd /odoo/odoo-server
