@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Sequence Views -->
@@ -77,4 +77,4 @@
                   sequence="90"/>
 
     </data>
-</openerp>
+</odoo>

@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
          <!-- Language Views -->
@@ -65,4 +65,4 @@
                   sequence="6"/>
 
     </data>
-</openerp>
+</odoo>

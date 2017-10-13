@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Document Manifest Action and Menu -->
@@ -13,10 +13,10 @@
 
         <menuitem id="hc_document_manifest.menu_doc_manif"
                   name="Document Manifests"
-                  parent="hc_base.menu_doc" 
+                  parent="hc_base.menu_doc"
                   action="hc_res_document_manifest_action"
                   groups="hc_base.group_hc_base_manager"
                   sequence="20"/>
 
     </data>
-</openerp>
+</odoo>

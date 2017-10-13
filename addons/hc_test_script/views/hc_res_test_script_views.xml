@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Test Script Action and Menu -->
@@ -13,10 +13,10 @@
 
         <menuitem id="hc_test_script.menu_test_script"
                   name="Test Scripts"
-                  parent="hc_base.menu_spec_test" 
+                  parent="hc_base.menu_spec_test"
                   action="hc_res_test_script_action"
                   groups="hc_base.group_hc_base_manager"
                   sequence="10"/>
 
     </data>
-</openerp>
+</odoo>

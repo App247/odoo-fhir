@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Event Definition Views -->
@@ -71,11 +71,11 @@
 
         <menuitem id="hc_event_definition.menu_event_defn"
                   name="Event Definitions"
-                  parent="hc_base.menu_spec_art" 
+                  parent="hc_base.menu_spec_art"
                   action="hc_res_event_definition_action"
                   groups="hc_base.group_hc_base_manager"
                   sequence="30"/>
 
 
     </data>
-</openerp>
+</odoo>

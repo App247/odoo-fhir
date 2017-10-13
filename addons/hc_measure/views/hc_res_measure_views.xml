@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Measure Action and Menu -->
@@ -13,10 +13,10 @@
 
         <menuitem id="hc_measure.menu_meas"
                   name="Measures"
-                  parent="hc_base.menu_spec_qual" 
+                  parent="hc_base.menu_spec_qual"
                   action="hc_res_measure_action"
                   groups="hc_base.group_hc_base_manager"
                   sequence="10"/>
 
     </data>
-</openerp>
+</odoo>

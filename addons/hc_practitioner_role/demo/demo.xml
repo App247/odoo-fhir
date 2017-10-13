@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
         <!--  -->
         <!--   <record id="object0" model="hc_practitioner_role.hc_practitioner_role"> -->
@@ -27,4 +27,4 @@
         <!--   </record> -->
         <!--  -->
     </data>
-</openerp>
+</odoo>

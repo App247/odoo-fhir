@@ -518,10 +518,10 @@ class PatientContact(models.Model):
         relation="patient_contact_role_rel",
         string="Relationships",
         help="The kind of relationship.")
-    name_ids = fields.One2many(
-        related="person_id.name_ids",
-        string="Names",
-        help="A name associated with the contact person.")
+    # name_ids = fields.One2many(
+    #     related="person_id.name_ids",
+    #     string="Names",
+    #     help="A name associated with the contact person.")
     # name_id = fields.Many2one(
     #     comodel_name="hc.human.name",
     #     string="Name",
@@ -957,6 +957,22 @@ class Nationality(models.Model):
         comodel_name="hc.vs.nationality",
         string="Parent",
         help="Parent nationality.")
+
+class DICOMPatientDemographic(models.Model):
+    _name = "hc.vs.dicom.patient.demographic"
+    _description = "DICOM Patient Demographic"
+    _inherit = ["hc.value.set.contains"]
+
+    name = fields.Char(
+        string="Name",
+        help="Name of this DICOM patient demographic.")
+    code = fields.Char(
+        string="Code",
+        help="Code of this DICOM patient demographic.")
+    contains_id = fields.Many2one(
+        comodel_name="hc.vs.dicom.patient.demographic",
+        string="Parent",
+        help="Parent DICOM patient demographic.")
 
 # External Reference
 

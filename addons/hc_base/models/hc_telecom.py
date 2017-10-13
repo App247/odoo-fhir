@@ -60,5 +60,4 @@ class ContactPointUse(models.Model):
         help="Purpose of this contact point.")
     rank = fields.Integer(
         string="Rank",
-        default="1",
         help="Specify preferred order of use (1 = highest).")

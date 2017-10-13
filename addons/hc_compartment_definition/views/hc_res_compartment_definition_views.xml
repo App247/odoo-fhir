@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Compartment Definition Views -->
@@ -74,4 +74,4 @@
                   sequence="70"/>
 
     </data>
-</openerp>
+</odoo>

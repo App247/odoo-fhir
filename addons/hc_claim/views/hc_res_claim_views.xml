@@ -1,9 +1,9 @@
-<openerp>
+<odoo>
     <data>
 
-<!-- <page string="Status History">          
-    <field name="status_history_ids" mode="tree">       
-        <tree>  
+<!-- <page string="Status History">
+    <field name="status_history_ids" mode="tree">
+        <tree>
             <field name="status" readonly="1"/>
             <field name="start_date"/>
             <field name="end_date"/>
@@ -12,14 +12,14 @@
             <field name="time_diff_min"/>
             <field name="time_diff_sec"/>
             <field name="write_uid" invisible="0"/>
-        </tree> 
-    </field>        
-</page> -->         
+        </tree>
+    </field>
+</page> -->
 
 
-        <!-- Claim Action and Menu -->  
-    
-        <act_window id="hc_res_claim_action"    
+        <!-- Claim Action and Menu -->
+
+        <act_window id="hc_res_claim_action"
                     name="HC Claims"
                     res_model="hc.res.claim"
                     view_mode="tree,form"
@@ -27,12 +27,12 @@
                     context=""
                     limit=""/>
 
-         <menuitem id="hc_claim.menu_claim" 
-                   name="Claims" 
-                   parent="hc_base.menu_fina_bill" 
-                   action="hc_res_claim_action" 
-                   groups="hc_base.group_hc_base_manager" 
+         <menuitem id="hc_claim.menu_claim"
+                   name="Claims"
+                   parent="hc_base.menu_fina_bill"
+                   action="hc_res_claim_action"
+                   groups="hc_base.group_hc_base_manager"
                    sequence="10"/>
-           
+
     </data>
-</openerp>
+</odoo>

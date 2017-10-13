@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-    <data noupdate="0">
+<odoo>
+    <data noupdate="1">
 
         <record id="base.hl7" model="res.partner">
             <field name="name">HL7 (Health Level 7 International)</field>
@@ -179,5 +179,15 @@
             <field name="country_id" ref="base.us"/>
         </record>
 
+        <record id="base.nema" model="res.partner">
+            <field name="name">National Electrical Manufacturers Association (NEMA)</field>
+            <field name="company_type">company</field>
+            <field name="website">www.nema.org</field>
+            <field name="comment">The National Electrical Manufacturers Association (NEMA) is the association of electrical equipment and medical imaging manufacturers, founded in 1926 and headquartered in Rosslyn, Virginia. Nearly 350 members strong, its companies manufacture a diverse set of products including power transmission and distribution equipment, lighting systems, factory automation and control systems, and medical diagnostic imaging systems. Domestic production exceeds $114 billion per year and exports top $50 billion.</field>
+            <field name="notify_email">none</field>
+            <field name="category_id" eval="[(6, 0, [ref('partner_source'), ref('partner_document')])]"/>
+            <field name="country_id" ref="base.us"/>
+        </record>
+
     </data>
-</openerp>
+</odoo>

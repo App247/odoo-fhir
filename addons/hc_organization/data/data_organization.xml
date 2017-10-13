@@ -1,146 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>      
-<openerp>       
+<odoo>
     <data noupdate="0">
 
         <!-- Organization Type -->
 
-        <record id="hc_organization.org_type_prov" model="hc.vs.organization.type"> 
+        <record id="hc_organization.org_type_prov" model="hc.vs.organization.type">
             <field name="code">prov</field>
             <field name="name">Healthcare Provider</field>
             <field name="definition">An organization that provides healthcare services.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/organization-type</field>
-        </record>   
-            
-        <record id="hc_organization.org_type_dept" model="hc.vs.organization.type"> 
+        </record>
+
+        <record id="hc_organization.org_type_dept" model="hc.vs.organization.type">
             <field name="code">dept</field>
             <field name="name">Hospital Department</field>
             <field name="definition">A department or ward within a hospital (Generally is not applicable to top level organizations)</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/organization-type</field>
-        </record>   
-            
-        <record id="hc_organization.org_type_team" model="hc.vs.organization.type"> 
+        </record>
+
+        <record id="hc_organization.org_type_team" model="hc.vs.organization.type">
             <field name="code">team</field>
             <field name="name">Organizational team</field>
             <field name="definition">An organizational team is usually a grouping of practitioners that perform a specific function within an organization (which could be a top level organization, or a department).</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/organization-type</field>
-        </record>   
-            
-        <record id="hc_organization.org_type_govt" model="hc.vs.organization.type"> 
+        </record>
+
+        <record id="hc_organization.org_type_govt" model="hc.vs.organization.type">
             <field name="code">govt</field>
             <field name="name">Government</field>
             <field name="definition">A political body, often used when including organization records for government bodies such as a Federal Government, State or Local Government.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/organization-type</field>
-        </record>   
-            
-        <record id="hc_organization.org_type_ins" model="hc.vs.organization.type">  
+        </record>
+
+        <record id="hc_organization.org_type_ins" model="hc.vs.organization.type">
             <field name="code">ins</field>
             <field name="name">Insurance Company</field>
             <field name="definition">A company that provides insurance to its subscribers that may include healthcare related policies.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/organization-type</field>
-        </record>   
-            
-        <record id="hc_organization.org_type_edu" model="hc.vs.organization.type">  
+        </record>
+
+        <record id="hc_organization.org_type_edu" model="hc.vs.organization.type">
             <field name="code">edu</field>
             <field name="name">Educational Institute</field>
             <field name="definition">An educational institution that provides education or research facilities.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/organization-type</field>
-        </record>   
-            
-        <record id="hc_organization.org_type_reli" model="hc.vs.organization.type"> 
+        </record>
+
+        <record id="hc_organization.org_type_reli" model="hc.vs.organization.type">
             <field name="code">reli</field>
             <field name="name">Religious Institution</field>
             <field name="definition">An organization that is identified as a part of a religious institution.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/organization-type</field>
-        </record>   
-            
-        <record id="hc_organization.org_type_crs" model="hc.vs.organization.type">  
+        </record>
+
+        <record id="hc_organization.org_type_crs" model="hc.vs.organization.type">
             <field name="code">crs</field>
             <field name="name">Clinical Research Sponsor</field>
             <field name="definition">An organization that is identified as a Pharmaceutical/Clinical Research Sponsor.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/organization-type</field>
-        </record>   
-            
-        <record id="hc_organization.org_type_cg" model="hc.vs.organization.type">   
+        </record>
+
+        <record id="hc_organization.org_type_cg" model="hc.vs.organization.type">
             <field name="code">cg</field>
             <field name="name">Community Group</field>
             <field name="definition">An un-incorporated community group.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/organization-type</field>
-        </record>   
-            
-        <record id="hc_organization.org_type_bus" model="hc.vs.organization.type">  
+        </record>
+
+        <record id="hc_organization.org_type_bus" model="hc.vs.organization.type">
             <field name="code">bus</field>
             <field name="name">Non-Healthcare Business or Corporation</field>
             <field name="definition">An organization that is a registered business or corporation but not identified by other types.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/organization-type</field>
-        </record>   
-            
-        <record id="hc_organization.org_type_other" model="hc.vs.organization.type">    
+        </record>
+
+        <record id="hc_organization.org_type_other" model="hc.vs.organization.type">
             <field name="code">other</field>
             <field name="name">Other</field>
             <field name="definition">Other type of organization not already specified.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/organization-type</field>
-        </record>   
+        </record>
 
         <!-- Contact Entity Type -->
 
-        <record id="hc_organization.cont_ent_type_bill" model="hc.vs.contact.entity.type">  
+        <record id="hc_organization.cont_ent_type_bill" model="hc.vs.contact.entity.type">
             <field name="code">BILL</field>
             <field name="name">Billing</field>
             <field name="definition">Contact details for information regarding to billing/general finance enquiries.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/contactentity-type</field>
-        </record>   
-            
-        <record id="hc_organization.cont_ent_type_admin" model="hc.vs.contact.entity.type"> 
+        </record>
+
+        <record id="hc_organization.cont_ent_type_admin" model="hc.vs.contact.entity.type">
             <field name="code">ADMIN</field>
             <field name="name">Administrative</field>
             <field name="definition">Contact details for administrative enquiries.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/contactentity-type</field>
-        </record>   
-            
-        <record id="hc_organization.cont_ent_type_hr" model="hc.vs.contact.entity.type">    
+        </record>
+
+        <record id="hc_organization.cont_ent_type_hr" model="hc.vs.contact.entity.type">
             <field name="code">HR</field>
             <field name="name">Human Resource</field>
             <field name="definition">Contact details for issues related to Human Resources, such as staff matters, OHS etc.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/contactentity-type</field>
-        </record>   
-            
-        <record id="hc_organization.cont_ent_type_payor" model="hc.vs.contact.entity.type"> 
+        </record>
+
+        <record id="hc_organization.cont_ent_type_payor" model="hc.vs.contact.entity.type">
             <field name="code">PAYOR</field>
             <field name="name">Payor</field>
             <field name="definition">Contact details for dealing with issues related to insurance claims/adjudication/payment.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/contactentity-type</field>
-        </record>   
-            
-        <record id="hc_organization.cont_ent_type_patinf" model="hc.vs.contact.entity.type">    
+        </record>
+
+        <record id="hc_organization.cont_ent_type_patinf" model="hc.vs.contact.entity.type">
             <field name="code">PATINF</field>
             <field name="name">Patient</field>
             <field name="definition">Generic information contact for patients.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/contactentity-type</field>
-        </record>   
-            
-        <record id="hc_organization.cont_ent_type_press" model="hc.vs.contact.entity.type"> 
+        </record>
+
+        <record id="hc_organization.cont_ent_type_press" model="hc.vs.contact.entity.type">
             <field name="code">PRESS</field>
             <field name="name">Press</field>
             <field name="definition">Dedicated contact point for matters relating to press enquiries.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/contactentity-type</field>
-        </record>   
+        </record>
 
     </data>
-</openerp>
+</odoo>

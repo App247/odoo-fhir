@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Explanation Of Benefit Action and Menu -->
@@ -13,10 +13,10 @@
 
         <menuitem id="hc_explanation_of_benefit.menu_eob"
                   name="Explanations of Benefit"
-                  parent="hc_base.menu_fina_gen" 
+                  parent="hc_base.menu_fina_gen"
                   action="hc_res_explanation_of_benefit_action"
                   groups="hc_base.group_hc_base_manager"
                   sequence="10"/>
 
     </data>
-</openerp>
+</odoo>

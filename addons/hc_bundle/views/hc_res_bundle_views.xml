@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Bundle Views -->
@@ -438,4 +438,4 @@
                     limit=""/>
 
     </data>
-</openerp>
+</odoo>

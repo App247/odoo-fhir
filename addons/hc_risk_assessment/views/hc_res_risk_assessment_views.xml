@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Risk Assessment Views -->
@@ -78,4 +78,4 @@
                   sequence="70"/>
 
     </data>
-</openerp>
+</odoo>

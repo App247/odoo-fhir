@@ -1,68 +1,68 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Care Team Views -->
 
-        <record id="hc_res_care_team_view_search" model="ir.ui.view">         
-            <field name="name">Care Team Search</field>       
-            <field name="model">hc.res.care.team</field>      
-            <field name="arch" type="xml">      
+        <record id="hc_res_care_team_view_search" model="ir.ui.view">
+            <field name="name">Care Team Search</field>
+            <field name="model">hc.res.care.team</field>
+            <field name="arch" type="xml">
                 <search string="Care Teams">
-                    <field name="name"/>  
-                </search>   
-            </field>        
-        </record>           
-                    
-        <record id="hc_res_care_team_view_tree" model="ir.ui.view">           
-            <field name="name">Care Team Tree</field>     
-            <field name="model">hc.res.care.team</field>      
-            <field name="arch" type="xml">      
-                <tree string="Care Teams">    
                     <field name="name"/>
-                </tree> 
-            </field>        
-        </record>           
-    
-        <record id="hc_res_care_team_view_form" model="ir.ui.view">                                     
-            <field name="name">Care Team Form</field>                                   
-            <field name="model">hc.res.care.team</field>                                    
-            <field name="arch" type="xml">                                  
-                <form string="Care Team">                               
-                    <sheet>                         
-                        <h1>                    
-                            <field name="name" default_focus="1" placeholder="Name"/>             
-                        </h1>                   
-                        <group>                     
-                            <group>                 
-                            </group>                    
-                            <group>                 
-                            </group>                    
-                        </group>                        
-                        <notebook>                      
-                            <page string="Identifiers">                 
-                                <field name="identifier_ids" mode="tree">               
-                                    <tree>          
-                                    </tree>         
-                                    <form>          
-                                        <sheet>     
-                                            <group> 
-                                                <group>
-                                                </group>
-                                                <group>
-                                                </group>
-                                            </group>    
-                                        </sheet>        
-                                    </form>         
-                                </field>                
-                            </page>                 
-                        </notebook>                     
-                    </sheet>                            
-                </form>                             
-            </field>                                    
+                </search>
+            </field>
         </record>
-  
-    
-        <act_window id="hc_res_care_team_action"    
+
+        <record id="hc_res_care_team_view_tree" model="ir.ui.view">
+            <field name="name">Care Team Tree</field>
+            <field name="model">hc.res.care.team</field>
+            <field name="arch" type="xml">
+                <tree string="Care Teams">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_res_care_team_view_form" model="ir.ui.view">
+            <field name="name">Care Team Form</field>
+            <field name="model">hc.res.care.team</field>
+            <field name="arch" type="xml">
+                <form string="Care Team">
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name"/>
+                        </h1>
+                        <group>
+                            <group>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Identifiers">
+                                <field name="identifier_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <act_window id="hc_res_care_team_action"
                     name="HC Care Teams"
                     res_model="hc.res.care.team"
                     view_mode="tree,form"
@@ -70,13 +70,13 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_care_team.menu_care_team" 
+        <menuitem id="hc_care_team.menu_care_team"
                   name="Care Teams"
-                  web_icon="hc_care_team,static/description/icon.png" 
-                  parent="hc_base.menu_clinic_care" 
-                  action="hc_res_care_team_action" 
-                  groups="hc_base.group_hc_base_manager" 
+                  web_icon="hc_care_team,static/description/icon.png"
+                  parent="hc_base.menu_clinic_care"
+                  action="hc_res_care_team_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="20"/>
-    
+
     </data>
-</openerp>
+</odoo>

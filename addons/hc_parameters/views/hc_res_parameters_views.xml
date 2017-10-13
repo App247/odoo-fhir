@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Parameters Action and Menu -->
@@ -11,7 +11,7 @@
             context=""
             limit=""/>
 
-        <menuitem id="hc_parameters.menu_param" 
+        <menuitem id="hc_parameters.menu_param"
                   name="Parameters"
                   parent="hc_base.menu_other"
                   action="hc_res_parameters_action"
@@ -19,4 +19,4 @@
                   sequence="80"/>
 
     </data>
-</openerp>
+</odoo>

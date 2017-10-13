@@ -1,10 +1,10 @@
-<openerp>
+<odoo>
     <data>
 
 
-<!--         <page string="Status History">          
-            <field name="status_history_ids" mode="tree">       
-                <tree>  
+<!--         <page string="Status History">
+            <field name="status_history_ids" mode="tree">
+                <tree>
                     <field name="status" readonly="1"/>
                     <field name="start_date"/>
                     <field name="end_date"/>
@@ -13,14 +13,14 @@
                     <field name="time_diff_min"/>
                     <field name="time_diff_sec"/>
                     <field name="write_uid" invisible="0"/>
-                </tree> 
-            </field>        
-        </page> -->         
+                </tree>
+            </field>
+        </page> -->
 
 
-        <!-- Payment Reconciliation Action and Menu --> 
-    
-        <act_window id="hc_res_payment_reconciliation_action"   
+        <!-- Payment Reconciliation Action and Menu -->
+
+        <act_window id="hc_res_payment_reconciliation_action"
                     name="HC Payment Reconciliations"
                     res_model="hc.res.payment.reconciliation"
                     view_mode="tree,form"
@@ -28,11 +28,11 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_payment_reconciliation.menu_pmt_reconc" 
-                  name="Payment Reconciliations" 
-                  parent="hc_base.menu_fina_pmt" 
-                  action="hc_res_payment_reconciliation_action" 
+        <menuitem id="hc_payment_reconciliation.menu_pmt_reconc"
+                  name="Payment Reconciliations"
+                  parent="hc_base.menu_fina_pmt"
+                  action="hc_res_payment_reconciliation_action"
                   groups="hc_base.group_hc_base_manager" sequence="20"/>
 
     </data>
-</openerp>
+</odoo>

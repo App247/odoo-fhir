@@ -1,9 +1,9 @@
-<openerp>
+<odoo>
     <data>
 
-        <!-- Audit Event Action and Menu -->    
-    
-        <act_window id="hc_res_audit_event_action"  
+        <!-- Audit Event Action and Menu -->
+
+        <act_window id="hc_res_audit_event_action"
             name="HC Audit Events"
             res_model="hc.res.audit.event"
             view_mode="tree,form"
@@ -11,12 +11,12 @@
             context=""
             limit=""/>
 
-        <menuitem id="hc_audit_event.menu_audit_event" 
-                  name="Audit Events" 
-                  parent="hc_base.menu_secur" 
-                  action="hc_res_audit_event_action" 
-                  groups="hc_base.group_hc_base_manager" 
+        <menuitem id="hc_audit_event.menu_audit_event"
+                  name="Audit Events"
+                  parent="hc_base.menu_secur"
+                  action="hc_res_audit_event_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="20"/>
 
     </data>
-</openerp>
+</odoo>

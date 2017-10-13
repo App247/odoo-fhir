@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>      
-<openerp>
-    <data noupdate="0">
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
 
     <!--Timing Abbreviation -->
 
@@ -75,6 +75,6 @@
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://build.fhir.org/valueset-timing-abbreviation.html</field>
         </record>
-    
+
     </data>
-</openerp>
+</odoo>

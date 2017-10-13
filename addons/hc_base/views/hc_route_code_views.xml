@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Value Set View -->
@@ -78,4 +78,4 @@
                   sequence="12"/>
 
     </data>
-</openerp>
+</odoo>

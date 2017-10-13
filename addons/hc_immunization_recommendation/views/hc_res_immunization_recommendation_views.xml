@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
 
@@ -79,4 +79,4 @@
                   sequence="70"/>
 
     </data>
-</openerp>
+</odoo>

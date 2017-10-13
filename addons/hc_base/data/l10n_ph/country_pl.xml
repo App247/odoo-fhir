@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>  
-<openerp>   
+<odoo>
     <data noupdate="1">
 
-        
+
         <!-- PH State Type -->
 
-        <record id="base.ph_psa" model="res.partner">  
+        <record id="base.ph_psa" model="res.partner">
             <field name="name">Philippine Statistics Authority</field>
             <field name="company_type">company</field>
             <field name="website">www.psa.gov.ph</field>
@@ -13,704 +13,704 @@
             <field name="country_id" ref="base.ph"/>
         </record>
 
-        <record id="state_type_ph_province" model="hc.vs.country.state.type">  
+        <record id="state_type_ph_province" model="hc.vs.country.state.type">
             <field name="name">Province</field>
             <field name="source_id" ref="base.ph_psa"/>
             <field name="system">http://www.psa.gov.ph/</field>
             <field name="country_id" ref="base.ph"/>
         </record>
 
-        <record id="region_type_ph_region" model="hc.vs.country.region.type">  
+        <record id="region_type_ph_region" model="hc.vs.country.region.type">
             <field name="name">Region</field>
             <field name="source_id" ref="base.ph_psa"/>
             <field name="system">http://www.psa.gov.ph/</field>
             <field name="country_id" ref="base.ph"/>
-        </record>  
+        </record>
 
 
         <!-- Philippine Regions -->
 
-        <record id="region_ph_01" model="hc.vs.country.region">  
+        <record id="region_ph_01" model="hc.vs.country.region">
             <field name="name">Autonomous Region in Muslim Mindanao (ARMM)</field>
             <field name="code">14</field>
             <field name="type_id" ref="region_type_ph_region"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="region_ph_02" model="hc.vs.country.region">  
+        </record>
+        <record id="region_ph_02" model="hc.vs.country.region">
             <field name="name">Bicol (Region V)</field>
             <field name="code">05</field>
             <field name="type_id" ref="region_type_ph_region"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="region_ph_03" model="hc.vs.country.region">  
+        </record>
+        <record id="region_ph_03" model="hc.vs.country.region">
             <field name="name">Cagayan Valley (Region II)</field>
             <field name="code">02</field>
             <field name="type_id" ref="region_type_ph_region"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="region_ph_04" model="hc.vs.country.region">  
+        </record>
+        <record id="region_ph_04" model="hc.vs.country.region">
             <field name="name">Calabarzon (Region IV-A)</field>
             <field name="code">40</field>
             <field name="type_id" ref="region_type_ph_region"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="region_ph_05" model="hc.vs.country.region">  
+        </record>
+        <record id="region_ph_05" model="hc.vs.country.region">
             <field name="name">Caraga (Region XIII)</field>
             <field name="code">13</field>
             <field name="type_id" ref="region_type_ph_region"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="region_ph_06" model="hc.vs.country.region">  
+        </record>
+        <record id="region_ph_06" model="hc.vs.country.region">
             <field name="name">Central Luzon (Region III)</field>
             <field name="code">03</field>
             <field name="type_id" ref="region_type_ph_region"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="region_ph_07" model="hc.vs.country.region">  
+        </record>
+        <record id="region_ph_07" model="hc.vs.country.region">
             <field name="name">Central Visayas (Region VII)</field>
             <field name="code">07</field>
             <field name="type_id" ref="region_type_ph_region"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="region_ph_08" model="hc.vs.country.region">  
+        </record>
+        <record id="region_ph_08" model="hc.vs.country.region">
             <field name="name">Cordillera Administrative Region (CAR)</field>
             <field name="code">15</field>
             <field name="type_id" ref="region_type_ph_region"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="region_ph_09" model="hc.vs.country.region">  
+        </record>
+        <record id="region_ph_09" model="hc.vs.country.region">
             <field name="name">Davao (Region XI)</field>
             <field name="code">11</field>
             <field name="type_id" ref="region_type_ph_region"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="region_ph_10" model="hc.vs.country.region"> 
+        </record>
+        <record id="region_ph_10" model="hc.vs.country.region">
             <field name="name">Eastern Visayas (Region VIII)</field>
             <field name="code">08</field>
             <field name="type_id" ref="region_type_ph_region"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="region_ph_11" model="hc.vs.country.region"> 
+        </record>
+        <record id="region_ph_11" model="hc.vs.country.region">
             <field name="name">Ilocos (Region I)</field>
             <field name="code">01</field>
             <field name="type_id" ref="region_type_ph_region"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="region_ph_12" model="hc.vs.country.region"> 
+        </record>
+        <record id="region_ph_12" model="hc.vs.country.region">
             <field name="name">Mimaropa (Region IV-B)</field>
             <field name="code">41</field>
             <field name="type_id" ref="region_type_ph_region"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="region_ph_13" model="hc.vs.country.region"> 
+        </record>
+        <record id="region_ph_13" model="hc.vs.country.region">
             <field name="name">National Capital Region</field>
             <field name="code">00</field>
             <field name="type_id" ref="region_type_ph_region"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="region_ph_14" model="hc.vs.country.region"> 
+        </record>
+        <record id="region_ph_14" model="hc.vs.country.region">
             <field name="name">Northern Mindanao (Region X)</field>
             <field name="code">10</field>
             <field name="type_id" ref="region_type_ph_region"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="region_ph_15" model="hc.vs.country.region"> 
+        </record>
+        <record id="region_ph_15" model="hc.vs.country.region">
             <field name="name">Soccsksargen (Region XII)</field>
             <field name="code">12</field>
             <field name="type_id" ref="region_type_ph_region"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="region_ph_16" model="hc.vs.country.region"> 
+        </record>
+        <record id="region_ph_16" model="hc.vs.country.region">
             <field name="name">Western Visayas (Region VI)</field>
             <field name="code">06</field>
             <field name="type_id" ref="region_type_ph_region"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="region_ph_17" model="hc.vs.country.region"> 
+        </record>
+        <record id="region_ph_17" model="hc.vs.country.region">
             <field name="name">Zamboanga Peninsula (Region IX)</field>
             <field name="code">09</field>
             <field name="type_id" ref="region_type_ph_region"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-   
+        </record>
 
 
-        <!-- Philippine Provinces -->                
 
-        <record id="state_ph_1" model="res.country.state">  
+        <!-- Philippine Provinces -->
+
+        <record id="state_ph_1" model="res.country.state">
             <field name="name">Abra</field>
             <field name="code">ABR</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_08"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_2" model="res.country.state">  
+        </record>
+        <record id="state_ph_2" model="res.country.state">
             <field name="name">Agusan del Norte</field>
             <field name="code">AGN</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_05"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_3" model="res.country.state">  
+        </record>
+        <record id="state_ph_3" model="res.country.state">
             <field name="name">Agusan del Sur</field>
             <field name="code">AGS</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_05"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_4" model="res.country.state">    
+        </record>
+        <record id="state_ph_4" model="res.country.state">
             <field name="name">Aklan</field>
             <field name="code">AKL</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_16"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_5" model="res.country.state">  
+        </record>
+        <record id="state_ph_5" model="res.country.state">
             <field name="name">Albay</field>
             <field name="code">ALB</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_02"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_6" model="res.country.state">  
+        </record>
+        <record id="state_ph_6" model="res.country.state">
             <field name="name">Antique</field>
             <field name="code">ANT</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_16"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_7" model="res.country.state">  
+        </record>
+        <record id="state_ph_7" model="res.country.state">
             <field name="name">Apayao</field>
             <field name="code">APA</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_08"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_8" model="res.country.state">  
+        </record>
+        <record id="state_ph_8" model="res.country.state">
             <field name="name">Aurora</field>
             <field name="code">AUR</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_06"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_9" model="res.country.state">  
+        </record>
+        <record id="state_ph_9" model="res.country.state">
             <field name="name">Basilan</field>
             <field name="code">BAS</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_17"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_10" model="res.country.state"> 
+        </record>
+        <record id="state_ph_10" model="res.country.state">
             <field name="name">Bataan</field>
             <field name="code">BAN</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_06"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_11" model="res.country.state">   
+        </record>
+        <record id="state_ph_11" model="res.country.state">
             <field name="name">Batanes</field>
             <field name="code">BTN</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_03"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_12" model="res.country.state"> 
+        </record>
+        <record id="state_ph_12" model="res.country.state">
             <field name="name">Batangas</field>
             <field name="code">BTG</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_04"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_13" model="res.country.state"> 
+        </record>
+        <record id="state_ph_13" model="res.country.state">
             <field name="name">Benguet</field>
             <field name="code">BEN</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_08"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_14" model="res.country.state"> 
+        </record>
+        <record id="state_ph_14" model="res.country.state">
             <field name="name">Biliran</field>
             <field name="code">BIL</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_10"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_15" model="res.country.state"> 
+        </record>
+        <record id="state_ph_15" model="res.country.state">
             <field name="name">Bohol</field>
             <field name="code">BOH</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_07"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_16" model="res.country.state"> 
+        </record>
+        <record id="state_ph_16" model="res.country.state">
             <field name="name">Bukidnon</field>
             <field name="code">BUK</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_14"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_17" model="res.country.state"> 
+        </record>
+        <record id="state_ph_17" model="res.country.state">
             <field name="name">Bulacan</field>
             <field name="code">BUL</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_06"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_18" model="res.country.state"> 
+        </record>
+        <record id="state_ph_18" model="res.country.state">
             <field name="name">Cagayan</field>
             <field name="code">CAG</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_03"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_19" model="res.country.state"> 
+        </record>
+        <record id="state_ph_19" model="res.country.state">
             <field name="name">Camarines Norte</field>
             <field name="code">CAN</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_02"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_20" model="res.country.state"> 
+        </record>
+        <record id="state_ph_20" model="res.country.state">
             <field name="name">Camarines Sur</field>
             <field name="code">CAS</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_02"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_21" model="res.country.state"> 
+        </record>
+        <record id="state_ph_21" model="res.country.state">
             <field name="name">Camiguin</field>
             <field name="code">CAM</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_14"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_22" model="res.country.state"> 
+        </record>
+        <record id="state_ph_22" model="res.country.state">
             <field name="name">Capiz</field>
             <field name="code">CAP</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_16"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_23" model="res.country.state"> 
+        </record>
+        <record id="state_ph_23" model="res.country.state">
             <field name="name">Catanduanes</field>
             <field name="code">CAT</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_02"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_24" model="res.country.state"> 
+        </record>
+        <record id="state_ph_24" model="res.country.state">
             <field name="name">Cavite</field>
             <field name="code">CAV</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_04"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_25" model="res.country.state"> 
+        </record>
+        <record id="state_ph_25" model="res.country.state">
             <field name="name">Cebu</field>
             <field name="code">CEB</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_07"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_26" model="res.country.state"> 
+        </record>
+        <record id="state_ph_26" model="res.country.state">
             <field name="name">Compostela Valley</field>
             <field name="code">COM</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_09"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_27" model="res.country.state"> 
+        </record>
+        <record id="state_ph_27" model="res.country.state">
             <field name="name">Cotabato</field>
             <field name="code">NCO</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_15"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_28" model="res.country.state"> 
+        </record>
+        <record id="state_ph_28" model="res.country.state">
             <field name="name">Davao del Norte</field>
             <field name="code">DAV</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_09"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_29" model="res.country.state"> 
+        </record>
+        <record id="state_ph_29" model="res.country.state">
             <field name="name">Davao del Sur</field>
             <field name="code">DAS</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_09"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_30" model="res.country.state"> 
+        </record>
+        <record id="state_ph_30" model="res.country.state">
             <field name="name">Davao Occidental</field>
             <field name="code">DVO</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_09"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_31" model="res.country.state"> 
+        </record>
+        <record id="state_ph_31" model="res.country.state">
             <field name="name">Davao Oriental</field>
             <field name="code">DAO</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_09"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_32" model="res.country.state"> 
+        </record>
+        <record id="state_ph_32" model="res.country.state">
             <field name="name">Dinagat Islands</field>
             <field name="code">DIN</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_05"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_33" model="res.country.state"> 
+        </record>
+        <record id="state_ph_33" model="res.country.state">
             <field name="name">Eastern Samar</field>
             <field name="code">EAS</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_10"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_34" model="res.country.state"> 
+        </record>
+        <record id="state_ph_34" model="res.country.state">
             <field name="name">Guimaras</field>
             <field name="code">GUI</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_16"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_35" model="res.country.state"> 
+        </record>
+        <record id="state_ph_35" model="res.country.state">
             <field name="name">Ifugao</field>
             <field name="code">IFU</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_08"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_36" model="res.country.state"> 
+        </record>
+        <record id="state_ph_36" model="res.country.state">
             <field name="name">Ilocos Norte</field>
             <field name="code">ILN</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_11"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_37" model="res.country.state"> 
+        </record>
+        <record id="state_ph_37" model="res.country.state">
             <field name="name">Ilocos Sur</field>
             <field name="code">ILS</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_11"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_38" model="res.country.state"> 
+        </record>
+        <record id="state_ph_38" model="res.country.state">
             <field name="name">Iloilo</field>
             <field name="code">ILI</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_16"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_39" model="res.country.state"> 
+        </record>
+        <record id="state_ph_39" model="res.country.state">
             <field name="name">Isabela</field>
             <field name="code">ISA</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_03"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_40" model="res.country.state"> 
+        </record>
+        <record id="state_ph_40" model="res.country.state">
             <field name="name">Kalinga</field>
             <field name="code">KAL</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_08"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_41" model="res.country.state"> 
+        </record>
+        <record id="state_ph_41" model="res.country.state">
             <field name="name">La Union</field>
             <field name="code">LUN</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_11"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_42" model="res.country.state"> 
+        </record>
+        <record id="state_ph_42" model="res.country.state">
             <field name="name">Laguna</field>
             <field name="code">LAG</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_04"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_43" model="res.country.state"> 
+        </record>
+        <record id="state_ph_43" model="res.country.state">
             <field name="name">Lanao del Norte</field>
             <field name="code">LAN</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_15"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_44" model="res.country.state"> 
+        </record>
+        <record id="state_ph_44" model="res.country.state">
             <field name="name">Lanao del Sur</field>
             <field name="code">LAS</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_01"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_45" model="res.country.state"> 
+        </record>
+        <record id="state_ph_45" model="res.country.state">
             <field name="name">Leyte</field>
             <field name="code">LEY</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_10"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_46" model="res.country.state"> 
+        </record>
+        <record id="state_ph_46" model="res.country.state">
             <field name="name">Maguindanao</field>
             <field name="code">MAG</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_01"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_47" model="res.country.state"> 
+        </record>
+        <record id="state_ph_47" model="res.country.state">
             <field name="name">Marinduque</field>
             <field name="code">MAD</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_12"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_48" model="res.country.state"> 
+        </record>
+        <record id="state_ph_48" model="res.country.state">
             <field name="name">Masbate</field>
             <field name="code">MAS</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_02"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_49" model="res.country.state"> 
+        </record>
+        <record id="state_ph_49" model="res.country.state">
             <field name="name">Mindoro Occidental</field>
             <field name="code">MDC</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_12"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_50" model="res.country.state"> 
+        </record>
+        <record id="state_ph_50" model="res.country.state">
             <field name="name">Mindoro Oriental</field>
             <field name="code">MDR</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_12"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_51" model="res.country.state"> 
+        </record>
+        <record id="state_ph_51" model="res.country.state">
             <field name="name">Misamis Occidental</field>
             <field name="code">MSC</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_14"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_52" model="res.country.state"> 
+        </record>
+        <record id="state_ph_52" model="res.country.state">
             <field name="name">Misamis Oriental</field>
             <field name="code">MSR</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_14"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_53" model="res.country.state"> 
+        </record>
+        <record id="state_ph_53" model="res.country.state">
             <field name="name">Mountain Province</field>
             <field name="code">MOU</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_08"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_54" model="res.country.state"> 
+        </record>
+        <record id="state_ph_54" model="res.country.state">
             <field name="name">Negros Occidental</field>
             <field name="code">NEC</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_16"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_55" model="res.country.state"> 
+        </record>
+        <record id="state_ph_55" model="res.country.state">
             <field name="name">Negros Oriental</field>
             <field name="code">NER</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_07"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_56" model="res.country.state"> 
+        </record>
+        <record id="state_ph_56" model="res.country.state">
             <field name="name">Northern Samar</field>
             <field name="code">NSA</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_10"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_57" model="res.country.state"> 
+        </record>
+        <record id="state_ph_57" model="res.country.state">
             <field name="name">Nueva Ecija</field>
             <field name="code">NUE</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_06"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_58" model="res.country.state"> 
+        </record>
+        <record id="state_ph_58" model="res.country.state">
             <field name="name">Nueva Vizcaya</field>
             <field name="code">NUV</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_03"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_59" model="res.country.state"> 
+        </record>
+        <record id="state_ph_59" model="res.country.state">
             <field name="name">Palawan</field>
             <field name="code">PLW</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_12"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_60" model="res.country.state"> 
+        </record>
+        <record id="state_ph_60" model="res.country.state">
             <field name="name">Pampanga</field>
             <field name="code">PAM</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_06"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_61" model="res.country.state"> 
+        </record>
+        <record id="state_ph_61" model="res.country.state">
             <field name="name">Pangasinan</field>
             <field name="code">PAN</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_11"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_62" model="res.country.state"> 
+        </record>
+        <record id="state_ph_62" model="res.country.state">
             <field name="name">Quezon</field>
             <field name="code">QUE</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_04"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_63" model="res.country.state"> 
+        </record>
+        <record id="state_ph_63" model="res.country.state">
             <field name="name">Quirino</field>
             <field name="code">QUI</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_03"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_64" model="res.country.state"> 
+        </record>
+        <record id="state_ph_64" model="res.country.state">
             <field name="name">Rizal</field>
             <field name="code">RIZ</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_04"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_65" model="res.country.state"> 
+        </record>
+        <record id="state_ph_65" model="res.country.state">
             <field name="name">Romblon</field>
             <field name="code">ROM</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_12"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_66" model="res.country.state"> 
+        </record>
+        <record id="state_ph_66" model="res.country.state">
             <field name="name">Samar (Western Samar)</field>
             <field name="code">WSA</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_10"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_67" model="res.country.state"> 
+        </record>
+        <record id="state_ph_67" model="res.country.state">
             <field name="name">Sarangani</field>
             <field name="code">SAR</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_09"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_68" model="res.country.state"> 
+        </record>
+        <record id="state_ph_68" model="res.country.state">
             <field name="name">Siquijor</field>
             <field name="code">SIG</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_07"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_69" model="res.country.state"> 
+        </record>
+        <record id="state_ph_69" model="res.country.state">
             <field name="name">Sorsogon</field>
             <field name="code">SOR</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_02"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_70" model="res.country.state"> 
+        </record>
+        <record id="state_ph_70" model="res.country.state">
             <field name="name">South Cotabato</field>
             <field name="code">SCO</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_09"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_71" model="res.country.state"> 
+        </record>
+        <record id="state_ph_71" model="res.country.state">
             <field name="name">Southern Leyte</field>
             <field name="code">SLE</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_10"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_72" model="res.country.state"> 
+        </record>
+        <record id="state_ph_72" model="res.country.state">
             <field name="name">Sultan Kudarat</field>
             <field name="code">SUK</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_15"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_73" model="res.country.state"> 
+        </record>
+        <record id="state_ph_73" model="res.country.state">
             <field name="name">Sulu</field>
             <field name="code">SLU</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_01"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_74" model="res.country.state"> 
+        </record>
+        <record id="state_ph_74" model="res.country.state">
             <field name="name">Surigao del Norte</field>
             <field name="code">SUN</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_05"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_75" model="res.country.state"> 
+        </record>
+        <record id="state_ph_75" model="res.country.state">
             <field name="name">Surigao del Sur</field>
             <field name="code">SUR</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_05"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_76" model="res.country.state"> 
+        </record>
+        <record id="state_ph_76" model="res.country.state">
             <field name="name">Tarlac</field>
             <field name="code">TAR</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_06"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_77" model="res.country.state"> 
+        </record>
+        <record id="state_ph_77" model="res.country.state">
             <field name="name">Tawi-Tawi</field>
             <field name="code">TAW</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_01"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_78" model="res.country.state"> 
+        </record>
+        <record id="state_ph_78" model="res.country.state">
             <field name="name">Zambales</field>
             <field name="code">ZMB</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_06"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_79" model="res.country.state"> 
+        </record>
+        <record id="state_ph_79" model="res.country.state">
             <field name="name">Zamboanga del Norte</field>
             <field name="code">ZAN</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_17"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_80" model="res.country.state"> 
+        </record>
+        <record id="state_ph_80" model="res.country.state">
             <field name="name">Zamboanga del Sur</field>
             <field name="code">ZAS</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_17"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_81" model="res.country.state"> 
+        </record>
+        <record id="state_ph_81" model="res.country.state">
             <field name="name">Zamboanga Sibugay</field>
             <field name="code">ZSI</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_17"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
-        <record id="state_ph_82" model="res.country.state"> 
+        </record>
+        <record id="state_ph_82" model="res.country.state">
             <field name="name">Metro Manila</field>
             <field name="code">MNL</field>
             <field name="type_id" ref="state_type_ph_province"/>
             <field name="region_id" ref="region_ph_13"/>
             <field name="country_id" ref="base.ph"/>
-        </record>   
+        </record>
 
-    </data>     
-</openerp>
+    </data>
+</odoo>

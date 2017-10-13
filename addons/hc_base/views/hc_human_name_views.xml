@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <menuitem id="hc_base.menu_human_name"
@@ -100,6 +100,7 @@
             <field name="model">hc.human.name.term</field>
             <field name="arch" type="xml">
                 <tree string="Human Name Terms" editable="top">
+                    <field name="id"/>
                     <field name="name"/>
                     <field name="type_ids" widget="many2many_tags"/>
                 </tree>
@@ -244,7 +245,7 @@
             <field name="model">hc.human.name</field>
             <field name="arch" type="xml">
                 <tree string="Human Names" editable="top">
-                    <field name="id"/>                    
+                    <field name="id"/>
                     <field name="name"/>
                     <field name="first_id"/>
                     <field name="nickname_ids" widget="many2many_tags"/>
@@ -378,4 +379,4 @@
                   sequence="1"/>
 
     </data>
-</openerp>
+</odoo>

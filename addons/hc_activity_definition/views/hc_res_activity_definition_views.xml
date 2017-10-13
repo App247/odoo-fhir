@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Activity Definition Views -->
@@ -227,4 +227,4 @@
                   sequence="20"/>
 
     </data>
-</openerp>
+</odoo>

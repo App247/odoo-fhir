@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Clinical Impression Views -->
@@ -308,4 +308,4 @@
         </record>
 
     </data>
-</openerp>
+</odoo>

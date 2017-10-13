@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Unit of Measure Views -->
@@ -117,4 +117,4 @@
                   sequence="21"/>
 
     </data>
-</openerp>
+</odoo>

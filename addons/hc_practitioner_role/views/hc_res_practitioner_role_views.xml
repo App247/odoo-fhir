@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Practitioner Role Views -->
@@ -191,4 +191,4 @@
         </record>
 
     </data>
-</openerp>
+</odoo>

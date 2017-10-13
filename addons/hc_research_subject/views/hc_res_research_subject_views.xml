@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Research Subject Views -->
@@ -121,4 +121,4 @@
         </record>
 
     </data>
-</openerp>
+</odoo>

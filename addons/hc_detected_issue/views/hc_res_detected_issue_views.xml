@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Detected Issue Views -->
@@ -125,7 +125,7 @@
         <menuitem id="hc_detected_issue.menu_issue"
                   name="Detected Issues"
                   web_icon="hc_detected_issue,static/description/icon.png"
-                  parent="hc_base.menu_clinic_sum" 
+                  parent="hc_base.menu_clinic_sum"
                   action="hc_res_detected_issue_action"
                   groups="hc_base.group_hc_base_manager"
                   sequence="70"/>
@@ -158,4 +158,4 @@
         </record>
 
     </data>
-</openerp>
+</odoo>

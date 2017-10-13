@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Test Report Action and Menu -->
@@ -13,10 +13,10 @@
 
         <menuitem id="hc_test_report.menu_test_rpt"
                   name="Test Reports"
-                  parent="hc_base.menu_spec_test" 
+                  parent="hc_base.menu_spec_test"
                   action="hc_res_test_report_action"
                   groups="hc_base.group_hc_base_manager"
                   sequence="20"/>
 
     </data>
-</openerp>
+</odoo>

@@ -1,23 +1,7 @@
-<openerp>
+<odoo>
     <data>
 
-        <!-- Coverage Action and Menu -->   
-    
-        <act_window id="hc_res_coverage_action" 
-                    name="HC Coverages"
-                    res_model="hc.res.coverage"
-                    view_mode="tree,form"
-                    domain=""
-                    context=""
-                    limit=""/>
-
-        <menuitem id="hc_coverage.menu_cov" 
-                  name="Coverage" 
-                  parent="hc_base.menu_fina_supp" 
-                  action="hc_res_coverage_action" 
-                  groups="hc_base.group_hc_base_manager" 
-                  sequence="10"/>
 
 
     </data>
-</openerp>
+</odoo>

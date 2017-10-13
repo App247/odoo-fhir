@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Imaging Study Views -->
@@ -77,4 +77,4 @@
                   sequence="60"/>
 
     </data>
-</openerp>
+</odoo>

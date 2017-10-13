@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
         <!--  -->
         <!--   <record id="object0" model="hc_nutrition_order.hc_nutrition_order"> -->
@@ -27,4 +27,4 @@
         <!--   </record> -->
         <!--  -->
     </data>
-</openerp>
+</odoo>

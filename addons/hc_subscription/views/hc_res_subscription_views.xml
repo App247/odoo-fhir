@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Subscription Action and Menu -->
@@ -19,4 +19,4 @@
                   sequence="90"/>
 
     </data>
-</openerp>
+</odoo>

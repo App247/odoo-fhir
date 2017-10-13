@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
         <!--  -->
         <!--   <record id="object0" model="hc_catalog_entry.hc_catalog_entry"> -->
@@ -27,4 +27,4 @@
         <!--   </record> -->
         <!--  -->
     </data>
-</openerp>
+</odoo>

@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Procedure Request Views -->
@@ -90,4 +90,4 @@
         </record>
 
     </data>
-</openerp>
+</odoo>

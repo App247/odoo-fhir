@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Questionnaire Views -->
@@ -70,10 +70,10 @@
 
             <menuitem id="hc_questionnaire.menu_quest"
                       name="Questionnaires"
-                      parent="hc_base.menu_spec_art" 
+                      parent="hc_base.menu_spec_art"
                       action="hc_res_questionnaire_action"
                       groups="hc_base.group_hc_base_manager"
                       sequence="10"/>
 
     </data>
-</openerp>
+</odoo>

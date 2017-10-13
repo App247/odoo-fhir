@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Document Reference Action and Menu -->
@@ -13,10 +13,10 @@
 
         <menuitem id="hc_document_reference.menu_doc_ref"
                   name="Document References"
-                  parent="hc_base.menu_doc" 
+                  parent="hc_base.menu_doc"
                   action="hc_res_document_reference_action"
                   groups="hc_base.group_hc_base_manager"
                   sequence="30"/>
 
     </data>
-</openerp>
+</odoo>

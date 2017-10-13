@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Imaging Manifest Views -->
@@ -77,4 +77,4 @@
                   sequence="70"/>
 
     </data>
-</openerp>
+</odoo>

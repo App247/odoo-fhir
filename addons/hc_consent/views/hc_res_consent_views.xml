@@ -1,9 +1,9 @@
-<openerp>
+<odoo>
     <data>
 
-        <!-- Consent Action and Menu -->    
-    
-        <act_window id="hc_res_consent_action"  
+        <!-- Consent Action and Menu -->
+
+        <act_window id="hc_res_consent_action"
                     name="HC Consents"
                     res_model="hc.res.consent"
                     view_mode="tree,form"
@@ -11,12 +11,12 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_consent.menu_consent" 
-                  name="Consents" 
-                  parent="hc_base.menu_secur" 
-                  action="hc_res_consent_action" 
-                  groups="hc_base.group_hc_base_manager" 
+        <menuitem id="hc_consent.menu_consent"
+                  name="Consents"
+                  parent="hc_base.menu_secur"
+                  action="hc_res_consent_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="30"/>
 
     </data>
-</openerp>
+</odoo>

@@ -1,9 +1,9 @@
-<openerp>
+<odoo>
     <data>
 
-<!--         <page string="Status History">          
-            <field name="status_history_ids" mode="tree">       
-                <tree>  
+<!--         <page string="Status History">
+            <field name="status_history_ids" mode="tree">
+                <tree>
                     <field name="status" readonly="1"/>
                     <field name="start_date"/>
                     <field name="end_date"/>
@@ -12,14 +12,14 @@
                     <field name="time_diff_min"/>
                     <field name="time_diff_sec"/>
                     <field name="write_uid" invisible="0"/>
-                </tree> 
-            </field>        
-        </page>   -->       
+                </tree>
+            </field>
+        </page>   -->
 
 
-        <!-- Enrollment Request Action and Menu --> 
-    
-        <act_window id="hc_res_enrollment_request_action"   
+        <!-- Enrollment Request Action and Menu -->
+
+        <act_window id="hc_res_enrollment_request_action"
                     name="HC Enrollment Requests"
                     res_model="hc.res.enrollment.request"
                     view_mode="tree,form"
@@ -27,12 +27,12 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_enrollment_request.menu_enroll_req" 
-                  name="Enrollment Requests" 
-                  parent="hc_base.menu_fina_supp" 
-                  action="hc_res_enrollment_request_action" 
-                  groups="hc_base.group_hc_base_manager" 
+        <menuitem id="hc_enrollment_request.menu_enroll_req"
+                  name="Enrollment Requests"
+                  parent="hc_base.menu_fina_supp"
+                  action="hc_res_enrollment_request_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="40"/>
 
     </data>
-</openerp>
+</odoo>

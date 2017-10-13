@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-    <data noupdate="0"> 
+<odoo>
+    <data noupdate="1">
 
         <!-- Unit of Measurement Category -->
-            
-        <record id="uom_categ_ulength" model="product.uom.categ">   
+
+        <record id="uom_categ_ulength" model="product.uom.categ">
             <field name="name">Length (UCUM)</field>
             <field name="source_id" ref="base.loinc_ucum"/>
         </record>
-            
-        <record id="uom_categ_umass" model="product.uom.categ"> 
+
+        <record id="uom_categ_umass" model="product.uom.categ">
             <field name="name">Mass (UCUM)</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="uom_categ_utime" model="product.uom.categ"> 
+        </record>
+
+        <record id="uom_categ_utime" model="product.uom.categ">
             <field name="name">Time (UCUM)</field>
             <field name="source_id" ref="base.loinc_ucum"/>
         </record>
 
-        <record id="uom_categ_uunit" model="product.uom.categ"> 
+        <record id="uom_categ_uunit" model="product.uom.categ">
             <field name="name">Unit (UCUM)</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>     
+        </record>
 
-        <record id="uom_categ_uvolume" model="product.uom.categ">   
+        <record id="uom_categ_uvolume" model="product.uom.categ">
             <field name="name">Volume (UCUM)</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>  
+        </record>
 
         <!-- Unit of Measurement -->
 
-        <record id="base.product_uom_ucum_meter" model="product.uom">   
+        <record id="base.product_uom_ucum_meter" model="product.uom">
             <field name="category_id" ref="uom_categ_ulength"/>
             <field name="name">meter</field>
             <field name="code">m</field>
@@ -39,126 +39,126 @@
             <field name ="rounding" eval="0.001"/>
             <field name ="uom_type">reference</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_yard" model="product.uom">    
+        </record>
+
+        <record id="base.product_uom_ucum_yard" model="product.uom">
             <field name="category_id" ref="uom_categ_ulength"/>
             <field name="name">yard (international)</field>
             <field name="code">[yd_i]</field>
             <field name ="factor" eval="1.09361"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_foot" model="product.uom">    
+        </record>
+
+        <record id="base.product_uom_ucum_foot" model="product.uom">
             <field name="category_id" ref="uom_categ_ulength"/>
             <field name="name">foot (international)</field>
             <field name="code">[ft_i]</field>
             <field name ="factor" eval="3.28084"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_micrometer" model="product.uom">  
+        </record>
+
+        <record id="base.product_uom_ucum_micrometer" model="product.uom">
             <field name="category_id" ref="uom_categ_ulength"/>
             <field name="name">decimeter</field>
             <field name="code">dm</field>
             <field name ="factor" eval="10.0"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_inch" model="product.uom">    
+        </record>
+
+        <record id="base.product_uom_ucum_inch" model="product.uom">
             <field name="category_id" ref="uom_categ_ulength"/>
             <field name="name">inch (international)</field>
             <field name="code">[in_i]</field>
             <field name ="factor" eval="39.37008"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_centimeter" model="product.uom">  
+        </record>
+
+        <record id="base.product_uom_ucum_centimeter" model="product.uom">
             <field name="category_id" ref="uom_categ_ulength"/>
             <field name="name">centimeter</field>
             <field name="code">cm</field>
             <field name ="factor" eval="100.0"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_millimeter" model="product.uom">  
+        </record>
+
+        <record id="base.product_uom_ucum_millimeter" model="product.uom">
             <field name="category_id" ref="uom_categ_ulength"/>
             <field name="name">millimeter</field>
             <field name="code">mm</field>
             <field name ="factor" eval="1000.0"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_micrometer" model="product.uom">  
+        </record>
+
+        <record id="base.product_uom_ucum_micrometer" model="product.uom">
             <field name="category_id" ref="uom_categ_ulength"/>
             <field name="name">micrometer (micron)</field>
             <field name="code">um</field>
             <field name ="factor" eval="1000000.0"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_nanometer" model="product.uom">   
+        </record>
+
+        <record id="base.product_uom_ucum_nanometer" model="product.uom">
             <field name="category_id" ref="uom_categ_ulength"/>
             <field name="name">nanometer</field>
             <field name="code">nm</field>
             <field name ="factor" eval="1000000000.0"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_picometer" model="product.uom">   
+        </record>
+
+        <record id="base.product_uom_ucum_picometer" model="product.uom">
             <field name="category_id" ref="uom_categ_ulength"/>
             <field name="name">picometer</field>
             <field name="code">pm</field>
             <field name ="factor" eval="1000000000000.0"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_femtometer" model="product.uom">  
+        </record>
+
+        <record id="base.product_uom_ucum_femtometer" model="product.uom">
             <field name="category_id" ref="uom_categ_ulength"/>
             <field name="name">femtometer</field>
             <field name="code">fm</field>
             <field name ="factor" eval="1000000000000000.0"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_dekameter" model="product.uom">   
+        </record>
+
+        <record id="base.product_uom_ucum_dekameter" model="product.uom">
             <field name="category_id" ref="uom_categ_ulength"/>
             <field name="name">dekameter</field>
             <field name="code">dam</field>
             <field name ="factor_inv" eval="10.0"/>
             <field name ="uom_type">bigger</field>
             <field name="source_id" ref="base.ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_kilometer" model="product.uom">   
+        </record>
+
+        <record id="base.product_uom_ucum_kilometer" model="product.uom">
             <field name="category_id" ref="uom_categ_ulength"/>
             <field name="name">kilometer</field>
             <field name="code">km</field>
             <field name ="factor_inv" eval="1000.0"/>
             <field name ="uom_type">bigger</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_mile" model="product.uom">    
+        </record>
+
+        <record id="base.product_uom_ucum_mile" model="product.uom">
             <field name="category_id" ref="uom_categ_ulength"/>
             <field name="name">mile (international)</field>
             <field name="code">[mi_i]</field>
             <field name ="factor_inv" eval="1609.34"/>
             <field name ="uom_type">bigger</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_kilogram" model="product.uom">    
+        </record>
+
+        <record id="base.product_uom_ucum_kilogram" model="product.uom">
             <field name="category_id" ref="uom_categ_umass"/>
             <field name="name">kilogram</field>
             <field name="code">kg</field>
@@ -166,135 +166,135 @@
             <field name ="rounding" eval="0.001"/>
             <field name ="uom_type">reference</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_pound_us" model="product.uom">    
+        </record>
+
+        <record id="base.product_uom_ucum_pound_us" model="product.uom">
             <field name="category_id" ref="uom_categ_umass"/>
             <field name="name">pound (US and British)</field>
             <field name="code">[lb_av]</field>
             <field name ="factor" eval="2.20462"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_ounce_us" model="product.uom">    
+        </record>
+
+        <record id="base.product_uom_ucum_ounce_us" model="product.uom">
             <field name="category_id" ref="uom_categ_umass"/>
             <field name="name">100 gram</field>
             <field name="code">(100.g)</field>
             <field name ="factor" eval="10.0"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_dram_us" model="product.uom"> 
+        </record>
+
+        <record id="base.product_uom_ucum_dram_us" model="product.uom">
             <field name="category_id" ref="uom_categ_umass"/>
             <field name="name">dram (US and British)</field>
             <field name="code">[dr_av]</field>
             <field name ="factor" eval="17.637"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_troy_ounce" model="product.uom">  
+        </record>
+
+        <record id="base.product_uom_ucum_troy_ounce" model="product.uom">
             <field name="category_id" ref="uom_categ_umass"/>
             <field name="name">Troy ounce</field>
             <field name="code">[oz_tr]</field>
             <field name ="factor" eval="32.1507"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_ounce_us" model="product.uom">    
+        </record>
+
+        <record id="base.product_uom_ucum_ounce_us" model="product.uom">
             <field name="category_id" ref="uom_categ_umass"/>
             <field name="name">ounce (US and British)</field>
             <field name="code">[oz_av]</field>
             <field name ="factor" eval="35.274"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_gram" model="product.uom">    
+        </record>
+
+        <record id="base.product_uom_ucum_gram" model="product.uom">
             <field name="category_id" ref="uom_categ_umass"/>
             <field name="name">gram</field>
             <field name="code">g</field>
             <field name ="factor" eval="1000.0"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_decigram" model="product.uom">    
+        </record>
+
+        <record id="base.product_uom_ucum_decigram" model="product.uom">
             <field name="category_id" ref="uom_categ_umass"/>
             <field name="name">decigram</field>
             <field name="code">dg</field>
             <field name ="factor" eval="10000.0"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_centigram" model="product.uom">   
+        </record>
+
+        <record id="base.product_uom_ucum_centigram" model="product.uom">
             <field name="category_id" ref="uom_categ_umass"/>
             <field name="name">centigram</field>
             <field name="code">cg</field>
             <field name ="factor" eval="100000.0"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_milligram" model="product.uom">   
+        </record>
+
+        <record id="base.product_uom_ucum_milligram" model="product.uom">
             <field name="category_id" ref="uom_categ_umass"/>
             <field name="name">milligram</field>
             <field name="code">mg</field>
             <field name ="factor" eval="1000000.0"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_microgram" model="product.uom">   
+        </record>
+
+        <record id="base.product_uom_ucum_microgram" model="product.uom">
             <field name="category_id" ref="uom_categ_umass"/>
             <field name="name">microgram</field>
             <field name="code">ug</field>
             <field name ="factor" eval="1000000000.0"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_nanogram" model="product.uom">    
+        </record>
+
+        <record id="base.product_uom_ucum_nanogram" model="product.uom">
             <field name="category_id" ref="uom_categ_umass"/>
             <field name="name">nanogram</field>
             <field name="code">ng</field>
             <field name ="factor" eval="1000000000000.0"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_picogram" model="product.uom">    
+        </record>
+
+        <record id="base.product_uom_ucum_picogram" model="product.uom">
             <field name="category_id" ref="uom_categ_umass"/>
             <field name="name">picogram</field>
             <field name="code">pg</field>
             <field name ="factor" eval="1000000000000000.0"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_femtogram" model="product.uom">   
+        </record>
+
+        <record id="base.product_uom_ucum_femtogram" model="product.uom">
             <field name="category_id" ref="uom_categ_umass"/>
             <field name="name">femtogram</field>
             <field name="code">fg</field>
             <field name ="factor" eval="1000000000000000000.0"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_metric_ton" model="product.uom">  
+        </record>
+
+        <record id="base.product_uom_ucum_metric_ton" model="product.uom">
             <field name="category_id" ref="uom_categ_umass"/>
             <field name="name">metric ton</field>
             <field name="code">t</field>
             <field name ="factor_inv" eval="1000.0"/>
             <field name ="uom_type">bigger</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_second" model="product.uom">  
+        </record>
+
+        <record id="base.product_uom_ucum_second" model="product.uom">
             <field name="category_id" ref="uom_categ_utime"/>
             <field name="name">second</field>
             <field name="code">s</field>
@@ -303,9 +303,9 @@
             <field name ="rounding" eval="0.001"/>
             <field name ="uom_type">reference</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>    
-            
-        <record id="base.product_uom_ucum_minute" model="product.uom">  
+        </record>
+
+        <record id="base.product_uom_ucum_minute" model="product.uom">
             <field name="category_id" ref="uom_categ_utime"/>
             <field name="name">minute</field>
             <field name="code">min</field>
@@ -313,9 +313,9 @@
             <field name ="factor_inv" eval="60.0"/>
             <field name ="uom_type">bigger</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
+        </record>
 
-        <record id="base.product_uom_ucum_hour" model="product.uom">    
+        <record id="base.product_uom_ucum_hour" model="product.uom">
             <field name="category_id" ref="uom_categ_utime"/>
             <field name="name">hour</field>
             <field name="code">h</field>
@@ -323,9 +323,9 @@
             <field name ="factor_inv" eval="3600.0"/>
             <field name ="uom_type">bigger</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_day" model="product.uom"> 
+        </record>
+
+        <record id="base.product_uom_ucum_day" model="product.uom">
             <field name="category_id" ref="uom_categ_utime"/>
             <field name="name">day</field>
             <field name="code">d</field>
@@ -333,9 +333,9 @@
             <field name ="factor_inv" eval="86400.0"/>
             <field name ="uom_type">bigger</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_week" model="product.uom">    
+        </record>
+
+        <record id="base.product_uom_ucum_week" model="product.uom">
             <field name="category_id" ref="uom_categ_utime"/>
             <field name="name">week</field>
             <field name="code">wk</field>
@@ -343,9 +343,9 @@
             <field name ="factor_inv" eval="604800.0"/>
             <field name ="uom_type">bigger</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_month" model="product.uom">   
+        </record>
+
+        <record id="base.product_uom_ucum_month" model="product.uom">
             <field name="category_id" ref="uom_categ_utime"/>
             <field name="name">month</field>
             <field name="code">mo</field>
@@ -353,9 +353,9 @@
             <field name ="factor_inv" eval="2628000.0"/>
             <field name ="uom_type">bigger</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_year" model="product.uom">    
+        </record>
+
+        <record id="base.product_uom_ucum_year" model="product.uom">
             <field name="category_id" ref="uom_categ_utime"/>
             <field name="name">year</field>
             <field name="code">a</field>
@@ -363,9 +363,9 @@
             <field name ="factor_inv" eval="31557600.0"/>
             <field name ="uom_type">bigger</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_liter" model="product.uom">   
+        </record>
+
+        <record id="base.product_uom_ucum_liter" model="product.uom">
             <field name="category_id" ref="uom_categ_uvolume"/>
             <field name="name">liter</field>
             <field name="code">L</field>
@@ -373,171 +373,171 @@
             <field name ="rounding" eval="0.001"/>
             <field name ="uom_type">reference</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_quart" model="product.uom">   
+        </record>
+
+        <record id="base.product_uom_ucum_quart" model="product.uom">
             <field name="category_id" ref="uom_categ_uvolume"/>
             <field name="name">quart (US)</field>
             <field name="code">[qt_us]</field>
             <field name ="factor" eval="1.0567"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_pint" model="product.uom">    
+        </record>
+
+        <record id="base.product_uom_ucum_pint" model="product.uom">
             <field name="category_id" ref="uom_categ_uvolume"/>
             <field name="name">pint (US)</field>
             <field name="code">[pt_us]</field>
             <field name ="factor" eval="2.1134"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_fluid_ounce" model="product.uom"> 
+        </record>
+
+        <record id="base.product_uom_ucum_fluid_ounce" model="product.uom">
             <field name="category_id" ref="uom_categ_uvolume"/>
             <field name="name">fluid ounce (US)</field>
             <field name="code">[foz_us]</field>
             <field name ="factor" eval="33.8144"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_tablespoon" model="product.uom">  
+        </record>
+
+        <record id="base.product_uom_ucum_tablespoon" model="product.uom">
             <field name="category_id" ref="uom_categ_uvolume"/>
             <field name="name">tablespoon (US)</field>
             <field name="code">[tbs_us]</field>
             <field name ="factor" eval="67.6288"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_centiliter" model="product.uom">  
+        </record>
+
+        <record id="base.product_uom_ucum_centiliter" model="product.uom">
             <field name="category_id" ref="uom_categ_uvolume"/>
             <field name="name">centiliter</field>
             <field name="code">cL</field>
             <field name ="factor" eval="100.0"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_teaspoon" model="product.uom">    
+        </record>
+
+        <record id="base.product_uom_ucum_teaspoon" model="product.uom">
             <field name="category_id" ref="uom_categ_uvolume"/>
             <field name="name">teaspoon (US)</field>
             <field name="code">[tsp_us]</field>
             <field name ="factor" eval="202.8864"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_cubic_centimeter" model="product.uom">    
+        </record>
+
+        <record id="base.product_uom_ucum_cubic_centimeter" model="product.uom">
             <field name="category_id" ref="uom_categ_uvolume"/>
             <field name="name">cubic centimeter</field>
             <field name="code">cm3</field>
             <field name ="factor" eval="1000.0"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_milliliter" model="product.uom">  
+        </record>
+
+        <record id="base.product_uom_ucum_milliliter" model="product.uom">
             <field name="category_id" ref="uom_categ_uvolume"/>
             <field name="name">milliliter (cubic centimeter)</field>
             <field name="code">mL</field>
             <field name ="factor" eval="1000.0"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_cubic_inch" model="product.uom">  
+        </record>
+
+        <record id="base.product_uom_ucum_cubic_inch" model="product.uom">
             <field name="category_id" ref="uom_categ_uvolume"/>
             <field name="name">cubic inch (international)</field>
             <field name="code">[cin_i]</field>
             <field name ="factor" eval="61023.7"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_microliter" model="product.uom">  
+        </record>
+
+        <record id="base.product_uom_ucum_microliter" model="product.uom">
             <field name="category_id" ref="uom_categ_uvolume"/>
             <field name="name">microliter</field>
             <field name="code">uL</field>
             <field name ="factor" eval="1000000.0"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_nanoliter" model="product.uom">   
+        </record>
+
+        <record id="base.product_uom_ucum_nanoliter" model="product.uom">
             <field name="category_id" ref="uom_categ_uvolume"/>
             <field name="name">nanoliter</field>
             <field name="code">nL</field>
             <field name ="factor" eval="1000000000.0"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_picoliter" model="product.uom">   
+        </record>
+
+        <record id="base.product_uom_ucum_picoliter" model="product.uom">
             <field name="category_id" ref="uom_categ_uvolume"/>
             <field name="name">picoliter</field>
             <field name="code">pL</field>
             <field name ="factor" eval="1000000000000.0"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_femtoliter" model="product.uom">  
+        </record>
+
+        <record id="base.product_uom_ucum_femtoliter" model="product.uom">
             <field name="category_id" ref="uom_categ_uvolume"/>
             <field name="name">femtoliter</field>
             <field name="code">fL</field>
             <field name ="factor" eval="1000000000000000.0"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_gallon" model="product.uom">  
+        </record>
+
+        <record id="base.product_uom_ucum_gallon" model="product.uom">
             <field name="category_id" ref="uom_categ_uvolume"/>
             <field name="name">gallon (US)</field>
             <field name="code">[gal_us]</field>
             <field name ="factor_inv" eval="3.7854"/>
             <field name ="uom_type">bigger</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_deciliter" model="product.uom">   
+        </record>
+
+        <record id="base.product_uom_ucum_deciliter" model="product.uom">
             <field name="category_id" ref="uom_categ_uvolume"/>
             <field name="name">deciliter</field>
             <field name="code">dL</field>
             <field name ="factor_inv" eval="10.0"/>
             <field name ="uom_type">bigger</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_cubic_feet" model="product.uom">  
+        </record>
+
+        <record id="base.product_uom_ucum_cubic_feet" model="product.uom">
             <field name="category_id" ref="uom_categ_uvolume"/>
             <field name="name">cubic feet</field>
             <field name="code">ft3</field>
             <field name ="factor_inv" eval="28.3168"/>
             <field name ="uom_type">bigger</field>
             <field name="source_id" ref="base.ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_cubic_meter" model="product.uom"> 
+        </record>
+
+        <record id="base.product_uom_ucum_cubic_meter" model="product.uom">
             <field name="category_id" ref="uom_categ_uvolume"/>
             <field name="name">cubic meter</field>
             <field name="code">m3</field>
             <field name ="factor_inv" eval="1000.0"/>
             <field name ="uom_type">bigger</field>
             <field name="source_id" ref="base.ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_kiloliter" model="product.uom">   
+        </record>
+
+        <record id="base.product_uom_ucum_kiloliter" model="product.uom">
             <field name="category_id" ref="uom_categ_uvolume"/>
             <field name="name">kiloliter (cubic meter)</field>
             <field name="code">kL</field>
             <field name ="factor_inv" eval="1000.0"/>
             <field name ="uom_type">bigger</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
+        </record>
 
-        <record id="base.product_uom_ucum_1" model="product.uom">   
+        <record id="base.product_uom_ucum_1" model="product.uom">
             <field name="category_id" ref="uom_categ_uunit"/>
             <field name="name">1</field>
             <field name="code">1</field>
@@ -545,18 +545,18 @@
             <field name ="rounding" eval="0.001"/>
             <field name ="uom_type">reference</field>
             <field name="source_id" ref="base.fda_product_label"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_count" model="product.uom">   
+        </record>
+
+        <record id="base.product_uom_ucum_count" model="product.uom">
             <field name="category_id" ref="uom_categ_uunit"/>
             <field name="name">count</field>
             <field name="code">{count}</field>
             <field name ="factor" eval="1.0"/>
             <field name ="uom_type">smaller</field>
             <field name="source_id" ref="base.loinc_ucum"/>
-        </record>   
-            
-        <record id="base.product_uom_ucum_percent" model="product.uom"> 
+        </record>
+
+        <record id="base.product_uom_ucum_percent" model="product.uom">
             <field name="category_id" ref="uom_categ_uunit"/>
             <field name="name">percent</field>
             <field name="code">%</field>
@@ -566,4 +566,4 @@
         </record>
 
     </data>
-</openerp>
+</odoo>

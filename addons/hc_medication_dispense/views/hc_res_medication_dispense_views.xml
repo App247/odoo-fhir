@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Medication Dispense Views -->
@@ -77,4 +77,4 @@
                   sequence="30"/>
 
     </data>
-</openerp>
+</odoo>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+    <!-- Animal -->
+
+    <!-- Animal Organization -->
+
+        <record id="base.patient_animal_organization_managing" model="res.partner">
+            <field name="name">Pete's Vetinary Services</field>
+            <field name="company_type">company</field>
+        </record>
+
+        <record id="hc_organization.patient_animal_managing" model="hc.res.organization">
+            <field name="partner_id" ref="base.patient_animal_organization_managing"/>
+            <field name="name">Pete's Vetinary Services</field>
+        </record>
+
+        <record id="base.patient_animal_organization_assigner" model="res.partner">
+            <field name="name">Maroondah City Council</field>
+            <field name="company_type">company</field>
+        </record>
+
+        <record id="hc_organization.patient_animal_assigner" model="hc.res.organization">
+            <field name="partner_id" ref="base.patient_animal_organization_assigner"/>
+            <field name="name">Maroondah City Council</field>
+        </record>
+
+    <!-- Animal Person -->
+
+        <record id="hc_base.human_name_term_546" model="hc.human.name.term">
+            <field name="name">Kenzi</field>
+        </record>
+
+        <record id="hc_base.patient_animal_name" model="hc.human.name">
+            <field model="hc.human.name.term" name="first_id" search="[('name','=','Kenzi')]"/>
+        </record>
+
+        <record id="base.patient_animal" model="res.partner">
+            <field name="name">Kenzi</field>
+            <field name="company_type">animal</field>
+        </record>
+
+        <record id="hc_person.patient_animal" model="hc.res.person">
+            <field name="partner_id" ref="base.patient_animal"/>
+            <field name="name_id" ref="hc_base.patient_animal_name"/>
+            <field name="gender">female</field>
+            <field name="birth_date">2010-03-23</field>
+        </record>
+
+    <!-- Animal Patient -->
+
+        <record id="patient_animal" model="hc.res.patient">
+            <field name="person_id" ref="hc_person.patient_animal"/>
+            <field name="birth_time">14:35:45-05:00</field>
+            <field name="type">animal</field>
+            <field name="is_active" eval="True"/>
+            <field name="managing_organization_id" ref="hc_organization.patient_animal_managing"/>
+        </record>
+
+        <record id="patient_animal_animal" model="hc.patient.animal">
+            <field name="patient_id" ref="patient_animal"/>
+            <field name="name">animal</field>
+            <field name="species_id" ref="species_448771007"/>
+            <field name="breed_id" ref="breed_58108001"/>
+            <field name="gender_status_id" ref="an_gen_stat_neutered"/>
+        </record>
+
+        <record id="patient_animal" model="hc.res.patient">
+            <field name="animal_id" ref="patient_animal_animal"/>
+        </record>
+
+    <!-- Animal Patient Contact -->
+
+        <record id="patient_animal_contact" model="hc.patient.contact">
+            <field name="patient_id" ref="patient_animal"/>
+            <field name="person_id" ref="hc_person.patient_example"/>
+            <field name="name">Peter James Chalmers</field>
+            <field name="type">person</field>
+            <field eval="[(6, 0, [ref('hc_patient.cont_role_c')])]" name="relationship_ids"/>
+        </record>
+
+        <record id="hc_person.patient_example_3_telecom" model="hc.person.telecom">
+            <field name="is_preferred">True</field>
+        </record>
+
+    <!-- Animal Patient Identifier -->
+
+        <record id="hc_base.ident_code_patient_animal_maroondah" model="hc.vs.identifier.code">
+            <field name="name">Maroondah Dog Tag</field>
+            <field name="code">Maroondah Dog Tag</field>
+            <field name="type_id" ref="hc_base.ident_type_ln"/>
+            <field name="assigner_id" ref="hc_organization.patient_animal_assigner"/>
+            <field name="system">http://www.maroondah.vic.gov.au/AnimalRegFees.aspx</field>
+        </record>
+
+        <record id="patient_animal_identifier" model="hc.patient.identifier">
+            <field name="patient_id" ref="patient_animal"/>
+            <field name="person_id" ref="hc_person.patient_animal"/>
+            <field name="value">1234123</field>
+            <field name="code_id" ref="hc_base.ident_code_patient_animal_maroondah"/>
+            <field name="use">usual</field>
+            <field name="start_date">2001-05-06</field>
+        </record>
+
+    </data>
+</odoo>

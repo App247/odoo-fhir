@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
     <data>
 
     <!-- Patient Views -->
@@ -40,10 +40,10 @@
             <field name="arch" type="xml">
                 <form string="Patient">
                     <sheet>
-                        <field name="image" widget="image" class="oe_left oe_avatar" options="{'preview_image': 'image_medium', 'size': [90, 90]}"/>
+<!--                         <field name="image" widget="image" class="oe_left oe_avatar" options="{'preview_image': 'image_medium', 'size': [90, 90]}"/> -->
                         <div class="oe_title">
                             <h1>
-                                <field name="person_id" default_focus="1" placeholder="Name" context="{'is_patient': True}"/>
+                                <field name="person_id" default_focus="1" placeholder="Name"/>
                             </h1>
                             <h3>
                                 <field name="managing_organization_id" placeholder="Managing Organization (e.g., Provider Organization)"/>
@@ -119,7 +119,9 @@
                                     <tree>
                                         <field name="is_preferred"/>
                                         <field name="name"/>
-                                        <field name="value"/>
+                                        <field name="type_id"/>
+                                        <field name="start_date"/>
+                                        <field name="end_date"/>
                                     </tree>
                                     <form>
                                         <sheet>
@@ -130,7 +132,9 @@
                                             </div>
                                             <group col="4" colspan="4">
                                                 <group>
+                                                    <field name="code_id"/>
                                                     <field name="value"/>
+                                                    <field name="type_id"/>
                                                     <field name="is_preferred"/>
                                                     <field name="is_active"/>
                                                 </group>
@@ -267,8 +271,7 @@
                             <page string="Contacts">
                                 <field name="contact_ids" mode="tree">
                                     <tree>
-                                        <field name="person_id" attrs="{'invisible': [('type','=','organization')]}"/>
-                                        <field name="organization_id" attrs="{'invisible': [('type','=','person')]}"/>
+                                        <field name="name"/>
                                         <field name="type"/>
                                         <field name="relationship_ids"/>
                                         <field name="start_date" string="Valid From"/>
@@ -276,6 +279,11 @@
                                     </tree>
                                     <form>
                                         <sheet>
+                                            <div>
+                                                <h1>
+                                                    <field name="name"/>
+                                                </h1>
+                                            </div>
                                             <group>
                                                 <group>
                                                     <field name="type"/>
@@ -290,36 +298,7 @@
                                                     <field name="address_id"/>
                                                 </group>
                                             </group>
-                                            <notebook attrs="{'invisible': [('type','=','organization')]}">
-                                                <page string="Names">
-                                                    <field name="name_ids" mode="tree">
-                                                        <tree>
-                                                            <field name="is_preferred" widget="upgrade_boolean"/>
-                                                            <field name="first_id"/>
-                                                            <field name="surname_id"/>
-                                                            <field name="given"/>
-                                                            <field name="family"/>
-                                                        </tree>
-                                                        <form>
-                                                            <sheet>
-                                                                <group>
-                                                                    <field name="is_preferred"/>
-                                                                    <field name="person_id"/>
-                                                                </group>
-                                                                <group>
-                                                                    <field name="first_id"/>
-                                                                    <field name="middle_ids"/>
-                                                                    <field name="initial_ids"/>
-                                                                    <field name="nickname_ids"/>
-                                                                    <field name="mother_maiden_id"/>
-                                                                    <field name="surname_id"/>
-                                                                    <field name="family"/>
-                                                                    <field name="given"/>
-                                                                </group>
-                                                            </sheet>
-                                                        </form>
-                                                    </field>
-                                                </page>
+                                            <notebook>
                                                 <page string="Telecom">
                                                     <field name="telecom_ids" mode="tree">
                                                         <tree>
@@ -345,33 +324,6 @@
                                                         </form>
                                                     </field>
                                                 </page>
-<!--                                                 <page string="Addresses">
-                                                    <field name="address_ids" mode="tree">
-                                                        <tree>
-                                                            <field name="use" widget="radio"/>
-                                                            <field name="is_preferred"/>
-                                                            <field name="line1"/>
-                                                            <field name="line2"/>
-                                                            <field name="city_id"/>
-                                                            <field name="postal_code_id"/>
-                                                            <field name="country_id"/>
-                                                            <field name="start_date"/>
-                                                            <field name="end_date"/>
-                                                        </tree>
-                                                        <form>
-                                                            <sheet>
-                                                                <group col="4" colspan="4">
-                                                                    <field name="use" widget="radio" colspan="4"/>
-                                                                    <field name="address_id" class="oe_no_button"/>
-                                                                    <field name="is_preferred"/>
-                                                                    <field name="is_active"/>
-                                                                    <field name="start_date" placeholder="Valid From"/>
-                                                                    <field name="end_date" placeholder="Valid To"/>
-                                                                </group>
-                                                            </sheet>
-                                                        </form>
-                                                    </field>
-                                                </page> -->
                                             </notebook>
                                         </sheet>
                                     </form>
@@ -382,8 +334,8 @@
                                     <tree>
                                         <field name="is_preferred" widget="upgrade_boolean"/>
                                         <field name="language_id"/>
-                                        <!-- <field name="start_date" string="Valid From"/>
-                                        <field name="end_date" string="Valid To"/> -->
+                                        <field name="start_date" string="Valid From"/>
+                                        <field name="end_date" string="Valid To"/>
                                     </tree>
                                     <form>
                                         <sheet>
@@ -395,9 +347,9 @@
                                             <group>
                                                 <group>
                                                     <field name="is_preferred"/>
-                                                    <!-- <field name="is_active"/>
+                                                    <field name="is_active"/>
                                                     <field name="start_date" placeholder="Valid From"/>
-                                                    <field name="end_date" placeholder="Valid To"/> -->
+                                                    <field name="end_date" placeholder="Valid To"/>
                                                 </group>
                                                 <group>
                                                 </group>
@@ -416,7 +368,6 @@
                                                                 <div class="oe_title oe_left oe_inline">
                                                                     <h1>
                                                                         <field name="communication_id" readonly="1"/>
-                                                                        <!-- <field name="communication_id" readonly="1" nolabel="1" class="oe_inline"/> -->
                                                                     </h1>
                                                                 </div>
                                                                 <group>
@@ -699,7 +650,7 @@
             <field name="name">HC Patients</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">hc.res.patient</field>
-            <field name="context">{'is_patient':True}</field>
+<!--             <field name="context">{'is_patient':True}</field> -->
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
         </record>
@@ -734,12 +685,13 @@
                     <sheet>
                         <div class="oe_title oe_left">
                             <h1>
-                                <field name="patient_id" default_focus="1" placeholder="Patient"/>
+                                <field name="language_id"/>
                             </h1>
+                            <field name="patient_id" placeholder="Patient"/>
                         </div>
                         <group>
                             <group>
-                                <field name="language_id"/>
+
                             </group>
                             <group>
                             </group>
@@ -868,6 +820,7 @@
             <field name="arch" type="xml">
                 <tree string="Patient Animals">
                     <field name="id"/>
+                    <field name="patient_id"/>
                     <field name="name"/>
                     <field name="species_id"/>
                     <field name="breed_id"/>
@@ -885,6 +838,7 @@
                         <h1>
                             <field name="name" readonly="1" placeholder="Name"/>
                         </h1>
+                        <field name="patient_id" placeholder="Patient"/>
                         <group>
                             <group>
                                 <field name="species_id"/>
@@ -940,11 +894,13 @@
             <field name="arch" type="xml">
                 <tree string="Patient Identifiers">
                     <field name="id"/>
+                    <field name="is_preferred"/>
                     <field name="patient_id"/>
-                    <field name="value"/>
-                    <field name="code_id"/>
+                    <field name="name"/>
                     <field name="type_id"/>
                     <field name="use"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
                 </tree>
             </field>
         </record>
@@ -1004,7 +960,7 @@
                 <search string="Patient Contacts">
                     <field name="name"/>
                     <field name="type"/>
-                    <field name="relationship_ids"/>
+                    <field name="patient_id"/>
                 </search>
             </field>
         </record>
@@ -1015,6 +971,7 @@
             <field name="arch" type="xml">
                 <tree string="Patient Contacts">
                     <field name="id"/>
+                    <field name="patient_id"/>
                     <field name="name"/>
                     <field name="type"/>
                     <field name="relationship_ids"/>
@@ -1028,8 +985,13 @@
             <field name="name">Patient Contact Form</field>
             <field name="model">hc.patient.contact</field>
             <field name="arch" type="xml">
-                <form string="Patient Contact">
+                <form>
                     <sheet>
+                        <div>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
                         <group>
                             <group>
                                 <field name="patient_id"/>
@@ -1045,36 +1007,7 @@
                                 <field name="address_id"/>
                             </group>
                         </group>
-                        <notebook attrs="{'invisible': [('type','=','organization')]}">
-                            <page string="Names">
-                                <field name="name_ids" mode="tree">
-                                    <tree>
-                                        <field name="is_preferred" widget="upgrade_boolean"/>
-                                        <field name="first_id"/>
-                                        <field name="surname_id"/>
-                                        <field name="given"/>
-                                        <field name="family"/>
-                                    </tree>
-                                    <form>
-                                        <sheet>
-                                            <group>
-                                                <field name="is_preferred"/>
-                                                <field name="person_id"/>
-                                            </group>
-                                            <group>
-                                                <field name="first_id"/>
-                                                <field name="middle_ids"/>
-                                                <field name="initial_ids"/>
-                                                <field name="nickname_ids"/>
-                                                <field name="mother_maiden_id"/>
-                                                <field name="surname_id"/>
-                                                <field name="family"/>
-                                                <field name="given"/>
-                                            </group>
-                                        </sheet>
-                                    </form>
-                                </field>
-                            </page>
+                        <notebook>
                             <page string="Telecom">
                                 <field name="telecom_ids" mode="tree">
                                     <tree>
@@ -1100,33 +1033,6 @@
                                     </form>
                                 </field>
                             </page>
-                            <!-- <page string="Addresses">
-                                <field name="address_ids" mode="tree">
-                                    <tree>
-                                        <field name="use" widget="radio"/>
-                                        <field name="is_preferred"/>
-                                        <field name="line1"/>
-                                        <field name="line2"/>
-                                        <field name="city_id"/>
-                                        <field name="postal_code_id"/>
-                                        <field name="country_id"/>
-                                        <field name="start_date"/>
-                                        <field name="end_date"/>
-                                    </tree>
-                                    <form>
-                                        <sheet>
-                                            <group col="4" colspan="4">
-                                                <field name="use" widget="radio" colspan="4"/>
-                                                <field name="address_id" class="oe_no_button"/>
-                                                <field name="is_preferred"/>
-                                                <field name="is_active"/>
-                                                <field name="start_date" placeholder="Valid From"/>
-                                                <field name="end_date" placeholder="Valid To"/>
-                                            </group>
-                                        </sheet>
-                                    </form>
-                                </field>
-                            </page> -->
                         </notebook>
                     </sheet>
                 </form>
@@ -1155,6 +1061,8 @@
             <field name="model">hc.patient.contact.address</field>
             <field name="arch" type="xml">
                 <search string="Patient Contact Addresses">
+                    <field name="address_id"/>
+                    <field name="patient_contact_id"/>
                 </search>
             </field>
         </record>
@@ -1164,6 +1072,8 @@
             <field name="model">hc.patient.contact.address</field>
             <field name="arch" type="xml">
                 <tree string="Patient Contact Address">
+                    <field name="id"/>
+                    <field name="patient_contact_id"/>
                     <field name="address_id"/>
                     <field name="start_date"/>
                     <field name="end_date"/>
@@ -1180,6 +1090,7 @@
                         <h1>
                             <field name="address_id" placeholder="Address"/>
                         </h1>
+                        <field name="patient_contact_id"/>
                         <group>
                             <group>
                                 <field name="use" widget="radio" colspan="4"/>
@@ -1219,6 +1130,7 @@
             <field name="arch" type="xml">
                 <search string="Patient Citizenships">
                     <field name="code_id"/>
+                    <field name="patient_id"/>
                 </search>
             </field>
         </record>
@@ -1229,6 +1141,7 @@
             <field name="arch" type="xml">
                 <tree string="Patient Citizenships">
                     <field name="id"/>
+                    <field name="patient_id"/>
                     <field name="code_id"/>
                     <field name="start_date"/>
                     <field name="end_date"/>
@@ -1242,9 +1155,14 @@
             <field name="arch" type="xml">
                 <form string="Patient Citizenship">
                     <sheet>
+                        <div>
+                            <h1>
+                                <field name="code_id" placeholder="Citizenship"/>
+                            </h1>
+                            <field name="patient_id" placeholder="Patient"/>
+                        </div>
                         <group>
                             <group>
-                                <field name="code_id"/>
                                 <field name="start_date" placeholder="Valid From"/>
                                 <field name="end_date" placeholder="Valid To"/>
                             </group>
@@ -1312,12 +1230,14 @@
             <field name="arch" type="xml">
                 <form string="Animal Species">
                     <sheet>
-                        <h1>
-                            <field name="name" default_focus="1" placeholder="Name (e.g., United States)"/>
-                        </h1>
-                        <field name="code" placeholder="Code (e.g., US)"/>
-                        <field name="definition" placeholder="Definition"/>
-                        <field name="comments" placeholder="Comments"/>
+                        <div>
+                            <h1>
+                                <field name="name" default_focus="1" placeholder="Name (e.g., United States)"/>
+                            </h1>
+                            <field name="code" placeholder="Code (e.g., US)"/>
+                            <field name="definition" placeholder="Definition"/>
+                            <field name="comments" placeholder="Comments"/>
+                        </div>
                         <group>
                             <group>
                                 <field name="contains_id" invisible="0"/>
@@ -1603,12 +1523,17 @@
             <field name="arch" type="xml">
                 <form string="V3 Race Value Set">
                     <sheet>
-                        <h1>
-                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>
-                        </h1>
-                        <field name="code" placeholder="Code (e.g., biological)"/>
-                        <field name="definition" placeholder="Definition"/>
-                        <field name="comments" placeholder="Comments"/>
+                        <div>
+                            <h1>
+                                <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>
+                            </h1>
+                            <label for="code" string="Code (e.g., biological)"/>
+                            <field name="code"/>
+                            <label for="definition"/>
+                            <field name="definition" placeholder="Definition"/>
+                            <label for="comments"/>
+                            <field name="comments" placeholder="Comments"/>
+                        </div>
                         <group>
                             <group>
                                 <field name="contains_id"/>
@@ -1660,10 +1585,10 @@
             <field name="model">hc.res.person</field>
             <field name="inherit_id" ref="hc_person.hc_res_person_view_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='is_active']" position="after">
+<!--                 <xpath expr="//field[@name='is_active']" position="after">
                     <field name="is_patient" readonly="1"/>
-                </xpath>
-                <xpath expr="//field[@name='link_ids']//form//field[@name='target_person_id']" position="after">
+                </xpath> -->
+                <xpath expr="//field[@name='link_ids']//form//field[@name='target_type']" position="after">
                     <field name="target_patient_id" class="oe_edit_only" attrs="{'invisible': [('target_type','!=','patient')], 'required': [('target_type','=','patient')]}"/>
                 </xpath>
             </field>
@@ -1684,4 +1609,4 @@
         </record>
 
     </data>
-</openerp>
+</odoo>

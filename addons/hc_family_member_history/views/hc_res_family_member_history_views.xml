@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Family Member History Views -->
@@ -535,4 +535,4 @@
                   sequence="20"/>
 
     </data>
-</openerp>
+</odoo>

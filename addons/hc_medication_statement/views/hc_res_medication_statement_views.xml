@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Medication Statement Views -->
@@ -72,10 +72,10 @@
 
         <menuitem id="hc_medication_statement.menu_med_stmt"
                   name="Medication Statements"
-                  parent="hc_base.menu_clinic_med" 
+                  parent="hc_base.menu_clinic_med"
                   action="hc_res_medication_statement_action"
                   groups="hc_base.group_hc_base_manager"
                   sequence="40"/>
 
     </data>
-</openerp>
+</odoo>

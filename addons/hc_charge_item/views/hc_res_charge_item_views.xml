@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Charge Item Action and Menu -->
@@ -19,4 +19,4 @@
                   sequence="40"/>
 
     </data>
-</openerp>
+</odoo>

@@ -1,9 +1,9 @@
-<openerp>
+<odoo>
     <data>
 
-        <!-- Naming System Action and Menu -->  
-    
-        <act_window id="hc_res_naming_system_action"    
+        <!-- Naming System Action and Menu -->
+
+        <act_window id="hc_res_naming_system_action"
                     name="HC Naming Systems"
                     res_model="hc.res.naming.system"
                     view_mode="tree,form"
@@ -11,12 +11,12 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_naming_system.menu_naming_sys" 
-                  name="Naming Systems" 
-                  parent="hc_base.menu_term" 
-                  action="hc_res_naming_system_action" 
-                  groups="hc_base.group_hc_base_manager" 
+        <menuitem id="hc_naming_system.menu_naming_sys"
+                  name="Naming Systems"
+                  parent="hc_base.menu_term"
+                  action="hc_res_naming_system_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="50"/>
 
     </data>
-</openerp>
+</odoo>

@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Participation Type Views -->
@@ -157,4 +157,4 @@
                   sequence="9"/>
 
     </data>
-</openerp>
+</odoo>

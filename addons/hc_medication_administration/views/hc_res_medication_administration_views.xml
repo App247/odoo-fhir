@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Medication Administration Views -->
@@ -79,4 +79,4 @@
 
 
     </data>
-</openerp>
+</odoo>

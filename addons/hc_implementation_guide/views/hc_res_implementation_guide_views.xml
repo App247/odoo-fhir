@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Implementation Guide Action and Menu -->
@@ -19,4 +19,4 @@
                   sequence="30"/>
 
     </data>
-</openerp>
+</odoo>

@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
   <data>
     <!-- explicit list view definition -->
     <!--
@@ -56,4 +56,4 @@
               action="hc_base_metadata_type.action_server"/>
     -->
   </data>
-</openerp>
+</odoo>

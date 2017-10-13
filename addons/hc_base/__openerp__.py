@@ -40,6 +40,7 @@
     'data': [
         'security/hc_base_security.xml',
         'security/ir.model.access.csv',
+
         'data/data_partner_category.xml',
         'data/data_source.xml',
         'data/data_act_code.xml',
@@ -47,7 +48,7 @@
         'data/data_base.xml',
         'data/data_base_v3.xml',
         'data/data_identifier_type.xml',
-        # 'data/data_language.xml',
+        'data/data_language.xml',
         'data/data_timing.xml',
         'data/data_uom_basic.xml',
         # 'data/data_uom_advanced.xml',
@@ -68,6 +69,7 @@
         'data/l10n_us/hc.vs.country.city.type.csv',
         'data/l10n_us/res.country.state.csv',
         'data/l10n_us/hc.vs.country.city.type.csv',
+
         'views/hc_value_set_views.xml',
         'views/views.xml',
         'views/hc_act_code_views.xml',

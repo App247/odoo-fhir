@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Vision Prescription Views -->
@@ -92,4 +92,4 @@
                   sequence="60"/>
 
     </data>
-</openerp>
+</odoo>

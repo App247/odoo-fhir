@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Substance Views -->
@@ -413,4 +413,4 @@
                   sequence="20"/>
 
     </data>
-</openerp>
+</odoo>

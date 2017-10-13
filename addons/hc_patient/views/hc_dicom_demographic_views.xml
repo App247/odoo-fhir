@@ -1,0 +1,78 @@
+<odoo>
+    <data>
+
+    <!-- Dicom Patient Demographic Views -->
+
+        <record id="hc_vs_dicom_patient_demographic_view_search" model="ir.ui.view">
+            <field name="name">Dicom Patient Demographic Search</field>
+            <field name="model">hc.vs.dicom.patient.demographic</field>
+            <field name="arch" type="xml">
+                <search string="Dicom Patient Demographics">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                    <group>
+                        <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_vs_dicom_patient_demographic_view_tree" model="ir.ui.view">
+            <field name="name">Dicom Patient Demographic Tree</field>
+            <field name="model">hc.vs.dicom.patient.demographic</field>
+            <field name="arch" type="xml">
+                <tree string="Dicom Patient Demographics" default_order="name, code">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                    <field name="source_id" invisible="0"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_vs_dicom_patient_demographic_view_form" model="ir.ui.view">
+            <field name="name">Dicom Patient Demographic Form</field>
+            <field name="model">hc.vs.dicom.patient.demographic</field>
+            <field name="arch" type="xml">
+                <form string="Dicom Patient Demographics" >
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>
+                        </h1>
+                        <field name="code" placeholder="Code (e.g., biological)"/>
+                        <label for="definition" string="Definition"/>
+                        <field name="definition"/>
+                        <label for="comments" string="Comments"/>
+                        <field name="comments"/>
+                        <group>
+                            <group>
+                                <field name="contains_id"/>
+                            </group>
+                            <group>
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_vs_dicom_patient_demographic_action"
+                    name="HC Dicom Patient Demographics"
+                    res_model="hc.vs.dicom.patient.demographic"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <menuitem id="hc_patient.menu_dicom_demog"
+                  name="DICOM Demographics"
+                  parent="hc_patient.menu_pat"
+                  action="hc_vs_dicom_patient_demographic_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="22"/>
+
+    </data>
+</odoo>

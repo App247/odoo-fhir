@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Timing Views -->
@@ -55,7 +55,7 @@
                                                 </group>
                                             </group>
                                         </sheet>
-                                    </form>         
+                                    </form>
                                 </field>
                             </page>
                             <page string="Repeats">
@@ -251,4 +251,4 @@
                   sequence="20"/>
 
     </data>
-</openerp>
+</odoo>

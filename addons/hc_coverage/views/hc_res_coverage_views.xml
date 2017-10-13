@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Coverage Views -->
@@ -142,7 +142,7 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_coverage.menu_cov" 
+        <menuitem id="hc_coverage.menu_cov"
                   name="Coverage"
                   parent="hc_base.menu_fina_supp"
                   action="hc_res_coverage_action"
@@ -373,4 +373,4 @@
                   sequence="20"/>
 
     </data>
-</openerp>
+</odoo>

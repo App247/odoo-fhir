@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Request Group Action and Menu -->
@@ -13,10 +13,10 @@
 
         <menuitem id="hc_request_group.menu_req_grp"
                   name="Request Groups"
-                  parent="hc_base.menu_clinic_care" 
+                  parent="hc_base.menu_clinic_care"
                   action="hc_res_request_group_action"
                   groups="hc_base.group_hc_base_manager"
                   sequence="80"/>
 
     </data>
-</openerp>
+</odoo>

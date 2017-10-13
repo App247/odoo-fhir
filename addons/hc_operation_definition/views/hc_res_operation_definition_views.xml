@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Operation Definition Action and Menu -->
@@ -19,4 +19,4 @@
                   sequence="60"/>
 
     </data>
-</openerp>
+</odoo>

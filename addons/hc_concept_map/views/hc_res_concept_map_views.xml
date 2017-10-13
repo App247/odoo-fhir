@@ -1,9 +1,9 @@
-<openerp>
+<odoo>
     <data>
 
-        <!-- Concept Map Action and Menu -->    
-    
-        <act_window id="hc_res_concept_map_action"  
+        <!-- Concept Map Action and Menu -->
+
+        <act_window id="hc_res_concept_map_action"
                     name="HC Concept Maps"
                     res_model="hc.res.concept.map"
                     view_mode="tree,form"
@@ -11,12 +11,12 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_concept_map.menu_concept_map" 
-                  name="Concept Maps" 
-                  parent="hc_base.menu_term" 
-                  action="hc_res_concept_map_action" 
-                  groups="hc_base.group_hc_base_manager" 
+        <menuitem id="hc_concept_map.menu_concept_map"
+                  name="Concept Maps"
+                  parent="hc_base.menu_term"
+                  action="hc_res_concept_map_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="30"/>
-            
+
     </data>
-</openerp>
+</odoo>

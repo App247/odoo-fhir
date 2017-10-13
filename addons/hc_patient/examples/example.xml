@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
     <data noupdate="1">
 
         <!-- Example Organization -->
@@ -150,7 +150,7 @@
             <field name="rank">2</field>
         </record>
 
-        <record id="patient_example_3_telecom" model="hc.person.telecom">
+        <record id="hc_person.patient_example_3_telecom" model="hc.person.telecom">
             <field name="person_id" ref="hc_person.patient_example"/>
             <field name="telecom_id" ref="hc_base.cont_pnt_0355558834"/>
             <field name="use">old</field>
@@ -235,4 +235,4 @@
         </record>
 
     </data>
-</openerp>
+</odoo>

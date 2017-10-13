@@ -1,29 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
     <data noupdate="1">
 
+    <!-- Simple newborn example -->
 
     <!-- Newborn Person -->
 
+        <record id="hc_base.human_name_term_545" model="hc.human.name.term">
+            <field name="name">Newborn</field>
+        </record>
+
         <record id="hc_base.patient_newborn_name" model="hc.human.name">
+            <field model="hc.human.name.term" name="first_id" search="[('name','=','Newborn')]"/>
             <field model="hc.human.name.term" name="mother_maiden_id" search="[('name','=','Everywoman')]"/>
         </record>
 
         <record id="base.patient_newborn" model="res.partner">
-            <field name="name">Everywoman</field>
+            <field name="name">Newborn Everywoman</field>
             <field name="company_type">person</field>
-        </record>
-
-        <record id="hc_person.patient_newborn" model="hc.res.person">
-            <field name="partner_id" ref="base.patient_newborn"/>
-            <field name="name_id" ref="hc_base.patient_newborn_name"/>
-            <field name="gender">female</field>
-            <field name="birth_date">1973-05-31</field>
-        </record>
-
-        <record id="hc_person.patient_newborn_name" model="hc.person.name">
-            <field name="person_id" ref="hc_person.patient_newborn"/>
-            <field name="human_name_id" ref="hc_base.patient_newborn_name"/>
         </record>
 
         <record id="hc_person.patient_newborn" model="hc.res.person">
@@ -42,28 +36,27 @@
             <field name="birth_time">17:11:00+01:00</field>
         </record>
 
-    <!-- Mom Patient -->
-
-        <record id=".patient_mom_link" model="hc.patient.link">
-            <field name="patient_id" ref="patient_sp01"/>
-            <field name="other_type">related_person</field>
-            <field name="other_related_person_id" ref="patient_newborn_mom"/>
-            <field name="other_name">Eve Everywoman</field>
-            <field name="type">seealso</field>
-        </record>
-
     <!-- Newborn Mom Related Person -->
 
         <record id="hc_related_person.related_person_newborn_mom" model="hc.res.related.person">
-            <field name="patient_id" ref="hc_patient.patient_sp01"/>
+            <field name="patient_id" ref="patient_sp01"/>
             <field name="person_id" ref="hc_person.patient_sp01"/>
         </record>
 
         <record id="hc_related_person.related_person_newborn_mom_patient" model="hc.related.person.patient">
             <field name="related_person_id" ref="hc_related_person.related_person_newborn_mom"/>
-            <field name="patient_id" ref="related_person_newborn_mom"/>
+            <field name="patient_id" ref="patient_newborn"/>
             <field name="relationship_id" ref="hc_related_person.rel_nmth"/>
         </record>
 
+    <!-- Mom Patient Link -->
+
+        <record id="patient_mom_link" model="hc.patient.link">
+            <field name="patient_id" ref="patient_sp01"/>
+            <field name="other_type">related_person</field>
+            <field name="other_related_person_id" ref="hc_related_person.related_person_newborn_mom"/>
+            <field name="other_name">Eve Everywoman</field>
+            <field name="type">seealso</field>
+        </record>
     </data>
-</openerp>
+</odoo>

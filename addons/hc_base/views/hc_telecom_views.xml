@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
     <!-- Telecom Views -->
@@ -25,7 +25,7 @@
             <tree string="Telecoms">
                 <field name="name"/>
                 <field name="value"/>
-                <field name="system"/>      
+                <field name="system"/>
             </tree>
         </field>
     </record>
@@ -63,4 +63,4 @@
               sequence="60"/>
 
   </data>
-</openerp>
+</odoo>

@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Organization Views -->
@@ -468,4 +468,4 @@
         </record>
 
     </data>
-</openerp>
+</odoo>

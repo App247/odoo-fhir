@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 
 from openerp import models, fields, api
-from datetime import datetime
+# from datetime import datetime
+import datetime
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as DF
 
 class Person(models.Model):
     _name = "hc.res.person"
     _description = "Person"
     _inherit = ["hc.domain.resource"]
-    _inherits = {"res.partner": "partner_id"}
+    # _inherits = {"res.partner": "partner_id"}
     _rec_name = "name_id"
 
     partner_id = fields.Many2one(
         comodel_name="res.partner",
         string="Partner",
-        required="True",
-        ondelete="restrict",
+        readonly=True,
+        # ondelete="restrict",
         help="Partner associated with this Person.")
     # preferred_name = fields.Char(
     #     string="Preferred Name",
@@ -128,11 +129,20 @@ class Person(models.Model):
 
     @api.model
     def create(self, vals):
-        person_name_obj = self.env['hc.person.name']
-        name = self.env['hc.human.name'].browse(vals['name_id'])
-        vals['name'] = name.name
+        partner_obj = self.env['res.partner'] # Variable to create partner
+        person_name_obj = self.env['hc.person.name'] # Variable to create person name
+        partner_link_obj = self.env['hc.partner.link'] # Variable to create partner link
+        name = self.env['hc.human.name'].browse(vals['name_id']) # Variable to create name of person
+        partner_id = partner_obj.create({'company_type': 'person', 'name' : name.name})
+        vals.update({'name': name.name, 'partner_id': partner_id.id})
         names_vals = {}
         res = super(Person, self).create(vals)
+        link = partner_link_obj.create({
+            'target_type': 'person',
+            'target_person_id': res.id,
+            'partner_id': partner_id.id,
+            'start_date': datetime.datetime.today().date()
+            })
         if name:
             names_vals.update({
                 'is_preferred': True,
@@ -481,6 +491,9 @@ class PersonPhoto(models.Model):
 class Partner(models.Model):
     _inherit = ["res.partner"]
 
+    company_type = fields.Selection(
+        selection_add=[
+            ("animal", "Animal")])
     is_person = fields.Boolean(
         string="Is a person",
         help="This partner is a health care person.")
@@ -502,6 +515,8 @@ class Partner(models.Model):
 class PartnerLink(models.Model):
     _name = "hc.partner.link"
     _description = "Partner Link"
+    _inherit = ["hc.basic.association"]
+
 
     partner_id = fields.Many2one(
         comodel_name="res.partner",
@@ -512,9 +527,10 @@ class PartnerLink(models.Model):
         required="True",
         selection=[
             ("person", "Person"),
-            ("practitioner", "Practitioner"),
+            ("patient", "Patient"),
+            ("patient_contact", "Patient Contact"),
             ("related_person", "Related Person"),
-            ("patient", "Patient")],
+            ("practitioner", "Practitioner")],
         help="Type of resource to which this actual partner is associated.")
     target_name = fields.Char(
         string="Target",
@@ -529,11 +545,30 @@ class PartnerLink(models.Model):
     #     comodel_name="hc.res.patient",
     #     string="Target Patient",
     #     help="Patient who is the resource to which this actual partner is associated.")
-    # target_practitioner_id = fields.Many2one(
-    #     comodel_name="hc.res.practitioner",
-    #     string="Target Practitioner",
-    #     help="Practitioner who is the resource to which this actual partner is associated.")
+    # target_patient_contact = fields.Char(
+    #     comodel_name="hc.patient.contact",
+    #     string="Target Patient Contact",
+    #     help="Patient who is the resource to which this actual partner is associated.")
     # target_related_person_id = fields.Many2one(
     #     comodel_name="hc.res.related.person",
     #     string="Target Related Person",
     #     help="Related Person who is the resource to which this actual partner is associated.")
+    # target_practitioner_id = fields.Many2one(
+    #     comodel_name="hc.res.practitioner",
+    #     string="Target Practitioner",
+    #     help="Practitioner who is the resource to which this actual partner is associated.")
+
+
+    @api.depends('target_type')
+    def _compute_target_name(self):
+        for hc_partner_link in self:
+            if hc_partner_link.target_type == 'person':
+                hc_partner_link.target_name = hc_partner_link.target_person_id.name
+            # elif hc_partner_link.target_type == 'practitioner':
+            #     hc_partner_link.target_name = hc_partner_link.target_practitioner_id.name
+            # elif hc_partner_link.target_type == 'related_person':
+            #     hc_partner_link.target_name = hc_partner_link.target_related_person_id.name
+            # elif hc_partner_link.target_type == 'patient':
+            #     hc_partner_link.target_name = hc_partner_link.target_patient_id.name
+            # elif hc_partner_link.target_type == 'patient_contact':
+            #     hc_partner_link.target_name = hc_partner_link.target_patient_contact_id.name

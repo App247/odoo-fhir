@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>      
-<openerp>       
-    <data>     
-        
+<odoo>
+    <data>
+
         <!-- Source -->
 
-        <record id="base.us_census" model="res.partner">  
+        <record id="base.us_census" model="res.partner">
             <field name="name">U.S. Census Bureau</field>
             <field name="company_type">company</field>
             <field name="website">www.census.gov</field>
@@ -14,7 +14,7 @@
 
         <!-- US Region Type -->
 
-        <record id="region_type_us_region" model="hc.vs.country.region.type">  
+        <record id="region_type_us_region" model="hc.vs.country.region.type">
             <field name="name">Region</field>
             <field name="code">region</field>
             <field name="source_id" ref="base.us_census"/>
@@ -24,7 +24,7 @@
 
         <!-- US Division Type -->
 
-        <record id="division_type_us_division" model="hc.vs.country.division.type">  
+        <record id="division_type_us_division" model="hc.vs.country.division.type">
             <field name="name">Division</field>
             <field name="code">division</field>
             <field name="source_id" ref="base.us_census"/>
@@ -33,35 +33,35 @@
         </record>
 
         <!-- US Regions -->
-        
-        <record id="region_us_1" model="hc.vs.country.region">  
+
+        <record id="region_us_1" model="hc.vs.country.region">
             <field name="name">Northeast</field>
             <field name="code">1</field>
             <field name="type_id" ref="region_type_us_region"/>
             <field name="source_id" ref="base.us_census"/>
             <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
             <field name="country_id" ref="base.us"/>
-        </record>   
-        
-        <record id="region_us_2" model="hc.vs.country.region">  
+        </record>
+
+        <record id="region_us_2" model="hc.vs.country.region">
             <field name="name">Midwest</field>
             <field name="code">2</field>
             <field name="type_id" ref="region_type_us_region"/>
             <field name="source_id" ref="base.us_census"/>
             <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
             <field name="country_id" ref="base.us"/>
-        </record>   
-        
-        <record id="region_us_3" model="hc.vs.country.region">  
+        </record>
+
+        <record id="region_us_3" model="hc.vs.country.region">
             <field name="name">South</field>
             <field name="code">3</field>
             <field name="type_id" ref="region_type_us_region"/>
             <field name="source_id" ref="base.us_census"/>
             <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
             <field name="country_id" ref="base.us"/>
-        </record>   
-        
-        <record id="region_us_4" model="hc.vs.country.region">  
+        </record>
+
+        <record id="region_us_4" model="hc.vs.country.region">
             <field name="name">West</field>
             <field name="code">4</field>
             <field name="type_id" ref="region_type_us_region"/>
@@ -70,7 +70,7 @@
             <field name="country_id" ref="base.us"/>
         </record>
 
-        <record id="region_us_5" model="hc.vs.country.region">  
+        <record id="region_us_5" model="hc.vs.country.region">
             <field name="name">Other</field>
             <field name="code">5</field>
             <field name="type_id" ref="region_type_us_region"/>
@@ -79,7 +79,7 @@
 
         <!-- US Divisions -->
 
-        <record id="division_us_1" model="hc.vs.country.division">  
+        <record id="division_us_1" model="hc.vs.country.division">
             <field name="name">New England</field>
             <field name="code">1</field>
             <field name="type_id" ref="division_type_us_division"/>
@@ -87,9 +87,9 @@
             <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
             <field name="region_id" ref="region_us_1"/>
             <field name="country_id" ref="base.us"/>
-        </record>   
-        
-        <record id="division_us_2" model="hc.vs.country.division">  
+        </record>
+
+        <record id="division_us_2" model="hc.vs.country.division">
             <field name="name">Middle Atlantic</field>
             <field name="code">2</field>
             <field name="type_id" ref="division_type_us_division"/>
@@ -97,9 +97,9 @@
             <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
             <field name="region_id" ref="region_us_1"/>
             <field name="country_id" ref="base.us"/>
-        </record>   
-        
-        <record id="division_us_3" model="hc.vs.country.division">  
+        </record>
+
+        <record id="division_us_3" model="hc.vs.country.division">
             <field name="name">East North Central</field>
             <field name="code">3</field>
             <field name="type_id" ref="division_type_us_division"/>
@@ -107,9 +107,9 @@
             <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
             <field name="region_id" ref="region_us_2"/>
             <field name="country_id" ref="base.us"/>
-        </record>   
-        
-        <record id="division_us_4" model="hc.vs.country.division">  
+        </record>
+
+        <record id="division_us_4" model="hc.vs.country.division">
             <field name="name">West North Central</field>
             <field name="code">4</field>
             <field name="type_id" ref="division_type_us_division"/>
@@ -117,9 +117,9 @@
             <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
             <field name="region_id" ref="region_us_2"/>
             <field name="country_id" ref="base.us"/>
-        </record>   
-        
-        <record id="division_us_5" model="hc.vs.country.division">  
+        </record>
+
+        <record id="division_us_5" model="hc.vs.country.division">
             <field name="name">South Atlantic</field>
             <field name="code">5</field>
             <field name="type_id" ref="division_type_us_division"/>
@@ -127,9 +127,9 @@
             <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
             <field name="region_id" ref="region_us_3"/>
             <field name="country_id" ref="base.us"/>
-        </record>   
-        
-        <record id="division_us_6" model="hc.vs.country.division">  
+        </record>
+
+        <record id="division_us_6" model="hc.vs.country.division">
             <field name="name">East South Central</field>
             <field name="code">6</field>
             <field name="type_id" ref="division_type_us_division"/>
@@ -137,9 +137,9 @@
             <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
             <field name="region_id" ref="region_us_3"/>
             <field name="country_id" ref="base.us"/>
-        </record>   
-        
-        <record id="division_us_7" model="hc.vs.country.division">  
+        </record>
+
+        <record id="division_us_7" model="hc.vs.country.division">
             <field name="name">West South Central</field>
             <field name="code">7</field>
             <field name="type_id" ref="division_type_us_division"/>
@@ -147,9 +147,9 @@
             <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
             <field name="region_id" ref="region_us_3"/>
             <field name="country_id" ref="base.us"/>
-        </record>   
-        
-        <record id="division_us_8" model="hc.vs.country.division">  
+        </record>
+
+        <record id="division_us_8" model="hc.vs.country.division">
             <field name="name">Mountain</field>
             <field name="code">8</field>
             <field name="type_id" ref="division_type_us_division"/>
@@ -157,9 +157,9 @@
             <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
             <field name="region_id" ref="region_us_4"/>
             <field name="country_id" ref="base.us"/>
-        </record>   
-        
-        <record id="division_us_9" model="hc.vs.country.division">  
+        </record>
+
+        <record id="division_us_9" model="hc.vs.country.division">
             <field name="name">Pacific</field>
             <field name="code">9</field>
             <field name="type_id" ref="division_type_us_division"/>
@@ -169,7 +169,7 @@
             <field name="country_id" ref="base.us"/>
         </record>
 
-        <record id="division_us_10" model="hc.vs.country.division">  
+        <record id="division_us_10" model="hc.vs.country.division">
             <field name="name">NA</field>
             <field name="code">10</field>
             <field name="type_id" ref="division_type_us_division"/>
@@ -178,38 +178,38 @@
             <field name="region_id" ref="region_us_5"/>
             <field name="country_id" ref="base.us"/>
         </record>
-        
+
         <!-- US State Type -->
 
-        <record id="state_type_us_district" model="hc.vs.country.state.type">  
+        <record id="state_type_us_district" model="hc.vs.country.state.type">
             <field name="name">District</field>
             <field name="code">district</field>
             <field name="source_id" ref="base.us_census"/>
             <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
             <field name="country_id" ref="base.us"/>
-        </record>   
-        <record id="state_type_us_fas" model="hc.vs.country.state.type">   
+        </record>
+        <record id="state_type_us_fas" model="hc.vs.country.state.type">
             <field name="name">Freely Associated State</field>
             <field name="code">freely associated state</field>
             <field name="source_id" ref="base.us_census"/>
             <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
             <field name="country_id" ref="base.us"/>
-        </record>   
-        <record id="state_type_us_moit" model="hc.vs.country.state.type">  
+        </record>
+        <record id="state_type_us_moit" model="hc.vs.country.state.type">
             <field name="name">Minor Outlying Island Territory</field>
             <field name="code">minoroutlying island territory</field>
             <field name="source_id" ref="base.us_census"/>
             <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
             <field name="country_id" ref="base.us"/>
-        </record>   
-        <record id="state_type_us_state" model="hc.vs.country.state.type"> 
+        </record>
+        <record id="state_type_us_state" model="hc.vs.country.state.type">
             <field name="name">State</field>
             <field name="code">state</field>
             <field name="source_id" ref="base.us_census"/>
             <field name="system">www.census.gov/geo/reference/gtc/gtc_census_divreg.html</field>
             <field name="country_id" ref="base.us"/>
-        </record>   
-        <record id="state_type_us_uuss" model="hc.vs.country.state.type">  
+        </record>
+        <record id="state_type_us_uuss" model="hc.vs.country.state.type">
             <field name="name">Under U.S Sovereignty</field>
             <field name="code">under us sovereignty</field>
             <field name="source_id" ref="base.us_census"/>
@@ -217,72 +217,72 @@
             <field name="country_id" ref="base.us"/>
         </record>
 
-        <!-- City/Place Functional Status -->   
-    
-        <record id="city_status_us_a" model="hc.vs.country.city.status">    
+        <!-- City/Place Functional Status -->
+
+        <record id="city_status_us_a" model="hc.vs.country.city.status">
             <field name="name">A: active entity, general-purpose</field>
             <field name="code">A</field>
             <field name="definition">Identifies an active government providing primary general-purpose functions.</field>
             <field name="source_id" ref="base.us_census"/>
             <field name="system">www.census.gov/geo/reference/codes/place.html</field>
             <field name="country_id" ref="base.us"/>
-        </record>   
-        <record id="city_status_us_b" model="hc.vs.country.city.status">    
+        </record>
+        <record id="city_status_us_b" model="hc.vs.country.city.status">
             <field name="name">B: active entity, partially consolidated</field>
             <field name="code">B</field>
             <field name="definition">Identifies an active government that is partially consolidated with another government but with separate officials providing primary general-purpose functions .</field>
             <field name="source_id" ref="base.us_census"/>
             <field name="system">www.census.gov/geo/reference/codes/place.html</field>
             <field name="country_id" ref="base.us"/>
-        </record>   
-        <record id="city_status_us_c" model="hc.vs.country.city.status">    
+        </record>
+        <record id="city_status_us_c" model="hc.vs.country.city.status">
             <field name="name">C: active entity, consolidated</field>
             <field name="code">C</field>
             <field name="definition">Identifies an active government consolidated with another government with a single set of officials .</field>
             <field name="source_id" ref="base.us_census"/>
             <field name="system">www.census.gov/geo/reference/codes/place.html</field>
             <field name="country_id" ref="base.us"/>
-        </record>   
-        <record id="city_status_us_f" model="hc.vs.country.city.status">    
+        </record>
+        <record id="city_status_us_f" model="hc.vs.country.city.status">
             <field name="name">F: fictitious entity</field>
             <field name="code">F</field>
             <field name="definition">Identifies a fictitious entity created to fill the Census Bureau's geographic hierarchy.</field>
             <field name="source_id" ref="base.us_census"/>
             <field name="system">www.census.gov/geo/reference/codes/place.html</field>
             <field name="country_id" ref="base.us"/>
-        </record>   
-        <record id="city_status_us_g" model="hc.vs.country.city.status">    
+        </record>
+        <record id="city_status_us_g" model="hc.vs.country.city.status">
             <field name="name">G: active entity, subordinated</field>
             <field name="code">G</field>
             <field name="definition">Identifies an active government that is subordinate to another unit of government.</field>
             <field name="source_id" ref="base.us_census"/>
             <field name="system">www.census.gov/geo/reference/codes/place.html</field>
             <field name="country_id" ref="base.us"/>
-        </record>   
-        <record id="city_status_us_i" model="hc.vs.country.city.status">    
+        </record>
+        <record id="city_status_us_i" model="hc.vs.country.city.status">
             <field name="name">I: inactice entity, special-purpose</field>
             <field name="code">I</field>
             <field name="definition">Identifies an inactive governmental unit that has the power to provide primary special-purpose functions .</field>
             <field name="source_id" ref="base.us_census"/>
             <field name="system">www.census.gov/geo/reference/codes/place.html</field>
             <field name="country_id" ref="base.us"/>
-        </record>   
-        <record id="city_status_us_n" model="hc.vs.country.city.status">    
+        </record>
+        <record id="city_status_us_n" model="hc.vs.country.city.status">
             <field name="name">N: nonfunctioning entity</field>
             <field name="code">N</field>
             <field name="definition">Identifies a nonfunctioning legal entity.</field>
             <field name="source_id" ref="base.us_census"/>
             <field name="system">www.census.gov/geo/reference/codes/place.html</field>
             <field name="country_id" ref="base.us"/>
-        </record>   
-        <record id="city_status_us_s" model="hc.vs.country.city.status">    
+        </record>
+        <record id="city_status_us_s" model="hc.vs.country.city.status">
             <field name="name">S: statistical entity</field>
             <field name="code">S</field>
             <field name="definition">Identifies a statistical entity.</field>
             <field name="source_id" ref="base.us_census"/>
             <field name="system">www.census.gov/geo/reference/codes/place.html</field>
             <field name="country_id" ref="base.us"/>
-        </record> 
+        </record>
 
     </data>
-</openerp>
+</odoo>

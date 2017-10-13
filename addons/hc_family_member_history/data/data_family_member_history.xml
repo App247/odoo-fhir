@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>      
-<openerp>       
+<odoo>
     <data noupdate="0">
 
-        <!--Family Member History Type -->  
-    
-        <record id="fam_mbr_hist_type_ch" model="hc.vs.family.member.history.type"> 
+        <!--Family Member History Type -->
+
+        <record id="fam_mbr_hist_type_ch" model="hc.vs.family.member.history.type">
             <field name="code">CH</field>
             <field name="name">cardiovascular health</field>
             <field name="definition">Family member history is targeted for cardiovascular health.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/StructureDefinition/familymemberhistory-type</field>
-        </record>   
-            
-        <record id="fam_mbr_hist_type_mh" model="hc.vs.family.member.history.type"> 
+        </record>
+
+        <record id="fam_mbr_hist_type_mh" model="hc.vs.family.member.history.type">
             <field name="code">MH</field>
             <field name="name">mental health</field>
             <field name="definition">Family member history is targeted for mental health.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/StructureDefinition/familymemberhistory-type</field>
-        </record>   
-            
-        <record id="fam_mbr_hist_type_gc" model="hc.vs.family.member.history.type"> 
+        </record>
+
+        <record id="fam_mbr_hist_type_gc" model="hc.vs.family.member.history.type">
             <field name="code">GC</field>
             <field name="name">genetic counseling</field>
             <field name="definition">Family member history is targeted for genetic counseling.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/StructureDefinition/familymemberhistory-type</field>
-        </record>   
-            
-        <record id="fam_mbr_hist_type_fc" model="hc.vs.family.member.history.type"> 
+        </record>
+
+        <record id="fam_mbr_hist_type_fc" model="hc.vs.family.member.history.type">
             <field name="code">FC</field>
             <field name="name">family counseling</field>
             <field name="definition">Family member history is targeted for family counseling.</field>
             <field name="source_id" ref=""/>
             <field name="system"></field>
-        </record>   
-            
-        <record id="fam_mbr_hist_type_cs" model="hc.vs.family.member.history.type"> 
+        </record>
+
+        <record id="fam_mbr_hist_type_cs" model="hc.vs.family.member.history.type">
             <field name="code">CS</field>
             <field name="name">cancer screening</field>
             <field name="definition">Family member history is targeted for cancer screening.</field>
             <field name="source_id" ref=""/>
             <field name="system"></field>
-        </record>   
-    
+        </record>
+
     </data>
-</openerp>
+</odoo>

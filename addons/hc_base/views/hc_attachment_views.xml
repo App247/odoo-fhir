@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
          <!-- Attachment Views -->
@@ -200,4 +200,4 @@
                   sequence="30"/>
 
     </data>
-</openerp>
+</odoo>

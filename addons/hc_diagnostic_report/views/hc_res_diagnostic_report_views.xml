@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Diagnostic Report Views -->
@@ -76,4 +76,4 @@
                   sequence="20"/>
 
     </data>
-</openerp>
+</odoo>

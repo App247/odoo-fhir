@@ -1,88 +1,88 @@
-<openerp>
+<odoo>
     <data>
 
-    	<!-- Value Set View --> 
+    	<!-- Value Set View -->
 
-        <record id="hc_value_set_contains_view_search" model="ir.ui.view">          
-            <field name="name">Value Set Contains Search</field>        
-            <field name="model">hc.value.set.contains</field>           
-            <field name="arch" type="xml">      
-                <search string="Value Set Contains">   
+        <record id="hc_value_set_contains_view_search" model="ir.ui.view">
+            <field name="name">Value Set Contains Search</field>
+            <field name="model">hc.value.set.contains</field>
+            <field name="arch" type="xml">
+                <search string="Value Set Contains">
                     <field name="name"/>
                     <field name="code"/>
                     <field name="definition"/>
-                    <group> 
+                    <group>
                         <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>
                     </group>
-                </search>   
-            </field>        
-        </record>           
+                </search>
+            </field>
+        </record>
 
-        <record id="hc_value_set_contains_view_tree" model="ir.ui.view">           
-            <field name="name">Value Set Tree</field>         
-            <field name="model">hc.value.set.contains</field>          
-            <field name="arch" type="xml">          
-                  <tree string="Value Set Contains" default_order="name, code">       
-                        <field name="name"/>      
-                        <field name="code"/>      
+        <record id="hc_value_set_contains_view_tree" model="ir.ui.view">
+            <field name="name">Value Set Tree</field>
+            <field name="model">hc.value.set.contains</field>
+            <field name="arch" type="xml">
+                  <tree string="Value Set Contains" default_order="name, code">
+                        <field name="name"/>
+                        <field name="code"/>
                         <field name="definition"/>
-                        <field name="source_id" invisible="1"/>   
-                  </tree>       
-            </field>          
-        </record>           
-                  
-        <record id="hc_value_set_contains_view_form" model="ir.ui.view">           
-            <field name="name">Value Set Form</field>         
-            <field name="model">hc.value.set.contains</field>          
-            <field name="arch" type="xml">          
-                <form string="Value Set Contains">        
-                    <sheet>     
-                        <h1>  
+                        <field name="source_id" invisible="1"/>
+                  </tree>
+            </field>
+        </record>
+
+        <record id="hc_value_set_contains_view_form" model="ir.ui.view">
+            <field name="name">Value Set Form</field>
+            <field name="model">hc.value.set.contains</field>
+            <field name="arch" type="xml">
+                <form string="Value Set Contains">
+                    <sheet>
+                        <h1>
                             <field name="name" default_focus="1" placeholder="Name (e.g., subject)"/>
-                        </h1> 
-                        <field name="code" placeholder="Code (e.g., SBJ)"/> 
-                        <field name="definition" placeholder="Definition"/> 
-                        <field name="comments" placeholder="Comments"/>     
-                        <group>   
-                            <group> 
+                        </h1>
+                        <field name="code" placeholder="Code (e.g., SBJ)"/>
+                        <field name="definition" placeholder="Definition"/>
+                        <field name="comments" placeholder="Comments"/>
+                        <group>
+                            <group>
                                 <field name="contains_id" invisible="0"/>
                                 <field name="is_abstract" widget="upgrade_boolean"/>
                                 <field name="level" placeholder="An integer (e.g., 1, 2)"/>
                                 <field name="version" placeholder="e.g., v2.5"/>
-                            </group>  
-                            <group> 
+                            </group>
+                            <group>
                                 <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
                                 <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
-                            </group>  
-                        </group>    
-                    </sheet>      
-                </form>       
-            </field>          
-        </record>           
-                  
-        <!-- Value Set Contains Menu --> 
-    
-        <menuitem id="hc_base.menu_root" 
-                  name="FHIR" 
-                  web_icon="hc_base,static/description/logo.png" 
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Value Set Contains Menu -->
+
+        <menuitem id="hc_base.menu_root"
+                  name="FHIR"
+                  web_icon="hc_base,static/description/logo.png"
                   sequence="1"/>
-            
-            <menuitem id="hc_base.menu_datatype" 
-                      name="Data Type" 
-                      parent="hc_base.menu_root" 
+
+            <menuitem id="hc_base.menu_datatype"
+                      name="Data Type"
+                      parent="hc_base.menu_root"
                       sequence="70"/>
-                
-                <menuitem id="hc_base.menu_val_set" 
-                          name="Value Set Contains" 
+
+                <menuitem id="hc_base.menu_val_set"
+                          name="Value Set Contains"
                           parent="hc_base.menu_datatype"
-                          groups="hc_base.group_hc_base_manager" 
+                          groups="hc_base.group_hc_base_manager"
                           sequence="1"/>
 
-                <menuitem id="hc_base.menu_vs" 
-                          name="Value Sets" 
+                <menuitem id="hc_base.menu_vs"
+                          name="Value Sets"
                           parent="hc_base.menu_datatype"
                           groups="group_hc_base_manager"
                           sequence="70"/>
 
     </data>
-</openerp>
+</odoo>

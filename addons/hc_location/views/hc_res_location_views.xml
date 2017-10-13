@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Location Views -->
@@ -89,4 +89,4 @@
         </record>
 
     </data>
-</openerp>
+</odoo>

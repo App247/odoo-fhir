@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Measure Report Action and Menu -->
@@ -19,4 +19,4 @@
                   sequence="20"/>
 
     </data>
-</openerp>
+</odoo>

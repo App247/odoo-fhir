@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>      
-<openerp>
+<odoo>
     <data>
 
         <!-- AU State Type -->
 
-        <record id="base.iso_3166_au" model="res.partner">  
+        <record id="base.iso_3166_au" model="res.partner">
             <field name="name">ISO 3166-2:AU</field>
             <field name="company_type"></field>
             <field name="category_id" eval="[(6, 0, [ref('partner_category_source'), ref('partner_category_document')])]"/>
@@ -12,18 +12,18 @@
             <field name="country_id" ref="base.au"/>
         </record>
 
-        <record id="state_type_au_state" model="hc.vs.country.state.type">  
+        <record id="state_type_au_state" model="hc.vs.country.state.type">
             <field name="name">State</field>
             <field name="source_id" ref="base.iso_3166_au"/field>
             <field name="country_id" ref="base.au"/>
-        </record> 
+        </record>
 
-        <record id="state_type_au_territory" model="hc.vs.country.state.type">  
+        <record id="state_type_au_territory" model="hc.vs.country.state.type">
             <field name="name">Territory</field>
             <field name="source_id" ref="base.iso_3166_au"/field>
             <field name="country_id" ref="base.au"/>
         </record>
 
 
-    </data>     
-</openerp>
+    </data>
+</odoo>

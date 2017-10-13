@@ -1,157 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data noupdate="0">
+    <data noupdate="1">
 
         <!-- Days of Week -->
 
-        <record id="day_week_mon" model="hc.vs.days.of.week">    
+        <record id="day_week_mon" model="hc.vs.days.of.week">
             <field name="code">mon</field>
             <field name="name">Monday</field>
             <field name="definition">Monday</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/days-of-week</field>
-        </record>    
-            
-        <record id="day_week_tue" model="hc.vs.days.of.week">    
+        </record>
+
+        <record id="day_week_tue" model="hc.vs.days.of.week">
             <field name="code">tue</field>
             <field name="name">Tuesday</field>
             <field name="definition">Tuesday</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/days-of-week</field>
-        </record>    
-            
-        <record id="day_week_wed" model="hc.vs.days.of.week">    
+        </record>
+
+        <record id="day_week_wed" model="hc.vs.days.of.week">
             <field name="code">wed</field>
             <field name="name">Wednesday</field>
             <field name="definition">Wednesday</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/days-of-week</field>
-        </record>    
-            
-        <record id="day_week_thu" model="hc.vs.days.of.week">    
+        </record>
+
+        <record id="day_week_thu" model="hc.vs.days.of.week">
             <field name="code">thu</field>
             <field name="name">Thursday</field>
             <field name="definition">Thursday</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/days-of-week</field>
-        </record>    
-            
-        <record id="day_week_fri" model="hc.vs.days.of.week">    
+        </record>
+
+        <record id="day_week_fri" model="hc.vs.days.of.week">
             <field name="code">fri</field>
             <field name="name">Friday</field>
             <field name="definition">Friday</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/days-of-week</field>
-        </record>    
-            
-        <record id="day_week_sat" model="hc.vs.days.of.week">    
+        </record>
+
+        <record id="day_week_sat" model="hc.vs.days.of.week">
             <field name="code">sat</field>
             <field name="name">Saturday</field>
             <field name="definition">Saturday</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/days-of-week</field>
-        </record>    
-            
-        <record id="day_week_sun" model="hc.vs.days.of.week">    
+        </record>
+
+        <record id="day_week_sun" model="hc.vs.days.of.week">
             <field name="code">sun</field>
             <field name="name">Sunday</field>
             <field name="definition">Sunday</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/days-of-week</field>
-        </record>    
+        </record>
 
-        
-        <!-- Encounter Participant Type --> 
-            
-        <record id="enc_part_type_adm" model="hc.vs.encounter.participant.type">    
+
+        <!-- Encounter Participant Type -->
+
+        <record id="enc_part_type_adm" model="hc.vs.encounter.participant.type">
             <field name="code">ADM</field>
             <field name="name">admitter</field>
             <field name="definition">The practitioner who is responsible for admitting a patient to a patient encounter.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/v3/ParticipationType</field>
-        </record>   
-            
-        <record id="enc_part_type_atnd" model="hc.vs.encounter.participant.type">   
+        </record>
+
+        <record id="enc_part_type_atnd" model="hc.vs.encounter.participant.type">
             <field name="code">ATND</field>
             <field name="name">attender</field>
             <field name="definition">The practitioner that has responsibility for overseeing a patient's care during a patient encounter.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/v3/ParticipationType</field>
-        </record>   
-            
-        <record id="enc_part_type_callbck" model="hc.vs.encounter.participant.type">    
+        </record>
+
+        <record id="enc_part_type_callbck" model="hc.vs.encounter.participant.type">
             <field name="code">CALLBCK</field>
             <field name="name">callback contact</field>
             <field name="definition">A person or organization who should be contacted for follow-up questions about the act in place of the author.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/v3/ParticipationType</field>
-        </record>   
-            
-        <record id="enc_part_type_con" model="hc.vs.encounter.participant.type">    
+        </record>
+
+        <record id="enc_part_type_con" model="hc.vs.encounter.participant.type">
             <field name="code">CON</field>
             <field name="name">consultant</field>
             <field name="definition">An advisor participating in the service by performing evaluations and making recommendations.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/v3/ParticipationType</field>
-        </record>   
-            
-        <record id="enc_part_type_dis" model="hc.vs.encounter.participant.type">    
+        </record>
+
+        <record id="enc_part_type_dis" model="hc.vs.encounter.participant.type">
             <field name="code">DIS</field>
             <field name="name">discharger</field>
             <field name="definition">The practitioner who is responsible for the discharge of a patient from a patient encounter.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/v3/ParticipationType</field>
-        </record>   
-            
-        <record id="enc_part_type_esc" model="hc.vs.encounter.participant.type">    
+        </record>
+
+        <record id="enc_part_type_esc" model="hc.vs.encounter.participant.type">
             <field name="code">ESC</field>
             <field name="name">escort</field>
             <field name="definition">Only with Transportation services. A person who escorts the patient.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/v3/ParticipationType</field>
-        </record>   
-            
-        <record id="enc_part_type_ref" model="hc.vs.encounter.participant.type">    
+        </record>
+
+        <record id="enc_part_type_ref" model="hc.vs.encounter.participant.type">
             <field name="code">REF</field>
             <field name="name">referrer</field>
             <field name="definition">A person having referred the subject of the service to the performer (referring physician). Typically, a referring physician will receive a report.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/v3/ParticipationType</field>
-        </record>   
-            
-        <record id="enc_part_type_sprf" model="hc.vs.encounter.participant.type">   
+        </record>
+
+        <record id="enc_part_type_sprf" model="hc.vs.encounter.participant.type">
             <field name="code">SPRF</field>
             <field name="name">secondary performer</field>
             <field name="definition">A person assisting in an act through his substantial presence and involvement This includes: assistants, technicians, associates, or whatever the job titles may be.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/v3/ParticipationType</field>
-        </record>   
-            
-        <record id="enc_part_type_pprf" model="hc.vs.encounter.participant.type">   
+        </record>
+
+        <record id="enc_part_type_pprf" model="hc.vs.encounter.participant.type">
             <field name="code">PPRF</field>
             <field name="name">primary performer</field>
             <field name="definition">The principal or primary performer of the act.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/v3/ParticipationType</field>
-        </record>   
-            
-        <record id="enc_part_type_part" model="hc.vs.encounter.participant.type">   
+        </record>
+
+        <record id="enc_part_type_part" model="hc.vs.encounter.participant.type">
             <field name="code">PART</field>
             <field name="name">Participation</field>
             <field name="definition">Indicates that the target of the participation is involved in some manner in the act, but does not qualify how.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/v3/ParticipationType</field>
-        </record>   
-            
-        <record id="enc_part_type_translator" model="hc.vs.encounter.participant.type"> 
+        </record>
+
+        <record id="enc_part_type_translator" model="hc.vs.encounter.participant.type">
             <field name="code">translator</field>
             <field name="name">Translator</field>
             <field name="definition">A translator who is facilitating communication with the patient during the encounter.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/participant-type</field>
-        </record>   
-            
-        <record id="enc_part_type_emergency" model="hc.vs.encounter.participant.type">  
+        </record>
+
+        <record id="enc_part_type_emergency" model="hc.vs.encounter.participant.type">
             <field name="code">emergency</field>
             <field name="name">Emergency</field>
             <field name="definition">A person to be contacted in case of an emergency during the encounter.</field>
@@ -159,83 +159,83 @@
             <field name="system">http://hl7.org/fhir/participant-type</field>
         </record>
 
-        <!-- FM Status -->  
-            
-        <record id="fm_status_active" model="hc.vs.fm.status">  
+        <!-- FM Status -->
+
+        <record id="fm_status_active" model="hc.vs.fm.status">
             <field name="code">active</field>
             <field name="name">Active</field>
             <field name="seq">2</field>
             <field name="definition">The instance is currently in-force.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/fm-status</field>
-        </record>   
-            
-        <record id="fm_status_cancelled" model="hc.vs.fm.status">   
+        </record>
+
+        <record id="fm_status_cancelled" model="hc.vs.fm.status">
             <field name="code">cancelled</field>
             <field name="name">Cancelled</field>
             <field name="seq">3</field>
             <field name="definition">The instance is withdrawn, rescinded or reversed.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/fm-status</field>
-        </record>   
-            
-        <record id="fm_status_draft" model="hc.vs.fm.status">   
+        </record>
+
+        <record id="fm_status_draft" model="hc.vs.fm.status">
             <field name="code">draft</field>
             <field name="name">Draft</field>
             <field name="seq">1</field>
             <field name="definition">A new instance the contents of which is not complete.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/fm-status</field>
-        </record>   
-            
-        <record id="fm_status_entered-in-error" model="hc.vs.fm.status">    
+        </record>
+
+        <record id="fm_status_entered-in-error" model="hc.vs.fm.status">
             <field name="code">entered-in-error</field>
             <field name="name">Entered in Error</field>
             <field name="seq">4</field>
             <field name="definition">The instance was entered in error.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/fm-status</field>
-        </record>   
+        </record>
 
 
-        
-        <!-- Publication Status --> 
-    
-        <record id="pub_status_draft" model="hc.vs.publication.status"> 
+
+        <!-- Publication Status -->
+
+        <record id="pub_status_draft" model="hc.vs.publication.status">
             <field name="code">draft</field>
             <field name="name">Draft</field>
             <field name="seq">1</field>
             <field name="definition">This resource is still under development and is not yet considered to be ready for normal use.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/publication-status</field>
-        </record>   
-            
-        <record id="pub_status_active" model="hc.vs.publication.status">    
+        </record>
+
+        <record id="pub_status_active" model="hc.vs.publication.status">
             <field name="code">active</field>
             <field name="name">Active</field>
             <field name="seq">2</field>
             <field name="definition">This resource is ready for normal use.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/publication-status</field>
-        </record>   
-            
-        <record id="pub_status_retired" model="hc.vs.publication.status">   
+        </record>
+
+        <record id="pub_status_retired" model="hc.vs.publication.status">
             <field name="code">retired</field>
             <field name="name">Retired</field>
             <field name="seq">3</field>
             <field name="definition">This resource has been withdrawn or superseded and should no longer be used.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/publication-status</field>
-        </record>   
-            
-        <record id="pub_status_unknown" model="hc.vs.publication.status">   
+        </record>
+
+        <record id="pub_status_unknown" model="hc.vs.publication.status">
             <field name="code">unknown</field>
             <field name="name">Unknown</field>
             <field name="seq">4</field>
             <field name="definition">The authoring system does not know which of the status values currently applies for this resource. Note: This concept is not to be used for &quot;other&quot; - one of the listed statuses is presumed to apply, it's just not known which one.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/publication-status</field>
-        </record>   
+        </record>
 
     </data>
 </odoo>

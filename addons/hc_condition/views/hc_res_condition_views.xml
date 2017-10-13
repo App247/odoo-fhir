@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
     <!-- Condition Views -->
@@ -293,4 +293,4 @@
               sequence="30"/>
 
     </data>
-</openerp>
+</odoo>

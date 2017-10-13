@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Code System Views -->
@@ -472,4 +472,4 @@
                     limit=""/>
 
     </data>
-</openerp>
+</odoo>

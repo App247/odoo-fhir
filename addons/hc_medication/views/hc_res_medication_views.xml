@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Medication Views -->
@@ -634,4 +634,4 @@
                   sequence="50"/>
 
     </data>
-</openerp>
+</odoo>

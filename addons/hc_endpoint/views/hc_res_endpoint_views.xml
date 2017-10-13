@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Endpoint Views -->
@@ -150,4 +150,4 @@
         </record>
 
     </data>
-</openerp>
+</odoo>

@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Contract Action and Menu -->
@@ -13,7 +13,7 @@
 
         <menuitem id="hc_contract.menu_contr"
                   name="Contracts"
-                  parent="hc_base.menu_fina_gen" 
+                  parent="hc_base.menu_fina_gen"
                   action="hc_res_contract_action"
                   groups="hc_base.group_hc_base_manager"
                   sequence="20"/>
@@ -32,4 +32,4 @@
         </record>
 
     </data>
-</openerp>
+</odoo>

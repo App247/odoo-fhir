@@ -1,9 +1,9 @@
-<openerp>
+<odoo>
     <data>
-    
-        <!-- Provenance Action and Menu --> 
-    
-        <act_window id="hc_res_provenance_action"   
+
+        <!-- Provenance Action and Menu -->
+
+        <act_window id="hc_res_provenance_action"
                     name="HC Provenances"
                     res_model="hc.res.provenance"
                     view_mode="tree,form"
@@ -11,12 +11,12 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_provenance.menu_provenance" 
-                  name="Provenances" 
-                  parent="hc_base.menu_secur" 
-                  action="hc_res_provenance_action" 
-                  groups="hc_base.group_hc_base_manager" 
+        <menuitem id="hc_provenance.menu_provenance"
+                  name="Provenances"
+                  parent="hc_base.menu_secur"
+                  action="hc_res_provenance_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="10"/>
 
     </data>
-</openerp>
+</odoo>

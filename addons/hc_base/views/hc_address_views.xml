@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
     <!-- Address Views -->
@@ -89,7 +89,7 @@
                   id="hc_base.menu_addr"
                   parent="hc_base.menu_datatype"
                   sequence="5"/>
-        
+
         <menuitem name="Addresses"
                   id="hc_base.menu_addr_addr"
                   parent="hc_base.menu_addr"
@@ -1094,4 +1094,4 @@
                   sequence="72"/>
 
     </data>
-</openerp>
+</odoo>

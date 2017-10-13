@@ -1,53 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>      
-<openerp>       
+<odoo>
     <data noupdate="0">
 
-        <!--V2 Appointment Reason Code -->  
-    
-        <record id="hc_slot.appt_rsn_checkup" model="hc.vs.v2.appointment.reason.code"> 
+        <!--V2 Appointment Reason Code -->
+
+        <record id="hc_slot.appt_rsn_checkup" model="hc.vs.v2.appointment.reason.code">
             <field name="code">CHECKUP</field>
             <field name="name">Check-up</field>
             <field name="definition">A routine check-up, such as an annual physical</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/v2/0276</field>
             <field name="version">added v2.3</field>
-        </record>   
-            
-        <record id="hc_slot.appt_rsn_emergency" model="hc.vs.v2.appointment.reason.code">   
+        </record>
+
+        <record id="hc_slot.appt_rsn_emergency" model="hc.vs.v2.appointment.reason.code">
             <field name="code">EMERGENCY</field>
             <field name="name">Emergency</field>
             <field name="definition">Emergency appointment</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/v2/0276</field>
             <field name="version">added v2.3</field>
-        </record>   
-            
-        <record id="hc_slot.appt_rsn_followup" model="hc.vs.v2.appointment.reason.code">    
+        </record>
+
+        <record id="hc_slot.appt_rsn_followup" model="hc.vs.v2.appointment.reason.code">
             <field name="code">FOLLOWUP</field>
             <field name="name">Follow-up</field>
             <field name="definition">A follow up visit from a previous appointment</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/v2/0276</field>
             <field name="version">added v2.3</field>
-        </record>   
-            
-        <record id="hc_slot.appt_rsn_routine" model="hc.vs.v2.appointment.reason.code"> 
+        </record>
+
+        <record id="hc_slot.appt_rsn_routine" model="hc.vs.v2.appointment.reason.code">
             <field name="code">ROUTINE</field>
             <field name="name">Routine</field>
             <field name="definition">Routine appointment - default if not valued</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/v2/0276</field>
             <field name="version">added v2.3</field>
-        </record>   
-            
-        <record id="hc_slot.appt_rsn_walkin" model="hc.vs.v2.appointment.reason.code">  
+        </record>
+
+        <record id="hc_slot.appt_rsn_walkin" model="hc.vs.v2.appointment.reason.code">
             <field name="code">WALKIN</field>
             <field name="name">Walk-in</field>
             <field name="definition">A previously unscheduled walk-in visit</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/v2/0276</field>
             <field name="version">added v2.3</field>
-        </record>   
-    
+        </record>
+
     </data>
-</openerp>
+</odoo>

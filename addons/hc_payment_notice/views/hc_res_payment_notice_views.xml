@@ -1,9 +1,9 @@
-<openerp>
+<odoo>
     <data>
 
-<!--         <page string="Status History">          
-            <field name="status_history_ids" mode="tree">       
-                <tree>  
+<!--         <page string="Status History">
+            <field name="status_history_ids" mode="tree">
+                <tree>
                     <field name="status" readonly="1"/>
                     <field name="start_date"/>
                     <field name="end_date"/>
@@ -12,13 +12,13 @@
                     <field name="time_diff_min"/>
                     <field name="time_diff_sec"/>
                     <field name="write_uid" invisible="0"/>
-                </tree> 
-            </field>        
-        </page>      -->    
+                </tree>
+            </field>
+        </page>      -->
 
-        <!-- Payment Notice Action and Menu --> 
-    
-        <act_window id="hc_res_payment_notice_action"   
+        <!-- Payment Notice Action and Menu -->
+
+        <act_window id="hc_res_payment_notice_action"
                     name="HC Payment Notices"
                     res_model="hc.res.payment.notice"
                     view_mode="tree,form"
@@ -26,12 +26,12 @@
                     context=""
                     limit=""/>
 
-        <menuitem id="hc_payment_notice.menu_pmt_notice" 
-                  name="Payment Notices" 
-                  parent="hc_base.menu_fina_pmt" 
-                  action="hc_res_payment_notice_action" 
-                  groups="hc_base.group_hc_base_manager" 
+        <menuitem id="hc_payment_notice.menu_pmt_notice"
+                  name="Payment Notices"
+                  parent="hc_base.menu_fina_pmt"
+                  action="hc_res_payment_notice_action"
+                  groups="hc_base.group_hc_base_manager"
                   sequence="10"/>
 
     </data>
-</openerp>
+</odoo>

@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Nutrition Order Views -->
@@ -230,7 +230,7 @@
                         </group>
                         <notebook>
                             <page string="Administrations">
-                                <field name="administration_ids" mode="tree">               
+                                <field name="administration_ids" mode="tree">
                                     <tree>
                                     </tree>
                                     <form>
@@ -261,4 +261,4 @@
 
 
     </data>
-</openerp>
+</odoo>

@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Appointment Response Views -->
@@ -133,4 +133,4 @@
                   sequence="30"/>
 
     </data>
-</openerp>
+</odoo>

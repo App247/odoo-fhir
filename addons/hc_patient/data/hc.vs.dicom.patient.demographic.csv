@@ -1,0 +1,40 @@
+id,code,name,definition,comments,source_id/id,system
+dicom_pat_demog_00101010,"(0010,1010)","Patient's Age","Age of the Patient.",,base.nema,http://dicom.nema.org/MEDICAL/Dicom/2015c/output/chtml/part03/sect_C.2.3.html
+dicom_pat_demog_00102180,"(0010,2180)","Occupation","Occupation of the Patient.",,base.nema,http://dicom.nema.org/MEDICAL/Dicom/2015c/output/chtml/part03/sect_C.2.3.html
+dicom_pat_demog_00403001,"(0040,3001)","Confidentiality Constraint on Patient Data Description","Special indication to the modality operator about confidentiality of patient information (e.g., that he should not use the patients name where other patients are present).",,base.nema,http://dicom.nema.org/MEDICAL/Dicom/2015c/output/chtml/part03/sect_C.2.3.html
+dicom_pat_demog_00100030,"(0010,0030)","Patient's Birth Date","Date of birth of the named patient.",,base.nema,http://dicom.nema.org/MEDICAL/Dicom/2015c/output/chtml/part03/sect_C.2.3.html
+dicom_pat_demog_00100032,"(0010,0032)","Patient's Birth Time","Time of birth of the named patient.",,base.nema,http://dicom.nema.org/MEDICAL/Dicom/2015c/output/chtml/part03/sect_C.2.3.html
+dicom_pat_demog_00100040,"(0010,0040)","Patient's Sex","Sex of the named patient. ","Enumerated Values: M - male;  F - female; O - other",base.nema,http://dicom.nema.org/MEDICAL/Dicom/2015c/output/chtml/part03/sect_C.2.3.html
+dicom_pat_demog_00100200,"(0010,0200)","Quality Control Subject","Indicates whether or not the subject is a quality control phantom. ","Enumerated values: YES, NO. 
+
+If this Attribute is absent, then the subject may or may not be a phantom.
+This attribute describes a characteristic of the Imaging Subject. 
+It is distinct from Quality Control Image (0028,0300) in the General Image Module, which is used to describe an image acquired.",base.nema,http://dicom.nema.org/MEDICAL/Dicom/2015c/output/chtml/part03/sect_C.2.3.html
+dicom_pat_demog_00100050,"(0010,0050)","Patient's Insurance Plan Code Sequence","A sequence that conveys the patient's insurance plan. Zero or more Items shall be included in this Sequence.","No Baseline CID is defined.",base.nema,http://dicom.nema.org/MEDICAL/Dicom/2015c/output/chtml/part03/sect_C.2.3.html
+dicom_pat_demog_00100101,"(0010,0101)","Patient's Primary Language Code Sequence","The languages that can be used to communicate with the patient.","Zero or more Items shall be included in this Sequence. The sequence items are ordered by preference (most preferred language to least preferred language). Baseline CID 5000 “Languages”.",base.nema,http://dicom.nema.org/MEDICAL/Dicom/2015c/output/chtml/part03/sect_C.2.3.html
+dicom_pat_demog_00100102,"(0010,0102)","Patient's Primary Language Modifier Code Sequence","A modifier for a Patient's Primary Language. Can be used to specify a national language variant.","Only a single Item shall be included in this Sequence. Baseline CID 5001 “Countries”.",base.nema,http://dicom.nema.org/MEDICAL/Dicom/2015c/output/chtml/part03/sect_C.2.3.html
+dicom_pat_demog_00101020,"(0010,1020)","Patient's Size","Patient's height or length in meters.",,base.nema,http://dicom.nema.org/MEDICAL/Dicom/2015c/output/chtml/part03/sect_C.2.3.html
+dicom_pat_demog_00101030,"(0010,1030)","Patient's Weight","Weight of the patient in kilograms.",,base.nema,http://dicom.nema.org/MEDICAL/Dicom/2015c/output/chtml/part03/sect_C.2.3.html
+dicom_pat_demog_00101021,"(0010,1021)","Patient's Size Code Sequence","Patient's size category code.",,base.nema,http://dicom.nema.org/MEDICAL/Dicom/2015c/output/chtml/part03/sect_C.2.3.html
+dicom_pat_demog_00101040,"(0010,1040)","Patient's Address","Legal address of the named patient.",,base.nema,http://dicom.nema.org/MEDICAL/Dicom/2015c/output/chtml/part03/sect_C.2.3.html
+dicom_pat_demog_00101080,"(0010,1080)","Military Rank","Military rank of patient.",,base.nema,http://dicom.nema.org/MEDICAL/Dicom/2015c/output/chtml/part03/sect_C.2.3.html
+dicom_pat_demog_00101081,"(0010,1081)","Branch of Service","Branch of the military. The country allegiance may also be included (e.g., U.S. Army).",,base.nema,http://dicom.nema.org/MEDICAL/Dicom/2015c/output/chtml/part03/sect_C.2.3.html
+dicom_pat_demog_00102150,"(0010,2150)","Country of Residence","Country in which patient currently resides.",,base.nema,http://dicom.nema.org/MEDICAL/Dicom/2015c/output/chtml/part03/sect_C.2.3.html
+dicom_pat_demog_00102152,"(0010,2152)","Region of Residence","Region within patient's country of residence.",,base.nema,http://dicom.nema.org/MEDICAL/Dicom/2015c/output/chtml/part03/sect_C.2.3.html
+dicom_pat_demog_00102154,"(0010,2154)","Patient's Telephone Numbers","Telephone numbers at which the patient can be reached.",,base.nema,http://dicom.nema.org/MEDICAL/Dicom/2015c/output/chtml/part03/sect_C.2.3.html
+dicom_pat_demog_00102155,"(0010,2155)","Patient's Telecom Information","The patient's personal telecommunication contact information, including telephone, email, or other telecom addresses.","Note: 
+1. This attribute may have internal format or structure in accordance with local agreement or profile.
+2. It is recommended that this attribute be treated as equivalent to HL7v2 fields PID-13 and PID-14, or PID-40 (v2.7 and later), and be formatted in accordance with the HL7v2 XTN data type (without escapes for HL7 message structure reserved characters).",base.nema,http://dicom.nema.org/MEDICAL/Dicom/2015c/output/chtml/part03/sect_C.2.3.html
+dicom_pat_demog_00102160,"(0010,2160)","Ethnic Group","Ethnic group or race of patient.",,base.nema,http://dicom.nema.org/MEDICAL/Dicom/2015c/output/chtml/part03/sect_C.2.3.html
+dicom_pat_demog_001021F0,"(0010,21F0)","Patient's Religious Preference","The religious preference of the patient.",,base.nema,http://dicom.nema.org/MEDICAL/Dicom/2015c/output/chtml/part03/sect_C.2.3.html
+dicom_pat_demog_00104000,"(0010,4000)","Patient Comments","User-defined comments about the patient.",,base.nema,http://dicom.nema.org/MEDICAL/Dicom/2015c/output/chtml/part03/sect_C.2.3.html
+dicom_pat_demog_00102297,"(0010,2297)","Responsible Person","Name of person with medical decision making authority for the patient.",,base.nema,http://dicom.nema.org/MEDICAL/Dicom/2015c/output/chtml/part03/sect_C.2.3.html
+dicom_pat_demog_00102298,"(0010,2298)","Responsible Person Role","Relationship of Responsible Person to the patient.","See Section C.7.1.1.1.2 for Defined Terms.",base.nema,http://dicom.nema.org/MEDICAL/Dicom/2015c/output/chtml/part03/sect_C.2.3.html
+dicom_pat_demog_00102299,"(0010,2299)","Responsible Organization","Name of organization with medical decision making authority for the patient.",,base.nema,http://dicom.nema.org/MEDICAL/Dicom/2015c/output/chtml/part03/sect_C.2.3.html
+dicom_pat_demog_00102201,"(0010,2201)","Patient Species Description","The species of the patient.",,base.nema,http://dicom.nema.org/MEDICAL/Dicom/2015c/output/chtml/part03/sect_C.2.3.html
+dicom_pat_demog_00102202,"(0010,2202)","Patient Species Code Sequence","The species of the patient.",,base.nema,http://dicom.nema.org/MEDICAL/Dicom/2015c/output/chtml/part03/sect_C.2.3.html
+dicom_pat_demog_00102292,"(0010,2292)","Patient Breed Description","The breed of the patient.","See Section C.7.1.1.1.1.",base.nema,http://dicom.nema.org/MEDICAL/Dicom/2015c/output/chtml/part03/sect_C.2.3.html
+dicom_pat_demog_00102293,"(0010,2293)","Patient Breed Code Sequence","The breed of the patient.","See Section C.7.1.1.1.1.",base.nema,http://dicom.nema.org/MEDICAL/Dicom/2015c/output/chtml/part03/sect_C.2.3.html
+dicom_pat_demog_00102294,"(0010,2294)","Breed Registration Sequence","Information identifying an animal within a breed registry.",,base.nema,http://dicom.nema.org/MEDICAL/Dicom/2015c/output/chtml/part03/sect_C.2.3.html
+dicom_pat_demog_00102295,"(0010,2295)","Breed Registration Number","Identification number of a veterinary patient within the registry.",,base.nema,http://dicom.nema.org/MEDICAL/Dicom/2015c/output/chtml/part03/sect_C.2.3.html
+dicom_pat_demog_00102296,"(0010,2296)","Breed Registry Code Sequence","Identification of the organization with which an animal is registered.",,base.nema,http://dicom.nema.org/MEDICAL/Dicom/2015c/output/chtml/part03/sect_C.2.3.html

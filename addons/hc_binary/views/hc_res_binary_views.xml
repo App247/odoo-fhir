@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Binary Action and Menu -->
@@ -13,10 +13,10 @@
 
         <menuitem id="hc_binary.menu_binary"
                   name="Binaries"
-                  parent="hc_base.menu_other" 
+                  parent="hc_base.menu_other"
                   action="hc_res_binary_action"
                   groups="hc_base.group_hc_base_manager"
                   sequence="20"/>
 
     </data>
-</openerp>
+</odoo>

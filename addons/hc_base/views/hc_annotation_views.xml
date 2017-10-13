@@ -1,47 +1,47 @@
-<openerp>
+<odoo>
     <data>
 
         <!-- Annotation Views -->
 
-        <record id="hc_annotation_view_search" model="ir.ui.view">                  
-              <field name="name">Annotation Search</field>                
-              <field name="model">hc.annotation</field>               
-              <field name="arch" type="xml">                
-                    <search string="Annotations">             
+        <record id="hc_annotation_view_search" model="ir.ui.view">
+              <field name="name">Annotation Search</field>
+              <field name="model">hc.annotation</field>
+              <field name="arch" type="xml">
+                    <search string="Annotations">
                         <field name="text"/>
-<!--                    Now this field is moved to hc_patient module so it should define in that module     
-                        <field name="author_name"/>                   
- -->                    <field name="recorded_date"/>  
-                    </search>             
-              </field>                
-        </record>                 
-            
-        <record id="hc_annotation_view_tree" model="ir.ui.view">                  
-              <field name="name">Annotation Tree</field>                
-              <field name="model">hc.annotation</field>               
-              <field name="arch" type="xml">                
-                    <tree string="Annotations">
-                        <field name="text"/>    
-                        <!-- Now this field is moved to hc_patient module so it should define in that module -->     
+<!--                    Now this field is moved to hc_patient module so it should define in that module
                         <field name="author_name"/>
-                        <field name="author_type"/>       
-                        <field name="recorded_date"/>           
-                    </tree>             
-              </field>                
+ -->                    <field name="recorded_date"/>
+                    </search>
+              </field>
         </record>
 
-        <record id="hc_annotation_view_form" model="ir.ui.view">                  
-              <field name="name">Annotation Form</field>                
-              <field name="model">hc.annotation</field>               
-              <field name="arch" type="xml">                
-                    <form string="Annotation">              
-                          <sheet>           
-                                <div class="oe_title oe_left">          
-                                    <h1>        
+        <record id="hc_annotation_view_tree" model="ir.ui.view">
+              <field name="name">Annotation Tree</field>
+              <field name="model">hc.annotation</field>
+              <field name="arch" type="xml">
+                    <tree string="Annotations">
+                        <field name="text"/>
+                        <!-- Now this field is moved to hc_patient module so it should define in that module -->
+                        <field name="author_name"/>
+                        <field name="author_type"/>
+                        <field name="recorded_date"/>
+                    </tree>
+              </field>
+        </record>
+
+        <record id="hc_annotation_view_form" model="ir.ui.view">
+              <field name="name">Annotation Form</field>
+              <field name="model">hc.annotation</field>
+              <field name="arch" type="xml">
+                    <form string="Annotation">
+                          <sheet>
+                                <div class="oe_title oe_left">
+                                    <h1>
                                         <field name="text" default_focus="1" placeholder="Annotation"/>
-                                    </h1>     
-                                </div>          
-                                <group>         
+                                    </h1>
+                                </div>
+                                <group>
                                     <group>
                                         <field name="author_type"/>
                                         <field name="author_string" attrs="{'invisible': [('author_type','!=','string')]}"/>
@@ -50,17 +50,17 @@
                                         <!-- <field name="author_related_person_id" attrs="{'invisible': [('author_type','!=','related_person')]}"/> -->
                                         <field name="recorded_date"/>
                                     </group>
-                                    <group>       
+                                    <group>
                                     </group>
-                                </group>         
-                          </sheet>           
-                    </form>             
-              </field>                
-        </record>                 
-                          
-        <!-- Annotation Action and Menu -->                 
-                          
-        <act_window id="hc_annotation_action"   
+                                </group>
+                          </sheet>
+                    </form>
+              </field>
+        </record>
+
+        <!-- Annotation Action and Menu -->
+
+        <act_window id="hc_annotation_action"
                     name="HC Annotations"
                     res_model="hc.annotation"
                     view_mode="tree,form"
@@ -80,12 +80,12 @@
           <field name="search_view_id" ref="res_lang_search"/>
         </record> -->
 
-        <menuitem id="hc_base.menu_anno" 
-                  name="Annotation" 
-                  parent="hc_base.menu_datatype" 
-                  action="hc_annotation_action" 
-                  groups="group_hc_base_manager" 
+        <menuitem id="hc_base.menu_anno"
+                  name="Annotation"
+                  parent="hc_base.menu_datatype"
+                  action="hc_annotation_action"
+                  groups="group_hc_base_manager"
                   sequence="20"/>
 
     </data>
-</openerp>
+</odoo>
