@@ -1,0 +1,61 @@
+<odoo>
+    <data noupdate="1">
+
+
+    <!-- Dicom Person -->
+
+        <record id="hc_base.human_name_term_546" model="hc.human.name.term">
+            <field name="name">MINT_TEST</field>
+        </record>
+
+        <record id="hc_base.patient_dicom_name" model="hc.human.name">
+            <field model="hc.human.name.term" name="surname_id" search="[('name','=','MINT_TEST')]"/>
+        </record>
+
+        <record id="base.patient_dicom" model="res.partner">
+            <field name="name">MINT_TEST</field>
+            <field name="company_type">person</field>
+        </record>
+
+        <record id="hc_person.patient_dicom" model="hc.res.person">
+            <field name="partner_id" ref="base.patient_dicom"/>
+            <field name="name_id" ref="hc_base.patient_dicom_name"/>
+            <field name="gender">male</field>
+        </record>
+
+    <!-- Dicom Patient -->
+
+        <record id="patient_dicom" model="hc.res.patient">
+            <field name="person_id" ref="hc_person.patient_dicom"/>
+            <field name="gender">male</field>
+        </record>
+
+        <record id="patient_dicom_demographic_1" model="hc.patient.dicom.demographic">
+            <field name="patient_id" ref="patient_dicom"/>
+            <field name="attribute_id" ref="dicom_pat_demog_00101010"/>
+            <field name="attribute_value">56</field>
+            <field name="attribute_uom_id" ref="base.product_uom_ucum_year"/>
+        </record>
+
+        <record id="patient_dicom_demographic_2" model="hc.patient.dicom.demographic">
+            <field name="patient_id" ref="patient_dicom"/>
+            <field name="attribute_id" ref="dicom_pat_demog_00101021"/>
+            <field name="attribute_value">1.83</field>
+            <field name="attribute_uom_id" ref="base.product_uom_ucum_meter"/>
+        </record>
+
+        <record id="patient_dicom_demographic_3" model="hc.patient.dicom.demographic">
+            <field name="patient_id" ref="patient_dicom"/>
+            <field name="attribute_id" ref="dicom_pat_demog_00101030"/>
+            <field name="attribute_value">72.58</field>
+            <field name="attribute_uom_id" ref="base.product_uom_ucum_kilogram"/>
+        </record>
+
+        <record id="patient_dicom_demographic_4" model="hc.patient.dicom.demographic">
+            <field name="patient_id" ref="patient_dicom"/>
+            <field name="attribute_id" ref="dicom_pat_demog_00100040"/>
+            <field name="attribute_value">M</field>
+        </record>   
+
+    </data>
+</odoo>

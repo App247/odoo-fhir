@@ -34,7 +34,7 @@
             <field name="arch" type="xml">
                 <form string="Person">
                     <sheet>
-<!--                         <field name="image" widget="image" class="oe_left oe_avatar" options="{'preview_image': 'image_medium', 'size': [90, 90]}"/> -->
+                        <field name="image" widget="image" class="oe_left oe_avatar" options="{'preview_image': 'image_medium', 'size': [90, 90]}"/>
                         <div class="oe_title">
                             <h1>
                                 <field name="name_id" placeholder="Full Name"/>
@@ -859,50 +859,39 @@
 
         <!-- External Reference View -->
 
-         <record id="base.view_partner_form_inherited_person" model="ir.ui.view">
-          <field name="name">res.partner.form</field>
-          <field name="model">res.partner</field>
-          <field name="inherit_id" ref="base.view_partner_form"/>
-          <field name="arch" type="xml">
-            <xpath expr="//page[@name='sales_purchases']" position="after">
-                <page string="Health Care">
-                    <field name="link_ids" mode="tree">
-                        <tree>
-                            <field name="target_type"/>
-                            <field name="target_name"/>
-                            <field name="start_date" string="Valid From"/>
-                            <field name="end_date" string="Valid To"/>
-                        </tree>
-                        <form>
-                            <sheet>
-                                <group>
+        <record id="base.view_partner_form_inherited_person" model="ir.ui.view">
+            <field name="name">res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='sales_purchases']" position="after">
+                    <page string="Health Care">
+                        <field name="link_ids" mode="tree">
+                            <tree>
+                                <field name="link_type"/>
+                                <field name="link_name"/>
+                                <field name="start_date" string="Valid From"/>
+                                <field name="end_date" string="Valid To"/>
+                            </tree>
+                            <form>
+                                <sheet>
                                     <group>
-                                        <field name="target_name"/>
-                                        <field name="target_type" class="oe_edit_only"/>
-                                        <field name="target_person_id" class="oe_edit_only" attrs="{'invisible': [('target_type','!=','person')], 'required': [('target_type','=','person')]}"/>
-                                        <!-- <field name="target_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('target_type','!=','practitioner')], 'required': [('target_type','=','practitioner')]}"/>
-                                        <field name="target_related_person_id" class="oe_edit_only" attrs="{'invisible': [('target_type','!=','related_person')], 'required': [('target_type','=','related_person')]}"/>
-                                        <field name="target_patient_id" class="oe_edit_only" attrs="{'invisible': [('target_type','!=','patient')], 'required': [('target_type','=','patient')]}"/>
-                                        <field name="target_patient_contact_id" class="oe_edit_only" attrs="{'invisible': [('target_type','!=','patient_contact')], 'required': [('target_type','=','patient_contact')]}"/> -->
+                                        <group>
+                                            <field name="link_name"/>
+                                            <field name="link_type" class="oe_edit_only"/>
+                                            <field name="link_person_id" class="oe_edit_only" attrs="{'invisible': [('link_type','!=','person')], 'required': [('link_type','=','person')]}"/>
+                                        </group>
+                                        <group>
+                                            <field name="start_date" string="Valid From"/>
+                                            <field name="end_date" string="Valid To"/>
+                                       </group>
                                     </group>
-                                    <group>
-                                        <field name="start_date" string="Valid From"/>
-                                        <field name="end_date" string="Valid To"/>
-                                   </group>
-                                </group>
-                            </sheet>
-                        </form>
-                    </field>
-                </page>
-            </xpath>
-<!--                 <label for="is_patient" string="HC Patient"/>
-                <field name="is_patient"/>
-                <label for="is_practitioner" string="HC Practitioner"/>
-                <field name="is_practitioner"/>
-                <label for="is_related_person" string="HC Related Person"/>
-                <field name="is_related_person"/>
-              </field> -->
-          </field>
+                                </sheet>
+                            </form>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
         </record>
 
     </data>

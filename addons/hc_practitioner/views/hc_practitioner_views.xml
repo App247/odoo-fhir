@@ -31,17 +31,15 @@
             <field name="arch" type="xml">
                 <form string="Practitioner">
                     <sheet>
-<!--                         <field name="image" widget="image" class="oe_left oe_avatar" options="{'preview_image': 'image_medium', 'size': [90, 90]}"/> -->
+                        <field name="image" widget="image" class="oe_left oe_avatar" options="{'preview_image': 'image_medium', 'size': [90, 90]}"/>
                         <div class="oe_title">
                             <h1>
-                                <field name="name" default_focus="1" placeholder="Name"/>
+                                <field name="person_id" default_focus="1" placeholder="Person"/>
                             </h1>
                         </div>
                         <div name="buttons" class="oe_right oe_button_box"></div>
                         <group>
                             <group>
-                                <field name="partner_id"/>
-                                <field name="person_id"/>
                                 <field name="gender"/>
                                 <field name="birth_date"/>
                             </group>
@@ -367,9 +365,12 @@
             <field name="model">hc.res.person</field>
             <field name="inherit_id" ref="hc_person.hc_res_person_view_form"/>
             <field name="arch" type="xml">
-                <field name="target_type" position="after">
+                <xpath expr="//field[@name='is_active']" position="after">
+                    <field name="is_practitioner" readonly="1"/>
+                </xpath>
+                <xpath expr="//field[@name='target_person_id']" position="after">
                     <field name="target_practitioner_id" attrs="{'invisible': [('target_type','!=','practitioner')]}"/>
-                </field>
+                </xpath>
             </field>
         </record>
 
@@ -466,19 +467,59 @@
 
         <!-- External reference -->
 
-        <record id="hc_res_person_view_form_inherited_practitioner" model="ir.ui.view">
+        <record id="hc_res_person_view_form_inherited_related_person" model="ir.ui.view">
             <field name="name">Person Form</field>
             <field name="model">hc.res.person</field>
             <field name="inherit_id" ref="hc_person.hc_res_person_view_form"/>
             <field name="arch" type="xml">
-<!--                 <xpath expr="//field[@name='is_active']" position="after">
+                <xpath expr="//field[@name='is_active']" position="after">
                     <field name="is_practitioner" readonly="1"/>
-                </xpath> -->
-                <xpath expr="//field[@name='link_ids']//form//field[@name='target_person_id']" position="after">
-                    <field name="target_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('target_type','!=','practitioner')], 'required': [('target_type','=','practitioner')]}"/>
+                </xpath>
+                <xpath expr="//field[@name='target_person_id']" position="after">
+                    <field name="target_practitioner_id" attrs="{'invisible': [('target_type','!=','Practitioner')]}"/>
                 </xpath>
             </field>
         </record>
+
+<!--         <record id="base.view_partner_form_inherited_practitioner" model="ir.ui.view">
+            <field name="name">res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='is_active']" position="after">
+                    <field name="is_practitioner" readonly="1"/>
+                </xpath>
+                <xpath expr="//page[@name='sales_purchases']" position="after">
+                    <page string="Health Care">
+                        <field name="link_ids" mode="tree">
+                            <tree>
+                                <field name="link_type"/>
+                                <field name="link_name"/>
+                                <field name="start_date" string="Valid From"/>
+                                <field name="end_date" string="Valid To"/>
+                            </tree>
+                            <form>
+                                <sheet>
+                                    <group>
+                                        <group>
+                                            <field name="link_name"/>
+                                            <field name="link_type" class="oe_edit_only"/>
+                                            <field name="link_person_id" class="oe_edit_only" attrs="{'invisible': [('link_type','!=','person')], 'required': [('link_type','=','person')]}"/>
+                                            <field name="link_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('link_type','!=','practitioner')], 'required': [('link_type','=','practitioner')]}"/>
+                                            <field name="link_related_person_id" class="oe_edit_only" attrs="{'invisible': [('link_type','!=','related_person')], 'required': [('link_type','=','related_person')]}"/>
+                                        </group>
+                                        <group>
+                                            <field name="start_date" string="Valid From"/>
+                                            <field name="end_date" string="Valid To"/>
+                                       </group>
+                                    </group>
+                                </sheet>
+                            </form>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record> -->
 
     </data>
 </odoo>

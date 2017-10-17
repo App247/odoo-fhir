@@ -59,6 +59,7 @@
         'examples/example_stock_persons.xml',
         'examples/example_newborn.xml',
         'examples/example_xcda.xml',
+        'examples/example_dicom.xml',
         # 'views/hc_marital_status_views.xml',
         'views/hc_dicom_demographic_views.xml',
         'views/hc_res_patient_views.xml',

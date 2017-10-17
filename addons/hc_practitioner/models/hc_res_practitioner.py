@@ -5,9 +5,7 @@ from openerp import models, fields, api
 class Practitioner(models.Model):
     _name = "hc.res.practitioner"
     _description = "Practitioner"
-    _inherit = "hc.domain.resource"
     _inherits = {"hc.res.person": "person_id"}
-    _rec_name = "name"
 
     person_id = fields.Many2one(
         comodel_name="hc.res.person",
@@ -322,6 +320,32 @@ class Partner(models.Model):
     is_practitioner = fields.Boolean(
         string="Is a practitioner",
         help="This partner is a health care practitioner.")
+
+class PartnerLink(models.Model):
+    _inherit = ["hc.partner.link"]
+
+    link_type = fields.Selection(
+        selection_add=[
+            ("practitioner", "Practitioner")])
+    link_practitioner_id = fields.Many2one(
+        comodel_name="hc.res.practitioner",
+        string="Link Practitioner",
+        help="Practitioner who is the resource to which this actual partner is associated.")
+
+    @api.depends('link_type')
+    def _compute_link_name(self):
+        for hc_partner_link in self:
+            if hc_partner_link.link_type == 'person':
+                hc_partner_link.link_name = hc_partner_link.link_person_id.name
+            elif hc_partner_link.link_type == 'practitioner':
+                hc_partner_link.link_name = hc_partner_link.link_practitioner_id.name
+
+class Person(models.Model):
+    _inherit = ["hc.res.person"]
+
+    is_practitioner = fields.Boolean(
+        string="Is a practitioner",
+        help="This person is a practitioner.")
 
 class PersonLink(models.Model):
     _inherit = ["hc.person.link"]

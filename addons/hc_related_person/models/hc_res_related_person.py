@@ -6,7 +6,6 @@ class RelatedPerson(models.Model):
     _name = "hc.res.related.person"
     _description = "Related Person"
     _inherits = {"hc.res.person": "person_id"}
-    _rec_name = "name"
 
     person_id = fields.Many2one(
         comodel_name="hc.res.person",
@@ -27,10 +26,6 @@ class RelatedPerson(models.Model):
         string="Active",
         default="True",
         help="Whether this related person's record is in active use.")
-    # name_ids = fields.Many2many(
-    #     related="person_id.name_ids",
-    #     string="Names",
-    #     help="A name associated with the related person.")
     name_ids = fields.One2many(
         related="person_id.name_ids",
         string="Names",
@@ -77,14 +72,35 @@ class RelatedPerson(models.Model):
         required="True",
         help="Patient(s) related to this person.")
 
-    _defaults = {
-        "is_related_person": True,
-        }
+    # _defaults = {
+    #     "is_related_person": True,
+    #     }
 
+    # @api.model
+    # def create(self, vals):
+    #     vals['is_related_person'] = self.env.context.get('is_related_person', False)
+    #     return super(RelatedPerson, self).create(vals)
+
+    # Indicate that associated Person is a Related Person.
     @api.model
     def create(self, vals):
-        vals['is_related_person'] = self.env.context.get('is_related_person', False)
+        person_obj = self.env['hc.res.person']
+        if vals and vals.get('person_id'):
+            person_id = person_obj.browse(vals.get('person_id'))
+            if person_id:
+                person_id.is_related_person = True
         return super(RelatedPerson, self).create(vals)
+
+    # When this Related Person record is inactivated and there are no other active Related Person records associated with the Person record, indicate that the Person is not a Related Person.
+    @api.multi
+    def unlink(self):
+        for rec in self:
+            if rec.person_id:
+                person_rec = self.search([('person_id', '=', rec.person_id.id),
+                                          ('id','!=', self.id)])
+                if not person_rec:
+                    rec.person_id.is_related_person = False
+        return super(RelatedPerson, self).unlink()
 
 class RelatedPersonIdentifier(models.Model):
     _name = "hc.related.person.identifier"
@@ -218,6 +234,34 @@ class Partner(models.Model):
         string="Is a related person",
         help="This partner is a health care related person.")
 
+class PartnerLink(models.Model):
+    _inherit = ["hc.partner.link"]
+
+    link_type = fields.Selection(
+        selection_add=[
+            ("related_person", "Related Person")])
+    link_related_person_id = fields.Many2one(
+        comodel_name="hc.res.related.person",
+        string="Link Related Person",
+        help="Related Person who is the resource to which this actual partner is associated.")
+
+    @api.depends('link_type')
+    def _compute_link_name(self):
+        for hc_partner_link in self:
+            if hc_partner_link.link_type == 'person':
+                hc_partner_link.link_name = hc_partner_link.link_person_id.name
+            elif hc_partner_link.link_type == 'related_person':
+                hc_partner_link.link_name = hc_partner_link.link_related_person_id.name
+            elif hc_partner_link.link_type == 'practitioner':
+                hc_partner_link.link_name = hc_partner_link.link_practitioner_id.name
+
+class Person(models.Model):
+    _inherit = ["hc.res.person"]
+
+    is_related_person = fields.Boolean(
+        string="Is a related person",
+        help="This person is a related person.")
+
 class PersonLink(models.Model):
     _inherit = ["hc.person.link"]
 
@@ -233,7 +277,7 @@ class PersonLink(models.Model):
                 hc_person_link.target_name = hc_person_link.target_person_id.name
             elif hc_person_link.target_type == 'practitioner':
                 hc_person_link.target_name = hc_person_link.target_practitioner_id.name
-            elif hc_person_link.target_type == 'related Person':
+            elif hc_person_link.target_type == 'related_person':
                 hc_person_link.target_name = hc_person_link.target_related_person_id.name
 
 class Annotation(models.Model):

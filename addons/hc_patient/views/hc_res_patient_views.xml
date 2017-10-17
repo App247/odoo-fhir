@@ -40,10 +40,10 @@
             <field name="arch" type="xml">
                 <form string="Patient">
                     <sheet>
-<!--                         <field name="image" widget="image" class="oe_left oe_avatar" options="{'preview_image': 'image_medium', 'size': [90, 90]}"/> -->
+                        <field name="image" widget="image" class="oe_left oe_avatar" options="{'preview_image': 'image_medium', 'size': [90, 90]}"/>
                         <div class="oe_title">
                             <h1>
-                                <field name="person_id" default_focus="1" placeholder="Name"/>
+                                <field name="person_id" default_focus="1" placeholder="Person"/>
                             </h1>
                             <h3>
                                 <field name="managing_organization_id" placeholder="Managing Organization (e.g., Provider Organization)"/>
@@ -471,6 +471,41 @@
                                                     <field name="end_date" placeholder="Valid To"/>
                                                 </group>
                                                 <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="DICOM Demographics">
+                                <field name="dicom_demographic_ids" mode="tree">
+                                    <tree>
+                                        <field name="is_preferred" widget="upgrade_boolean"/>
+                                        <field name="attribute_id"/>
+                                        <field name="attribute_tag"/>
+                                        <field name="attribute_value"/>
+                                        <field name="attribute_uom_id"/>
+                                        <field name="start_date" string="Valid From"/>
+                                        <field name="end_date" string="Valid To"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <div class="oe_title oe_left">
+                                                <h1>
+                                                    <field name="attribute_id" default_focus="1" placeholder="Attribute"/>
+                                                </h1>
+                                                <field name="attribute_tag" readonly="1"/>
+                                            </div>
+                                            <group>
+                                                <group>
+                                                    <field name="attribute_value"/>
+                                                    <field name="attribute_uom_id"/>
+                                                    <field name="start_date" placeholder="Valid From"/>
+                                                    <field name="end_date" placeholder="Valid To"/>
+                                                </group>
+                                                <group>
+                                                    <field name="is_preferred"/>
+                                                    <field name="is_active"/>
                                                 </group>
                                             </group>
                                         </sheet>
@@ -1568,45 +1603,90 @@
 
     <!-- External Reference View -->
 
-        <!-- <record id="base.view_partner_form_inherited_patient" model="ir.ui.view">
-          <field name="name">res.partner.form</field>
-          <field name="model">res.partner</field>
-          <field name="inherit_id" ref="base.view_partner_form"/>
-          <field name="arch" type="xml">
-              <field name="parent_id" position="after">
-                <label for="is_patient" string="HC Patient"/>
-                <field name="is_patient"/>
-              </field>
-          </field>
-        </record> -->
-
         <record id="hc_res_person_view_form_inherited_patient" model="ir.ui.view">
             <field name="name">Person Form</field>
             <field name="model">hc.res.person</field>
             <field name="inherit_id" ref="hc_person.hc_res_person_view_form"/>
             <field name="arch" type="xml">
-<!--                 <xpath expr="//field[@name='is_active']" position="after">
+                <xpath expr="//field[@name='is_active']" position="after">
                     <field name="is_patient" readonly="1"/>
-                </xpath> -->
-                <xpath expr="//field[@name='link_ids']//form//field[@name='target_type']" position="after">
-                    <field name="target_patient_id" class="oe_edit_only" attrs="{'invisible': [('target_type','!=','patient')], 'required': [('target_type','=','patient')]}"/>
+                </xpath>
+                <xpath expr="//field[@name='target_person_id']" position="after">
+                    <field name="target_patient_id" attrs="{'invisible': [('target_type','!=','Patient')]}"/>
+<!--                     <field name="target_practitioner_id" attrs="{'invisible': [('target_type','!=','Practitioner')]}"/> -->
+<!--                     <field name="target_related_person_id" attrs="{'invisible': [('target_type','!=','Related Person')]}"/> -->
                 </xpath>
             </field>
         </record>
 
-        <record id="hc_res_related_person_view_form_inherited" model="ir.ui.view">
+        <record id="base.view_partner_form_inherited_patient" model="ir.ui.view">
+            <field name="name">res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='sales_purchases']" position="after">
+                    <page string="Health Care">
+                        <field name="link_ids" mode="tree">
+                            <tree>
+                                <field name="link_type"/>
+                                <field name="link_name"/>
+                                <field name="start_date" string="Valid From"/>
+                                <field name="end_date" string="Valid To"/>
+                            </tree>
+                            <form>
+                                <sheet>
+                                    <group>
+                                        <group>
+                                            <field name="link_name"/>
+                                            <field name="link_type" class="oe_edit_only"/>
+                                            <field name="link_person_id" class="oe_edit_only" attrs="{'invisible': [('link_type','!=','person')], 'required': [('link_type','=','person')]}"/>
+                                            <field name="link_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('link_type','!=','practitioner')], 'required': [('link_type','=','practitioner')]}"/>
+                                            <field name="link_related_person_id" class="oe_edit_only" attrs="{'invisible': [('link_type','!=','related_person')], 'required': [('link_type','=','related_person')]}"/>
+                                            <field name="link_patient_id" class="oe_edit_only" attrs="{'invisible': [('link_type','!=','patient')], 'required': [('link_type','=','patient')]}"/>
+                                            <field name="link_patient_contact_id" class="oe_edit_only" attrs="{'invisible': [('link_type','!=','patient_contact')], 'required': [('link_type','=','patient_contact')]}"/>
+                                        </group>
+                                        <group>
+                                            <field name="start_date" string="Valid From"/>
+                                            <field name="end_date" string="Valid To"/>
+                                       </group>
+                                    </group>
+                                </sheet>
+                            </form>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+<!--         <record id="hc_res_related_person_view_form_inherited" model="ir.ui.view">
             <field name="name">Related Person Form</field>
             <field name="model">hc.res.related.person</field>
             <field name="inherit_id" ref="hc_related_person.hc_res_related_person_view_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='patient_ids']//tree//field[@name='relationship_id']" position="before">
-                    <field name="patient_id"/>
-                </xpath>
-                <xpath expr="//field[@name='patient_ids']//form//field[@name='relationship_id']" position="before">
-                    <field name="patient_id"/>
+                <xpath expr="//field[@name='patient_ids']" position="after">
+                    <tree>
+                        <field name="patient_id"/>
+                        <field name="relationship_id"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                    </tree>
+                    <form>
+                        <sheet>
+                            <group>
+                                <group>
+                                    <field name="patient_id"/>
+                                    <field name="relationship_id"/>
+                                    <field name="start_date"/>
+                                    <field name="end_date"/>
+                                </group>
+                                <group>
+                                </group>
+                            </group>
+                        </sheet>
+                    </form>
                 </xpath>
             </field>
-        </record>
+        </record> -->
 
     </data>
 </odoo>

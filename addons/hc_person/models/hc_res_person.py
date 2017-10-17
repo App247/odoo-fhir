@@ -100,6 +100,21 @@ class Person(models.Model):
         string="Links",
         help="Link to a resource that concerns the same actual person.")
 
+    #Added from res.partner
+    image = fields.Binary("Image",
+        attachment=True,
+        help="This field holds the image used as avatar for this contact, limited to 1024x1024px",)
+    image_medium = fields.Binary("Medium-sized image",
+        attachment=True,
+        help="Medium-sized image of this contact. It is automatically "\
+             "resized as a 128x128px image, with aspect ratio preserved. "\
+             "Use this field in form views or some kanban views.")
+    image_small = fields.Binary("Small-sized image",
+        attachment=True,
+        help="Small-sized image of this contact. It is automatically "\
+             "resized as a 64x64px image, with aspect ratio preserved. "\
+             "Use this field anywhere a small image is required.")
+
     _defaults = {
         "is_company": False,
         "customer": False,
@@ -122,7 +137,7 @@ class Person(models.Model):
     _sql_constraints = [
         ('person_uniq',
         'UNIQUE (unique_person)',
-        'Person must be unique.')
+        'Person must be a unique combination of name, gender and birth date')
         ]
 
     # For a new record, add Person Name to the list of Person Names and mark it as preferred with Start Date = Birth Date.
@@ -138,8 +153,8 @@ class Person(models.Model):
         names_vals = {}
         res = super(Person, self).create(vals)
         link = partner_link_obj.create({
-            'target_type': 'person',
-            'target_person_id': res.id,
+            'link_type': 'person',
+            'link_person_id': res.id,
             'partner_id': partner_id.id,
             'start_date': datetime.datetime.today().date()
             })
@@ -152,6 +167,39 @@ class Person(models.Model):
                 })
             person_name_obj.create(names_vals)
         return res
+
+    # @api.model
+    # def create(self, vals):
+
+    #     # Create Person Name record
+    #     person_name_obj = self.env['hc.person.name']
+    #     name = self.env['hc.human.name'].browse(vals['name_id'])
+    #     names_vals = {}
+    #     res = super(Person, self).create(vals)
+    #     if name:
+    #         names_vals.update({
+    #             'is_preferred': True,
+    #             'human_name_id': name.id,
+    #             'person_id': res.id,
+    #             'start_date': res.birth_date,
+    #             })
+    #         person_name_obj.create(names_vals)
+
+    #     # Create Partner record
+    #     partner_obj = self.env['res.partner']
+    #     partner_id = partner_obj.create({'company_type': 'person', 'name' : name.name})
+    #     vals.update({'name': name.name, 'partner_id': partner_id.id})
+
+    #     # Create link of Person to Partner
+    #     partner_link_obj = self.env['hc.partner.link']
+    #     link = partner_link_obj.create({
+    #         'link_type': 'person',
+    #         'link_person_id': res.id,
+    #         'partner_id': partner_id.id,
+    #         'start_date': datetime.datetime.today().date()
+    #         })
+
+    #     return res
 
     # For an existing record, if new Person Name is preferred, remove preferred from previous name.
 
@@ -248,6 +296,7 @@ class Person(models.Model):
 class PersonLink(models.Model):
     _name = "hc.person.link"
     _description = "Person Link"
+    _inherit = "hc.backbone.element"
 
     person_id = fields.Many2one(
         comodel_name="hc.res.person",
@@ -257,20 +306,16 @@ class PersonLink(models.Model):
         string="Target Type",
         required="True",
         selection=[
-            ("person", "Person"),
+            ("patient", "Patient"),
             ("practitioner", "Practitioner"),
             ("related_person", "Related Person"),
-            ("patient", "Patient")],
+            ("person", "Person")],
         help="Type of resource to which this actual person is associated.")
     target_name = fields.Char(
         string="Target",
         compute="_compute_target_name",
         store="True",
         help="The resource to which this actual person is associated.")
-    target_person_id = fields.Many2one(
-        comodel_name="hc.res.person",
-        string="Target Person",
-        help="Person who is the resource to which this actual person is associated.")
     # target_patient_id = fields.Many2one(
     #     comodel_name="hc.res.patient",
     #     string="Target Patient",
@@ -283,6 +328,10 @@ class PersonLink(models.Model):
     #     comodel_name="hc.res.related.person",
     #     string="Target Related Person",
     #     help="Related Person who is the resource to which this actual person is associated.")
+    target_person_id = fields.Many2one(
+        comodel_name="hc.res.person",
+        string="Target Person",
+        help="Person who is the resource to which this actual person is associated.")
     assurance = fields.Selection(
         string="Assurance Level",
         selection=[
@@ -291,19 +340,19 @@ class PersonLink(models.Model):
             ("level3", "Level 3"),
             ("level4", "Level 4")],
         default="level1",
-        help="Level of assurance that this link is actually associated with the target resource.")
+        help="Level of assurance that this link is actually associated with the link resource.")
 
     @api.depends('target_type')
     def _compute_target_name(self):
         for hc_person_link in self:
             if hc_person_link.target_type == 'person':
                 hc_person_link.target_name = hc_person_link.target_person_id.name
+    #         elif hc_person_link.target_type == 'patient':
+    #             hc_person_link.target_name = hc_person_link.target_patient_id.name
     #         elif hc_person_link.target_type == 'practitioner':
     #             hc_person_link.target_name = hc_person_link.target_practitioner_id.name
     #         elif hc_person_link.target_type == 'related_person':
     #             hc_person_link.target_name = hc_person_link.target_related_person_id.name
-    #         elif hc_person_link.target_type == 'patient':
-    #             hc_person_link.target_name = hc_person_link.target_patient_id.name
 
 class PersonIdentifier(models.Model):
     _name = "hc.person.identifier"
@@ -517,58 +566,57 @@ class PartnerLink(models.Model):
     _description = "Partner Link"
     _inherit = ["hc.basic.association"]
 
-
     partner_id = fields.Many2one(
         comodel_name="res.partner",
         string="Partner",
         help="Partner associated with this Partner Link.")
-    target_type = fields.Selection(
-        string="Target Type",
+    link_type = fields.Selection(
+        string="Link Type",
         required="True",
         selection=[
-            ("person", "Person"),
-            ("patient", "Patient"),
-            ("patient_contact", "Patient Contact"),
-            ("related_person", "Related Person"),
-            ("practitioner", "Practitioner")],
+            ("person", "Person")
+            # ("patient", "Patient"),
+            # ("patient_contact", "Patient Contact"),
+            # ("related_person", "Related Person"),
+            # ("practitioner", "Practitioner")
+            ],
         help="Type of resource to which this actual partner is associated.")
-    target_name = fields.Char(
-        string="Target",
-        compute="_compute_target_name",
+    link_name = fields.Char(
+        string="Link",
+        compute="_compute_link_name",
         store="True",
         help="The resource to which this actual partner is associated.")
-    target_person_id = fields.Many2one(
+    link_person_id = fields.Many2one(
         comodel_name="hc.res.person",
-        string="Target Person",
+        string="Link Person",
         help="Person who is the resource to which this actual partner is associated.")
-    # target_patient_id = fields.Many2one(
+    # link_patient_id = fields.Many2one(
     #     comodel_name="hc.res.patient",
-    #     string="Target Patient",
+    #     string="Link Patient",
     #     help="Patient who is the resource to which this actual partner is associated.")
-    # target_patient_contact = fields.Char(
+    # link_patient_contact_id = fields.Many2one(
     #     comodel_name="hc.patient.contact",
-    #     string="Target Patient Contact",
+    #     string="Link Patient Contact",
     #     help="Patient who is the resource to which this actual partner is associated.")
-    # target_related_person_id = fields.Many2one(
+    # link_related_person_id = fields.Many2one(
     #     comodel_name="hc.res.related.person",
-    #     string="Target Related Person",
+    #     string="Link Related Person",
     #     help="Related Person who is the resource to which this actual partner is associated.")
-    # target_practitioner_id = fields.Many2one(
+    # link_practitioner_id = fields.Many2one(
     #     comodel_name="hc.res.practitioner",
-    #     string="Target Practitioner",
+    #     string="Link Practitioner",
     #     help="Practitioner who is the resource to which this actual partner is associated.")
 
-
-    @api.depends('target_type')
-    def _compute_target_name(self):
+    @api.depends('link_type')
+    def _compute_link_name(self):
         for hc_partner_link in self:
-            if hc_partner_link.target_type == 'person':
-                hc_partner_link.target_name = hc_partner_link.target_person_id.name
-            # elif hc_partner_link.target_type == 'practitioner':
-            #     hc_partner_link.target_name = hc_partner_link.target_practitioner_id.name
-            # elif hc_partner_link.target_type == 'related_person':
-            #     hc_partner_link.target_name = hc_partner_link.target_related_person_id.name
-            # elif hc_partner_link.target_type == 'patient':
-            #     hc_partner_link.target_name = hc_partner_link.target_patient_id.name
-            # elif hc_partner_link.target_type == 'patient_contact':
-            #     hc_partner_link.target_name = hc_partner_link.target_patient_contact_id.name
+            if hc_partner_link.link_type == 'person':
+                hc_partner_link.link_name = hc_partner_link.link_person_id.name
+            # elif hc_partner_link.link_type == 'patient':
+            #     hc_partner_link.link_name = hc_partner_link.link_patient_id.name
+            # elif hc_partner_link.link_type == 'patient_contact':
+            #     hc_partner_link.link_name = hc_partner_link.link_patient_contact_id.name
+            # elif hc_partner_link.link_type == 'related_person':
+            #     hc_partner_link.link_name = hc_partner_link.link_related_person_id.name
+            # elif hc_partner_link.link_type == 'practitioner':
+            #     hc_partner_link.link_name = hc_partner_link.link_practitioner_id.name
