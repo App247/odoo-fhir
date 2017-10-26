@@ -1091,6 +1091,45 @@
                   parent="hc_base.menu_addr"
                   action="hc_address_geolocation_action"
                   groups="hc_base.group_hc_base_manager"
+                  sequence="75"/>
+
+
+        <!-- External Reference View -->
+
+        <record id="hc_base.view_country_tree_inherited" model="ir.ui.view">
+            <field name="name">res.country.tree</field>
+            <field name="model">res.country</field>
+            <field name="inherit_id" ref="base.view_country_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='code']" position="after">
+                    <field name="code3"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="hc_base.view_country_form_inherited" model="ir.ui.view">
+            <field name="name">res.country.form</field>
+            <field name="model">res.country</field>
+            <field name="inherit_id" ref="base.view_country_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='code']" position="after">
+                    <field name="code3"/>
+                </xpath>
+            </field>
+        </record>
+
+        <act_window id="base.country_action"
+            name="Countries"
+            res_model="res.country"
+            view_mode="tree,form"
+            domain=""
+            context=""
+            limit=""/>
+
+        <menuitem id="base.menu_country"
+                  name="Countries"
+                  parent="hc_base.menu_addr"
+                  action="base.country_action"
                   sequence="72"/>
 
     </data>

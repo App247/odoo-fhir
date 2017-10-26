@@ -2,9 +2,9 @@
 <odoo>
     <data noupdate="0">
 
-        <!--Marital Status -->
+    <!--Marital Status -->
 
-        <record id="hc_base.marital_status_a" model="hc.vs.marital.status">
+        <record id="marital_status_a" model="hc.vs.marital.status">
             <field name="code">A</field>
             <field name="name">Annulled</field>
             <field name="definition">Marriage contract has been declared null and to not have existed.</field>
@@ -14,7 +14,7 @@
             <field name="level">1</field>
         </record>
 
-        <record id="hc_base.marital_status_d" model="hc.vs.marital.status">
+        <record id="marital_status_d" model="hc.vs.marital.status">
             <field name="code">D</field>
             <field name="name">Divorced</field>
             <field name="definition">Marriage contract has been declared dissolved and inactive.</field>
@@ -24,7 +24,7 @@
             <field name="level">1</field>
         </record>
 
-        <record id="hc_base.marital_status_i" model="hc.vs.marital.status">
+        <record id="marital_status_i" model="hc.vs.marital.status">
             <field name="code">I</field>
             <field name="name">Interlocutory</field>
             <field name="definition">Subject to an Interlocutory Decree.</field>
@@ -34,7 +34,7 @@
             <field name="level">1</field>
         </record>
 
-        <record id="hc_base.marital_status_l" model="hc.vs.marital.status">
+        <record id="marital_status_l" model="hc.vs.marital.status">
             <field name="code">L</field>
             <field name="name">Legally Separated</field>
             <field name="definition">Legally Separated.</field>
@@ -44,7 +44,7 @@
             <field name="level">1</field>
         </record>
 
-        <record id="hc_base.marital_status_m" model="hc.vs.marital.status">
+        <record id="marital_status_m" model="hc.vs.marital.status">
             <field name="code">M</field>
             <field name="name">Married</field>
             <field name="definition">A current marriage contract is active.</field>
@@ -54,7 +54,7 @@
             <field name="level">1</field>
         </record>
 
-        <record id="hc_base.marital_status_p" model="hc.vs.marital.status">
+        <record id="marital_status_p" model="hc.vs.marital.status">
             <field name="code">P</field>
             <field name="name">Polygamous</field>
             <field name="definition">More than 1 current spouse.</field>
@@ -64,7 +64,7 @@
             <field name="level">1</field>
         </record>
 
-        <record id="hc_base.marital_status_s" model="hc.vs.marital.status">
+        <record id="marital_status_s" model="hc.vs.marital.status">
             <field name="code">S</field>
             <field name="name">Never Married</field>
             <field name="definition">No marriage contract has ever been entered.</field>
@@ -74,7 +74,7 @@
             <field name="level">1</field>
         </record>
 
-        <record id="hc_base.marital_status_t" model="hc.vs.marital.status">
+        <record id="marital_status_t" model="hc.vs.marital.status">
             <field name="code">T</field>
             <field name="name">Domestic Partner</field>
             <field name="definition">Person declares that a domestic partner relationship exists.</field>
@@ -84,7 +84,7 @@
             <field name="level">1</field>
         </record>
 
-        <record id="hc_base.marital_status_u" model="hc.vs.marital.status">
+        <record id="marital_status_u" model="hc.vs.marital.status">
             <field name="code">U</field>
             <field name="name">Unmarried</field>
             <field name="definition">Currently not in a marriage contract. The marital history is not known or stated.</field>
@@ -94,7 +94,7 @@
             <field name="level">1</field>
         </record>
 
-        <record id="hc_base.marital_status_w" model="hc.vs.marital.status">
+        <record id="marital_status_w" model="hc.vs.marital.status">
             <field name="code">W</field>
             <field name="name">Widowed</field>
             <field name="definition">The spouse has died.</field>
@@ -104,7 +104,7 @@
             <field name="level">1</field>
         </record>
 
-        <record id="hc_base.marital_status_ni" model="hc.vs.marital.status">
+        <record id="marital_status_ni" model="hc.vs.marital.status">
             <field name="code">NI</field>
             <field name="name">No Information</field>
             <field name="definition">The value is exceptional (missing, omitted, incomplete, improper). No information as to the reason for being an exceptional value is provided. This is the most general exceptional value. It is also the default exceptional value.</field>
@@ -114,176 +114,176 @@
             <field name="level">1</field>
         </record>
 
-        <record id="hc_base.marital_status_inv" model="hc.vs.marital.status">
+        <record id="marital_status_inv" model="hc.vs.marital.status">
             <field name="code">INV</field>
             <field name="name">Invalid</field>
             <field name="definition">The value as represented in the instance is not a member of the set of permitted data values in the constrained value domain of a variable.</field>
             <field name="may_have_spouse">false</field>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://build.fhir.org/v3/NullFlavor/cs.html</field>
-            <field name="contains_id" ref="hc_base.marital_status_ni"/>
+            <field name="contains_id" ref="marital_status_ni"/>
             <field name="level">2</field>
         </record>
 
-        <record id="hc_base.marital_status_der" model="hc.vs.marital.status">
+        <record id="marital_status_der" model="hc.vs.marital.status">
             <field name="code">DER</field>
             <field name="name">Derived</field>
             <field name="definition">An actual value may exist, but it must be derived from the provided information (usually an EXPR generic data type extension will be used to convey the derivation expressionexpression .</field>
             <field name="may_have_spouse">false</field>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://build.fhir.org/v3/NullFlavor/cs.html</field>
-            <field name="contains_id" ref="hc_base.marital_status_inv"/>
+            <field name="contains_id" ref="marital_status_inv"/>
             <field name="level">3</field>
         </record>
 
-        <record id="hc_base.marital_status_oth" model="hc.vs.marital.status">
+        <record id="marital_status_oth" model="hc.vs.marital.status">
             <field name="code">OTH</field>
             <field name="name">Other</field>
             <field name="definition">The actual value is not a member of the set of permitted data values in the constrained value domain of a variable. (e.g., concept not provided by required code system).</field>
             <field name="may_have_spouse">false</field>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://build.fhir.org/v3/NullFlavor/cs.html</field>
-            <field name="contains_id" ref="hc_base.marital_status_inv"/>
+            <field name="contains_id" ref="marital_status_inv"/>
             <field name="level">3</field>
             <field name="comments">Usage Notes: This flavor and its specializations are most commonly used with the CD datatype and its flavors. However, it may apply to &quot;any&quot; datatype where the constraints of the type are tighter than can be conveyed. For example, a PQ that is for a true measured amount whose units are not supported in UCUM, a need to convey a REAL when the type has been constrained to INT, etc. &#10;&#10;With coded datatypes, this null flavor may only be used if the vocabulary binding has a coding strength of CNE. By definition, all local codes and original text are part of the value set if the coding strength is CWE.</field>
         </record>
 
-        <record id="hc_base.marital_status_ninf" model="hc.vs.marital.status">
+        <record id="marital_status_ninf" model="hc.vs.marital.status">
             <field name="code">NINF</field>
             <field name="name">Negative Infinity</field>
             <field name="definition">Negative infinity of numbers.</field>
             <field name="may_have_spouse">false</field>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://build.fhir.org/v3/NullFlavor/cs.html</field>
-            <field name="contains_id" ref="hc_base.marital_status_oth"/>
+            <field name="contains_id" ref="marital_status_oth"/>
             <field name="level">4</field>
         </record>
 
-        <record id="hc_base.marital_status_pinf" model="hc.vs.marital.status">
+        <record id="marital_status_pinf" model="hc.vs.marital.status">
             <field name="code">PINF</field>
             <field name="name">Positive Infinity</field>
             <field name="definition">Positive infinity of numbers.</field>
             <field name="may_have_spouse">false</field>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://build.fhir.org/v3/NullFlavor/cs.html</field>
-            <field name="contains_id" ref="hc_base.marital_status_oth"/>
+            <field name="contains_id" ref="marital_status_oth"/>
             <field name="level">4</field>
         </record>
 
-        <record id="hc_base.marital_status_unc" model="hc.vs.marital.status">
+        <record id="marital_status_unc" model="hc.vs.marital.status">
             <field name="code">UNC</field>
             <field name="name">Un-Encoded</field>
             <field name="definition">The actual value has not yet been encoded within the approved value domain. &#10;&#10;Example: Original text or a local code has been specified but translation or encoding to the approved value set has not yet occurred due to limitations of the sending system. Original text has been captured for a PQ, but not attempt has been made to split the value and unit or to encode the unit in UCUM.</field>
             <field name="may_have_spouse">false</field>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://build.fhir.org/v3/NullFlavor/cs.html</field>
-            <field name="contains_id" ref="hc_base.marital_status_inv"/>
+            <field name="contains_id" ref="marital_status_inv"/>
             <field name="level">3</field>
             <field name="comments">Usage Notes: If it is known that it is not possible to encode the concept, OTH should be used instead. However, use of UNC does not necessarily guarantee the concept will be encodable, only that encoding has not been attempted. &#10;&#10;Data type properties such as original text and translations may be present when this null flavor is included.</field>
         </record>
 
-        <record id="hc_base.marital_status_msk" model="hc.vs.marital.status">
+        <record id="marital_status_msk" model="hc.vs.marital.status">
             <field name="code">MSK</field>
             <field name="name">Masked</field>
             <field name="definition">There is information on this item available but it has not been provided by the sender due to security, privacy or other reasons. There may be an alternate mechanism for gaining access to this information.</field>
             <field name="may_have_spouse">false</field>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://build.fhir.org/v3/NullFlavor/cs.html</field>
-            <field name="contains_id" ref="hc_base.marital_status_ni"/>
+            <field name="contains_id" ref="marital_status_ni"/>
             <field name="level">2</field>
             <field name="comments">Note: Using this null flavor does provide information that may be a breach of confidentiality, even though no detail data is provided. Its primary purpose is for those circumstances where it is necessary to inform the receiver that the information does exist without providing any detail.</field>
         </record>
 
-        <record id="hc_base.marital_status_na" model="hc.vs.marital.status">
+        <record id="marital_status_na" model="hc.vs.marital.status">
             <field name="code">NA</field>
             <field name="name">Not Applicable</field>
             <field name="definition">Known to have no proper value (e.g., last menstrual period for a male).</field>
             <field name="may_have_spouse">false</field>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://build.fhir.org/v3/NullFlavor/cs.html</field>
-            <field name="contains_id" ref="hc_base.marital_status_ni"/>
+            <field name="contains_id" ref="marital_status_ni"/>
             <field name="level">2</field>
         </record>
 
-        <record id="hc_base.marital_status_unk" model="hc.vs.marital.status">
+        <record id="marital_status_unk" model="hc.vs.marital.status">
             <field name="code">UNK</field>
             <field name="name">Unknown</field>
             <field name="definition">A proper value is applicable, but not known.</field>
             <field name="may_have_spouse">false</field>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://build.fhir.org/v3/NullFlavor/cs.html</field>
-            <field name="contains_id" ref="hc_base.marital_status_ni"/>
+            <field name="contains_id" ref="marital_status_ni"/>
             <field name="level">2</field>
             <field name="comments">Usage Notes: This means the actual value is not known. If the only thing that is unknown is how to properly express the value in the necessary constraints (value set, datatype, etc.), then the OTH or UNC flavor should be used. No properties should be included for a datatype with this property unless: &#10;&#10;Those properties themselves directly translate to a semantic of &quot;unknown&quot;. (E.g. a local code sent as a translation that conveys &quot;unknown&quot;) Those properties further qualify the nature of what is unknown. (E.g. specifying a use code of &quot;H&quot; and a URL prefix of &quot;tel:&quot; to convey that it is the home phone number that is unknown.)</field>
         </record>
 
-        <record id="hc_base.marital_status_asku" model="hc.vs.marital.status">
+        <record id="marital_status_asku" model="hc.vs.marital.status">
             <field name="code">ASKU</field>
             <field name="name">Asked But Unknown</field>
             <field name="definition">Information was sought but not found (e.g., patient was asked but didn&apos;t know)</field>
             <field name="may_have_spouse">false</field>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://build.fhir.org/v3/NullFlavor/cs.html</field>
-            <field name="contains_id" ref="hc_base.marital_status_unk"/>
+            <field name="contains_id" ref="marital_status_unk"/>
             <field name="level">3</field>
         </record>
 
-        <record id="hc_base.marital_status_nav" model="hc.vs.marital.status">
+        <record id="marital_status_nav" model="hc.vs.marital.status">
             <field name="code">NAV</field>
             <field name="name">Temporarily Unavailable</field>
             <field name="definition">Information is not available at this time but it is expected that it will be available later.</field>
             <field name="may_have_spouse">false</field>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://build.fhir.org/v3/NullFlavor/cs.html</field>
-            <field name="contains_id" ref="hc_base.marital_status_asku"/>
+            <field name="contains_id" ref="marital_status_asku"/>
             <field name="level">4</field>
         </record>
 
-        <record id="hc_base.marital_status_nask" model="hc.vs.marital.status">
+        <record id="marital_status_nask" model="hc.vs.marital.status">
             <field name="code">NASK</field>
             <field name="name">Not Asked</field>
             <field name="definition">This information has not been sought (e.g., patient was not asked).</field>
             <field name="may_have_spouse">false</field>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://build.fhir.org/v3/NullFlavor/cs.html</field>
-            <field name="contains_id" ref="hc_base.marital_status_unk"/>
+            <field name="contains_id" ref="marital_status_unk"/>
             <field name="level">3</field>
         </record>
 
-        <record id="hc_base.marital_status_navu" model="hc.vs.marital.status">
+        <record id="marital_status_navu" model="hc.vs.marital.status">
             <field name="code">NAVU</field>
             <field name="name">Not Available</field>
             <field name="definition">Information is not available at this time (with no expectation regarding whether it will or will not be available in the future).</field>
             <field name="may_have_spouse">false</field>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://build.fhir.org/v3/NullFlavor/cs.html</field>
-            <field name="contains_id" ref="hc_base.marital_status_unk"/>
+            <field name="contains_id" ref="marital_status_unk"/>
             <field name="level">3</field>
         </record>
 
-        <record id="hc_base.marital_status_qs" model="hc.vs.marital.status">
+        <record id="marital_status_qs" model="hc.vs.marital.status">
             <field name="code">QS</field>
             <field name="name">Sufficient Quantity</field>
             <field name="definition">The specific quantity is not known, but is known to be non-zero and is not specified because it makes up the bulk of the material. e.g. &quot;Add 10mg of ingredient X, 50mg of ingredient Y, and sufficient quantity of water to 100mL.&quot; The null flavor would be used to express the quantity of water.</field>
             <field name="may_have_spouse">false</field>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://build.fhir.org/v3/NullFlavor/cs.html</field>
-            <field name="contains_id" ref="hc_base.marital_status_unk"/>
+            <field name="contains_id" ref="marital_status_unk"/>
             <field name="level">3</field>
         </record>
 
-        <record id="hc_base.marital_status_trc" model="hc.vs.marital.status">
+        <record id="marital_status_trc" model="hc.vs.marital.status">
             <field name="code">TRC</field>
             <field name="name">Trace</field>
             <field name="definition">The content is greater than zero, but too small to be quantified.</field>
             <field name="may_have_spouse">false</field>
             <field name="source_id" ref="base.hl7v3"/>
             <field name="system">http://build.fhir.org/v3/NullFlavor/cs.html</field>
-            <field name="contains_id" ref="hc_base.marital_status_unk"/>
+            <field name="contains_id" ref="marital_status_unk"/>
             <field name="level">3</field>
         </record>
 
-        <record id="hc_base.marital_status_np" model="hc.vs.marital.status">
+        <record id="marital_status_np" model="hc.vs.marital.status">
             <field name="code">NP</field>
             <field name="name">Not Present</field>
             <field name="definition">Value is not present in a message. This is only defined in messages, never in application data! All values not present in the message must be replaced by the applicable default, or no-information (NI) as the default of all defaults.</field>
@@ -293,13 +293,408 @@
             <field name="level">1</field>
         </record>
 
-        <!--V2 Contact Role -->
+        <record id="marital_status_365581002" model="hc.vs.marital.status">
+            <field name="code">365581002</field>
+            <field name="name">Finding of marital or partnership status</field>
+            <field name="definition">Finding of marital or partnership status (finding)</field>
+            <field name="source_id" ref="base.snomed"/>
+            <field name="system">http://snomed.info</field>
+            <field name="level">1</field>
+        </record>
+
+        <record id="marital_status_125681006" model="hc.vs.marital.status">
+            <field name="code">125681006</field>
+            <field name="name">Single person</field>
+            <field name="definition">Single person (finding)</field>
+            <field name="may_have_spouse">False</field>
+            <field name="source_id" ref="base.snomed"/>
+            <field name="system">http://snomed.info</field>
+            <field name="contains_id" ref="marital_status_365581002"/>
+            <field name="level">2</field>
+        </record>
+
+        <record id="marital_status_125725006" model="hc.vs.marital.status">
+            <field name="code">125725006</field>
+            <field name="name">Marital status: single, never married</field>
+            <field name="definition">Marital status: single, never married (finding)</field>
+            <field name="may_have_spouse">False</field>
+            <field name="source_id" ref="base.snomed"/>
+            <field name="system">http://snomed.info</field>
+            <field name="contains_id" ref="marital_status_125681006"/>
+            <field name="level">3</field>
+        </record>
+
+        <record id="marital_status_20295000" model="hc.vs.marital.status">
+            <field name="code">20295000</field>
+            <field name="name">Divorced</field>
+            <field name="definition">Divorced (finding)</field>
+            <field name="may_have_spouse">True</field>
+            <field name="source_id" ref="base.snomed"/>
+            <field name="system">http://snomed.info</field>
+            <field name="contains_id" ref="marital_status_125681006"/>
+            <field name="level">3</field>
+        </record>
+
+        <record id="marital_status_33553000" model="hc.vs.marital.status">
+            <field name="code">33553000</field>
+            <field name="name">Widowed</field>
+            <field name="definition">Widowed (finding)</field>
+            <field name="may_have_spouse">True</field>
+            <field name="source_id" ref="base.snomed"/>
+            <field name="system">http://snomed.info</field>
+            <field name="contains_id" ref="marital_status_125681006"/>
+            <field name="level">3</field>
+        </record>
+
+        <record id="marital_status_38070000" model="hc.vs.marital.status">
+            <field name="code">38070000</field>
+            <field name="name">Cohabiting</field>
+            <field name="definition">Cohabiting (finding)</field>
+            <field name="may_have_spouse">True</field>
+            <field name="source_id" ref="base.snomed"/>
+            <field name="system">http://snomed.info</field>
+            <field name="contains_id" ref="marital_status_125681006"/>
+            <field name="level">3</field>
+        </record>
+
+        <record id="marital_status_473022002" model="hc.vs.marital.status">
+            <field name="code">473022002</field>
+            <field name="name">Purposely unmarried and sexually abstinent</field>
+            <field name="definition">Purposely unmarried and sexually abstinent (finding)</field>
+            <field name="may_have_spouse">False</field>
+            <field name="source_id" ref="base.snomed"/>
+            <field name="system">http://snomed.info</field>
+            <field name="contains_id" ref="marital_status_125681006"/>
+            <field name="level">3</field>
+        </record>
+
+        <record id="marital_status_55876004" model="hc.vs.marital.status">
+            <field name="code">55876004</field>
+            <field name="name">Bachelor</field>
+            <field name="definition">Bachelor (finding)</field>
+            <field name="may_have_spouse">False</field>
+            <field name="source_id" ref="base.snomed"/>
+            <field name="system">http://snomed.info</field>
+            <field name="contains_id" ref="marital_status_125681006"/>
+            <field name="level">3</field>
+        </record>
+
+        <record id="marital_status_63708008" model="hc.vs.marital.status">
+            <field name="code">63708008</field>
+            <field name="name">Spinster</field>
+            <field name="definition">Spinster (finding)</field>
+            <field name="may_have_spouse">False</field>
+            <field name="source_id" ref="base.snomed"/>
+            <field name="system">http://snomed.info</field>
+            <field name="contains_id" ref="marital_status_125681006"/>
+            <field name="level">3</field>
+        </record>
+
+        <record id="marital_status_3071008" model="hc.vs.marital.status">
+            <field name="code">3071008</field>
+            <field name="name">Widow</field>
+            <field name="definition">Widow (finding)</field>
+            <field name="may_have_spouse">True</field>
+            <field name="source_id" ref="base.snomed"/>
+            <field name="system">http://snomed.info</field>
+            <field name="contains_id" ref="marital_status_33553000"/>
+            <field name="level">4</field>
+        </record>
+
+        <record id="marital_status_78061006" model="hc.vs.marital.status">
+            <field name="code">78061006</field>
+            <field name="name">Widower</field>
+            <field name="definition">Widower (finding)</field>
+            <field name="may_have_spouse">True</field>
+            <field name="source_id" ref="base.snomed"/>
+            <field name="system">http://snomed.info</field>
+            <field name="contains_id" ref="marital_status_33553000"/>
+            <field name="level">4</field>
+        </record>
+
+        <record id="marital_status_105415009" model="hc.vs.marital.status">
+            <field name="code">105415009</field>
+            <field name="name">Broken engagement</field>
+            <field name="definition">Broken engagement (finding)</field>
+            <field name="may_have_spouse">True</field>
+            <field name="source_id" ref="base.snomed"/>
+            <field name="system">http://snomed.info</field>
+            <field name="contains_id" ref="marital_status_365581002"/>
+            <field name="level">2</field>
+        </record>
+
+        <record id="marital_status_13184001" model="hc.vs.marital.status">
+            <field name="code">13184001</field>
+            <field name="name">Separated</field>
+            <field name="definition">Separated (finding)</field>
+            <field name="may_have_spouse">True</field>
+            <field name="source_id" ref="base.snomed"/>
+            <field name="system">http://snomed.info</field>
+            <field name="contains_id" ref="marital_status_365581002"/>
+            <field name="level">2</field>
+        </record>
+
+        <record id="marital_status_14012001" model="hc.vs.marital.status">
+            <field name="code">14012001</field>
+            <field name="name">Common law partnership</field>
+            <field name="definition">Common law partnership (finding)</field>
+            <field name="may_have_spouse">True</field>
+            <field name="source_id" ref="base.snomed"/>
+            <field name="system">http://snomed.info</field>
+            <field name="contains_id" ref="marital_status_365581002"/>
+            <field name="level">2</field>
+        </record>
+
+        <record id="marital_status_160504008" model="hc.vs.marital.status">
+            <field name="code">160504008</field>
+            <field name="name">Marital state unknown</field>
+            <field name="definition">Marital state unknown (finding)</field>
+            <field name="may_have_spouse">True</field>
+            <field name="source_id" ref="base.snomed"/>
+            <field name="system">http://snomed.info</field>
+            <field name="contains_id" ref="marital_status_365581002"/>
+            <field name="level">2</field>
+        </record>
+
+        <record id="marital_status_2326000" model="hc.vs.marital.status">
+            <field name="code">2326000</field>
+            <field name="name">Marriage annulment</field>
+            <field name="definition">Marriage annulment (finding)</field>
+            <field name="may_have_spouse">True</field>
+            <field name="source_id" ref="base.snomed"/>
+            <field name="system">http://snomed.info</field>
+            <field name="contains_id" ref="marital_status_365581002"/>
+            <field name="level">2</field>
+        </record>
+
+        <record id="marital_status_266945001" model="hc.vs.marital.status">
+            <field name="code">266945001</field>
+            <field name="name">Broken with partner</field>
+            <field name="definition">Broken with partner (finding)</field>
+            <field name="may_have_spouse">True</field>
+            <field name="source_id" ref="base.snomed"/>
+            <field name="system">http://snomed.info</field>
+            <field name="contains_id" ref="marital_status_365581002"/>
+            <field name="level">2</field>
+        </record>
+
+        <record id="marital_status_430618002" model="hc.vs.marital.status">
+            <field name="code">430618002</field>
+            <field name="name">Domestic partnership</field>
+            <field name="definition">Domestic partnership (finding)</field>
+            <field name="may_have_spouse">True</field>
+            <field name="source_id" ref="base.snomed"/>
+            <field name="system">http://snomed.info</field>
+            <field name="contains_id" ref="marital_status_365581002"/>
+            <field name="level">2</field>
+        </record>
+
+        <record id="marital_status_54986009" model="hc.vs.marital.status">
+            <field name="code">54986009</field>
+            <field name="name">Engaged to be married</field>
+            <field name="definition">Engaged to be married (finding)</field>
+            <field name="may_have_spouse">True</field>
+            <field name="source_id" ref="base.snomed"/>
+            <field name="system">http://snomed.info</field>
+            <field name="contains_id" ref="marital_status_365581002"/>
+            <field name="level">2</field>
+        </record>
+
+        <record id="marital_status_87915002" model="hc.vs.marital.status">
+            <field name="code">87915002</field>
+            <field name="name">Married</field>
+            <field name="definition">Married (finding)</field>
+            <field name="may_have_spouse">True</field>
+            <field name="source_id" ref="base.snomed"/>
+            <field name="system">http://snomed.info</field>
+            <field name="contains_id" ref="marital_status_365581002"/>
+            <field name="level">2</field>
+        </record>
+
+        <record id="marital_status_276129000" model="hc.vs.marital.status">
+            <field name="code">276129000</field>
+            <field name="name">Spouse left home</field>
+            <field name="definition">Spouse left home (finding)</field>
+            <field name="may_have_spouse">True</field>
+            <field name="source_id" ref="base.snomed"/>
+            <field name="system">http://snomed.info</field>
+            <field name="contains_id" ref="marital_status_266945001"/>
+            <field name="level">3</field>
+        </record>
+
+        <record id="marital_status_105433003" model="hc.vs.marital.status">
+            <field name="code">105433003</field>
+            <field name="name">Homosexual marriage</field>
+            <field name="definition">Homosexual marriage (finding)</field>
+            <field name="may_have_spouse">True</field>
+            <field name="source_id" ref="base.snomed"/>
+            <field name="system">http://snomed.info</field>
+            <field name="contains_id" ref="marital_status_87915002"/>
+            <field name="level">3</field>
+        </record>
+
+        <record id="marital_status_22187004" model="hc.vs.marital.status">
+            <field name="code">22187004</field>
+            <field name="name">Polygamous</field>
+            <field name="definition">Polygamous (finding)</field>
+            <field name="may_have_spouse">True</field>
+            <field name="source_id" ref="base.snomed"/>
+            <field name="system">http://snomed.info</field>
+            <field name="contains_id" ref="marital_status_87915002"/>
+            <field name="level">3</field>
+        </record>
+
+        <record id="marital_status_225520003" model="hc.vs.marital.status">
+            <field name="code">225520003</field>
+            <field name="name">Monogamous</field>
+            <field name="definition">Monogamous (finding)</field>
+            <field name="may_have_spouse">True</field>
+            <field name="source_id" ref="base.snomed"/>
+            <field name="system">http://snomed.info</field>
+            <field name="contains_id" ref="marital_status_87915002"/>
+            <field name="level">3</field>
+        </record>
+
+        <record id="marital_status_278836005" model="hc.vs.marital.status">
+            <field name="code">278836005</field>
+            <field name="name">Remarried</field>
+            <field name="definition">Remarried (finding)</field>
+            <field name="may_have_spouse">True</field>
+            <field name="source_id" ref="base.snomed"/>
+            <field name="system">http://snomed.info</field>
+            <field name="contains_id" ref="marital_status_87915002"/>
+            <field name="level">3</field>
+        </record>
+
+        <record id="marital_status_278837001" model="hc.vs.marital.status">
+            <field name="code">278837001</field>
+            <field name="name">Newly wed</field>
+            <field name="definition">Newly wed (finding)</field>
+            <field name="may_have_spouse">True</field>
+            <field name="source_id" ref="base.snomed"/>
+            <field name="system">http://snomed.info</field>
+            <field name="contains_id" ref="marital_status_87915002"/>
+            <field name="level">3</field>
+        </record>
+
+        <record id="marital_status_302756003" model="hc.vs.marital.status">
+            <field name="code">302756003</field>
+            <field name="name">Eloped</field>
+            <field name="definition">Eloped (finding)</field>
+            <field name="may_have_spouse">True</field>
+            <field name="source_id" ref="base.snomed"/>
+            <field name="system">http://snomed.info</field>
+            <field name="contains_id" ref="marital_status_87915002"/>
+            <field name="level">3</field>
+        </record>
+
+        <record id="marital_status_36629006" model="hc.vs.marital.status">
+            <field name="code">36629006</field>
+            <field name="name">Legally married</field>
+            <field name="definition">Legally married (finding)</field>
+            <field name="may_have_spouse">True</field>
+            <field name="source_id" ref="base.snomed"/>
+            <field name="system">http://snomed.info</field>
+            <field name="contains_id" ref="marital_status_87915002"/>
+            <field name="level">3</field>
+        </record>
+
+        <record id="marital_status_105434009" model="hc.vs.marital.status">
+            <field name="code">105434009</field>
+            <field name="name">Homosexual marriage, male</field>
+            <field name="definition">Homosexual marriage, male (finding)</field>
+            <field name="may_have_spouse">True</field>
+            <field name="source_id" ref="base.snomed"/>
+            <field name="system">http://snomed.info</field>
+            <field name="contains_id" ref="marital_status_105433003"/>
+            <field name="level">4</field>
+        </record>
+
+        <record id="marital_status_105435005" model="hc.vs.marital.status">
+            <field name="code">105435005</field>
+            <field name="name">Homosexual marriage, female</field>
+            <field name="definition">Homosexual marriage, female (finding)</field>
+            <field name="may_have_spouse">True</field>
+            <field name="source_id" ref="base.snomed"/>
+            <field name="system">http://snomed.info</field>
+            <field name="contains_id" ref="marital_status_105433003"/>
+            <field name="level">4</field>
+        </record>
+
+        <record id="marital_status_276125006" model="hc.vs.marital.status">
+            <field name="code">276125006</field>
+            <field name="name">Separated from cohabitee</field>
+            <field name="definition">Separated from cohabitee (finding)</field>
+            <field name="may_have_spouse">True</field>
+            <field name="source_id" ref="base.snomed"/>
+            <field name="system">http://snomed.info</field>
+            <field name="contains_id" ref="marital_status_13184001"/>
+            <field name="level">3</field>
+        </record>
+
+        <record id="marital_status_276126007" model="hc.vs.marital.status">
+            <field name="code">276126007</field>
+            <field name="name">Husband left home</field>
+            <field name="definition">Husband left home (finding)</field>
+            <field name="may_have_spouse">True</field>
+            <field name="source_id" ref="base.snomed"/>
+            <field name="system">http://snomed.info</field>
+            <field name="contains_id" ref="marital_status_13184001"/>
+            <field name="level">3</field>
+        </record>
+
+        <record id="marital_status_276127003" model="hc.vs.marital.status">
+            <field name="code">276127003</field>
+            <field name="name">Wife left home</field>
+            <field name="definition">Wife left home (finding)</field>
+            <field name="may_have_spouse">True</field>
+            <field name="source_id" ref="base.snomed"/>
+            <field name="system">http://snomed.info</field>
+            <field name="contains_id" ref="marital_status_13184001"/>
+            <field name="level">3</field>
+        </record>
+
+        <record id="marital_status_276128008" model="hc.vs.marital.status">
+            <field name="code">276128008</field>
+            <field name="name">Cohabitee left home</field>
+            <field name="definition">Cohabitee left home (finding)</field>
+            <field name="may_have_spouse">True</field>
+            <field name="source_id" ref="base.snomed"/>
+            <field name="system">http://snomed.info</field>
+            <field name="contains_id" ref="marital_status_13184001"/>
+            <field name="level">3</field>
+        </record>
+
+        <record id="marital_status_430617007" model="hc.vs.marital.status">
+            <field name="code">430617007</field>
+            <field name="name">Legally separated with interlocutory decree</field>
+            <field name="definition">Legally separated with interlocutory decree (finding)</field>
+            <field name="may_have_spouse">True</field>
+            <field name="source_id" ref="base.snomed"/>
+            <field name="system">http://snomed.info</field>
+            <field name="contains_id" ref="marital_status_13184001"/>
+            <field name="level">3</field>
+        </record>
+
+        <record id="marital_status_9906005" model="hc.vs.marital.status">
+            <field name="code">9906005</field>
+            <field name="name">Trial separation</field>
+            <field name="definition">Trial separation (finding)</field>
+            <field name="may_have_spouse">True</field>
+            <field name="source_id" ref="base.snomed"/>
+            <field name="system">http://snomed.info</field>
+            <field name="contains_id" ref="marital_status_13184001"/>
+            <field name="level">3</field>
+        </record>
+
+    <!--V2 Contact Role -->
 
         <record id="cont_role_bp" model="hc.vs.v2.contact.role">
             <field name="code">BP</field>
-            <field name="name">Billing Contact Person</field>
+            <field name="name">Billing contact person</field>
+            <field name="comments">deprecated</field>
             <field name="version">added v2.3, removed after v2.3</field>
-            <field name="is_active">False</field>
+            <field name="is_active" eval="False"/>
             <field name="source_id" ref="base.hl7v2"/>
             <field name="system">http://hl7.org/fhir/ValueSet/v2-0131</field>
         </record>
@@ -307,17 +702,19 @@
         <record id="cont_role_c" model="hc.vs.v2.contact.role">
             <field name="code">C</field>
             <field name="name">Emergency Contact</field>
+            <field name="comments"></field>
             <field name="version">added v2.5</field>
-            <field name="is_active">True</field>
+            <field name="is_active" eval="True"/>
             <field name="source_id" ref="base.hl7v2"/>
             <field name="system">http://hl7.org/fhir/ValueSet/v2-0131</field>
         </record>
 
         <record id="cont_role_cp" model="hc.vs.v2.contact.role">
             <field name="code">CP</field>
-            <field name="name">Contact Person</field>
+            <field name="name">Contact person</field>
+            <field name="comments">deprecated</field>
             <field name="version">added v2.3, removed after v2.3</field>
-            <field name="is_active">False</field>
+            <field name="is_active" eval="False"/>
             <field name="source_id" ref="base.hl7v2"/>
             <field name="system">http://hl7.org/fhir/ValueSet/v2-0131</field>
         </record>
@@ -325,17 +722,19 @@
         <record id="cont_role_e" model="hc.vs.v2.contact.role">
             <field name="code">E</field>
             <field name="name">Employer</field>
+            <field name="comments"></field>
             <field name="version">added v2.5</field>
-            <field name="is_active">True</field>
+            <field name="is_active" eval="True"/>
             <field name="source_id" ref="base.hl7v2"/>
             <field name="system">http://hl7.org/fhir/ValueSet/v2-0131</field>
         </record>
 
         <record id="cont_role_ep" model="hc.vs.v2.contact.role">
             <field name="code">EP</field>
-            <field name="name">Emergency Contact Person</field>
+            <field name="name">Emergency contact person</field>
+            <field name="comments">deprecated</field>
             <field name="version">added v2.3, removed after v2.3</field>
-            <field name="is_active">False</field>
+            <field name="is_active" eval="False"/>
             <field name="source_id" ref="base.hl7v2"/>
             <field name="system">http://hl7.org/fhir/ValueSet/v2-0131</field>
         </record>
@@ -343,8 +742,9 @@
         <record id="cont_role_f" model="hc.vs.v2.contact.role">
             <field name="code">F</field>
             <field name="name">Federal Agency</field>
+            <field name="comments"></field>
             <field name="version">added v2.5</field>
-            <field name="is_active">True</field>
+            <field name="is_active" eval="True"/>
             <field name="source_id" ref="base.hl7v2"/>
             <field name="system">http://hl7.org/fhir/ValueSet/v2-0131</field>
         </record>
@@ -352,17 +752,19 @@
         <record id="cont_role_i" model="hc.vs.v2.contact.role">
             <field name="code">I</field>
             <field name="name">Insurance Company</field>
+            <field name="comments"></field>
             <field name="version">added v2.5</field>
-            <field name="is_active">True</field>
+            <field name="is_active" eval="True"/>
             <field name="source_id" ref="base.hl7v2"/>
             <field name="system">http://hl7.org/fhir/ValueSet/v2-0131</field>
         </record>
 
         <record id="cont_role_n" model="hc.vs.v2.contact.role">
             <field name="code">N</field>
-            <field name="name">Next-Of-Kin</field>
+            <field name="name">Next-of-Kin</field>
+            <field name="comments"></field>
             <field name="version">added v2.5</field>
-            <field name="is_active">True</field>
+            <field name="is_active" eval="True"/>
             <field name="source_id" ref="base.hl7v2"/>
             <field name="system">http://hl7.org/fhir/ValueSet/v2-0131</field>
         </record>
@@ -370,17 +772,19 @@
         <record id="cont_role_o" model="hc.vs.v2.contact.role">
             <field name="code">O</field>
             <field name="name">Other</field>
+            <field name="comments"></field>
             <field name="version">added v2.5</field>
-            <field name="is_active">True</field>
+            <field name="is_active" eval="True"/>
             <field name="source_id" ref="base.hl7v2"/>
             <field name="system">http://hl7.org/fhir/ValueSet/v2-0131</field>
         </record>
 
         <record id="cont_role_pr" model="hc.vs.v2.contact.role">
             <field name="code">PR</field>
-            <field name="name">Person Preparing Referral</field>
+            <field name="name">Person preparing referral</field>
+            <field name="comments">deprecated</field>
             <field name="version">added v2.3, removed after v2.3</field>
-            <field name="is_active">False</field>
+            <field name="is_active" eval="False"/>
             <field name="source_id" ref="base.hl7v2"/>
             <field name="system">http://hl7.org/fhir/ValueSet/v2-0131</field>
         </record>
@@ -388,8 +792,9 @@
         <record id="cont_role_s" model="hc.vs.v2.contact.role">
             <field name="code">S</field>
             <field name="name">State Agency</field>
+            <field name="comments"></field>
             <field name="version">added v2.5</field>
-            <field name="is_active">True</field>
+            <field name="is_active" eval="True"/>
             <field name="source_id" ref="base.hl7v2"/>
             <field name="system">http://hl7.org/fhir/ValueSet/v2-0131</field>
         </record>
@@ -397,13 +802,14 @@
         <record id="cont_role_u" model="hc.vs.v2.contact.role">
             <field name="code">U</field>
             <field name="name">Unknown</field>
+            <field name="comments"></field>
             <field name="version">added v2.5</field>
-            <field name="is_active">True</field>
+            <field name="is_active" eval="True"/>
             <field name="source_id" ref="base.hl7v2"/>
             <field name="system">http://hl7.org/fhir/ValueSet/v2-0131</field>
         </record>
 
-        <!--Animal Gender Status -->
+    <!--Animal Gender Status -->
 
         <record id="an_gen_stat_neutered" model="hc.vs.animal.gender.status">
             <field name="code">neutered</field>

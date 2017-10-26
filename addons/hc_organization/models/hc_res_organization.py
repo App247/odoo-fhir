@@ -219,16 +219,6 @@ class ContactEntityType(models.Model):
 
 # External Reference
 
-class Partner(models.Model):
-    _inherit = ["res.partner"]
-
-    is_organization = fields.Boolean(
-        string="Is an Organization",
-        help="This partner is a health care-related organization record.")
-    is_organization_contact = fields.Boolean(
-        string="Is an Organization Contact",
-        help="This partner is an organization contact.")
-
 class IdentifierCode(models.Model):
     _inherit = ["hc.vs.identifier.code"]
 

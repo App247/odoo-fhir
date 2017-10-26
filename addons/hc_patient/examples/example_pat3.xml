@@ -21,6 +21,8 @@
         <record id="base.patient_pat3" model="res.partner">
             <field name="name">Simon Notsowell</field>
             <field name="company_type">person</field>
+            <field name="is_person" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
         </record>
 
         <record id="hc_person.patient_pat3" model="hc.res.person">

@@ -6,6 +6,7 @@ class Practitioner(models.Model):
     _name = "hc.res.practitioner"
     _description = "Practitioner"
     _inherits = {"hc.res.person": "person_id"}
+    _rec_name = "person_id"
 
     person_id = fields.Many2one(
         comodel_name="hc.res.person",
@@ -13,6 +14,13 @@ class Practitioner(models.Model):
         required="True",
         ondelete="restrict",
         help="Person who is this practitioner.")
+    type = fields.Selection(
+        string="Type",
+        selection=[
+            ("human", "Human"),
+            ("animal", "Animal")],
+        default="human",
+        help="Practitioner is human or animal.")
     identifier_ids = fields.One2many(
         related="person_id.identifier_ids",
         string="Identifiers",
@@ -55,11 +63,11 @@ class Practitioner(models.Model):
     #     help="One or more addresses for this practitioner.")
     gender = fields.Selection(
         related="person_id.gender",
-        readonly="1",
+        readonly=True,
         help="The gender of a practitioner used for administrative purposes.")
     birth_date = fields.Date(
         related="person_id.birth_date",
-        readonly="1",
+        readonly=True,
         help="The birth date for the practitioner.")
     photo_ids = fields.One2many(
         related="person_id.photo_ids",
@@ -90,13 +98,18 @@ class Practitioner(models.Model):
         string="Roles",
         help="Roles/organizations the practitioner is associated with.")
 
-    _defaults = {
-        "is_practitioner": True,
-        }
+    # _defaults = {
+    #     "is_practitioner": True,
+    #     }
 
+    # Indicate that associated Person is a Practitioner.
     @api.model
     def create(self, vals):
-        vals['is_practitioner'] = self.env.context.get('is_practitioner', False)
+        person_obj = self.env['hc.res.person']
+        if vals and vals.get('person_id'):
+            person_id = person_obj.browse(vals.get('person_id'))
+            if person_id:
+                person_id.is_practitioner = True
         return super(Practitioner, self).create(vals)
 
 class PractitionerQualification(models.Model):

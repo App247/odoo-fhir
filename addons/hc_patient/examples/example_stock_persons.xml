@@ -10,6 +10,8 @@
         <record id="base.gov_us" model="res.partner">
             <field name="name">US Government</field>
             <field name="company_type">company</field>
+            <field name="is_organization" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
         </record>
 
         <record id="hc_organization.hl7" model="hc.res.organization">
@@ -40,6 +42,8 @@
         <record id="base.patient_sp01" model="res.partner">
             <field name="name">Eve Everywoman</field>
             <field name="company_type">person</field>
+            <field name="is_person" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
         </record>
 
         <record id="hc_person.patient_sp01" model="hc.res.person">
@@ -116,6 +120,8 @@
         <record id="base.patient_sp02" model="res.partner">
             <field name="name">Adam Everyman</field>
             <field name="company_type">person</field>
+            <field name="is_person" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
         </record>
 
         <record id="hc_person.patient_sp02" model="hc.res.person">
@@ -188,6 +194,8 @@
         <record id="base.patient_sp03" model="res.partner">
             <field name="name">Kari Kidd</field>
             <field name="company_type">person</field>
+            <field name="is_person" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
         </record>
 
         <record id="hc_person.patient_sp03" model="hc.res.person">
@@ -260,6 +268,8 @@
         <record id="base.patient_sp04" model="res.partner">
             <field name="name">Nancy Nuclear</field>
             <field name="company_type">person</field>
+            <field name="is_person" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
         </record>
 
         <record id="hc_person.patient_sp04" model="hc.res.person">
@@ -333,6 +343,8 @@
         <record id="base.patient_sp05" model="res.partner">
             <field name="name">Neville Nuclear</field>
             <field name="company_type">person</field>
+            <field name="is_person" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
         </record>
 
         <record id="hc_person.patient_sp05" model="hc.res.person">
@@ -396,6 +408,8 @@
         <record id="base.patient_sp06" model="res.partner">
             <field name="name">Ned Nuclear</field>
             <field name="company_type">person</field>
+            <field name="is_person" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
         </record>
 
         <record id="hc_person.patient_sp06" model="hc.res.person">
@@ -459,6 +473,8 @@
         <record id="base.patient_sp07" model="res.partner">
             <field name="name">Nelda Nuclear</field>
             <field name="company_type">person</field>
+            <field name="is_person" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
         </record>
 
         <record id="hc_person.patient_sp07" model="hc.res.person">
@@ -522,6 +538,8 @@
         <record id="base.patient_sp08" model="res.partner">
             <field name="name">Martha Mum</field>
             <field name="company_type">person</field>
+            <field name="is_person" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
         </record>
 
         <record id="hc_person.patient_sp08" model="hc.res.person">
@@ -598,6 +616,8 @@
         <record id="base.patient_sp09" model="res.partner">
             <field name="name">Stuart Sons</field>
             <field name="company_type">person</field>
+            <field name="is_person" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
         </record>
 
         <record id="hc_person.patient_sp09" model="hc.res.person">
@@ -672,6 +692,8 @@
         <record id="base.patient_sp10" model="res.partner">
             <field name="name">Boris Betterhalf</field>
             <field name="company_type">person</field>
+            <field name="is_person" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
         </record>
 
         <record id="hc_person.patient_sp10" model="hc.res.person">
@@ -739,6 +761,8 @@
         <record id="base.patient_sp11" model="res.partner">
             <field name="name">Ralph Relative</field>
             <field name="company_type">person</field>
+            <field name="is_person" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
         </record>
 
         <record id="hc_person.patient_sp11" model="hc.res.person">
@@ -813,6 +837,8 @@
         <record id="base.patient_sp12" model="res.partner">
             <field name="name">Carrie Contact</field>
             <field name="company_type">person</field>
+            <field name="is_person" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
         </record>
 
         <record id="hc_person.patient_sp12" model="hc.res.person">

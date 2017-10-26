@@ -1,0 +1,5 @@
+"id","name","is_organization"
+"base.hl7fhir","HL7 FHIR","True"
+"base.hl7","HL7 (Health Level 7 International)","True"
+"base.hl7v2","HL7 v2","True"
+"base.hl7v3","HL7 v3","True"

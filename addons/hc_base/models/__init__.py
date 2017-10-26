@@ -2,6 +2,7 @@
 
 import hc_coding
 import hc_value_set_contains
+import hc_odoo_base
 import hc_element
 import hc_period
 import hc_telecom

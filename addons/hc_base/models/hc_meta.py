@@ -6,6 +6,7 @@ class Meta(models.Model):
     _name = "hc.meta"
     _description = "Meta"
     _inherit = ["hc.element"]
+    _rec_name = "version_id"
 
     version_id = fields.Char(
         string="Version Id",
@@ -31,6 +32,7 @@ class MetaProfile(models.Model):
     _name = "hc.meta.profile"
     _description = "Meta Profile"
     _inherit = ["hc.basic.association"]
+    _rec_name = "profile"
 
     meta_id = fields.Many2one(
         comodel_name="hc.meta",

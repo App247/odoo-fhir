@@ -7,7 +7,7 @@ class generate_xml(models.TransientModel):
     _name = "generate.xml"
 
     name = fields.Char('Name')
-    xml_file = fields.Binary('XML File', readonly=True)
+    xml_file = fields.Binary('XML File', readonly="1")
 
     @api.model
     def default_generate(self):

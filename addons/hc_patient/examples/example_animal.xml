@@ -9,6 +9,8 @@
         <record id="base.patient_animal_organization_managing" model="res.partner">
             <field name="name">Pete's Vetinary Services</field>
             <field name="company_type">company</field>
+            <field name="is_organization" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
         </record>
 
         <record id="hc_organization.patient_animal_managing" model="hc.res.organization">
@@ -19,6 +21,8 @@
         <record id="base.patient_animal_organization_assigner" model="res.partner">
             <field name="name">Maroondah City Council</field>
             <field name="company_type">company</field>
+            <field name="is_organization" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
         </record>
 
         <record id="hc_organization.patient_animal_assigner" model="hc.res.organization">
@@ -39,6 +43,8 @@
         <record id="base.patient_animal" model="res.partner">
             <field name="name">Kenzi</field>
             <field name="company_type">animal</field>
+            <field name="is_animal" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
         </record>
 
         <record id="hc_person.patient_animal" model="hc.res.person">

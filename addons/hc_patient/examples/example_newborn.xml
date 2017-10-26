@@ -18,6 +18,8 @@
         <record id="base.patient_newborn" model="res.partner">
             <field name="name">Newborn Everywoman</field>
             <field name="company_type">person</field>
+            <field name="is_person" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
         </record>
 
         <record id="hc_person.patient_newborn" model="hc.res.person">

@@ -6,6 +6,7 @@ class Patient(models.Model):
     _name = "hc.res.patient"
     _description = "Patient"
     _inherits = {"hc.res.person": "person_id"}
+    _rec_name = "person_id"
 
     person_id = fields.Many2one(
         comodel_name="hc.res.person",
@@ -50,7 +51,7 @@ class Patient(models.Model):
         help="A contact detail for the patient.")
     gender = fields.Selection(
         related="person_id.gender",
-        readonly="1",
+        readonly=True,
         help="The gender that the patient is considered to have for administration and record keeping purposes.")
     # gender = fields.Selection(
     #     string="Gender",
@@ -62,7 +63,7 @@ class Patient(models.Model):
     #     help="The gender that the patient is considered to have for administration and record keeping purposes.")
     birth_date=fields.Date(
         related="person_id.birth_date",
-        readonly="1",
+        readonly=True,
         help="The date of birth for the patient.")
     birth_time = fields.Char(
         string="Birth Time",
@@ -206,31 +207,32 @@ class Patient(models.Model):
         string="Nationalities",
         help="The nationality of the patient (aka SNOMED Ethnic group (observable entity)).")
 
-    # _defaults = {
-    #     "is_patient": True,
-    #     }
+    _defaults = {
+        "is_patient": True,
+        }
 
     # Indicate that associated Person is a Patient.
-    @api.model
-    def create(self, vals):
+    # @api.model
+    # def create(self, vals):
+    #     person_obj = self.env['hc.res.person']
+    #     if vals and vals.get('person_id'):
+    #         person_id = person_obj.browse(vals.get('person_id'))
+    #         if person_id:
+    #             person_id.is_patient = True
+    #     return super(Patient, self).create(vals)
 
-        person_obj = self.env['hc.res.person']
-        if vals and vals.get('person_id'):
-            person_id = person_obj.browse(vals.get('person_id'))
-            if person_id:
-                person_id.is_patient = True
-        patient_id =  super(Patient, self).create(vals)
-        return  patient_id
+        # patient_id =  super(Patient, self).create(vals)
+        # return  patient_id
         # Create link of Patient to Partner
-        partner_link_obj = self.env['hc.partner.link']
-        # res = super(Patient, self).create(vals)
-        link = partner_link_obj.create({
-            'link_type': 'patient',
-            'link_patient_id': patient_id.id,
-            'partner_id': partner_id.id,
-            'start_date': datetime.datetime.today().date()
-            })
-        return patient_id
+        # partner_link_obj = self.env['hc.partner.link']
+        # # res = super(Patient, self).create(vals)
+        # link = partner_link_obj.create({
+        #     'link_type': 'patient',
+        #     'link_patient_id': patient_id.id,
+        #     'partner_id': partner_id.id,
+        #     'start_date': datetime.datetime.today().date()
+        #     })
+        # return patient_id
 
     # When this Patient record is inactivated and there are no other active Patient records associated with the Person record, indicate that the Person is not a Patient.
     @api.multi
@@ -260,9 +262,9 @@ class Patient(models.Model):
         name_rec = []
         for id in ids:
             if id.birth_date:
-                name_rec.append((id.id, id.name_id.name + "(" + id.birth_date + ")"))
+                name_rec.append((id.id, id.name_id + "(" + id.birth_date + ")"))
             else:
-                name_rec.append((id.id, id.name_id.name))
+                name_rec.append((id.id, id.name_id))
         return name_rec
 
 class PatientCitizenship(models.Model):
@@ -340,6 +342,27 @@ class PatientIdentifier(models.Model):
         comodel_name="hc.res.patient",
         string="Patient",
         help="Patient associated with this Patient Identifier.")
+    extension_ids = fields.One2many(
+        comodel_name="hc.patient.identifier.extension",
+        inverse_name="patient_identifier_id",
+        string="Extensions",
+        help="Additional Content defined by implementations.")
+
+class PatientIdentifierExtension(models.Model):
+    _name = "hc.patient.identifier.extension"
+    _description = "Patient Identifier Extension"
+    _inherits = {"hc.person.identifier.extension": "identifier_extension_id"}
+
+    identifier_extension_id = fields.Many2one(
+        comodel_name="hc.person.identifier.extension",
+        string="Person Identifier Extension",
+        required="True",
+        ondelete="restrict",
+        help="Person Identifier Extension associated with this Patient Identifier Extension.")
+    patient_identifier_id = fields.Many2one(
+        comodel_name="hc.patient.identifier",
+        string="Patient Identifier",
+        help="Patient Identifier associated with this Patient Identifier Extension.")
 
 # class PatientName(models.Model):
 #     _name = "hc.patient.name"
@@ -1082,7 +1105,7 @@ class PersonLink(models.Model):
     def _compute_target_name(self):
         for hc_person_link in self:
             if hc_person_link.target_type == 'person':
-                hc_person_link.target_name = hc_person_link.target_person_id.name
+                hc_person_link.target_name = hc_person_link.target_person_id.name_id.name
             elif hc_person_link.target_type == 'patient':
                 hc_person_link.target_name = hc_person_link.target_patient_id.name
             elif hc_person_link.target_type == 'practitioner':

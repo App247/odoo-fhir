@@ -8,7 +8,7 @@ class ElementElement(models.Model):
     _rec_name = "identifier"
 
     identifier = fields.Char(
-        string="Identifier",
+        string="ID",
         help="Internal id (e.g. like xml:id).")
     extension_ids = fields.One2many(
         comodel_name="hc.element.extension",

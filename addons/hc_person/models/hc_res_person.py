@@ -2,7 +2,7 @@
 
 from openerp import models, fields, api
 # from datetime import datetime
-import datetime
+from datetime import datetime
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as DF
 
 class Person(models.Model):
@@ -18,16 +18,18 @@ class Person(models.Model):
         readonly=True,
         # ondelete="restrict",
         help="Partner associated with this Person.")
-    # preferred_name = fields.Char(
-    #     string="Preferred Name",
-    #     compute="_compute_preferred_name",
-    #     store="True",
-    #     help="Preferred name of person.")
     unique_person = fields.Char(
         string="Unique Person",
         compute="_compute_unique_person",
         store="True",
         help="Unique identifier of a person. Full Name + Gender + Birth Date.")
+    type = fields.Selection(
+        string="Type",
+        selection=[
+            ("human", "Human"),
+            ("animal", "Animal")],
+        default="human",
+        help="Person is human or animal.")
     identifier_ids = fields.One2many(
         comodel_name="hc.person.identifier",
         inverse_name="person_id",
@@ -41,11 +43,6 @@ class Person(models.Model):
     name = fields.Char(
         related="name_id.name",
         help="Human Readable name of the person.")
-    # name_ids = fields.Many2many(
-    #     comodel_name="hc.person.name",
-    #     relation="person_person_name_rel",
-    #     string="Names",
-    #     help="A name associated with the person.")
     name_ids = fields.One2many(
         comodel_name="hc.person.name",
         inverse_name="person_id",
@@ -101,26 +98,29 @@ class Person(models.Model):
         help="Link to a resource that concerns the same actual person.")
 
     #Added from res.partner
-    image = fields.Binary("Image",
+    image = fields.Binary(
+        string="Image",
         attachment=True,
         help="This field holds the image used as avatar for this contact, limited to 1024x1024px",)
-    image_medium = fields.Binary("Medium-sized image",
+    image_medium = fields.Binary(
+        string="Medium-sized image",
         attachment=True,
         help="Medium-sized image of this contact. It is automatically "\
              "resized as a 128x128px image, with aspect ratio preserved. "\
              "Use this field in form views or some kanban views.")
-    image_small = fields.Binary("Small-sized image",
+    image_small = fields.Binary(
+        string="Small-sized image",
         attachment=True,
         help="Small-sized image of this contact. It is automatically "\
              "resized as a 64x64px image, with aspect ratio preserved. "\
              "Use this field anywhere a small image is required.")
 
-    _defaults = {
-        "is_company": False,
-        "customer": False,
-        "company_type": "person",
-        "is_person": True,
-        }
+    # _defaults = {
+    #     "is_company": False,
+    #     "customer": False,
+    #     "company_type": "person",
+    #     "is_person": True,
+    #     }
 
     @api.depends('name_id', 'gender', 'birth_date')
     def _compute_unique_person(self):
@@ -140,7 +140,8 @@ class Person(models.Model):
         'Person must be a unique combination of name, gender and birth date')
         ]
 
-    # For a new record, add Person Name to the list of Person Names and mark it as preferred with Start Date = Birth Date.
+    # For a new record, add Person Name to the list of Person Names and mark it as "preferred" with Start Date = Birth Date.
+    # In addition, create Partner and Partner Link records.
 
     @api.model
     def create(self, vals):
@@ -148,15 +149,24 @@ class Person(models.Model):
         person_name_obj = self.env['hc.person.name'] # Variable to create person name
         partner_link_obj = self.env['hc.partner.link'] # Variable to create partner link
         name = self.env['hc.human.name'].browse(vals['name_id']) # Variable to create name of person
-        partner_id = partner_obj.create({'company_type': 'person', 'name' : name.name})
+        res = super(Person, self).create(vals)
+        partner_id = partner_obj.create({
+            'company_type': 'person',
+            'is_company': False,
+            'is_person': True,
+            'is_healthcare': True,
+            'name': name.name,
+            'birthdate': str(res.birth_date),
+            })
         vals.update({'name': name.name, 'partner_id': partner_id.id})
         names_vals = {}
-        res = super(Person, self).create(vals)
+        # res = super(Person, self).create(vals)
         link = partner_link_obj.create({
             'link_type': 'person',
             'link_person_id': res.id,
             'partner_id': partner_id.id,
-            'start_date': datetime.datetime.today().date()
+            # 'start_date': datetime.datetime.today().date()
+            'start_date': datetime.today(),
             })
         if name:
             names_vals.update({
@@ -167,39 +177,6 @@ class Person(models.Model):
                 })
             person_name_obj.create(names_vals)
         return res
-
-    # @api.model
-    # def create(self, vals):
-
-    #     # Create Person Name record
-    #     person_name_obj = self.env['hc.person.name']
-    #     name = self.env['hc.human.name'].browse(vals['name_id'])
-    #     names_vals = {}
-    #     res = super(Person, self).create(vals)
-    #     if name:
-    #         names_vals.update({
-    #             'is_preferred': True,
-    #             'human_name_id': name.id,
-    #             'person_id': res.id,
-    #             'start_date': res.birth_date,
-    #             })
-    #         person_name_obj.create(names_vals)
-
-    #     # Create Partner record
-    #     partner_obj = self.env['res.partner']
-    #     partner_id = partner_obj.create({'company_type': 'person', 'name' : name.name})
-    #     vals.update({'name': name.name, 'partner_id': partner_id.id})
-
-    #     # Create link of Person to Partner
-    #     partner_link_obj = self.env['hc.partner.link']
-    #     link = partner_link_obj.create({
-    #         'link_type': 'person',
-    #         'link_person_id': res.id,
-    #         'partner_id': partner_id.id,
-    #         'start_date': datetime.datetime.today().date()
-    #         })
-
-    #     return res
 
     # For an existing record, if new Person Name is preferred, remove preferred from previous name.
 
@@ -346,7 +323,7 @@ class PersonLink(models.Model):
     def _compute_target_name(self):
         for hc_person_link in self:
             if hc_person_link.target_type == 'person':
-                hc_person_link.target_name = hc_person_link.target_person_id.name
+                hc_person_link.target_name = hc_person_link.target_person_id.name_id.name
     #         elif hc_person_link.target_type == 'patient':
     #             hc_person_link.target_name = hc_person_link.target_patient_id.name
     #         elif hc_person_link.target_type == 'practitioner':
@@ -363,6 +340,21 @@ class PersonIdentifier(models.Model):
         comodel_name="hc.res.person",
         string="Person",
         help="Person associated with this Person Identifier.")
+    extension_ids = fields.One2many(
+        comodel_name="hc.person.identifier.extension",
+        inverse_name="person_identifier_id",
+        string="Extensions",
+        help="Additional Content defined by implementations.")
+
+class PersonIdentifierExtension(models.Model):
+    _name = "hc.person.identifier.extension"
+    _description = "Person Identifier Extension"
+    _inherit = ["hc.basic.association", "hc.extension"]
+
+    person_identifier_id = fields.Many2one(
+        comodel_name="hc.person.identifier",
+        string="Person Identifier",
+        help="Person Identifier associated with this Person Identifier Extension.")
 
 class PersonName(models.Model):
     _name = "hc.person.name"
@@ -546,15 +538,18 @@ class Partner(models.Model):
     is_person = fields.Boolean(
         string="Is a person",
         help="This partner is a health care person.")
-    is_patient = fields.Boolean(
-        string="Is a patient",
-        help="This partner is a patient.")
-    is_practitioner = fields.Boolean(
-        string="Is a practitioner",
-        help="This partner is a health care practitioner.")
-    is_related_person = fields.Boolean(
-        string="Is a related person",
-        help="This partner is a health care related person.")
+    is_animal = fields.Boolean(
+        string="Is an animal",
+        help="This partner is a health care animal.")
+    # is_patient = fields.Boolean(
+    #     string="Is a patient",
+    #     help="This partner is a patient.")
+    # is_practitioner = fields.Boolean(
+    #     string="Is a practitioner",
+    #     help="This partner is a health care practitioner.")
+    # is_related_person = fields.Boolean(
+    #     string="Is a related person",
+    #     help="This partner is a health care related person.")
     link_ids = fields.One2many(
         comodel_name="hc.partner.link",
         inverse_name="partner_id",

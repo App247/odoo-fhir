@@ -37,7 +37,7 @@
                         <h1>
                             <field name="title" default_focus="1" placeholder="Title"/>
                         </h1>
-                        <field name="div"/>
+                        <field name="div" widget="html"/>
                         <group>
                             <group>
                             </group>

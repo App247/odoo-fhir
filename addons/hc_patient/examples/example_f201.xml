@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+    <!-- F201 Organization -->
+
+        <record id="base.patient_f201_organization" model="res.partner">
+            <field name="name">AUMC</field>
+            <field name="company_type">company</field>
+            <field name="is_organization" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
+        </record>
+
+        <record id="hc_organization.patient_f201" model="hc.res.organization">
+            <field name="partner_id" ref="patient_f201_organization"/>
+            <field name="name">AUMC</field>
+        </record>
+
+    <!-- F001 Person -->
+
+         <record id="hc_base.human_name_term_551" model="hc.human.name.term">
+            <field name="name">Roel</field>
+        </record>
+
+        <record id="hc_base.human_name_term_552" model="hc.human.name.term">
+            <field name="name">Bor</field>
+        </record>
+
+        <record id="hc_base.human_name_term_553" model="hc.human.name.term">
+            <field name="name">Roelof</field>
+        </record>
+
+        <record id="hc_base.human_name_term_554" model="hc.human.name.term">
+            <field name="name">Olaf</field>
+        </record>
+
+        <record id="hc_base.patient_f201_name_1" model="hc.human.name">
+            <field eval="[(6, 0, [ref('hc_base.human_name_term_551')])]" name="nickname_ids"/>
+            <field model="hc.human.name.term" name="surname_id" search="[('name','=','Bor')]"/>
+            <field model="hc.human.name.term" name="first_id" search="[('name','=','Roelof')]"/>
+            <field eval="[(6, 0, [ref('hc_base.human_name_term_554')])]" name="middle_ids"/>
+            <field eval="[(6, 0, [ref('hc_base.res_partner_title_doctorandus')])]" name="prefix_ids"/>
+            <field eval="[(6, 0, [ref('hc_base.human_name_suffix_570')])]" name="suffix_ids"/>
+        </record>
+
+        <record id="hc_base.human_name_term_555" model="hc.human.name.term">
+            <field name="name">Ariadne</field>
+        </record>
+
+        <record id="hc_base.human_name_term_556" model="hc.human.name.term">
+            <field name="name">Bor-Jansma</field>
+        </record>
+
+        <record id="hc_base.patient_f201_name_2" model="hc.human.name">
+            <field model="hc.human.name.term" name="first_id" search="[('name','=','Ariadne')]"/>
+            <field model="hc.human.name.term" name="surname_id" search="[('name','=','Bor-Jansma')]"/>
+        </record>
+
+        <record id="base.patient_f201" model="res.partner">
+            <field name="name">Drs. Roelof Olaf Bor PDEng.</field>
+            <field name="company_type">person</field>
+            <field name="is_person" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
+        </record>
+
+        <record id="hc_person.patient_f201" model="hc.res.person">
+            <field name="partner_id" ref="base.patient_f201"/>
+            <field name="name_id" ref="hc_base.patient_f201_name_1"/>
+            <field name="gender">male</field>
+        </record>
+
+        <record id="hc_person.patient_f201_name" model="hc.person.name">
+            <field name="person_id" ref="hc_person.patient_f201"/>
+            <field name="human_name_id" ref="hc_base.patient_f201_name_1"/>
+            <field name="use">official</field>
+        </record>
+
+        <record id="base.patient_f201_contact" model="res.partner">
+            <field name="name">Ariadne Bor-Jansma</field>
+            <field name="company_type">person</field>
+            <field name="is_person" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
+        </record>
+
+        <record id="hc_person.patient_f201_contact" model="hc.res.person">
+            <field name="partner_id" ref="base.patient_f201_contact"/>
+            <field name="name_id" ref="hc_base.patient_f201_name_2"/>
+            <field name="gender">female</field>
+
+        <record id="hc_person.patient_f201_contact_name" model="hc.person.name">
+            <field name="person_id" ref="hc_person.patient_f201_contact"/>
+            <field name="human_name_id" ref="hc_base.patient_f201_name_2"/>
+            <field name="use">usual</field>
+        </record>
+
+<!--     <record id="hc_base.patient_f201_text" model="hc.domain.resource.text">
+        <field name="status">generated</field>
+        <field name="div">
+              <p><b>Generated Narrative with Details</b></p>
+              <p><b>id</b>: f201</p>
+              <p><b>identifier</b>: BSN = 123456789 (OFFICIAL), BSN = 123456789 (OFFICIAL)</p>
+              <p><b>active</b>: true</p>
+              <p><b>name</b>: Rol(OFFICIAL)</p>
+              <p><b>telecom</b>: ph: +31612345678(MOBILE), ph: +31201234567(HOME)</p>
+              <p><b>gender</b>: male</p>
+              <p><b>birthDate</b>: Mar 13, 1960</p>
+              <p><b>deceased</b>: false</p>
+              <p><b>address</b>: Bos en Lommerplein 280 Amsterdam 1055RW NLD (HOME)</p>
+              <p><b>maritalStatus</b>: Legally married <span>(Details : {SNOMED CT code &#39;36629006&#39; = &#39;Legal marriage&#39;, given as &#39;Legally married&#39;}; {http://hl7.org/fhir/v3/MaritalStatus code &#39;M&#39; = &#39;Married)</span></p>
+              <p><b>multipleBirth</b>: false</p>
+              <p><b>photo</b>: </p>
+
+              <h3>Contacts</h3>
+              <table>
+                <tr><td>-</td><td><b>Relationship</b></td><td><b>Name</b></td><td><b>Telecom</b></td></tr>
+                <tr><td>*</td><td>Wife <span>(Details : {SNOMED CT code &#39;127850001&#39; = &#39;Wife&#39;, given as &#39;Wife&#39;}; {http://hl7.org/fhir/v2/0131 code &#39;N&#39; = &#39;Next-of-Kin; {http://hl7.org/fhir/v3/RoleCode code &#39;WIFE&#39; = &#39;wife)</span></td><td>Ariadne Bor-Jansma</td><td>ph: +31201234567(HOME)</td></tr>
+              </table>
+
+              <h3>Communications</h3>
+              <table>
+                <tr><td>-</td><td><b>Language</b></td><td><b>Preferred</b></td></tr>
+                <tr><td>*</td><td>Dutch <span>(Details : {urn:ietf:bcp:47 code &#39;nl-NL&#39; = &#39;Dutch (Region=Netherlands)&#39;, given as &#39;Dutch&#39;})</span></td><td>true</td></tr>
+              </table>
+              <p><b>managingOrganization</b>: <a>AUMC</a></p>
+        </field>
+    </record>  -->
+
+    <!-- F001 Patient -->
+
+        <record id="hc_patient.patient_f201" model="hc.res.patient">
+            <field name="person_id" ref="hc_person.patient_f201"/>
+            <field name="is_active" eval="True"/>
+            <field name="birth_date">1960-03-13</field>
+            <field name="is_deceased" eval="False"/>
+            <field model="hc.res.patient" name="marital_status_id" search="[('name','=','Legally married')]"/>
+            <field name="is_multiple_birth" eval="False"/>
+            <field name="managing_organization_id" ref="hc_organization.patient_f201"/>
+        </record>
+
+    <!-- F001 Patient Identifier -->
+
+    
+
+    </data>
+</odoo>

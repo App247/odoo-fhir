@@ -154,8 +154,9 @@
             <field name="model">hc.human.name.suffix</field>
             <field name="arch" type="xml">
                 <search string="Human Name Suffixes">
-                    <field name="long_name"/>
                     <field name="name"/>
+                    <field name="long_name"/>
+                    <field name="description"/>
                     <group>
                         <filter name="group_by_type" string="Type" context="{'group_by': 'type'}"/>
                     </group>
@@ -168,8 +169,8 @@
             <field name="model">hc.human.name.suffix</field>
             <field name="arch" type="xml">
                 <tree string="Human Name Suffixes">
-                    <field name="long_name"/>
                     <field name="name"/>
+                    <field name="long_name"/>
                     <field name="type"/>
                     <field name="description"/>
                 </tree>
@@ -211,15 +212,12 @@
                     context=""
                     limit=""/>
 
-       <!--  <menuitem action="action_partner_title_contact" id="menu_partner_title_contact" name="Contact Titles"
-            parent="menu_config_address_book" sequence="3" groups="base.group_no_one"/> -->
-
-<!--             <menuitem id="﻿hc_base.menu_human_name_prefix"
+        <menuitem id="hc_base.menu_human_name_prefix"
                   name="Prefixes"
                   parent="hc_base.menu_human_name"
                   action="base.action_partner_title_contact"
-                  groups="base.group_no_one"
-                  sequence="15"/> -->
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="15"/>
 
         <menuitem id="hc_base.menu_human_name_suffix"
                   name="Suffixes"

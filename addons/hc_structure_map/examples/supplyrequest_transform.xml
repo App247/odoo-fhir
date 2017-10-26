@@ -1,0 +1,223 @@
+<odoo>
+    <data noupdate="1">
+
+        <record id="hc_base.structure_map_supplyrequest_transform_text" model="hc.domain.resource.text">
+            <field name="title">supplyrequest-transform</field>
+            <field name="status">generated</field>
+            <field name="div">
+                map &quot;http://hl7.org/fhir/StructureMap/supplyrequest-transform&quot; = supplyRequestTransform
+
+                uses &quot;http://hl7.org/fhir/StructureDefinition/ActivityDefinition&quot; as source
+                uses &quot;http://hl7.org/fhir/StructureDefinition/SupplyRequest&quot; as target
+
+                group main
+                    input &quot;source&quot;: ActivityDefinition as source
+                    input &quot;target&quot;: SupplyRequest as target
+
+                &quot;status&quot;: for source.id make target.status = &#39;draft&#39;
+                &quot;category&quot;: for source.id make target.category = &#39;non-stock&#39;
+                &quot;priority&quot;: for source.id make target.priority = &#39;routine&#39;
+                &quot;quantity&quot;: for source.quantity make target.orderedItem.quantity
+                &quot;item&quot;: for source.code make target.orderedItem.itemCodeableConcept
+                &quot;when&quot;: for source.id make target.occurrenceDateTime = Now()
+                &quot;authoredOn&quot;: for source.id make target.authoredOn = Now()
+            </field>
+        </record>
+
+        <record id="structure_map_supplyrequest_transform" model="hc.res.structure.map">
+<!--             <field name="id">supplyrequest-transform</field> -->
+            <field name="text_id" ref="hc_base.structure_map_supplyrequest_transform_text"/>
+            <field name="url">http://hl7.org/fhir/StructureMap/supplyrequest-transform</field>
+            <field name="name">Transform from an ActivityDefinition to a SupplyRequest</field>
+            <field name="status">draft</field>
+        </record>
+
+        <record id="structure_map_supplyrequest_transform_structure_1" model="hc.structure.map.structure">
+            <field name="structure_map_id" ref="structure_map_supplyrequest_transform"/>
+            <field name="url">http://hl7.org/fhir/StructureDefinition/activitydefinition</field>
+            <field name="mode">source</field>
+        </record>
+
+        <record id="structure_map_supplyrequest_transform_structure_2" model="hc.structure.map.structure">
+            <field name="structure_map_id" ref="structure_map_supplyrequest_transform"/>
+            <field name="url">http://hl7.org/fhir/StructureDefinition/supplyrequest</field>
+            <field name="mode">target</field>
+        </record>
+
+        <record id="structure_map_supplyrequest_transform_group" model="hc.structure.map.group">
+            <field name="structure_map_id" ref="structure_map_supplyrequest_transform"/>
+            <field name="name">main</field>
+            <field name="type_mode">none</field>
+        </record>
+
+        <record id="structure_map_supplyrequest_transform_rule_1" model="hc.structure.map.group.rule">
+            <field name="group_id" ref="structure_map_supplyrequest_transform_group"/>
+            <field name="name">status</field>
+        </record>
+
+        <record id="structure_map_supplyrequest_transform_source_1" model="hc.structure.map.group.rule.source">
+            <field name="rule_id" ref="structure_map_supplyrequest_transform_rule_1"/>
+            <field name="context">source</field>
+            <field name="element">id</field>
+            <field name="variable">a</field>
+        </record>
+
+        <record id="structure_map_supplyrequest_transform_target_1" model="hc.structure.map.group.rule.target">
+            <field name="rule_id" ref="structure_map_supplyrequest_transform_rule_1"/>
+            <field name="context">target</field>
+            <field name="context_type">variable</field>
+            <field name="element">status</field>
+            <field name="transform">evaluate</field>
+        </record>
+
+        <record id="structure_map_supplyrequest_transform_parameter_1" model="hc.structure.map.group.rule.target.parameter">
+            <field name="target_id" ref="structure_map_supplyrequest_transform_target_1"/>
+            <field name="value_type">string</field>
+            <field name="value_string">&#39;draft&#39;</field>
+        </record>
+
+        <record id="structure_map_supplyrequest_transform_rule_2" model="hc.structure.map.group.rule">
+            <field name="group_id" ref="structure_map_supplyrequest_transform_group"/>
+            <field name="name">category</field>
+        </record>
+
+        <record id="structure_map_supplyrequest_transform_source_2" model="hc.structure.map.group.rule.source">
+            <field name="rule_id" ref="structure_map_supplyrequest_transform_rule_2"/>
+            <field name="context">source</field>
+            <field name="element">id</field>
+            <field name="variable">a</field>
+        </record>
+
+        <record id="structure_map_supplyrequest_transform_target_2" model="hc.structure.map.group.rule.target">
+            <field name="rule_id" ref="structure_map_supplyrequest_transform_rule_2"/>
+            <field name="context">target</field>
+            <field name="context_type">variable</field>
+            <field name="element">category</field>
+            <field name="transform">evaluate</field>
+        </record>
+
+        <record id="structure_map_supplyrequest_transform_parameter_2" model="hc.structure.map.group.rule.target.parameter">
+            <field name="target_id" ref="structure_map_supplyrequest_transform_target_2"/>
+            <field name="value_type">string</field>
+            <field name="value_string">&#39;non-stock&#39;</field>
+        </record>
+
+        <record id="structure_map_supplyrequest_transform_rule_3" model="hc.structure.map.group.rule">
+            <field name="name">priority</field>
+        </record>
+
+        <record id="structure_map_supplyrequest_transform_source_3" model="hc.structure.map.group.rule.source">
+            <field name="rule_id" ref="structure_map_supplyrequest_transform_rule_3"/>
+            <field name="context">source</field>
+            <field name="element">id</field>
+            <field name="variable">a</field>
+        </record>
+
+        <record id="structure_map_supplyrequest_transform_target_3" model="hc.structure.map.group.rule.target">
+            <field name="rule_id" ref="structure_map_supplyrequest_transform_rule_3"/>
+            <field name="context">target</field>
+            <field name="context_type">variable</field>
+            <field name="element">priority</field>
+            <field name="transform">evaluate</field>
+        </record>
+
+        <record id="structure_map_supplyrequest_transform_parameter_3" model="hc.structure.map.group.rule.target.parameter">
+            <field name="target_id" ref="structure_map_supplyrequest_transform_target_3"/>
+            <field name="value_type">string</field>
+            <field name="value_string">&#39;routine&#39;</field>
+        </record>
+
+        <record id="structure_map_supplyrequest_transform_rule_4" model="hc.structure.map.group.rule">
+            <field name="group_id" ref="structure_map_supplyrequest_transform_group"/>
+            <field name="name">quantity</field>
+        </record>
+
+        <record id="structure_map_supplyrequest_transform_source_4" model="hc.structure.map.group.rule.source">
+            <field name="rule_id" ref="structure_map_supplyrequest_transform_rule_4"/>
+            <field name="context">source</field>
+            <field name="element">quantity</field>
+            <field name="variable">a</field>
+        </record>
+
+        <record id="structure_map_supplyrequest_transform_target_4" model="hc.structure.map.group.rule.target">
+            <field name="rule_id" ref="structure_map_supplyrequest_transform_rule_4"/>
+            <field name="context">target</field>
+            <field name="context_type">variable</field>
+            <field name="element">category</field>
+            <field name="transform">copy</field>
+        </record>
+
+        <record id="structure_map_supplyrequest_transform_rule_5" model="hc.structure.map.group.rule">
+            <field name="group_id" ref="structure_map_supplyrequest_transform_group"/>
+            <field name="name">item</field>
+        </record>
+
+        <record id="structure_map_supplyrequest_transform_source_5" model="hc.structure.map.group.rule.source">
+            <field name="rule_id" ref="structure_map_supplyrequest_transform_rule_5"/>
+            <field name="context">source</field>
+            <field name="element">code</field>
+            <field name="variable">a</field>
+        </record>
+
+        <record id="structure_map_supplyrequest_transform_target_5" model="hc.structure.map.group.rule.target">
+            <field name="rule_id" ref="structure_map_supplyrequest_transform_rule_5"/>
+            <field name="context">target</field>
+            <field name="context_type">variable</field>
+            <field name="element">orderedItem.itemCodeableConcept</field>
+            <field name="transform">copy</field>
+        </record>
+
+        <record id="structure_map_supplyrequest_transform_rule_6" model="hc.structure.map.group.rule">
+            <field name="group_id" ref="structure_map_supplyrequest_transform_group"/>
+            <field name="name">when</field>
+        </record>
+
+        <record id="structure_map_supplyrequest_transform_source_6" model="hc.structure.map.group.rule.source">
+            <field name="rule_id" ref="structure_map_supplyrequest_transform_rule_6"/>
+            <field name="context">source</field>
+            <field name="element">id</field>
+            <field name="variable">a</field>
+        </record>
+
+        <record id="structure_map_supplyrequest_transform_target_6" model="hc.structure.map.group.rule.target">
+            <field name="rule_id" ref="structure_map_supplyrequest_transform_rule_6"/>
+            <field name="context">target</field>
+            <field name="context_type">variable</field>
+            <field name="element">occurrenceDateTime</field>
+            <field name="transform">evaluate</field>
+        </record>
+
+        <record id="structure_map_supplyrequest_transform_parameter_6" model="hc.structure.map.group.rule.target.parameter">
+            <field name="target_id" ref="structure_map_supplyrequest_transform_target_6"/>
+            <field name="value_type">string</field>
+            <field name="value_string">now()</field>
+        </record>
+
+        <record id="structure_map_supplyrequest_transform_rule_7" model="hc.structure.map.group.rule">
+            <field name="group_id" ref="structure_map_supplyrequest_transform_group"/>
+            <field name="name">authoredOn</field>
+        </record>
+
+        <record id="structure_map_supplyrequest_transform_source_7" model="hc.structure.map.group.rule.source">
+            <field name="rule_id" ref="structure_map_supplyrequest_transform_rule_7"/>
+            <field name="context">source</field>
+            <field name="element">id</field>
+            <field name="variable">a</field>
+        </record>
+
+        <record id="structure_map_supplyrequest_transform_target_7" model="hc.structure.map.group.rule.target">
+            <field name="rule_id" ref="structure_map_supplyrequest_transform_rule_7"/>
+            <field name="context">target</field>
+            <field name="context_type">variable</field>
+            <field name="element">authoredOn</field>
+            <field name="transform">evaluate</field>
+        </record>
+
+        <record id="structure_map_supplyrequest_transform_parameter_7" model="hc.structure.map.group.rule.target.parameter">
+            <field name="target_id" ref="structure_map_supplyrequest_transform_target_7"/>
+            <field name="value_type">string</field>
+            <field name="value_string">now()</field>
+        </record>
+
+    </data>
+</odoo>

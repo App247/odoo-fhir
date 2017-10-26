@@ -3,7 +3,6 @@
 from openerp import models, fields, api
 import openerp.addons.decimal_precision as dp
 
-
 class CountryRegionType(models.Model):
     _name = "hc.vs.country.region.type"
     _description = "Region Type"
@@ -519,3 +518,14 @@ class AddressGeolocation(models.Model):
                 comp_name = comp_name + " " + str(hc_address_geolocation.longitude_direction) + str(hc_address_geolocation.longitude)
                 # comp_name = comp_name + ", " + str(hc_address_geolocation.longitude) + "°" or ''
             hc_address_geolocation.name = comp_name
+
+
+# External Reference
+
+class Country(models.Model):
+    _inherit = ["res.country"]
+
+    code3 = fields.Char(
+        string="alpha-3 Country Code",
+        size=3,
+        help="A 3-character representation of the ISO country code. Aka Country ISO 3166-1 alpha-3 Code")

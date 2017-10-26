@@ -8,8 +8,8 @@ class Resource(models.Model):
     _rec_name = "identifier"
 
     identifier = fields.Char(
-        string="Id",
-        compute='get_external_id',
+        string="ID",
+        compute='hc_resource_id.get_external_id',
         store="True",
         help="How the resource reference is interpreted when testing consent restrictions.")
     meta_id = fields.Many2one(

@@ -28,6 +28,7 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'examples/supplyrequest_transform.xml',
         'views/hc_res_structure_map_views.xml',
         'views/hc_res_structure_map_templates.xml',
     ],

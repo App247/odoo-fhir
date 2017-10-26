@@ -229,7 +229,8 @@ class HumanName(models.Model):
 
             family_reverse = birth_surname + ' ' + surname + ' ' + mother_maiden
 
-            prefix = " ".join([prefix.name for prefix in rec.prefix_ids]) if rec.prefix_ids else ''
+            # prefix = " ".join([prefix.name for prefix in rec.prefix_ids]) if rec.prefix_ids else ''
+            prefix = " ".join([prefix.shortcut for prefix in rec.prefix_ids]) if rec.prefix_ids else ''
             suffix = " ".join([suffix.name for suffix in rec.suffix_ids]) if rec.suffix_ids else ''
 
             if rec.display_order == 'first_maiden_last':

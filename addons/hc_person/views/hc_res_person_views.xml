@@ -7,7 +7,7 @@
             <field name="model">hc.res.person</field>
             <field name="arch" type="xml">
                 <search string="Persons">
-                    <field name="name"/>
+                    <field name="name_id"/>
                     <field name="gender"/>
                     <field name="birth_date"/>
                 </search>
@@ -20,7 +20,7 @@
             <field name="arch" type="xml">
                 <tree string="Persons">
                      <field name="id"/>
-                    <field name="name"/>
+                    <field name="name_id"/>
                     <field name="gender"/>
                     <field name="birth_date"/>
                     <field name="is_active" string="Active Record"/>
@@ -864,32 +864,28 @@
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//page[@name='sales_purchases']" position="after">
-                    <page string="Health Care">
-                        <field name="link_ids" mode="tree">
-                            <tree>
-                                <field name="link_type"/>
-                                <field name="link_name"/>
-                                <field name="start_date" string="Valid From"/>
-                                <field name="end_date" string="Valid To"/>
-                            </tree>
-                            <form>
-                                <sheet>
-                                    <group>
-                                        <group>
-                                            <field name="link_name"/>
-                                            <field name="link_type" class="oe_edit_only"/>
-                                            <field name="link_person_id" class="oe_edit_only" attrs="{'invisible': [('link_type','!=','person')], 'required': [('link_type','=','person')]}"/>
-                                        </group>
-                                        <group>
-                                            <field name="start_date" string="Valid From"/>
-                                            <field name="end_date" string="Valid To"/>
-                                       </group>
-                                    </group>
-                                </sheet>
-                            </form>
-                        </field>
-                    </page>
+                <data>
+                    <xpath expr="//field[@name='function']" position="before">
+                        <field name="is_healthcare" string="Healthcare" readonly="1"
+                            attrs="{'invisible': [('is_healthcare','=',0)]}"/>
+<!--                         <field name="birthdate" string="Birth Date" readonly="1"
+                            attrs="{'invisible': [('is_person','!=',1)]}"/> -->
+                        <field name="birthdate" string="Birth Date" readonly="1"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+       <record id="base.view_res_partner_filter_person" model="ir.ui.view">
+            <field name="name">res.partner.select</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='type_company']" position="after">
+                    <separator/>
+                    <filter string="HC Persons" name="is_person" domain="[('is_person','=',1)]"/>
+                    <filter string="HC Organizations" name="is_organization" domain="[('is_organization','=',1)]"/>
+                    <separator/>
                 </xpath>
             </field>
         </record>

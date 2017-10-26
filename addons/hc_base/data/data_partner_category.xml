@@ -2,6 +2,8 @@
 <odoo>
     <data noupdate="1">
 
+    <!-- Partner Category -->
+
         <record id="partner_source" model="res.partner.category">
             <field name="name">Source</field>
         </record>

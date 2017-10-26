@@ -6,6 +6,7 @@ class RelatedPerson(models.Model):
     _name = "hc.res.related.person"
     _description = "Related Person"
     _inherits = {"hc.res.person": "person_id"}
+    _rec_name = "person_id"
 
     person_id = fields.Many2one(
         comodel_name="hc.res.person",
@@ -13,6 +14,13 @@ class RelatedPerson(models.Model):
         required="True",
         ondelete="restrict",
         help="Person who is this related person.")
+    type = fields.Selection(
+        string="Type",
+        selection=[
+            ("human", "Human"),
+            ("animal", "Animal")],
+        default="human",
+        help="Related Person is human or animal.")
     identifier_ids = fields.One2many(
         related="person_id.identifier_ids",
         string="Identifiers",
@@ -46,11 +54,11 @@ class RelatedPerson(models.Model):
     #     help="A contact detail for this related person.")
     gender = fields.Selection(
         related="person_id.gender",
-        readonly="1",
+        readonly=True,
         help="The gender of a related person used for administrative purposes.")
     birth_date = fields.Date(
         related="person_id.birth_date",
-        readonly="1",
+        readonly=True,
         help="The birth date for the related person.")
     address_ids = fields.One2many(
         related="person_id.address_ids",
@@ -102,21 +110,21 @@ class RelatedPerson(models.Model):
                     rec.person_id.is_related_person = False
         return super(RelatedPerson, self).unlink()
 
-class RelatedPersonIdentifier(models.Model):
-    _name = "hc.related.person.identifier"
-    _description = "Related Person Identifier"
-    _inherits = {"hc.person.identifier": "identifier_id"}
+# class RelatedPersonIdentifier(models.Model):
+#     _name = "hc.related.person.identifier"
+#     _description = "Related Person Identifier"
+#     _inherits = {"hc.person.identifier": "identifier_id"}
 
-    identifier_id = fields.Many2one(
-        comodel_name="hc.person.identifier",
-        string="Person Identifier",
-        required="True",
-        ondelete="restrict",
-        help="Person identifier associated with this related person.")
-    related_person_id = fields.Many2one(
-        comodel_name="hc.res.related.person",
-        string="Related Person",
-        help="Related person associated with this person identifier.")
+#     identifier_id = fields.Many2one(
+#         comodel_name="hc.person.identifier",
+#         string="Person Identifier",
+#         required="True",
+#         ondelete="restrict",
+#         help="Person identifier associated with this related person.")
+#     related_person_id = fields.Many2one(
+#         comodel_name="hc.res.related.person",
+#         string="Related Person",
+#         help="Related person associated with this person identifier.")
 
 # class RelatedPersonName(models.Model):
 #     _name = "hc.related.person.name"
@@ -252,8 +260,6 @@ class PartnerLink(models.Model):
                 hc_partner_link.link_name = hc_partner_link.link_person_id.name
             elif hc_partner_link.link_type == 'related_person':
                 hc_partner_link.link_name = hc_partner_link.link_related_person_id.name
-            elif hc_partner_link.link_type == 'practitioner':
-                hc_partner_link.link_name = hc_partner_link.link_practitioner_id.name
 
 class Person(models.Model):
     _inherit = ["hc.res.person"]
@@ -275,8 +281,6 @@ class PersonLink(models.Model):
         for hc_person_link in self:
             if hc_person_link.target_type == 'person':
                 hc_person_link.target_name = hc_person_link.target_person_id.name
-            elif hc_person_link.target_type == 'practitioner':
-                hc_person_link.target_name = hc_person_link.target_practitioner_id.name
             elif hc_person_link.target_type == 'related_person':
                 hc_person_link.target_name = hc_person_link.target_related_person_id.name
 

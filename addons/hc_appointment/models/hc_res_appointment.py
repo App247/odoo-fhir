@@ -14,7 +14,7 @@ class Appointment(models.Model):
     # actor_name = fields.Char(
     #     string="Actor Name",
     #     related="hc_appointment_participant.actor_name",
-    #     readonly="1",
+    #     readonly=True,
     #     help="A Person, Location, Healthcare Service or Device that is participating in the appointment.")
     identifier_ids = fields.One2many(
         comodel_name="hc.appointment.identifier",

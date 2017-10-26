@@ -6,7 +6,7 @@
             <field name="model">hc.res.related.person</field>
             <field name="arch" type="xml">
                 <search string="Related Persons">
-                    <field name="name"/>
+                    <field name="person_id"/>
                     <field name="gender"/>
                     <field name="birth_date"/>
                 </search>
@@ -18,7 +18,7 @@
             <field name="model">hc.res.related.person</field>
             <field name="arch" type="xml">
                 <tree string="Related Persons">
-                    <field name="name"/>
+                    <field name="person_id"/>
                     <field name="gender"/>
                     <field name="birth_date"/>
                 </tree>
@@ -274,6 +274,7 @@
         <record id="hc_res_person_view_form_inherited_related_person" model="ir.ui.view">
             <field name="name">Person Form</field>
             <field name="model">hc.res.person</field>
+            <field name="priority" eval="40"/>
             <field name="inherit_id" ref="hc_person.hc_res_person_view_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='is_active']" position="after">
@@ -290,12 +291,36 @@
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
-                    <xpath expr="//field[@name='is_active']" position="after">
-                        <field name="is_related_person" readonly="1"/>
+                <data>
+                    <xpath expr="//page[@name='sales_purchases']" position="after">
+                        <page string="Health Care">
+                            <field name="link_ids" mode="tree">
+                                <tree>
+                                    <field name="link_type"/>
+                                    <field name="link_name"/>
+                                    <field name="start_date" string="Valid From"/>
+                                    <field name="end_date" string="Valid To"/>
+                                </tree>
+                                <form>
+                                    <sheet>
+                                        <group>
+                                            <group>
+                                                <field name="link_name"/>
+                                                <field name="link_type" class="oe_edit_only"/>
+                                                <field name="link_person_id" class="oe_edit_only" attrs="{'invisible': [('link_type','!=','person')], 'required': [('link_type','=','person')]}"/>
+                                                <field name="link_related_person_id" class="oe_edit_only" attrs="{'invisible': [('link_type','!=','related_person')], 'required': [('link_type','=','related_person')]}"/>
+                                            </group>
+                                            <group>
+                                                <field name="start_date" string="Valid From"/>
+                                                <field name="end_date" string="Valid To"/>
+                                           </group>
+                                        </group>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
                     </xpath>
-                <xpath expr="//field[@name='link_type']" position="after">
-                    <field name="link_related_person_id" class="oe_edit_only" attrs="{'invisible': [('link_type','!=','related_person')], 'required': [('link_type','=','related_person')]}"/>
-                </xpath>
+                </data>
             </field>
         </record> -->
 

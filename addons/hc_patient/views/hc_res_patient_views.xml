@@ -9,7 +9,7 @@
             <field name="model">hc.res.patient</field>
             <field name="arch" type="xml">
                 <search string="Patients">
-                    <field name="name"/>
+                    <field name="person_id"/>
                     <field name="birth_date" string="DOB"/>
                     <field name="managing_organization_id"/>
                     <group>
@@ -26,7 +26,7 @@
             <field name="arch" type="xml">
                 <tree string="Patients">
                     <field name="id"/>
-                    <field name="name"/>
+                    <field name="person_id"/>
                     <field name="birth_date" string="DOB"/>
                     <field name="gender"/>
                     <field name="managing_organization_id"/>
@@ -143,6 +143,26 @@
                                                     <field name="end_date" placeholder="Valid To"/>
                                                </group>
                                             </group>
+                                            <notebook>
+                                                <page string="Extensions">
+                                                    <field name="extension_ids" mode="tree">
+                                                        <tree>
+                                                            <field name="url"/>
+                                                        </tree>
+                                                        <form>
+                                                            <sheet>
+                                                                <group>
+                                                                    <group>
+                                                                        <field name="url"/>
+                                                                    </group>
+                                                                    <group>
+                                                                    </group>
+                                                                </group>
+                                                            </sheet>
+                                                        </form>
+                                                    </field>
+                                                </page>
+                                            </notebook>
                                         </sheet>
                                     </form>
                                 </field>
@@ -768,6 +788,7 @@
                 <field name="definition"/>
                     <group>
                         <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>
+                        <filter name="group_by_source" string="source" context="{'group_by': 'source_id'}"/>
                     </group>
                 </search>
             </field>
@@ -1606,6 +1627,7 @@
         <record id="hc_res_person_view_form_inherited_patient" model="ir.ui.view">
             <field name="name">Person Form</field>
             <field name="model">hc.res.person</field>
+            <field name="priority" eval="20"/>
             <field name="inherit_id" ref="hc_person.hc_res_person_view_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='is_active']" position="after">
@@ -1624,37 +1646,39 @@
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//page[@name='sales_purchases']" position="after">
-                    <page string="Health Care">
-                        <field name="link_ids" mode="tree">
-                            <tree>
-                                <field name="link_type"/>
-                                <field name="link_name"/>
-                                <field name="start_date" string="Valid From"/>
-                                <field name="end_date" string="Valid To"/>
-                            </tree>
-                            <form>
-                                <sheet>
-                                    <group>
+                <data>
+                    <xpath expr="//page[@name='sales_purchases']" position="after">
+                        <page string="Health Care">
+                            <field name="link_ids" mode="tree">
+                                <tree>
+                                    <field name="link_type"/>
+                                    <field name="link_name"/>
+                                    <field name="start_date" string="Valid From"/>
+                                    <field name="end_date" string="Valid To"/>
+                                </tree>
+                                <form>
+                                    <sheet>
                                         <group>
-                                            <field name="link_name"/>
-                                            <field name="link_type" class="oe_edit_only"/>
-                                            <field name="link_person_id" class="oe_edit_only" attrs="{'invisible': [('link_type','!=','person')], 'required': [('link_type','=','person')]}"/>
-                                            <field name="link_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('link_type','!=','practitioner')], 'required': [('link_type','=','practitioner')]}"/>
-                                            <field name="link_related_person_id" class="oe_edit_only" attrs="{'invisible': [('link_type','!=','related_person')], 'required': [('link_type','=','related_person')]}"/>
-                                            <field name="link_patient_id" class="oe_edit_only" attrs="{'invisible': [('link_type','!=','patient')], 'required': [('link_type','=','patient')]}"/>
-                                            <field name="link_patient_contact_id" class="oe_edit_only" attrs="{'invisible': [('link_type','!=','patient_contact')], 'required': [('link_type','=','patient_contact')]}"/>
+                                            <group>
+                                                <field name="link_name"/>
+                                                <field name="link_type" class="oe_edit_only"/>
+                                                <field name="link_person_id" class="oe_edit_only" attrs="{'invisible': [('link_type','!=','person')], 'required': [('link_type','=','person')]}"/>
+                                                <field name="link_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('link_type','!=','practitioner')], 'required': [('link_type','=','practitioner')]}"/>
+                                                <field name="link_related_person_id" class="oe_edit_only" attrs="{'invisible': [('link_type','!=','related_person')], 'required': [('link_type','=','related_person')]}"/>
+                                                <field name="link_patient_id" class="oe_edit_only" attrs="{'invisible': [('link_type','!=','patient')], 'required': [('link_type','=','patient')]}"/>
+                                                <field name="link_patient_contact_id" class="oe_edit_only" attrs="{'invisible': [('link_type','!=','patient_contact')], 'required': [('link_type','=','patient_contact')]}"/>
+                                            </group>
+                                            <group>
+                                                <field name="start_date" string="Valid From"/>
+                                                <field name="end_date" string="Valid To"/>
+                                           </group>
                                         </group>
-                                        <group>
-                                            <field name="start_date" string="Valid From"/>
-                                            <field name="end_date" string="Valid To"/>
-                                       </group>
-                                    </group>
-                                </sheet>
-                            </form>
-                        </field>
-                    </page>
-                </xpath>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+                    </xpath>
+                </data>
             </field>
         </record>
 

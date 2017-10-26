@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="res_partner_title_lieutenant" model="res.partner.title">
+             <field name="name">Lieutenant</field>
+             <field name="code">lt</field>
+             <field name="shortcut">Lt.</field>
+             <field name="definition">Lieutenant</field>
+             <field name="system"></field>
+            <field name="source_id" ref=""/>
+        </record>
+
+        <record id="res_partner_title_admiral" model="res.partner.title">
+             <field name="name">Admiral</field>
+             <field name="code">adm</field>
+             <field name="shortcut">Adm.</field>
+             <field name="definition">Admiral</field>
+             <field name="system"></field>
+            <field name="source_id" ref=""/>
+        </record>
+
+        <record id="res_partner_title_attorney" model="res.partner.title">
+             <field name="name">Attorney</field>
+             <field name="code">atty</field>
+             <field name="shortcut">Atty.</field>
+             <field name="definition">Attorney</field>
+             <field name="system"></field>
+            <field name="source_id" ref=""/>
+        </record>
+
+        <record id="res_partner_title_brother" model="res.partner.title">
+             <field name="name">Brother</field>
+             <field name="code">C48648</field>
+             <field name="shortcut">Br.</field>
+             <field name="definition">Brother (Person Role Title)</field>
+             <field name="system">https://vsac.nlm.nih.gov/context/cs/codesystem/NCI/version/2017/code/C48648/info</field>
+            <field name="source_id" ref="base.nci"/>
+        </record>
+
+        <record id="res_partner_title_captain" model="res.partner.title">
+             <field name="name">Captain </field>
+             <field name="code">capt</field>
+             <field name="shortcut">Capt.</field>
+             <field name="definition">Captain </field>
+             <field name="system"></field>
+            <field name="source_id" ref=""/>
+        </record>
+
+        <record id="res_partner_title_commander" model="res.partner.title">
+             <field name="name">Commander</field>
+             <field name="code">cmdr</field>
+             <field name="shortcut">Cmdr.</field>
+             <field name="definition">Commander</field>
+             <field name="system"></field>
+            <field name="source_id" ref=""/>
+        </record>
+
+        <record id="res_partner_title_colonel" model="res.partner.title">
+             <field name="name">Colonel</field>
+             <field name="code">col</field>
+             <field name="shortcut">Col.</field>
+             <field name="definition">Colonel</field>
+             <field name="system"></field>
+            <field name="source_id" ref=""/>
+        </record>
+
+        <record id="res_partner_title_dean" model="res.partner.title">
+             <field name="name">Dean</field>
+             <field name="code">dean</field>
+             <field name="shortcut">Dean</field>
+             <field name="definition">University Dean (includes Assistant and Associate)</field>
+             <field name="system"></field>
+            <field name="source_id" ref=""/>
+        </record>
+
+        <record id="res_partner_title_doctor" model="res.partner.title">
+             <field name="name">Doctor</field>
+             <field name="code">C69164</field>
+             <field name="shortcut">Dr.</field>
+             <field name="definition">Doctor (Person Role Title) (Medical or Educator)</field>
+             <field name="system">https://vsac.nlm.nih.gov/context/cs/codesystem/NCI/version/2017/code/C69164/info</field>
+            <field name="source_id" ref="base.nci"/>
+        </record>
+
+        <record id="res_partner_title_father" model="res.partner.title">
+             <field name="name">Father</field>
+             <field name="code">C69165</field>
+             <field name="shortcut">Fr.</field>
+             <field name="definition">Father (Person Role Title)</field>
+             <field name="system">https://vsac.nlm.nih.gov/context/cs/codesystem/NCI/version/2017/code/C69165/info</field>
+            <field name="source_id" ref="base.nci"/>
+        </record>
+
+        <record id="res_partner_title_general" model="res.partner.title">
+             <field name="name">General</field>
+             <field name="code">gen</field>
+             <field name="shortcut">Gen.</field>
+             <field name="definition">General</field>
+             <field name="system"></field>
+            <field name="source_id" ref=""/>
+        </record>
+
+        <record id="res_partner_title_governor" model="res.partner.title">
+             <field name="name">Governor</field>
+             <field name="code">gov</field>
+             <field name="shortcut">Gov.</field>
+             <field name="definition">Governor</field>
+             <field name="system"></field>
+            <field name="source_id" ref=""/>
+        </record>
+
+        <record id="res_partner_title_honorable" model="res.partner.title">
+             <field name="name">Honorable</field>
+             <field name="code">hon</field>
+             <field name="shortcut">Hon.</field>
+             <field name="definition">Honorable (Cabinet Officer, Commissioner, Congressman, Judge, Supreme Court, United Nations US Delegate, Major, Senator, and Representative)</field>
+             <field name="system"></field>
+            <field name="source_id" ref=""/>
+        </record>
+
+        <record id="res_partner_title_lieutenant_colonel" model="res.partner.title">
+             <field name="name">Lieutenant Colonel</field>
+             <field name="code">lt_col</field>
+             <field name="shortcut">Lt. Col.</field>
+             <field name="definition">Lieutenant Colonel</field>
+             <field name="system"></field>
+            <field name="source_id" ref=""/>
+        </record>
+
+        <record id="res_partner_title_major" model="res.partner.title">
+             <field name="name">Major</field>
+             <field name="code">maj</field>
+             <field name="shortcut">Maj.</field>
+             <field name="definition">Major</field>
+             <field name="system"></field>
+            <field name="source_id" ref=""/>
+        </record>
+
+        <record id="res_partner_title_private_pte" model="res.partner.title">
+             <field name="name">Private (Pte)</field>
+             <field name="code">pte</field>
+             <field name="shortcut">Pte</field>
+             <field name="definition">A soldier of the lowest military rank. Shortened to "Pvt." in the United Kingdom and other Commonwealth countries.</field>
+             <field name="system">https://en.wikipedia.org/wiki/Private_(rank)</field>
+            <field name="source_id" ref=""/>
+        </record>
+
+        <record id="res_partner_title_private_pvt" model="res.partner.title">
+             <field name="name">Private (Pvt.)</field>
+             <field name="code">pvt</field>
+             <field name="shortcut">Pvt.</field>
+             <field name="definition">A soldier of the lowest military rank. Shortened to "Pte" in the United States. </field>
+             <field name="system">https://en.wikipedia.org/wiki/Private_(rank)</field>
+            <field name="source_id" ref=""/>
+        </record>
+
+        <record id="res_partner_title_master_sergeant" model="res.partner.title">
+             <field name="name">Major/Master Sergeant</field>
+             <field name="code">msgt</field>
+             <field name="shortcut">MSgt.</field>
+             <field name="definition">Major/Master Sergeant</field>
+             <field name="system"></field>
+            <field name="source_id" ref=""/>
+        </record>
+
+        <record id="res_partner_title_madam" model="res.partner.title">
+             <field name="name">Madam</field>
+             <field name="code">mrs</field>
+             <field name="shortcut">Mrs.</field>
+             <field name="definition">Married Woman</field>
+             <field name="system"></field>
+            <field name="source_id" ref="base.odoo"/>
+        </record>
+
+        <record id="res_partner_title_prince" model="res.partner.title">
+             <field name="name">Prince</field>
+             <field name="code">prince</field>
+             <field name="shortcut">Prince</field>
+             <field name="definition">Prince</field>
+             <field name="system"></field>
+            <field name="source_id" ref=""/>
+        </record>
+
+        <record id="res_partner_title_reverend" model="res.partner.title">
+             <field name="name">Reverend</field>
+             <field name="code">C69172</field>
+             <field name="shortcut">Rev.</field>
+             <field name="definition">Reverend (Nobility Title)</field>
+             <field name="system">https://vsac.nlm.nih.gov/context/cs/codesystem/NCI/version/2017/code/C69172/info</field>
+            <field name="source_id" ref="base.nci"/>
+        </record>
+
+        <record id="res_partner_title_sister" model="res.partner.title">
+             <field name="name">Sister</field>
+             <field name="code">C48649</field>
+             <field name="shortcut">Sis.</field>
+             <field name="definition">Sister (Person Role Title)</field>
+             <field name="system">https://vsac.nlm.nih.gov/context/cs/codesystem/NCI/version/2017/code/C48649/info</field>
+            <field name="source_id" ref="base.nci"/>
+        </record>
+
+        <record id="res_partner_title_deacon" model="res.partner.title">
+             <field name="name">Deacon</field>
+             <field name="code">deacon</field>
+             <field name="shortcut">Deacon</field>
+             <field name="definition">(Orthodoxy and Roman Catholicism) A clergyman ranked directly below a priest, with duties of helping the priests and carrying out parish work. (Wikipedia)</field>
+             <field name="system">https://en.wikipedia.org/wiki/Deacon</field>
+            <field name="source_id" ref=""/>
+        </record>
+
+        <record id="res_partner_title_imam" model="res.partner.title">
+             <field name="name">Imam</field>
+             <field name="code">11015003</field>
+             <field name="shortcut">Imam</field>
+             <field name="definition">Imam (occupation)</field>
+             <field name="system">https://vsac.nlm.nih.gov/context/cs/codesystem/SNOMEDCT/version/2017-09/code/119246008/info</field>
+            <field name="source_id" ref="base.snomed"/>
+        </record>
+
+        <record id="res_partner_title_bishop" model="res.partner.title">
+             <field name="name">Bishop</field>
+             <field name="code">C69162</field>
+             <field name="shortcut">Bish.</field>
+             <field name="definition">Bishop (Person Role Title)</field>
+             <field name="system">https://vsac.nlm.nih.gov/context/cs/codesystem/NCI/version/2017/code/C69162/info</field>
+            <field name="source_id" ref="base.nci"/>
+        </record>
+
+        <record id="res_partner_title_chaplain" model="res.partner.title">
+             <field name="name">Chaplain</field>
+             <field name="code">225725005</field>
+             <field name="shortcut">Ch.</field>
+             <field name="definition">Chaplain (Person Role Title)</field>
+             <field name="system">https://vsac.nlm.nih.gov/context/cs/codesystem/NCI/version/2017/code/C69163/info</field>
+            <field name="source_id" ref="base.snomed"/>
+        </record>
+
+        <record id="res_partner_title_mister" model="res.partner.title">
+             <field name="name">Mister</field>
+             <field name="code">C69166</field>
+             <field name="shortcut">Mr.</field>
+             <field name="definition">Mr (Person Role Title)</field>
+             <field name="system">https://vsac.nlm.nih.gov/context/cs/codesystem/NCI/version/2017/code/C69166/info</field>
+            <field name="source_id" ref="base.nci"/>
+        </record>
+
+        <record id="res_partner_title_miss" model="res.partner.title">
+             <field name="name">Miss</field>
+             <field name="code">C69167</field>
+             <field name="shortcut">Miss</field>
+             <field name="definition">Miss (Person Role Title). Unmarried Woman. (Source: Odoo)</field>
+             <field name="system">https://vsac.nlm.nih.gov/context/cs/codesystem/NCI/version/2017/code/C69167/info</field>
+            <field name="source_id" ref="base.nci"/>
+        </record>
+
+        <record id="res_partner_title_mrs" model="res.partner.title">
+             <field name="name">Mrs</field>
+             <field name="code">C69168</field>
+             <field name="shortcut">Mrs.</field>
+             <field name="definition">Mrs (Person Role Title)</field>
+             <field name="system">https://vsac.nlm.nih.gov/context/cs/codesystem/NCI/version/2017/code/C69168/info</field>
+            <field name="source_id" ref="base.nci"/>
+        </record>
+
+        <record id="res_partner_title_ms" model="res.partner.title">
+             <field name="name">Ms</field>
+             <field name="code">C69169</field>
+             <field name="shortcut">Ms.</field>
+             <field name="definition">Ms (Person Role Title). Single or Married Woman (Source: Odoo)</field>
+             <field name="system">https://vsac.nlm.nih.gov/context/cs/codesystem/NCI/version/2017/code/C69169/info</field>
+            <field name="source_id" ref="base.nci"/>
+        </record>
+
+        <record id="res_partner_title_prof" model="res.partner.title">
+             <field name="name">Professor</field>
+             <field name="code">C69170</field>
+             <field name="shortcut">Prof.</field>
+             <field name="definition">Professor (Person Role Title). Includes Assistant and Associate (Source: Odoo)</field>
+             <field name="system">https://vsac.nlm.nih.gov/context/cs/codesystem/NCI/version/2017/code/C69170/info</field>
+            <field name="source_id" ref="base.nci"/>
+        </record>
+
+        <record id="res_partner_title_rabbi" model="res.partner.title">
+             <field name="name">Rabbi</field>
+             <field name="code">C69171</field>
+             <field name="shortcut">R.</field>
+             <field name="definition">Rabbi (Person Role Title)</field>
+             <field name="system">https://vsac.nlm.nih.gov/context/cs/codesystem/NCI/version/2017/code/C69171/info</field>
+            <field name="source_id" ref="base.nci"/>
+        </record>
+
+        <record id="res_partner_title_vicar" model="res.partner.title">
+             <field name="name">Vicar</field>
+             <field name="code">309457007</field>
+             <field name="shortcut">Vicar</field>
+             <field name="definition">Vicar (occupation)</field>
+             <field name="system">https://vsac.nlm.nih.gov/context/cs/codesystem/SNOMEDCT/version/2017-09/code/309457007/info</field>
+            <field name="source_id" ref="base.snomed"/>
+        </record>
+
+        <record id="res_partner_title_the_venerable" model="res.partner.title">
+             <field name="name">The Venerable</field>
+             <field name="code">the_venerable</field>
+             <field name="shortcut">The Venerable</field>
+             <field name="definition">Ordained male monastic (monk) in Theravada Buddhism</field>
+             <field name="system">https://tanenbaum.org/tanenbaum-resources/addressing-religious-leaders/#Theravada</field>
+            <field name="source_id" ref="base.tanenbaum"/>
+        </record>
+
+        <record id="res_partner_title_swami" model="res.partner.title">
+             <field name="name">Swami</field>
+             <field name="code">swami</field>
+             <field name="shortcut">Swami</field>
+             <field name="definition">Ordained male in Hinduism</field>
+             <field name="system">https://tanenbaum.org/tanenbaum-resources/addressing-religious-leaders/#Hinduism</field>
+            <field name="source_id" ref="base.tanenbaum"/>
+        </record>
+
+        <record id="res_partner_title_swamini" model="res.partner.title">
+             <field name="name">Swamini</field>
+             <field name="code">swamini</field>
+             <field name="shortcut">Swamini</field>
+             <field name="definition">Ordained female in Hinduism</field>
+             <field name="system">https://tanenbaum.org/tanenbaum-resources/addressing-religious-leaders/#Hinduism</field>
+            <field name="source_id" ref="base.tanenbaum"/>
+        </record>
+
+        <record id="res_partner_title_sir" model="res.partner.title">
+             <field name="name">Sir</field>
+             <field name="code">sir</field>
+             <field name="shortcut">Sir</field>
+             <field name="definition">A respectful way to address a man.</field>
+             <field name="system">https://en.wikipedia.org/wiki/Sir</field>
+            <field name="source_id" ref=""/>
+        </record>
+
+        <record id="res_partner_title_maam" model="res.partner.title">
+             <field name="name">Ma'am</field>
+             <field name="code">maam</field>
+             <field name="shortcut">Ma'am</field>
+             <field name="definition">A respectful way to address a woman. Aka Madam.</field>
+             <field name="system">https://en.wikipedia.org/wiki/Sir</field>
+            <field name="source_id" ref=""/>
+        </record>
+
+        <record id="res_partner_title_doctorandus" model="res.partner.title">
+             <field name="name">Doctorandus</field>
+             <field name="code">drs</field>
+             <field name="shortcut">drs.</field>
+             <field name="definition">A Dutch academic title according to the pre-Bachelor–Master system.</field>
+             <field name="system">https://en.wikipedia.org/wiki/Doctorandus</field>
+            <field name="source_id" ref=""/>
+        </record>
+
+        <record id="res_partner_title_ingenieur" model="res.partner.title">
+             <field name="name">Ingenieur</field>
+             <field name="code">ir</field>
+             <field name="shortcut">ir.</field>
+             <field name="definition">In the Netherlands, somebody holding an engineer's degree. Obtained by university graduates (Wetenschappelijk onderwijs or WO). It is the highest engineer qualification. - 5 years study (3 B.Sc. + 2 M.Sc.)</field>
+             <field name="system">https://en.wikipedia.org/wiki/Engineer%27s_degree#The_Netherlands</field>
+            <field name="source_id" ref=""/>
+        </record>
+
+        <record id="res_partner_title_ingenieur_ing" model="res.partner.title">
+             <field name="name">Ingenieur</field>
+             <field name="code">ing</field>
+             <field name="shortcut">ing.</field>
+             <field name="definition">In the Netherlands, somebody holding an engineer's degree. Obtained by graduates from polytechnics (hoger beroeps onderwijs or HBO). - 3 or 4 years study depending on previous education (3 B.Eng.)</field>
+             <field name="system">https://en.wikipedia.org/wiki/Engineer%27s_degree#The_Netherlands</field>
+            <field name="source_id" ref=""/>
+        </record>
+
+    </data>
+</odoo>
