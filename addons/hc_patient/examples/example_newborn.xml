@@ -18,6 +18,7 @@
         <record id="base.patient_newborn" model="res.partner">
             <field name="name">Newborn Everywoman</field>
             <field name="company_type">person</field>
+            <field name="birthdate">2017-09-05</field>
             <field name="is_person" eval="True"/>
             <field name="is_healthcare" eval="True"/>
         </record>

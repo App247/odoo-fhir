@@ -1622,6 +1622,139 @@
                   groups="hc_base.group_hc_base_manager"
                   sequence="36"/>
 
+        <!-- Contact Role Views -->
+
+        <record id="hc_vs_contact_role_view_search" model="ir.ui.view">
+            <field name="name">Contact Role Search</field>
+            <field name="model">hc.vs.contact.role</field>
+            <field name="arch" type="xml">
+                <search string="Contact Roles">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_vs_contact_role_view_tree" model="ir.ui.view">
+            <field name="name">Contact Role Tree</field>
+            <field name="model">hc.vs.contact.role</field>
+            <field name="arch" type="xml">
+                <tree string="Contact Roles" default_order="level,name">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="definition" invisible="0"/>
+                    <field name="child_count" string="Child Count"/>
+                    <field name="level"/>
+                    <field name="parent_child_ids" widget="many2many_tags" invisible="0"/>
+                    <field name="level_attribute" invisible="1"/>
+                    <field name="source_id" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_vs_contact_role_view_form" model="ir.ui.view">
+            <field name="name">Contact Role Form</field>
+            <field name="model">hc.vs.contact.role</field>
+            <field name="arch" type="xml">
+                <form string="Contact Roles">
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>
+                        </h1>
+                        <label for="code" string="Code"/>
+                        <field name="code" placeholder="Code (e.g., biological)"/>
+                        <label for="definition" string="Definition"/>
+                        <field name="definition" placeholder="Definition"/>
+                        <label for="comments" string="Comments"/>
+                        <field name="comments" placeholder="Comments"/>
+                        <group>
+                            <group>
+                                <field name="contains_id" invisible="1"/>
+                                <field name="level" placeholder="An integer (e.g., 1, 2)" invisible="0"/>
+                                <field name="is_abstract" invisible="0"/>
+                                <field name="version" placeholder="e.g., v2.5" invisible="0"/>
+                            </group>
+                            <group>
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Parents">
+                                <field name="parent_child_ids" mode="tree">
+                                    <tree default_order="level">
+                                        <field name="name"/>
+                                        <field name="code"/>
+                                        <field name="level"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                    <field name="name"/>
+                                                    <field name="code"/>
+                                                    <field name="level"/>
+                                                </group>
+                                            </group>
+                                            <notebook>
+                                                 <page string="Parents">
+                                                    <field name="parent_child_ids" mode="tree">
+                                                        <tree default_order="level">
+                                                            <field name="name"/>
+                                                            <field name="code"/>
+                                                            <field name="level"/>
+                                                        </tree>
+                                                    </field>
+                                                </page>
+                                                <page string="Children">
+                                                    <field name="child_parent_ids" mode="tree">
+                                                        <tree default_order="name">
+                                                            <field name="child_count"/>
+                                                            <field name="name"/>
+                                                            <field name="code"/>
+                                                            <field name="level"/>
+                                                            <field name="parent_child_ids" widget="many2many_tags"/>
+                                                        </tree>
+                                                    </field>
+                                                </page>
+                                            </notebook>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Children">
+                                <field name="child_parent_ids" mode="tree">
+                                    <tree default_order="name">
+                                        <field name="child_count"/>
+                                        <field name="name"/>
+                                        <field name="code"/>
+                                        <field name="level"/>
+                                        <field name="parent_child_ids" widget="many2many_tags"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_vs_contact_role_action"
+                    name="HC Contact Roles"
+                    res_model="hc.vs.contact.role"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <menuitem id="hc_patient.menu_cont_role"
+                  name="Contact Roles"
+                  parent="hc_patient.menu_pat"
+                  action="hc_vs_contact_role_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="21"/>
+
     <!-- External Reference View -->
 
         <record id="hc_res_person_view_form_inherited_patient" model="ir.ui.view">

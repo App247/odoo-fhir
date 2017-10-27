@@ -60,6 +60,7 @@
         'examples/example_xcda.xml',
         'examples/example_dicom.xml',
         'examples/example_f001.xml',
+        'examples/example_f201.xml',        
         # 'views/hc_marital_status_views.xml',
         'views/hc_dicom_demographic_views.xml',
         'views/hc_res_patient_views.xml',

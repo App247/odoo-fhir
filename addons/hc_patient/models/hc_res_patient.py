@@ -555,9 +555,9 @@ class PatientContact(models.Model):
         string="Person",
         help="Person associated with this Patient Contact.")
     relationship_ids = fields.Many2many(
-        comodel_name="hc.vs.v2.contact.role",
-        relation="patient_contact_role_rel",
-        string="Relationships",
+        comodel_name="hc.vs.contact.role",
+        # relation="patient_contact_role_rel",
+        # string="Relationships",
         help="The kind of relationship.")
     # name_ids = fields.One2many(
     #     related="person_id.name_ids",
@@ -983,21 +983,92 @@ class AnimalSpecies(models.Model):
         string="Level Name",
         help="Name of level (e.g., Species")
 
-class V2ContactRole(models.Model):
-    _name = "hc.vs.v2.contact.role"
-    _description = "V2 Contact Role"
+class ContactRole(models.Model):
+    _name = "hc.vs.contact.role"
+    _description = "Contact Role"
     _inherit = ["hc.value.set.contains"]
 
     name = fields.Char(
         string="Name",
-        help="Name of this v2 contact role.")
+        help="Name of this contact role.")
     code = fields.Char(
         string="Code",
-        help="Code of this v2 contact role.")
+        help="Code of this contact role.")
     contains_id = fields.Many2one(
-        comodel_name="hc.vs.v2.contact.role",
+        comodel_name="hc.vs.contact.role",
         string="Parent",
         help="Parent contact relationship.")
+    contains_id = fields.Many2one(
+        comodel_name="hc.vs.contact.role",
+        string="Parent",
+        help="Parent contact relationship.")
+    level_attribute = fields.Char(
+        compute="_get_level",
+        string="Level/Parent",
+        store=True,
+        help="Level associated with Parent concept.")
+    level = fields.Integer(
+        compute="_get_level",
+        string="Level",
+        store=True,
+        help="Level as a parent in a hierarchy of codes.")
+    parent_child_ids = fields.Many2many(
+        comodel_name="hc.vs.contact.role",
+        relation="contact_role_parent_child_rel",
+        column1="parent_id",
+        column2="child_id",
+        string="Parents",
+        help="Parent contact role.")
+    child_parent_ids = fields.Many2many(
+        comodel_name="hc.vs.contact.role",
+        compute="_calc_child",
+        store="True",
+        relation="contact_role_child_parent_rel",
+        column1="child_id",
+        column2="parent_id",
+        string="Children",
+        help="Child contact role.")
+    child_count = fields.Integer(
+        string="Child Count",
+        compute="_calc_child",
+        store="True",
+        help="Number of child members.")
+
+    @api.depends('code')
+    def _calc_child(self):
+        cont_role_obj = self.env['hc.vs.contact.role']
+        for rec in self:
+            rec.child_parent_ids = False
+            if rec.code:
+                child_ids = cont_role_obj.search([('parent_child_ids.code', '=', rec.code)])
+                if child_ids:
+                    rec.child_count = len(child_ids)
+                    rec.child_parent_ids = [(6,0,child_ids.ids)]
+
+    @api.constrains('parent_child_ids')
+    def _check_recursive_parent_child(self):
+        for rec in self:
+            if rec.id in rec.parent_child_ids.ids:
+                raise ValidationError('Error! A code cannot be a child of itself.')
+        return True
+
+    @api.depends('parent_child_ids')
+    def _get_level(self):
+        for rec in self:
+            if not rec.parent_child_ids:
+                rec.level = 1
+                rec.level_attribute = ''
+            else:
+                high = 1
+                attr_str = False
+                for parent in rec.parent_child_ids:
+                    if not attr_str:
+                        attr_str = '(' + str(parent.level + 1) + ',' + parent.name +')'
+                    else:
+                        attr_str = attr_str + ',' + '(' + str(parent.level + 1) + ',' + parent.name + ')'
+                    if parent.level > high:
+                        high = parent.level
+                rec.level = high + 1
 
 class ClinicalTrialReason(models.Model):
     _name = "hc.vs.clinical.trial.reason"

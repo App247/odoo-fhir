@@ -53,6 +53,7 @@
         <record id="base.patient_example" model="res.partner">
             <field name="name">Peter James Chalmers</field>
             <field name="company_type">person</field>
+            <field name="birthdate">1970-06-20</field>
             <field name="is_person" eval="True"/>
             <field name="is_healthcare" eval="True"/>
         </record>
@@ -210,7 +211,7 @@
             <field name="patient_id" ref="patient_example"/>
             <field name="person_id" ref="hc_person.patient_example_contact"/>
             <field name="type">person</field>
-            <field eval="[(6, 0, [ref('cont_role_n')])]" name="relationship_ids"/>
+            <field eval="[(6, 0, [ref('contact_role_n')])]" name="relationship_ids"/>
             <field name="start_date">2012-01-01</field>
         </record>
 

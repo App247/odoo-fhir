@@ -12,11 +12,11 @@
         </record>
 
         <record id="hc_organization.patient_f201" model="hc.res.organization">
-            <field name="partner_id" ref="patient_f201_organization"/>
+            <field name="partner_id" ref="base.patient_f201_organization"/>
             <field name="name">AUMC</field>
         </record>
 
-    <!-- F001 Person -->
+    <!-- F201 Person -->
 
          <record id="hc_base.human_name_term_551" model="hc.human.name.term">
             <field name="name">Roel</field>
@@ -59,6 +59,7 @@
         <record id="base.patient_f201" model="res.partner">
             <field name="name">Drs. Roelof Olaf Bor PDEng.</field>
             <field name="company_type">person</field>
+            <field name="birthdate">1960-03-13</field>
             <field name="is_person" eval="True"/>
             <field name="is_healthcare" eval="True"/>
         </record>
@@ -67,6 +68,7 @@
             <field name="partner_id" ref="base.patient_f201"/>
             <field name="name_id" ref="hc_base.patient_f201_name_1"/>
             <field name="gender">male</field>
+            <field name="birth_date">1960-03-13</field>
         </record>
 
         <record id="hc_person.patient_f201_name" model="hc.person.name">
@@ -86,6 +88,7 @@
             <field name="partner_id" ref="base.patient_f201_contact"/>
             <field name="name_id" ref="hc_base.patient_f201_name_2"/>
             <field name="gender">female</field>
+        </record>
 
         <record id="hc_person.patient_f201_contact_name" model="hc.person.name">
             <field name="person_id" ref="hc_person.patient_f201_contact"/>
@@ -125,21 +128,98 @@
         </field>
     </record>  -->
 
-    <!-- F001 Patient -->
+    <!-- F201 Patient -->
 
         <record id="hc_patient.patient_f201" model="hc.res.patient">
             <field name="person_id" ref="hc_person.patient_f201"/>
             <field name="is_active" eval="True"/>
-            <field name="birth_date">1960-03-13</field>
             <field name="is_deceased" eval="False"/>
             <field model="hc.res.patient" name="marital_status_id" search="[('name','=','Legally married')]"/>
             <field name="is_multiple_birth" eval="False"/>
             <field name="managing_organization_id" ref="hc_organization.patient_f201"/>
         </record>
 
-    <!-- F001 Patient Identifier -->
+    <!-- F201 Patient Identifier -->
 
-    
+        <record id="patient_f201_patient_identifier_1" model="hc.patient.identifier">
+            <field name="patient_id" ref="patient_f201"/>
+            <field name="person_id" ref="hc_person.patient_f201"/>
+            <field name="code_id" ref="hc_base.ident_code_patient_f001"/>
+            <field name="use">official</field>
+            <field name="value">123456789</field>
+        </record>
+
+        <record id="patient_f201_patient_identifier_2" model="hc.patient.identifier">
+            <field name="patient_id" ref="patient_f201"/>
+            <field name="person_id" ref="hc_person.patient_f201"/>
+            <field name="code_id" ref="hc_base.ident_code_patient_f001"/>
+            <field name="use">official</field>
+            <field name="value">123456789</field>
+        </record>
+
+    <!-- F201 Person Telecom -->
+
+        <record id="hc_base.cont_pnt_31612345678" model="hc.contact.point">
+            <field name="system">phone</field>
+            <field name="value">+31612345678</field>
+        </record>
+
+        <record id="hc_base.cont_pnt_31201234567" model="hc.contact.point">
+            <field name="system">phone</field>
+            <field name="value">+31201234567</field>
+        </record>
+
+        <record id="hc_person.patient_f201_telecom_1" model="hc.person.telecom">
+            <field name="person_id" ref="hc_person.patient_f201"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_31612345678"/>
+            <field name="use">mobile</field>
+        </record>
+
+        <record id="hc_person.patient_f201_telecom_2" model="hc.person.telecom">
+            <field name="person_id" ref="hc_person.patient_f201"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_31201234567"/>
+            <field name="use">home</field>
+        </record>
+
+    <!-- F201 Person Address -->
+
+        <record id="hc_base.postal_code_1055RW" model="hc.vs.country.postal.code">
+            <field name="postal_code">1055RW</field>
+            <field name="name">1055RW</field>
+            <field name="code">1055RW</field>
+        </record>
+
+        <record id="hc_base.patient_f201_address" model="hc.address">
+            <field name="line1">Bos en Lommerplein 280</field>
+            <field model="hc.vs.country.city" name="city_id" search="[('name','=','Amsterdam')]"/>
+            <field model="hc.vs.country.postal.code" name="postal_code_id" search="[('name','=','1055RW')]"/>
+            <field model="res.country" name="country_id" search="[('code3','=','NLD')]"/>
+        </record>
+
+    <!-- F201 Patient Contact -->
+
+        <record id="patient_f201_contact" model="hc.patient.contact">
+            <field name="patient_id" ref="patient_f201"/>
+            <field name="person_id" ref="hc_person.patient_f201_contact"/>
+            <field name="type">person</field>
+            <field eval="[(6, 0, [ref('contact_role_n'),ref('contact_role_wife')])]" name="relationship_ids"/>
+        </record>
+
+    <!-- F201 Patient Contact Telecom -->
+
+        <record id="hc_person.patient_f201_telecom_3" model="hc.person.telecom">
+            <field name="person_id" ref="hc_person.patient_f201_contact"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_31201234567"/>
+            <field name="use">home</field>
+        </record>
+
+    <!-- F001 Patient Communication -->
+
+        <record id="patient_f201_communication" model="hc.patient.communication">
+            <field name="patient_id" ref="patient_f201"/>
+            <field name="language_id" ref="hc_base.lang_nl_nl"/>
+            <field name="is_preferred" eval="True"/>
+        </record>
 
     </data>
 </odoo>

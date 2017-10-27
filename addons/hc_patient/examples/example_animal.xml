@@ -43,6 +43,7 @@
         <record id="base.patient_animal" model="res.partner">
             <field name="name">Kenzi</field>
             <field name="company_type">animal</field>
+            <field name="birthdate">2010-03-23</field>
             <field name="is_animal" eval="True"/>
             <field name="is_healthcare" eval="True"/>
         </record>
@@ -83,7 +84,7 @@
             <field name="person_id" ref="hc_person.patient_example"/>
             <field name="name">Peter James Chalmers</field>
             <field name="type">person</field>
-            <field eval="[(6, 0, [ref('hc_patient.cont_role_c')])]" name="relationship_ids"/>
+            <field eval="[(6, 0, [ref('contact_role_c')])]" name="relationship_ids"/>
         </record>
 
         <record id="hc_person.patient_example_3_telecom" model="hc.person.telecom">

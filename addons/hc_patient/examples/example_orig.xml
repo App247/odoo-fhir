@@ -16,7 +16,7 @@
         <record id="patient_example_contact" model="hc.patient.contact">
             <field name="patient_id" ref="patient_example"/>
             <field name="person_id" ref="hc_person.patient_example_contact"/>
-            <field eval="[(6, 0, [ref('cont_role_n')])]" name="relationship_ids"/>
+            <field eval="[(6, 0, [ref('contact_role_n')])]" name="relationship_ids"/>
             <field name="start_date">2012-01-01</field>
         </record>
 
@@ -59,7 +59,7 @@
             <field name="organization_id" ref="hc_organization.patient_pat1"/>
             <field name="name">Walt Disney Corporation</field>
             <field name="type">organization</field>
-            <field eval="[(6, 0, [ref('hc_patient.cont_role_e')])]" name="relationship_ids"/>
+            <field eval="[(6, 0, [ref('contact_role_e')])]" name="relationship_ids"/>
         </record>
 
         <record id="patient_pat1_identifier" model="hc.patient.identifier">

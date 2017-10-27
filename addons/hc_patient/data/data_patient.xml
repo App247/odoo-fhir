@@ -689,7 +689,7 @@
 
     <!--V2 Contact Role -->
 
-        <record id="cont_role_bp" model="hc.vs.v2.contact.role">
+        <record id="contact_role_bp" model="hc.vs.contact.role">
             <field name="code">BP</field>
             <field name="name">Billing contact person</field>
             <field name="comments">deprecated</field>
@@ -699,7 +699,7 @@
             <field name="system">http://hl7.org/fhir/ValueSet/v2-0131</field>
         </record>
 
-        <record id="cont_role_c" model="hc.vs.v2.contact.role">
+        <record id="contact_role_c" model="hc.vs.contact.role">
             <field name="code">C</field>
             <field name="name">Emergency Contact</field>
             <field name="comments"></field>
@@ -709,7 +709,7 @@
             <field name="system">http://hl7.org/fhir/ValueSet/v2-0131</field>
         </record>
 
-        <record id="cont_role_cp" model="hc.vs.v2.contact.role">
+        <record id="contact_role_cp" model="hc.vs.contact.role">
             <field name="code">CP</field>
             <field name="name">Contact person</field>
             <field name="comments">deprecated</field>
@@ -719,7 +719,7 @@
             <field name="system">http://hl7.org/fhir/ValueSet/v2-0131</field>
         </record>
 
-        <record id="cont_role_e" model="hc.vs.v2.contact.role">
+        <record id="contact_role_e" model="hc.vs.contact.role">
             <field name="code">E</field>
             <field name="name">Employer</field>
             <field name="comments"></field>
@@ -729,7 +729,7 @@
             <field name="system">http://hl7.org/fhir/ValueSet/v2-0131</field>
         </record>
 
-        <record id="cont_role_ep" model="hc.vs.v2.contact.role">
+        <record id="contact_role_ep" model="hc.vs.contact.role">
             <field name="code">EP</field>
             <field name="name">Emergency contact person</field>
             <field name="comments">deprecated</field>
@@ -739,7 +739,7 @@
             <field name="system">http://hl7.org/fhir/ValueSet/v2-0131</field>
         </record>
 
-        <record id="cont_role_f" model="hc.vs.v2.contact.role">
+        <record id="contact_role_f" model="hc.vs.contact.role">
             <field name="code">F</field>
             <field name="name">Federal Agency</field>
             <field name="comments"></field>
@@ -749,7 +749,7 @@
             <field name="system">http://hl7.org/fhir/ValueSet/v2-0131</field>
         </record>
 
-        <record id="cont_role_i" model="hc.vs.v2.contact.role">
+        <record id="contact_role_i" model="hc.vs.contact.role">
             <field name="code">I</field>
             <field name="name">Insurance Company</field>
             <field name="comments"></field>
@@ -759,7 +759,7 @@
             <field name="system">http://hl7.org/fhir/ValueSet/v2-0131</field>
         </record>
 
-        <record id="cont_role_n" model="hc.vs.v2.contact.role">
+        <record id="contact_role_n" model="hc.vs.contact.role">
             <field name="code">N</field>
             <field name="name">Next-of-Kin</field>
             <field name="comments"></field>
@@ -769,7 +769,7 @@
             <field name="system">http://hl7.org/fhir/ValueSet/v2-0131</field>
         </record>
 
-        <record id="cont_role_o" model="hc.vs.v2.contact.role">
+        <record id="contact_role_o" model="hc.vs.contact.role">
             <field name="code">O</field>
             <field name="name">Other</field>
             <field name="comments"></field>
@@ -779,7 +779,7 @@
             <field name="system">http://hl7.org/fhir/ValueSet/v2-0131</field>
         </record>
 
-        <record id="cont_role_pr" model="hc.vs.v2.contact.role">
+        <record id="contact_role_pr" model="hc.vs.contact.role">
             <field name="code">PR</field>
             <field name="name">Person preparing referral</field>
             <field name="comments">deprecated</field>
@@ -789,7 +789,7 @@
             <field name="system">http://hl7.org/fhir/ValueSet/v2-0131</field>
         </record>
 
-        <record id="cont_role_s" model="hc.vs.v2.contact.role">
+        <record id="contact_role_s" model="hc.vs.contact.role">
             <field name="code">S</field>
             <field name="name">State Agency</field>
             <field name="comments"></field>
@@ -799,7 +799,7 @@
             <field name="system">http://hl7.org/fhir/ValueSet/v2-0131</field>
         </record>
 
-        <record id="cont_role_u" model="hc.vs.v2.contact.role">
+        <record id="contact_role_u" model="hc.vs.contact.role">
             <field name="code">U</field>
             <field name="name">Unknown</field>
             <field name="comments"></field>
@@ -807,6 +807,978 @@
             <field name="is_active" eval="True"/>
             <field name="source_id" ref="base.hl7v2"/>
             <field name="system">http://hl7.org/fhir/ValueSet/v2-0131</field>
+        </record>
+
+        <record id="contact_role_personalrelationshiproletype" model="hc.vs.contact.role">
+            <field name="code">PersonalRelationshipRoleType</field>
+            <field name="name">Personal Relationship Role Type</field>
+            <field name="is_abstract">True</field>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        </record>
+
+        <record id="contact_role_fammemb" model="hc.vs.contact.role">
+            <field name="code">FAMMEMB</field>
+            <field name="name">family member</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_personalrelationshiproletype')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">A relationship between two people characterizing their "familial" relationship.</field>
+        </record>
+
+        <record id="contact_role_child" model="hc.vs.contact.role">
+            <field name="code">CHILD</field>
+            <field name="name">child</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_fammemb')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a child of the scoping entity.</field>
+        </record>
+
+        <record id="contact_role_chldadopt" model="hc.vs.contact.role">
+            <field name="code">CHLDADOPT</field>
+            <field name="name">adopted child</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_child')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a child taken into a family through legal means and raised by the scoping person (parent) as his or her own child.</field>
+        </record>
+
+        <record id="contact_role_chldfost" model="hc.vs.contact.role">
+            <field name="code">CHLDFOST</field>
+            <field name="name">foster child</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_child')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a child receiving parental care and nurture from the scoping person (parent) but not related to him or her through legal or blood ties.</field>
+        </record>
+
+        <record id="contact_role_dauc" model="hc.vs.contact.role">
+            <field name="code">DAUC</field>
+            <field name="name">daughter</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_child')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a female child (of any type) of scoping entity (parent).</field>
+        </record>
+
+        <record id="contact_role_dauadopt" model="hc.vs.contact.role">
+            <field name="code">DAUADOPT</field>
+            <field name="name">adopted daughter</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_dauc'), ref('contact_role_chldadopt')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a female child receiving parental care and nurture from the scoping person (parent) but not related to him or her through legal or blood ties.</field>
+        </record>
+
+        <record id="contact_role_daufost" model="hc.vs.contact.role">
+            <field name="code">DAUFOST</field>
+            <field name="name">foster daughter</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_dauc'), ref('contact_role_chldfost')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a male child receiving parental care and nurture from the scoping person (parent) but not related to him or her through legal or blood ties.</field>
+        </record>
+
+        <record id="contact_role_nchild" model="hc.vs.contact.role">
+            <field name="code">NCHILD</field>
+            <field name="name">natural child</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_child')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is an offspring of the scoping entity as determined by birth.</field>
+        </record>
+
+        <record id="contact_role_dau" model="hc.vs.contact.role">
+            <field name="code">DAU</field>
+            <field name="name">adopted son</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_nchild'), ref('contact_role_dauc')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a female offspring of the scoping entity (parent).</field>
+        </record>
+
+        <record id="contact_role_sonc" model="hc.vs.contact.role">
+            <field name="code">SONC</field>
+            <field name="name">son</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_child')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a male child (of any type) of scoping entity (parent).</field>
+        </record>
+
+        <record id="contact_role_sonadopt" model="hc.vs.contact.role">
+            <field name="code">SONADOPT</field>
+            <field name="name">adopted son</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_sonc'), ref('contact_role_chldadopt')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        </record>
+
+        <record id="contact_role_sonfost" model="hc.vs.contact.role">
+            <field name="code">SONFOST</field>
+            <field name="name">son</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_sonc'), ref('contact_role_chldfost')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a male offspring of the scoping entity (parent).</field>
+        </record>
+
+        <record id="contact_role_son" model="hc.vs.contact.role">
+            <field name="code">SON</field>
+            <field name="name">son</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_sonc'), ref('contact_role_nchild')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a male child (of any type) of scoping entity (parent)</field>
+        </record>
+
+        <record id="contact_role_stpchld" model="hc.vs.contact.role">
+            <field name="code">STPCHLD</field>
+            <field name="name">step child</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_child')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a child of the scoping person's spouse by a previous union.</field>
+        </record>
+
+        <record id="contact_role_stpdau" model="hc.vs.contact.role">
+            <field name="code">STPDAU</field>
+            <field name="name">stepdaughter</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_stpchld'), ref('contact_role_dauc')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        </record>
+
+        <record id="contact_role_stpson" model="hc.vs.contact.role">
+            <field name="code">STPSON</field>
+            <field name="name">stepson</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_stpchld'), ref('contact_role_sonc')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a son of the scoping person's spouse by a previous union.</field>
+        </record>
+
+        <record id="contact_role_ext" model="hc.vs.contact.role">
+            <field name="code">EXT</field>
+            <field name="name">extended family member</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_fammemb')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">A family member not having an immediate genetic or legal relationship e.g. Aunt, cousin, great grandparent, grandchild, grandparent, niece, nephew or uncle.</field>
+        </record>
+
+        <record id="contact_role_aunt" model="hc.vs.contact.role">
+            <field name="code">AUNT</field>
+            <field name="name">aunt</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_ext')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a sister of the scoping person's mother or father.</field>
+        </record>
+
+        <record id="contact_role_maunt" model="hc.vs.contact.role">
+            <field name="code">MAUNT</field>
+            <field name="name">maternal aunt</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_aunt')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a biological sister of the scoping person's biological mother.</field>
+        </record>
+
+        <record id="contact_role_paunt" model="hc.vs.contact.role">
+            <field name="code">PAUNT</field>
+            <field name="name">paternal aunt</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_aunt')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a biological sister of the scoping person's biological father.</field>
+        </record>
+
+        <record id="contact_role_cousn" model="hc.vs.contact.role">
+            <field name="code">COUSN</field>
+            <field name="name">cousin</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_ext')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a relative of the scoping person descended from a common ancestor, such as a grandparent, by two or more steps in a diverging line.</field>
+        </record>
+
+        <record id="contact_role_mcousn" model="hc.vs.contact.role">
+            <field name="code">MCOUSN</field>
+            <field name="name">maternal cousin</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_cousn')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a biological relative of the scoping person descended from a common ancestor on the player's mother's side, such as a grandparent, by two or more steps in a diverging line.</field>
+        </record>
+
+        <record id="contact_role_pcousn" model="hc.vs.contact.role">
+            <field name="code">PCOUSN</field>
+            <field name="name">paternal cousin</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_cousn')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a biological relative of the scoping person descended from a common ancestor on the player's father's side, such as a grandparent, by two or more steps in a diverging line.</field>
+        </record>
+
+        <record id="contact_role_ggrprn" model="hc.vs.contact.role">
+            <field name="code">GGRPRN</field>
+            <field name="name">great grandparent</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_ext')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a parent of the scoping person's grandparent.</field>
+        </record>
+
+        <record id="contact_role_ggrfth" model="hc.vs.contact.role">
+            <field name="code">GGRFTH</field>
+            <field name="name">great grandfather</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_ggrprn')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is the father of the scoping person's grandparent.</field>
+        </record>
+
+        <record id="contact_role_ggrmth" model="hc.vs.contact.role">
+            <field name="code">GGRMTH</field>
+            <field name="name">great grandmother</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_ggrprn')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is the mother of the scoping person's grandparent.</field>
+        </record>
+
+        <record id="contact_role_mggrprn" model="hc.vs.contact.role">
+            <field name="code">MGGRPRN</field>
+            <field name="name">maternal great-grandparent</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_ggrprn')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a biological parent of the scoping person's biological mother's parent.</field>
+        </record>
+
+        <record id="contact_role_mggrfth" model="hc.vs.contact.role">
+            <field name="code">MGGRFTH</field>
+            <field name="name">maternal great-grandfather</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_mggrprn'), ref('contact_role_ggrfth')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is the biological mother of the scoping person's biological mother's parent.</field>
+        </record>
+
+        <record id="contact_role_mggrmth" model="hc.vs.contact.role">
+            <field name="code">MGGRMTH</field>
+            <field name="name">maternal great-grandmother</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_mggrprn'), ref('contact_role_ggrmth')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is the biological mother of the scoping person's biological father's parent.</field>
+        </record>
+
+        <record id="contact_role_pggrprn" model="hc.vs.contact.role">
+            <field name="code">PGGRPRN</field>
+            <field name="name">paternal great-grandparent</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_ggrprn')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a biological parent of the scoping person's biological father's parent.</field>
+        </record>
+
+        <record id="contact_role_pggrfth" model="hc.vs.contact.role">
+            <field name="code">PGGRFTH</field>
+            <field name="name">paternal great-grandfather</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_pggrprn'), ref('contact_role_ggrfth')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        </record>
+
+        <record id="contact_role_pggrmth" model="hc.vs.contact.role">
+            <field name="code">PGGRMTH</field>
+            <field name="name">paternal great-grandmother</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_pggrprn'), ref('contact_role_ggrmth')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        </record>
+
+        <record id="contact_role_grndchild" model="hc.vs.contact.role">
+            <field name="code">GRNDCHILD</field>
+            <field name="name">grandchild</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_ext')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a child of the scoping person's son or daughter.</field>
+        </record>
+
+        <record id="contact_role_grnddau" model="hc.vs.contact.role">
+            <field name="code">GRNDDAU</field>
+            <field name="name">granddaughter</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_grndchild')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a daughter of the scoping person's son or daughter.</field>
+        </record>
+
+        <record id="contact_role_grndson" model="hc.vs.contact.role">
+            <field name="code">GRNDSON</field>
+            <field name="name">grandson</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_grndchild')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a son of the scoping person's son or daughter.</field>
+        </record>
+
+        <record id="contact_role_grprn" model="hc.vs.contact.role">
+            <field name="code">GRPRN</field>
+            <field name="name">grandparent</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_ext')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a parent of the scoping person's mother or father.</field>
+        </record>
+
+        <record id="contact_role_grfth" model="hc.vs.contact.role">
+            <field name="code">GRFTH</field>
+            <field name="name">grandfather</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_grprn')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is the father of the scoping person's mother or father.</field>
+        </record>
+
+        <record id="contact_role_grmth" model="hc.vs.contact.role">
+            <field name="code">GRMTH</field>
+            <field name="name">grandmother</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_grprn')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is the mother of the scoping person's mother or father.</field>
+        </record>
+
+        <record id="contact_role_mgrprn" model="hc.vs.contact.role">
+            <field name="code">MGRPRN</field>
+            <field name="name">maternal grandparent</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_grprn')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is the biological parent of the scoping person's biological mother.</field>
+        </record>
+
+        <record id="contact_role_mgrfth" model="hc.vs.contact.role">
+            <field name="code">MGRFTH</field>
+            <field name="name">maternal grandfather</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_mgrprn'), ref('contact_role_grfth')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is the biological mother of the scoping person's biological mother.</field>
+        </record>
+
+        <record id="contact_role_mgrmth" model="hc.vs.contact.role">
+            <field name="code">MGRMTH</field>
+            <field name="name">maternal grandmother</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_mgrprn'), ref('contact_role_grmth')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is the biological mother of the scoping person's biological father.</field>
+        </record>
+
+        <record id="contact_role_pgrprn" model="hc.vs.contact.role">
+            <field name="code">PGRPRN</field>
+            <field name="name">paternal grandparent</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_grprn')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is the biological parent of the scoping person's biological father.</field>
+        </record>
+
+        <record id="contact_role_pgrfth" model="hc.vs.contact.role">
+            <field name="code">PGRFTH</field>
+            <field name="name">paternal grandfather</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_pgrprn'), ref('contact_role_grfth')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        </record>
+
+        <record id="contact_role_pgrmth" model="hc.vs.contact.role">
+            <field name="code">PGRMTH</field>
+            <field name="name">paternal grandmother</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_pgrprn'), ref('contact_role_grmth')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        </record>
+
+        <record id="contact_role_inlaw" model="hc.vs.contact.role">
+            <field name="code">INLAW</field>
+            <field name="name">inlaw</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_ext')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">A relationship between an individual and a member of their spousal partner's immediate family.</field>
+        </record>
+
+        <record id="contact_role_chldinlaw" model="hc.vs.contact.role">
+            <field name="code">CHLDINLAW</field>
+            <field name="name">child-in-law</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_inlaw')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is the spouse of scoping person's child.</field>
+        </record>
+
+        <record id="contact_role_dauinlaw" model="hc.vs.contact.role">
+            <field name="code">DAUINLAW</field>
+            <field name="name">daughter in-law</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_chldinlaw')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is the wife of scoping person's son.</field>
+        </record>
+
+        <record id="contact_role_soninlaw" model="hc.vs.contact.role">
+            <field name="code">SONINLAW</field>
+            <field name="name">son in-law</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_chldinlaw')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is the husband of scoping person's daughter.</field>
+        </record>
+
+        <record id="contact_role_prninlaw" model="hc.vs.contact.role">
+            <field name="code">PRNINLAW</field>
+            <field name="name">parent in-law</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_inlaw')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is the parent of scoping person's husband or wife.</field>
+        </record>
+
+        <record id="contact_role_fthinlaw" model="hc.vs.contact.role">
+            <field name="code">FTHINLAW</field>
+            <field name="name">father-in-law</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_prninlaw')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is the father of the scoping person's husband or wife.</field>
+        </record>
+
+        <record id="contact_role_mthinlaw" model="hc.vs.contact.role">
+            <field name="code">MTHINLAW</field>
+            <field name="name">mother-in-law</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_prninlaw')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is the mother of the scoping person's husband or wife.</field>
+        </record>
+
+        <record id="contact_role_sibinlaw" model="hc.vs.contact.role">
+            <field name="code">SIBINLAW</field>
+            <field name="name">sibling in-law</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_inlaw')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is: (1) a sibling of the scoping person's spouse, or (2) the spouse of the scoping person's sibling, or (3) the spouse of a sibling of the scoping person's spouse.</field>
+        </record>
+
+        <record id="contact_role_broinlaw" model="hc.vs.contact.role">
+            <field name="code">BROINLAW</field>
+            <field name="name">brother-in-law</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_sibinlaw')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is: (1) a brother of the scoping person's spouse, or (2) the husband of the scoping person's sister, or (3) the husband of a sister of the scoping person's spouse.</field>
+        </record>
+
+        <record id="contact_role_sisinlaw" model="hc.vs.contact.role">
+            <field name="code">SISINLAW</field>
+            <field name="name">sister-in-law</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_sibinlaw')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is: (1) a sister of the scoping person's spouse, or (2) the wife of the scoping person's brother, or (3) the wife of a brother of the scoping person's spouse.</field>
+        </record>
+
+        <record id="contact_role_nieneph" model="hc.vs.contact.role">
+            <field name="code">NIENEPH</field>
+            <field name="name">niece/nephew</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_ext')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a child of scoping person's brother or sister or of the brother or sister of the scoping person's spouse.</field>
+        </record>
+
+        <record id="contact_role_nephew" model="hc.vs.contact.role">
+            <field name="code">NEPHEW</field>
+            <field name="name">nephew</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_nieneph')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a son of the scoping person's brother or sister or of the brother or sister of the scoping person's spouse.</field>
+        </record>
+
+        <record id="contact_role_niece" model="hc.vs.contact.role">
+            <field name="code">NIECE</field>
+            <field name="name">niece</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_nieneph')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a daughter of the scoping person's brother or sister or of the brother or sister of the scoping person's spouse.</field>
+        </record>
+
+        <record id="contact_role_uncle" model="hc.vs.contact.role">
+            <field name="code">UNCLE</field>
+            <field name="name">uncle</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_ext')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a brother of the scoping person's mother or father.</field>
+        </record>
+
+        <record id="contact_role_muncle" model="hc.vs.contact.role">
+            <field name="code">MUNCLE</field>
+            <field name="name">maternal uncle</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_uncle')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a biological brother of the scoping person's biological mother.</field>
+        </record>
+
+        <record id="contact_role_puncle" model="hc.vs.contact.role">
+            <field name="code">PUNCLE</field>
+            <field name="name">paternal uncle</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_uncle')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a biological brother of the scoping person's biological father.</field>
+        </record>
+
+        <record id="contact_role_prn" model="hc.vs.contact.role">
+            <field name="code">PRN</field>
+            <field name="name">parent</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_fammemb')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is one who begets, gives birth to, or nurtures and raises the scoping entity (child).</field>
+        </record>
+
+        <record id="contact_role_adoptp" model="hc.vs.contact.role">
+            <field name="code">ADOPTP</field>
+            <field name="name">adoptive parent</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_prn')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role (parent) has taken the scoper (child) into their family through legal means and raises them as his or her own child.</field>
+        </record>
+
+        <record id="contact_role_fth" model="hc.vs.contact.role">
+            <field name="code">FTH</field>
+            <field name="name">father</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_prn')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a male who begets or raises or nurtures the scoping entity (child).</field>
+        </record>
+
+        <record id="contact_role_adoptf" model="hc.vs.contact.role">
+            <field name="code">ADOPTF</field>
+            <field name="name">adopted father</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_fth'), ref('contact_role_adoptp')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role (father) is a male who has taken the scoper (child) into their family through legal means and raises them as his own child.</field>
+        </record>
+
+        <record id="contact_role_nfthf" model="hc.vs.contact.role">
+            <field name="code">NFTHF</field>
+            <field name="name">natural father of fetus</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_fth')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">Indicates the biologic male parent of a fetus.</field>
+        </record>
+
+        <record id="contact_role_mth" model="hc.vs.contact.role">
+            <field name="code">MTH</field>
+            <field name="name">mother</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_prn')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a female who conceives, gives birth to, or raises and nurtures the scoping entity (child).</field>
+        </record>
+
+        <record id="contact_role_adoptm" model="hc.vs.contact.role">
+            <field name="code">ADOPTM</field>
+            <field name="name">adopted mother</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_mth'), ref('contact_role_adoptp')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">Indicates the biologic male parent of a fetus.</field>
+        </record>
+
+        <record id="contact_role_gestm" model="hc.vs.contact.role">
+            <field name="code">GESTM</field>
+            <field name="name">gestational mother</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_mth')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player is a female whose womb carries the fetus of the scoper. Generally used when the gestational mother and natural mother are not the same.</field>
+        </record>
+
+        <record id="contact_role_nmthf" model="hc.vs.contact.role">
+            <field name="code">NMTHF</field>
+            <field name="name">natural mother of fetus</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_prn')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player is the biologic female parent of the scoping fetus.</field>
+        </record>
+
+        <record id="contact_role_nprn" model="hc.vs.contact.role">
+            <field name="code">NPRN</field>
+            <field name="name">natural parent</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_prn')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        </record>
+
+        <record id="contact_role_nfth" model="hc.vs.contact.role">
+            <field name="code">NFTH</field>
+            <field name="name">natural father</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_nprn'), ref('contact_role_fth')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player is the biologic female parent of the scoping fetus.</field>
+        </record>
+
+        <record id="contact_role_nmth" model="hc.vs.contact.role">
+            <field name="code">NMTH</field>
+            <field name="name">natural mother</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_nprn'), ref('contact_role_mth')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is the wife of scoping person's father and not the scoping person's natural mother.</field>
+        </record>
+
+        <record id="contact_role_prnfost" model="hc.vs.contact.role">
+            <field name="code">PRNFOST</field>
+            <field name="name">foster parent</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_prn')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role (parent) who is a state-certified caregiver responsible for the scoper (child) who has been placed in the parent's care. The placement of the child is usually arranged through the government or a social-service agency, and temporary.</field>
+        </record>
+
+        <record id="contact_role_fthfost" model="hc.vs.contact.role">
+            <field name="code">FTHFOST</field>
+            <field name="name">foster father</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_prnfost'), ref('contact_role_fth')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        </record>
+
+        <record id="contact_role_mthfost" model="hc.vs.contact.role">
+            <field name="code">MTHFOST</field>
+            <field name="name">foster mother</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_prnfost'), ref('contact_role_mth')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role (parent) who is a state-certified caregiver responsible for the scoper (child) who has been placed in the parent's care. The placement of the child is usually arranged through the government or a social-service agency, and temporary.</field>
+        </record>
+
+        <record id="contact_role_stpprn" model="hc.vs.contact.role">
+            <field name="code">STPPRN</field>
+            <field name="name">step parent</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_prn')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is the spouse of the scoping person's parent and not the scoping person's natural parent.</field>
+        </record>
+
+        <record id="contact_role_stpfth" model="hc.vs.contact.role">
+            <field name="code">STPFTH</field>
+            <field name="name">stepfather</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_stpprn'), ref('contact_role_fth')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        </record>
+
+        <record id="contact_role_stpmth" model="hc.vs.contact.role">
+            <field name="code">STPMTH</field>
+            <field name="name">stepmother</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_stpprn'), ref('contact_role_mth')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        </record>
+
+        <record id="contact_role_sib" model="hc.vs.contact.role">
+            <field name="code">SIB</field>
+            <field name="name">sibling</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_fammemb')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role shares one or both parents in common with the scoping entity.</field>
+        </record>
+
+        <record id="contact_role_bro" model="hc.vs.contact.role">
+            <field name="code">BRO</field>
+            <field name="name">brother</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_sib')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a male sharing one or both parents in common with the scoping entity.</field>
+        </record>
+
+        <record id="contact_role_hsib" model="hc.vs.contact.role">
+            <field name="code">HSIB</field>
+            <field name="name">half-sibling</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_sib')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is related to the scoping entity by sharing only one biological parent.</field>
+        </record>
+
+        <record id="contact_role_hbro" model="hc.vs.contact.role">
+            <field name="code">HBRO</field>
+            <field name="name">half-brother</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_hsib'), ref('contact_role_bro')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The male scoper is an offspring of the same egg-sperm pair as the male player.</field>
+        </record>
+
+        <record id="contact_role_nsib" model="hc.vs.contact.role">
+            <field name="code">NSIB</field>
+            <field name="name">natural sibling</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_sib')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role has both biological parents in common with the scoping entity.</field>
+        </record>
+
+        <record id="contact_role_nbro" model="hc.vs.contact.role">
+            <field name="code">NBRO</field>
+            <field name="name">natural brother</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_nsib'), ref('contact_role_bro')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        </record>
+
+        <record id="contact_role_sis" model="hc.vs.contact.role">
+            <field name="code">SIS</field>
+            <field name="name">sister</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_sib')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a female sharing one or both parents in common with the scoping entity.</field>
+        </record>
+
+        <record id="contact_role_nsis" model="hc.vs.contact.role">
+            <field name="code">NSIS</field>
+            <field name="name">natural sister</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_sis'), ref('contact_role_nsib')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        </record>
+
+        <record id="contact_role_twin" model="hc.vs.contact.role">
+            <field name="code">TWIN</field>
+            <field name="name">twin</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_nsib')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The scoper and player were carried in the same womb and shared common biological parents.</field>
+        </record>
+
+        <record id="contact_role_twinbro" model="hc.vs.contact.role">
+            <field name="code">TWINBRO</field>
+            <field name="name">twin brother</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_twin'), ref('contact_role_nbro')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The scoper was carried in the same womb as the female player and shares common biological parents but is the product of a distinct egg/sperm pair.</field>
+        </record>
+
+        <record id="contact_role_twinsis" model="hc.vs.contact.role">
+            <field name="code">TWINSIS</field>
+            <field name="name">twin sister</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_twin'), ref('contact_role_nsis')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The female scoper is an offspring of the same egg-sperm pair as the female player.</field>
+        </record>
+
+        <record id="contact_role_ftwin" model="hc.vs.contact.role">
+            <field name="code">FTWIN</field>
+            <field name="name">fraternal twin</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_twin')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The scoper and player were carried in the same womb and share common biological parents but are the product of distinct egg/sperm pairs.</field>
+        </record>
+
+        <record id="contact_role_ftwinbro" model="hc.vs.contact.role">
+            <field name="code">FTWINBRO</field>
+            <field name="name">fraternal twin brother</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_twin'), ref('contact_role_twinbro')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        </record>
+
+        <record id="contact_role_ftwinsis" model="hc.vs.contact.role">
+            <field name="code">FTWINSIS</field>
+            <field name="name">fraternal twin sister</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_twin'), ref('contact_role_twinsis')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        </record>
+
+        <record id="contact_role_itwin" model="hc.vs.contact.role">
+            <field name="code">ITWIN</field>
+            <field name="name">identical twin</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_twin')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The scoper and player are offspring of the same egg-sperm pair.</field>
+        </record>
+
+        <record id="contact_role_itwinbro" model="hc.vs.contact.role">
+            <field name="code">ITWINBRO</field>
+            <field name="name">identical twin brother</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_itwin'), ref('contact_role_twinbro')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        </record>
+
+        <record id="contact_role_itwinsis" model="hc.vs.contact.role">
+            <field name="code">ITWINSIS</field>
+            <field name="name">identical twin sister</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_itwin'), ref('contact_role_twinsis')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        </record>
+
+        <record id="contact_role_hsis" model="hc.vs.contact.role">
+            <field name="code">HSIS</field>
+            <field name="name">half-sister</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_sis'), ref('contact_role_hsib')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        </record>
+
+        <record id="contact_role_stpsib" model="hc.vs.contact.role">
+            <field name="code">STPSIB</field>
+            <field name="name">step sibling</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_sib')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a child of the scoping person's stepparent.</field>
+        </record>
+
+        <record id="contact_role_stpbro" model="hc.vs.contact.role">
+            <field name="code">STPBRO</field>
+            <field name="name">stepbrother</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_stpsib'), ref('contact_role_bro')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+        </record>
+
+        <record id="contact_role_stpsis" model="hc.vs.contact.role">
+            <field name="code">STPSIS</field>
+            <field name="name">stepsister</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_stpsib'), ref('contact_role_sis')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a daughter of the scoping person's stepparent.</field>
+        </record>
+
+        <record id="contact_role_sigothr" model="hc.vs.contact.role">
+            <field name="code">SIGOTHR</field>
+            <field name="name">significant other</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_fammemb')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">A person who is important to one's well being; especially a spouse or one in a similar relationship. (The player is the one who is important).</field>
+        </record>
+
+        <record id="contact_role_dompart" model="hc.vs.contact.role">
+            <field name="code">DOMPART</field>
+            <field name="name">domestic partner</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_sigothr')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role cohabits with the scoping person but is not the scoping person's spouse.</field>
+        </record>
+
+        <record id="contact_role_fmrsps" model="hc.vs.contact.role">
+            <field name="code">FMRSPS</field>
+            <field name="name">former spouse</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_sigothr')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">Player of the role was previously joined to the scoping person in marriage and this marriage is now dissolved and inactive.</field>
+            <field name="comments">Usage Note: This is significant to indicate as some jurisdictions have different legal requirements for former spouse to access the patient's record, from a general friend.</field>
+        </record>
+
+        <record id="contact_role_sps" model="hc.vs.contact.role">
+            <field name="code">SPS</field>
+            <field name="name">spouse</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_sigothr')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a marriage partner of the scoping person.</field>
+        </record>
+
+        <record id="contact_role_husb" model="hc.vs.contact.role">
+            <field name="code">HUSB</field>
+            <field name="name">husband</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_sps')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a man joined to a woman (scoping person) in marriage.</field>
+        </record>
+
+        <record id="contact_role_wife" model="hc.vs.contact.role">
+            <field name="code">WIFE</field>
+            <field name="name">wife</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_sps')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a woman joined to a man (scoping person) in marriage.</field>
+        </record>
+
+        <record id="contact_role_frnd" model="hc.vs.contact.role">
+            <field name="code">FRND</field>
+            <field name="name">unrelated friend</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_personalrelationshiproletype')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role is a person who is known, liked, and trusted by the scoping person.</field>
+        </record>
+
+        <record id="contact_role_nbor" model="hc.vs.contact.role">
+            <field name="code">NBOR</field>
+            <field name="name">neighbor</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_personalrelationshiproletype')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The player of the role lives near or next to the scoping person.</field>
+        </record>
+
+        <record id="contact_role_oneself" model="hc.vs.contact.role">
+            <field name="code">ONESELF</field>
+            <field name="name">self</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_personalrelationshiproletype')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">The relationship that a person has with his or her self.</field>
+        </record>
+
+        <record id="contact_role_room" model="hc.vs.contact.role">
+            <field name="code">ROOM</field>
+            <field name="name">Roommate</field>
+            <field name="parent_child_ids" eval="[(6, 0, [ref('contact_role_personalrelationshiproletype')])]"/>
+            <field name="source_id" ref="base.hl7v3"/>
+            <field name="system">http://hl7.org/fhir/v3/ActCode</field>
+            <field name="definition">One who shares living quarters with the subject.</field>
         </record>
 
     <!--Animal Gender Status -->

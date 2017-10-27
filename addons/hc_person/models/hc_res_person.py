@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from openerp import models, fields, api
-# from datetime import datetime
 from datetime import datetime
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as DF
 
@@ -150,22 +149,23 @@ class Person(models.Model):
         partner_link_obj = self.env['hc.partner.link'] # Variable to create partner link
         name = self.env['hc.human.name'].browse(vals['name_id']) # Variable to create name of person
         res = super(Person, self).create(vals)
-        partner_id = partner_obj.create({
-            'company_type': 'person',
-            'is_company': False,
-            'is_person': True,
-            'is_healthcare': True,
-            'name': name.name,
-            'birthdate': str(res.birth_date),
-            })
-        vals.update({'name': name.name, 'partner_id': partner_id.id})
+        if not vals.get('partner_id'):
+            partner_id = partner_obj.create({
+                'company_type': 'person',
+                'is_company': False,
+                'is_person': True,
+                'is_healthcare': True,
+                'name': name.name,
+                'birthdate': str(res.birth_date),
+                })
+            vals.update({'partner_id': partner_id.id})
+        vals.update({'name': name.name})
+
         names_vals = {}
-        # res = super(Person, self).create(vals)
         link = partner_link_obj.create({
             'link_type': 'person',
             'link_person_id': res.id,
-            'partner_id': partner_id.id,
-            # 'start_date': datetime.datetime.today().date()
+            'partner_id': vals.get('partner_id'),
             'start_date': datetime.today(),
             })
         if name:
