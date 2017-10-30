@@ -8,6 +8,7 @@
         <record id="base.patient_pat1_organization" model="res.partner">
             <field name="name">Walt Disney Corporation</field>
             <field name="company_type">company</field>
+            <field name="is_company" eval="True"/>
             <field name="is_organization" eval="True"/>
             <field name="is_healthcare" eval="True"/>
         </record>
@@ -35,6 +36,7 @@
         <record id="base.patient_pat1" model="res.partner">
             <field name="name">Donald Duck</field>
             <field name="company_type">person</field>
+            <field name="is_company" eval="False"/>
             <field name="is_person" eval="True"/>
             <field name="is_healthcare" eval="True"/>
         </record>
@@ -92,6 +94,7 @@
         <record id="base.patient_pat2" model="res.partner">
             <field name="name">Donald D Duck</field>
             <field name="company_type">person</field>
+            <field name="is_company" eval="False"/>
             <field name="is_person" eval="True"/>
             <field name="is_healthcare" eval="True"/>
         </record>

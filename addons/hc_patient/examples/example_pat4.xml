@@ -16,6 +16,7 @@
             <field name="name">Sandy Notsowell</field>
             <field name="company_type">person</field>
             <field name="birthdate">1982-08-02</field>
+            <field name="is_company" eval="False"/>
             <field name="is_person" eval="True"/>
             <field name="is_healthcare" eval="True"/>
         </record>

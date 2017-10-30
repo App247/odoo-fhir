@@ -7,6 +7,7 @@
         <record id="base.patient_example_organization" model="res.partner">
             <field name="name">Acme Healthcare, Inc.</field>
             <field name="company_type">company</field>
+            <field name="is_company" eval="True"/>
             <field name="is_organization" eval="True"/>
             <field name="is_healthcare" eval="True"/>
         </record>
@@ -54,6 +55,7 @@
             <field name="name">Peter James Chalmers</field>
             <field name="company_type">person</field>
             <field name="birthdate">1970-06-20</field>
+            <field name="is_company" eval="False"/>
             <field name="is_person" eval="True"/>
             <field name="is_healthcare" eval="True"/>
         </record>
@@ -191,6 +193,7 @@
         <record id="base.patient_example_contact" model="res.partner">
             <field name="name">Bénédicte du Marché</field>
             <field name="company_type">person</field>
+            <field name="is_company" eval="False"/>
             <field name="is_person" eval="True"/>
             <field name="is_healthcare" eval="True"/>
         </record>

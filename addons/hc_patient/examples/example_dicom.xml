@@ -14,6 +14,7 @@
         <record id="base.patient_dicom" model="res.partner">
             <field name="name">MINT_TEST</field>
             <field name="company_type">person</field>
+            <field name="is_company" eval="False"/>
             <field name="is_person" eval="True"/>
             <field name="is_healthcare" eval="True"/>
         </record>

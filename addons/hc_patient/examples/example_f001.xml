@@ -7,6 +7,7 @@
         <record id="base.patient_f001_organization" model="res.partner">
             <field name="name">Burgers University Medical Centre</field>
             <field name="company_type">company</field>
+            <field name="is_company" eval="True"/>
             <field name="is_organization" eval="True"/>
             <field name="is_healthcare" eval="True"/>
         </record>
@@ -45,6 +46,7 @@
             <field name="name">Pieter van de Heuvel MSc</field>
             <field name="company_type">person</field>
             <field name="birthdate">1944-11-17</field>
+            <field name="is_company" eval="False"/>
             <field name="is_person" eval="True"/>
             <field name="is_healthcare" eval="True"/>
         </record>
@@ -65,6 +67,7 @@
         <record id="base.patient_f001_contact" model="res.partner">
             <field name="name">Sarah Abels</field>
             <field name="company_type">person</field>
+            <field name="is_company" eval="False"/>
             <field name="is_person" eval="True"/>
             <field name="is_healthcare" eval="True"/>
         </record>
@@ -128,6 +131,7 @@
         <record id="base.patient_f001_organization_assigner" model="res.partner">
             <field name="name">Dutch Ministry of Internal Affairs</field>
             <field name="company_type">company</field>
+            <field name="is_company" eval="True"/>
             <field name="is_organization" eval="True"/>
             <field name="is_healthcare" eval="True"/>
         </record>

@@ -7,6 +7,7 @@
         <record id="base.patient_f201_organization" model="res.partner">
             <field name="name">AUMC</field>
             <field name="company_type">company</field>
+            <field name="is_company" eval="True"/>
             <field name="is_organization" eval="True"/>
             <field name="is_healthcare" eval="True"/>
         </record>
@@ -60,6 +61,7 @@
             <field name="name">Drs. Roelof Olaf Bor PDEng.</field>
             <field name="company_type">person</field>
             <field name="birthdate">1960-03-13</field>
+            <field name="is_company" eval="False"/>
             <field name="is_person" eval="True"/>
             <field name="is_healthcare" eval="True"/>
         </record>
@@ -80,6 +82,7 @@
         <record id="base.patient_f201_contact" model="res.partner">
             <field name="name">Ariadne Bor-Jansma</field>
             <field name="company_type">person</field>
+            <field name="is_company" eval="False"/>
             <field name="is_person" eval="True"/>
             <field name="is_healthcare" eval="True"/>
         </record>

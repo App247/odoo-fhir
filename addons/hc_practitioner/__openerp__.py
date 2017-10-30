@@ -42,6 +42,7 @@
         'views/hc_practitioner_templates.xml',
         'data/hc.vs.practitioner.qualification.csv',
         'data/hc.vs.practitioner.specialty.csv',
+        'examples/example_general.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

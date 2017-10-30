@@ -7,6 +7,7 @@
         <record id="base.patient_xcda_organization" model="res.partner">
             <field name="name">Good Health Clinic</field>
             <field name="company_type">company</field>
+            <field name="is_company" eval="True"/>
             <field name="is_organization" eval="True"/>
             <field name="is_healthcare" eval="True"/>
         </record>
@@ -32,6 +33,7 @@
             <field name="name">Henry Levin</field>
             <field name="company_type">person</field>
             <field name="birthdate">1932-09-24</field>
+            <field name="is_company" eval="False"/>
             <field name="is_person" eval="True"/>
             <field name="is_healthcare" eval="True"/>
         </record>
