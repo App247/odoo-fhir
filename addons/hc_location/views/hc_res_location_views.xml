@@ -78,7 +78,7 @@
         <!-- External Reference -->
 
         <record id="hc_res_organization_view_form_inherited_location" model="ir.ui.view">
-            <field name="name">organization Form</field>
+            <field name="name">Organization Form</field>
             <field name="model">hc.res.organization</field>
             <field name="inherit_id" ref="hc_organization.hc_res_organization_view_form"/>
             <field name="arch" type="xml">

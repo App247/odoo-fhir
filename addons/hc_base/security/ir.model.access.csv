@@ -66,6 +66,7 @@ access_hc_base_hc_vs_language_ability_proficiency_manager,hc.base.hc.vs.language
 access_hc_base_hc_vs_language_skill_manager,hc.base.hc.vs.language.skill.manager,model_hc_vs_language_skill,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_vs_mime_type_manager,hc.base.hc.vs.mime.type.manager,model_hc_vs_mime_type,group_hc_base_manager,1,1,1,1
 access_hc_base_hc_vs_mime_type_user,hc.base.hc.vs.mime.type.user,model_hc_vs_mime_type,group_hc_base_user,1,0,0,0
+access_hc_base_hc_vs_mime_media_type_manager,hc.base.hc.vs.mime.media.type.manager,model_hc_vs_mime_media_type,group_hc_base_manager,1,1,1,1
 access_hc_base_hc_vs_condition_code_manager,hc.base.hc.vs.condition.code.manager,model_hc_vs_condition_code,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_vs_condition_outcome_manager,hc.base.hc.vs.condition.outcome.manager,model_hc_vs_condition_outcome,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_vs_body_site_manager,hc.base.hc.vs.body.site.manager,model_hc_vs_body_site,hc_base.group_hc_base_manager,1,1,1,1

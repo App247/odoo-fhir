@@ -11,6 +11,13 @@
                     <field name="gender"/>
                     <field name="birth_date"/>
                 </search>
+                <group>
+                    <filter string="Males" name="gender" domain="[('gender','=','male')]"/>
+                    <filter string="Females" name="gender" domain="[('gender','=','female')]"/>
+                    <separator/>
+                    <filter string="Humans" name="type" domain="[('type','=','human')]"/>
+                    <filter string="Animals" name="type" domain="[('type','=','animal')]"/>
+                </group>
             </field>
         </record>
 
@@ -39,17 +46,18 @@
                             <h1>
                                 <field name="name_id" placeholder="Full Name"/>
                             </h1>
+                            <field name="type" placeholder="Human or Animal?"/>
                         </div>
                         <div name="buttons" class="oe_right oe_button_box">
                         </div>
                         <group>
-                            <group>
+                            <group string = "Demographics">
                                 <field name="gender"/>
                                 <field name="gender_other" attrs="{'invisible': [('gender','!=','other')]}"/>
                                 <field name="birth_date"/>
-                                <field name="partner_id"/>
                             </group>
                             <group>
+                                <field name="partner_id"/>
                                 <field name="is_active" string="Active Record"/>
                             </group>
                         </group>
@@ -109,6 +117,7 @@
                                             <group col="4" colspan="4">
                                                 <group>
                                                     <field name="value"/>
+                                                    <field name="system"/>
                                                     <field name="is_preferred"/>
                                                     <field name="is_active"/>
                                                 </group>
@@ -232,9 +241,9 @@
                                                     <field name="target_name"/>
                                                     <field name="target_type"/>
                                                     <field name="target_person_id" attrs="{'invisible': [('target_type','!=','person')]}"/>
-                                                    <!-- <field name="target_patient_id" attrs="{'invisible': [('target_type','!=','Patient')]}"/>
-                                                    <field name="target_practitioner_id" attrs="{'invisible': [('target_type','!=','Practitioner')]}"/>
-                                                    <field name="target_related_person_id" attrs="{'invisible': [('target_type','!=','Related Person')]}"/>-->
+                                                    <!-- <field name="target_patient_id" attrs="{'invisible': [('target_type','!=','patient')]}"/>
+                                                    <field name="target_practitioner_id" attrs="{'invisible': [('target_type','!=','practitioner')]}"/>
+                                                    <field name="target_related_person_id" attrs="{'invisible': [('target_type','!=','related_person')]}"/>-->
                                                 </group>
                                                 <group>
                                                     <field name="assurance"/>
@@ -859,24 +868,63 @@
 
         <!-- External Reference View -->
 
-        <record id="base.view_partner_form_inherited_person" model="ir.ui.view">
+        <record id="view_partner_form_inherited_person" model="ir.ui.view">
             <field name="name">res.partner.form</field>
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
                 <data>
                     <xpath expr="//field[@name='function']" position="before">
-                        <field name="is_healthcare" string="Healthcare" readonly="1"
-                            attrs="{'invisible': [('is_healthcare','=',0)]}"/>
-<!--                         <field name="birthdate" string="Birth Date" readonly="1"
-                            attrs="{'invisible': [('is_person','!=',1)]}"/> -->
-                        <field name="birthdate" string="Birth Date" readonly="1"/>
+                        <field name="is_healthcare" string="Healthcare" readonly="1" attrs="{'invisible': [('is_healthcare','=',False)]}"/>
+                        <field name="is_animal" string="Animal" readonly="1" attrs="{'invisible': [('company_type','!=','animal')]}"/>
+                        <field name="birthdate" string="Birth Date" readonly="1" attrs=
+                            "{'invisible': [('company_type','=','company')]}"
+                            />
                     </xpath>
+                    <xpath expr="//field[@name='function']" position="replace">
+                        <field name="function" attrs="{'invisible': [('is_animal','=',True)]}"/>
+                    </xpath>
+                    <xpath expr="//field[@name='phone']" position="replace">
+                        <field name="phone" widget="phone" attrs="{'invisible': [('is_animal','=',True)]}"/>
+                    </xpath>
+                    <xpath expr="//field[@name='mobile']" position="replace">
+                        <field name="mobile" widget="phone" attrs="{'invisible': [('is_animal','=',True)]}"/>
+                    </xpath>
+                    <xpath expr="//field[@name='fax']" position="replace">
+                        <field name="fax" attrs="{'invisible': [('is_animal','=',True)]}"/>
+                    </xpath>
+                    <xpath expr="//field[@name='email']" position="replace">
+                        <field name="email" widget="email" attrs="{'required': [('user_ids','!=', [])], 'invisible': [('is_animal','=',True)]}"/>
+                    </xpath>
+                    <xpath expr="//field[@name='title']" position="replace">
+                        <field name="title" options="{&quot;no_open&quot;: True}" attrs="{'invisible': ['|', ('is_company', '=', True), ('is_animal','=',True)]}"/>
+                    </xpath>
+                    <xpath expr="//field[@name='lang']" position="replace">
+                        <field name="lang" attrs="{'invisible': [('is_animal','=',True)]}"/>
+                    </xpath>
+<!--                     <xpath expr="//field[@name='phone']" position="replace">
+                        <field name="phone" widget="phone" attrs="{'invisible': [('company_type','!=','animal')]}"/>
+                    </xpath>
+                    <xpath expr="//field[@name='mobile']" position="replace">
+                        <field name="mobile" widget="phone" attrs="{'invisible': [('company_type','!=','animal')]}"/>
+                    </xpath>
+                    <xpath expr="//field[@name='fax']" position="replace">
+                        <field name="fax" attrs="{'invisible': [('company_type','!=','animal')]}"/>
+                    </xpath>
+                    <xpath expr="//field[@name='email']" position="replace">
+                        <field name="email" widget="email" attrs="{'required': [('user_ids','!=', [])], 'invisible': [('company_type','!=','animal')]}"/>
+                    </xpath>
+                    <xpath expr="//field[@name='title']" position="replace">
+                        <field name="title" options="{&quot;no_open&quot;: True}" attrs="{'invisible': ['|', ('is_company', '=', True), ('company_type','!=','animal')]}"/>
+                    </xpath>
+                    <xpath expr="//field[@name='lang']" position="replace">
+                        <field name="lang" attrs="{'invisible': [('company_type','!=','animal')]}"/>
+                    </xpath> -->
                 </data>
             </field>
         </record>
 
-       <record id="base.view_res_partner_filter_person" model="ir.ui.view">
+       <record id="view_res_partner_filter_person" model="ir.ui.view">
             <field name="name">res.partner.select</field>
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_res_partner_filter"/>
@@ -885,6 +933,7 @@
                     <separator/>
                     <filter string="HC Persons" name="is_person" domain="[('is_person','=',1)]"/>
                     <filter string="HC Organizations" name="is_organization" domain="[('is_organization','=',1)]"/>
+                    <filter string="HC Animals" name="is_animal" domain="[('is_animal','=',1)]"/>
                     <separator/>
                 </xpath>
             </field>

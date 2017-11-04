@@ -46,8 +46,13 @@ class Endpoint(models.Model):
     period_end_date = fields.Datetime(
         string="Period End Date",
         help="End of the interval during responsibility is assumed.")
+    # payload_type_ids = fields.Many2many(
+        # comodel_name="hc.vs.endpoint.payload.type", # Based on FHIR Specification
+        # string="Payload Types",
+        # required="True",
+        # help="The type of content that may be used at this endpoint (e.g. XDS Discharge summaries).")
     payload_type_ids = fields.Many2many(
-        comodel_name="hc.vs.endpoint.payload.type",
+        comodel_name="hc.vs.resource.type", # Based on XML Endpoint Example
         string="Payload Types",
         required="True",
         help="The type of content that may be used at this endpoint (e.g. XDS Discharge summaries).")
@@ -79,9 +84,9 @@ class EndpointTelecom(models.Model):
     _name = "hc.endpoint.telecom"
     _description = "Endpoint Telecom"
     _inherit = ["hc.contact.point.use"]
-    _inherits = {"hc.contact.point": "contact_id"}
+    _inherits = {"hc.contact.point": "telecom_id"}
 
-    contact_id = fields.Many2one(
+    telecom_id = fields.Many2one(
         comodel_name="hc.contact.point",
         string="Contact",
         ondelete="restrict",
@@ -141,11 +146,8 @@ class EndpointPayloadType(models.Model):
 
 class OrganizationEndpoint(models.Model):
     _inherit = "hc.organization.endpoint"
-    _inherits = {"hc.res.endpoint": "endpoint_id"}
 
     endpoint_id = fields.Many2one(
         comodel_name="hc.res.endpoint",
         string="Endpoint",
-        required="True",
-        ondelete="restrict",
         help="Endpoint associated with this Organization Endpoint.")

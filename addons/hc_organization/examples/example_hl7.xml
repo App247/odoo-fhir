@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+    <!-- Example HL7 -->
+
+        <record id="hc_base.organization_hl7_text" model="hc.domain.resource.text">
+            <field name="status">generated</field>
+            <field name="div">
+<!--                 Health Level Seven International
+                <br/>
+                    3300 Washtenaw Avenue, Suite 227
+                <br/>
+                    Ann Arbor, MI 48104
+                <br/>
+                    USA
+                <br/>
+                    (+1) 734-677-7777 (phone)
+                <br/>
+                    (+1) 734-677-6622 (fax)
+                <br/>
+                    E-mail:
+                <a href="mailto:hq@HL7.org">hq@HL7.org</a> -->
+            </field>
+        </record>
+
+        <record id="organization_hl7" model="hc.res.organization">
+            <field name="partner_id" ref="base.hl7"/>
+            <field name="identifier">hl7</field>
+            <field name="name">Health Level Seven International</field>
+        </record>
+
+    <!-- HL7 Organization Telecom -->
+
+        <record id="hc_base.cont_pnt_17346777777" model="hc.contact.point">
+            <field name="system">phone</field>
+            <field name="value">(+1) 734-677-7777</field>
+        </record>
+
+        <record id="hc_base.cont_pnt_17346776622" model="hc.contact.point">
+            <field name="system">fax</field>
+            <field name="value">(+1) 734-677-6622</field>
+        </record>
+
+        <record id="hc_base.cont_pnt_hq_hl7_org" model="hc.contact.point">
+            <field name="system">email</field>
+            <field name="value">hq@HL7.org</field>
+        </record>
+
+        <record id="organization_hl7_telecom_1" model="hc.organization.telecom">
+            <field name="organization_id" ref="organization_hl7"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_17346777777"/>
+        </record>
+
+        <record id="organization_hl7_telecom_2" model="hc.organization.telecom">
+            <field name="organization_id" ref="organization_hl7"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_17346776622"/>
+        </record>
+
+        <record id="organization_hl7_telecom_3" model="hc.organization.telecom">
+            <field name="organization_id" ref="organization_hl7"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_hq_hl7_org"/>
+        </record>
+
+    <!-- HL7 Organization Address -->
+
+        <record id="hc_base.postal_code_48104" model="hc.vs.country.postal.code">
+            <field name="postal_code">48104</field>
+            <field name="name">48104</field>
+            <field name="code">48104</field>
+        </record>
+
+        <record id="hc_base.city_patient_f001" model="hc.vs.country.city">
+            <field name="name">Ann Arbor</field>
+            <field name="code">Ann Arbor</field>
+        </record>
+
+        <record id="hc_base.organization_hl7_address" model="hc.address">
+            <field name="line1">3300 Washtenaw Avenue, Suite 227</field>
+            <field model="hc.vs.country.city" name="city_id" search="[('name','=','Ann Arbor')]"/>
+            <field model="res.country.state" name="state_id" search="[('code','=','MI')]"/>
+            <field model="hc.vs.country.postal.code" name="postal_code_id" search="[('name','=','48104')]"/>
+            <field model="res.country" name="country_id" search="[('code3','=','USA')]"/>
+        </record>
+
+        <record id="organization_hl7_address" model="hc.organization.address">
+            <field name="organization_id" ref="organization_hl7"/>
+            <field name="address_id" ref="hc_base.organization_hl7_address"/>
+        </record>
+
+        <record id="organization_hl7_extension" model="hc.organization.domain.resource.extension">
+            <field name="organization_id" ref="organization_hl7"/>
+            <field name="url">http://hl7.org/fhir/StructureDefinition/organization-alias</field>
+            <field name="value_type">string</field>
+            <field name="value_string">HL7 International</field>
+        </record>
+
+        <record id="organization_hl7_alias" model="hc.organization.alias">
+            <field name="organization_id" ref="organization_hl7"/>
+            <field name="alias">HL7 International</field>
+        </record>
+
+    </data>
+</odoo>

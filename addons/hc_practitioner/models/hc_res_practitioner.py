@@ -350,6 +350,8 @@ class PartnerLink(models.Model):
         for hc_partner_link in self:
             if hc_partner_link.link_type == 'person':
                 hc_partner_link.link_name = hc_partner_link.link_person_id.name
+            elif hc_partner_link.link_type == 'organization':
+                hc_partner_link.link_name = hc_partner_link.link_organization_id.name
             elif hc_partner_link.link_type == 'practitioner':
                 hc_partner_link.link_name = hc_partner_link.link_practitioner_id.name
 
@@ -357,12 +359,15 @@ class Person(models.Model):
     _inherit = ["hc.res.person"]
 
     is_practitioner = fields.Boolean(
-        string="Is a practitioner",
+        string="Is Practitioner",
         help="This person is a practitioner.")
 
 class PersonLink(models.Model):
     _inherit = ["hc.person.link"]
 
+    target_type = fields.Selection(
+        selection_add=[
+            ("practitioner", "Practitioner")])
     target_practitioner_id = fields.Many2one(
         comodel_name="hc.res.practitioner",
         string="Target Practitioner",

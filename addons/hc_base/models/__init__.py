@@ -31,3 +31,4 @@ import hc_backbone_element
 import hc_domain_resource
 import hc_element_definition
 import hc_value_set_contains_v3
+import hc_element_extension

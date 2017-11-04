@@ -41,17 +41,20 @@ class Identifier(models.Model):
         compute="_compute_name",
         store="True",
         help="Name of this identifier record. Code Name + Value.")
-    code_id = fields.Many2one(
-        comodel_name="hc.vs.identifier.code",
-        string="Code",
-        help="Code of this identifier (e.g., CA DL).")
-    value = fields.Char(
-        string="Value",
-        help="The value that is unique.")
     type_id = fields.Many2one(
         string="Type",
         related="code_id.type_id",
         help="Description of identifier.")
+    code_id = fields.Many2one(
+        comodel_name="hc.vs.identifier.code",
+        string="Code",
+        help="Code of this identifier (e.g., CA DL).")
+    system = fields.Char(
+        string="System URI",
+        help="The namespace for the identifier.")
+    value = fields.Char(
+        string="Value",
+        help="The value that is unique.")
 
     @api.depends('code_id', 'value')
     def _compute_name(self):
@@ -87,9 +90,6 @@ class IdentifierCode(models.Model):
         comodel_name="hc.vs.identifier.type",
         string="Type",
         help="Description of identifier.")
-    system = fields.Char(
-        string="System URI",
-        help="The namespace for the identifier.")
     definition = fields.Text(
         string="Definition",
         help="An explanation of the meaning of the identifier.")

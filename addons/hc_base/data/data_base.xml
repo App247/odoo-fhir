@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data noupdate="1">  
+    <data noupdate="1">
 
         <!-- Country Group -->
 
-        <record id="africa" model="res.country.group">      
-            <field name="name">Africa</field>   
-            <field name="country_ids" eval="[(6,0,[ 
+        <record id="africa" model="res.country.group">
+            <field name="name">Africa</field>
+            <field name="country_ids" eval="[(6,0,[
                 ref('base.ao'),ref('base.bf'),ref('base.bi'),ref('base.bj'),ref('base.bw'),
                 ref('base.cf'),ref('base.cd'),ref('base.cg'),ref('base.ci'),ref('base.cm'),
                 ref('base.cv'),ref('base.dj'),ref('base.dz'),ref('base.eg'),ref('base.eh'),
@@ -19,17 +19,17 @@
                 ref('base.so'),ref('base.ss'),ref('base.st'),ref('base.sz'),ref('base.td'),
                 ref('base.tg'),ref('base.tn'),ref('base.tz'),ref('base.ug'),ref('base.yt'),
                 ref('base.za'),ref('base.zm')])]"/>
-        </record>       
-        
-        <record id="antarctica" model="res.country.group">      
-            <field name="name">Antarctica</field>   
-            <field name="country_ids" eval="[(6,0,[ 
+        </record>
+
+        <record id="antarctica" model="res.country.group">
+            <field name="name">Antarctica</field>
+            <field name="country_ids" eval="[(6,0,[
                 ref('base.aq'),ref('base.bv'),ref('base.gs'),ref('base.hm'),ref('base.tf')])]"/>
-        </record>       
-        
-        <record id="asia" model="res.country.group">        
-            <field name="name">Asia</field> 
-            <field name="country_ids" eval="[(6,0,[ 
+        </record>
+
+        <record id="asia" model="res.country.group">
+            <field name="name">Asia</field>
+            <field name="country_ids" eval="[(6,0,[
                 ref('base.ae'),ref('base.af'),ref('base.am'),ref('base.az'),ref('base.bd'),
                 ref('base.bh'),ref('base.bn'),ref('base.bt'),ref('base.cc'),ref('base.cn'),
                 ref('base.cx'),ref('base.cy'),ref('base.ge'),ref('base.hk'),ref('base.id'),
@@ -41,11 +41,11 @@
                 ref('base.ps'),ref('base.qa'),ref('base.sa'),ref('base.sg'),ref('base.sy'),
                 ref('base.th'),ref('base.tj'),ref('base.tm'),ref('base.tp'),ref('base.tw'),
                 ref('base.uz'),ref('base.vn'),ref('base.ye')])]"/>
-        </record>       
-        
-        <record id="north_america" model="res.country.group">       
-            <field name="name">North America</field>    
-            <field name="country_ids" eval="[(6,0,[ 
+        </record>
+
+        <record id="north_america" model="res.country.group">
+            <field name="name">North America</field>
+            <field name="country_ids" eval="[(6,0,[
                 ref('base.ag'),ref('base.ai'),ref('base.an'),ref('base.aw'),ref('base.bb'),
                 ref('base.bl'),ref('base.bm'),ref('base.bs'),ref('base.bz'),ref('base.ca'),
                 ref('base.cr'),ref('base.cu'),ref('base.dm'),ref('base.do'),ref('base.gd'),
@@ -54,31 +54,31 @@
                 ref('base.mq'),ref('base.ms'),ref('base.mx'),ref('base.ni'),ref('base.pa'),
                 ref('base.pm'),ref('base.pr'),ref('base.sv'),ref('base.tc'),ref('base.tt'),
                 ref('base.us'),ref('base.vc'),ref('base.vg'),ref('base.vi')])]"/>
-        </record>       
-        
-        <record id="oceania" model="res.country.group">     
-            <field name="name">Oceania</field>  
-            <field name="country_ids" eval="[(6,0,[ 
+        </record>
+
+        <record id="oceania" model="res.country.group">
+            <field name="name">Oceania</field>
+            <field name="country_ids" eval="[(6,0,[
                 ref('base.as'),ref('base.au'),ref('base.ck'),ref('base.fj'),ref('base.fm'),
                 ref('base.gu'),ref('base.ki'),ref('base.mh'),ref('base.mp'),ref('base.nc'),
                 ref('base.nf'),ref('base.nr'),ref('base.nu'),ref('base.nz'),ref('base.pf'),
                 ref('base.pg'),ref('base.pn'),ref('base.pw'),ref('base.sb'),ref('base.tk'),
                 ref('base.to'),ref('base.tv'),ref('base.um'),ref('base.vu'),ref('base.wf'),
                 ref('base.ws')])]"/>
-        </record>       
-        
-        <record id="south_america" model="res.country.group">       
-            <field name="name">South America</field>    
-            <field name="country_ids" eval="[(6,0,[ 
+        </record>
+
+        <record id="south_america" model="res.country.group">
+            <field name="name">South America</field>
+            <field name="country_ids" eval="[(6,0,[
                 ref('base.ar'),ref('base.bo'),ref('base.bq'),ref('base.br'),ref('base.cl'),
                 ref('base.co'),ref('base.cw'),ref('base.ec'),ref('base.fk'),ref('base.gf'),
                 ref('base.gy'),ref('base.pe'),ref('base.py'),ref('base.sr'),ref('base.sx'),
                 ref('base.uy'),ref('base.ve')])]"/>
-        </record>       
-        
-        <record id="europe" model="res.country.group">      
-            <field name="name">Europe</field>   
-            <field name="country_ids" eval="[(6,0,[ 
+        </record>
+
+        <record id="europe" model="res.country.group">
+            <field name="name">Europe</field>
+            <field name="country_ids" eval="[(6,0,[
                 ref('base.ad'),ref('base.al'),ref('base.at'),ref('base.ax'),ref('base.ba'),
                 ref('base.be'),ref('base.bg'),ref('base.by'),ref('base.ch'),ref('base.cz'),
                 ref('base.de'),ref('base.dk'),ref('base.ee'),ref('base.es'),ref('base.fi'),
@@ -92,92 +92,136 @@
                 ref('base.uk'),ref('base.va')])]"/>
         </record>
 
-        
-        <!--Human Name Term Type -->    
-    
-        <record id="human_name_term_type_uc" model="hc.vs.human.name.term.type">    
+
+        <!--Human Name Term Type -->
+
+        <record id="human_name_term_type_uc" model="hc.vs.human.name.term.type">
             <field name="code">uc</field>
             <field name="name">Use Case</field>
-        </record>   
-            
-        <record id="human_name_term_type_i" model="hc.vs.human.name.term.type"> 
+        </record>
+
+        <record id="human_name_term_type_i" model="hc.vs.human.name.term.type">
             <field name="code">i</field>
             <field name="name">Initials</field>
-        </record>   
-            
-        <record id="human_name_term_type_hc" model="hc.vs.human.name.term.type">    
+        </record>
+
+        <record id="human_name_term_type_hc" model="hc.vs.human.name.term.type">
             <field name="code">hc</field>
             <field name="name">Health Care</field>
         </record>
 
-        <record id="human_name_term_type_abbr" model="hc.vs.human.name.term.type">  
+        <record id="human_name_term_type_abbr" model="hc.vs.human.name.term.type">
             <field name="code">abbr</field>
             <field name="name">Abbreviation</field>
-        </record>   
+        </record>
 
         <!-- Entity Name Use -->
 
-        <record id="name_use_l" model="hc.vs.entity.name.use">  
+        <record id="name_use_l" model="hc.vs.entity.name.use">
             <field name="code">L</field>
             <field name="name">Legal</field>
             <field name="definition">"known as/conventional/the one you use"</field>
             <field name="source_id" ref="base.oasis"/>
             <field name="system">https://www.oasis-open.org/committees/ubl/lcsc/doc/qateam/Comment%20work%20from%20HL7/datatypes-its-xml.html</field>
-        </record>   
-            
-        <record id="name_use_a" model="hc.vs.entity.name.use">  
+        </record>
+
+        <record id="name_use_a" model="hc.vs.entity.name.use">
             <field name="code">A</field>
             <field name="name">Artist/Stage</field>
             <field name="definition">"Includes writer's pseudonym, stage name, etc"</field>
             <field name="source_id" ref="base.oasis"/>
             <field name="system">https://www.oasis-open.org/committees/ubl/lcsc/doc/qateam/Comment%20work%20from%20HL7/datatypes-its-xml.html</field>
-        </record>   
-            
-        <record id="name_use_i" model="hc.vs.entity.name.use">  
+        </record>
+
+        <record id="name_use_i" model="hc.vs.entity.name.use">
             <field name="code">I</field>
             <field name="name">Indigenous/Tribal</field>
             <field name="definition">"e.g. Chief Red Cloud"</field>
             <field name="source_id" ref="base.oasis"/>
             <field name="system">https://www.oasis-open.org/committees/ubl/lcsc/doc/qateam/Comment%20work%20from%20HL7/datatypes-its-xml.html</field>
-        </record>   
-            
-        <record id="name_use_r" model="hc.vs.entity.name.use">  
+        </record>
+
+        <record id="name_use_r" model="hc.vs.entity.name.use">
             <field name="code">R</field>
             <field name="name">Religious</field>
             <field name="definition">"e.g. Sister Mary Francis, Brother John"</field>
             <field name="source_id" ref="base.oasis"/>
             <field name="system">https://www.oasis-open.org/committees/ubl/lcsc/doc/qateam/Comment%20work%20from%20HL7/datatypes-its-xml.html</field>
-        </record>   
-            
-        <record id="name_use_abc" model="hc.vs.entity.name.use">    
+        </record>
+
+        <record id="name_use_abc" model="hc.vs.entity.name.use">
             <field name="code">ABC</field>
             <field name="name">Alphabetic</field>
             <field name="definition">"Alphabetic transcription of name (Japanese: romaji)"</field>
             <field name="source_id" ref="base.oasis"/>
             <field name="system">https://www.oasis-open.org/committees/ubl/lcsc/doc/qateam/Comment%20work%20from%20HL7/datatypes-its-xml.html</field>
-        </record>   
-            
-        <record id="name_use_syl" model="hc.vs.entity.name.use">    
+        </record>
+
+        <record id="name_use_syl" model="hc.vs.entity.name.use">
             <field name="code">SYL</field>
             <field name="name">Syllabic</field>
             <field name="definition">"Syllabic transcription of name (e.g., Japanese kana, Korean hangul)"</field>
             <field name="source_id" ref="base.oasis"/>
             <field name="system">https://www.oasis-open.org/committees/ubl/lcsc/doc/qateam/Comment%20work%20from%20HL7/datatypes-its-xml.html</field>
-        </record>   
-            
-        <record id="name_use_ide" model="hc.vs.entity.name.use">    
+        </record>
+
+        <record id="name_use_ide" model="hc.vs.entity.name.use">
             <field name="code">IDE</field>
             <field name="name">Ideographic</field>
             <field name="definition">"Ideographic representation of name (e.g., Japanese kanji, Chinese characters)"</field>
             <field name="source_id" ref="base.oasis"/>
             <field name="system">https://www.oasis-open.org/committees/ubl/lcsc/doc/qateam/Comment%20work%20from%20HL7/datatypes-its-xml.html</field>
-        </record>   
+        </record>
 
     <!-- Address Geolocation Decimal Precision -->
 
         <record id="decimal_custom_geo" model="decimal.precision" forcecreate="True">
             <field name="name">Geolocation</field>
             <field name="digits">6</field>
+        </record>
+
+    <!-- MIME Media Type -->
+
+        <record id="mime_media_type_application" model="hc.vs.mime.media.type">
+            <field name="code">application</field>
+            <field name="name">application</field>
+            <field name="source_id" ref="base.iana"/>
+            <field name="system">https://www.oasis-open.org/committees/ubl/lcsc/doc/qateam/Comment%20work%20from%20HL7/datatypes-its-xml.html</field>
+        </record>
+
+        <record id="mime_media_type_audio" model="hc.vs.mime.media.type">
+            <field name="code">audio</field>
+            <field name="name">audio</field>
+            <field name="source_id" ref="base.iana"/>
+            <field name="system">https://www.oasis-open.org/committees/ubl/lcsc/doc/qateam/Comment%20work%20from%20HL7/datatypes-its-xml.html</field>
+        </record>
+
+        <record id="mime_media_type_image" model="hc.vs.mime.media.type">
+            <field name="code">image</field>
+            <field name="name">image</field>
+            <field name="source_id" ref="base.iana"/>
+            <field name="system">https://www.oasis-open.org/committees/ubl/lcsc/doc/qateam/Comment%20work%20from%20HL7/datatypes-its-xml.html</field>
+        </record>
+
+        <record id="mime_media_type_message" model="hc.vs.mime.media.type">
+            <field name="code">message</field>
+            <field name="name">message</field>
+            <field name="source_id" ref="base.iana"/>
+            <field name="system">https://www.oasis-open.org/committees/ubl/lcsc/doc/qateam/Comment%20work%20from%20HL7/datatypes-its-xml.html</field>
+        </record>
+
+        <record id="mime_media_type_text" model="hc.vs.mime.media.type">
+            <field name="code">text</field>
+            <field name="name">text</field>
+            <field name="source_id" ref="base.iana"/>
+            <field name="system">https://www.oasis-open.org/committees/ubl/lcsc/doc/qateam/Comment%20work%20from%20HL7/datatypes-its-xml.html</field>
+        </record>
+
+        <record id="mime_media_type_video" model="hc.vs.mime.media.type">
+            <field name="code">video</field>
+            <field name="name">video</field>
+            <field name="source_id" ref="base.iana"/>
+            <field name="system">https://www.oasis-open.org/committees/ubl/lcsc/doc/qateam/Comment%20work%20from%20HL7/datatypes-its-xml.html</field>
         </record>
 
     </data>

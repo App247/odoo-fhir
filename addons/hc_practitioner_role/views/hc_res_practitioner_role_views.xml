@@ -69,11 +69,14 @@
                                             <group col="4" colspan="4">
                                                 <group>
                                                     <field name="value"/>
-                                                    <field name="code_id"/>
+                                                    <field name="system"/>
                                                     <field name="is_preferred"/>
                                                     <field name="is_active"/>
                                                 </group>
                                                 <group>
+                                                    <field name="code_id"/>
+                                                    <field name="type_id"/>
+                                                    <field name="use"/>
                                                     <field name="start_date" placeholder="Valid From"/>
                                                     <field name="end_date" placeholder="Valid To"/>
                                                </group>

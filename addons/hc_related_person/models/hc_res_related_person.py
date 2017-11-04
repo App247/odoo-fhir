@@ -265,12 +265,15 @@ class Person(models.Model):
     _inherit = ["hc.res.person"]
 
     is_related_person = fields.Boolean(
-        string="Is a related person",
+        string="Is Related Person",
         help="This person is a related person.")
 
 class PersonLink(models.Model):
     _inherit = ["hc.person.link"]
 
+    target_type = fields.Selection(
+        selection_add=[
+            ("related_person", "Related Person")])
     target_related_person_id = fields.Many2one(
         comodel_name="hc.res.related.person",
         string="Target Related Person",

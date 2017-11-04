@@ -8,14 +8,11 @@ class Person(models.Model):
     _name = "hc.res.person"
     _description = "Person"
     _inherit = ["hc.domain.resource"]
-    # _inherits = {"res.partner": "partner_id"}
     _rec_name = "name_id"
 
     partner_id = fields.Many2one(
         comodel_name="res.partner",
         string="Partner",
-        readonly=True,
-        # ondelete="restrict",
         help="Partner associated with this Person.")
     unique_person = fields.Char(
         string="Unique Person",
@@ -38,7 +35,7 @@ class Person(models.Model):
         comodel_name="hc.human.name",
         string="Full Name",
         required="True",
-        help="A full text representation of this Person's name when the record was created.")
+        help="A full text representation of this Person's or Animal's name when the record was created.")
     name = fields.Char(
         related="name_id.name",
         help="Human Readable name of the person.")
@@ -149,7 +146,7 @@ class Person(models.Model):
         partner_link_obj = self.env['hc.partner.link'] # Variable to create partner link
         name = self.env['hc.human.name'].browse(vals['name_id']) # Variable to create name of person
         res = super(Person, self).create(vals)
-        if not vals.get('partner_id'):
+        if not vals.get('partner_id') and res.type == 'human':
             partner_id = partner_obj.create({
                 'company_type': 'person',
                 'is_company': False,
@@ -158,24 +155,50 @@ class Person(models.Model):
                 'name': name.name,
                 'birthdate': str(res.birth_date),
                 })
-            vals.update({'partner_id': partner_id.id})
+        else:
+            if not vals.get('partner_id') and res.type == 'human':
+                partner_id = partner_obj.create({
+                    'company_type': 'animal',
+                    'is_company': False,
+                    'is_animal': True,
+                    'is_healthcare': True,
+                    'name': name.name,
+                    'birthdate': str(res.birth_date),
+                    })
+                vals.update({'partner_id': partner_id.id})
         vals.update({'name': name.name})
 
         names_vals = {}
-        link = partner_link_obj.create({
-            'link_type': 'person',
-            'link_person_id': res.id,
-            'partner_id': vals.get('partner_id'),
-            'start_date': datetime.today(),
-            })
-        if name:
-            names_vals.update({
-                'is_preferred': True,
-                'human_name_id': name.id,
-                'person_id': res.id,
-                'start_date': res.birth_date,
+        if res.type == 'human':
+            link = partner_link_obj.create({
+                'link_type': 'person',
+                'link_person_id': res.id,
+                'partner_id': vals.get('partner_id'),
+                'start_date': datetime.today(),
                 })
-            person_name_obj.create(names_vals)
+            if name:
+                names_vals.update({
+                    'is_preferred': True,
+                    'human_name_id': name.id,
+                    'person_id': res.id,
+                    'start_date': res.birth_date,
+                    })
+                person_name_obj.create(names_vals)
+        elif res.type == 'animal':
+            link = partner_link_obj.create({
+                'link_type': 'animal',
+                'link_person_id': res.id,
+                'partner_id': vals.get('partner_id'),
+                'start_date': datetime.today(),
+                })
+            if name:
+                names_vals.update({
+                    'is_preferred': True,
+                    'human_name_id': name.id,
+                    'person_id': res.id,
+                    'start_date': res.birth_date,
+                    })
+                person_name_obj.create(names_vals)
         return res
 
     # For an existing record, if new Person Name is preferred, remove preferred from previous name.
@@ -265,7 +288,7 @@ class Person(models.Model):
         name_rec = []
         for id in ids:
             if id.birth_date:
-                name_rec.append((id.id, id.name_id.name + "("+id.birth_date+")"))
+                name_rec.append((id.id, id.name_id.name + " ("+id.birth_date+")"))
             else:
                 name_rec.append((id.id, id.name_id.name))
         return name_rec
@@ -283,9 +306,9 @@ class PersonLink(models.Model):
         string="Target Type",
         required="True",
         selection=[
-            ("patient", "Patient"),
-            ("practitioner", "Practitioner"),
-            ("related_person", "Related Person"),
+            # ("patient", "Patient"),
+            # ("practitioner", "Practitioner"),
+            # ("related_person", "Related Person"),
             ("person", "Person")],
         help="Type of resource to which this actual person is associated.")
     target_name = fields.Char(
@@ -393,8 +416,7 @@ class PersonName(models.Model):
     #     ('name_uniq',
     #     'UNIQUE (name)',
     #     'Person name must be unique.')
-    #     ]
-
+    #
     # For a new person record,
     # Full Name = Person Name.
     # Add Person Name to the list of Person Names and mark it as preferred.
@@ -569,7 +591,8 @@ class PartnerLink(models.Model):
         string="Link Type",
         required="True",
         selection=[
-            ("person", "Person")
+            ("person", "Person"),
+            ("animal", "Animal")
             # ("patient", "Patient"),
             # ("patient_contact", "Patient Contact"),
             # ("related_person", "Related Person"),
@@ -584,21 +607,29 @@ class PartnerLink(models.Model):
     link_person_id = fields.Many2one(
         comodel_name="hc.res.person",
         string="Link Person",
+        domain="[('type','=','human')]",
         help="Person who is the resource to which this actual partner is associated.")
+    link_animal_id = fields.Many2one(
+        comodel_name="hc.res.person",
+        string="Link Animal",
+        domain="[('type','=','animal')]",
+        # domain="[('is_animal','=','True')]",
+        # domain="[('company_type','=','animal')]",
+        help="Animal who is the resource to which this actual partner is associated.")
     # link_patient_id = fields.Many2one(
-    #     comodel_name="hc.res.patient",
+    #     comodel_name="res.partner",
     #     string="Link Patient",
     #     help="Patient who is the resource to which this actual partner is associated.")
     # link_patient_contact_id = fields.Many2one(
-    #     comodel_name="hc.patient.contact",
+    #     comodel_name="res.partner",
     #     string="Link Patient Contact",
     #     help="Patient who is the resource to which this actual partner is associated.")
     # link_related_person_id = fields.Many2one(
-    #     comodel_name="hc.res.related.person",
+    #     comodel_name="res.partner",
     #     string="Link Related Person",
     #     help="Related Person who is the resource to which this actual partner is associated.")
     # link_practitioner_id = fields.Many2one(
-    #     comodel_name="hc.res.practitioner",
+    #     comodel_name="res.partner",
     #     string="Link Practitioner",
     #     help="Practitioner who is the resource to which this actual partner is associated.")
 
@@ -607,6 +638,8 @@ class PartnerLink(models.Model):
         for hc_partner_link in self:
             if hc_partner_link.link_type == 'person':
                 hc_partner_link.link_name = hc_partner_link.link_person_id.name
+            elif hc_partner_link.link_type == 'animal':
+                hc_partner_link.link_name = hc_partner_link.link_animal_id.name
             # elif hc_partner_link.link_type == 'patient':
             #     hc_partner_link.link_name = hc_partner_link.link_patient_id.name
             # elif hc_partner_link.link_type == 'patient_contact':

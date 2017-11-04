@@ -47,6 +47,7 @@
                             <group>
                                 <field name="code" placeholder="(e.g., GOV)"/>
                                 <field name="definition"/>
+                                <field name="system"/>                                
                             </group>
                             <group>
                             </group>

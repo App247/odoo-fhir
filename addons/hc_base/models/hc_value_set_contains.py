@@ -13,10 +13,22 @@ class ValueSetContains(models.Model):
     _inherit = ["hc.codeable.concept.coding"]
     _rec_name = "name"
 
+    system = fields.Char(
+        string="System URI",
+        help="System value for the code.")
     is_abstract = fields.Boolean(
         string="Abstract",
         help="If user cannot select this entry.")
-    name = fields.Char(
+    is_inactive = fields.Boolean(
+        string="Inactive",
+        help="If concept is inactive in the code system.")
+    version = fields.Char(
+        string="Version",
+        help="Version in which this code/display is defined.")
+    code = fields.Char(
+        string="Code",
+        help="Code - if blank, this is not a selectable code.")
+    name = fields.Char( # "Display" in FHIR Specification
         string="Name",
         required="True",
         help="User display for the concept.")

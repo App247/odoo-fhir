@@ -250,11 +250,36 @@
             <field name="website">www.cancer.gov</field>
             <field name="comment">The National Cancer Institute (NCI) is the federal government's principal agency for cancer research and training. &#10;&#10;(Ref: https://www.cancer.gov/about-nci)</field>
             <field name="is_organization" eval="True"/>
-            <field name="is_healthcare" eval="True"/>            
+            <field name="is_healthcare" eval="True"/>
             <field name="notify_email">none</field>
             <field name="category_id" eval="[(6, 0, [ref('partner_source'), ref('partner_organization')])]"/>
             <field name="country_id" ref="base.us"/>
         </record>
 
+        <record id="base.hl7nl" model="res.partner">
+            <field name="name">HL7 Netherlands</field>
+            <field name="company_type">company</field>
+            <field name="website">www.hl7.nl</field>
+            <field name="comment">
+            </field>
+            <field name="notify_email">none</field>
+            <field name="is_organization" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
+            <field name="category_id" eval="[(6, 0, [ref('partner_source'), ref('partner_organization')])]"/>
+            <field name="country_id" ref="base.nl"/>
+        </record>
+
+        <record id="base.iana" model="res.partner">
+            <field name="name">IANA</field>
+            <field name="company_type">company</field>
+            <field name="website">www.iana.org/</field>
+            <field name="comment">The global coordination of the DNS Root, IP addressing, and other Internet protocol resources is performed as the Internet Assigned Numbers Authority (IANA) functions.&#10;&#10;(Ref: https://www.iana.org/)
+            </field>
+            <field name="notify_email">none</field>
+            <field name="is_organization" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
+            <field name="category_id" eval="[(6, 0, [ref('partner_source'), ref('partner_organization')])]"/>
+            <field name="country_id" ref="base.us"/>
+        </record>
     </data>
 </odoo>

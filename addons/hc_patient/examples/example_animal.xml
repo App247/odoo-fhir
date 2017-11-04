@@ -51,25 +51,31 @@
             <field name="is_healthcare" eval="True"/>
         </record>
 
+        <record id="base.patient_animal_link" model="hc.partner.link">
+            <field name="partner_id" ref="base.patient_animal"/>
+            <field name="link_type">person</field>
+            <field name="link_person_id" ref="hc_person.patient_example"/>
+            <field name="start_date" eval="datetime.today()"/>
+        </record>
+
         <record id="hc_person.patient_animal" model="hc.res.person">
             <field name="partner_id" ref="base.patient_animal"/>
             <field name="name_id" ref="hc_base.patient_animal_name"/>
             <field name="gender">female</field>
             <field name="birth_date">2010-03-23</field>
+            <field name="type">animal</field>
+        </record>
+
+        <record id="base.patient_animal_link_animal" model="hc.partner.link">
+            <field name="partner_id" ref="base.patient_example"/>
+            <field name="link_type">animal</field>
+            <field name="link_animal_id" ref="hc_person.patient_animal"/>
+            <field name="start_date" eval="datetime.today()"/>
         </record>
 
     <!-- Animal Patient -->
 
-        <record id="patient_animal" model="hc.res.patient">
-            <field name="person_id" ref="hc_person.patient_animal"/>
-            <field name="birth_time">14:35:45-05:00</field>
-            <field name="type">animal</field>
-            <field name="is_active" eval="True"/>
-            <field name="managing_organization_id" ref="hc_organization.patient_animal_managing"/>
-        </record>
-
         <record id="patient_animal_animal" model="hc.patient.animal">
-            <field name="patient_id" ref="patient_animal"/>
             <field name="name">animal</field>
             <field name="species_id" ref="species_448771007"/>
             <field name="breed_id" ref="breed_58108001"/>
@@ -77,7 +83,11 @@
         </record>
 
         <record id="patient_animal" model="hc.res.patient">
+            <field name="person_id" ref="hc_person.patient_animal"/>
+            <field name="birth_time">14:35:45-05:00</field>
+            <field name="is_active" eval="True"/>
             <field name="animal_id" ref="patient_animal_animal"/>
+            <field name="managing_organization_id" ref="hc_organization.patient_animal_managing"/>
         </record>
 
     <!-- Animal Patient Contact -->

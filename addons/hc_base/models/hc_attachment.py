@@ -7,10 +7,42 @@ class AttachmentType(models.Model):
     _description = "Attachment Type"
     _inherit = ["hc.value.set.contains"]
 
+
+class MimeMediaType(models.Model):
+    _name = "hc.vs.mime.media.type"
+    _description = "MIME Media Type"
+    _inherit = ["hc.value.set.contains"]
+
+    name = fields.Char(
+        string="MIME Media Type",
+        help="Name of this MIME Media Type.")
+    code = fields.Char(
+        string="Code",
+        help="Code of this MIME Media Type.")
+    contains_id = fields.Many2one(
+        comodel_name="hc.vs.mime.media.type",
+        string="Parent",
+        help="Parent MIME Media Type.")
+
 class MimeType(models.Model):
     _name = "hc.vs.mime.type"
     _description = "MIME Type"
     _inherit = ["hc.value.set.contains"]
+
+    name = fields.Char(
+        string="MIME Type",
+        help="Name of this MIME Type.")
+    code = fields.Char(
+        string="Code",
+        help="Code of this MIME Type.")
+    contains_id = fields.Many2one(
+        comodel_name="hc.vs.mime.type",
+        string="Parent",
+        help="Parent MIME Type.")
+    media_type_id = fields.Many2one(
+        comodel_name="hc.vs.mime.media.type",
+        string="MIME Media Type",
+        help="Name of this MIME Media Type.")
 
 class Attachment(models.Model):
     _name = "hc.attachment"

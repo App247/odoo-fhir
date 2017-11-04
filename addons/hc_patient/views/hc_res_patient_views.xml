@@ -132,13 +132,15 @@
                                             </div>
                                             <group col="4" colspan="4">
                                                 <group>
-                                                    <field name="code_id"/>
                                                     <field name="value"/>
-                                                    <field name="type_id"/>
+                                                    <field name="system"/>
                                                     <field name="is_preferred"/>
                                                     <field name="is_active"/>
                                                 </group>
                                                 <group>
+                                                    <field name="code_id"/>
+                                                    <field name="type_id"/>
+                                                    <field name="use"/>
                                                     <field name="start_date" placeholder="Valid From"/>
                                                     <field name="end_date" placeholder="Valid To"/>
                                                </group>
@@ -532,7 +534,7 @@
                                     </form>
                                 </field>
                             </page>
-                            <page string="Meta">
+<!--                             <page string="Meta">
                                 <form>
                                     <sheet>
                                         <group string="Resource">
@@ -694,7 +696,7 @@
                                         </notebook>
                                     </sheet>
                                 </form>
-                            </page>
+                            </page> -->
                         </notebook>
                     </sheet>
                 </form>
@@ -705,7 +707,6 @@
             <field name="name">HC Patients</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">hc.res.patient</field>
-<!--             <field name="context">{'is_patient':True}</field> -->
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
         </record>
@@ -1760,21 +1761,18 @@
         <record id="hc_res_person_view_form_inherited_patient" model="ir.ui.view">
             <field name="name">Person Form</field>
             <field name="model">hc.res.person</field>
-            <field name="priority" eval="20"/>
             <field name="inherit_id" ref="hc_person.hc_res_person_view_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='is_active']" position="after">
                     <field name="is_patient" readonly="1"/>
                 </xpath>
                 <xpath expr="//field[@name='target_person_id']" position="after">
-                    <field name="target_patient_id" attrs="{'invisible': [('target_type','!=','Patient')]}"/>
-<!--                     <field name="target_practitioner_id" attrs="{'invisible': [('target_type','!=','Practitioner')]}"/> -->
-<!--                     <field name="target_related_person_id" attrs="{'invisible': [('target_type','!=','Related Person')]}"/> -->
+                    <field name="target_patient_id" attrs="{'invisible': [('target_type','!=','patient')]}"/>
                 </xpath>
             </field>
         </record>
 
-        <record id="base.view_partner_form_inherited_patient" model="ir.ui.view">
+        <record id="view_partner_form_inherited_patient" model="ir.ui.view">
             <field name="name">res.partner.form</field>
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_partner_form"/>
@@ -1796,6 +1794,7 @@
                                                 <field name="link_name"/>
                                                 <field name="link_type" class="oe_edit_only"/>
                                                 <field name="link_person_id" class="oe_edit_only" attrs="{'invisible': [('link_type','!=','person')], 'required': [('link_type','=','person')]}"/>
+                                                <field name="link_animal_id" class="oe_edit_only" attrs="{'invisible': [('link_type','!=','animal')], 'required': [('link_type','=','animal')]}"/>
                                                 <field name="link_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('link_type','!=','practitioner')], 'required': [('link_type','=','practitioner')]}"/>
                                                 <field name="link_related_person_id" class="oe_edit_only" attrs="{'invisible': [('link_type','!=','related_person')], 'required': [('link_type','=','related_person')]}"/>
                                                 <field name="link_patient_id" class="oe_edit_only" attrs="{'invisible': [('link_type','!=','patient')], 'required': [('link_type','=','patient')]}"/>

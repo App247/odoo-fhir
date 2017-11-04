@@ -1,6 +1,8 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_hc_organization_hc_res_organization_user,hc.organization.hc.res.organization.user,model_hc_res_organization,hc_base.group_hc_base_user,1,0,0,0
 access_hc_organization_hc_organization_contact_user,hc.organization.hc.organization.contact.user,model_hc_organization_contact,hc_base.group_hc_base_user,1,0,0,0
+access_hc_organization_hc_organization_contact_telecom_user,hc.organization.hc.organization.contact.telecom.user,model_hc_organization_contact_telecom,hc_base.group_hc_base_user,1,0,0,0
+access_hc_organization_hc_organization_contact_address_user,hc.organization.hc.organization.contact.address.user,model_hc_organization_contact_address,hc_base.group_hc_base_user,1,0,0,0
 access_hc_organization_hc_organization_identifier_user,hc.organization.hc.organization.identifier.user,model_hc_organization_identifier,hc_base.group_hc_base_user,1,0,0,0
 access_hc_organization_hc_organization_alias_user,hc.organization.hc.organization.alias.user,model_hc_organization_alias,hc_base.group_hc_base_user,1,0,0,0
 access_hc_organization_hc_organization_telecom_user,hc.organization.hc.organization.telecom.user,model_hc_organization_telecom,hc_base.group_hc_base_user,1,0,0,0
@@ -9,6 +11,3 @@ access_hc_organization_hc_organization_endpoint_user,hc.organization.hc.organiza
 access_hc_organization_hc_organization_location_user,hc.organization.hc.organization.location.user,model_hc_organization_location,hc_base.group_hc_base_user,1,0,0,0
 access_hc_organization_hc_vs_organization_type_manager,hc.organization.hc.vs.organization.type.manager,model_hc_vs_organization_type,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_organization_hc_vs_contact_entity_type_manager,hc.organization.hc.vs.contact.entity.type.manager,model_hc_vs_contact_entity_type,hc_base.group_hc_base_manager,1,1,1,1
-
-
-

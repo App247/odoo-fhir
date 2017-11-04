@@ -14,10 +14,10 @@ class Patient(models.Model):
         ondelete="restrict",
         required="True",
         help="Person associated with this Patient.")
-    partner_id = fields.Many2one(
-        string="Partner",
-        related="person_id.partner_id",
-        help="Partner associated with this Patient.")
+    # partner_id = fields.Many2one(
+    #     string="Partner",
+    #     related="person_id.partner_id",
+    #     help="Partner associated with this Patient.")
     identifier_ids = fields.One2many(
         comodel_name = "hc.patient.identifier",
         inverse_name = "patient_id",
@@ -166,8 +166,7 @@ class Patient(models.Model):
         comodel_name="hc.patient.dicom.demographic",
         inverse_name="patient_id",
         string="Patient DICOM Demographic",
-        help="DICOM Demographic of the patient."
-        )
+        help="DICOM Demographic of the patient.")
 
     # Backbone Element
     animal_id = fields.Many2one(
@@ -206,6 +205,21 @@ class Patient(models.Model):
         inverse_name="patient_id",
         string="Nationalities",
         help="The nationality of the patient (aka SNOMED Ethnic group (observable entity)).")
+
+    # Domain Resource
+    text_id = fields.Many2one(
+        comodel_name="hc.patient.domain.resource.text")
+    contained_ids = fields.One2many(
+        comodel_name="hc.patient.domain.resource.contained",
+        inverse_name="patient_id")
+    extension_ids = fields.One2many(
+        comodel_name="hc.patient.domain.resource.extension",
+        inverse_name="patient_id")
+    modifier_extension_ids = fields.One2many(
+        comodel_name="hc.patient.domain.resource.modifier.extension",
+        inverse_name="patient_id")
+
+
 
     _defaults = {
         "is_patient": True,
@@ -262,7 +276,7 @@ class Patient(models.Model):
         name_rec = []
         for id in ids:
             if id.birth_date:
-                name_rec.append((id.id, id.name_id + "(" + id.birth_date + ")"))
+                name_rec.append((id.id, id.name_id + " (" + id.birth_date + ")"))
             else:
                 name_rec.append((id.id, id.name_id))
         return name_rec
@@ -1118,13 +1132,54 @@ class DICOMPatientDemographic(models.Model):
         string="Parent",
         help="Parent DICOM patient demographic.")
 
+class PatientDomainResourceText(models.Model):
+    _name = "hc.patient.domain.resource.text"
+    _description = "Patient Domain Resource Text"
+    _inherit = ["hc.basic.association", "hc.narrative"]
+
+    patient_id = fields.Many2one(
+        comodel_name="hc.res.patient",
+        string="Patient",
+        help="Patient associated with this Patient Domain Resource Text.")
+
+class PatientDomainResourceContained(models.Model):
+    _name = "hc.patient.domain.resource.contained"
+    _description = "Patient Domain Resource Contained"
+    _inherit = ["hc.basic.association", "hc.resource"]
+
+    patient_id = fields.Many2one(
+        comodel_name="hc.res.patient",
+        string="Organization",
+        help="Patient associated with this Patient Domain Resource Contained.")
+
+class PatientDomainResourceExtension(models.Model):
+    _name = "hc.patient.domain.resource.extension"
+    _description = "Patient Domain Resource Extension"
+    _inherit = ["hc.basic.association", "hc.extension"]
+
+    patient_id = fields.Many2one(
+        comodel_name="hc.res.patient",
+        string="Organization",
+        help="Patient associated with this Patient Domain Resource Extension.")
+
+class PatientDomainResourceModifierExtension(models.Model):
+    _name = "hc.patient.domain.resource.modifier.extension"
+    _description = "Patient Domain Resource Modifier Extension"
+    _inherit = ["hc.basic.association", "hc.extension"]
+
+    patient_id = fields.Many2one(
+        comodel_name="hc.res.patient",
+        string="Organization",
+        help="Patient associated with this Patient Domain Resource Modifier Extension.")
+
+
 # External Reference
 
 class Partner(models.Model):
     _inherit = ["res.partner"]
 
     is_patient = fields.Boolean(
-        string="Is a patient",
+        string="Is Patient",
         help="This partner is a patient.")
 
 class PartnerLink(models.Model):
@@ -1148,25 +1203,32 @@ class PartnerLink(models.Model):
         for hc_partner_link in self:
             if hc_partner_link.link_type == 'person':
                 hc_partner_link.link_name = hc_partner_link.link_person_id.name
-            elif hc_partner_link.link_type == 'patient':
-                hc_partner_link.link_name = hc_partner_link.link_patient_id.name
-            elif hc_partner_link.link_type == 'patient_contact':
-                hc_partner_link.link_name = hc_partner_link.link_patient_contact_id.name
+            elif hc_partner_link.link_type == 'animal':
+                hc_partner_link.link_name = hc_partner_link.link_animal_id.name
             elif hc_partner_link.link_type == 'related_person':
                 hc_partner_link.link_name = hc_partner_link.link_related_person_id.name
             elif hc_partner_link.link_type == 'practitioner':
                 hc_partner_link.link_name = hc_partner_link.link_practitioner_id.name
+            elif hc_partner_link.link_type == 'organization':
+                hc_partner_link.link_name = hc_partner_link.link_organization_id.name
+            elif hc_partner_link.link_type == 'patient':
+                hc_partner_link.link_name = hc_partner_link.link_patient_id.name
+            elif hc_partner_link.link_type == 'patient_contact':
+                hc_partner_link.link_name = hc_partner_link.link_patient_contact_id.name
 
 class Person(models.Model):
     _inherit = ["hc.res.person"]
 
     is_patient = fields.Boolean(
-        string="Is a patient",
+        string="Is Patient",
         help="This person is a patient.")
 
 class PersonLink(models.Model):
     _inherit = ["hc.person.link"]
 
+    target_type = fields.Selection(
+        selection_add=[
+            ("patient", "Patient")])
     target_patient_id = fields.Many2one(
         comodel_name="hc.res.patient",
         string="Target Patient",
@@ -1179,6 +1241,8 @@ class PersonLink(models.Model):
                 hc_person_link.target_name = hc_person_link.target_person_id.name_id.name
             elif hc_person_link.target_type == 'patient':
                 hc_person_link.target_name = hc_person_link.target_patient_id.name
+            elif hc_partner_link.link_type == 'organization_contact':
+                hc_partner_link.link_name = hc_partner_link.link_organization_contact_id.name
             elif hc_person_link.target_type == 'practitioner':
                 hc_person_link.target_name = hc_person_link.target_practitioner_id.name
             elif hc_person_link.target_type == 'related_person':

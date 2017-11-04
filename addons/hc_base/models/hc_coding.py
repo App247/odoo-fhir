@@ -33,16 +33,34 @@ class Coding(models.Model):
         help="Version of the system - if relevant.")
     code = fields.Char(
         string="Code",
-        required="True",
-        index="True",
         help="Symbol in syntax defined by the system.")
-    # display = fields.Char(
-    #     string="Display",
-    #     help="Representation defined by the system.")
+    display = fields.Char(
+        string="Display",
+        help="Representation defined by the system.")
     is_user_selected = fields.Boolean(
         string="User Selected",
         default="True",
         help="If this coding was chosen directly by the user.")
+
+    # Element Attribute
+    identifier = fields.Char(
+        string="ID",
+        help="Internal id (e.g. like xml:id).")
+    extension_ids = fields.One2many(
+        comodel_name="hc.coding.element.extension",
+        inverse_name="coding_id",
+        string="Extensions",
+        help="Additional Content defined by implementations.")
+
+class CodingElementExtension(models.Model):
+    _name = "hc.coding.element.extension"
+    _description = "Coding Element Extension"
+    _inherit = ["hc.basic.association"]
+
+    coding_id = fields.Many2one(
+        comodel_name="hc.coding",
+        string="Coding",
+        help="Coding associated with this Coding Element Extension.")
 
 class CodeableConcept(models.Model):
     _name = "hc.codeable.concept"
@@ -58,12 +76,36 @@ class CodeableConcept(models.Model):
         string="Text",
         help="Plain text representation of the concept.")
 
+    # Element Attribute
+    identifier = fields.Char(
+        string="ID",
+        help="Internal id (e.g. like xml:id).")
+    extension_ids = fields.One2many(
+        comodel_name="hc.codeable.concept.element.extension",
+        inverse_name="codeable_concept_id",
+        string="Extensions",
+        help="Additional Content defined by implementations.")
+
+class CodeableConceptElementExtension(models.Model):
+    _name = "hc.codeable.concept.element.extension"
+    _description = "Codeable Concept Element Extension"
+    _inherit = ["hc.basic.association"]
+
+    codeable_concept_id = fields.Many2one(
+        comodel_name="hc.codeable.concept",
+        string="Codeable Concept",
+        help="Codeable Concept associated with this Codeable Concept Element Extension.")
+
 class CodeableConceptCoding(models.Model):
     _name = "hc.codeable.concept.coding"
     _description = "Codeable Concept Coding"
-    _inherit = ["hc.basic.association", "hc.coding"]
+    _inherit = ["hc.basic.association"]
 
     codeable_concept_id = fields.Many2one(
         comodel_name="hc.codeable.concept",
         string="Codeable Concept",
         help="Codeable Concept associated with this Codeable Concept Coding.")
+    coding_id = fields.Many2one(
+        comodel_name="hc.coding",
+        string="Coding",
+        help="Coding associated with this Codeable Concept Coding.")

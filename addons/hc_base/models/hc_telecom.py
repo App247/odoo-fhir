@@ -33,6 +33,16 @@ class ContactPoint(models.Model):
         string="National Number",
         help="The domestic format for a phone number (e.g., (607) 123 4567).")
 
+    # Element Attribute
+    identifier = fields.Char(
+        string="ID",
+        help="Internal id (e.g. like xml:id).")
+    extension_ids = fields.One2many(
+        comodel_name="hc.contact.point.element.extension",
+        inverse_name="contact_point_id",
+        string="Extensions",
+        help="Additional Content defined by implementations.")
+
     @api.depends('value', 'system')
     def _compute_name(self):
         comp_name = '/'
@@ -42,6 +52,16 @@ class ContactPoint(models.Model):
             if hc_contact_point.value:
                 comp_name = comp_name + ": " + hc_contact_point.value or ''
             hc_contact_point.name = comp_name
+
+class ContactPointElementExtension(models.Model):
+    _name = "hc.contact.point.element.extension"
+    _description = "Contact Point Element Extension"
+    _inherit = ["hc.basic.association"]
+
+    contact_point_id = fields.Many2one(
+        comodel_name="hc.contact.point",
+        string="Contact Point",
+        help="Contact Point associated with this Contact Point Element Extension.")
 
 class ContactPointUse(models.Model):
     _name = "hc.contact.point.use"

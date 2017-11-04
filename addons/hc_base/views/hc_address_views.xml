@@ -141,6 +141,7 @@
                   <h1>
                     <field name="postal_code" default_focus="1" placeholder="Postal or ZIP Code"/>
                   </h1>
+                  <field name="name" placeholder="Name"/>
                   <field name="postal_place" placeholder="(optional) Place like Hillsdale Shopping Center"/>
                 </div>
                   <group>
@@ -618,7 +619,7 @@
           </field>
         </record>
 
-        <record id="hc_base.view_country_state_tree_inherited" model="ir.ui.view">
+        <record id="view_country_state_tree_inherited" model="ir.ui.view">
           <field name="name">Country State Tree</field>
           <field name="model">res.country.state</field>
           <field name="inherit_id" ref="base.view_country_state_tree"/>
@@ -632,7 +633,7 @@
           </field>
         </record>
 
-        <record id="hc_base.view_country_state_form_inherited" model="ir.ui.view">
+        <record id="view_country_state_form_inherited" model="ir.ui.view">
           <field name="name">Country State Form</field>
           <field name="model">res.country.state</field>
           <field name="inherit_id" ref="base.view_country_state_form"/>
@@ -1096,7 +1097,7 @@
 
         <!-- External Reference View -->
 
-        <record id="hc_base.view_country_tree_inherited" model="ir.ui.view">
+        <record id="view_country_tree_inherited" model="ir.ui.view">
             <field name="name">res.country.tree</field>
             <field name="model">res.country</field>
             <field name="inherit_id" ref="base.view_country_tree"/>
@@ -1107,7 +1108,7 @@
             </field>
         </record>
 
-        <record id="hc_base.view_country_form_inherited" model="ir.ui.view">
+        <record id="view_country_form_inherited" model="ir.ui.view">
             <field name="name">res.country.form</field>
             <field name="model">res.country</field>
             <field name="inherit_id" ref="base.view_country_form"/>

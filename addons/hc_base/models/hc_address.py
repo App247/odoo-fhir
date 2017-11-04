@@ -276,15 +276,6 @@ class CountryPostalCode(models.Model):
     postal_code = fields.Char(
         string="Postal/ZIP Code",
         help="A group of numbers or letters and numbers that are added to a postal address to assist the sorting of mail.")
-    # name = fields.Char(
-    #     string="Postal/ZIP Code",
-    #     help="A group of numbers or letters and numbers that are added to a postal address to assist the sorting of mail.")
-    name = fields.Char(
-        compute="_compute_code",
-        store="True")
-    code = fields.Char(
-        compute="_compute_code",
-        store="True")
     postal_place = fields.Char(
         string="Place",
         help="A geographic point of interest associated with a postal code.")
@@ -329,17 +320,6 @@ class CountryPostalCode(models.Model):
         related="division_id.country_id",
         string="Country",
         help="Country (can be ISO-3166 3-letter code).")
-
-    @api.depends('postal_code')
-    def _compute_code(self):
-        comp_code = '/code'
-        comp_name = '/name'
-        for hc_vs_country_postal_code in self:
-            if hc_vs_country_postal_code.postal_code:
-                comp_code = hc_vs_country_postal_code.postal_code or ''
-                comp_name = hc_vs_country_postal_code.postal_code or ''
-            hc_vs_country_postal_code.code = comp_code
-            hc_vs_country_postal_code.name = comp_name
 
 class AddressUse(models.Model):
     _name = "hc.address.use"

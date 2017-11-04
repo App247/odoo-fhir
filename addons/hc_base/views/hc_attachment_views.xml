@@ -115,7 +115,9 @@
             <field name="arch" type="xml">
                 <search string="MIME Types">
                     <field name="name"/>
-                    <field name="code"/>
+                    <group>
+                        <filter name="group_by_media_type" string="media type" context="{'group_by': 'media_type_id'}"/>
+                    </group>
                 </search>
             </field>
         </record>
@@ -125,7 +127,7 @@
             <field name="arch" type="xml">
                 <tree string="MIME Types">
                     <field name="name"/>
-                    <field name="code"/>
+                    <field name="media_type_id"/>
                 </tree>
             </field>
         </record>
@@ -135,16 +137,19 @@
             <field name="arch" type="xml">
                 <form string="MIME Type">
                     <sheet>
-                        <div class="oe_title oe_left">
-                            <h1>
-                                <field name="name" default_focus="1" placeholder="MIME Type"/>
-                            </h1>
-                        </div>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name (e.g., Biological Substance)"/>
+                        </h1>
+                        <field name="code" placeholder="Code (e.g., biological)"/>
+                        <field name="definition" placeholder="Definition"/>
+                        <field name="comments" placeholder="Comments"/>
                         <group>
                             <group>
-                                <field name="code"/>
+                                <field name="media_type_id"/>
                             </group>
                             <group>
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
                             </group>
                         </group>
                     </sheet>
@@ -165,6 +170,14 @@
         <act_window id="hc_vs_attachment_type_action"
                     name="HC Attachment Types"
                     res_model="hc.vs.attachment.type"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <act_window id="hc_vs_mime_media_type_action"
+                    name="HC Mime Media Types"
+                    res_model="hc.vs.mime.type"
                     view_mode="tree,form"
                     domain=""
                     context=""
@@ -191,6 +204,13 @@
                   action="hc_vs_attachment_type_action"
                   groups="hc_base.group_hc_base_manager"
                   sequence="20"/>
+
+        <menuitem id="hc_base.menu_attach_mime"
+                  name="MIME Media Types"
+                  parent="hc_base.menu_attach"
+                  action="hc_vs_mime_media_type_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="25"/>
 
         <menuitem id="hc_base.menu_attach_mime"
                   name="MIME Types"

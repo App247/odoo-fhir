@@ -37,18 +37,20 @@
                         <h1>
                             <field name="name" default_focus="1" placeholder="Name"/>
                         </h1>
+                        <label for="address_uri" string="Address URI"/>
+                        <field name="address_uri"/>
                         <group>
                             <group>
-                                <field name="address_uri"/>
+
                                 <field name="status"/>
                                 <field name="connection_type_id"/>
-                                <field name="period_start_date" placeholder="Valid From"/>
-                                <field name="period_end_date" placeholder="Valid To"/>
+                                <field name="payload_type_ids" widget="many2many_tags"/>
+                                <field name="payload_mime_type_ids" widget="many2many_tags"/>
                             </group>
                             <group>
                                 <field name="managing_organization_id"/>
-                                <field name="payload_type_ids"/>
-                                <field name="payload_mime_type_ids"/>
+                                <field name="period_start_date" placeholder="Valid From"/>
+                                <field name="period_end_date" placeholder="Valid To"/>
                             </group>
                         </group>
                         <notebook>
@@ -87,14 +89,14 @@
                                 <field name="contact_ids" mode="tree">
                                     <tree>
                                         <field name="is_preferred"/>
-                                        <field name="contact_id"/>
+                                        <field name="telecom_id"/>
                                         <field name="use"/>
                                     </tree>
                                     <form>
                                         <sheet>
                                             <group>
                                                 <group>
-                                                    <field name="contact_id"/>
+                                                    <field name="telecom_id"/>
                                                     <field name="use"/>
                                                 </group>
                                                 <group>
@@ -139,15 +141,39 @@
         <!-- External Reference -->
 
         <record id="hc_res_organization_view_form_inherited_endpoint" model="ir.ui.view">
-            <field name="name">organization Form</field>
+            <field name="name">Organization Form</field>
             <field name="model">hc.res.organization</field>
             <field name="inherit_id" ref="hc_organization.hc_res_organization_view_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='endpoint_ids']//tree" position="after">
+                <xpath expr="//page//field[@name='endpoint_ids']//tree" position="after">
                     <field name="endpoint_id"/>
                 </xpath>
             </field>
         </record>
 
+<!--         <record id="hc_res_organization_view_form_inherited_endpoint" model="ir.ui.view">
+            <field name="name">Organization Form</field>
+            <field name="model">hc.res.organization</field>
+            <field name="inherit_id" ref="hc_organization.hc_res_organization_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page//field[@name='endpoint_ids']" position="after">
+                    <tree>
+                        <field name="endpoint_id"/>
+                    </tree>
+                    <form>
+                        <sheet>
+                            <group>
+                                <group>
+                                    <field name="endpoint_id"/>
+                                </group>
+                                <group>
+                                </group>
+                            </group>
+                        </sheet>
+                    </form>
+                </xpath>
+            </field>
+        </record>
+ -->
     </data>
 </odoo>

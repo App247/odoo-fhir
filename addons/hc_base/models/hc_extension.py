@@ -5,7 +5,7 @@ from openerp import models, fields, api
 class Extension(models.Model):
     _name = "hc.extension"
     _description = "Extension"
-    _inherit = ["hc.element"]
+    # _inherit = ["hc.element"]
 
     url = fields.Char(
         string="URI",
@@ -186,6 +186,16 @@ class Extension(models.Model):
         string="Value Meta",
         help="Meta value of extension.")
 
+    # Element Attribute
+    identifier = fields.Char(
+        string="ID",
+        help="Internal id (e.g. like xml:id).")
+    extension_ids = fields.One2many(
+        comodel_name="hc.extension.element.extension",
+        inverse_name="extension_id",
+        string="Extensions",
+        help="Additional Content defined by implementations.")
+
     @api.depends('value_type')
     def _compute_value_name(self):
         for hc_extension in self:
@@ -255,6 +265,16 @@ class Extension(models.Model):
                 hc_extension.value_name = hc_extension.value_sampled_data_id.name
             elif hc_extension.value_type == 'meta':
                 hc_extension.value_name = hc_extension.value_meta_id.name
+
+class ExtensionElementExtension(models.Model):
+    _name = "hc.extension.element.extension"
+    _description = "Extension Element Extension"
+    _inherit = ["hc.basic.association"]
+
+    extension_id = fields.Many2one(
+        comodel_name="hc.extension",
+        string="Extension",
+        help="Extension associated with this Extension Element Extension.")
 
 class ExtensionAttachment(models.Model):
     _name = "hc.extension.attachment"
@@ -385,5 +405,17 @@ class ExtensionCodeableConcept(models.Model):
 
 # External reference
 
-class ElementExtension(models.Model):
-    _inherit = ["hc.extension"]
+# class CodingElementExtension(models.Model):
+#     _inherit = ["hc.extension"]
+
+# class CodeableConceptElementExtension(models.Model):
+#     _inherit = ["hc.extension"]
+
+# class ElementExtension(models.Model):
+#     _inherit = ["hc.extension"]
+
+# class PeriodElementExtension(models.Model):
+#     _inherit = ["hc.extension"]
+
+# class ContactPointElementExtension(models.Model):
+#     _inherit = ["hc.extension"]
