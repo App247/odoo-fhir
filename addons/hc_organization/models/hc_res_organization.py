@@ -120,11 +120,13 @@ class Organization(models.Model):
             })
 
         return res
+
 class OrganizationContact(models.Model):
     _name = "hc.organization.contact"
     _description = "Organization Contact"
     _inherit = "hc.backbone.element"
     _inherits = {"hc.res.person": "person_id"}
+    _rec_name = "name"
 
     person_id = fields.Many2one(
         comodel_name="hc.res.person",
@@ -403,31 +405,29 @@ class Person(models.Model):
         string="Is Organization Contact",
         help="This person is an organization contact.")
 
-class PersonLink(models.Model):
-    _inherit = ["hc.person.link"]
+# class PersonLink(models.Model):
+#     _inherit = ["hc.person.link"]
 
-    target_type = fields.Selection(
-        selection_add=[
-            ("organization", "Organization"),
-            ("organization_contact", "Organization Contact")])
-    target_organization_id = fields.Many2one(
-        comodel_name="hc.res.organization",
-        string="Target Organization",
-        help="Organization who is the resource to which this actual person is associated.")
-    target_organization_contact_id = fields.Many2one(
-        comodel_name="hc.organization.contact",
-        string="Target Organization Contact",
-        help="Organization Contact who is the resource to which this actual person is associated.")
+#     target_type = fields.Selection(
+#         selection_add=[
+#             ("organization", "Organization"),
+#             ("organization_contact", "Organization Contact")])
+#     target_organization_id = fields.Many2one(
+#         comodel_name="hc.res.organization",
+#         string="Target Organization",
+#         help="Organization who is the resource to which this actual person is associated.")
+#     target_organization_contact_id = fields.Many2one(
+#         comodel_name="hc.organization.contact",
+#         string="Target Organization Contact",
+#         help="Organization Contact who is the resource to which this actual person is associated.")
 
-    @api.depends('target_type')
-    def _compute_target_name(self):
-        for hc_person_link in self:
-            if hc_person_link.target_type == 'person':
-                hc_person_link.target_name = hc_person_link.target_person_id.name_id.name
-            elif hc_partner_link.link_type == 'organization':
-                hc_partner_link.link_name = hc_partner_link.target_organization_id.name
-            elif hc_partner_link.link_type == 'organization_contact':
-                hc_partner_link.link_name = hc_partner_link.target_organization_contact_id.name
+#     @api.depends('target_type')
+#     def _compute_target_name(self):
+#         for hc_person_link in self:
+#             if hc_person_link.target_type == 'person':
+#                 hc_person_link.target_name = hc_person_link.target_person_id.name
+#             elif hc_person_link.target_type == 'organization_contact':
+#                 hc_person_link.target_name = hc_person_link.target_organization_contact_id.name
 
 class Signature(models.Model):
     _inherit = ["hc.signature"]

@@ -1796,6 +1796,8 @@
                                                 <field name="link_person_id" class="oe_edit_only" attrs="{'invisible': [('link_type','!=','person')], 'required': [('link_type','=','person')]}"/>
                                                 <field name="link_animal_id" class="oe_edit_only" attrs="{'invisible': [('link_type','!=','animal')], 'required': [('link_type','=','animal')]}"/>
                                                 <field name="link_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('link_type','!=','practitioner')], 'required': [('link_type','=','practitioner')]}"/>
+                                                <field name="link_organization_id" class="oe_edit_only" attrs="{'invisible': [('link_type','!=','organization')], 'required': [('link_type','=','organization')]}"/>
+                                                <field name="link_organization_contact_id" class="oe_edit_only" attrs="{'invisible': [('link_type','!=','organization_contact')], 'required': [('link_type','=','organization_contact')]}"/>
                                                 <field name="link_related_person_id" class="oe_edit_only" attrs="{'invisible': [('link_type','!=','related_person')], 'required': [('link_type','=','related_person')]}"/>
                                                 <field name="link_patient_id" class="oe_edit_only" attrs="{'invisible': [('link_type','!=','patient')], 'required': [('link_type','=','patient')]}"/>
                                                 <field name="link_patient_contact_id" class="oe_edit_only" attrs="{'invisible': [('link_type','!=','patient_contact')], 'required': [('link_type','=','patient_contact')]}"/>

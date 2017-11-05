@@ -60,9 +60,11 @@
                                     </tree>
                                     <form>
                                         <sheet>
+                                            <h1>
+                                                <field name="person_id" placeholder="Name"/>
+                                            </h1>
                                             <group>
                                                 <group>
-                                                    <field name="person_id"/>
                                                     <field name="purpose_id"/>
                                                 </group>
                                                 <group>
@@ -588,7 +590,7 @@
             </field>
         </record>
 
-        <record id="hc_res_person_view_form_inherited_organization" model="ir.ui.view">
+<!--         <record id="hc_res_person_view_form_inherited_organization" model="ir.ui.view">
             <field name="name">Person Form</field>
             <field name="model">hc.res.person</field>
             <field name="inherit_id" ref="hc_person.hc_res_person_view_form"/>
@@ -601,7 +603,7 @@
                     <field name="target_organization_contact_id" attrs="{'invisible': [('target_type','!=','organization_contact')]}"/>
                 </xpath>
             </field>
-        </record>
+        </record> -->
 
     </data>
 </odoo>

@@ -14,10 +14,6 @@ class Patient(models.Model):
         ondelete="restrict",
         required="True",
         help="Person associated with this Patient.")
-    # partner_id = fields.Many2one(
-    #     string="Partner",
-    #     related="person_id.partner_id",
-    #     help="Partner associated with this Patient.")
     identifier_ids = fields.One2many(
         comodel_name = "hc.patient.identifier",
         inverse_name = "patient_id",
@@ -37,10 +33,6 @@ class Patient(models.Model):
     is_active = fields.Boolean(
         string="Active",
         help="Whether this patient's record is in active use.")
-    # name_ids = fields.Many2many(
-    #     related="person_id.name_ids",
-    #     string="Names",
-    #     help="A name associated with this Patient.")
     name_ids = fields.One2many(
         related="person_id.name_ids",
         string="Names",
@@ -53,14 +45,6 @@ class Patient(models.Model):
         related="person_id.gender",
         readonly=True,
         help="The gender that the patient is considered to have for administration and record keeping purposes.")
-    # gender = fields.Selection(
-    #     string="Gender",
-    #     selection=[
-    #         ("male", "Male"),
-    #         ("female", "Female"),
-    #         ("other", "Other"),
-    #         ("unknown", "Unknown")],
-    #     help="The gender that the patient is considered to have for administration and record keeping purposes.")
     birth_date=fields.Date(
         related="person_id.birth_date",
         readonly=True,
@@ -262,7 +246,7 @@ class Patient(models.Model):
     # Display Patient Name and Birth Date in Dropdown
 
     @api.model
-    def _name_search(self, name='', args=None, operator='ilike', limit=100):
+    def name_search(self, name='', args=None, operator='ilike', limit=100):
         context = dict(self._context)
         if context is None:
             context = {}
@@ -271,14 +255,14 @@ class Patient(models.Model):
         if not operator:
             operator = 'ilike'
         if name:
-            args.append(('name_id', operator, name))
+                args.append(('name_id', operator, name))
         ids = self.search(args, limit=limit)
         name_rec = []
         for id in ids:
             if id.birth_date:
-                name_rec.append((id.id, id.name_id + " (" + id.birth_date + ")"))
+                name_rec.append((id.id, id.name_id.name + "("+id.birth_date+")"))
             else:
-                name_rec.append((id.id, id.name_id))
+                name_rec.append((id.id, id.name_id.name))
         return name_rec
 
 class PatientCitizenship(models.Model):
@@ -1211,6 +1195,8 @@ class PartnerLink(models.Model):
                 hc_partner_link.link_name = hc_partner_link.link_practitioner_id.name
             elif hc_partner_link.link_type == 'organization':
                 hc_partner_link.link_name = hc_partner_link.link_organization_id.name
+            elif hc_partner_link.link_type == 'organization_contact':
+                hc_partner_link.link_name = hc_partner_link.link_organization_contact_id.name
             elif hc_partner_link.link_type == 'patient':
                 hc_partner_link.link_name = hc_partner_link.link_patient_id.name
             elif hc_partner_link.link_type == 'patient_contact':
@@ -1238,11 +1224,9 @@ class PersonLink(models.Model):
     def _compute_target_name(self):
         for hc_person_link in self:
             if hc_person_link.target_type == 'person':
-                hc_person_link.target_name = hc_person_link.target_person_id.name_id.name
+                hc_person_link.target_name = hc_person_link.target_person_id.name
             elif hc_person_link.target_type == 'patient':
                 hc_person_link.target_name = hc_person_link.target_patient_id.name
-            elif hc_partner_link.link_type == 'organization_contact':
-                hc_partner_link.link_name = hc_partner_link.link_organization_contact_id.name
             elif hc_person_link.target_type == 'practitioner':
                 hc_person_link.target_name = hc_person_link.target_practitioner_id.name
             elif hc_person_link.target_type == 'related_person':
