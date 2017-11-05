@@ -111,13 +111,6 @@ class Person(models.Model):
              "resized as a 64x64px image, with aspect ratio preserved. "\
              "Use this field anywhere a small image is required.")
 
-    # _defaults = {
-    #     "is_company": False,
-    #     "customer": False,
-    #     "company_type": "person",
-    #     "is_person": True,
-    #     }
-
     @api.depends('name_id', 'gender', 'birth_date')
     def _compute_unique_person(self):
         comp_unique_person = '/'
@@ -146,7 +139,8 @@ class Person(models.Model):
         partner_link_obj = self.env['hc.partner.link'] # Variable to create partner link
         name = self.env['hc.human.name'].browse(vals['name_id']) # Variable to create name of person
         res = super(Person, self).create(vals)
-        if not vals.get('partner_id') and res.type == 'human':
+
+        if not vals.get('partner_id'):
             partner_id = partner_obj.create({
                 'company_type': 'person',
                 'is_company': False,
@@ -155,51 +149,90 @@ class Person(models.Model):
                 'name': name.name,
                 'birthdate': str(res.birth_date),
                 })
-        else:
-            if not vals.get('partner_id') and res.type == 'human':
-                partner_id = partner_obj.create({
-                    'company_type': 'animal',
-                    'is_company': False,
-                    'is_animal': True,
-                    'is_healthcare': True,
-                    'name': name.name,
-                    'birthdate': str(res.birth_date),
-                    })
-                vals.update({'partner_id': partner_id.id})
+            vals.update({'partner_id': partner_id.id})
         vals.update({'name': name.name})
 
+        # names_vals = {}
+        link = partner_link_obj.create({
+            'link_type': 'person',
+            'link_person_id': res.id,
+            'partner_id': vals.get('partner_id'),
+            'start_date': datetime.today(),
+            })
+
         names_vals = {}
-        if res.type == 'human':
-            link = partner_link_obj.create({
-                'link_type': 'person',
-                'link_person_id': res.id,
-                'partner_id': vals.get('partner_id'),
-                'start_date': datetime.today(),
+        if name:
+            names_vals.update({
+                'is_preferred': True,
+                'human_name_id': name.id,
+                'person_id': res.id,
+                'start_date': res.birth_date,
                 })
-            if name:
-                names_vals.update({
-                    'is_preferred': True,
-                    'human_name_id': name.id,
-                    'person_id': res.id,
-                    'start_date': res.birth_date,
-                    })
-                person_name_obj.create(names_vals)
-        elif res.type == 'animal':
-            link = partner_link_obj.create({
-                'link_type': 'animal',
-                'link_person_id': res.id,
-                'partner_id': vals.get('partner_id'),
-                'start_date': datetime.today(),
-                })
-            if name:
-                names_vals.update({
-                    'is_preferred': True,
-                    'human_name_id': name.id,
-                    'person_id': res.id,
-                    'start_date': res.birth_date,
-                    })
-                person_name_obj.create(names_vals)
+            person_name_obj.create(names_vals)
+
         return res
+
+    # @api.model
+    # def create(self, vals):
+    #     partner_obj = self.env['res.partner'] # Variable to create partner
+    #     person_name_obj = self.env['hc.person.name'] # Variable to create person name
+    #     partner_link_obj = self.env['hc.partner.link'] # Variable to create partner link
+    #     name = self.env['hc.human.name'].browse(vals['name_id']) # Variable to create name of person
+    #     res = super(Person, self).create(vals)
+    #     if not vals.get('partner_id'):
+        #     if res.type == 'human':
+        #         partner_id = partner_obj.create({
+        #             'company_type': 'person',
+        #             'is_company': False,
+        #             'is_person': True,
+        #             'is_healthcare': True,
+        #             'name': name.name,
+        #             'birthdate': str(res.birth_date),
+        #             })
+        #     else:
+        #         partner_id = partner_obj.create({
+        #             'company_type': 'animal',
+        #             'is_company': False,
+        #             'is_animal': True,
+        #             'is_healthcare': True,
+        #             'name': name.name,
+        #             'birthdate': str(res.birth_date),
+        #             })
+        #     vals.update({'partner_id': partner_id.id})
+        # vals.update({'name': name.name})
+
+    #     names_vals = {}
+    #     if res.type == 'human':
+    #         link = partner_link_obj.create({
+    #             'link_type': 'person',
+    #             'link_person_id': res.id,
+    #             'partner_id': vals.get('partner_id'),
+    #             'start_date': datetime.today(),
+    #             })
+    #         if name:
+    #             names_vals.update({
+    #                 'is_preferred': True,
+    #                 'human_name_id': name.id,
+    #                 'person_id': res.id,
+    #                 'start_date': res.birth_date,
+    #                 })
+    #             person_name_obj.create(names_vals)
+    #     elif res.type == 'animal':
+    #         link = partner_link_obj.create({
+    #             'link_type': 'animal',
+    #             'link_person_id': res.id,
+    #             'partner_id': vals.get('partner_id'),
+    #             'start_date': datetime.today(),
+    #             })
+    #         if name:
+    #             names_vals.update({
+    #                 'is_preferred': True,
+    #                 'human_name_id': name.id,
+    #                 'person_id': res.id,
+    #                 'start_date': res.birth_date,
+    #                 })
+    #             person_name_obj.create(names_vals)
+    #     return res
 
     # For an existing record, if new Person Name is preferred, remove preferred from previous name.
 
@@ -237,39 +270,6 @@ class Person(models.Model):
     def unlink(self):
         res = super(Person, self).unlink()
         return res
-
-
-    # version 2
-    # @api.multi
-    # def write(self, vals):
-    #     person_name_obj = self.env['hc.person.name']
-    #     if vals and vals.get('birth_date'):
-    #         for rec in self:
-    #             for name_id in rec.name_ids:
-    #                 if vals.get('birth_date') > name_id.start_date:
-    #                     name_id.start_date = vals.get('birth_date')
-    #     if vals and vals.get('name_id'):
-    #         person_name_ids = person_name_obj.search([('person_id','=', self.id),('human_name_id','=',vals.get('name_id'))])
-    #         for person in person_name_ids:
-    #             person.is_preferred = True
-    #     res = super(Person, self).write(vals)
-    #     return res
-
-    # version 1
-    # @api.multi
-    # def write(self, vals):
-    #     if vals and vals.get('birth_date'):
-    #         for rec in self:
-    #             for name_id in rec.name_ids:
-    #                 if vals.get('birth_date') > name_id.start_date:
-    #                     name_id.start_date = vals.get('birth_date')
-    #     res = super(Person, self).write(vals)
-    #     return res
-
-        # vals['is_patient'] = self.env.context.get('is_patient', False)
-        # vals['is_practitioner'] = self.env.context.get('is_practitioner', False)
-        # vals['is_related_person'] = self.env.context.get('is_related_person', False)
-
 
     # Display Person Name and Birth Date in Dropdown
 

@@ -94,6 +94,7 @@ class Organization(models.Model):
         }
 
     # For new record, create Partner and Partner Link records.
+
     @api.model
     def create(self, vals):
         partner_obj = self.env['res.partner'] # Variable to create partner
@@ -126,7 +127,7 @@ class OrganizationContact(models.Model):
     _description = "Organization Contact"
     _inherit = "hc.backbone.element"
     _inherits = {"hc.res.person": "person_id"}
-    _rec_name = "name"
+    _rec_name = "person_id"
 
     person_id = fields.Many2one(
         comodel_name="hc.res.person",

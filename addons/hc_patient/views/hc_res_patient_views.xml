@@ -1253,7 +1253,7 @@
             <field name="model">hc.vs.animal.species</field>
             <field name="arch" type="xml">
                 <search string="Animal Species">
-                    <field name="name"/>
+                    <field name="name" filter_domain="['|',('name','ilike',self),('definition','ilike',self)]"/>
                     <field name="code"/>
                     <field name="definition"/>
                     <field name="contains_id"/>
@@ -1335,7 +1335,7 @@
             <field name="model">hc.vs.animal.breed</field>
             <field name="arch" type="xml">
                 <search string="Animal Breeds">
-                    <field name="name"/>
+                    <field name="name" filter_domain="['|',('name','ilike',self),('definition','ilike',self)]"/>
                     <field name="code"/>
                     <field name="definition"/>
                     <field name="hierarchy_id"/>
