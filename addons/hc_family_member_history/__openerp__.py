@@ -36,9 +36,11 @@
         'views/hc_res_family_member_history_views.xml',
         'views/hc_res_family_member_history_templates.xml',
     ],
-    
+
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
     ],
+    'installable': 'True',
+    'auto-install': 'True',
 }

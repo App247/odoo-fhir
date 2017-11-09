@@ -89,6 +89,7 @@
         'views/hc_meta_views.xml',
         'views/hc_narrative_views.xml',
         'views/hc_odoo_partner_views.xml',
+        'views/hc_organization_name_views.xml',
         'views/hc_participation_type_views.xml',
         'views/hc_reference_views.xml',
         'views/hc_resource_views.xml',

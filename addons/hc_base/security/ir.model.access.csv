@@ -19,12 +19,17 @@ access_hc_base_hc_vs_human_name_term_type_manager,hc.base.hc.vs.human.name.term.
 access_hc_base_hc_human_name_term_user,hc.base.hc.human.name.term.user,model_hc_human_name_term,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_human_name_use_user,hc.base.hc.human.name.use.user,model_hc_human_name_use,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_extension_human_name_user,hc.base.hc.extension.human.name.user,model_hc_extension_human_name,hc_base.group_hc_base_user,1,0,0,0
+access_hc_base_hc_organization_name_term_user,hc.base.hc.organization.name.term.user,model_hc_organization_name_term,hc_base.group_hc_base_user,1,0,0,0
+access_hc_base_hc_organization_name_suffix_user,hc.base.hc.organization.name.suffix.user,model_hc_organization_name_suffix,hc_base.group_hc_base_user,1,0,0,0
+access_hc_base_hc_organization_name_use_user,hc.base.hc.organization.name.use.user,model_hc_organization_name_use,hc_base.group_hc_base_user,1,0,0,0
+access_hc_base_hc_organization_name_user,hc.base.hc.organization.name.user,model_hc_organization_name,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_identifier_manager,hc.base.hc.identifier.manager,model_hc_identifier,group_hc_base_manager,1,1,1,1
 access_hc_base_hc_identifier_user,hc.base.hc.identifier.user,model_hc_identifier,group_hc_base_user,1,0,0,0
 access_hc_base_hc_identifier_use_user,hc.base.hc.identifier.use.user,model_hc_identifier_use,group_hc_base_user,1,0,0,0
 access_hc_base_hc_contact_point_manager,hc.base.hc.contact.point.manager,model_hc_contact_point,group_hc_base_manager,1,1,1,1
 access_hc_base_hc_contact_point_user,hc.base.hc.contact.point.user,model_hc_contact_point,group_hc_base_user,1,0,0,0
 access_hc_base_hc_contact_point_use_user,hc.base.hc.contact.point.use.user,model_hc_contact_point_use,hc_base.group_hc_base_user,1,0,0,0
+access_hc_base_hc_contact_point_element_extension_user,hc.base.hc.contact.point.element.extension.user,model_hc_contact_point_element_extension,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_value_set_contains_manager,hc.base.hc.value.set.contains.manager,model_hc_value_set_contains,group_hc_base_manager,1,1,1,1
 access_hc_base_hc_value_set_contains_user,hc.base.hc.value.set.contains.user,model_hc_value_set_contains,group_hc_base_user,1,0,0,0
 access_hc_base_hc_vs_attachment_type_manager,hc.base.hc.vs.attachment.type.manager,model_hc_vs_attachment_type,group_hc_base_manager,1,1,1,1
@@ -88,7 +93,9 @@ access_hc_base_hc_vs_resource_list_manager,hc.base.hc.vs.resource.list.manager,m
 access_hc_base_hc_vs_fhir_all_type_manager,hc.base.hc.vs.fhir.all.type.manager,model_hc_vs_fhir_all_type,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_vs_fm_status_manager,hc.base.hc.vs.fm.status.manager,model_hc_vs_fm_status,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_coding_user,hc.base.hc.coding.user,model_hc_coding,hc_base.group_hc_base_user,1,0,0,0
+access_hc_base_hc_coding_element_extension_user,hc.base.hc.coding.element.extension.user,model_hc_coding_element_extension,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_codeable_concept_user,hc.base.hc.codeable.concept.user,model_hc_codeable_concept,hc_base.group_hc_base_user,1,0,0,0
+access_hc_base_hc_codeable_concept_element_extension_user,hc.base.hc.codeable.concept.element.extension.user,model_hc_codeable_concept_element_extension,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_codeable_concept_coding_user,hc.base.hc.codeable.concept.coding.user,model_hc_codeable_concept_coding,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_vs_administrative_gender_manager,hc.base.hc.vs.administrative.gender.manager,model_hc_vs_administrative_gender,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_vs_demographic_age_group_manager,hc.base.hc.vs.demographic.age.group.manager,model_hc_vs_demographic_age_group,hc_base.group_hc_base_manager,1,1,1,1
@@ -116,6 +123,7 @@ access_hc_base_hc_ratio_user,hc.base.hc.ratio.user,model_hc_ratio,hc_base.group_
 access_hc_base_hc_ratio_numerator_user,hc.base.hc.ratio.numerator.user,model_hc_ratio_numerator,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_ratio_denominator_user,hc.base.hc.ratio.denominator.user,model_hc_ratio_denominator,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_period_user,hc.base.hc.period.user,model_hc_period,hc_base.group_hc_base_user,1,0,0,0
+access_hc_base_hc_period_element_extension_user,hc.base.hc.period.element.extension.user,model_hc_period_element_extension,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_signature_user,hc.base.hc.signature.user,model_hc_signature,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_vs_commitment_type_indication_manager,hc.base.hc.vs.commitment.type.indication.manager,model_hc_vs_commitment_type_indication,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_vs_route_code_manager,hc.base.hc.vs.route.code.manager,model_hc_vs_route_code,hc_base.group_hc_base_manager,1,1,1,1
@@ -193,6 +201,7 @@ access_hc_base_hc_vs_action_participant_role_manager,hc.base.hc.vs.action.partic
 access_hc_base_hc_vs_participation_type_manager,hc.base.hc.vs.participation.type.manager,model_hc_vs_participation_type,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_vs_participation_type_subset_manager,hc.base.hc.vs.participation.type.subset.manager,model_hc_vs_participation_type_subset,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_base_hc_extension_user,hc.base.hc.extension.user,model_hc_extension,hc_base.group_hc_base_user,1,0,0,0
+access_hc_base_hc_extension_element_extension_user,hc.base.hc.extension.element.extension.user,model_hc_extension_element_extension,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_extension_attachment_user,hc.base.hc.extension.attachment.user,model_hc_extension_attachment,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_extension_identifier_user,hc.base.hc.extension.identifier.user,model_hc_extension_identifier,hc_base.group_hc_base_user,1,0,0,0
 access_hc_base_hc_extension_sampled_data_user,hc.base.hc.extension.sampled.data.user,model_hc_extension_sampled_data,hc_base.group_hc_base_user,1,0,0,0

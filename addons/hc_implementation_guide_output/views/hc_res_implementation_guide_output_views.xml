@@ -1,0 +1,192 @@
+<openerp>
+    <data>
+
+    <!-- Implementation Guide Output Views -->
+
+        <record id="hc_res_implementation_guide_output_view_search" model="ir.ui.view">
+            <field name="name">Implementation Guide Output Search</field>
+            <field name="model">hc.res.implementation.guide.output</field>
+            <field name="arch" type="xml">
+                <search string="Implementation Guide Outputs">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_res_implementation_guide_output_view_tree" model="ir.ui.view">
+            <field name="name">Implementation Guide Output Tree</field>
+            <field name="model">hc.res.implementation.guide.output</field>
+            <field name="arch" type="xml">
+                <tree string="Implementation Guide Outputs">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_res_implementation_guide_output_view_form" model="ir.ui.view">
+            <field name="name">Implementation Guide Output Form</field>
+            <field name="model">hc.res.implementation.guide.output</field>
+            <field name="arch" type="xml">
+                <form string="Implementation Guide Output">
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name"/>
+                        </h1>
+                        <group>
+                            <group>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Contacts">
+                                <field name="contact_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Use Contexts">
+                                <field name="use_context_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Dependencies">
+                                <field name="dependency_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Resources">
+                                <field name="resource_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Globals">
+                                <field name="global_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Pages">
+                                <field name="page_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Images">
+                                <field name="image_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Others">
+                                <field name="other_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_res_implementation_guide_output_action"
+                    name="HC Implementation Guide Outputs"
+                    res_model="hc.res.implementation.guide.output"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <menuitem id="hc_implementation_guide_output.menu_impl_guide_out"
+                  name="Implementation Guide Outputs"
+                  parent="hc_base.menu_conf"
+                  action="hc_res_implementation_guide_output_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="32"/>
+
+    </data>
+</openerp>

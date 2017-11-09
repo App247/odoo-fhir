@@ -7,15 +7,12 @@ class Organization(models.Model):
     _name = "hc.res.organization"
     _description = "Organization"
     _inherit = "hc.domain.resource"
-    _inherits = {"res.partner": "partner_id"}
     _rec_name = "name"
 
     partner_id = fields.Many2one(
         comodel_name="res.partner",
         string="Partner",
         domain="[('company_type','=','company')]",
-        required="True",
-        ondelete="restrict",
         help="Partner associated with this organization.")
     identifier_ids = fields.One2many(
         comodel_name="hc.organization.identifier",
@@ -99,20 +96,24 @@ class Organization(models.Model):
     def create(self, vals):
         partner_obj = self.env['res.partner'] # Variable to create partner
         partner_link_obj = self.env['hc.partner.link'] # Variable to create partner link
+        # name = self.env['hc.organization.name'].browse(vals['name_id']) # Variable to create name of an organization
+        # name = vals.get('name', self.env.user.name)
+        # name = self._context.copy()
+        # name = name
 
         res = super(Organization, self).create(vals)
         if not vals.get('partner_id'):
             partner_id = partner_obj.create({
-                'company_type': 'organization',
+                'company_type': 'company',
                 'is_company': True,
                 'is_organization': True,
                 'is_healthcare': True,
-                'name': name,
+                'name': res.name,
                 })
             vals.update({'partner_id': partner_id.id})
-        vals.update({'name': name})
+        vals.update({'name': res.name})
 
-        names_vals = {}
+        # names_vals = {}
         link = partner_link_obj.create({
             'link_type': 'organization',
             'link_organization_id': res.id,

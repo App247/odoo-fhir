@@ -17,6 +17,7 @@ import hc_identifier
 import hc_language
 import hc_meta
 import hc_narrative
+import hc_organization_name
 import hc_quantity
 import hc_range
 import hc_ratio

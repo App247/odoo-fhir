@@ -244,7 +244,7 @@ sudo git pull origin master
 
 ## Update Changes
 
-syntax: `./odoo.py -d <database> --addons-path <directories> -i <modules>**
+syntax: `./odoo.py -d <database> --addons-path <directories> -i <modules>`
 
 ```
 
@@ -363,6 +363,10 @@ from . import hc_res_location
     'auto-install': 'True',
 }
 ```
+## Create examples folder
+
+`sudo mkdir /odoo/odoo-fhir/addons/hc_terminology_capability/examples`
+
 ## Create module icons
 ```
 sudo mkdir /odoo/odoo-fhir/addons/hc_healthcare_service/static
@@ -395,6 +399,7 @@ sudo mv /home/odoo/Downloads/hc.res.person.csv /odoo/odoo-fhir/addons/hc_base/de
 ```
 sudo mv /home/odoo/Downloads/hc.human.name.suffix.csv /odoo/odoo-fhir/addons/hc_base/data/hc.human.name.suffix.csv
 ```
+
 ### Odoo Coding Guidelines
 
 * [Odoo Guidelines](https://www.odoo.com/documentation/9.0/reference/guidelines.html)

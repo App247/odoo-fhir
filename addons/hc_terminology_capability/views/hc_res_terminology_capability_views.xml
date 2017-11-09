@@ -1,0 +1,193 @@
+<openerp>
+    <data>
+
+
+    <!-- Terminology Capability Views -->
+
+        <record id="hc_res_terminology_capability_view_search" model="ir.ui.view">
+            <field name="name">Terminology Capability Search</field>
+            <field name="model">hc.res.terminology.capability</field>
+            <field name="arch" type="xml">
+                <search string="Terminology Capabilities">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_res_terminology_capability_view_tree" model="ir.ui.view">
+            <field name="name">Terminology Capability Tree</field>
+            <field name="model">hc.res.terminology.capability</field>
+            <field name="arch" type="xml">
+                <tree string="Terminology Capabilities">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_res_terminology_capability_view_form" model="ir.ui.view">
+            <field name="name">Terminology Capability Form</field>
+            <field name="model">hc.res.terminology.capability</field>
+            <field name="arch" type="xml">
+                <form string="Terminology Capability">
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name"/>
+                        </h1>
+                        <group>
+                            <group>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Contacts">
+                                <field name="contact_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Use Contexts">
+                                <field name="use_context_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Code Systems">
+                                <field name="code_system_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Expansions">
+                                <field name="expansion_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Lookups">
+                                <field name="lookup_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Validations">
+                                <field name="validation_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Translations">
+                                <field name="translation_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Closures">
+                                <field name="closure_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_res_terminology_capability_action"
+                    name="HC Terminology Capabilities"
+                    res_model="hc.res.terminology.capability"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <menuitem id="hc_terminology_capability.menu_term_cap"
+                  name="Terminology Capabilities"
+                  parent="hc_base.menu_term"
+                  action="hc_res_terminology_capability_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="60"/>
+
+    </data>
+</openerp>

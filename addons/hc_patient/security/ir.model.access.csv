@@ -16,6 +16,7 @@ access_hc_patient_hc_patient_identifier_extension_user,hc.patient.hc.patient.ide
 access_hc_patient_hc_patient_dicom_demographic_user,hc.patient.hc.patient.dicom.demographic.user,model_hc_patient_dicom_demographic,hc_base.group_hc_base_user,1,0,0,0
 access_hc_patient_hc_patient_domain_resource_contained_user,hc.patient.hc.patient.domain.resource.contained.user,model_hc_patient_domain_resource_contained,hc_base.group_hc_base_user,1,0,0,0
 access_hc_patient_hc_patient_domain_resource_extension_user,hc.patient.hc.patient.domain.resource.extension.user,model_hc_patient_domain_resource_extension,hc_base.group_hc_base_user,1,0,0,0
+access_hc_patient_hc_patient_domain_resource_modifier_extension_user,hc.patient.hc.patient.domain.resource.modifier.extension.user,model_hc_patient_domain_resource_modifier_extension,hc_base.group_hc_base_user,1,0,0,0
 access_hc_patient_hc_patient_domain_resource_text_user,hc.patient.hc.patient.domain.resource.text.user,model_hc_patient_domain_resource_text,hc_base.group_hc_base_user,1,0,0,0
 access_hc_patient_hc_vs_marital_status_manager,hc.patient.hc.vs.marital.status.manager,model_hc_vs_marital_status,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_patient_hc_vs_race_manager,hc.patient.hc.vs.race.manager,model_hc_vs_race,hc_base.group_hc_base_manager,1,1,1,1
