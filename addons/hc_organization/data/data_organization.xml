@@ -2,9 +2,9 @@
 <odoo>
     <data noupdate="0">
 
-        <!-- Organization Type -->
+    <!-- Organization Type -->
 
-        <record id="org_type_prov" model="hc.vs.organization.type">
+        <!-- <record id="org_type_prov" model="hc.vs.organization.type">
             <field name="code">prov</field>
             <field name="name">Healthcare Provider</field>
             <field name="definition">An organization that provides healthcare services.</field>
@@ -90,9 +90,9 @@
             <field name="definition">Other type of organization not already specified.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/organization-type</field>
-        </record>
+        </record> -->
 
-        <!-- Contact Entity Type -->
+    <!-- Contact Entity Type -->
 
         <record id="cont_ent_type_bill" model="hc.vs.contact.entity.type">
             <field name="code">BILL</field>

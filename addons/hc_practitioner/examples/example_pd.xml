@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+    <!-- pd Practitioner -->
+
+        <record id="person_pd_link_1" model="hc.res.practitioner">
+            <field name="person_id" ref="hc_person.person_pd_link_1"/>
+        </record>
+
+        <record id="person_pd_link_2" model="hc.res.practitioner">
+            <field name="person_id" ref="hc_person.person_pd_link_2"/>
+        </record>
+
+    <!-- pd Person Link -->
+
+        <record id="hc_person.person_pd_link_1_1" model="hc.person.link">
+            <field name="person_id" ref="hc_person.practitioner_gen15"/>
+            <field name="target_type">practitioner</field>
+            <field name="target_practitioner_id" ref="person_pd_link_1"/>
+            <field name="assurance">level2</field>
+        </record>
+
+        <record id="hc_person.person_pd_link_2_1" model="hc.person.link">
+            <field name="person_id" ref="hc_person.practitioner_gen15"/>
+            <field name="target_type">practitioner</field>
+            <field name="target_practitioner_id" ref="person_pd_link_2"/>
+            <field name="assurance">level2</field>
+        </record>
+
+    </data>
+</odoo>

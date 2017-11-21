@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data noupdate="1">
+    <data noupdate="0">
+
+    <!-- 2 Organization -->
 
         <record id="base.organization_2_organization" model="res.partner">
             <field name="name">XYZ Insurance</field>
@@ -13,7 +15,7 @@
         <record id="hc_base.organization_2_text" model="hc.domain.resource.text">
             <field name="status">generated</field>
             <field name="div">
-<!--                 <p>XYZ Insurance</p> -->
+                <!-- <p>XYZ Insurance</p> -->
             </field>
         </record>
 
@@ -22,6 +24,8 @@
             <field name="identifier">2</field>
             <field name="name">XYZ Insurance</field>
         </record>
+
+    <!-- 2 Organization Identifier -->
 
         <record id="organization_2_identifier" model="hc.organization.identifier">
             <field name="organization_id" ref="organization_2"/>

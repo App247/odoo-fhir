@@ -49,6 +49,7 @@
         'data/hc.vs.v3.race.value.set.csv',
         'data/hc.vs.v3.race.csv',
         'data/hc.vs.v3.religious.affiliation.csv',
+
         'examples/example.xml',
         'examples/example_animal.xml',
         'examples/example_cypress.xml',
@@ -60,7 +61,9 @@
         'examples/example_xcda.xml',
         'examples/example_dicom.xml',
         'examples/example_f001.xml',
-        'examples/example_f201.xml',        
+        'examples/example_f201.xml',
+        'examples/example_pp.xml',
+
         # 'views/hc_marital_status_views.xml',
         'views/hc_dicom_demographic_views.xml',
         'views/hc_res_patient_views.xml',

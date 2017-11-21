@@ -7,8 +7,9 @@
 * Choose an Amazon Machine Image (AMI) - Ubuntu Server
 * Choose an Instance Type - **t2.small**
 * Select **Review and Launch**, Select **Launch**
-* Select an existing key pair - **Moxylus**
+* Select an existing key pair - **Moxylus**; Check box "have access to key pair"
 * Select **View Instances**
+* **Launch Instance** screen appears. Wait to initialize instance.
 
 
 ## 2 Assign security group
@@ -22,6 +23,9 @@
 * Assign Security Group
 - Go to INSTANCES>Instances>Actons>Networking>Change Security Groups
 - Select Security Group Name and click **Assign Security Groups**
+* Alternatively, select an existing Security Group
+- Go to Actions>Networking>Change Security Groups
+- Select Security Group **Moxylus**
 
 ## 3 Assign fixed address - elastic IP
 
@@ -31,6 +35,8 @@
 * Alternatively, select a existing Elastic IP
 - Go to Actions>Associated address
 - Enter **Instance** and click **Associate**
+- For example, **52.26.227.152**
+
 
 # Install Odoo and Git
 
@@ -45,6 +51,8 @@ sudo git fetch origin
 sudo git pull origin master
 ```
 3 Restart server
+
+* Stop and Start Server
 ```
 cd /odoo/odoo-server
 sudo service odoo-server restart
@@ -53,7 +61,7 @@ sudo service odoo-server restart
 4 Login with browser
 
 ```
-<IP Address that looks like 99.99.999.999>:8069
+http://52.26.227.152:8069/web/database/selector
 ```
 5 Troubleshooting
 

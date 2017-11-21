@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+    <!-- pp Patient -->
+
+        <record id="person_pp_link_1" model="hc.res.patient">
+            <field name="person_id" ref="hc_person.person_pp_link_1"/>
+            <field name="managing_organization_id" ref="hc_organization.organization_good_health_care"/>
+        </record>
+
+        <record id="person_pp_link_2" model="hc.res.patient">
+            <field name="person_id" ref="hc_person.person_pp"/>
+            <field name="managing_organization_id" ref="hc_organization.person_pp_link_2"/>
+        </record>
+
+    <!-- pp Person Link -->
+
+        <record id="hc_person.person_pp_link_1_1" model="hc.person.link">
+            <field name="person_id" ref="hc_person.person_pp"/>
+            <field name="target_type">patient</field>
+            <field name="target_patient_id" ref="person_pp_link_1"/>
+            <field name="assurance">level3</field>
+        </record>
+
+        <record id="hc_person.person_pp_link_2_1" model="hc.person.link">
+            <field name="person_id" ref="hc_person.person_pp"/>
+            <field name="target_type">patient</field>
+            <field name="target_patient_id" ref="person_pp_link_2"/>
+            <field name="assurance">level2</field>
+        </record>
+
+    </data>
+</odoo>

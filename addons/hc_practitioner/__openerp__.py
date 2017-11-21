@@ -38,11 +38,19 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
-        'views/hc_practitioner_views.xml',
-        'views/hc_practitioner_templates.xml',
         'data/hc.vs.practitioner.qualification.csv',
         'data/hc.vs.practitioner.specialty.csv',
         'examples/example_general.xml',
+        'examples/example_pd.xml',
+        'examples/example_f001.xml',
+        'examples/example_f002.xml',
+        'examples/example_f003.xml',
+        'examples/example_f004.xml',
+        'examples/example_f005.xml',        
+
+        'views/hc_practitioner_views.xml',
+        'views/hc_practitioner_templates.xml',
+
     ],
     # only loaded in demonstration mode
     'demo': [

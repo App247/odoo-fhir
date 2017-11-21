@@ -39,7 +39,10 @@
     'data': [
         'security/ir.model.access.csv',
         'security/hc_person_security.xml',
-        # 'examples/example.xml',
+
+        'examples/example_pp.xml',
+        'examples/example_pd.xml',
+
         'views/hc_res_person_views.xml',
         'views/hc_res_person_templates.xml',
     ],

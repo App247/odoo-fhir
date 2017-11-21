@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!-- pd Organization -->
+
+        <record id="base.person_pd_managing" model="res.partner">
+            <field name="name">Northfield Regional Physician Directory</field>
+            <field name="company_type">company</field>
+            <field name="is_company" eval="True"/>
+            <field name="is_organization" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
+        </record>
+
+        <record id="person_pd_managing" model="hc.res.organization">
+            <field name="partner_id" ref="base.person_pd_managing"/>
+            <field name="name">Northfield Regional Physician Directory</field>
+        </record>
+
+        <!-- pd Person -->
+
+        <record id="hc_person.practitioner_gen15" model="hc.res.person">
+            <field name="managing_organization_id" ref="person_pd_managing"/>
+        </record>
+
+        <record id="hc_person.person_pd_link_1" model="hc.res.person">
+            <field name="managing_organization_id" ref="organization_good_health_care"/>
+        </record>
+
+        <record id="hc_person.person_pd_link_2" model="hc.res.person">
+            <field name="managing_organization_id" ref="person_pp_link_2"/>
+        </record>
+
+    </data>
+</odoo>

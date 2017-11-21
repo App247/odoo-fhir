@@ -2,6 +2,8 @@
 <odoo>
     <data>
 
+    <!-- Person Views -->
+
         <record id="hc_res_person_view_search" model="ir.ui.view">
             <field name="name">Person Search</field>
             <field name="model">hc.res.person</field>
@@ -209,7 +211,7 @@
                                         <sheet>
                                             <div class="oe_title oe_left">
                                                 <h1>
-                                                <field name="name" default_focus="1" placeholder="Title (e.g., ADT Form)"/>
+                                                    <field name="name" default_focus="1" placeholder="Title (e.g., ADT Form)"/>
                                                 </h1>
                                             </div>
                                             <group>
@@ -217,14 +219,23 @@
                                                     <field name="creation_date"/>
                                                     <field name="attachment_type_id" placeholder="(e.g., ADT Form)"/>
                                                     <field name="has_data" invisible="1"/>
-                                                    <field name="mimetype" attrs="{'required': [('has_data','=',True)]}"/>
-                                                    <field name="datas" widget="image" class="oe_left oe_avatar" options="{'preview_image': 'image_medium', 'size': [90, 90]}" attrs="{'required': [('mimetype','!=',False)]}"/>
-                                                    <field name="hash_attachment" widget="image" class="oe_left oe_avatar" options="{'preview_image': 'image_medium', 'size': [90, 90]}"/>
+                                                    <field name="mimetype"/>
+                                                    <field name="datas" widget="image" class="oe_left oe_avatar" options="{'preview_image': 'image_medium', 'size': [90, 90]}"/>
+                                                    <!-- <field name="mimetype" attrs="{'required': [('has_data','=',True)]}"/>
+                                                    <field name="datas" attrs="{'required': [('mimetype','!=',False)]}"/> -->
                                                 </group>
                                                 <group>
                                                     <field name="language_id"/>
                                                     <field name="url" widget="url"/>
                                                     <field name="file_size"/>
+                                                </group>
+                                                <group string="Association">                        
+                                                    <field name="is_preferred"/>
+                                                    <field name="is_active"/>
+                                                    <field name="start_date" placeholder="Valid From"/>
+                                                    <field name="end_date" placeholder="Valid To"/>
+                                                </group>
+                                                <group>
                                                 </group>
                                             </group>
                                         </sheet>
@@ -433,10 +444,10 @@
             <field name="model">hc.res.person</field>
             <field name="inherit_id" ref="hc_res_person_view_form"/>
             <field name="arch" type="xml">
-<!--                 <xpath expr="//field[@name='name_ids']//form//field[@name='surname_id']" position="after">
+                 <!-- <xpath expr="//field[@name='name_ids']//form//field[@name='surname_id']" position="after">
                     <field name="first_id" invisible="1"/>
                     <field name="surname_id" invisible="1"/>
-                </xpath>-->
+                </xpath> -->
                 <xpath expr="//field[@name='address_ids']//form//field[@name='end_date']" position="after">
                     <!-- As the structure of model is something like that so we have to use the value of same address_id field but
                     for that we have added the fields value in form view with invisible=1 so their value will be available in one2many field-->
@@ -448,8 +459,6 @@
                 </xpath>
             </field>
         </record>
-
-        <!-- Person Action and Menu -->
 
         <act_window id="hc_res_person_action"
                     name="HC Persons"
@@ -467,7 +476,7 @@
                   groups="hc_base.group_hc_base_manager"
                   sequence="50"/>
 
-        <!-- Person Identifier Views -->
+    <!-- Person Identifier Views -->
 
         <record id="hc_person_identifier_view_search" model="ir.ui.view">
             <field name="name">Person Identifier Search</field>
@@ -625,8 +634,7 @@
                   groups="hc_base.group_hc_base_manager"
                   sequence="20"/>
 
-
-        <!-- Person Telecom Views -->
+    <!-- Person Telecom Views -->
 
         <record id="hc_person_telecom_view_search" model="ir.ui.view">
             <field name="name">Person Telecom Search</field>
@@ -702,7 +710,7 @@
                   groups="hc_base.group_hc_base_manager"
                   sequence="30"/>
 
-        <!-- Person Address Views -->
+    <!-- Person Address Views -->
 
         <record id="hc_person_address_view_search" model="ir.ui.view">
             <field name="name">Person Address Search</field>
@@ -788,7 +796,7 @@
                   groups="hc_base.group_hc_base_manager"
                   sequence="40"/>
 
-        <!-- Person Photo Views -->
+    <!-- Person Photo Views -->
 
         <record id="hc_person_photo_view_search" model="ir.ui.view">
             <field name="name">Person Photo Search</field>
@@ -825,23 +833,28 @@
             <field name="arch" type="xml">
                 <form string="Person Photo">
                     <sheet>
+                        <div class="oe_title oe_left">
+                            <h1>
+                                <field name="name" default_focus="1" placeholder="Title (e.g., ADT Form)"/>
+                            </h1>
+                        </div>
                         <group>
                             <group>
-                                <field name="person_id"/>
-                                <field name="name"/>
                                 <field name="creation_date"/>
                                 <field name="attachment_type_id" placeholder="(e.g., ADT Form)"/>
                                 <field name="has_data" invisible="1"/>
-                                <field name="mimetype" attrs="{'required': [('has_data','=',True)]}"/>
+                                <field name="mimetype"/>
+                                <field name="datas" widget="image" class="oe_left oe_avatar" options="{'preview_image': 'image_medium', 'size': [90, 90]}"/>
+                                <!-- <field name="mimetype" attrs="{'required': [('has_data','=',True)]}"/>
+                                <field name="datas" attrs="{'required': [('mimetype','!=',False)]}"/> -->
                             </group>
                             <group>
                                 <field name="language_id"/>
-                                <field name="url"/>
+                                <field name="url" widget="url"/>
                                 <field name="file_size"/>
-                                <field name="hash_attachment"/>
-                                <field name="datas" attrs="{'required': [('mimetype','!=',False)]}"/>
                             </group>
-                            <group>
+                            <group string="Association">
+                                <field name="person_id"/>
                                 <field name="is_preferred"/>
                                 <field name="is_active"/>
                                 <field name="start_date" placeholder="Valid From"/>
@@ -850,7 +863,7 @@
                             <group>
                             </group>
                         </group>
-                    </sheet>
+                    </sheet>>
                 </form>
             </field>
         </record>
@@ -870,7 +883,66 @@
                   groups="hc_base.group_hc_base_manager"
                   sequence="50"/>
 
-        <!-- External Reference View -->
+    <!-- Person Link Views -->
+
+        <record id="hc_person_link_view_search" model="ir.ui.view">
+            <field name="name">Person Link Search</field>
+            <field name="model">hc.person.link</field>
+            <field name="arch" type="xml">
+                <search string="Person Links">
+                    <field name="person_id"/>
+                    <field name="target_name"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_person_link_view_tree" model="ir.ui.view">
+            <field name="name">Person Link Tree</field>
+            <field name="model">hc.person.link</field>
+            <field name="arch" type="xml">
+                <tree string="Person Links">
+                    <field name="id"/>
+                    <field name="person_id"/>
+                    <field name="target_type"/>
+                    <field name="target_name"/>
+                    <field name="assurance"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- <record id="hc_person_link_view_form" model="ir.ui.view">
+            <field name="name">Person Link Form</field>
+            <field name="model">hc.person.link</field>
+            <field name="arch" type="xml">
+                <form string="Person Link">
+                    <sheet>
+                        <group>
+                            <group>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record> -->
+
+        <act_window id="hc_person_link_action"
+                    name="HC Person Links"
+                    res_model="hc.person.link"
+                    view_mode="tree"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <menuitem id="hc_person.menu_link"
+                  name="Person Links"
+                  parent="hc_person.menu_pers"
+                  action="hc_person_link_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="60"/>
+
+    <!-- External Reference View -->
 
         <record id="view_partner_form_inherited_person" model="ir.ui.view">
             <field name="name">res.partner.form</field>
@@ -906,7 +978,7 @@
                     <xpath expr="//field[@name='lang']" position="replace">
                         <field name="lang" attrs="{'invisible': [('is_animal','=',True)]}"/>
                     </xpath>
-<!--                     <xpath expr="//field[@name='phone']" position="replace">
+                    <!-- <xpath expr="//field[@name='phone']" position="replace">
                         <field name="phone" widget="phone" attrs="{'invisible': [('company_type','!=','animal')]}"/>
                     </xpath>
                     <xpath expr="//field[@name='mobile']" position="replace">

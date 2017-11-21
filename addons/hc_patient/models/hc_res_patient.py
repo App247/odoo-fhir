@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from openerp import models, fields, api
+from datetime import datetime
+from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as DF
 
 class Patient(models.Model):
     _name = "hc.res.patient"
@@ -203,11 +205,52 @@ class Patient(models.Model):
         comodel_name="hc.patient.domain.resource.modifier.extension",
         inverse_name="patient_id")
 
-
-
     _defaults = {
         "is_patient": True,
         }
+
+    # For a new record, add Patient Name to the list of Patient Names and mark it as "preferred" with Start Date = Birth Date.
+    # In addition, create Partner and Partner Link records.
+
+    @api.model
+    def create(self, vals):
+        # partner_obj = self.env['res.partner'] # Variable to create partner
+        # person_name_obj = self.env['hc.person.name'] # Variable to create person name
+        partner_link_obj = self.env['hc.partner.link'] # Variable to create partner link
+        # name = self.env['hc.human.name'].browse(vals['name_id']) # Variable to create name of person
+        res = super(Patient, self).create(vals)
+
+        # if not vals.get('partner_id'):
+        #     partner_id = partner_obj.create({
+        #         'company_type': 'person',
+        #         'is_company': False,
+        #         'is_person': True,
+        #         'is_healthcare': True,
+        #         'name': name.name,
+        #         'birthdate': str(res.birth_date),
+        #         })
+        #     vals.update({'partner_id': partner_id.id})
+        # vals.update({'name': name.name})
+
+        # names_vals = {}
+        link = partner_link_obj.create({
+            'link_type': 'patient',
+            'link_patient_id': res.id,
+            'partner_id': vals.get('partner_id'),
+            'start_date': datetime.today(),
+            })
+
+        # names_vals = {}
+        # if name:
+        #     names_vals.update({
+        #         'is_preferred': True,
+        #         'human_name_id': name.id,
+        #         'person_id': res.id,
+        #         'start_date': res.birth_date,
+        #         })
+        #     person_name_obj.create(names_vals)
+
+        return res
 
     # Indicate that associated Person is a Patient.
     # @api.model

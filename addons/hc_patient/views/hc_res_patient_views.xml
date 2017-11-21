@@ -228,16 +228,25 @@
                                     </tree>
                                     <form>
                                         <sheet>
+                                            <div class="oe_title oe_left">
+                                                <h1>
+                                                    <field name="name" default_focus="1" placeholder="Title (e.g., ADT Form)"/>
+                                                </h1>
+                                            </div>
                                             <group>
                                                 <group>
-                                                    <field name="name" string="Photo Name"/>
+                                                    <field name="creation_date"/>
+                                                    <field name="attachment_type_id" placeholder="(e.g., ADT Form)"/>
+                                                    <field name="has_data" invisible="1"/>
+                                                    <field name="mimetype"/>
                                                     <field name="datas"/>
+                                                    <!-- <field name="mimetype" attrs="{'required': [('has_data','=',True)]}"/>
+                                                    <field name="datas" attrs="{'required': [('mimetype','!=',False)]}"/> -->
                                                 </group>
                                                 <group>
-                                                    <field name="is_preferred"/>
-                                                    <field name="is_active"/>
-                                                    <field name="start_date" placeholder="Valid From"/>
-                                                    <field name="end_date" placeholder="Valid To"/>
+                                                    <field name="language_id"/>
+                                                    <field name="url"/>
+                                                    <field name="file_size"/>
                                                 </group>
                                             </group>
                                         </sheet>

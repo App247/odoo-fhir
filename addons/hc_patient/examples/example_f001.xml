@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data noupdate="1">
-
-    <!-- F001 Organization -->
-
-        <record id="base.patient_f001_organization" model="res.partner">
-            <field name="name">Burgers University Medical Centre</field>
-            <field name="company_type">company</field>
-            <field name="is_company" eval="True"/>
-            <field name="is_organization" eval="True"/>
-            <field name="is_healthcare" eval="True"/>
-        </record>
-
-        <record id="hc_organization.patient_f001" model="hc.res.organization">
-            <field name="partner_id" ref="base.patient_f001_organization"/>
-            <field name="name">Burgers University Medical Centre</field>
-        </record>
+    <data noupdate="0">
 
     <!-- F001 Person -->
 
@@ -123,37 +108,22 @@
             <field name="is_deceased" eval="False"/>
             <field model="hc.vs.marital.status" name="marital_status_id" search="[('name','=','Married')]"/>
             <field name="is_multiple_birth" eval="True"/>
-            <field name="managing_organization_id" ref="hc_organization.patient_f001"/>
+            <field name="managing_organization_id" ref="hc_organization.organization_f001"/>
         </record>
+
+<!--         <record id="base.patient_f001_link" model="hc.partner.link">
+            <field name="partner_id" ref="base.patient_f001"/>
+            <field name="link_type">patient</field>
+            <field name="link_patient_id" ref="patient_f001"/>
+            <field name="start_date" eval="datetime.today()"/>
+        </record> -->
 
     <!-- F001 Patient Identifier -->
-
-        <record id="base.patient_f001_organization_assigner" model="res.partner">
-            <field name="name">Dutch Ministry of Internal Affairs</field>
-            <field name="company_type">company</field>
-            <field name="is_company" eval="True"/>
-            <field name="is_organization" eval="True"/>
-            <field name="is_healthcare" eval="True"/>
-        </record>
-
-        <record id="hc_organization.patient_f001_organization_assigner" model="hc.res.organization">
-            <field name="partner_id" ref="base.patient_f001_organization_assigner"/>
-            <field name="name">Dutch Ministry of Internal Affairs</field>
-        </record>
-
-        <record id="hc_base.ident_code_patient_f001" model="hc.vs.identifier.code">
-            <field name="name">Burger Service Nummer (Citizen Service Number)</field>
-            <field name="code">BSN</field>
-            <field name="type_id" ref="hc_base.ident_type_cz"/>
-            <field name="system">urn:oid:2.16.840.1.113883.2.4.6.3</field>
-            <field name="assigner_id" ref="hc_organization.patient_f001_organization_assigner"/>
-            <field model="res.country" name="country_id" search="[('code3','=','NLD')]"/>
-        </record>
 
         <record id="patient_f001_identifier_1" model="hc.patient.identifier">
             <field name="patient_id" ref="patient_f001"/>
             <field name="person_id" ref="hc_person.patient_f001"/>
-            <field name="code_id" ref="hc_base.ident_code_patient_f001"/>
+            <field name="code_id" ref="hc_base.ident_code_bsn"/>
             <field name="use">usual</field>
             <field name="value">738472983</field>
         </record>
@@ -161,7 +131,7 @@
         <record id="patient_f001_patient_identifier_2" model="hc.patient.identifier">
             <field name="patient_id" ref="patient_f001"/>
             <field name="person_id" ref="hc_person.patient_f001"/>
-            <field name="code_id" ref="hc_base.ident_code_patient_f001"/>
+            <field name="code_id" ref="hc_base.ident_code_bsn"/>
             <field name="use">usual</field>
         </record>
 

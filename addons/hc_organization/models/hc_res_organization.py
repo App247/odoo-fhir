@@ -29,11 +29,6 @@ class Organization(models.Model):
     name = fields.Char(
         string="Name",
         help="Name used for the organization.")
-    alias_ids = fields.One2many(
-        comodel_name="hc.organization.alias",
-        inverse_name="organization_id",
-        string="Aliases",
-        help="A list of alternative names that the organization is known as or was known as in the past.")
     telecom_ids = fields.One2many(
         comodel_name="hc.organization.telecom",
         inverse_name="organization_id",
@@ -70,6 +65,24 @@ class Organization(models.Model):
         comodel_name="res.company",
         string="Company",
         help="The company associated with this organization.")
+
+    # Extension Backbone Element
+    alias_ids = fields.One2many(
+        comodel_name="hc.organization.alias",
+        inverse_name="organization_id",
+        string="Aliases",
+        help="A list of alternative names that the organization is known as or was known as in the past.")
+    start_date = fields.Datetime(
+        string="Start Date",
+        help="Start of the date range that this organization should be considered available.")
+    end_date = fields.Datetime(
+        string="End Date",
+        help="End of the date range that this organization should be considered available.")
+    accreditation_ids = fields.One2many(
+        comodel_name="hc.organization.accreditation",
+        inverse_name="organization_id",
+        string="Accreditations",
+        help="")
 
     # Domain Resource
     text_id = fields.Many2one(
@@ -158,10 +171,16 @@ class OrganizationContact(models.Model):
         string="Address",
         help="Visiting or postal addresses for the contact.")
 
+    # Extension Backbone Element
+    preferred_contact = fields.Boolean(
+        string="Preferred Contact",
+        help="This Contact is the preferred contact at this organization for the purpose of the contact. There can be multiple contacts on an Organizations record with this value set to true, but these should all have different purpose values.")
+
+
 class OrganizationIdentifier(models.Model):
     _name = "hc.organization.identifier"
     _description = "Organization Identifier"
-    _inherit = ["hc.basic.association", "hc.identifier"]
+    _inherit = ["hc.basic.association", "hc.identifier", "hc.identifier.use"]
 
     organization_id = fields.Many2one(
         comodel_name="hc.res.organization",
@@ -180,6 +199,16 @@ class OrganizationAlias(models.Model):
     alias = fields.Char(
         string="Alias",
         help="Alias associated with this Organization Alias.")
+
+class OrganizationAccreditation(models.Model):
+    _name = "hc.organization.accreditation"
+    _description = "Organization Accreditation"
+    _inherit = ["hc.basic.association", "hc.identifier", "hc.identifier.use"]
+
+    organization_id = fields.Many2one(
+        comodel_name="hc.res.organization",
+        string="Organization",
+        help="Organization associated with this Organization Accreditation.")
 
 class OrganizationTelecom(models.Model):
     _name = "hc.organization.telecom"
@@ -251,6 +280,7 @@ class OrganizationContactAddress(models.Model):
     _description = "Organization Contact Address"
     _inherit = ["hc.address.use"]
     _inherits = {"hc.address": "address_id"}
+    _rec_name = "address_id"
 
     address_id = fields.Many2one(
         comodel_name="hc.address",
@@ -292,6 +322,73 @@ class OrganizationType(models.Model):
         comodel_name="hc.vs.organization.type",
         string="Parent",
         help="Parent organization type.")
+    level_attribute = fields.Char(
+        compute="_get_level",
+        string="Level/Parent",
+        store=True,
+        help="Level associated with Parent concept.")
+    level = fields.Integer(
+        compute="_get_level",
+        string="Level",
+        store=True,
+        help="Level as a parent in a hierarchy of codes.")
+    parent_child_ids = fields.Many2many(
+        comodel_name="hc.vs.organization.type",
+        relation="base_organization_type_parent_child_rel",
+        column1="parent_id",
+        column2="child_id",
+        string="Parents",
+        help="Parent act code.")
+    child_parent_ids = fields.Many2many(
+        comodel_name="hc.vs.organization.type",
+        compute="_calc_child",
+        store="True",
+        relation="organization_type_child_parent_rel",
+        column1="child_id",
+        column2="parent_id",
+        string="Children",
+        help="Child organization type.")
+    child_count = fields.Integer(
+        string="Child Count",
+        compute="_calc_child",
+        store="True",
+        help="Number of child members.")
+
+    @api.constrains('parent_child_ids')
+    def _check_recursive_parent_child(self):
+        for rec in self:
+            if rec.id in rec.parent_child_ids.ids:
+                raise ValidationError('Error! A code cannot be a child of itself.')
+        return True
+
+    @api.depends('parent_child_ids')
+    def _get_level(self):
+        for rec in self:
+            if not rec.parent_child_ids:
+                rec.level = 1
+                rec.level_attribute = ''
+            else:
+                high = 1
+                attr_str = False
+                for parent in rec.parent_child_ids:
+                    if not attr_str:
+                        attr_str = '(' + str(parent.level + 1) + ',' + parent.name +')'
+                    else:
+                        attr_str = attr_str + ',' + '(' + str(parent.level + 1) + ',' + parent.name + ')'
+                    if parent.level > high:
+                        high = parent.level
+                rec.level = high + 1
+
+    @api.depends('code')
+    def _calc_child(self):
+        sub_code_obj = self.env['hc.vs.organization.type']
+        for rec in self:
+            rec.child_parent_ids = False
+            if rec.code:
+                child_ids = sub_code_obj.search([('parent_child_ids.code', '=', rec.code)])
+                if child_ids:
+                    rec.child_count = len(child_ids)
+                    rec.child_parent_ids = [(6,0,child_ids.ids)]
 
 class ContactEntityType(models.Model):
     _name = "hc.vs.contact.entity.type"
@@ -407,29 +504,23 @@ class Person(models.Model):
         string="Is Organization Contact",
         help="This person is an organization contact.")
 
-# class PersonLink(models.Model):
-#     _inherit = ["hc.person.link"]
+class PersonLink(models.Model):
+    _inherit = ["hc.person.link"]
 
-#     target_type = fields.Selection(
-#         selection_add=[
-#             ("organization", "Organization"),
-#             ("organization_contact", "Organization Contact")])
-#     target_organization_id = fields.Many2one(
-#         comodel_name="hc.res.organization",
-#         string="Target Organization",
-#         help="Organization who is the resource to which this actual person is associated.")
-#     target_organization_contact_id = fields.Many2one(
-#         comodel_name="hc.organization.contact",
-#         string="Target Organization Contact",
-#         help="Organization Contact who is the resource to which this actual person is associated.")
+    target_type = fields.Selection(
+        selection_add=[("organization_contact", "Organization Contact")])
+    target_organization_contact_id = fields.Many2one(
+        comodel_name="hc.organization.contact",
+        string="Target Organization Contact",
+        help="Organization Contact who is the resource to which this actual person is associated.")
 
-#     @api.depends('target_type')
-#     def _compute_target_name(self):
-#         for hc_person_link in self:
-#             if hc_person_link.target_type == 'person':
-#                 hc_person_link.target_name = hc_person_link.target_person_id.name
-#             elif hc_person_link.target_type == 'organization_contact':
-#                 hc_person_link.target_name = hc_person_link.target_organization_contact_id.name
+    @api.depends('target_type')
+    def _compute_target_name(self):
+        for hc_person_link in self:
+            if hc_person_link.target_type == 'person':
+                hc_person_link.target_name = hc_person_link.target_person_id.name
+            elif hc_person_link.target_type == 'organization_contact':
+                hc_person_link.target_name = hc_person_link.target_organization_contact_id.name
 
 class Signature(models.Model):
     _inherit = ["hc.signature"]

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+    <!-- lab Organization -->
+
+        <record id="base.organization_lab" model="res.partner">
+            <field name="name">Clinical Laboratory @ Acme Hospital</field>
+            <field name="company_type">company</field>
+            <field name="is_company" eval="True"/>
+            <field name="is_organization" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
+        </record>
+
+        <record id="organization_lab" model="hc.res.organization">
+            <field name="partner_id" ref="base.organization_lab"/>
+            <field name="identifier">1832473e-2fe0-452d-abe9-3cdb9879522f</field>
+            <field name="name">Clinical Lab</field>
+            <field name="part_of_id" ref="organization_1"/>
+        </record>
+
+        <record id="organization_lab_text" model="hc.organization.domain.resource.text">
+            <field name="organization_id" ref="organization_lab"/>
+            <field name="status">generated</field>
+            <field name="div">
+<!--                 <p>Clinical Laboratory @ Acme Hospital. ph: +1 555 234 1234, email:
+                    <a href="mailto:contact@labs.acme.org">contact@labs.acme.org</a>
+                </p> -->
+            </field>
+        </record>
+
+    <!-- lab Organization Identifier -->
+
+        <record id="organization_lab_identifier" model="hc.organization.identifier">
+            <field name="organization_id" ref="organization_lab"/>
+            <field name="value">ClinLab</field>
+            <field name="system">http://www.acme.org.au/units</field>
+        </record>
+
+    <!-- lab Organization Telecom -->
+
+        <record id="hc_base.cont_pnt_15552341234" model="hc.contact.point">
+            <field name="system">phone</field>
+            <field name="value">+1 555 234 1234</field>
+        </record>
+
+        <record id="hc_base.cont_pnt_contact_labs_acme_org" model="hc.contact.point">
+            <field name="system">email</field>
+            <field name="value">contact@labs.acme.org</field>
+        </record>
+
+        <record id="organization_lab_telecom_lab" model="hc.organization.telecom">
+            <field name="organization_id" ref="organization_lab"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_15552341234"/>
+            <field name="use">work</field>
+        </record>
+
+        <record id="organization_lab_telecom_2" model="hc.organization.telecom">
+            <field name="organization_id" ref="organization_lab"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_contact_labs_acme_org"/>
+            <field name="use">work</field>
+        </record>
+
+    </data>
+</odoo>

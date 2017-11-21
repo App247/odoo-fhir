@@ -376,5 +376,21 @@
                   groups="hc_base.group_hc_base_manager"
                   sequence="1"/>
 
+    <!-- Human Name Prefix -->
+
+        <record id="view_partner_title_form_inherited" model="ir.ui.view">
+            <field name="name">res.partner.title.form</field>
+            <field name="model">res.partner.title</field>
+            <field name="inherit_id" ref="base.view_partner_title_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='shortcut']" position="after">
+                    <field name="code"/>
+                    <field name="definition"/>
+                    <field name="system"/>
+                    <field name="source_id"/>
+                </xpath>
+            </field>
+        </record>
+
     </data>
 </odoo>

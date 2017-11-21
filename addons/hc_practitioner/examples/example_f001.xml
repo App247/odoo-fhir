@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+    <!-- f001 Human Name Term -->
+
+        <record id="hc_base.human_name_term_653" model="hc.human.name.term">
+            <field name="name">van den Broek</field>
+        </record>
+
+    <!-- f001 Human Name -->
+
+        <record id="hc_base.practitioner_f001_name" model="hc.human.name">
+            <field model="hc.human.name.term" name="first_id" search="[('name','=','Eric')]"/>
+            <field model="hc.human.name.term" name="surname_id" search="[('name','=','van den Broek')]"/>
+            <field eval="[(6, 0, [ref('hc_base.human_name_suffix_58')])]" name="suffix_ids"/>
+        </record>
+
+    <!-- f001 Partner -->
+
+        <record id="base.practitioner_f001" model="res.partner">
+            <field name="name">Eric van den Broek MD</field>
+            <field name="company_type">person</field>
+            <field name="birthdate">1970-06-20</field>
+            <field name="is_company" eval="False"/>
+            <field name="is_person" eval="True"/>
+            <field name="is_practitioner" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
+        </record>
+
+    <!-- f001 Person -->
+
+        <record id="hc_person.practitioner_f001" model="hc.res.person">
+            <field name="partner_id" ref="base.practitioner_f001"/>
+            <field name="name_id" ref="hc_base.practitioner_f001_name"/>
+            <field name="gender">male</field>
+            <field name="birth_date">1975-12-07</field>
+        </record>
+
+    <!-- f001 Person Name -->
+
+        <record id="hc_person.practitioner_f001_name" model="hc.person.name">
+            <field name="person_id" ref="hc_person.practitioner_f001"/>
+            <field name="human_name_id" ref="hc_base.practitioner_f001_name"/>
+            <field name="use">official</field>
+        </record>
+
+    <!-- f001 Practitioner -->
+
+        <record id="practitioner_f001" model="hc.res.practitioner">
+            <field name="person_id" ref="hc_person.practitioner_f001"/>
+            <field name="identifier">f001</field>
+        </record>
+
+        <record id="practitioner_f001_text" model="hc.practitioner.domain.resource.text">
+            <field name="practitioner_id" ref="practitioner_f001"/>
+            <field name="status">generated</field>
+            <field name="div">
+                 <!-- <table>
+                    <p><b>Generated Narrative with Details</b></p><p><b>id</b>: f001</p><p><b>identifier</b>: 938273695 (OFFICIAL), 129IDH4OP733 (USUAL)</p><p><b>name</b>: Eric van den broek (OFFICIAL)</p><p><b>telecom</b>: ph: 0205568263(WORK), E.M.vandenbroek@bmc.nl(WORK), fax: 0205664440(WORK)</p><p><b>address</b>: Galapagosweg 91 Den Burg 9105 PZ NLD (WORK)</p><p><b>gender</b>: male</p><p><b>birthDate</b>: Dec 7, 1975</p>
+                </table> -->
+            </field>
+        </record>
+
+    <!-- f001 Practitioner Identifier -->
+
+        <record id="base.practitioner_f001_organization_assigner_1" model="res.partner">
+            <field name="name">UZI Registry</field>
+            <field name="company_type">company</field>
+            <field name="is_company" eval="True"/>
+            <field name="is_organization" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
+        </record>
+
+        <record id="hc_organization.practitioner_f001_organization_assigner_1" model="hc.res.organization">
+            <field name="partner_id" ref="base.practitioner_f001_organization_assigner_1"/>
+            <field name="name">UZI Registry</field>
+        </record>
+
+        <record id="hc_base.ident_code_uzi" model="hc.vs.identifier.code">
+            <field name="name">UZI</field>
+            <field name="code">UZI</field>
+            <field name="definition">Uniek Zorgverlener Identificatienummer Personen (National Care Provider ID Persons). This uniquely identifies a person in their role as a healcare provider.</field>
+            <field name="type_id" ref="hc_base.ident_type_prn"/>
+            <field name="system">urn:oid:2.16.528.1.1007.3.1</field>
+            <field name="assigner_id" ref="hc_organization.practitioner_f001_organization_assigner_1"/>
+            <field name="country_id" ref="base.nl"/>
+        </record>
+
+        <record id="base.practitioner_f001_organization_assigner_2" model="res.partner">
+            <field name="name">Dutch Ministry of Internal Affairs</field>
+            <field name="company_type">company</field>
+            <field name="is_company" eval="True"/>
+            <field name="is_organization" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
+        </record>
+
+        <record id="hc_organization.practitioner_f001_organization_assigner_2" model="hc.res.organization">
+            <field name="partner_id" ref="base.practitioner_f001_organization_assigner_2"/>
+            <field name="name">Dutch Ministry of Internal Affairs</field>
+        </record>
+
+        <record id="hc_base.ident_code_bsn" model="hc.vs.identifier.code">
+            <field name="name">BSN</field>
+            <field name="code">BSN</field>
+            <field name="definition">Burger Service Nummer (Citizen Service Number)</field>
+            <field name="type_id" ref="hc_base.ident_type_cz"/>
+            <field name="system">urn:oid:2.16.840.1.113883.2.4.6.3</field>
+            <field name="assigner_id" ref="hc_organization.practitioner_f001_organization_assigner_2"/>
+            <field model="res.country" name="country_id" search="[('code3','=','NLD')]"/>
+        </record>
+
+        <record id="hc_person.practitioner_f001_identifier_1" model="hc.person.identifier">
+            <field name="person_id" ref="hc_person.practitioner_f001"/>
+            <field name="value">938273695</field>
+            <field name="code_id" ref="hc_base.ident_code_uzi"/>
+            <field name="system">urn:oid:2.16.528.1.1007.3.1</field>
+            <field name="use">official</field>
+        </record>
+
+        <record id="hc_person.practitioner_f001_identifier_2" model="hc.person.identifier">
+            <field name="person_id" ref="hc_person.practitioner_f001"/>
+            <field name="value">129IDH4OP733</field>
+            <field name="code_id" ref="hc_base.ident_code_bsn"/>
+            <field name="system">urn:oid:2.16.840.1.113883.2.4.6.3</field>
+            <field name="use">usual</field>
+        </record>
+
+    <!-- f001 Practitioner Telecom -->
+
+        <record id="hc_base.cont_pnt_0205568263" model="hc.contact.point">
+            <field name="value">0205568263</field>
+            <field name="system">phone</field>
+        </record>
+
+        <record id="hc_person.practitioner_f001_telecom_1" model="hc.person.telecom">
+            <field name="person_id" ref="hc_person.practitioner_f001"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_0205568263"/>
+            <field name="use">work</field>
+        </record>
+
+        <record id="hc_base.cont_pnt_e_m_vandenbroek_bmc_nl" model="hc.contact.point">
+            <field name="value">E.M.vandenbroek@bmc.nl</field>
+            <field name="system">email</field>
+        </record>
+
+        <record id="hc_person.practitioner_f001_telecom_2" model="hc.person.telecom">
+            <field name="person_id" ref="hc_person.practitioner_f001"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_e_m_vandenbroek_bmc_nl"/>
+            <field name="use">work</field>
+        </record>
+
+        <record id="hc_base.cont_pnt_205664440" model="hc.contact.point">
+            <field name="value">205664440</field>
+            <field name="system">fax</field>
+        </record>
+
+        <record id="hc_person.practitioner_f001_telecom_3" model="hc.person.telecom">
+            <field name="person_id" ref="hc_person.practitioner_f001"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_205664440"/>
+            <field name="use">work</field>
+        </record>
+
+    <!-- f001 Practitioner Address -->
+
+        <!-- <record id="hc_base.postal_code_1024_RJ" model="hc.vs.country.postal.code">
+            <field name="postal_code">1024 RJ</field>
+            <field name="name">1024 RJ</field>
+            <field name="code">1024 RJ</field>
+        </record> -->
+
+        <record id="hc_base.city_practitioner_f001" model="hc.vs.country.city">
+            <field name="name">Den Burg</field>
+            <field name="code">Den Burg</field>
+        </record>
+
+        <record id="hc_base.practitioner_f001_address" model="hc.address">
+            <field name="line1">Galapagosweg 91</field>
+            <field model="hc.vs.country.city" name="city_id" search="[('name','=','Den Burg')]"/>
+            <field model="hc.vs.country.postal.code" name="postal_code_id" search="[('name','=','9105 PZ')]"/>
+            <field model="res.country" name="country_id" search="[('code3','=','NLD')]"/>
+        </record>
+
+        <record id="hc_person.practitioner_f001_address" model="hc.person.address">
+            <field name="person_id" ref="hc_person.practitioner_f001"/>
+            <field name="address_id" ref="hc_base.practitioner_f001_address"/>
+            <field name="use">work</field>
+        </record>
+
+    </data>
+</odoo>

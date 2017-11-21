@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+    <!-- f002 Organization -->
+
+        <record id="base.organization_f002" model="res.partner">
+            <field name="name">Burgers UMC Cardiology unit</field>
+            <field name="company_type">company</field>
+            <field name="is_company" eval="True"/>
+            <field name="is_organization" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
+        </record>
+
+        <record id="organization_f002" model="hc.res.organization">
+            <field name="partner_id" ref="base.organization_f002"/>
+            <field name="identifier">f002</field>
+            <field name="is_active" eval="True"/>
+            <field eval="[(6, 0, [ref('org_type_dept')])]" name="type_ids"/>
+            <field name="name">Burgers UMC Cardiology unit</field>
+        </record>
+
+        <record id="organization_f002_text" model="hc.organization.domain.resource.text">
+            <field name="organization_id" ref="organization_f002"/>
+            <field name="status">generated</field>
+            <field name="div">
+                <!-- <p><b>Generated Narrative with Details</b></p><p><b>id</b>: f002</p><p><b>active</b>: true</p><p><b>type</b>: Hospital Department <span>(Details : {http://hl7.org/fhir/organization-type code &#39;dept&#39; = &#39;Hospital Department&#39;, given as &#39;Hospital Department&#39;})</span></p><p><b>name</b>: Burgers UMC Cardiology unit</p><p><b>telecom</b>: ph: 022-655 2320</p><p><b>address</b>: South Wing, floor 2 </p><p><b>partOf</b>: <a>Organization/f001</a></p><h3>Contacts</h3><table><tr><td>-</td><td><b>Purpose</b></td><td><b>Name</b></td><td><b>Telecom</b></td><td><b>Address</b></td></tr><tr><td>*</td><td>Administrative <span>(Details : {http://hl7.org/fhir/contactentity-type code &#39;ADMIN&#39; = &#39;Administrative)</span></td><td>mevr. D. de Haan</td><td>ph: 022-655 2321</td><td>South Wing, floor 2 </td></tr></table> -->
+            </field>
+        </record>
+
+    <!-- f002 Organization Telecom -->
+
+        <record id="hc_base.cont_pnt_0226552320" model="hc.contact.point">
+            <field name="system">phone</field>
+            <field name="value">022-655 2320</field>
+            </record>
+
+        <record id="organization_f002_telecom" model="hc.organization.telecom">
+            <field name="organization_id" ref="organization_f002"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_0226552320"/>
+        </record>
+
+    <!-- f002 Organization Address -->
+
+        <record id="hc_base.organization_f002_address" model="hc.address">
+            <field name="line1">South Wing, floor 2</field>
+        </record>
+
+        <record id="organization_f002_address" model="hc.organization.address">
+            <field name="organization_id" ref="organization_f002"/>
+            <field name="address_id" ref="hc_base.organization_f002_address"/>
+        </record>
+
+        <!-- f002 Organization Contact Address -->
+
+        <record id="organization_f002_address_contact" model="hc.organization.contact.address">
+            <field name="address_id" ref="hc_base.organization_f002_address"/>
+        </record>
+
+    <!-- f002 Organization Contact -->
+odoo
+        <record id="hc_base.human_name_term_649" model="hc.human.name.term">
+            <field name="name">de Haan</field>
+        </record>
+
+        <record id="hc_base.organization_f002_contact" model="hc.human.name">
+            <field eval="[(6, 0, [ref('hc_base.res_partner_title_mevr')])]" name="prefix_ids"/>
+            <field model="hc.human.name.term" name="first_id" search="[('name','=','D.')]"/>
+            <field model="hc.human.name.term" name="surname_id" search="[('name','=','de Haan')]"/>
+        </record>
+
+        <record id="base.organization_f002_contact" model="res.partner">
+            <field name="name">mevr. D. de Haan</field>
+            <field name="company_type">person</field>
+            <field name="is_company" eval="False"/>
+            <field name="is_person" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
+        </record>
+
+        <record id="hc_person.organization_f002_contact" model="hc.res.person">
+            <field name="partner_id" ref="base.organization_f002_contact"/>
+            <field name="name_id" ref="hc_base.organization_f002_contact"/>
+            <field name="gender">female</field>
+        </record>
+
+        <record id="organization_f002_contact" model="hc.organization.contact">
+            <field name="person_id" ref="hc_person.organization_f002_contact"/>
+            <field name="organization_id" ref="organization_f002"/>
+            <field name="purpose_id" ref="cont_ent_type_admin"/>
+            <field name="address_id" ref="organization_f002_address_contact"/>
+        </record>
+
+    <!-- f002 Organization Contact Telecom -->
+
+        <record id="hc_base.cont_pnt_0226552321" model="hc.contact.point">
+            <field name="system">phone</field>
+            <field name="value">022-655 2321</field>
+            </record>
+
+        <record id="hc_base.cont_pnt_cardio_burgersumc_nl" model="hc.contact.point">
+            <field name="system">email</field>
+            <field name="value">cardio@burgersumc.nl</field>
+            </record>
+
+        <record id="hc_base.cont_pnt_0226552322" model="hc.contact.point">
+            <field name="system">fax</field>
+            <field name="value">022-655 2322</field>
+        </record>
+
+        <record id="organization_f002_contact_telecom_1" model="hc.organization.contact.telecom">
+            <field name="contact_id" ref="organization_f002_contact"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_0226552321"/>
+        </record>
+
+        <record id="organization_f002_contact_telecom_2" model="hc.organization.contact.telecom">
+            <field name="contact_id" ref="organization_f002_contact"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_cardio_burgersumc_nl"/>
+        </record>
+
+        <record id="organization_f002_contact_telecom_3" model="hc.organization.contact.telecom">
+            <field name="contact_id" ref="organization_f002_contact"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_0226552322"/>
+        </record>
+
+    </data>
+</odoo>

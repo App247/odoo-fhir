@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+    <!-- f001 Organization -->
+
+        <record id="base.organization_f001" model="res.partner">
+            <field name="name">Burgers University Medical Centre</field>
+            <field name="company_type">company</field>
+            <field name="is_company" eval="True"/>
+            <field name="is_organization" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
+        </record>
+
+        <record id="org_type_v6" model="hc.vs.organization.type">
+            <field name="system">urn:oid:2.16.840.1.113883.2.4.15.1060</field>
+            <field name="code">v6</field>
+            <field name="name">University Medical Hospital</field>
+        </record>
+
+        <record id="organization_f001" model="hc.res.organization">
+            <field name="partner_id" ref="base.organization_f001"/>
+            <field name="identifier">f001</field>
+            <field eval="[(6, 0, [ref('org_type_v6'),ref('org_type_prov')])]" name="type_ids"/>
+            <field name="name">Burgers University Medical Centre</field>
+        </record>
+
+        <record id="organization_f001_text" model="hc.organization.domain.resource.text">
+            <field name="organization_id" ref="organization_f001"/>
+            <field name="status">generated</field>
+            <field name="div">
+                <!-- <p><b>Generated Narrative with Details</b></p><p><b>id</b>: f001</p><p><b>identifier</b>: 91654 (OFFICIAL), 17-0112278 (USUAL)</p><p><b>type</b>: University Medical Hospital <span>(Details : {urn:oid:2.16.840.1.113883.2.4.15.1060 code &#39;V6&#39; = &#39;V6&#39;, given as &#39;University Medical Hospital&#39;}; {http://f001.org/fhir/organization-type code &#39;prov&#39; = &#39;Healthcare Provider&#39;, given as &#39;Healthcare Provider&#39;})</span></p><p><b>name</b>: Burgers University Medical Center</p><p><b>telecom</b>: ph: 022-655 2300(WORK)</p><p><b>address</b>: </p><ul><li>Galapagosweg 91 Den Burg 9105 PZ NLD (WORK)</li><li>PO Box 2311 Den Burg 9100 AA NLD (WORK)</li></ul><blockquote><p><b>contact</b></p><p><b>purpose</b>: Press <span>(Details : {http://f001.org/fhir/contactentity-type code &#39;PRESS&#39; = &#39;Press)</span></p><p><b>telecom</b>: ph: 022-655 2334</p></blockquote><blockquote><p><b>contact</b></p><p><b>purpose</b>: Patient <span>(Details : {http://f001.org/fhir/contactentity-type code &#39;PATINF&#39; = &#39;Patient)</span></p><p><b>telecom</b>: ph: 022-655 2335</p></blockquote> -->
+            </field>
+        </record>
+
+    <!-- f001 Organization Telecom -->
+
+        <record id="hc_base.cont_pnt_0226552300" model="hc.contact.point">
+            <field name="system">phone</field>
+            <field name="value">022-655 2300</field>
+        </record>
+
+        <record id="organization_f001_telecom" model="hc.organization.telecom">
+            <field name="organization_id" ref="organization_f001"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_0226552300"/>
+            <field name="use">work</field>
+        </record>
+
+
+    <!-- f001 Organization Address -->
+
+        <record id="hc_base.postal_code_9105_PZ" model="hc.vs.country.postal.code">
+            <field name="postal_code">9105 PZ</field>
+            <field name="name">9105 PZ</field>
+            <field name="code">9105 PZ</field>
+        </record>
+
+        <record id="hc_base.postal_code_9100_AA" model="hc.vs.country.postal.code">
+            <field name="postal_code">9100 AA</field>
+            <field name="name">9100 AA</field>
+            <field name="code">9100 AA</field>
+        </record>
+
+        <record id="hc_base.city_patient_f001" model="hc.vs.country.city">
+            <field name="name">Den Burg</field>
+            <field name="code">Den Burg</field>
+        </record>
+
+        <record id="hc_base.organization_f001_address_1" model="hc.address">
+            <field name="line1">Galapagosweg 91</field>
+            <field model="hc.vs.country.city" name="city_id" search="[('name','=','Den Burg')]"/>
+            <field model="hc.vs.country.postal.code" name="postal_code_id" search="[('name','=','9105 PZ')]"/>
+            <field model="res.country" name="country_id" search="[('code3','=','NLD')]"/>
+        </record>
+
+        <record id="hc_base.organization_f001_address_2" model="hc.address">
+            <field name="line1">PO Box 2311</field>
+            <field model="hc.vs.country.city" name="city_id" search="[('name','=','Den Burg')]"/>
+            <field model="hc.vs.country.postal.code" name="postal_code_id" search="[('name','=','9100 AA')]"/>
+            <field model="res.country" name="country_id" search="[('code3','=','NLD')]"/>
+        </record>
+
+        <record id="organization_f001_address_1" model="hc.organization.address">
+            <field name="organization_id" ref="organization_f001"/>
+            <field name="address_id" ref="hc_base.organization_f001_address_1"/>
+            <field name="use">home</field>
+        </record>
+
+        <record id="organization_f001_address_2" model="hc.organization.address">
+            <field name="organization_id" ref="organization_f001"/>
+            <field name="address_id" ref="hc_base.organization_f001_address_2"/>
+            <field name="use">work</field>
+        </record>
+
+    <!-- f001 Organization Contact -->
+
+        <record id="hc_base.human_name_term_647" model="hc.human.name.term">
+            <field name="name">Unknown</field>
+        </record>
+
+        <record id="hc_base.human_name_term_648" model="hc.human.name.term">
+            <field name="name">Person</field>
+        </record>
+
+        <record id="hc_base.human_name_unknown_person" model="hc.human.name">
+            <field model="hc.human.name.term" name="first_id" search="[('name','=','Unknown')]"/>
+            <field model="hc.human.name.term" name="surname_id" search="[('name','=','Person')]"/>
+        </record>
+
+        <record id="base.unknown_person" model="res.partner">
+            <field name="name">Unknown Person</field>
+            <field name="company_type">person</field>
+            <field name="is_company" eval="False"/>
+            <field name="is_person" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
+        </record>
+
+        <record id="hc_person.unknown_person" model="hc.res.person">
+            <field name="partner_id" ref="base.unknown_person"/>
+            <field name="name_id" ref="hc_base.human_name_unknown_person"/>
+            <field name="gender">unknown</field>
+        </record>
+
+        <record id="organization_f001_contact_1" model="hc.organization.contact">
+            <field name="person_id" ref="hc_person.unknown_person"/>
+            <field name="organization_id" ref="organization_f001"/>
+            <field name="purpose_id" ref="cont_ent_type_press"/>
+        </record>
+
+        <record id="organization_f001_contact_2" model="hc.organization.contact">
+            <field name="person_id" ref="hc_person.unknown_person"/>
+            <field name="organization_id" ref="organization_f001"/>
+            <field name="purpose_id" ref="cont_ent_type_patinf"/>
+        </record>
+
+    <!-- f001 Organization Contact Telecom -->
+
+        <record id="hc_base.cont_pnt_0226552334" model="hc.contact.point">
+            <field name="system">phone</field>
+            <field name="value">022-655 2334</field>
+        </record>
+
+        <record id="hc_base.cont_pnt_0226552335" model="hc.contact.point">
+            <field name="system">phone</field>
+            <field name="value">022-655 2335</field>
+        </record>
+
+        <record id="organization_f001_contact_1_telecom" model="hc.organization.contact.telecom">
+            <field name="contact_id" ref="organization_f001_contact_1"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_0226552334"/>
+        </record>
+
+        <record id="organization_f001_contact_2_telecom" model="hc.organization.contact.telecom">
+            <field name="contact_id" ref="organization_f001_contact_2"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_0226552335"/>
+        </record>
+
+    </data>
+</odoo>

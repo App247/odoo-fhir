@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+    <!-- f003 Human Name Term -->
+
+        <record id="hc_base.human_name_term_655" model="hc.human.name.term">
+            <field name="name">Marc</field>
+        </record>
+
+        <record id="hc_base.human_name_term_656" model="hc.human.name.term">
+            <field name="name">Versteegh</field>
+        </record>
+
+
+    <!-- f003 Human Name -->
+
+        <record id="hc_base.practitioner_f003_name" model="hc.human.name">
+            <field model="hc.human.name.term" name="first_id" search="[('name','=','Marc')]"/>
+            <field model="hc.human.name.term" name="surname_id" search="[('name','=','Versteegh')]"/>
+            <field eval="[(6, 0, [ref('hc_base.human_name_suffix_58')])]" name="suffix_ids"/>
+        </record>
+
+    <!-- f003 Partner -->
+
+        <record id="base.practitioner_f003" model="res.partner">
+            <field name="name">Marc Versteegh MD</field>
+            <field name="company_type">person</field>
+            <field name="birthdate">1963-07-01</field>
+            <field name="is_company" eval="False"/>
+            <field name="is_person" eval="True"/>
+            <field name="is_practitioner" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
+        </record>
+
+    <!-- f003 Person -->
+
+        <record id="hc_person.practitioner_f003" model="hc.res.person">
+            <field name="partner_id" ref="base.practitioner_f003"/>
+            <field name="name_id" ref="hc_base.practitioner_f003_name"/>
+            <field name="gender">male</field>
+            <field name="birth_date">1963-07-01</field>
+        </record>
+
+    <!-- f003 Person Name -->
+
+        <record id="hc_person.practitioner_f003_name" model="hc.person.name">
+            <field name="person_id" ref="hc_person.practitioner_f003"/>
+            <field name="human_name_id" ref="hc_base.practitioner_f003_name"/>
+            <field name="use">official</field>
+        </record>
+
+    <!-- f003 Practitioner -->
+
+        <record id="practitioner_f003" model="hc.res.practitioner">
+            <field name="person_id" ref="hc_person.practitioner_f003"/>
+            <field name="identifier">f003</field>
+        </record>
+
+        <record id="practitioner_f003_text" model="hc.practitioner.domain.resource.text">
+            <field name="practitioner_id" ref="practitioner_f003"/>
+            <field name="status">generated</field>
+            <field name="div">
+                 <!-- <p><b>Generated Narrative with Details</b></p><p><b>id</b>: f003</p><p><b>identifier</b>: 846100293 (OFFICIAL), 243HID3RT938 (USUAL)</p><p><b>name</b>: Marc Versteegh (OFFICIAL)</p><p><b>telecom</b>: ph: 0205562431(WORK), m.versteegh@bmc.nl(WORK), fax: 0205662948(WORK)</p><p><b>address</b>: Galapagosweg 91 Amsterdam 1105 AZ NLD (WORK)</p><p><b>gender</b>: male</p><p><b>birthDate</b>: Jul 1, 1963</p><p><b>communication</b>: Dutch <span>(Details : {urn:oid:2.16.840.1.113883.6.121 code &#39;nl&#39; = &#39;nl&#39;, given as &#39;Dutch&#39;})</span></p> -->
+            </field>
+        </record>
+
+    <!-- f003 Practitioner Identifier -->
+
+        <record id="hc_person.practitioner_f003_identifier_1" model="hc.person.identifier">
+            <field name="person_id" ref="hc_person.practitioner_f003"/>
+            <field name="value">846100293</field>
+            <field name="code_id" ref="hc_base.ident_code_uzi"/>
+            <field name="system">urn:oid:2.16.528.1.1007.3.1</field>
+            <field name="use">official</field>
+        </record>
+
+        <record id="hc_person.practitioner_f003_identifier_2" model="hc.person.identifier">
+            <field name="person_id" ref="hc_person.practitioner_f003"/>
+            <field name="value">243HID3RT938</field>
+            <field name="code_id" ref="hc_base.ident_code_bsn"/>
+            <field name="system">urn:oid:2.16.840.1.113883.2.4.6.3</field>
+            <field name="use">usual</field>
+        </record>
+
+    <!-- f003 Practitioner Telecom -->
+
+        <record id="hc_base.cont_pnt_0205562431" model="hc.contact.point">
+            <field name="value">0205562431</field>
+            <field name="system">phone</field>
+        </record>
+
+        <record id="hc_person.practitioner_f003_telecom_1" model="hc.person.telecom">
+            <field name="person_id" ref="hc_person.practitioner_f003"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_0205562431"/>
+            <field name="use">work</field>
+        </record>
+
+        <record id="hc_base.cont_pnt_m_versteegh_bmc_nl" model="hc.contact.point">
+            <field name="value">m.versteegh@bmc.nl</field>
+            <field name="system">email</field>
+        </record>
+
+        <record id="hc_person.practitioner_f003_telecom_2" model="hc.person.telecom">
+            <field name="person_id" ref="hc_person.practitioner_f003"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_m_versteegh_bmc_nl"/>
+            <field name="use">work</field>
+        </record>
+
+        <record id="hc_base.cont_pnt_0205662948" model="hc.contact.point">
+            <field name="value">0205662948</field>
+            <field name="system">fax</field>
+        </record>
+
+        <record id="hc_person.practitioner_f003_telecom_3" model="hc.person.telecom">
+            <field name="person_id" ref="hc_person.practitioner_f003"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_0205662948"/>
+            <field name="use">work</field>
+        </record>
+
+    <!-- f003 Practitioner Address -->
+
+        <record id="hc_base.postal_code_1024_RJ" model="hc.vs.country.postal.code">
+            <field name="postal_code">1105 AZ</field>
+            <field name="name">1105 AZ</field>
+            <field name="code">1105 AZ</field>
+        </record>
+
+        <record id="hc_base.practitioner_f003_address" model="hc.address">
+            <field name="line1">Galapagosweg 91</field>
+            <field model="hc.vs.country.city" name="city_id" search="[('name','=','Amsterdam')]"/>
+            <field model="hc.vs.country.postal.code" name="postal_code_id" search="[('name','=','1105 AZ')]"/>
+            <field model="res.country" name="country_id" search="[('code3','=','NLD')]"/>
+        </record>
+
+        <record id="hc_person.practitioner_f003_address" model="hc.person.address">
+            <field name="person_id" ref="hc_person.practitioner_f003"/>
+            <field name="address_id" ref="hc_base.practitioner_f003_address"/>
+            <field name="use">work</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data noupdate="1">
-
-    <!-- F201 Organization -->
-
-        <record id="base.patient_f201_organization" model="res.partner">
-            <field name="name">AUMC</field>
-            <field name="company_type">company</field>
-            <field name="is_company" eval="True"/>
-            <field name="is_organization" eval="True"/>
-            <field name="is_healthcare" eval="True"/>
-        </record>
-
-        <record id="hc_organization.patient_f201" model="hc.res.organization">
-            <field name="partner_id" ref="base.patient_f201_organization"/>
-            <field name="name">AUMC</field>
-        </record>
+    <data noupdate="0">
 
     <!-- F201 Person -->
 
@@ -139,7 +124,7 @@
             <field name="is_deceased" eval="False"/>
             <field model="hc.res.patient" name="marital_status_id" search="[('name','=','Legally married')]"/>
             <field name="is_multiple_birth" eval="False"/>
-            <field name="managing_organization_id" ref="hc_organization.patient_f201"/>
+            <field name="managing_organization_id" ref="hc_organization.organization_f201"/>
         </record>
 
     <!-- F201 Patient Identifier -->
@@ -147,7 +132,7 @@
         <record id="patient_f201_patient_identifier_1" model="hc.patient.identifier">
             <field name="patient_id" ref="patient_f201"/>
             <field name="person_id" ref="hc_person.patient_f201"/>
-            <field name="code_id" ref="hc_base.ident_code_patient_f001"/>
+            <field name="code_id" ref="hc_base.ident_code_bsn"/>
             <field name="use">official</field>
             <field name="value">123456789</field>
         </record>
@@ -155,7 +140,7 @@
         <record id="patient_f201_patient_identifier_2" model="hc.patient.identifier">
             <field name="patient_id" ref="patient_f201"/>
             <field name="person_id" ref="hc_person.patient_f201"/>
-            <field name="code_id" ref="hc_base.ident_code_patient_f001"/>
+            <field name="code_id" ref="hc_base.ident_code_bsn"/>
             <field name="use">official</field>
             <field name="value">123456789</field>
         </record>

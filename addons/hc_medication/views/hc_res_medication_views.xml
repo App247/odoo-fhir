@@ -67,7 +67,7 @@
                                         <sheet>
                                             <div class="oe_title oe_left">
                                                 <h1>
-                                                <field name="name" default_focus="1" placeholder="Title (e.g., ADT Form)"/>
+                                                    <field name="name" default_focus="1" placeholder="Title (e.g., ADT Form)"/>
                                                 </h1>
                                             </div>
                                             <group>
@@ -75,13 +75,14 @@
                                                     <field name="creation_date"/>
                                                     <field name="attachment_type_id" placeholder="(e.g., ADT Form)"/>
                                                     <field name="has_data" invisible="1"/>
-                                                    <field name="mimetype" attrs="{'required': [('has_data','=',True)]}"/>
-                                                    <field name="datas" widget="image" class="oe_left oe_avatar" options="{'preview_image': 'image_medium', 'size': [90, 90]}" attrs="{'required': [('mimetype','!=',False)]}"/>
-                                                    <field name="hash_attachment" widget="image" class="oe_left oe_avatar" options="{'preview_image': 'image_medium', 'size': [90, 90]}"/>
+                                                    <field name="mimetype"/>
+                                                    <field name="datas"/>
+                                                    <!-- <field name="mimetype" attrs="{'required': [('has_data','=',True)]}"/>
+                                                    <field name="datas" attrs="{'required': [('mimetype','!=',False)]}"/> -->
                                                 </group>
                                                 <group>
                                                     <field name="language_id"/>
-                                                    <field name="url" widget="url"/>
+                                                    <field name="url"/>
                                                     <field name="file_size"/>
                                                 </group>
                                             </group>

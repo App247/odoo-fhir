@@ -1,0 +1,325 @@
+id,code,name,definition,parent_child_ids/id,level,source_id/id,system
+org_type_prov,prov,"Healthcare Provider","An organization that provides healthcare services.",,1,base.hl7fhir,http://hl7.org/fhir/ValueSet/organization-type
+org_type_dept,dept,"Hospital Department","A department or ward within a hospital (Generally is not applicable to top level organizations)",,1,base.hl7fhir,http://hl7.org/fhir/ValueSet/organization-type
+org_type_team,team,"Organizational team","An organizational team is usually a grouping of practitioners that perform a specific function within an organization (which could be a top level organization, or a department).",,1,base.hl7fhir,http://hl7.org/fhir/ValueSet/organization-type
+org_type_govt,govt,"Government","A political body, often used when including organization records for government bodies such as a Federal Government, State or Local Government.",,1,base.hl7fhir,http://hl7.org/fhir/ValueSet/organization-type
+org_type_ins,ins,"Insurance Company","A company that provides insurance to its subscribers that may include healthcare related policies.",,1,base.hl7fhir,http://hl7.org/fhir/ValueSet/organization-type
+org_type_edu,edu,"Educational Institute","An educational institution that provides education or research facilities.",,1,base.hl7fhir,http://hl7.org/fhir/ValueSet/organization-type
+org_type_reli,reli,"Religious Institution","An organization that is identified as a part of a religious institution.",,1,base.hl7fhir,http://hl7.org/fhir/ValueSet/organization-type
+org_type_crs,crs,"Clinical Research Sponsor","An organization that is identified as a Pharmaceutical/Clinical Research Sponsor.",,1,base.hl7fhir,http://hl7.org/fhir/ValueSet/organization-type
+org_type_cg,cg,"Community Group","An un-incorporated community group.",,1,base.hl7fhir,http://hl7.org/fhir/ValueSet/organization-type
+org_type_bus,bus,"Non-Healthcare Business or Corporation","An organization that is a registered business or corporation but not identified by other types.",,1,base.hl7fhir,http://hl7.org/fhir/ValueSet/organization-type
+org_type_other,other,"Other","Other type of organization not already specified.",,1,base.hl7fhir,http://hl7.org/fhir/ValueSet/organization-type
+org_type_276339004,276339004,"Environment","Environment (environment)",,1,base.snomed,http://snomed.info/
+org_type_224777007,224777007,"Physical environment","Physical environment (environment)","org_type_276339004",2,base.snomed,http://snomed.info/
+org_type_257557008,257557008,"Place","Place (environment)","org_type_276339004",2,base.snomed,http://snomed.info/
+org_type_285128009,285128009,"Personal environment","Personal environment (environment)","org_type_276339004",2,base.snomed,http://snomed.info/
+org_type_285201006,285201006,"Hospital environment","Hospital environment (environment)","org_type_276339004",2,base.snomed,http://snomed.info/
+org_type_285202004,285202004,"Community environment","Community environment (environment)","org_type_276339004",2,base.snomed,http://snomed.info/
+org_type_288500009,288500009,"Geographical environment","Geographical environment (environment)","org_type_276339004",2,base.snomed,http://snomed.info/
+org_type_43741000,43741000,"Site of care","Site of care (environment)","org_type_276339004",2,base.snomed,http://snomed.info/
+org_type_440654001,440654001,"Inpatient environment","Inpatient environment (environment)","org_type_276339004",2,base.snomed,http://snomed.info/
+org_type_440655000,440655000,"Outpatient environment","Outpatient environment (environment)","org_type_276339004",2,base.snomed,http://snomed.info/
+org_type_405607001,405607001,"Ambulatory surgery center","Ambulatory surgery center (environment)","org_type_43741000",3,base.snomed,http://snomed.info/
+org_type_288573005,288573005,"Community health care environment","Community health care environment (environment)","org_type_43741000",3,base.snomed,http://snomed.info/
+org_type_409519008,409519008,"Contained casualty setting","Contained casualty setting (environment)","org_type_43741000",3,base.snomed,http://snomed.info/
+org_type_223910003,223910003,"English health authorities","English health authorities (environment)","org_type_43741000",3,base.snomed,http://snomed.info/
+org_type_67190003,67190003,"Free-standing clinic","Free-standing clinic (environment)","org_type_43741000",3,base.snomed,http://snomed.info/
+org_type_223926002,223926002,"Health boards of Northern Ireland","Health boards of Northern Ireland (environment)","org_type_43741000",3,base.snomed,http://snomed.info/
+org_type_394777002,394777002,"Health encounter sites","Health encounter sites (environment)","org_type_43741000",3,base.snomed,http://snomed.info/
+org_type_72311000,72311000,"Health maintenance organization","Health maintenance organization (environment)","org_type_43741000",3,base.snomed,http://snomed.info/
+org_type_108343000,108343000,"Hospital AND/OR institution","Hospital AND/OR institution (environment)","org_type_43741000",3,base.snomed,http://snomed.info/
+org_type_360957003,360957003,"Hospital-based outpatient allergy clinic","Hospital-based outpatient allergy clinic (environment)","org_type_43741000",3,base.snomed,http://snomed.info/
+org_type_33022008,33022008,"Hospital-based outpatient department","Hospital-based outpatient department (environment)","org_type_43741000",3,base.snomed,http://snomed.info/
+org_type_360966004,360966004,"Hospital-based outpatient immunology clinic","Hospital-based outpatient immunology clinic (environment)","org_type_43741000",3,base.snomed,http://snomed.info/
+org_type_702878005,702878005,"Land ambulance","Land ambulance (environment)","org_type_43741000",3,base.snomed,http://snomed.info/
+org_type_409518000,409518000,"Mass casualty setting","Mass casualty setting (environment)","org_type_43741000",3,base.snomed,http://snomed.info/
+org_type_108344006,108344006,"Nursing home AND/OR ambulatory care site","Nursing home AND/OR ambulatory care site (environment)","org_type_43741000",3,base.snomed,http://snomed.info/
+org_type_74056004,74056004,"Orphanage","Orphanage (environment)","org_type_43741000",3,base.snomed,http://snomed.info/
+org_type_431041000124104,431041000124104,"Satellite dialysis facility","Satellite dialysis facility (environment)","org_type_43741000",3,base.snomed,http://snomed.info/
+org_type_257585005,257585005,"Clinic","Clinic (environment)","org_type_394777002",4,base.snomed,http://snomed.info/
+org_type_394750006,394750006,"Primary Care Trust site","Primary Care Trust site (environment)","org_type_394777002",4,base.snomed,http://snomed.info/
+org_type_394759007,394759007,"Independent provider site","Independent provider site (environment)","org_type_394777002",4,base.snomed,http://snomed.info/
+org_type_394761003,394761003,"General practitioner practice site","General practitioner practice site (environment)","org_type_394777002",4,base.snomed,http://snomed.info/
+org_type_441480003,441480003,"Primary care department","Primary care department (environment)","org_type_394777002",4,base.snomed,http://snomed.info/
+org_type_274517002,274517002,"Alcoholism detoxication center","Alcoholism detoxication center (environment)","org_type_288573005",4,base.snomed,http://snomed.info/
+org_type_394778007,394778007,"Client's or patient's home","Client's or patient's home (environment)","org_type_288573005",4,base.snomed,http://snomed.info/
+org_type_394789000,394789000,"Day center managed by local authority","Day center managed by local authority (environment)","org_type_288573005",4,base.snomed,http://snomed.info/
+org_type_394790009,394790009,"Day center managed by voluntary or private agents","Day center managed by voluntary or private agents (environment)","org_type_288573005",4,base.snomed,http://snomed.info/
+org_type_282087008,282087008,"Dental laboratory","Dental laboratory (environment)","org_type_288573005",4,base.snomed,http://snomed.info/
+org_type_282086004,282086004,"Dental surgery premises","Dental surgery premises (environment)","org_type_288573005",4,base.snomed,http://snomed.info/
+org_type_264358009,264358009,"General practice premises","General practice premises (environment)","org_type_288573005",4,base.snomed,http://snomed.info/
+org_type_394783004,394783004,"Group home managed by local authority","Group home managed by local authority (environment)","org_type_288573005",4,base.snomed,http://snomed.info/
+org_type_394784005,394784005,"Group home managed by voluntary or private agents","Group home managed by voluntary or private agents (environment)","org_type_288573005",4,base.snomed,http://snomed.info/
+org_type_264361005,264361005,"Health center","Health center (environment)","org_type_288573005",4,base.snomed,http://snomed.info/
+org_type_394794000,394794000,"Health clinic managed by voluntary or private agents","Health clinic managed by voluntary or private agents (environment)","org_type_288573005",4,base.snomed,http://snomed.info/
+org_type_257622000,257622000,"Healthcare facility","Healthcare facility (environment)","org_type_288573005",4,base.snomed,http://snomed.info/
+org_type_224880002,224880002,"Location within general practice premises","Location within general practice premises (environment)","org_type_288573005",4,base.snomed,http://snomed.info/
+org_type_288565001,288565001,"Medical center","Medical center (environment)","org_type_288573005",4,base.snomed,http://snomed.info/
+org_type_182718004,182718004,"Mountain resort sanatorium","Mountain resort sanatorium (environment)","org_type_288573005",4,base.snomed,http://snomed.info/
+org_type_264372000,264372000,"Pharmacy","Pharmacy (environment)","org_type_288573005",4,base.snomed,http://snomed.info/
+org_type_225740007,225740007,"Regional center","Regional center (environment)","org_type_288573005",4,base.snomed,http://snomed.info/
+org_type_394797007,394797007,"Resource center managed by local authority","Resource center managed by local authority (environment)","org_type_288573005",4,base.snomed,http://snomed.info/
+org_type_394798002,394798002,"Resource center managed by voluntary or private agents","Resource center managed by voluntary or private agents (environment)","org_type_288573005",4,base.snomed,http://snomed.info/
+org_type_416957006,416957006,"Community medical center","Community medical center (environment)","org_type_288565001",5,base.snomed,http://snomed.info/
+org_type_10531005,10531005,"Free-standing ambulatory surgery facility","Free-standing ambulatory surgery facility (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_11119007,11119007,"Free-standing peripheral vascular clinic","Free-standing peripheral vascular clinic (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_113172002,113172002,"Free-standing oncology clinic","Free-standing oncology clinic (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_13015006,13015006,"Free-standing gastroenterology clinic","Free-standing gastroenterology clinic (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_13656005,13656005,"Free-standing physical medicine clinic","Free-standing physical medicine clinic (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_1526002,1526002,"Free-standing breast clinic","Free-standing breast clinic (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_16597003,16597003,"Free-standing ophthalmology clinic","Free-standing ophthalmology clinic (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_16879004,16879004,"Free-standing neurology clinic","Free-standing neurology clinic (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_1773006,1773006,"Free-standing radiology facility","Free-standing radiology facility (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_19602009,19602009,"Fee-for-service private physicians' group office","Fee-for-service private physicians' group office (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_21700006,21700006,"Free-standing dermatology clinic","Free-standing dermatology clinic (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_22201008,22201008,"Free-standing dental clinic","Free-standing dental clinic (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_31154006,31154006,"Prepaid private physicians' group office","Prepaid private physicians' group office (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_32193000,32193000,"Free-standing immunology clinic","Free-standing immunology clinic (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_36490008,36490008,"Free-standing general surgery clinic","Free-standing general surgery clinic (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_3768009,3768009,"Free-standing hematology clinic","Free-standing hematology clinic (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_39350007,39350007,"Private physicians' group office","Private physicians' group office (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_39750005,39750005,"Free-standing pain clinic","Free-standing pain clinic (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_41844007,41844007,"Free-standing geriatric clinic","Free-standing geriatric clinic (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_44860005,44860005,"Free-standing rehabilitation clinic","Free-standing rehabilitation clinic (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_45288004,45288004,"Free-standing urology clinic","Free-standing urology clinic (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_45899008,45899008,"Free-standing laboratory facility","Free-standing laboratory facility (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_51563005,51563005,"Free-standing mental health clinic","Free-standing mental health clinic (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_52589007,52589007,"Free-standing orthopedics clinic","Free-standing orthopedics clinic (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_55948006,55948006,"Free-standing family medicine clinic","Free-standing family medicine clinic (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_56217002,56217002,"Free-standing obstetrical clinic","Free-standing obstetrical clinic (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_56775002,56775002,"Free-standing respiratory disease clinic","Free-standing respiratory disease clinic (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_62264003,62264003,"Free-standing otorhinolaryngology clinic","Free-standing otorhinolaryngology clinic (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_69135000,69135000,"Free-standing infectious disease clinic","Free-standing infectious disease clinic (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_69859008,69859008,"Free-standing rheumatology clinic","Free-standing rheumatology clinic (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_70547005,70547005,"Inner city health center","Inner city health center (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_74018000,74018000,"Free-standing emergency care center","Free-standing emergency care center (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_77931003,77931003,"Rural health center","Rural health center (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_81234003,81234003,"Walk-in clinic","Walk-in clinic (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_82455001,82455001,"Free-standing pediatric clinic","Free-standing pediatric clinic (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_83891005,83891005,"Solo practice private office","Solo practice private office (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_84643003,84643003,"Free-standing endocrinology clinic","Free-standing endocrinology clinic (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_91154008,91154008,"Free-standing birthing center","Free-standing birthing center (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_91655008,91655008,"Free-standing gynecology clinic","Free-standing gynecology clinic (environment)","org_type_67190003",4,base.snomed,http://snomed.info/
+org_type_702813008,702813008,"Acquired immune deficiency syndrome clinic","Acquired immune deficiency syndrome clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702812003,702812003,"Acute pain clinic","Acute pain clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702819007,702819007,"After hours clinic","After hours clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702814002,702814002,"Allergy clinic","Allergy clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702821002,702821002,"Amputee clinic","Amputee clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702822009,702822009,"Anticoagulation clinic","Anticoagulation clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702823004,702823004,"Asthma clinic","Asthma clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702824005,702824005,"Audiology clinic","Audiology clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702825006,702825006,"Autism clinic","Autism clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702826007,702826007,"Bipolar clinic","Bipolar clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702827003,702827003,"Bone marrow transplant clinic","Bone marrow transplant clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702828008,702828008,"Breast clinic","Breast clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702830005,702830005,"Cardiology clinic","Cardiology clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_185920002,185920002,"Cardiovascular clinic","Cardiovascular clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702831009,702831009,"Child and adolescent medicine clinic","Child and adolescent medicine clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702832002,702832002,"Child and adolescent neurology clinic","Child and adolescent neurology clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702833007,702833007,"Child and adolescent psychiatry clinic","Child and adolescent psychiatry clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702834001,702834001,"Child speech and language therapy clinic","Child speech and language therapy clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702839006,702839006,"Chronic obstructive pulmonary disease clinic","Chronic obstructive pulmonary disease clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702840008,702840008,"Chronic pain clinic","Chronic pain clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702841007,702841007,"Cleft palate clinic","Cleft palate clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_444766008,444766008,"Colposcopy clinic","Colposcopy clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_310391008,310391008,"Community clinic","Community clinic (environment)","org_type_257585005,org_type_288573005",5,base.snomed,http://snomed.info/
+org_type_185483006,185483006,"Outreach clinic","Outreach clinic (environment)","org_type_310391008",6,base.snomed,http://snomed.info/
+org_type_185484000,185484000,"Dermatology outreach clinic","Dermatology outreach clinic (environment)","org_type_185483006",7,base.snomed,http://snomed.info/
+org_type_185485004,185485004,"Orthopedic outreach clinic","Orthopedic outreach clinic (environment)","org_type_185483006",7,base.snomed,http://snomed.info/
+org_type_185486003,185486003,"Ophthalmology outreach clinic","Ophthalmology outreach clinic (environment)","org_type_185483006",7,base.snomed,http://snomed.info/
+org_type_185487007,185487007,"Podiatry outreach clinic","Podiatry outreach clinic (environment)","org_type_185483006",7,base.snomed,http://snomed.info/
+org_type_702842000,702842000,"Congenital heart disease clinic","Congenital heart disease clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702843005,702843005,"Congestive heart failure clinic","Congestive heart failure clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702844004,702844004,"Cystic fibrosis clinic","Cystic fibrosis clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702845003,702845003,"Deep vein thrombosis clinic","Deep vein thrombosis clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702846002,702846002,"Dental clinic","Dental clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702847006,702847006,"Dermatology clinic","Dermatology clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702706001,702706001,"Diabetes clinic","Diabetes clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702848001,702848001,"Diabetes foot care clinic","Diabetes foot care clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702849009,702849009,"Diabetes in pregnancy clinic","Diabetes in pregnancy clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702850009,702850009,"Diabetic retinopathy clinic","Diabetic retinopathy clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702851008,702851008,"Down syndrome clinic","Down syndrome clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702852001,702852001,"Ear, nose and throat clinic","Ear, nose and throat clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702853006,702853006,"Eating disorder clinic","Eating disorder clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_275576008,275576008,"Elderly assessment clinic","Elderly assessment clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702854000,702854000,"Endocrinology clinic","Endocrinology clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702855004,702855004,"Family medicine clinic","Family medicine clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702856003,702856003,"Family planning clinic","Family planning clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702857007,702857007,"Fetal alcohol clinic","Fetal alcohol clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702858002,702858002,"Fracture clinic","Fracture clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702859005,702859005,"Gastroenterology clinic","Gastroenterology clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702860000,702860000,"General surgery clinic","General surgery clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702861001,702861001,"Genetics clinic","Genetics clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_431654006,431654006,"Genitourinary medicine clinic","Genitourinary medicine clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702862008,702862008,"Gynecology clinic","Gynecology clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702863003,702863003,"Hand clinic","Hand clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702864009,702864009,"Headache clinic","Headache clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702865005,702865005,"Hematology clinic","Hematology clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702866006,702866006,"Hemophilia clinic","Hemophilia clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_310390009,310390009,"Hospital clinic","Hospital clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702867002,702867002,"Hypertension clinic","Hypertension clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702868007,702868007,"Immunology clinic","Immunology clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702870003,702870003,"Infectious disease clinic","Infectious disease clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702871004,702871004,"Infertility clinic","Infertility clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702877000,702877000,"Internal medicine clinic","Internal medicine clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_394865001,394865001,"Joint consultant clinic","Joint consultant clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702879002,702879002,"Laser eye clinic","Laser eye clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702880004,702880004,"Lymphedema clinic","Lymphedema clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_394573001,394573001,"Maternity clinic","Maternity clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702881000,702881000,"Medical day care","Medical day care (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702882007,702882007,"Mental health clinic","Mental health clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702883002,702883002,"Mood or anxiety disorder clinic","Mood or anxiety disorder clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702884008,702884008,"Movement disorder clinic","Movement disorder clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702885009,702885009,"Multiple sclerosis clinic","Multiple sclerosis clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702886005,702886005,"Nephrology clinic","Nephrology clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702887001,702887001,"Neurology clinic","Neurology clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702888006,702888006,"Neuromuscular clinic","Neuromuscular clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702889003,702889003,"Neurophysiology clinic","Neurophysiology clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702890007,702890007,"Neuropsychology clinic","Neuropsychology clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702891006,702891006,"Neurosurgery clinic","Neurosurgery clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_703069008,703069008,"Nurse practitioner clinic","Nurse practitioner clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702892004,702892004,"Obstetrics and gynecology clinic","Obstetrics and gynecology clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702893009,702893009,"Occupational therapy clinic","Occupational therapy clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702931005,702931005,"Oncology clinic","Oncology clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702894003,702894003,"Ophthalmology clinic","Ophthalmology clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702932003,702932003,"Oral and maxillofacial surgery clinic","Oral and maxillofacial surgery clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702933008,702933008,"Orthopedic clinic","Orthopedic clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702895002,702895002,"Osteoporosis clinic","Osteoporosis clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702896001,702896001,"Pacemaker clinic","Pacemaker clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702897005,702897005,"Pain clinic","Pain clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702898000,702898000,"Parkinson's disease clinic","Parkinson's disease clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702899008,702899008,"Pediatric cardiology clinic","Pediatric cardiology clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702900003,702900003,"Pediatric clinic","Pediatric clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702901004,702901004,"Pediatric dermatology clinic","Pediatric dermatology clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702902006,702902006,"Pediatric ear, nose and throat clinic","Pediatric ear, nose and throat clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702903001,702903001,"Pediatric endocrinology clinic","Pediatric endocrinology clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702904007,702904007,"Pediatric gastroenterology clinic","Pediatric gastroenterology clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702905008,702905008,"Pediatric hematology clinic","Pediatric hematology clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702906009,702906009,"Pediatric infectious disease clinic","Pediatric infectious disease clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702909002,702909002,"Pediatric oncology clinic","Pediatric oncology clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702907000,702907000,"Pediatric rheumatology clinic","Pediatric rheumatology clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702934002,702934002,"Pediatric surgery clinic","Pediatric surgery clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702908005,702908005,"Pediatric urology clinic","Pediatric urology clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702910007,702910007,"Pelvic floor clinic","Pelvic floor clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702935001,702935001,"Physiotherapy clinic","Physiotherapy clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702930006,702930006,"Plastic surgery clinic","Plastic surgery clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702911006,702911006,"Podiatry clinic","Podiatry clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_397872006,397872006,"Preoperative screening clinic","Preoperative screening clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702912004,702912004,"Preventive medicine clinic","Preventive medicine clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_5351000124100,5351000124100,"Primary care clinic","Primary care clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702913009,702913009,"Proctology clinic","Proctology clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702914003,702914003,"Psychiatry clinic","Psychiatry clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702915002,702915002,"Psychology clinic","Psychology clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702916001,702916001,"Rehabilitation clinic","Rehabilitation clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702917005,702917005,"Respiratory disease clinic","Respiratory disease clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702918000,702918000,"Rheumatology clinic","Rheumatology clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702919008,702919008,"Schizophrenia clinic","Schizophrenia clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702920002,702920002,"Seizure clinic","Seizure clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702921003,702921003,"Sexual health clinic","Sexual health clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_443621004,443621004,"Sleep apnea clinic","Sleep apnea clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702922005,702922005,"Speech and language therapy clinic","Speech and language therapy clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702923000,702923000,"Sports medicine clinic","Sports medicine clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702924006,702924006,"Stroke clinic","Stroke clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702925007,702925007,"Swallow clinic","Swallow clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702926008,702926008,"Tourette syndrome clinic","Tourette syndrome clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702927004,702927004,"Urgent care clinic","Urgent care clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702928009,702928009,"Urology clinic","Urology clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_702929001,702929001,"Vertigo clinic","Vertigo clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_275692008,275692008,"Wart clinic","Wart clinic (environment)","org_type_257585005",5,base.snomed,http://snomed.info/
+org_type_22232009,22232009,"Hospital","Hospital (environment)","org_type_108343000",4,base.snomed,http://snomed.info/
+org_type_18095007,18095007,"Intermediate care hospital for mentally retarded","Intermediate care hospital for mentally retarded (environment)","org_type_22232009",5,base.snomed,http://snomed.info/
+org_type_20078004,20078004,"Substance abuse treatment center","Substance abuse treatment center (environment)","org_type_22232009",5,base.snomed,http://snomed.info/
+org_type_20316001,20316001,"Tertiary care hospital","Tertiary care hospital (environment)","org_type_22232009",5,base.snomed,http://snomed.info/
+org_type_2081004,2081004,"Hospital ship","Hospital ship (environment)","org_type_22232009",5,base.snomed,http://snomed.info/
+org_type_224924009,224924009,"Cottage hospital","Cottage hospital (environment)","org_type_22232009",5,base.snomed,http://snomed.info/
+org_type_224929004,224929004,"Secure hospital","Secure hospital (environment)","org_type_22232009",5,base.snomed,http://snomed.info/
+org_type_225732001,225732001,"Community hospital","Community hospital (environment)","org_type_22232009",5,base.snomed,http://snomed.info/
+org_type_274516006,274516006,"Day hospital","Day hospital (environment)","org_type_22232009",5,base.snomed,http://snomed.info/
+org_type_309895006,309895006,"Private hospital","Private hospital (environment)","org_type_22232009",5,base.snomed,http://snomed.info/
+org_type_309896007,309896007,"Tertiary referral hospital","Tertiary referral hospital (environment)","org_type_22232009",5,base.snomed,http://snomed.info/
+org_type_32074000,32074000,"Long term care hospital","Long term care hospital (environment)","org_type_22232009",5,base.snomed,http://snomed.info/
+org_type_34304006,34304006,"Burn center","Burn center (environment)","org_type_22232009",5,base.snomed,http://snomed.info/
+org_type_36125001,36125001,"Trauma center","Trauma center (environment)","org_type_22232009",5,base.snomed,http://snomed.info/
+org_type_38426004,38426004,"Treatment center for emotionally disturbed children","Treatment center for emotionally disturbed children (environment)","org_type_22232009",5,base.snomed,http://snomed.info/
+org_type_405608006,405608006,"Academic medical center","Academic medical center (environment)","org_type_22232009",5,base.snomed,http://snomed.info/
+org_type_4322002,4322002,"Military field hospital","Military field hospital (environment)","org_type_22232009",5,base.snomed,http://snomed.info/
+org_type_434771000124107,434771000124107,"Acute care hospital","Acute care hospital (environment)","org_type_22232009",5,base.snomed,http://snomed.info/
+org_type_443750004,443750004,"Nonacute hospital","Nonacute hospital (environment)","org_type_22232009",5,base.snomed,http://snomed.info/
+org_type_448399001,448399001,"Dental hospital","Dental hospital (environment)","org_type_22232009",5,base.snomed,http://snomed.info/
+org_type_45131006,45131006,"Primary care hospital","Primary care hospital (environment)","org_type_22232009",5,base.snomed,http://snomed.info/
+org_type_46111000,46111000,"Secondary care hospital","Secondary care hospital (environment)","org_type_22232009",5,base.snomed,http://snomed.info/
+org_type_48120004,48120004,"Cancer hospital","Cancer hospital (environment)","org_type_22232009",5,base.snomed,http://snomed.info/
+org_type_48311003,48311003,"Veteran's administration hospital","Veteran's administration hospital (environment)","org_type_22232009",5,base.snomed,http://snomed.info/
+org_type_54372004,54372004,"Geriatric hospital","Geriatric hospital (environment)","org_type_22232009",5,base.snomed,http://snomed.info/
+org_type_56109004,56109004,"Intermediate care hospital","Intermediate care hospital (environment)","org_type_22232009",5,base.snomed,http://snomed.info/
+org_type_62480006,62480006,"Psychiatric hospital","Psychiatric hospital (environment)","org_type_22232009",5,base.snomed,http://snomed.info/
+org_type_77500004,77500004,"Vocational rehabilitation center","Vocational rehabilitation center (environment)","org_type_22232009",5,base.snomed,http://snomed.info/
+org_type_79993009,79993009,"Government hospital","Government hospital (environment)","org_type_22232009",5,base.snomed,http://snomed.info/
+org_type_80522000,80522000,"Rehabilitation hospital","Rehabilitation hospital (environment)","org_type_22232009",5,base.snomed,http://snomed.info/
+org_type_82242000,82242000,"Children's hospital","Children's hospital (environment)","org_type_22232009",5,base.snomed,http://snomed.info/
+org_type_309897003,309897003,"Psychiatric day care hospital","Psychiatric day care hospital (environment)","org_type_274516006",6,base.snomed,http://snomed.info/
+org_type_309900005,309900005,"Care of the elderly day hospital","Care of the elderly day hospital (environment)","org_type_274516006",6,base.snomed,http://snomed.info/
+org_type_309898008,309898008,"Psychogeriatric day hospital","Psychogeriatric day hospital (environment)","org_type_309897003",7,base.snomed,http://snomed.info/
+org_type_309899000,309899000,"Elderly severely mentally ill day hospital","Elderly severely mentally ill day hospital (environment)","org_type_309897003",7,base.snomed,http://snomed.info/
+org_type_435821000124103,435821000124103,"District hospital","District hospital (environment)","org_type_79993009",6,base.snomed,http://snomed.info/
+org_type_435831000124100,435831000124100,"Provincial hospital","Provincial hospital (environment)","org_type_79993009",6,base.snomed,http://snomed.info/
+org_type_435841000124105,435841000124105,"Sub-district hospital","Sub-district hospital (environment)","org_type_79993009",6,base.snomed,http://snomed.info/
+org_type_224687002,224687002,"Prison hospital","Prison hospital (environment)","org_type_224929004",6,base.snomed,http://snomed.info/
+org_type_288561005,288561005,"Special hospital","Special hospital (environment)","org_type_224929004",6,base.snomed,http://snomed.info/
+org_type_10206005,10206005,"Hospital-based outpatient dental clinic","Hospital-based outpatient dental clinic (environment)","org_type_33022008",4,base.snomed,http://snomed.info/
+org_type_14866005,14866005,"Hospital-based outpatient mental health clinic","Hospital-based outpatient mental health clinic (environment)","org_type_33022008",4,base.snomed,http://snomed.info/
+org_type_1814000,1814000,"Hospital-based outpatient geriatric clinic","Hospital-based outpatient geriatric clinic (environment)","org_type_33022008",4,base.snomed,http://snomed.info/
+org_type_22549003,22549003,"Hospital-based outpatient gynecology clinic","Hospital-based outpatient gynecology clinic (environment)","org_type_33022008",4,base.snomed,http://snomed.info/
+org_type_23392004,23392004,"Hospital-based outpatient otorhinolaryngology clinic","Hospital-based outpatient otorhinolaryngology clinic (environment)","org_type_33022008",4,base.snomed,http://snomed.info/
+org_type_25567001,25567001,"Hospital-based outpatient breast clinic","Hospital-based outpatient breast clinic (environment)","org_type_33022008",4,base.snomed,http://snomed.info/
+org_type_2849009,2849009,"Hospital-based outpatient infectious disease clinic","Hospital-based outpatient infectious disease clinic (environment)","org_type_33022008",4,base.snomed,http://snomed.info/
+org_type_31628002,31628002,"Hospital-based outpatient family medicine clinic","Hospital-based outpatient family medicine clinic (environment)","org_type_33022008",4,base.snomed,http://snomed.info/
+org_type_331006,331006,"Hospital-based outpatient rheumatology clinic","Hospital-based outpatient rheumatology clinic (environment)","org_type_33022008",4,base.snomed,http://snomed.info/
+org_type_36293008,36293008,"Hospital-based outpatient pain clinic","Hospital-based outpatient pain clinic (environment)","org_type_33022008",4,base.snomed,http://snomed.info/
+org_type_3729002,3729002,"Hospital-based outpatient pediatric clinic","Hospital-based outpatient pediatric clinic (environment)","org_type_33022008",4,base.snomed,http://snomed.info/
+org_type_37546005,37546005,"Hospital-based outpatient rehabilitation clinic","Hospital-based outpatient rehabilitation clinic (environment)","org_type_33022008",4,base.snomed,http://snomed.info/
+org_type_37550003,37550003,"Hospital-based outpatient dermatology clinic","Hospital-based outpatient dermatology clinic (environment)","org_type_33022008",4,base.snomed,http://snomed.info/
+org_type_38238005,38238005,"Hospital-based outpatient neurology clinic","Hospital-based outpatient neurology clinic (environment)","org_type_33022008",4,base.snomed,http://snomed.info/
+org_type_42168000,42168000,"Hospital-based radiotherapy facility","Hospital-based radiotherapy facility (environment)","org_type_33022008",4,base.snomed,http://snomed.info/
+org_type_436561000124101,436561000124101,"Hospital-based dialysis facility","Hospital-based dialysis facility (environment)","org_type_33022008",4,base.snomed,http://snomed.info/
+org_type_50569004,50569004,"Hospital-based outpatient urology clinic","Hospital-based outpatient urology clinic (environment)","org_type_33022008",4,base.snomed,http://snomed.info/
+org_type_52668009,52668009,"Hospital-based birthing center","Hospital-based birthing center (environment)","org_type_33022008",4,base.snomed,http://snomed.info/
+org_type_5584006,5584006,"Hospital-based outpatient peripheral vascular clinic","Hospital-based outpatient peripheral vascular clinic (environment)","org_type_33022008",4,base.snomed,http://snomed.info/
+org_type_56189001,56189001,"Hospital-based outpatient obstetrical clinic","Hospital-based outpatient obstetrical clinic (environment)","org_type_33022008",4,base.snomed,http://snomed.info/
+org_type_56293002,56293002,"Hospital-based outpatient hematology clinic","Hospital-based outpatient hematology clinic (environment)","org_type_33022008",4,base.snomed,http://snomed.info/
+org_type_57159002,57159002,"Hospital-based outpatient respiratory disease clinic","Hospital-based outpatient respiratory disease clinic (environment)","org_type_33022008",4,base.snomed,http://snomed.info/
+org_type_58482006,58482006,"Hospital-based outpatient gastroenterology clinic","Hospital-based outpatient gastroenterology clinic (environment)","org_type_33022008",4,base.snomed,http://snomed.info/
+org_type_67236001,67236001,"Hospital-based outpatient physical medicine clinic","Hospital-based outpatient physical medicine clinic (environment)","org_type_33022008",4,base.snomed,http://snomed.info/
+org_type_69362002,69362002,"Hospital-based ambulatory surgery facility","Hospital-based ambulatory surgery facility (environment)","org_type_33022008",4,base.snomed,http://snomed.info/
+org_type_73588009,73588009,"Hospital-based laboratory facility","Hospital-based laboratory facility (environment)","org_type_33022008",4,base.snomed,http://snomed.info/
+org_type_73644007,73644007,"Hospital-based outpatient endocrinology clinic","Hospital-based outpatient endocrinology clinic (environment)","org_type_33022008",4,base.snomed,http://snomed.info/
+org_type_73770003,73770003,"Hospital-based outpatient emergency care center","Hospital-based outpatient emergency care center (environment)","org_type_33022008",4,base.snomed,http://snomed.info/
+org_type_78001009,78001009,"Hospital-based outpatient orthopedics clinic","Hospital-based outpatient orthopedics clinic (environment)","org_type_33022008",4,base.snomed,http://snomed.info/
+org_type_78088001,78088001,"Hospital-based outpatient ophthalmology clinic","Hospital-based outpatient ophthalmology clinic (environment)","org_type_33022008",4,base.snomed,http://snomed.info/
+org_type_79491001,79491001,"Hospital-based radiology facility","Hospital-based radiology facility (environment)","org_type_33022008",4,base.snomed,http://snomed.info/
+org_type_89972002,89972002,"Hospital-based outpatient oncology clinic","Hospital-based outpatient oncology clinic (environment)","org_type_33022008",4,base.snomed,http://snomed.info/
+org_type_90484001,90484001,"Hospital-based outpatient general surgery clinic","Hospital-based outpatient general surgery clinic (environment)","org_type_33022008",4,base.snomed,http://snomed.info/
+org_type_113173007,113173007,"Domiciliary","Domiciliary (environment)","org_type_108344006",4,base.snomed,http://snomed.info/
+org_type_11424001,11424001,"Ambulance-based care","Ambulance-based care (environment)","org_type_108344006",4,base.snomed,http://snomed.info/
+org_type_1348009,1348009,"Day care center","Day care center (environment)","org_type_108344006",4,base.snomed,http://snomed.info/
+org_type_16384001,16384001,"Skilled nursing facility, level 2 care","Skilled nursing facility, level 2 care (environment)","org_type_108344006",4,base.snomed,http://snomed.info/
+org_type_22357001,22357001,"Skilled nursing facility, level 1 care","Skilled nursing facility, level 1 care (environment)","org_type_108344006",4,base.snomed,http://snomed.info/
+org_type_25681007,25681007,"Sexually transmitted disease clinic","Sexually transmitted disease clinic (environment)","org_type_108344006",4,base.snomed,http://snomed.info/
+org_type_2961002,2961002,"Aid car-based care","Aid car-based care (environment)","org_type_108344006",4,base.snomed,http://snomed.info/
+org_type_30629002,30629002,"Retirement home","Retirement home (environment)","org_type_108344006",4,base.snomed,http://snomed.info/
+org_type_35313001,35313001,"Skilled nursing facility, level 4 care","Skilled nursing facility, level 4 care (environment)","org_type_108344006",4,base.snomed,http://snomed.info/
+org_type_35971002,35971002,"Ambulatory care site","Ambulatory care site (environment)","org_type_108344006",4,base.snomed,http://snomed.info/
+org_type_39176004,39176004,"Airplane-based care","Airplane-based care (environment)","org_type_108344006",4,base.snomed,http://snomed.info/
+org_type_39216000,39216000,"School infirmary","School infirmary (environment)","org_type_108344006",4,base.snomed,http://snomed.info/
+org_type_39913001,39913001,"Residential school infirmary","Residential school infirmary (environment)","org_type_108344006",4,base.snomed,http://snomed.info/
+org_type_42665001,42665001,"Nursing home","Nursing home (environment)","org_type_108344006",4,base.snomed,http://snomed.info/
+org_type_45618002,45618002,"Skilled nursing facility","Skilled nursing facility (environment)","org_type_108344006",4,base.snomed,http://snomed.info/
+org_type_46224007,46224007,"Vaccination clinic","Vaccination clinic (environment)","org_type_108344006",4,base.snomed,http://snomed.info/
+org_type_59374000,59374000,"Traveler's aid clinic","Traveler's aid clinic (environment)","org_type_108344006",4,base.snomed,http://snomed.info/
+org_type_63997002,63997002,"Skilled nursing facility, level 3 care","Skilled nursing facility, level 3 care (environment)","org_type_108344006",4,base.snomed,http://snomed.info/
+org_type_66280005,66280005,"Private home-based care","Private home-based care (environment)","org_type_108344006",4,base.snomed,http://snomed.info/
+org_type_6827000,6827000,"Local community health center","Local community health center (environment)","org_type_108344006",4,base.snomed,http://snomed.info/
+org_type_901005,901005,"Helicopter-based care","Helicopter-based care (environment)","org_type_108344006",4,base.snomed,http://snomed.info/
+org_type_448535008,448535008,"Outpatient freestanding dialysis treatment facility","Outpatient freestanding dialysis treatment facility (environment)","org_type_440655000",3,base.snomed,http://snomed.info/
+org_type_702705002,702705002,"Mobile clinic","Mobile clinic (environment)","org_type_440655000",3,base.snomed,http://snomed.info/

@@ -98,6 +98,23 @@ class Practitioner(models.Model):
         string="Roles",
         help="Roles/organizations the practitioner is associated with.")
 
+    # Domain Resource
+    text_id = fields.Many2one(
+        comodel_name="hc.practitioner.domain.resource.text")
+
+    contained_ids = fields.One2many(
+        comodel_name="hc.practitioner.domain.resource.contained",
+        inverse_name="practitioner_id")
+
+    extension_ids = fields.One2many(
+        comodel_name="hc.practitioner.domain.resource.extension",
+        inverse_name="practitioner_id")
+
+    modifier_extension_ids = fields.One2many(
+        comodel_name="hc.practitioner.domain.resource.modifier.extension",
+        inverse_name="practitioner_id")
+
+
     # _defaults = {
     #     "is_practitioner": True,
     #     }
@@ -252,13 +269,14 @@ class PractitionerCommunication(models.Model):
     _name = "hc.practitioner.communication"
     _description = "Practitioner Communication"
     _inherit = ["hc.basic.association"]
+    _rec_name = "language_id"
 
     practitioner_id = fields.Many2one(
         comodel_name="hc.res.practitioner",
         string="Practitioner",
         help="Practitioner associated with this language.")
     language_id = fields.Many2one(
-        comodel_name="hc.vs.language",
+        comodel_name="res.lang",
         string="Language",
         help="A language the practitioner is able to use in patient communication.")
     proficiency_ids = fields.One2many(
@@ -271,6 +289,7 @@ class PractitionerLanguageProficiency(models.Model):
     _name = "hc.practitioner.language.proficiency"
     _description = "Practitioner Language Proficiency"
     _inherit = ["hc.basic.association"]
+    _rec_name = "language_proficiency_id"
 
     communication_id = fields.Many2one(
         comodel_name="hc.practitioner.communication",
@@ -324,6 +343,46 @@ class PractitionerSpecialty(models.Model):
         comodel_name="res.country",
         string="Country",
         help="Country (can be ISO 3166 3 letter code).")
+
+class PractitionerDomainResourceText(models.Model):
+    _name = "hc.practitioner.domain.resource.text"
+    _description = "Practitioner Domain Resource Text"
+    _inherit = ["hc.basic.association", "hc.narrative"]
+
+    practitioner_id = fields.Many2one(
+        comodel_name="hc.res.practitioner",
+        string="Practitioner",
+        help="Practitioner associated with this Practitioner Domain Resource Text.")
+
+class PractitionerDomainResourceContained(models.Model):
+    _name = "hc.practitioner.domain.resource.contained"
+    _description = "Practitioner Domain Resource Contained"
+    _inherit = ["hc.basic.association", "hc.resource"]
+
+    practitioner_id = fields.Many2one(
+        comodel_name="hc.res.practitioner",
+        string="Organization",
+        help="Practitioner associated with this Practitioner Domain Resource Contained.")
+
+class PractitionerDomainResourceExtension(models.Model):
+    _name = "hc.practitioner.domain.resource.extension"
+    _description = "Practitioner Domain Resource Extension"
+    _inherit = ["hc.basic.association", "hc.extension"]
+
+    practitioner_id = fields.Many2one(
+        comodel_name="hc.res.practitioner",
+        string="Organization",
+        help="Practitioner associated with this Practitioner Domain Resource Extension.")
+
+class PractitionerDomainResourceModifierExtension(models.Model):
+    _name = "hc.practitioner.domain.resource.modifier.extension"
+    _description = "Practitioner Domain Resource Modifier Extension"
+    _inherit = ["hc.basic.association", "hc.extension"]
+
+    practitioner_id = fields.Many2one(
+        comodel_name="hc.res.practitioner",
+        string="Organization",
+        help="Practitioner associated with this Practitioner Domain Resource Modifier Extension.")
 
 # External Reference
 

@@ -1090,6 +1090,16 @@
             <field name="system">http://hl7.org/fhir/v2/0203</field>
         </record>
 
+        <record id="ident_type_zn" model="hc.vs.identifier.type">
+            <field name="code">ZN</field>
+            <field name="name">Zorginstelling naam</field>
+            <field name="definition">Healthcare Institution Name in Dutch.</field>
+            <field name="version"></field>
+            <field name="class_id" ref="ident_medical"/>
+            <field name="source_id" ref=""/>
+            <field name="system">https://www.linguee.com/dutch-english/translation/zorginstelling.html</field>
+        </record>
+
         <!-- Identifier Code -->
 
         <record id="ident_code_struc_defn" model="hc.vs.identifier.code">

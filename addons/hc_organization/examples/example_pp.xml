@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!-- pp Organization -->
+
+        <record id="base.person_pp_managing" model="res.partner">
+            <field name="name">Goodhealth Patient Portal</field>
+            <field name="company_type">company</field>
+            <field name="is_company" eval="True"/>
+            <field name="is_organization" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
+        </record>
+
+        <record id="person_pp_managing" model="hc.res.organization">
+            <field name="partner_id" ref="base.person_pp_managing"/>
+            <field name="name">Goodhealth Patient Portal</field>
+        </record>
+
+        <record id="base.person_pp_assigner" model="res.partner">
+            <field name="name">Ohio Bureau of Motor Vehicles</field>
+            <field name="company_type">company</field>
+            <field name="is_company" eval="True"/>
+            <field name="is_organization" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
+        </record>
+
+        <record id="person_pp_assigner" model="hc.res.organization">
+            <field name="partner_id" ref="base.person_pp_assigner"/>
+            <field name="name">Ohio Bureau of Motor Vehicles</field>
+        </record>
+
+        <record id="base.person_pp_link_2" model="res.partner">
+            <field name="name">Acme Medical</field>
+            <field name="company_type">company</field>
+            <field name="is_company" eval="True"/>
+            <field name="is_organization" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
+        </record>
+
+        <record id="person_pp_link_2" model="hc.res.organization">
+            <field name="partner_id" ref="base.person_pp_link_2"/>
+            <field name="name">Acme Medical</field>
+        </record>
+
+        <!-- pp Person -->
+
+        <record id="hc_person.person_pp" model="hc.res.person">
+            <field name="managing_organization_id" ref="person_pp_managing"/>
+        </record>
+
+        <record id="hc_base.ident_code_person_pp" model="hc.vs.identifier.code">
+            <field name="assigner_id" ref="person_pp_assigner"/>
+        </record>
+
+    </data>
+</odoo>

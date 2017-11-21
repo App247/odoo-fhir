@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data noupdate="1">
+    <data noupdate="0">
 
         <!-- Xcda Organization -->
 
@@ -61,7 +61,7 @@
 
         <!-- Xcda Patient Identifier -->
 
-        <record id="hc_base.ident_code_patient_xcda" model="hc.vs.identifier.code">
+        <record id="hc_base.ident_code_mrn" model="hc.vs.identifier.code">
             <field name="name">MRN</field>
             <field name="code">MRN</field>
             <field name="type_id" ref="hc_base.ident_type_mr"/>
@@ -71,7 +71,7 @@
             <field name="patient_id" ref="patient_xcda"/>
             <field name="person_id" ref="hc_person.patient_xcda"/>
             <field name="value">12345</field>
-            <field name="code_id" ref="hc_base.ident_code_patient_xcda"/>
+            <field name="code_id" ref="hc_base.ident_code_mrn"/>
         </record>
 
     </data>

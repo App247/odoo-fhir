@@ -55,6 +55,7 @@ class Person(models.Model):
         selection=[
             ("male", "Male"),
             ("female", "Female"),
+            ("inter", "Inter"),
             ("other", "Other"),
             ("unknown", "Unknown")],
         help="The gender of a person used for administrative purposes.")
@@ -126,7 +127,7 @@ class Person(models.Model):
     _sql_constraints = [
         ('person_uniq',
         'UNIQUE (unique_person)',
-        'Person must be a unique combination of name, gender and birth date')
+        'Person must be a unique combination of name, gender, and birth date')
         ]
 
     # For a new record, add Person Name to the list of Person Names and mark it as "preferred" with Start Date = Birth Date.
@@ -297,6 +298,7 @@ class PersonLink(models.Model):
     _name = "hc.person.link"
     _description = "Person Link"
     _inherit = "hc.backbone.element"
+    _rec_name = "target_name"
 
     person_id = fields.Many2one(
         comodel_name="hc.res.person",

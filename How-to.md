@@ -150,7 +150,7 @@ sudo apt-get install build-essential libssl-dev libcurl4-gnutls-dev libexpat1-de
 * [Check latest version](https://github.com/git/git/tree/master/Documentation)
 ```
 cd /opt
-sudo wget https://github.com/git/git/archive/v2.9.2.zip -O git.zip
+sudo wget https://github.com/git/git/archive/v2.9.5.zip -O git.zip
 sudo unzip git.zip
 cd git-*
 sudo make prefix=/usr/local install

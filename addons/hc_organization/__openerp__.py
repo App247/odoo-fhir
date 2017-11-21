@@ -33,8 +33,23 @@
     'data': [
         'security/ir.model.access.csv',
         'data/data_organization.xml',
+        'data/hc.vs.organization.type.csv',
+
         'examples/example_2.xml',
         'examples/example_hl7.xml',
+        'examples/example_f001.xml',
+        'examples/example_f002.xml',
+        'examples/example_f003.xml',
+        'examples/example_f201.xml',
+        'examples/example_f203.xml',
+        'examples/example_gastro.xml',
+        'examples/example_good_health_care.xml',
+        'examples/example_lab.xml',
+        'examples/example_mihealth.xml',
+        'examples/example_mmanu.xml',
+        'examples/example_pp.xml',
+        'examples/example_pd.xml',
+
         'views/hc_res_organization_views.xml',
         'views/hc_res_organization_templates.xml',
     ],

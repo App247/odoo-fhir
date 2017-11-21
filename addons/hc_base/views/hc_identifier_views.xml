@@ -2,13 +2,12 @@
 <odoo>
     <data>
 
-        <menuitem
-            id="hc_base.menu_ident"
-            name="Identifier"
-            parent="hc_base.menu_datatype"
-            sequence="50"/>
+        <menuitem id="hc_base.menu_ident"
+                  name="Identifier"
+                  parent="hc_base.menu_datatype"
+                  sequence="50"/>
 
-        <!-- Identifier Type Class Views -->
+    <!-- Identifier Type Class Views -->
 
         <record id="hc_vs_identifier_type_class_view_search" model="ir.ui.view">
             <field name="name">Identifier Type Class Search</field>
@@ -47,7 +46,7 @@
                             <group>
                                 <field name="code" placeholder="(e.g., GOV)"/>
                                 <field name="definition"/>
-                                <field name="system"/>                                
+                                <field name="system"/>
                             </group>
                             <group>
                             </group>
@@ -72,7 +71,7 @@
                   action="hc_vs_identifier_type_class_action"
                   sequence="20"/>
 
-        <!-- Identifier Type Views -->
+    <!-- Identifier Type Views -->
 
         <record id="hc_vs_identifier_type_view_search" model="ir.ui.view">
             <field name="name">Identifier Type Search</field>
@@ -148,7 +147,7 @@
 
         <!-- Identifier Views -->
 
-        <record id="hc_identifier_view_search" model="ir.ui.view">
+        <!-- <record id="hc_identifier_view_search" model="ir.ui.view">
             <field name="name">Identifier Search</field>
             <field name="model">hc.identifier</field>
             <field name="arch" type="xml">
@@ -211,9 +210,9 @@
                   name="Identifiers"
                   parent="hc_base.menu_ident"
                   action="hc_identifier_action"
-                  sequence="1"/>
+                  sequence="1"/> -->
 
-        <!-- Identifier Code Views -->
+    <!-- Identifier Code Views -->
 
         <record id="hc_vs_identifier_code_view_search" model="ir.ui.view">
             <field name="name">Identifier Code Search</field>
