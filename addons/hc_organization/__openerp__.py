@@ -47,8 +47,8 @@
         'examples/example_lab.xml',
         'examples/example_mihealth.xml',
         'examples/example_mmanu.xml',
-        'examples/example_pp.xml',
-        'examples/example_pd.xml',
+        'examples/example_person_pp.xml',
+        'examples/example_person_pd.xml',
 
         'views/hc_res_organization_views.xml',
         'views/hc_res_organization_templates.xml',

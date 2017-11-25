@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+    <!-- f007 Human Name Term -->
+
+        <record id="hc_base.human_name_term_662" model="hc.human.name.term">
+            <field name="name">Heps</field>
+        </record>
+
+    <!-- f007 Human Name -->
+
+        <record id="hc_base.practitioner_f007_name" model="hc.human.name">
+            <field model="hc.human.name.term" name="first_id" search="[('name','=','Heps')]"/>
+            <field model="hc.human.name.term" name="surname_id" search="[('name','=','Simone')]"/>
+            <field eval="[(6, 0, [ref('hc_base.human_name_suffix_58')])]" name="suffix_ids"/>
+        </record>
+
+    <!-- f007 Partner -->
+
+        <record id="base.practitioner_f007" model="res.partner">
+            <field name="name">Heps Simone MD</field>
+            <field name="company_type">person</field>
+            <field name="birthdate">1971-11-07</field>
+            <field name="is_company" eval="False"/>
+            <field name="is_person" eval="True"/>
+            <field name="is_practitioner" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
+        </record>
+
+    <!-- f007 Person -->
+
+        <record id="hc_person.practitioner_f007" model="hc.res.person">
+            <field name="partner_id" ref="base.practitioner_f007"/>
+            <field name="name_id" ref="hc_base.practitioner_f007_name"/>
+            <field name="gender">female</field>
+            <field name="birth_date">1971-11-07</field>
+        </record>
+
+    <!-- f007 Person Name -->
+
+        <record id="hc_person.practitioner_f007_name" model="hc.person.name">
+            <field name="person_id" ref="hc_person.practitioner_f007"/>
+            <field name="human_name_id" ref="hc_base.practitioner_f007_name"/>
+            <field name="use">official</field>
+        </record>
+
+    <!-- f007 Practitioner -->
+
+        <record id="practitioner_f007" model="hc.res.practitioner">
+            <field name="person_id" ref="hc_person.practitioner_f007"/>
+            <field name="identifier">f007</field>
+        </record>
+
+        <record id="practitioner_f007_text" model="hc.practitioner.domain.resource.text">
+            <field name="practitioner_id" ref="practitioner_f007"/>
+            <field name="status">generated</field>
+            <field name="div">
+                 <!-- <p><b>Generated Narrative with Details</b></p><p><b>id</b>: f007</p><p><b>identifier</b>: 874635264 (OFFICIAL), 567IUI51C154 (USUAL)</p><p><b>name</b>: Simone Heps (OFFICIAL)</p><p><b>telecom</b>: ph: 020556936(WORK), S.M.Heps@bmc.nl(WORK), fax: 0205669283(WORK)</p><p><b>address</b>: Galapagosweg 91 Den Burg 9105 PZ NLD (WORK)</p><p><b>gender</b>: female</p><p><b>birthDate</b>: Nov 7, 1971</p> -->
+            </field>
+        </record>
+
+    <!-- f007 Practitioner Identifier -->
+
+        <record id="hc_person.practitioner_f007_identifier_1" model="hc.person.identifier">
+            <field name="person_id" ref="hc_person.practitioner_f007"/>
+            <field name="value">874635264</field>
+            <field name="code_id" ref="hc_base.ident_code_uzi"/>
+            <field name="system">urn:oid:2.16.528.1.1007.3.1</field>
+            <field name="use">official</field>
+        </record>
+
+        <record id="hc_person.practitioner_f007_identifier_2" model="hc.person.identifier">
+            <field name="person_id" ref="hc_person.practitioner_f007"/>
+            <field name="value">567IUI51C154</field>
+            <field name="code_id" ref="hc_base.ident_code_bsn"/>
+            <field name="system">urn:oid:2.16.840.1.113883.2.4.6.3</field>
+            <field name="use">usual</field>
+        </record>
+
+    <!-- f007 Practitioner Telecom -->
+
+        <record id="hc_base.cont_pnt_020556936" model="hc.contact.point">
+            <field name="value">020556936</field>
+            <field name="system">phone</field>
+        </record>
+
+        <record id="hc_person.practitioner_f007_telecom_1" model="hc.person.telecom">
+            <field name="person_id" ref="hc_person.practitioner_f007"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_020556936"/>
+            <field name="use">work</field>
+        </record>
+
+        <record id="hc_base.cont_pnt_s_m_heps_bmc_nl" model="hc.contact.point">
+            <field name="value">S.M.Heps@bmc.nl</field>
+            <field name="system">email</field>
+        </record>
+
+        <record id="hc_person.practitioner_f007_telecom_2" model="hc.person.telecom">
+            <field name="person_id" ref="hc_person.practitioner_f007"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_s_m_heps_bmc_nl"/>
+            <field name="use">work</field>
+        </record>
+
+        <record id="hc_base.cont_pnt_0205669283" model="hc.contact.point">
+            <field name="value">0205669283</field>
+            <field name="system">fax</field>
+        </record>
+
+        <record id="hc_person.practitioner_f007_telecom_3" model="hc.person.telecom">
+            <field name="person_id" ref="hc_person.practitioner_f007"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_0205669283"/>
+            <field name="use">work</field>
+        </record>
+
+    <!-- f007 Practitioner Address -->
+
+        <record id="hc_person.practitioner_f007_address" model="hc.person.address">
+            <field name="person_id" ref="hc_person.practitioner_f007"/>
+            <field name="address_id" ref="hc_base.practitioner_f001_address"/>
+            <field name="use">work</field>
+        </record>
+
+    </data>
+</odoo>

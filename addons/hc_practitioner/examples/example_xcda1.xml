@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+    <!-- xcda1 Human Name Term -->
+
+        <record id="hc_base.human_name_term_670" model="hc.human.name.term">
+            <field name="name">Sherry</field>
+        </record>
+
+        <record id="hc_base.human_name_term_671" model="hc.human.name.term">
+            <field name="name">Dopplemeyer</field>
+        </record>
+
+    <!-- xcda1 Human Name -->
+
+        <record id="hc_base.practitioner_xcda1_name" model="hc.human.name">
+            <field model="hc.human.name.term" name="first_id" search="[('name','=','Sherry')]"/>
+            <field model="hc.human.name.term" name="surname_id" search="[('name','=','Dopplemeyer')]"/>
+        </record>
+
+    <!-- xcda1 Partner -->
+
+        <record id="base.practitioner_xcda1" model="res.partner">
+            <field name="name">Sherry Dopplemeyer</field>
+            <field name="company_type">person</field>
+            <field name="is_company" eval="False"/>
+            <field name="is_person" eval="True"/>
+            <field name="is_practitioner" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
+        </record>
+
+    <!-- xcda1 Person -->
+
+        <record id="hc_person.practitioner_xcda1" model="hc.res.person">
+            <field name="partner_id" ref="base.practitioner_xcda1"/>
+            <field name="name_id" ref="hc_base.practitioner_xcda1_name"/>
+            <field name="gender">female</field>
+        </record>
+
+    <!-- xcda1 Person Name -->
+
+        <record id="hc_person.practitioner_xcda1_name" model="hc.person.name">
+            <field name="person_id" ref="hc_person.practitioner_xcda1"/>
+            <field name="human_name_id" ref="hc_base.practitioner_xcda1_name"/>
+            <field name="use">official</field>
+        </record>
+
+    <!-- xcda1 Practitioner -->
+
+        <record id="practitioner_xcda1" model="hc.res.practitioner">
+            <field name="person_id" ref="hc_person.practitioner_xcda1"/>
+            <field name="identifier">xcda1</field>
+        </record>
+
+        <record id="practitioner_xcda1_text" model="hc.practitioner.domain.resource.text">
+            <field name="practitioner_id" ref="practitioner_xcda1"/>
+            <field name="status">generated</field>
+            <field name="div">
+                <!-- <p><b>Generated Narrative with Details</b></p><p><b>id</b>: xcda1</p><p><b>identifier</b>: D234123 (OFFICIAL)</p><p><b>name</b>: Sherry Dopplemeyer </p><p><b>telecom</b>: john.doe@healthcare.example.org</p> -->
+            </field>
+        </record>
+
+    <!-- xcda1 Practitioner Identifier -->
+
+        <record id="hc_person.practitioner_xcda1_identifier" model="hc.person.identifier">
+            <field name="person_id" ref="hc_person.practitioner_xcda1"/>
+            <field name="value">D234123</field>
+            <field name="system">http://healthcare.example.org/identifiers/staff</field>
+            <field name="use">official</field>
+        </record>
+
+    <!-- xcda1 Practitioner Telecom -->
+
+        <record id="hc_base.cont_pnt_john_doe_healthcare_example_org" model="hc.contact.point">
+            <field name="value">john.doe@healthcare.example.org</field>
+            <field name="system">email</field>
+        </record>
+
+        <record id="hc_person.practitioner_xcda1_telecom" model="hc.person.telecom">
+            <field name="person_id" ref="hc_person.practitioner_xcda1"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_john_doe_healthcare_example_org"/>
+            <field name="use">work</field>
+        </record>
+
+    </data>
+</odoo>

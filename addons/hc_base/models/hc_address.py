@@ -477,6 +477,14 @@ class AddressGeolocation(models.Model):
             ("-", "West")],
         default="+",
         help="Direction relative to the prime meridian.")
+    altitude = fields.Float(
+        string="Altitude",
+        digits_compute=dp.get_precision('Geolocation'),
+        help="Altitude with WGS84 datum, expressed in meters. Height above or below a reference ellipsoid. Format: Decimal. Example: 100 m")
+    altitude_msl = fields.Float(
+        string="Altitude MSL",
+        digits_compute=dp.get_precision('Geolocation'),
+        help="Height above or below mean sea level (MSL). Expressed in meters. Format: Decimal. Example: 100 m")
 
     _sql_constraints = [
         ('latitude_range',

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+    <!-- amb Location -->
+
+        <record id="location_amb" model="hc.res.location">
+            <field name="identifier">amb</field>
+            <field name="status">active</field>
+            <field name="name">BUMC Ambulance</field>
+            <field name="description">Ambulance provided by Burgers University Medical Center</field>
+            <field name="mode">kind</field>
+            <field name="type_id" ref="serv_del_role_type_amb"/>
+            <field name="physical_type_id" ref="phy_type_ve"/>
+            <field name="managing_organization_id" ref="hc_organization.organization_f001"/>
+        </record>
+
+        <record id="location_amb_text" model="hc.location.domain.resource.text">
+            <field name="location_id" ref="location_amb"/>
+            <field name="status">generated</field>
+            <field name="div">
+                <!-- Mobile Clinic -->
+            </field>
+        </record>
+
+    <!-- amb Location Telecom -->
+
+        <record id="location_amb_telecom" model="hc.location.telecom">
+            <field name="location_id" ref="location_amb"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_2329"/>
+            <field name="use">mobile</field>
+        </record>
+
+    </data>
+</odoo>

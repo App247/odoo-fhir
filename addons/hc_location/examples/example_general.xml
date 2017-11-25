@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+    <!-- general Location -->
+
+        <record id="location_general_1" model="hc.res.location">
+            <field name="identifier">usss_ent</field>
+            <field name="status">active</field>
+            <field name="name">USSS Enterprise-D</field>
+            <field name="mode">instance</field>
+        </record>
+
+        <record id="location_general_text" model="hc.location.domain.resource.text">
+            <field name="location_id" ref="location_general_1"/>
+            <field name="status">generated</field>
+            <field name="div">
+                <!-- USSS Enterprise -->
+            </field>
+        </record>
+
+
+        <record id="location_general_2" model="hc.res.location">
+            <field name="identifier">usss_ent_d_sickbay</field>
+            <field name="status">active</field>
+            <field name="name">USSS Enterprise-D Sickbay</field>
+            <field name="mode">instance</field>
+            <field name="part_of_id" ref="location_general_1"/>
+        </record>
+
+        <record id="location_general_text" model="hc.location.domain.resource.text">
+            <field name="location_id" ref="location_general_2"/>
+            <field name="status">generated</field>
+            <field name="div">
+                <!-- USSS Enterprise-D Sickbay -->
+            </field>
+        </record>
+
+    </data>
+</odoo>

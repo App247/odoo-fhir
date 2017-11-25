@@ -7,14 +7,14 @@
         """,
 
     'description': """
-        Details and position information for a physical place where services are provided 
+        Details and position information for a physical place where services are provided
         and resources and participants may be stored, found, contained or accommodated.
 
         **Scope and Usage**
 
-        A Location includes both incidental locations (a place which is used for healthcare without prior designation or authorization) 
-        and dedicated, formally appointed locations. Locations may be private, public, mobile or fixed and scale from small freezers to 
-        full hospital buildings or parking garages. 
+        A Location includes both incidental locations (a place which is used for healthcare without prior designation or authorization)
+        and dedicated, formally appointed locations. Locations may be private, public, mobile or fixed and scale from small freezers to
+        full hospital buildings or parking garages.
     """,
 
     'author': "Luigi Sison",
@@ -34,6 +34,15 @@
         'security/ir.model.access.csv',
         'data/data_location.xml',
         'data/hc.vs.service.delivery.location.role.type.csv',
+
+        'examples/example_1.xml',
+        'examples/example_amb.xml',
+        'examples/example_hl7.xml',
+        'examples/example_ph.xml',
+        'examples/example_2.xml',
+        'examples/example_ukp.xml',
+        'examples/example_general.xml',
+
         'views/hc_res_location_views.xml',
         'views/hc_res_location_templates.xml',
     ],

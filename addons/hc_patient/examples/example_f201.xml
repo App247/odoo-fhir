@@ -2,7 +2,7 @@
 <odoo>
     <data noupdate="0">
 
-    <!-- F201 Person -->
+    <!-- f201 Person -->
 
          <record id="hc_base.human_name_term_551" model="hc.human.name.term">
             <field name="name">Roel</field>
@@ -116,7 +116,7 @@
         </field>
     </record>  -->
 
-    <!-- F201 Patient -->
+    <!-- f201 Patient -->
 
         <record id="hc_patient.patient_f201" model="hc.res.patient">
             <field name="person_id" ref="hc_person.patient_f201"/>
@@ -127,7 +127,7 @@
             <field name="managing_organization_id" ref="hc_organization.organization_f201"/>
         </record>
 
-    <!-- F201 Patient Identifier -->
+    <!-- f201 Patient Identifier -->
 
         <record id="patient_f201_patient_identifier_1" model="hc.patient.identifier">
             <field name="patient_id" ref="patient_f201"/>
@@ -145,7 +145,7 @@
             <field name="value">123456789</field>
         </record>
 
-    <!-- F201 Person Telecom -->
+    <!-- f201 Person Telecom -->
 
         <record id="hc_base.cont_pnt_31612345678" model="hc.contact.point">
             <field name="system">phone</field>
@@ -169,7 +169,7 @@
             <field name="use">home</field>
         </record>
 
-    <!-- F201 Person Address -->
+    <!-- f201 Person Address -->
 
         <record id="hc_base.postal_code_1055RW" model="hc.vs.country.postal.code">
             <field name="postal_code">1055RW</field>
@@ -184,7 +184,7 @@
             <field model="res.country" name="country_id" search="[('code3','=','NLD')]"/>
         </record>
 
-    <!-- F201 Patient Contact -->
+    <!-- f201 Patient Contact -->
 
         <record id="patient_f201_contact" model="hc.patient.contact">
             <field name="patient_id" ref="patient_f201"/>
@@ -193,7 +193,7 @@
             <field eval="[(6, 0, [ref('contact_role_n'),ref('contact_role_wife')])]" name="relationship_ids"/>
         </record>
 
-    <!-- F201 Patient Contact Telecom -->
+    <!-- f201 Patient Contact Telecom -->
 
         <record id="hc_person.patient_f201_telecom_3" model="hc.person.telecom">
             <field name="person_id" ref="hc_person.patient_f201_contact"/>
@@ -201,7 +201,7 @@
             <field name="use">home</field>
         </record>
 
-    <!-- F001 Patient Communication -->
+    <!-- f201 Patient Communication -->
 
         <record id="patient_f201_communication" model="hc.patient.communication">
             <field name="patient_id" ref="patient_f201"/>

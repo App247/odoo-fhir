@@ -110,6 +110,16 @@
                                                 <field name="family"/>
                                                 <field name="given"/>
                                             </group>
+                                            <group>
+                                                <group string="Association">
+                                                    <field name="is_preferred"/>
+                                                    <field name="is_active"/>
+                                                    <field name="start_date" placeholder="Valid From"/>
+                                                    <field name="end_date" placeholder="Valid To"/>
+                                               </group>
+                                                <group>
+                                                </group>
+                                            </group>
                                         </sheet>
                                     </form>
                                 </field>
@@ -134,13 +144,13 @@
                                                 <group>
                                                     <field name="value"/>
                                                     <field name="system"/>
-                                                    <field name="is_preferred"/>
-                                                    <field name="is_active"/>
-                                                </group>
-                                                <group>
                                                     <field name="code_id"/>
                                                     <field name="type_id"/>
                                                     <field name="use"/>
+                                                </group>
+                                                <group string="Association">
+                                                    <field name="is_preferred"/>
+                                                    <field name="is_active"/>
                                                     <field name="start_date" placeholder="Valid From"/>
                                                     <field name="end_date" placeholder="Valid To"/>
                                                </group>
@@ -185,12 +195,16 @@
                                     <form>
                                         <sheet>
                                             <group col="4" colspan="4">
-                                                <field name="use" widget="radio" colspan="4"/>
-                                                <field name="address_id" class="oe_no_button"/>
-                                                <field name="is_preferred"/>
-                                                <field name="is_active"/>
-                                                <field name="start_date" placeholder="Valid From"/>
-                                                <field name="end_date" placeholder="Valid To"/>
+                                                <group>
+                                                    <field name="use" widget="radio" colspan="4"/>
+                                                    <field name="address_id" class="oe_no_button"/>
+                                                </group>
+                                                <group string="Association">
+                                                    <field name="is_preferred"/>
+                                                    <field name="is_active"/>
+                                                    <field name="start_date" placeholder="Valid From"/>
+                                                    <field name="end_date" placeholder="Valid To"/>
+                                               </group>
                                             </group>
                                         </sheet>
                                     </form>
@@ -210,12 +224,12 @@
                                                     <field name="telecom_id"/>
                                                     <field name="use"/>
                                                 </group>
-                                                <group>
+                                                <group string="Association">
                                                     <field name="is_preferred"/>
                                                     <field name="is_active"/>
                                                     <field name="start_date" placeholder="Valid From"/>
                                                     <field name="end_date" placeholder="Valid To"/>
-                                                </group>
+                                               </group>
                                             </group>
                                         </sheet>
                                     </form>
@@ -249,6 +263,16 @@
                                                     <field name="file_size"/>
                                                 </group>
                                             </group>
+                                            <group>
+                                                <group string="Association">
+                                                    <field name="is_preferred"/>
+                                                    <field name="is_active"/>
+                                                    <field name="start_date" placeholder="Valid From"/>
+                                                    <field name="end_date" placeholder="Valid To"/>
+                                               </group>
+                                               <group>
+                                               </group>
+                                            </group>
                                         </sheet>
                                     </form>
                                 </field>
@@ -268,8 +292,12 @@
                                                     <field name="general_practitioner_organization_id" class="oe_edit_only" attrs="{'invisible': [('general_practitioner_type','!=','organization')], 'required': [('general_practitioner_type','=','organization')]}"/>
                                                     <field name="general_practitioner_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('general_practitioner_type','!=','practitioner')], 'required': [('general_practitioner_type','=','practitioner')]}"/>
                                                 </group>
-                                                <group>
-                                                </group>
+                                                <group string="Association">
+                                                    <field name="is_preferred"/>
+                                                    <field name="is_active"/>
+                                                    <field name="start_date" placeholder="Valid From"/>
+                                                    <field name="end_date" placeholder="Valid To"/>
+                                               </group>
                                             </group>
                                         </sheet>
                                     </form>
@@ -402,10 +430,16 @@
                                                                     </h1>
                                                                 </div>
                                                                 <group>
-                                                                    <field name="language_proficiency_id" default_focus="1"/>
-                                                                    <field name="language_skill_id"/>
-                                                                    <field name="start_date" placeholder="Valid From"/>
-                                                                    <field name="end_date" placeholder="Valid To"/>
+                                                                    <group>
+                                                                        <field name="language_proficiency_id" default_focus="1"/>
+                                                                        <field name="language_skill_id"/>
+                                                                    </group>
+                                                                    <group string="Association">
+                                                                        <field name="is_preferred"/>
+                                                                        <field name="is_active"/>
+                                                                        <field name="start_date" placeholder="Valid From"/>
+                                                                        <field name="end_date" placeholder="Valid To"/>
+                                                                   </group>
                                                                 </group>
                                                             </sheet>
                                                         </form>
@@ -531,13 +565,13 @@
                                                 <group>
                                                     <field name="attribute_value"/>
                                                     <field name="attribute_uom_id"/>
-                                                    <field name="start_date" placeholder="Valid From"/>
-                                                    <field name="end_date" placeholder="Valid To"/>
                                                 </group>
-                                                <group>
+                                                <group string="Association">
                                                     <field name="is_preferred"/>
                                                     <field name="is_active"/>
-                                                </group>
+                                                    <field name="start_date" placeholder="Valid From"/>
+                                                    <field name="end_date" placeholder="Valid To"/>
+                                               </group>
                                             </group>
                                         </sheet>
                                     </form>
@@ -755,9 +789,12 @@
                             <field name="patient_id" placeholder="Patient"/>
                         </div>
                         <group>
-                            <group>
-
-                            </group>
+                            <group string="Association">
+                                <field name="is_preferred"/>
+                                <field name="is_active"/>
+                                <field name="start_date" placeholder="Valid From"/>
+                                <field name="end_date" placeholder="Valid To"/>
+                           </group>
                             <group>
                             </group>
                         </group>
@@ -772,10 +809,18 @@
                                     <form>
                                         <sheet>
                                             <group>
-                                                <field name="communication_id"/>
-                                                <field name="language_proficiency_id"/>
-                                                <field name="language_skill_id"/>
-                                            </group>
+                                                <group>
+                                                    <field name="communication_id"/>
+                                                    <field name="language_proficiency_id"/>
+                                                    <field name="language_skill_id"/>
+                                                </group>
+                                                <group string="Association">
+                                                    <field name="is_preferred"/>
+                                                    <field name="is_active"/>
+                                                    <field name="start_date" placeholder="Valid From"/>
+                                                    <field name="end_date" placeholder="Valid To"/>
+                                               </group>
+                                           </group>
                                         </sheet>
                                     </form>
                                 </field>

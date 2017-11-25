@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+    <!-- f201 Human Name Term -->
+
+        <record id="hc_base.human_name_term_663" model="hc.human.name.term">
+            <field name="name">Arend</field>
+        </record>
+
+        <record id="hc_base.human_name_term_664" model="hc.human.name.term">
+            <field name="name">Bronsig</field>
+        </record>
+
+        <record id="hc_base.human_name_term_665" model="hc.human.name.term">
+            <field name="name">Dokter</field>
+        </record>
+
+    <!-- f201 Human Name -->
+
+        <record id="hc_base.practitioner_f201_name_1" model="hc.human.name">
+            <field model="hc.human.name.term" name="first_id" search="[('name','=','Arend')]"/>
+            <field model="hc.human.name.term" name="surname_id" search="[('name','=','Bronsig')]"/>
+            <field eval="[(6, 0, [ref('base.res_partner_title_doctor')])]" name="prefix_ids"/>
+        </record>
+
+        <record id="hc_base.practitioner_f201_name_2" model="hc.human.name">
+            <field model="hc.human.name.term" name="first_id" search="[('name','=','Dokter')]"/>
+            <field model="hc.human.name.term" name="surname_id" search="[('name','=','Bronsig')]"/>
+        </record>
+
+    <!-- f201 Partner -->
+
+        <record id="base.practitioner_f201" model="res.partner">
+            <field name="name">Dr. Arend Bronsig</field>
+            <field name="company_type">person</field>
+            <field name="birthdate">1956-12-24</field>
+            <field name="is_company" eval="False"/>
+            <field name="is_person" eval="True"/>
+            <field name="is_practitioner" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
+        </record>
+
+    <!-- f201 Person -->
+
+        <record id="hc_person.practitioner_f201" model="hc.res.person">
+            <field name="partner_id" ref="base.practitioner_f201"/>
+            <field name="name_id" ref="hc_base.practitioner_f201_name_1"/>
+            <field name="gender">male</field>
+            <field name="birth_date">1956-12-24</field>
+        </record>
+
+    <!-- f201 Person Name -->
+
+        <record id="hc_person.practitioner_f201_name_1" model="hc.person.name">
+            <field name="person_id" ref="hc_person.practitioner_f201"/>
+            <field name="human_name_id" ref="hc_base.practitioner_f201_name_1"/>
+            <field name="use">official</field>
+        </record>
+
+        <record id="hc_person.practitioner_f201_name_2" model="hc.person.name">
+            <field name="person_id" ref="hc_person.practitioner_f201"/>
+            <field name="human_name_id" ref="hc_base.practitioner_f201_name_2"/>
+            <field name="use">usual</field>
+        </record>
+
+    <!-- f201 Practitioner -->
+
+        <record id="practitioner_f201" model="hc.res.practitioner">
+            <field name="person_id" ref="hc_person.practitioner_f201"/>
+            <field name="identifier">f201</field>
+        </record>
+
+        <record id="practitioner_f201_text" model="hc.practitioner.domain.resource.text">
+            <field name="practitioner_id" ref="practitioner_f201"/>
+            <field name="status">generated</field>
+            <field name="div">
+                <!-- <p><b>Generated Narrative with Details</b></p><p><b>id</b>: f201</p><p><b>identifier</b>: UZI-nummer = 12345678901 (OFFICIAL)</p><p><b>active</b>: true</p><p><b>name</b>: Dokter Bronsig(OFFICIAL)</p><p><b>telecom</b>: ph: +31715269111(WORK)</p><p><b>address</b>: Walvisbaai 3 C4 - Automatisering Den helder 2333ZA NLD (WORK)</p><p><b>gender</b>: male</p><p><b>birthDate</b>: Dec 24, 1956</p><h3>Qualifications</h3>
+                <table><tr><td>-</td><td><b>Code</b></td></tr><tr><td>*</td><td>Pulmonologist <span>(Details : {SNOMED CT code &#39;41672002&#39; = &#39;Respiratory disease specialist&#39;, given as &#39;Pulmonologist&#39;})</span></td></tr></table> -->
+            </field>
+        </record>
+
+    <!-- f201 Practitioner Identifier -->
+
+        <record id="hc_person.practitioner_f201_identifier" model="hc.person.identifier">
+            <field name="person_id" ref="hc_person.practitioner_f201"/>
+            <field name="value">12345678901</field>
+            <field name="code_id" ref="hc_base.ident_code_uzi"/>
+            <field name="system">urn:oid:2.16.528.1.1007.3.1</field>
+            <field name="use">official</field>
+        </record>
+
+    <!-- f201 Practitioner Telecom -->
+
+        <record id="hc_base.cont_pnt_31715269111" model="hc.contact.point">
+            <field name="value">+31715269111</field>
+            <field name="system">phone</field>
+        </record>
+
+        <record id="hc_person.practitioner_f201_telecom" model="hc.person.telecom">
+            <field name="person_id" ref="hc_person.practitioner_f201"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_31715269111"/>
+            <field name="use">work</field>
+        </record>
+
+    <!-- f201 Practitioner Address -->
+
+        <record id="hc_base.practitioner_f201_address" model="hc.address">
+            <field name="line1">Walvisbaai 3</field>
+            <field name="line2">C4 - Automatisering</field>
+            <field model="hc.vs.country.city" name="city_id" search="[('name','=','Den Helder')]"/>
+            <field model="hc.vs.country.postal.code" name="postal_code_id" search="[('name','=','2333ZA')]"/>
+            <field model="res.country" name="country_id" search="[('code3','=','NLD')]"/>
+        </record>
+
+        <record id="hc_person.practitioner_f201_address" model="hc.person.address">
+            <field name="person_id" ref="hc_person.practitioner_f201"/>
+            <field name="address_id" ref="hc_base.practitioner_f201_address"/>
+            <field name="use">work</field>
+        </record>
+
+
+    <!-- f201 Practitioner Photo -->
+
+        <record id="practitioner_f201_photo" model="hc.person.photo">
+            <field name="person_id" ref="hc_person.practitioner_f201"/>
+            <field name="name">Picture_Dokter_Bronsig</field>
+            <field name="url">Media/AB-201.bmp</field>
+        </record>
+
+    <!-- f201 Practitioner Qualification -->
+
+        <!-- pulmunologist -->
+        <record id="practitioner_f201_qualification" model="hc.practitioner.qualification">
+            <field name="practitioner_id" ref="practitioner_f201"/>
+            <field name="code_id" ref="prac_qual_41672002"/>
+        </record>
+
+        <!-- medical oncologist -->
+        <record id="practitioner_f201_qualification_1" model="hc.practitioner.qualification">
+            <field name="practitioner_id" ref="practitioner_f201"/>
+            <field name="code_id" ref="prac_qual_310512001"/>
+        </record>
+
+    </data>
+</odoo>

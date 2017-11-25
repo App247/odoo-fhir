@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+    <!-- 1 Location Position -->
+
+        <record id="location_1_position" model="hc.location.position">
+            <field name="longitude">83.6945691</field>
+            <field name="longitude_direction">-</field>
+            <field name="latitude">42.2547547</field>
+            <field name="latitude_direction">+</field>
+            <field name="altitude">0</field>
+        </record>
+
+    <!-- 1 Location Address -->
+
+        <record id="hc_base.location_1_address" model="hc.address">
+            <field name="line1">Galapagosweg 91, Building A</field>
+            <field model="hc.vs.country.city" name="city_id" search="[('name','=','Den Burg')]"/>
+            <field model="hc.vs.country.postal.code" name="postal_code_id" search="[('name','=','9105 PZ')]"/>
+            <field model="res.country" name="country_id" search="[('code3','=','NLD')]"/>
+        </record>
+
+    <!-- 1 Location -->
+
+        <record id="location_1" model="hc.res.location">
+            <field name="identifier">1</field>
+            <field name="status">active</field>
+            <field name="name">South Wing, second floor</field>
+            <field name="description">Second floor of the Old South Wing, formerly in use by Psychiatry</field>
+            <field name="mode">instance</field>
+            <field name="address_id" ref="hc_base.location_1_address"/>
+            <field name="physical_type_id" ref="phy_type_wi"/>
+            <field name="position_id" ref="location_1_position"/>
+            <field name="managing_organization_id" ref="hc_organization.organization_f001"/>
+        </record>
+
+        <record id="location_1_text" model="hc.location.domain.resource.text">
+            <field name="location_id" ref="location_1"/>
+            <field name="status">generated</field>
+            <field name="div">
+                <!-- Burgers UMC, South Wing, second floor -->
+            </field>
+        </record>
+
+    <!-- 1 Location Alias -->
+
+        <record id="location_1_alias_1" model="hc.location.alias">
+            <field name="location_id" ref="location_1"/>
+            <field name="alias">Burgers University Medical Center, South Wing, second floor</field>
+        </record>
+
+        <record id="location_1_alias_2" model="hc.location.alias">
+            <field name="location_id" ref="location_1"/>
+            <field name="alias">BU MC, SW, F2</field>
+        </record>
+
+    <!-- 1 Location Identifier -->
+
+        <record id="location_1_identifier_1" model="hc.location.identifier">
+            <field name="location_id" ref="location_1"/>
+            <field name="value">B1-S.F2</field>
+        </record>
+
+    <!-- 1 Location Telecom -->
+
+        <record id="hc_base.cont_pnt_2328" model="hc.contact.point">
+            <field name="value">2328</field>
+            <field name="system">phone</field>
+        </record>
+
+        <record id="location_1_telecom_1" model="hc.location.telecom">
+            <field name="location_id" ref="location_1"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_2328"/>
+            <field name="use">work</field>
+        </record>
+
+        <record id="hc_base.cont_pnt_2329" model="hc.contact.point">
+            <field name="value">2329</field>
+            <field name="system">fax</field>
+        </record>
+
+        <record id="location_1_telecom_2" model="hc.location.telecom">
+            <field name="location_id" ref="location_1"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_2329"/>
+            <field name="use">work</field>
+        </record>
+
+        <record id="hc_base.cont_pnt_second_wing_admissions" model="hc.contact.point">
+            <field name="value">second wing admissions</field>
+            <field name="system">email</field>
+        </record>
+
+        <record id="location_1_telecom_3" model="hc.location.telecom">
+            <field name="location_id" ref="location_1"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_second_wing_admissions"/>
+        </record>
+
+        <record id="hc_base.cont_pnt_sampleorg_com_southwing" model="hc.contact.point">
+            <field name="value">http://sampleorg.com/southwing</field>
+            <field name="system">url</field>
+        </record>
+
+        <record id="location_1_telecom_4" model="hc.location.telecom">
+            <field name="location_id" ref="location_1"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_sampleorg_com_southwing"/>
+            <field name="use">work</field>
+        </record>
+
+    <!-- 1 Location Endpoint -->
+
+        <record id="location_1_endpoint" model="hc.location.endpoint">
+            <field name="location_id" ref="location_1"/>
+            <field name="endpoint_id" ref="hc_endpoint.endpoint_example"/>
+        </record>
+
+    </data>
+</odoo>

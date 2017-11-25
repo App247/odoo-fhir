@@ -1,0 +1,141 @@
+id,code,name,definition,version,parent_child_ids/id,source_id/id,system
+prac_qual_aa,AA,"Associate of Arts",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_aas,AAS,"Associate of Applied Science",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_aba,ABA,"Associate of Business Administration",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_ae,AE,"Associate of Engineering",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_as,AS,"Associate of Science",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_ba,BA,"Bachelor of Arts",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_bba,BBA,"Bachelor of Business Administration",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_be,BE,"Bachelor or Engineering",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_bfa,BFA,"Bachelor of Fine Arts",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_bn,BN,"Bachelor of Nursing",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_bs,BS,"Bachelor of Science",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_bsl,BSL,"Bachelor of Science - Law",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_bsn,BSN,"Bachelor on Science - Nursing",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_bt,BT,"Bachelor of Theology",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_canp,CANP,"Certified Adult Nurse Practitioner",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_cer,CER,"Certificate",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_cma,CMA,"Certified Medical Assistant",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_cnm,CNM,"Certified Nurse Midwife",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_cnp,CNP,"Certified Nurse Practitioner",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_cns,CNS,"Certified Nurse Specialist",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_cpnp,CPNP,"Certified Pediatric Nurse Practitioner",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_crn,CRN,"Certified Registered Nurse",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_ctr,CTR,"Certified Tumor Registrar",,added v2.8,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_dba,DBA,"Doctor of Business Administration",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_ded,DED,"Doctor of Education",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_dip,DIP,"Diploma",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_do,DO,"Doctor of Osteopathy",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_emt,EMT,"Emergency Medical Technician",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_emtp,EMTP,"Emergency Medical Technician - Paramedic",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_fpnp,FPNP,"Family Practice Nurse Practitioner",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_hs,HS,"High School Graduate",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_jd,JD,"Juris Doctor",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_ma,MA,"Master of Arts",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_mba,MBA,"Master of Business Administration",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_mce,MCE,"Master of Civil Engineering",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_md,MD,"Doctor of Medicine",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_mda,MDA,"Medical Assistant",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_mdi,MDI,"Master of Divinity",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_me,ME,"Master of Engineering",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_med,MED,"Master of Education",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_mee,MEE,"Master of Electrical Engineering",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_mfa,MFA,"Master of Fine Arts",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_mme,MME,"Master of Mechanical Engineering",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_ms,MS,"Master of Science",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_msl,MSL,"Master of Science - Law",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_msn,MSN,"Master of Science - Nursing",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_mt,MT,"Medical Technician",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_mth,MTH,"Master of Theology",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_ng,NG,"Non-Graduate",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_np,NP,"Nurse Practitioner",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_pa,PA,"Physician Assistant",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_phd,PHD,"Doctor of Philosophy",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_phe,PHE,"Doctor of Engineering",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_phs,PHS,"Doctor of Science",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_pn,PN,"Advanced Practice Nurse",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_pharmd,PharmD,"Doctor of Pharmacy",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_rma,RMA,"Registered Medical Assistant",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_rn,RN,"Registered Nurse",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_rph,RPH,"Registered Pharmacist",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_sec,SEC,"Secretarial Certificate",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_ts,TS,"Trade School Graduate",,from v2.7,,base.hl7v2,http://hl7.org/fhir/v2/0360/2.7
+prac_qual_223366009,223366009,"Healthcare professional","Healthcare professional (occupation)",,,base.snomed,http://snomed.info
+prac_qual_158970007,158970007,"Anesthetist","Anesthetist (occupation)",,"prac_qual_223366009",base.snomed,http://snomed.info
+prac_qual_224609002,224609002,"Complementary health worker","Complementary health worker (occupation)",,"prac_qual_223366009",base.snomed,http://snomed.info
+prac_qual_106289002,106289002,"Dentist","Dentist (occupation)",,"prac_qual_223366009",base.snomed,http://snomed.info
+prac_qual_224603001,224603001,"Foot care worker","Foot care worker (occupation)",,"prac_qual_223366009",base.snomed,http://snomed.info
+prac_qual_409974004,409974004,"Health educator","Health educator (occupation)",,"prac_qual_223366009",base.snomed,http://snomed.info
+prac_qual_224534008,224534008,"Health visitor, nurse/midwife","Health visitor, nurse/midwife (occupation)",,"prac_qual_223366009",base.snomed,http://snomed.info
+prac_qual_309459005,309459005,"Healthcare professional grade","Healthcare professional grade (occupation)",,"prac_qual_223366009",base.snomed,http://snomed.info
+prac_qual_158965000,158965000,"Medical practitioner","Medical practitioner (occupation)",,"prac_qual_223366009",base.snomed,http://snomed.info
+prac_qual_398130009,398130009,"Medical student","Medical student (occupation)",,"prac_qual_223366009",base.snomed,http://snomed.info
+prac_qual_397897005,397897005,"Paramedic","Paramedic (occupation)",,"prac_qual_223366009",base.snomed,http://snomed.info
+prac_qual_46255001,46255001,"Pharmacist","Pharmacist (occupation)",,"prac_qual_223366009",base.snomed,http://snomed.info
+prac_qual_309398001,309398001,"Profession allied to medicine","Profession allied to medicine (occupation)",,"prac_qual_223366009",base.snomed,http://snomed.info
+prac_qual_405684005,405684005,"Professional initiating surgical case","Professional initiating surgical case (occupation)",,"prac_qual_223366009",base.snomed,http://snomed.info
+prac_qual_405685006,405685006,"Professional providing staff relief during surgical procedure","Professional providing staff relief during surgical procedure (occupation)",,"prac_qual_223366009",base.snomed,http://snomed.info
+prac_qual_45956004,45956004,"Sanitarian","Sanitarian (occupation)",,"prac_qual_223366009",base.snomed,http://snomed.info
+prac_qual_224610007,224610007,"Supporting services personnel","Supporting services personnel (occupation)",,"prac_qual_223366009",base.snomed,http://snomed.info
+prac_qual_224606009,224606009,"Technical healthcare occupation","Technical healthcare occupation (occupation)",,"prac_qual_223366009",base.snomed,http://snomed.info
+prac_qual_309294001,309294001,"Accident and Emergency doctor","Accident and Emergency doctor (occupation)",,"prac_qual_158965000",base.snomed,http://snomed.info
+prac_qual_405623001,405623001,"Assigned practitioner","Assigned practitioner (occupation)",,"prac_qual_158965000",base.snomed,http://snomed.info
+prac_qual_309295000,309295000,"Clinical oncologist","Clinical oncologist (occupation)",,"prac_qual_158965000",base.snomed,http://snomed.info
+prac_qual_309296004,309296004,"Family planning doctor","Family planning doctor (occupation)",,"prac_qual_158965000",base.snomed,http://snomed.info
+prac_qual_309338004,309338004,"Intensive care specialist","Intensive care specialist (occupation)",,"prac_qual_158965000",base.snomed,http://snomed.info
+prac_qual_112247003,112247003,"Medical doctor","Medical doctor (occupation)",,"prac_qual_158965000",base.snomed,http://snomed.info
+prac_qual_309389004,309389004,"Medical practitioner grade","Medical practitioner grade (occupation)",,"prac_qual_158965000",base.snomed,http://snomed.info
+prac_qual_309367003,309367003,"Obstetrician and gynecologist","Obstetrician and gynecologist (occupation)",,"prac_qual_158965000",base.snomed,http://snomed.info
+prac_qual_158973009,158973009,"Occupational physician","Occupational physician (occupation)",,"prac_qual_158965000",base.snomed,http://snomed.info
+prac_qual_309337009,309337009,"Pain management specialist","Pain management specialist (occupation)",,"prac_qual_158965000",base.snomed,http://snomed.info
+prac_qual_309343006,309343006,"Physician","Physician (occupation)",,"prac_qual_158965000",base.snomed,http://snomed.info
+prac_qual_310174000,310174000,"Private doctor","Private doctor (occupation)",,"prac_qual_158965000",base.snomed,http://snomed.info
+prac_qual_304292004,304292004,"Surgeon","Surgeon (occupation)",,"prac_qual_158965000",base.snomed,http://snomed.info
+prac_qual_59058001,59058001,"General physician","General physician (occupation)",,"prac_qual_112247003",base.snomed,http://snomed.info
+prac_qual_69280009,69280009,"Specialized physician","Specialized physician (occupation)",,"prac_qual_112247003",base.snomed,http://snomed.info
+prac_qual_88189002,88189002,"Anesthesiologist","Anesthesiologist (occupation)",,"prac_qual_69280009",base.snomed,http://snomed.info
+prac_qual_17561000,17561000,"Cardiologist","Cardiologist (occupation)",,"prac_qual_69280009",base.snomed,http://snomed.info
+prac_qual_63098009,63098009,"Clinical immunologist","Clinical immunologist (occupation)",,"prac_qual_69280009",base.snomed,http://snomed.info
+prac_qual_23278007,23278007,"Community health physician","Community health physician (occupation)",,"prac_qual_69280009",base.snomed,http://snomed.info
+prac_qual_18803008,18803008,"Dermatologist","Dermatologist (occupation)",,"prac_qual_69280009",base.snomed,http://snomed.info
+prac_qual_61894003,61894003,"Endocrinologist","Endocrinologist (occupation)",,"prac_qual_69280009",base.snomed,http://snomed.info
+prac_qual_62247001,62247001,"Family medicine specialist","Family medicine specialist (occupation)",,"prac_qual_69280009",base.snomed,http://snomed.info
+prac_qual_71838004,71838004,"Gastroenterologist","Gastroenterologist (occupation)",,"prac_qual_69280009",base.snomed,http://snomed.info
+prac_qual_78703002,78703002,"General surgeon","General surgeon (occupation)",,"prac_qual_69280009",base.snomed,http://snomed.info
+prac_qual_90655003,90655003,"Geriatrics specialist","Geriatrics specialist (occupation)",,"prac_qual_69280009",base.snomed,http://snomed.info
+prac_qual_83685006,83685006,"Gynecologist","Gynecologist (occupation)",,"prac_qual_69280009",base.snomed,http://snomed.info
+prac_qual_76899008,76899008,"Infectious disease specialist","Infectious disease specialist (occupation)",,"prac_qual_69280009",base.snomed,http://snomed.info
+prac_qual_39677007,39677007,"Internal medicine specialist","Internal medicine specialist (occupation)",,"prac_qual_69280009",base.snomed,http://snomed.info
+prac_qual_61207006,61207006,"Medical pathologist","Medical pathologist (occupation)",,"prac_qual_69280009",base.snomed,http://snomed.info
+prac_qual_11911009,11911009,"Nephrologist","Nephrologist (occupation)",,"prac_qual_69280009",base.snomed,http://snomed.info
+prac_qual_56397003,56397003,"Neurologist","Neurologist (occupation)",,"prac_qual_69280009",base.snomed,http://snomed.info
+prac_qual_80933006,80933006,"Nuclear medicine specialist","Nuclear medicine specialist (occupation)",,"prac_qual_69280009",base.snomed,http://snomed.info
+prac_qual_11935004,11935004,"Obstetrician","Obstetrician (occupation)",,"prac_qual_69280009",base.snomed,http://snomed.info
+prac_qual_422234006,422234006,"Ophthalmologist","Ophthalmologist (occupation)",,"prac_qual_69280009",base.snomed,http://snomed.info
+prac_qual_82296001,82296001,"Pediatrician","Pediatrician (occupation)",,"prac_qual_69280009",base.snomed,http://snomed.info
+prac_qual_24430003,24430003,"Physical medicine specialist","Physical medicine specialist (occupation)",,"prac_qual_69280009",base.snomed,http://snomed.info
+prac_qual_80584001,80584001,"Psychiatrist","Psychiatrist (occupation)",,"prac_qual_69280009",base.snomed,http://snomed.info
+prac_qual_56466003,56466003,"Public health physician","Public health physician (occupation)",,"prac_qual_69280009",base.snomed,http://snomed.info
+prac_qual_3430008,3430008,"Radiation therapist","Radiation therapist (occupation)",,"prac_qual_69280009",base.snomed,http://snomed.info
+prac_qual_66862007,66862007,"Radiologist","Radiologist (occupation)",,"prac_qual_69280009",base.snomed,http://snomed.info
+prac_qual_45440000,45440000,"Rheumatologist","Rheumatologist (occupation)",,"prac_qual_69280009",base.snomed,http://snomed.info
+prac_qual_1421009,1421009,"Specialized surgeon","Specialized surgeon (occupation)",,"prac_qual_69280009",base.snomed,http://snomed.info
+prac_qual_446701002,446701002,"Addiction medicine specialist","Addiction medicine specialist (occupation)",,"prac_qual_309343006",base.snomed,http://snomed.info
+prac_qual_310172001,310172001,"Audiological physician","Audiological physician (occupation)",,"prac_qual_309343006",base.snomed,http://snomed.info
+prac_qual_309345004,309345004,"Chest physician","Chest physician (occupation)",,"prac_qual_309343006",base.snomed,http://snomed.info
+prac_qual_309347007,309347007,"Clinical hematologist","Clinical hematologist (occupation)",,"prac_qual_309343006",base.snomed,http://snomed.info
+prac_qual_309348002,309348002,"Clinical neurophysiologist","Clinical neurophysiologist (occupation)",,"prac_qual_309343006",base.snomed,http://snomed.info
+prac_qual_310173006,310173006,"Clinical pharmacologist","Clinical pharmacologist (occupation)",,"prac_qual_309343006",base.snomed,http://snomed.info
+prac_qual_309349005,309349005,"Clinical physiologist","Clinical physiologist (occupation)",,"prac_qual_309343006",base.snomed,http://snomed.info
+prac_qual_309350005,309350005,"Diabetologist","Diabetologist (occupation)",,"prac_qual_309343006",base.snomed,http://snomed.info
+prac_qual_59058001,59058001,"General physician","General physician (occupation)",,"prac_qual_309343006",base.snomed,http://snomed.info
+prac_qual_159141008,159141008,"Geneticist","Geneticist (occupation)",,"prac_qual_309343006",base.snomed,http://snomed.info
+prac_qual_309358003,309358003,"Genitourinary medicine physician","Genitourinary medicine physician (occupation)",,"prac_qual_309343006",base.snomed,http://snomed.info
+prac_qual_309359006,309359006,"Palliative care physician","Palliative care physician (occupation)",,"prac_qual_309343006",base.snomed,http://snomed.info
+prac_qual_446050000,446050000,"Primary care physician","Primary care physician (occupation)",,"prac_qual_309343006",base.snomed,http://snomed.info
+prac_qual_309360001,309360001,"Rehabilitation physician","Rehabilitation physician (occupation)",,"prac_qual_309343006",base.snomed,http://snomed.info
+prac_qual_69280009,69280009,"Specialized physician","Specialized physician (occupation)",,"prac_qual_309343006",base.snomed,http://snomed.info
+prac_qual_309346003,309346003,"Thoracic physician","Thoracic physician (occupation)",,"prac_qual_309345004",base.snomed,http://snomed.info
+prac_qual_41672002,41672002,"Respiratory disease specialist","Respiratory disease specialist (occupation). Aka pulmonologist, respiratory physician",,"prac_qual_309345004,prac_qual_69280009",base.snomed,http://snomed.info
+prac_qual_310512001,310512001,"Medical oncologist","Medical oncologist (occupation)",,"prac_qual_309295000",base.snomed,http://snomed.info
+prac_qual_3430008,3430008,"Radiation therapist","Radiation therapist (occupation)",,"prac_qual_309295000",base.snomed,http://snomed.info

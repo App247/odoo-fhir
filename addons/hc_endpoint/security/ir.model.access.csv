@@ -3,6 +3,10 @@ access_hc_endpoint_hc_res_endpoint_user,hc.endpoint.hc.res.endpoint.user,model_h
 access_hc_endpoint_hc_endpoint_identifier_user,hc.endpoint.hc.endpoint.identifier.user,model_hc_endpoint_identifier,hc_base.group_hc_base_user,1,0,0,0
 access_hc_endpoint_hc_endpoint_telecom_user,hc.endpoint.hc.endpoint.telecom.user,model_hc_endpoint_telecom,hc_base.group_hc_base_user,1,0,0,0
 access_hc_endpoint_hc_endpoint_header_user,hc.endpoint.hc.endpoint.header.user,model_hc_endpoint_header,hc_base.group_hc_base_user,1,0,0,0
+access_hc_endpoint_hc_endpoint_domain_resource_text_user,hc.endpoint.hc.endpoint.domain.resource.text.user,model_hc_endpoint_domain_resource_text,hc_base.group_hc_base_user,1,0,0,0
+access_hc_endpoint_hc_endpoint_domain_resource_contained_user,hc.endpoint.hc.endpoint.domain.resource.contained.user,model_hc_endpoint_domain_resource_contained,hc_base.group_hc_base_user,1,0,0,0
+access_hc_endpoint_hc_endpoint_domain_resource_extension_user,hc.endpoint.hc.endpoint.domain.resource.extension.user,model_hc_endpoint_domain_resource_extension,hc_base.group_hc_base_user,1,0,0,0
+access_hc_endpoint_hc_endpoint_domain_resource_modifier_extension_user,hc.endpoint.hc.endpoint.domain.resource.modifier.extension.user,model_hc_endpoint_domain_resource_modifier_extension,hc_base.group_hc_base_user,1,0,0,0
 access_hc_endpoint_hc_vs_endpoint_connection_type_manager,hc.endpoint.hc.vs.endpoint.connection.type.manager,model_hc_vs_endpoint_connection_type,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_endpoint_hc_vs_endpoint_payload_type_manager,hc.endpoint.hc.vs.endpoint.payload.type.manager,model_hc_vs_endpoint_payload_type,hc_base.group_hc_base_manager,1,1,1,1
 

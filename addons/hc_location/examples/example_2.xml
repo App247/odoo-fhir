@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+    <!-- 2 Location -->
+
+        <record id="location_2" model="hc.res.location">
+            <field name="identifier">2</field>
+            <field name="status">suspended</field>
+            <field name="operational_status_id" ref="bed_status_h"/>
+            <field name="name">South Wing Neuro OR 1</field>
+            <field name="description">Old South Wing, Neuro Radiology Operation Room 1 on second floor</field>
+            <field name="mode">instance</field>
+            <field name="type_id" ref="serv_del_role_type_rneu"/>
+            <field name="physical_type_id" ref="phy_type_ro"/>
+            <field name="managing_organization_id" ref="hc_organization.organization_f001"/>
+            <field name="part_of_id" ref="location_1"/>
+        </record>
+
+        <record id="location_2_text" model="hc.location.domain.resource.text">
+            <field name="location_id" ref="location_2"/>
+            <field name="status">generated</field>
+            <field name="div">
+                <!-- Burgers UMC, South Wing, second floor, Neuro Radiology Operation Room 1 -->
+            </field>
+        </record>
+
+    <!-- 2 Location Alias -->
+
+        <record id="location_2_alias_1" model="hc.location.alias">
+            <field name="location_id" ref="location_2"/>
+            <field name="alias">South Wing OR 5</field>
+        </record>
+
+        <record id="location_2_alias_2" model="hc.location.alias">
+            <field name="location_id" ref="location_2"/>
+            <field name="alias">Main Wing OR 2</field>
+        </record>
+
+    <!-- 2 Location Identifier -->
+
+        <record id="location_2_identifier_1" model="hc.location.identifier">
+            <field name="location_id" ref="location_2"/>
+            <field name="value">B1-S.F2.1.00</field>
+        </record>
+
+    <!-- 2 Location Telecom -->
+
+        <record id="location_2_telecom" model="hc.location.telecom">
+            <field name="location_id" ref="location_2"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_2329"/>
+        </record>
+
+    </data>
+</odoo>

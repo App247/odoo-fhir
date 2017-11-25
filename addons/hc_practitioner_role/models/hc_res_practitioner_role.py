@@ -64,6 +64,16 @@ class PractitionerRole(models.Model):
         inverse_name="practitioner_role_id",
         string="Telecoms",
         help="Contact details that are specific to the role/location/service.")
+    available_time_ids = fields.One2many(
+        comodel_name="hc.practitioner.role.available.time",
+        inverse_name="practitioner_role_id",
+        string="Available Times",
+        help="Times the Service Site is available.")
+    not_available_time_ids = fields.One2many(
+        comodel_name="hc.practitioner.role.not.available.time",
+        inverse_name="practitioner_role_id",
+        string="Not Available Times",
+        help="Not available during this time due to provided reason.")
     availability_exceptions = fields.Text(
         string="Availability Exceptions",
         help="Description of availability exceptions.")

@@ -2,23 +2,23 @@
 <odoo>
     <data noupdate="0">
 
-    <!-- f202 Human Name Term -->
+    <!-- example Human Name Term -->
 
         <record id="hc_base.human_name_term_666" model="hc.human.name.term">
             <field name="name">Maas</field>
         </record>
 
-    <!-- f202 Human Name -->
+    <!-- example Human Name -->
 
-        <record id="hc_base.practitioner_f202_name" model="hc.human.name">
+        <record id="hc_base.practitioner_example_name" model="hc.human.name">
             <field model="hc.human.name.term" name="first_id" search="[('name','=','Luigi')]"/>
             <field model="hc.human.name.term" name="surname_id" search="[('name','=','Maas')]"/>
             <field eval="[(6, 0, [ref('base.res_partner_title_doctor')])]" name="prefix_ids"/>
         </record>
 
-    <!-- f202 Partner -->
+    <!-- example Partner -->
 
-        <record id="base.practitioner_f202" model="res.partner">
+        <record id="base.practitioner_example" model="res.partner">
             <field name="name">Dr. Luigi Maas</field>
             <field name="company_type">person</field>
             <field name="birthdate">1960-06-12</field>
@@ -28,43 +28,43 @@
             <field name="is_healthcare" eval="True"/>
         </record>
 
-    <!-- f202 Person -->
+    <!-- example Person -->
 
-        <record id="hc_person.practitioner_f202" model="hc.res.person">
-            <field name="partner_id" ref="base.practitioner_f202"/>
-            <field name="name_id" ref="hc_base.practitioner_f202_name"/>
+        <record id="hc_person.practitioner_example" model="hc.res.person">
+            <field name="partner_id" ref="base.practitioner_example"/>
+            <field name="name_id" ref="hc_base.practitioner_example_name"/>
             <field name="gender">male</field>
             <field name="birth_date">1960-06-12</field>
         </record>
 
-    <!-- f202 Person Name -->
+    <!-- example Person Name -->
 
-        <record id="hc_person.practitioner_f202_name" model="hc.person.name">
-            <field name="person_id" ref="hc_person.practitioner_f202"/>
-            <field name="human_name_id" ref="hc_base.practitioner_f202_name"/>
+        <record id="hc_person.practitioner_example_name" model="hc.person.name">
+            <field name="person_id" ref="hc_person.practitioner_example"/>
+            <field name="human_name_id" ref="hc_base.practitioner_example_name"/>
             <field name="use">official</field>
         </record>
 
-    <!-- f202 Practitioner -->
+    <!-- example Practitioner -->
 
-        <record id="practitioner_f202" model="hc.res.practitioner">
-            <field name="person_id" ref="hc_person.practitioner_f202"/>
-            <field name="identifier">f202</field>
+        <record id="practitioner_example" model="hc.res.practitioner">
+            <field name="person_id" ref="hc_person.practitioner_example"/>
+            <field name="identifier">example</field>
             <field name="is_active" eval="True"/>
         </record>
 
-        <record id="practitioner_f202_text" model="hc.practitioner.domain.resource.text">
-            <field name="practitioner_id" ref="practitioner_f202"/>
+        <record id="practitioner_example_text" model="hc.practitioner.domain.resource.text">
+            <field name="practitioner_id" ref="practitioner_example"/>
             <field name="status">generated</field>
             <field name="div">
-                <!-- <p><b>Generated Narrative with Details</b></p><p><b>id</b>: f202</p><p><b>identifier</b>: UZI-nummer = 12345678902 (OFFICIAL), BIG-nummer = 12345678902 (OFFICIAL)</p><p><b>active</b>: true</p><p><b>name</b>: Luigi Maas(OFFICIAL)</p><p><b>telecom</b>: ph: +31715269111(WORK)</p><p><b>address</b>: Walvisbaai 3 C4 - Automatisering Den helder 2333ZA NLD (WORK)</p><p><b>gender</b>: male</p><p><b>birthDate</b>: Jun 12, 1960</p> -->
+                <!-- <p><b>Generated Narrative with Details</b></p><p><b>id</b>: example</p><p><b>identifier</b>: UZI-nummer = 12345678902 (OFFICIAL), BIG-nummer = 12345678902 (OFFICIAL)</p><p><b>active</b>: true</p><p><b>name</b>: Luigi Maas(OFFICIAL)</p><p><b>telecom</b>: ph: +31715269111(WORK)</p><p><b>address</b>: Walvisbaai 3 C4 - Automatisering Den helder 2333ZA NLD (WORK)</p><p><b>gender</b>: male</p><p><b>birthDate</b>: Jun 12, 1960</p> -->
             </field>
         </record>
 
-    <!-- f202 Practitioner Identifier -->
+    <!-- example Practitioner Identifier -->
 
-        <record id="hc_person.practitioner_f202_identifier_1" model="hc.person.identifier">
-            <field name="person_id" ref="hc_person.practitioner_f202"/>
+        <record id="hc_person.practitioner_example_identifier_1" model="hc.person.identifier">
+            <field name="person_id" ref="hc_person.practitioner_example"/>
             <field name="value">12345678902</field>
             <field name="code_id" ref="hc_base.ident_code_uzi"/>
             <field name="system">urn:oid:2.16.528.1.1007.3.1</field>
@@ -80,35 +80,35 @@
             <field model="res.country" name="country_id" search="[('code3','=','NLD')]"/>
         </record>
 
-        <record id="hc_person.practitioner_f202_identifier_2" model="hc.person.identifier">
-            <field name="person_id" ref="hc_person.practitioner_f202"/>
+        <record id="hc_person.practitioner_example_identifier_2" model="hc.person.identifier">
+            <field name="person_id" ref="hc_person.practitioner_example"/>
             <field name="value">12345678902</field>
             <field name="code_id" ref="hc_base.ident_code_big"/>
             <field name="system">https://www.bigregister.nl/</field>
             <field name="use">official</field>
         </record>
 
-    <!-- f202 Practitioner Telecom -->
+    <!-- example Practitioner Telecom -->
 
-        <record id="hc_person.practitioner_f202_telecom" model="hc.person.telecom">
-            <field name="person_id" ref="hc_person.practitioner_f202"/>
+        <record id="hc_person.practitioner_example_telecom" model="hc.person.telecom">
+            <field name="person_id" ref="hc_person.practitioner_example"/>
             <field name="telecom_id" ref="hc_base.cont_pnt_31715269111"/>
             <field name="use">work</field>
         </record>
 
-    <!-- f202 Practitioner Address -->
+    <!-- example Practitioner Address -->
 
-        <record id="hc_person.practitioner_f202_address" model="hc.person.address">
-            <field name="person_id" ref="hc_person.practitioner_f202"/>
+        <record id="hc_person.practitioner_example_address" model="hc.person.address">
+            <field name="person_id" ref="hc_person.practitioner_example"/>
             <field name="address_id" ref="hc_base.practitioner_f201_address"/>
             <field name="use">work</field>
         </record>
 
 
-    <!-- f202 Practitioner Photo -->
+    <!-- example Practitioner Photo -->
 
-        <record id="practitioner_f202_photo" model="hc.person.photo">
-            <field name="person_id" ref="hc_person.practitioner_f202"/>
+        <record id="practitioner_example_photo" model="hc.person.photo">
+            <field name="person_id" ref="hc_person.practitioner_example"/>
             <field name="name">Picture_Luigi_Maas</field>
             <field name="url">Media/LM-203.bmp</field>
         </record>

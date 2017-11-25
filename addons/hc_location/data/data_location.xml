@@ -2,175 +2,175 @@
 <odoo>
     <data noupdate="0">
 
-       <!-- Bed Status --> 
-            
-       <record id="hc_location.bed_status_c" model="hc.vs.bed.status">    
+       <!-- Bed Status -->
+
+       <record id="bed_status_c" model="hc.vs.bed.status">
            <field name="code">C</field>
            <field name="name">Closed</field>
            <field name="definition"></field>
            <field name="source_id" ref="base.hl7v2"/>
            <field name="system">http://hl7.org/fhir/ValueSet/v2-0116</field>
            <field name="version">from v2.1</field>
-       </record>   
-            
-       <record id="hc_location.bed_status_h" model="hc.vs.bed.status">    
+       </record>
+
+       <record id="bed_status_h" model="hc.vs.bed.status">
            <field name="code">H</field>
            <field name="name">Housekeeping</field>
            <field name="definition"></field>
            <field name="source_id" ref="base.hl7v2"/>
            <field name="system">http://hl7.org/fhir/ValueSet/v2-0117</field>
            <field name="version">from v2.1</field>
-       </record>   
-            
-       <record id="hc_location.bed_status_i" model="hc.vs.bed.status">    
+       </record>
+
+       <record id="bed_status_i" model="hc.vs.bed.status">
            <field name="code">I</field>
            <field name="name">Isolated</field>
            <field name="definition"></field>
            <field name="source_id" ref="base.hl7v2"/>
            <field name="system">http://hl7.org/fhir/ValueSet/v2-0118</field>
            <field name="version">added v2.2</field>
-       </record>   
-            
-       <record id="hc_location.bed_status_k" model="hc.vs.bed.status">    
+       </record>
+
+       <record id="bed_status_k" model="hc.vs.bed.status">
            <field name="code">K</field>
            <field name="name">Contaminated</field>
            <field name="definition"></field>
            <field name="source_id" ref="base.hl7v2"/>
            <field name="system">http://hl7.org/fhir/ValueSet/v2-0119</field>
            <field name="version">added v2.2</field>
-       </record>   
-            
-       <record id="hc_location.bed_status_o" model="hc.vs.bed.status">    
+       </record>
+
+       <record id="bed_status_o" model="hc.vs.bed.status">
            <field name="code">O</field>
            <field name="name">Occupied</field>
            <field name="definition"></field>
            <field name="source_id" ref="base.hl7v2"/>
            <field name="system">http://hl7.org/fhir/ValueSet/v2-0120</field>
            <field name="version">from v2.1</field>
-       </record>   
-            
-       <record id="hc_location.bed_status_u" model="hc.vs.bed.status">    
+       </record>
+
+       <record id="bed_status_u" model="hc.vs.bed.status">
            <field name="code">U</field>
            <field name="name">Unoccupied</field>
            <field name="definition"></field>
            <field name="source_id" ref="base.hl7v2"/>
            <field name="system">http://hl7.org/fhir/ValueSet/v2-0121</field>
            <field name="version">from v2.1</field>
-       </record>   
-    
-       <!-- Location Physical Type -->  
-    
-        <record id="hc_location.phy_type_si" model="hc.vs.location.physical.type">  
+       </record>
+
+       <!-- Location Physical Type -->
+
+        <record id="phy_type_si" model="hc.vs.location.physical.type">
             <field name="code">si</field>
             <field name="name">Site</field>
             <field name="definition">"A collection of buildings or other locations such as a site or a campus."</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/location-physical-type</field>
-        </record>   
-            
-        <record id="hc_location.phy_type_bu" model="hc.vs.location.physical.type">  
+        </record>
+
+        <record id="phy_type_bu" model="hc.vs.location.physical.type">
             <field name="code">bu</field>
             <field name="name">Building</field>
             <field name="definition">"Any Building or structure. This may contain rooms, corridors, wings, etc. It may not have walls, or a roof, but is considered a defined/allocated space."</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/location-physical-type</field>
-        </record>   
-            
-        <record id="hc_location.phy_type_wi" model="hc.vs.location.physical.type">  
+        </record>
+
+        <record id="phy_type_wi" model="hc.vs.location.physical.type">
             <field name="code">wi</field>
             <field name="name">Wing</field>
             <field name="definition">"A Wing within a Building, this often contains levels, rooms and corridors."</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/location-physical-type</field>
-        </record>   
-            
-        <record id="hc_location.phy_type_wa" model="hc.vs.location.physical.type">  
+        </record>
+
+        <record id="phy_type_wa" model="hc.vs.location.physical.type">
             <field name="code">wa</field>
             <field name="name">Ward</field>
             <field name="definition">"A Ward is a section of a medical facility that may contain rooms and other types of location."</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/location-physical-type</field>
-        </record>   
-            
-        <record id="hc_location.phy_type_lvl" model="hc.vs.location.physical.type"> 
+        </record>
+
+        <record id="phy_type_lvl" model="hc.vs.location.physical.type">
             <field name="code">lvl</field>
             <field name="name">Level</field>
             <field name="definition">"A Level in a multi-level Building/Structure."</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/location-physical-type</field>
-        </record>   
-            
-        <record id="hc_location.phy_type_co" model="hc.vs.location.physical.type">  
+        </record>
+
+        <record id="phy_type_co" model="hc.vs.location.physical.type">
             <field name="code">co</field>
             <field name="name">Corridor</field>
             <field name="definition">"Any corridor within a Building, that may connect rooms."</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/location-physical-type</field>
-        </record>   
-            
-        <record id="hc_location.phy_type_ro" model="hc.vs.location.physical.type">  
+        </record>
+
+        <record id="phy_type_ro" model="hc.vs.location.physical.type">
             <field name="code">ro</field>
             <field name="name">Room</field>
             <field name="definition">"A space that is allocated as a room, it may have walls/roof etc., but does not require these."</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/location-physical-type</field>
-        </record>   
-            
-        <record id="hc_location.phy_type_bd" model="hc.vs.location.physical.type">  
+        </record>
+
+        <record id="phy_type_bd" model="hc.vs.location.physical.type">
             <field name="code">bd</field>
             <field name="name">Bed</field>
             <field name="definition">"A space that is allocated for sleeping/laying on. This is not the physical bed/trolley that may be moved about, but the space it may occupy."</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/location-physical-type</field>
-        </record>   
-            
-        <record id="hc_location.phy_type_ve" model="hc.vs.location.physical.type">  
+        </record>
+
+        <record id="phy_type_ve" model="hc.vs.location.physical.type">
             <field name="code">ve</field>
             <field name="name">Vehicle</field>
             <field name="definition">"A means of transportation."</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/location-physical-type</field>
-        </record>   
-            
-        <record id="hc_location.phy_type_ho" model="hc.vs.location.physical.type">  
+        </record>
+
+        <record id="phy_type_ho" model="hc.vs.location.physical.type">
             <field name="code">ho</field>
             <field name="name">House</field>
             <field name="definition">"A residential dwelling. Usually used to reference a location that a person/patient may reside."</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/location-physical-type</field>
-        </record>   
-            
-        <record id="hc_location.phy_type_ca" model="hc.vs.location.physical.type">  
+        </record>
+
+        <record id="phy_type_ca" model="hc.vs.location.physical.type">
             <field name="code">ca</field>
             <field name="name">Cabinet</field>
             <field name="definition">"A container that can store goods, equipment, medications or other items."</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/location-physical-type</field>
-        </record>   
-            
-        <record id="hc_location.phy_type_rd" model="hc.vs.location.physical.type">  
+        </record>
+
+        <record id="phy_type_rd" model="hc.vs.location.physical.type">
             <field name="code">rd</field>
             <field name="name">Road</field>
             <field name="definition">"A defined path to travel between 2 points that has a known name."</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/location-physical-type</field>
-        </record>   
-            
-        <record id="hc_location.phy_type_area" model="hc.vs.location.physical.type">    
+        </record>
+
+        <record id="phy_type_area" model="hc.vs.location.physical.type">
             <field name="code">area</field>
             <field name="name">Area</field>
             <field name="definition">"A defined physical boundary of something, such as a flood risk zone, region, postcode."</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/location-physical-type</field>
-        </record>   
-            
-        <record id="hc_location.phy_type_jdn" model="hc.vs.location.physical.type"> 
+        </record>
+
+        <record id="phy_type_jdn" model="hc.vs.location.physical.type">
             <field name="code">jdn</field>
             <field name="name">Jurisdiction</field>
             <field name="definition">"A wide scope that covers a conceptual domain, such as a Nation (Country wide community or Federal Government - e.g. Ministry of Health), Province or State (community or Government), Business (throughout the enterprise), Nation with a business scope of an agency (e.g. CDC, FDA etc.) or a Business segment (UK Pharmacy), not just an physical boundry."</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/location-physical-type</field>
-        </record>   
-    
+        </record>
+
     </data>
 </odoo>

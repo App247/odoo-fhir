@@ -70,6 +70,22 @@ class Endpoint(models.Model):
         string="Headers",
         help="Usage depends on the channel type.")
 
+    # Domain Resource
+    text_id = fields.Many2one(
+        comodel_name="hc.endpoint.domain.resource.text")
+
+    contained_ids = fields.One2many(
+        comodel_name="hc.endpoint.domain.resource.contained",
+        inverse_name="endpoint_id")
+
+    extension_ids = fields.One2many(    
+        comodel_name="hc.endpoint.domain.resource.extension",
+        inverse_name="endpoint_id")
+
+    modifier_extension_ids = fields.One2many(
+        comodel_name="hc.endpoint.domain.resource.modifier.extension",
+        inverse_name="endpoint_id")
+
 class EndpointIdentifier(models.Model):
     _name = "hc.endpoint.identifier"
     _description = "Endpoint Identifier"
@@ -109,6 +125,46 @@ class EndpointHeader(models.Model):
     header = fields.Char(
         string="Header",
         help="Usage depends on the channel type.")
+
+class EndpointDomainResourceText(models.Model):
+    _name = "hc.endpoint.domain.resource.text"
+    _description = "Endpoint Domain Resource Text"
+    _inherit = ["hc.basic.association", "hc.narrative"]
+
+    endpoint_id = fields.Many2one(
+        comodel_name="hc.res.endpoint",
+        string="Endpoint",
+        help="Endpoint associated with this Endpoint Domain Resource Text.")
+
+class EndpointDomainResourceContained(models.Model):
+    _name = "hc.endpoint.domain.resource.contained"
+    _description = "Endpoint Domain Resource Contained"
+    _inherit = ["hc.basic.association", "hc.resource"]
+
+    endpoint_id = fields.Many2one(
+        comodel_name="hc.res.endpoint",
+        string="Organization",
+        help="Endpoint associated with this Endpoint Domain Resource Contained.")
+
+class EndpointDomainResourceExtension(models.Model):
+    _name = "hc.endpoint.domain.resource.extension"
+    _description = "Endpoint Domain Resource Extension"
+    _inherit = ["hc.basic.association", "hc.extension"]
+
+    endpoint_id = fields.Many2one(
+        comodel_name="hc.res.endpoint",
+        string="Organization",
+        help="Endpoint associated with this Endpoint Domain Resource Extension.")
+
+class EndpointDomainResourceModifierExtension(models.Model):
+    _name = "hc.endpoint.domain.resource.modifier.extension"
+    _description = "Endpoint Domain Resource Modifier Extension"
+    _inherit = ["hc.basic.association", "hc.extension"]
+
+    endpoint_id = fields.Many2one(
+        comodel_name="hc.res.endpoint",
+        string="Organization",
+        help="Endpoint associated with this Endpoint Domain Resource Modifier Extension.")
 
 class EndpointConnectionType(models.Model):
     _name = "hc.vs.endpoint.connection.type"

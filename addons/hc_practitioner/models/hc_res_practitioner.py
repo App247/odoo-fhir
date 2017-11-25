@@ -143,8 +143,8 @@ class PractitionerQualification(models.Model):
         string="Identifiers",
         help="An identifier for this qualification for the practitioner.")
     code_id = fields.Many2one(
-        comodel_name="hc.vs.practitioner.qualification",
-        string="Qualification Code",
+        comodel_name="hc.vs.practitioner.qualification.code",
+        string="Code",
         help="Coded representation of the qualification.")
     start_date = fields.Datetime(
         string="Start Date",
@@ -304,25 +304,92 @@ class PractitionerLanguageProficiency(models.Model):
         string="Language Skill",
         help="Language Skill associated with this Practitioner Language Proficiency.")
 
-class PractitionerQualification(models.Model):
-    _name = "hc.vs.practitioner.qualification"
-    _description = "Practitioner Qualification"
+class PractitionerQualificationCode(models.Model):
+    _name = "hc.vs.practitioner.qualification.code"
+    _description = "Practitioner Qualification Code"
     _inherit = ["hc.value.set.contains"]
 
     name = fields.Char(
         string="Name",
-        help="Name of this practitioner qualification.")
+        help="Name of this practitioner qualification code.")
     code = fields.Char(
         string="Code",
-        help="Code of this practitioner qualification.")
+        help="Code of this practitioner qualification code.")
     contains_id = fields.Many2one(
-        comodel_name="hc.vs.practitioner.qualification",
+        comodel_name="hc.vs.practitioner.qualification.code",
         string="Parent",
         help="Parent concept.")
     country_id = fields.Many2one(
         comodel_name="res.country",
         string="Country",
         help="Country (can be ISO 3166 3 letter code).")
+    level_attribute = fields.Char(
+        compute="_get_level",
+        string="Level/Parent",
+        store=True,
+        help="Level associated with Parent concept.")
+    level = fields.Integer(
+        compute="_get_level",
+        string="Level",
+        store=True,
+        help="Level as a parent in a hierarchy of codes.")
+    parent_child_ids = fields.Many2many(
+        comodel_name="hc.vs.practitioner.qualification.code",
+        relation="practitioner_qualification_parent_child_rel",
+        column1="parent_id",
+        column2="child_id",
+        string="Parents",
+        help="Parent practitioner qualification code.")
+    child_parent_ids = fields.Many2many(
+        comodel_name="hc.vs.practitioner.qualification.code",
+        compute="_calc_child",
+        store="True",
+        relation="practitioner_qualification_child_parent_rel",
+        column1="child_id",
+        column2="parent_id",
+        string="Children",
+        help="Child practitioner qualification code.")
+    child_count = fields.Integer(
+        string="Child Count",
+        compute="_calc_child",
+        store="True",
+        help="Number of child members.")
+
+    @api.depends('code')
+    def _calc_child(self):
+        sub_code_obj = self.env['hc.vs.practitioner.qualification.code']
+        for rec in self:
+            rec.child_parent_ids = False
+            if rec.code:
+                child_ids = sub_code_obj.search([('parent_child_ids.code', '=', rec.code)])
+                if child_ids:
+                    rec.child_count = len(child_ids)
+                    rec.child_parent_ids = [(6,0,child_ids.ids)]
+
+    @api.constrains('parent_child_ids')
+    def _check_recursive_parent_child(self):
+        for rec in self:
+            if rec.id in rec.parent_child_ids.ids:
+                raise ValidationError('Error! A code cannot be a child of itself.')
+        return True
+
+    @api.depends('parent_child_ids')
+    def _get_level(self):
+        for rec in self:
+            if not rec.parent_child_ids:
+                rec.level = 1
+                rec.level_attribute = ''
+            else:
+                high = 1
+                attr_str = False
+                for parent in rec.parent_child_ids:
+                    if not attr_str:
+                        attr_str = '(' + str(parent.level + 1) + ',' + parent.name +')'
+                    else:
+                        attr_str = attr_str + ',' + '(' + str(parent.level + 1) + ',' + parent.name + ')'
+                    if parent.level > high:
+                        high = parent.level
+                rec.level = high + 1
 
 class PractitionerSpecialty(models.Model):
     _name = "hc.vs.practitioner.specialty"

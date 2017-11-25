@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+    <!-- f006 Human Name Term -->
+
+        <record id="hc_base.human_name_term_660" model="hc.human.name.term">
+            <field name="name">Rob</field>
+        </record>
+
+        <record id="hc_base.human_name_term_661" model="hc.human.name.term">
+            <field name="name">van den Berk</field>
+        </record>
+
+    <!-- f006 Human Name -->
+
+        <record id="hc_base.practitioner_f006_name" model="hc.human.name">
+            <field model="hc.human.name.term" name="first_id" search="[('name','=','Rob')]"/>
+            <field model="hc.human.name.term" name="surname_id" search="[('name','=','van den Berk')]"/>
+            <field eval="[(6, 0, [ref('hc_base.human_name_suffix_58')])]" name="suffix_ids"/>
+        </record>
+
+    <!-- f006 Partner -->
+
+        <record id="base.practitioner_f006" model="res.partner">
+            <field name="name">Rob van den Berk MD</field>
+            <field name="company_type">person</field>
+            <field name="birthdate">1975-12-07</field>
+            <field name="is_company" eval="False"/>
+            <field name="is_person" eval="True"/>
+            <field name="is_practitioner" eval="True"/>
+            <field name="is_healthcare" eval="True"/>
+        </record>
+
+    <!-- f006 Person -->
+
+        <record id="hc_person.practitioner_f006" model="hc.res.person">
+            <field name="partner_id" ref="base.practitioner_f006"/>
+            <field name="name_id" ref="hc_base.practitioner_f006_name"/>
+            <field name="gender">male</field>
+            <field name="birth_date">1975-12-07</field>
+        </record>
+
+    <!-- f006 Person Name -->
+
+        <record id="hc_person.practitioner_f006_name" model="hc.person.name">
+            <field name="person_id" ref="hc_person.practitioner_f006"/>
+            <field name="human_name_id" ref="hc_base.practitioner_f006_name"/>
+            <field name="use">official</field>
+        </record>
+
+    <!-- f006 Practitioner -->
+
+        <record id="practitioner_f006" model="hc.res.practitioner">
+            <field name="person_id" ref="hc_person.practitioner_f006"/>
+            <field name="identifier">f006</field>
+        </record>
+
+        <record id="practitioner_f006_text" model="hc.practitioner.domain.resource.text">
+            <field name="practitioner_id" ref="practitioner_f006"/>
+            <field name="status">generated</field>
+            <field name="div">
+                 <!-- <p><b>Generated Narrative with Details</b></p><p><b>id</b>: f006</p><p><b>identifier</b>: 937223645 (OFFICIAL), 134IDY41W988 (USUAL)</p><p><b>name</b>: Rob van den Berk (OFFICIAL)</p><p><b>telecom</b>: ph: 0205569288(WORK), R.A.vandenberk@bmc.nl(WORK), fax: 0205664987(WORK)</p><p><b>address</b>: Galapagosweg 91 Den Burg 9105 PZ NLD (WORK)</p><p><b>gender</b>: male</p><p><b>birthDate</b>: Dec 7, 1975</p> -->
+            </field>
+        </record>
+
+    <!-- f006 Practitioner Identifier -->
+
+        <record id="hc_person.practitioner_f006_identifier_1" model="hc.person.identifier">
+            <field name="person_id" ref="hc_person.practitioner_f006"/>
+            <field name="value">937223645</field>
+            <field name="code_id" ref="hc_base.ident_code_uzi"/>
+            <field name="system">urn:oid:2.16.528.1.1007.3.1</field>
+            <field name="use">official</field>
+        </record>
+
+        <record id="hc_person.practitioner_f006_identifier_2" model="hc.person.identifier">
+            <field name="person_id" ref="hc_person.practitioner_f006"/>
+            <field name="value">134IDY41W988</field>
+            <field name="code_id" ref="hc_base.ident_code_bsn"/>
+            <field name="system">urn:oid:2.16.840.1.113883.2.4.6.3</field>
+            <field name="use">usual</field>
+        </record>
+
+    <!-- f006 Practitioner Telecom -->
+
+        <record id="hc_base.cont_pnt_0205569288" model="hc.contact.point">
+            <field name="value">0205569288</field>
+            <field name="system">phone</field>
+        </record>
+
+        <record id="hc_person.practitioner_f006_telecom_1" model="hc.person.telecom">
+            <field name="person_id" ref="hc_person.practitioner_f006"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_0205569288"/>
+            <field name="use">work</field>
+        </record>
+
+        <record id="hc_base.cont_pnt_r_a_vandenberk_bmc_nl" model="hc.contact.point">
+            <field name="value">R.A.vandenberk@bmc.nl</field>
+            <field name="system">email</field>
+        </record>
+
+        <record id="hc_person.practitioner_f006_telecom_2" model="hc.person.telecom">
+            <field name="person_id" ref="hc_person.practitioner_f006"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_r_a_vandenberk_bmc_nl"/>
+            <field name="use">work</field>
+        </record>
+
+        <record id="hc_base.cont_pnt_0205664987" model="hc.contact.point">
+            <field name="value">0205664987</field>
+            <field name="system">fax</field>
+        </record>
+
+        <record id="hc_person.practitioner_f006_telecom_3" model="hc.person.telecom">
+            <field name="person_id" ref="hc_person.practitioner_f006"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_0205664987"/>
+            <field name="use">work</field>
+        </record>
+
+    <!-- f006 Practitioner Address -->
+
+        <record id="hc_person.practitioner_f006_address" model="hc.person.address">
+            <field name="person_id" ref="hc_person.practitioner_f006"/>
+            <field name="address_id" ref="hc_base.practitioner_f001_address"/>
+            <field name="use">work</field>
+        </record>
+
+    </data>
+</odoo>
