@@ -83,6 +83,19 @@ class PractitionerRole(models.Model):
         string="Endpoints",
         help="Technical endpoints providing access to services operated for the practitioner with this role.")
 
+    # Domain Resource
+    text_id = fields.Many2one(
+        comodel_name="hc.practitioner.role.domain.resource.text")
+    contained_ids = fields.One2many(
+        comodel_name="hc.practitioner.role.domain.resource.contained",
+        inverse_name="practitioner_role_id")
+    extension_ids = fields.One2many(
+        comodel_name="hc.practitioner.role.domain.resource.extension",
+        inverse_name="practitioner_role_id")
+    modifier_extension_ids = fields.One2many(
+        comodel_name="hc.practitioner.role.domain.resource.modifier.extension",
+        inverse_name="practitioner_role_id")
+
     @api.depends('practitioner_id', 'organization_id', 'period_start_date')
     def _compute_name(self):
         comp_name = '/'
@@ -190,6 +203,46 @@ class PractitionerRoleEndpoint(models.Model):
         comodel_name="hc.res.endpoint",
         string="Endpoint",
         help="Endpoint associated with this Practitioner Role Endpoint.")
+
+class PractitionerRoleDomainResourceText(models.Model):
+    _name = "hc.practitioner.role.domain.resource.text"
+    _description = "Practitioner Role Domain Resource Text"
+    _inherit = ["hc.basic.association", "hc.narrative"]
+
+    practitioner_role_id = fields.Many2one(
+        comodel_name="hc.res.practitioner.role",
+        string="Practitioner Role",
+        help="Practitioner Role associated with this Practitioner Role Domain Resource Text.")
+
+class PractitionerRoleDomainResourceContained(models.Model):
+    _name = "hc.practitioner.role.domain.resource.contained"
+    _description = "Practitioner Role Domain Resource Contained"
+    _inherit = ["hc.basic.association", "hc.resource"]
+
+    practitioner_role_id = fields.Many2one(
+        comodel_name="hc.res.practitioner.role",
+        string="Practitioner Role",
+        help="Practitioner Role associated with this Practitioner Role Domain Resource Contained.")
+
+class PractitionerRoleDomainResourceExtension(models.Model):
+    _name = "hc.practitioner.role.domain.resource.extension"
+    _description = "Practitioner Role Domain Resource Extension"
+    _inherit = ["hc.basic.association", "hc.extension"]
+
+    practitioner_role_id = fields.Many2one(
+        comodel_name="hc.res.practitioner.role",
+        string="Practitioner Role",
+        help="Practitioner Role associated with this Practitioner Role Domain Resource Extension.")
+
+class PractitionerRoleDomainResourceModifierExtension(models.Model):
+    _name = "hc.practitioner.role.domain.resource.modifier.extension"
+    _description = "Practitioner Role Domain Resource Modifier Extension"
+    _inherit = ["hc.basic.association", "hc.extension"]
+
+    practitioner_role_id = fields.Many2one(
+        comodel_name="hc.res.practitioner.role",
+        string="Practitioner Role",
+        help="Practitioner Role associated with this Practitioner Role Domain Resource Modifier Extension.")
 
 class PractitionerRoleRole(models.Model):
     _name = "hc.vs.practitioner.role"

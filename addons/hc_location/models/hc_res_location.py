@@ -176,7 +176,7 @@ class LocationDomainResourceContained(models.Model):
 
     location_id = fields.Many2one(
         comodel_name="hc.res.location",
-        string="Organization",
+        string="Location",
         help="Location associated with this Location Domain Resource Contained.")
 
 class LocationDomainResourceExtension(models.Model):
@@ -186,7 +186,7 @@ class LocationDomainResourceExtension(models.Model):
 
     location_id = fields.Many2one(
         comodel_name="hc.res.location",
-        string="Organization",
+        string="Location",
         help="Location associated with this Location Domain Resource Extension.")
 
 class LocationDomainResourceModifierExtension(models.Model):
@@ -196,7 +196,7 @@ class LocationDomainResourceModifierExtension(models.Model):
 
     location_id = fields.Many2one(
         comodel_name="hc.res.location",
-        string="Organization",
+        string="Location",
         help="Location associated with this Location Domain Resource Modifier Extension.")
 
 class BedStatus(models.Model):

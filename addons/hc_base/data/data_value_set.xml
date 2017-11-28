@@ -7,7 +7,7 @@
         <record id="day_week_mon" model="hc.vs.days.of.week">
             <field name="code">mon</field>
             <field name="name">Monday</field>
-            <field name="definition">Monday</field>
+            <field name="sequence">1</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/days-of-week</field>
         </record>
@@ -15,7 +15,7 @@
         <record id="day_week_tue" model="hc.vs.days.of.week">
             <field name="code">tue</field>
             <field name="name">Tuesday</field>
-            <field name="definition">Tuesday</field>
+            <field name="sequence">2</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/days-of-week</field>
         </record>
@@ -23,7 +23,7 @@
         <record id="day_week_wed" model="hc.vs.days.of.week">
             <field name="code">wed</field>
             <field name="name">Wednesday</field>
-            <field name="definition">Wednesday</field>
+            <field name="sequence">3</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/days-of-week</field>
         </record>
@@ -31,7 +31,7 @@
         <record id="day_week_thu" model="hc.vs.days.of.week">
             <field name="code">thu</field>
             <field name="name">Thursday</field>
-            <field name="definition">Thursday</field>
+            <field name="sequence">4</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/days-of-week</field>
         </record>
@@ -39,7 +39,7 @@
         <record id="day_week_fri" model="hc.vs.days.of.week">
             <field name="code">fri</field>
             <field name="name">Friday</field>
-            <field name="definition">Friday</field>
+            <field name="sequence">5</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/days-of-week</field>
         </record>
@@ -47,7 +47,7 @@
         <record id="day_week_sat" model="hc.vs.days.of.week">
             <field name="code">sat</field>
             <field name="name">Saturday</field>
-            <field name="definition">Saturday</field>
+            <field name="sequence">6</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/days-of-week</field>
         </record>
@@ -55,7 +55,7 @@
         <record id="day_week_sun" model="hc.vs.days.of.week">
             <field name="code">sun</field>
             <field name="name">Sunday</field>
-            <field name="definition">Sunday</field>
+            <field name="sequence">7</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/days-of-week</field>
         </record>

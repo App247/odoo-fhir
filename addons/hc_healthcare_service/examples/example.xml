@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+    <!-- example Eligibility-->
+
+        <record id="serv_elig_dva_required" model="hc.vs.service.eligibility">
+            <field name="name">DVA Required</field>
+            <field name="code">DVA Required</field>
+        </record>
+
+    <!-- example Characteristic-->
+
+        <record id="serv_char_wheelchair_access" model="hc.vs.service.characteristic">
+            <field name="name">Wheelchair access</field>
+            <field name="code">Wheelchair access</field>
+        </record>
+
+    <!-- example Service Type (not in FHIR Specification)-->
+
+        <record id="serv_type_47505003" model="hc.vs.service.type">
+            <field name="name">Posttraumatic stress disorder</field>
+            <field name="code">47505003</field>
+        </record>
+
+    <!-- example -->
+
+        <record id="healthcare_service_example" model="hc.res.healthcare.service">
+            <field name="identifier">example</field>
+            <field name="is_active" eval="True"/>
+            <field name="name">Consulting psychologists and/or psychology services</field>
+            <field name="comment">Providing Specialist psychology services to the greater Den Burg area, many years of experience dealing with PTSD issues</field>
+            <field name="extra_details">Several assessments are required for these specialist services, and the waiting times can be greater than 3 months at times. Existing patients are prioritized when requesting appointments on the schedule.</field>
+            <field name="provided_by_id" ref="hc_organization.organization_1"/>
+            <field name="service_category_id" ref="serv_cat_8"/>
+            <field eval="[(6, 0, [ref('serv_type_47505003')])]" name="type_ids"/>
+            <field eval="[(6, 0, [ref('hc_base.prac_code_394913002'), ref('hc_base.prac_code_394587001')])]" name="specialty_ids"/>
+            <field eval="[(6, 0, [ref('serv_prov_cond_cost')])]" name="service_provision_code_ids"/>
+            <field name="eligibility_id" ref="serv_elig_dva_required"/>
+            <field name="eligibility_note">Evidence of application for DVA status may be sufficient for commencing assessment</field>
+            <field eval="[(6, 0, [ref('serv_char_wheelchair_access')])]" name="characteristic_ids"/>
+            <field eval="[(6, 0, [ref('serv_ref_meth_phone'), ref('serv_ref_meth_fax'), ref('serv_ref_meth_elec'), ref('serv_ref_meth_semail')])]" name="referral_method_ids"/>
+            <field name="is_appointment_required" eval="False"/>
+            <field name="availability_exceptions">Reduced capacity is available during the Christmas period</field>
+        </record>
+
+        <record id="healthcare_service_example_text" model="hc.healthcare.service.domain.resource.text">
+            <field name="healthcare_service_id" ref="healthcare_service_example"/>
+            <field name="status">generated</field>
+            <field name="div">
+                <!-- 25 Dec 2013 9:15am - 9:30am: <b>Busy</b> Physiotherapy -->
+            </field>
+        </record>
+
+    <!-- example Identifier -->
+
+        <record id="healthcare_service_example_identifier" model="hc.healthcare.service.identifier">
+            <field name="healthcare_service_id" ref="healthcare_service_example"/>
+            <field name="system">http://example.org/shared-id</field>
+            <field name="value">HS-12</field>
+        </record>
+
+    <!-- example Location -->
+
+        <record id="healthcare_service_example_location" model="hc.healthcare.service.location">
+            <field name="healthcare_service_id" ref="healthcare_service_example"/>
+            <field name="location_id" ref="hc_location.location_1"/>
+        </record>
+
+    <!-- example Telecom -->
+
+        <record id="hc_base.cont_pnt_555_silent" model="hc.contact.point">
+            <field name="value">(555) silent</field>
+            <field name="system">phone</field>
+        </record>
+
+        <record id="healthcare_service_example_telecom_1" model="hc.healthcare.service.telecom">
+            <field name="healthcare_service_id" ref="healthcare_service_example"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_555_silent"/>
+            <field name="use">work</field>
+        </record>
+
+        <record id="hc_base.cont_pnt_directaddress_example_com" model="hc.contact.point">
+            <field name="value">directaddress@example.com</field>
+            <field name="system">email</field>
+        </record>
+
+        <record id="healthcare_service_example_telecom_2" model="hc.healthcare.service.telecom">
+            <field name="healthcare_service_id" ref="healthcare_service_example"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_directaddress_example_com"/>
+        </record>
+
+    <!-- example Coverage Area-->
+
+        <record id="hc_location.healthcare_service_example_location" model="hc.res.location">
+            <field name="identifier">DenBurg</field>
+            <field name="status">active</field>
+            <field name="name">Greater Denburg area</field>
+            <field name="description">Greater Denburg area</field>
+            <field name="mode">instance</field>
+        </record>
+
+        <record id="healthcare_service_example_coverage_area" model="hc.healthcare.service.coverage.area">
+            <field name="healthcare_service_id" ref="healthcare_service_example"/>
+            <field name="location_id" ref="hc_location.healthcare_service_example_location"/>
+        </record>
+
+    <!-- example Program Name -->
+
+        <record id="healthcare_service_example_program_name" model="hc.healthcare.service.program.name">
+            <field name="healthcare_service_id" ref="healthcare_service_example"/>
+            <field name="name">PTSD outreach</field>
+        </record>
+
+    <!-- example Available Time -->
+
+        <record id="healthcare_service_example_available_time_1" model="hc.healthcare.service.available.time">
+            <field name="healthcare_service_id" ref="healthcare_service_example"/>
+            <field eval="[(6, 0, [ref('hc_base.day_week_mon')])]" name="days_of_week_ids"/>
+            <field name="is_all_day" eval="True"/>
+        </record>
+
+        <record id="healthcare_service_example_available_time_2" model="hc.healthcare.service.available.time">
+            <field name="healthcare_service_id" ref="healthcare_service_example"/>
+            <field eval="[(6, 0, [ref('hc_base.day_week_mon'), ref('hc_base.day_week_tue'), ref('hc_base.day_week_thu'), ref('hc_base.day_week_fri')])]" name="days_of_week_ids"/>
+            <field name="available_start_time">08:30:00</field>
+            <field name="available_end_time">17:30:00</field>
+        </record>
+
+        <record id="healthcare_service_example_available_time_3" model="hc.healthcare.service.available.time">
+            <field name="healthcare_service_id" ref="healthcare_service_example"/>
+            <field eval="[(6, 0, [ref('hc_base.day_week_sat'), ref('hc_base.day_week_fri')])]" name="days_of_week_ids"/>
+            <field name="available_start_time">09:30:00</field>
+            <field name="available_end_time">16:30:00</field>
+        </record>
+
+    <!-- example Not Available Time -->
+
+        <record id="healthcare_service_example_not_available_time_1" model="hc.healthcare.service.not.available.time">
+            <field name="healthcare_service_id" ref="healthcare_service_example"/>
+            <field name="description">Christmas/Boxing Day</field>
+            <field name="during_start_date">2015-12-25</field>
+            <field name="during_end_date">2015-12-26</field>
+        </record>
+
+        <record id="healthcare_service_example_not_available_time_2" model="hc.healthcare.service.not.available.time">
+            <field name="healthcare_service_id" ref="healthcare_service_example"/>
+            <field name="description">New Years Day</field>
+            <field name="during_start_date">2016-01-01</field>
+            <field name="during_end_date">2016-01-01</field>
+        </record>
+
+    <!-- example Endpoint -->
+
+        <record id="healthcare_service_example_endpoint" model="hc.healthcare.service.endpoint">
+            <field name="healthcare_service_id" ref="healthcare_service_example"/>
+            <field name="endpoint_id" ref="hc_endpoint.endpoint_example"/>
+        </record>
+
+    </data>
+</odoo>

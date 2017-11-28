@@ -50,6 +50,42 @@
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/practitioner-role</field>
         </record>
-    
+
+        <record id="prac_role_cp" model="hc.vs.practitioner.role">
+            <field name="code">CP</field>
+            <field name="name">Consulting Provider</field>
+            <field name="definition">"Consulting Provider"</field>
+            <field name="version">added v2.3</field>
+            <field name="source_id" ref="base.hl7v2"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/v2-0286</field>
+        </record>
+
+        <record id="prac_role_pp" model="hc.vs.practitioner.role">
+            <field name="code">PP</field>
+            <field name="name">Primary Care Provider</field>
+            <field name="definition">"Primary Care Provider"</field>
+            <field name="version">added v2.3</field>
+            <field name="source_id" ref="base.hl7v2"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/v2-0286</field>
+        </record>
+
+        <record id="prac_role_rp" model="hc.vs.practitioner.role">
+            <field name="code">RP</field>
+            <field name="name">Referring Provider</field>
+            <field name="definition">"Referring Provider"</field>
+            <field name="version">added v2.3</field>
+            <field name="source_id" ref="base.hl7v2"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/v2-0286</field>
+        </record>
+
+        <record id="prac_role_rt" model="hc.vs.practitioner.role">
+            <field name="code">RT</field>
+            <field name="name">Referred to Provider</field>
+            <field name="definition">"Referred to Provider"</field>
+            <field name="version">added v2.3</field>
+            <field name="source_id" ref="base.hl7v2"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/v2-0286</field>
+        </record>
+
     </data>
 </odoo>

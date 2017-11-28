@@ -428,7 +428,10 @@ class DaysOfWeek(models.Model):
         comodel_name="hc.vs.days.of.week",
         string="Parent",
         help="Parent day of week.")
-
+    sequence = fields.Integer(
+        string="Sequence",
+        help="Day order in the week based on ISO 8601 (i.e., Monday = 1).")
+    
 class DefinedType(models.Model):
     _name = "hc.vs.defined.type"
     _description = "Defined Type"

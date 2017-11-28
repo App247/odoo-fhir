@@ -5,6 +5,8 @@ from openerp import models, fields, api
 class HealthcareService(models.Model):
     _name = "hc.res.healthcare.service"
     _description = "Healthcare Service"
+    _inherit = "hc.domain.resource"
+    _rec_name = "name"
 
     identifier_ids = fields.One2many(
         comodel_name="hc.healthcare.service.identifier",
@@ -90,14 +92,6 @@ class HealthcareService(models.Model):
     is_appointment_required = fields.Boolean(
         string="Appointment Required",
         help="Indicates if an appointment is required for access to this service.")
-    availability_exceptions = fields.Text(
-        string="Availability Exceptions",
-        help="A description of Site availability exceptions, e.g., public holiday availability. Succinctly describing all possible exceptions to normal Site availability as details in the Available Times and Not Available Times.")
-    endpoint_ids = fields.One2many(
-        comodel_name="hc.healthcare.service.endpoint",
-        inverse_name="healthcare_service_id",
-        string="Endpoints",
-        help="Technical endpoints providing access to services operated for the location.")
     available_time_ids = fields.One2many(
         comodel_name="hc.healthcare.service.available.time",
         inverse_name="healthcare_service_id",
@@ -108,11 +102,32 @@ class HealthcareService(models.Model):
         inverse_name="healthcare_service_id",
         string="Not Available Times",
         help="The Healthcare Service is not available during this period of time due to the provided reason.")
+    availability_exceptions = fields.Text(
+        string="Availability Exceptions",
+        help="A description of Site availability exceptions, e.g., public holiday availability. Succinctly describing all possible exceptions to normal Site availability as details in the Available Times and Not Available Times.")
+    endpoint_ids = fields.One2many(
+        comodel_name="hc.healthcare.service.endpoint",
+        inverse_name="healthcare_service_id",
+        string="Endpoints",
+        help="Technical endpoints providing access to services operated for the location.")
+
+    # Domain Resource
+    text_id = fields.Many2one(
+        comodel_name="hc.healthcare.service.domain.resource.text")
+    contained_ids = fields.One2many(
+        comodel_name="hc.healthcare.service.domain.resource.contained",
+        inverse_name="healthcare_service_id")
+    extension_ids = fields.One2many(
+        comodel_name="hc.healthcare.service.domain.resource.extension",
+        inverse_name="healthcare_service_id")
+    modifier_extension_ids = fields.One2many(
+        comodel_name="hc.healthcare.service.domain.resource.modifier.extension",
+        inverse_name="healthcare_service_id")
 
 class HealthcareServiceAvailableTime(models.Model):
     _name = "hc.healthcare.service.available.time"
     _description = "Healthcare Service Available Time"
-    _inherit = ["hc.available.time"]
+    _inherit = ["hc.available.time", "hc.backbone.element"]
 
     healthcare_service_id = fields.Many2one(
         comodel_name="hc.res.healthcare.service",
@@ -122,7 +137,7 @@ class HealthcareServiceAvailableTime(models.Model):
 class HealthcareServiceNotAvailableTime(models.Model):
     _name = "hc.healthcare.service.not.available.time"
     _description = "Healthcare Service Not Available Time"
-    _inherit = ["hc.not.available.time"]
+    _inherit = ["hc.not.available.time", "hc.backbone.element"]
 
     healthcare_service_id = fields.Many2one(
         comodel_name="hc.res.healthcare.service",
@@ -132,7 +147,7 @@ class HealthcareServiceNotAvailableTime(models.Model):
 class HealthcareServiceIdentifier(models.Model):
     _name = "hc.healthcare.service.identifier"
     _description = "Healthcare Service Identifier"
-    _inherit = ["hc.basic.association", "hc.identifier"]
+    _inherit = ["hc.basic.association", "hc.identifier", "hc.identifier.use"]
 
     healthcare_service_id = fields.Many2one(
         comodel_name="hc.res.healthcare.service",
@@ -178,7 +193,7 @@ class HealthcareServiceTelecom(models.Model):
         string="Healthcare Service",
         help="Healthcare Service associated with this Healthcare Service Telecom.")
 
-class HealthcareServiceCoveredArea(models.Model):
+class HealthcareServiceCoverageArea(models.Model):
     _name = "hc.healthcare.service.coverage.area"
     _description = "Healthcare Service Coverage Area"
     _inherit = ["hc.basic.association"]
@@ -221,6 +236,46 @@ class HealthcareServiceEndpoint(models.Model):
         comodel_name="hc.res.endpoint",
         string="Endpoint",
         help="Endpoint associated with this Healthcare Service Endpoint.")
+
+class HealthcareServiceDomainResourceText(models.Model):
+    _name = "hc.healthcare.service.domain.resource.text"
+    _description = "Healthcare Service Domain Resource Text"
+    _inherit = ["hc.basic.association", "hc.narrative"]
+
+    healthcare_service_id = fields.Many2one(
+        comodel_name="hc.res.healthcare.service",
+        string="Healthcare Service",
+        help="Healthcare Service associated with this Healthcare Service Domain Resource Text.")
+
+class HealthcareServiceDomainResourceContained(models.Model):
+    _name = "hc.healthcare.service.domain.resource.contained"
+    _description = "Healthcare Service Domain Resource Contained"
+    _inherit = ["hc.basic.association", "hc.resource"]
+
+    healthcare_service_id = fields.Many2one(
+        comodel_name="hc.res.healthcare.service",
+        string="Healthcare Service",
+        help="Healthcare Service associated with this Healthcare Service Domain Resource Contained.")
+
+class HealthcareServiceDomainResourceExtension(models.Model):
+    _name = "hc.healthcare.service.domain.resource.extension"
+    _description = "Healthcare Service Domain Resource Extension"
+    _inherit = ["hc.basic.association", "hc.extension"]
+
+    healthcare_service_id = fields.Many2one(
+        comodel_name="hc.res.healthcare.service",
+        string="Healthcare Service",
+        help="Healthcare Service associated with this Healthcare Service Domain Resource Extension.")
+
+class HealthcareServiceDomainResourceModifierExtension(models.Model):
+    _name = "hc.healthcare.service.domain.resource.modifier.extension"
+    _description = "Healthcare Service Domain Resource Modifier Extension"
+    _inherit = ["hc.basic.association", "hc.extension"]
+
+    healthcare_service_id = fields.Many2one(
+        comodel_name="hc.res.healthcare.service",
+        string="Healthcare Service",
+        help="Healthcare Service associated with this Healthcare Service Domain Resource Modifier Extension.")
 
 class ServiceType(models.Model):
     _name = "hc.vs.service.type"

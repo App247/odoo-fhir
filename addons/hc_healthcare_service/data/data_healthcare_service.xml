@@ -2,65 +2,65 @@
 <odoo>
     <data noupdate="0">
 
-        <!-- Service Provision Condition -->    
-    
-        <record id="hc_healthcare_service.serv_prov_cond_free" model="hc.vs.service.provision.condition">   
+        <!-- Service Provision Condition -->
+
+        <record id="serv_prov_cond_free" model="hc.vs.service.provision.condition">
             <field name="code">free</field>
             <field name="name">Free</field>
             <field name="definition">This service is available for no patient cost.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/service-provision-conditions</field>
-        </record>   
-            
-        <record id="hc_healthcare_service.serv_prov_cond_disc" model="hc.vs.service.provision.condition">   <field name="code">fax</field>
+        </record>
+
+        <record id="serv_prov_cond_disc" model="hc.vs.service.provision.condition">
             <field name="code">disc</field>
             <field name="name">Discounts Available</field>
             <field name="definition">There are discounts available on this service for qualifying patients.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/service-provision-conditions</field>
-        </record>   
-            
-        <record id="hc_healthcare_service.serv_prov_cond_cost" model="hc.vs.service.provision.condition">   <field name="name">Fax</field>
+        </record>
+
+        <record id="serv_prov_cond_cost" model="hc.vs.service.provision.condition">
             <field name="code">cost</field>
             <field name="name">Fees apply</field>
             <field name="definition">Fees apply for this service.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/service-provision-conditions</field>
-        </record>   
+        </record>
 
-        <!-- Service Referral Method -->    
-    
-        <record id="hc_healthcare_service.serv_ref_meth_fax" model="hc.vs.service.referral.method"> 
+        <!-- Service Referral Method -->
+
+        <record id="serv_ref_meth_fax" model="hc.vs.service.referral.method">
             <field name="code">fax</field>
             <field name="name">Fax</field>
             <field name="definition">Referrals may be accepted by fax.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/service-referral-method</field>
-        </record>   
-            
-        <record id="hc_healthcare_service.serv_ref_meth_phone" model="hc.vs.service.referral.method">   <field name="code">mon</field>
+        </record>
+
+        <record id="serv_ref_meth_phone" model="hc.vs.service.referral.method">
             <field name="code">phone</field>
             <field name="name">Phone</field>
             <field name="definition">Referrals may be accepted over the phone from a practitioner.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/service-referral-method</field>
-        </record>   
-            
-        <record id="hc_healthcare_service.serv_ref_meth_elec" model="hc.vs.service.referral.method">    <field name="name">Monday</field>
+        </record>
+
+        <record id="serv_ref_meth_elec" model="hc.vs.service.referral.method">
             <field name="code">elec</field>
             <field name="name">Secure Messaging</field>
             <field name="definition">Referrals may be accepted via a secure messaging system. To determine the types of secure messaging systems supported, refer to the identifiers collection. Callers will need to understand the specific identifier system used to know that they are able to transmit messages.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/service-referral-method</field>
-        </record>   
-            
-        <record id="hc_healthcare_service.serv_ref_meth_semail" model="hc.vs.service.referral.method">  <field name="definition">Monday</field>
+        </record>
+
+        <record id="serv_ref_meth_semail" model="hc.vs.service.referral.method">
             <field name="code">semail</field>
             <field name="name">Secure Email</field>
             <field name="definition">Referrals may be accepted via a secure email. To send please enrypt with the services public key.</field>
             <field name="source_id" ref="base.hl7fhir"/>
             <field name="system">http://hl7.org/fhir/ValueSet/service-referral-method</field>
-        </record>    
+        </record>
 
     </data>
 </odoo>

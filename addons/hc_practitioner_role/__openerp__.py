@@ -34,6 +34,9 @@
     'data': [
         'security/ir.model.access.csv',
         'data/data_practitioner_role.xml',
+
+        'examples/example.xml',
+
         'views/hc_res_practitioner_role_views.xml',
         'views/hc_res_practitioner_role_templates.xml',
     ],

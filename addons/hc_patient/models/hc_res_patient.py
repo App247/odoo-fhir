@@ -1176,7 +1176,7 @@ class PatientDomainResourceContained(models.Model):
 
     patient_id = fields.Many2one(
         comodel_name="hc.res.patient",
-        string="Organization",
+        string="Patient",
         help="Patient associated with this Patient Domain Resource Contained.")
 
 class PatientDomainResourceExtension(models.Model):
@@ -1186,7 +1186,7 @@ class PatientDomainResourceExtension(models.Model):
 
     patient_id = fields.Many2one(
         comodel_name="hc.res.patient",
-        string="Organization",
+        string="Patient",
         help="Patient associated with this Patient Domain Resource Extension.")
 
 class PatientDomainResourceModifierExtension(models.Model):
@@ -1196,7 +1196,7 @@ class PatientDomainResourceModifierExtension(models.Model):
 
     patient_id = fields.Many2one(
         comodel_name="hc.res.patient",
-        string="Organization",
+        string="Patient",
         help="Patient associated with this Patient Domain Resource Modifier Extension.")
 
 

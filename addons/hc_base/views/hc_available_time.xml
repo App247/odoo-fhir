@@ -1,0 +1,110 @@
+<odoo>
+    <data>
+
+    <!-- Available Time Views -->
+
+        <record id="hc_available_time_view_search" model="ir.ui.view">
+            <field name="name">Available Time Search</field>
+            <field name="model">hc.available.time</field>
+            <field name="arch" type="xml">
+                <search string="Available Times">
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_available_time_view_tree" model="ir.ui.view">
+            <field name="name">Available Time Tree</field>
+            <field name="model">hc.available.time</field>
+            <field name="arch" type="xml">
+                <tree string="Available Times">
+                    <field name="is_all_day"/>
+                    <field name="available_start_time"/>
+                    <field name="available_end_time"/>
+                    <field name="days_of_week_ids" widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_available_time_view_form" model="ir.ui.view">
+            <field name="name">Available Time Form</field>
+            <field name="model">hc.available.time</field>
+            <field name="arch" type="xml">
+                <form string="Available Time">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="is_all_day"/>
+                                <field name="available_start_time"/>
+                                <field name="available_end_time"/>
+                                <field name="days_of_week_ids" widget="many2many_tags"/>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_available_time_action"
+                    name="HC Available Times"
+                    res_model="hc.available.time"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+
+    <!-- Not Available Time Views -->
+
+        <record id="hc_not_available_time_view_search" model="ir.ui.view">
+            <field name="name">Not Available Time Search</field>
+            <field name="model">hc.not.available.time</field>
+            <field name="arch" type="xml">
+                <search string="Not Available Times">
+                    <field name="description"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_not_available_time_view_tree" model="ir.ui.view">
+            <field name="name">Not Available Time Tree</field>
+            <field name="model">hc.not.available.time</field>
+            <field name="arch" type="xml">
+                <tree string="Not Available Times">
+                    <field name="description"/>
+                    <field name="during_start_date"/>
+                    <field name="during_end_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_not_available_time_view_form" model="ir.ui.view">
+            <field name="name">Not Available Time Form</field>
+            <field name="model">hc.not.available.time</field>
+            <field name="arch" type="xml">
+                <form string="Not Available Time">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="description"/>
+                                <field name="during_start_date"/>
+                                <field name="during_end_date"/>
+                            </group>
+                            <group>
+                            </group>                                        
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_not_available_time_action"
+                    name="HC Not Available Times"
+                    res_model="hc.not.available.time"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+    </data>
+</odoo>

@@ -4,24 +4,23 @@
 
     <!-- example Human Name Term -->
 
-        <record id="hc_base.human_name_term_666" model="hc.human.name.term">
-            <field name="name">Maas</field>
+        <record id="hc_base.human_name_term_672" model="hc.human.name.term">
+            <field name="name">Careful</field>
         </record>
 
     <!-- example Human Name -->
 
-        <record id="hc_base.practitioner_example_name" model="hc.human.name">
-            <field model="hc.human.name.term" name="first_id" search="[('name','=','Luigi')]"/>
-            <field model="hc.human.name.term" name="surname_id" search="[('name','=','Maas')]"/>
+        <record id="hc_base.practitioner_role_example_name" model="hc.human.name">
+            <field model="hc.human.name.term" name="first_id" search="[('name','=','Adam')]"/>
+            <field model="hc.human.name.term" name="surname_id" search="[('name','=','Careful')]"/>
             <field eval="[(6, 0, [ref('base.res_partner_title_doctor')])]" name="prefix_ids"/>
         </record>
 
-    <!-- example Partner -->
+        <!-- example Partner -->
 
-        <record id="base.practitioner_example" model="res.partner">
-            <field name="name">Dr. Luigi Maas</field>
+        <record id="base.practitioner_role_example" model="res.partner">
+            <field name="name">Dr Adam Careful</field>
             <field name="company_type">person</field>
-            <field name="birthdate">1960-06-12</field>
             <field name="is_company" eval="False"/>
             <field name="is_person" eval="True"/>
             <field name="is_practitioner" eval="True"/>
@@ -30,87 +29,117 @@
 
     <!-- example Person -->
 
-        <record id="hc_person.practitioner_example" model="hc.res.person">
-            <field name="partner_id" ref="base.practitioner_example"/>
-            <field name="name_id" ref="hc_base.practitioner_example_name"/>
+        <record id="hc_person.practitioner_role_example" model="hc.res.person">
+            <field name="partner_id" ref="base.practitioner_role_example"/>
+            <field name="name_id" ref="hc_base.practitioner_role_example_name"/>
             <field name="gender">male</field>
-            <field name="birth_date">1960-06-12</field>
-        </record>
-
-    <!-- example Person Name -->
-
-        <record id="hc_person.practitioner_example_name" model="hc.person.name">
-            <field name="person_id" ref="hc_person.practitioner_example"/>
-            <field name="human_name_id" ref="hc_base.practitioner_example_name"/>
-            <field name="use">official</field>
         </record>
 
     <!-- example Practitioner -->
 
-        <record id="practitioner_example" model="hc.res.practitioner">
-            <field name="person_id" ref="hc_person.practitioner_example"/>
-            <field name="identifier">example</field>
-            <field name="is_active" eval="True"/>
+        <record id="hc_practitioner.practitioner_role_example" model="hc.res.practitioner">
+            <field name="person_id" ref="hc_person.practitioner_role_example"/>
+            <field name="identifier">f001</field>
         </record>
 
-        <record id="practitioner_example_text" model="hc.practitioner.domain.resource.text">
-            <field name="practitioner_id" ref="practitioner_example"/>
+    <!-- example Practitioner Role -->
+
+        <record id="practitioner_role_example" model="hc.res.practitioner.role">
+            <field name="identifier">example</field>
+            <field name="is_active" eval="True"/>
+            <field name="period_start_date">2012-01-01</field>
+            <field name="period_end_date">2012-03-31</field>
+            <field name="practitioner_id" ref="hc_practitioner.practitioner_role_example"/>
+            <field name="organization_id" ref="hc_organization.organization_f001"/>
+            <field eval="[(6, 0, [ref('prac_role_rp')])]" name="role_ids"/>
+            <field eval="[(6, 0, [ref('hc_base.prac_code_408443003')])]" name="specialty_ids"/>
+            <field name="availability_exceptions">Adam is generally unavailable on public holidays and during the Christmas/New Year break</field>
+        </record>
+
+        <record id="practitioner_role_example_text" model="hc.practitioner.role.domain.resource.text">
+            <field name="practitioner_role_id" ref="practitioner_role_example"/>
             <field name="status">generated</field>
             <field name="div">
-                <!-- <p><b>Generated Narrative with Details</b></p><p><b>id</b>: example</p><p><b>identifier</b>: UZI-nummer = 12345678902 (OFFICIAL), BIG-nummer = 12345678902 (OFFICIAL)</p><p><b>active</b>: true</p><p><b>name</b>: Luigi Maas(OFFICIAL)</p><p><b>telecom</b>: ph: +31715269111(WORK)</p><p><b>address</b>: Walvisbaai 3 C4 - Automatisering Den helder 2333ZA NLD (WORK)</p><p><b>gender</b>: male</p><p><b>birthDate</b>: Jun 12, 1960</p> -->
+                <!-- Dr Adam Careful is a Referring Practitioner for Acme Hospital from 1-Jan 2012 to 31-Mar 2012 -->
             </field>
         </record>
 
-    <!-- example Practitioner Identifier -->
+    <!-- example Identifier -->
 
-        <record id="hc_person.practitioner_example_identifier_1" model="hc.person.identifier">
-            <field name="person_id" ref="hc_person.practitioner_example"/>
-            <field name="value">12345678902</field>
-            <field name="code_id" ref="hc_base.ident_code_uzi"/>
-            <field name="system">urn:oid:2.16.528.1.1007.3.1</field>
-            <field name="use">official</field>
+        <record id="practitioner_role_example_identifier" model="hc.practitioner.role.identifier">
+            <field name="practitioner_role_id" ref="practitioner_role_example"/>
+            <field name="system">"http://www.acme.org/practitioner</field>
+            <field name="value">23</field>
         </record>
 
-        <record id="hc_base.ident_code_big" model="hc.vs.identifier.code">
-            <field name="name">BIG</field>
-            <field name="code">BIG</field>
-            <field name="definition">BIG-nummer</field>
-            <field name="type_id" ref="hc_base.ident_type_prn"/>
-            <field name="system">https://www.bigregister.nl/</field>
-            <field model="res.country" name="country_id" search="[('code3','=','NLD')]"/>
+    <!-- example Location -->
+
+        <record id="practitioner_role_example_location" model="hc.practitioner.role.location">
+            <field name="practitioner_role_id" ref="practitioner_role_example"/>
+            <field name="location_id" ref="hc_location.location_1"/>
         </record>
 
-        <record id="hc_person.practitioner_example_identifier_2" model="hc.person.identifier">
-            <field name="person_id" ref="hc_person.practitioner_example"/>
-            <field name="value">12345678902</field>
-            <field name="code_id" ref="hc_base.ident_code_big"/>
-            <field name="system">https://www.bigregister.nl/</field>
-            <field name="use">official</field>
+    <!-- example Healthcare Service -->
+
+        <record id="practitioner_role_example_healthcare_service" model="hc.practitioner.role.healthcare.service">
+            <field name="practitioner_role_id" ref="practitioner_role_example"/>
+            <field name="healthcare_service_id" ref="hc_healthcare_service.healthcare_service_example"/>
         </record>
 
-    <!-- example Practitioner Telecom -->
+    <!-- example Telecom -->
 
-        <record id="hc_person.practitioner_example_telecom" model="hc.person.telecom">
-            <field name="person_id" ref="hc_person.practitioner_example"/>
-            <field name="telecom_id" ref="hc_base.cont_pnt_31715269111"/>
+        <record id="hc_base.cont_pnt_0355556473" model="hc.contact.point">
+            <field name="value">(03) 5555 6473</field>
+            <field name="system">phone</field>
+        </record>
+
+        <record id="practitioner_role_example_telecom_1" model="hc.practitioner.role.telecom">
+            <field name="practitioner_role_id" ref="practitioner_role_example"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_0355556473"/>
             <field name="use">work</field>
         </record>
 
-    <!-- example Practitioner Address -->
+        <record id="hc_base.cont_pnt_adam_southern_example_org" model="hc.contact.point">
+            <field name="value">adam.southern@example.org</field>
+            <field name="system">email</field>
+        </record>
 
-        <record id="hc_person.practitioner_example_address" model="hc.person.address">
-            <field name="person_id" ref="hc_person.practitioner_example"/>
-            <field name="address_id" ref="hc_base.practitioner_f201_address"/>
+        <record id="practitioner_role_example_telecom_2" model="hc.practitioner.role.telecom">
+            <field name="practitioner_role_id" ref="practitioner_role_example"/>
+            <field name="telecom_id" ref="hc_base.cont_pnt_adam_southern_example_org"/>
             <field name="use">work</field>
         </record>
 
+    <!-- example Available Time -->
 
-    <!-- example Practitioner Photo -->
+        <record id="practitioner_role_example_available_time_1" model="hc.practitioner.role.available.time">
+            <field name="practitioner_role_id" ref="practitioner_role_example"/>
+            <field eval="[(6, 0, [ref('hc_base.day_week_mon'), ref('hc_base.day_week_tue'), ref('hc_base.day_week_wed'), ref('hc_base.day_week_fri')])]" name="days_of_week_ids"/>
+            <field name="available_start_time">09:00:00</field>
+            <field name="available_end_time">16:30:00</field>
+        </record>
 
-        <record id="practitioner_example_photo" model="hc.person.photo">
-            <field name="person_id" ref="hc_person.practitioner_example"/>
-            <field name="name">Picture_Luigi_Maas</field>
-            <field name="url">Media/LM-203.bmp</field>
+        <record id="practitioner_role_example_available_time_2" model="hc.practitioner.role.available.time">
+            <field name="practitioner_role_id" ref="practitioner_role_example"/>
+            <field eval="[(6, 0, [ref('hc_base.day_week_thu'), ref('hc_base.day_week_fri')])]" name="days_of_week_ids"/>
+            <field name="available_start_time">09:00:00</field>
+            <field name="available_end_time">12:00:00</field>
+        </record>
+
+    <!-- example Not Available Time -->
+
+        <record id="practitioner_role_example_not_available_time_1" model="hc.practitioner.role.not.available.time">
+            <field name="practitioner_role_id" ref="practitioner_role_example"/>
+            <field name="description">Adam will be on extended leave during May 2017</field>
+            <field name="during_start_date">2017-05-01</field>
+            <field name="during_end_date">2017-05-20</field>
+        </record>
+
+    <!-- example Endpoint -->
+
+        <record id="practitioner_role_example_endpoint" model="hc.practitioner.role.endpoint">
+            <field name="practitioner_role_id" ref="practitioner_role_example"/>
+            <field name="endpoint_id" ref="hc_endpoint.endpoint_example"/>
         </record>
 
     </data>

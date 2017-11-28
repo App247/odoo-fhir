@@ -11,7 +11,7 @@
 
         **Scope and Usage**
 
-        The Healthcare Service resource is used to describe a single healthcare service or category of services 
+        The Healthcare Service resource is used to describe a single healthcare service or category of services
         that are provided by an organization at a location. The location of the services could be virtual, as with TeleMedicine Services.
     """,
 
@@ -33,6 +33,9 @@
         'data/data_healthcare_service.xml',
         'data/hc.vs.service.category.csv',
         'data/hc.vs.service.type.csv',
+
+        'examples/example.xml',
+
         'views/hc_res_healthcare_service_views.xml',
         'views/hc_res_healthcare_service_templates.xml',
     ],

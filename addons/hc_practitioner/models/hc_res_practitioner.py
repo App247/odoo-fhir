@@ -428,7 +428,7 @@ class PractitionerDomainResourceContained(models.Model):
 
     practitioner_id = fields.Many2one(
         comodel_name="hc.res.practitioner",
-        string="Organization",
+        string="Practitioner",
         help="Practitioner associated with this Practitioner Domain Resource Contained.")
 
 class PractitionerDomainResourceExtension(models.Model):
@@ -438,7 +438,7 @@ class PractitionerDomainResourceExtension(models.Model):
 
     practitioner_id = fields.Many2one(
         comodel_name="hc.res.practitioner",
-        string="Organization",
+        string="Practitioner",
         help="Practitioner associated with this Practitioner Domain Resource Extension.")
 
 class PractitionerDomainResourceModifierExtension(models.Model):
@@ -448,7 +448,7 @@ class PractitionerDomainResourceModifierExtension(models.Model):
 
     practitioner_id = fields.Many2one(
         comodel_name="hc.res.practitioner",
-        string="Organization",
+        string="Practitioner",
         help="Practitioner associated with this Practitioner Domain Resource Modifier Extension.")
 
 # External Reference
