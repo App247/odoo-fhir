@@ -2,6 +2,9 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_hc_claim_hc_res_claim_user,hc.claim.hc.res.claim.user,model_hc_res_claim,hc_base.group_hc_base_user,1,0,0,0
 access_hc_claim_hc_claim_related_claim_user,hc.claim.hc.claim.related.claim.user,model_hc_claim_related_claim,hc_base.group_hc_base_user,1,0,0,0
 access_hc_claim_hc_claim_payee_user,hc.claim.hc.claim.payee.user,model_hc_claim_payee,hc_base.group_hc_base_user,1,0,0,0
+
+
+
 access_hc_claim_hc_claim_special_condition_user,hc.claim.hc.claim.special.condition.user,model_hc_claim_special_condition,hc_base.group_hc_base_user,1,0,0,0
 access_hc_claim_hc_claim_diagnosis_user,hc.claim.hc.claim.diagnosis.user,model_hc_claim_diagnosis,hc_base.group_hc_base_user,1,0,0,0
 access_hc_claim_hc_claim_procedure_user,hc.claim.hc.claim.procedure.user,model_hc_claim_procedure,hc_base.group_hc_base_user,1,0,0,0
@@ -24,11 +27,12 @@ access_hc_claim_hc_vs_act_incident_code_manager,hc.claim.hc.vs.act.incident.code
 access_hc_claim_hc_vs_claim_care_team_role_manager,hc.claim.hc.vs.claim.care.team.role.manager,model_hc_vs_claim_care_team_role,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_claim_hc_vs_claim_exception_manager,hc.claim.hc.vs.claim.exception.manager,model_hc_vs_claim_exception,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_claim_hc_vs_claim_information_category_manager,hc.claim.hc.vs.claim.information.category.manager,model_hc_vs_claim_information_category,hc_base.group_hc_base_manager,1,1,1,1
+access_hc_claim_hc_vs_claim_information_reason_manager,hc.claim.hc.vs.claim.information.reason.manager,model_hc_vs_claim_information_reason,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_claim_hc_vs_claim_modifier_manager,hc.claim.hc.vs.claim.modifier.manager,model_hc_vs_claim_modifier,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_claim_hc_vs_claim_sub_type_manager,hc.claim.hc.vs.claim.sub.type.manager,model_hc_vs_claim_sub_type,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_claim_hc_vs_claim_use_link_manager,hc.claim.hc.vs.claim.use.link.manager,model_hc_vs_claim_use_link,hc_base.group_hc_base_manager,1,1,1,1
-access_hc_claim_hc_vs_ex_diagnosis_related_group_manager,hc.claim.hc.vs.ex.diagnosis.related.group.manager,model_hc_vs_ex_diagnosis_related_group,hc_base.group_hc_base_manager,1,1,1,1
-access_hc_claim_hc_vs_ex_diagnosis_type_manager,hc.claim.hc.vs.ex.diagnosis.type.manager,model_hc_vs_ex_diagnosis_type,hc_base.group_hc_base_manager,1,1,1,1
+access_hc_claim_hc_vs_diagnosis_package_code_manager,hc.claim.hc.vs.diagnosis.package.code.manager,model_hc_vs_diagnosis_package_code,hc_base.group_hc_base_manager,1,1,1,1
+access_hc_claim_hc_vs_diagnosis_type_manager,hc.claim.hc.vs.diagnosis.type.manager,model_hc_vs_diagnosis_type,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_claim_hc_vs_ex_payee_resource_type_manager,hc.claim.hc.vs.ex.payee.resource.type.manager,model_hc_vs_ex_payee_resource_type,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_claim_hc_vs_ex_program_code_manager,hc.claim.hc.vs.ex.program.code.manager,model_hc_vs_ex_program_code,hc_base.group_hc_base_manager,1,1,1,1
 access_hc_claim_hc_vs_ex_revenue_center_manager,hc.claim.hc.vs.ex.revenue.center.manager,model_hc_vs_ex_revenue_center,hc_base.group_hc_base_manager,1,1,1,1

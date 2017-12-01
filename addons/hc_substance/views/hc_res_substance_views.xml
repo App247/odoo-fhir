@@ -209,7 +209,7 @@
             <field name="model">hc.vs.substance.category</field>
             <field name="arch" type="xml">
                 <search string="Substance Categories">
-                    <field name="name"/>
+                    <field name="name" filter_domain="['|',('name','ilike',self),('definition','ilike',self)]"/>
                     <field name="code"/>
                     <field name="definition"/>
                     <group>
@@ -286,7 +286,7 @@
             <field name="model">hc.vs.substance.code</field>
             <field name="arch" type="xml">
                 <search string="Substance Codes">
-                    <field name="name"/>
+                    <field name="name" filter_domain="['|',('name','ilike',self),('definition','ilike',self)]"/>
                     <field name="code"/>
                     <field name="definition"/>
                 </search>

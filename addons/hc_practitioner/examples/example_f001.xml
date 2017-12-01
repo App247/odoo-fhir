@@ -80,7 +80,7 @@
         <record id="hc_base.ident_code_uzi" model="hc.vs.identifier.code">
             <field name="name">UZI</field>
             <field name="code">UZI</field>
-            <field name="definition">Uniek Zorgverlener Identificatienummer Personen (National Care Provider ID Persons). This uniquely identifies a person in their role as a healcare provider.</field>
+            <field name="definition">Uniek Zorgverlener Identificatienummer Personen (National Care Provider ID Persons). This uniquely identifies a person in their role as a healthcare provider.</field>
             <field name="type_id" ref="hc_base.ident_type_prn"/>
             <field name="system">urn:oid:2.16.528.1.1007.3.1</field>
             <field name="assigner_id" ref="hc_organization.practitioner_f001_organization_assigner_1"/>

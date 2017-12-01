@@ -332,7 +332,7 @@
                                     <tree>
                                         <field name="name"/>
                                         <field name="type"/>
-                                        <field name="relationship_ids"/>
+                                        <field name="relationship_ids" widget="many2many_tags"/>
                                         <field name="start_date" string="Valid From"/>
                                         <field name="end_date" string="Valid To"/>
                                     </tree>
@@ -577,7 +577,7 @@
                                     </form>
                                 </field>
                             </page>
-<!--                             <page string="Meta">
+                            <page string="Meta">
                                 <form>
                                     <sheet>
                                         <group string="Resource">
@@ -739,7 +739,7 @@
                                         </notebook>
                                     </sheet>
                                 </form>
-                            </page> -->
+                            </page>
                         </notebook>
                     </sheet>
                 </form>
@@ -838,7 +838,7 @@
             <field name="model">hc.vs.marital.status</field>
             <field name="arch" type="xml">
                 <search string="Marital Statuses">
-                <field name="name"/>
+                <field name="name" filter_domain="['|',('name','ilike',self),('definition','ilike',self)]"/>
                 <field name="code"/>
                 <field name="definition"/>
                     <group>
@@ -1531,7 +1531,7 @@
             <field name="model">hc.vs.v3.race</field>
             <field name="arch" type="xml">
                 <search string="V3 Races">
-                    <field name="name"/>
+                    <field name="name" filter_domain="['|',('name','ilike',self),('definition','ilike',self)]"/>
                     <field name="code"/>
                     <field name="definition"/>
                     <group>
@@ -1606,7 +1606,7 @@
             <field name="model">hc.vs.v3.race.value.set</field>
             <field name="arch" type="xml">
                 <search string="V3 Race Value Sets">
-                    <field name="name"/>
+                    <field name="name" filter_domain="['|',('name','ilike',self),('definition','ilike',self)]"/>
                     <field name="code"/>
                     <field name="definition"/>
                     <group>
@@ -1684,7 +1684,7 @@
             <field name="model">hc.vs.contact.role</field>
             <field name="arch" type="xml">
                 <search string="Contact Roles">
-                    <field name="name"/>
+                    <field name="name" filter_domain="['|',('name','ilike',self),('definition','ilike',self)]"/>
                     <field name="code"/>
                     <field name="definition"/>
                 </search>
@@ -1810,6 +1810,62 @@
                   groups="hc_base.group_hc_base_manager"
                   sequence="21"/>
 
+
+    <!-- Patient Domain Resource Text Views -->
+
+        <record id="hc_patient_domain_resource_text_view_search" model="ir.ui.view">
+            <field name="name">Patient Domain Resource Text Search</field>
+            <field name="model">hc.patient.domain.resource.text</field>
+            <field name="arch" type="xml">
+                <search string="Patient Domain Resource Texts">
+                    <field name="title"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_patient_domain_resource_text_view_tree" model="ir.ui.view">
+            <field name="name">Patient Domain Resource Text Tree</field>
+            <field name="model">hc.patient.domain.resource.text</field>
+            <field name="arch" type="xml">
+                <tree string="Patient Domain Resource Texts">
+                    <field name="title"/>
+                    <field name="status"/>
+                </tree>                             
+            </field>
+        </record>
+
+        <record id="hc_patient_domain_resource_text_view_form" model="ir.ui.view">
+            <field name="name">Patient Domain Resource Text Form</field>
+            <field name="model">hc.patient.domain.resource.text</field>
+            <field name="arch" type="xml">
+                <form string="Patient Domain Resource Text">
+                    <header>
+                        <field name="status" string="Status" widget="statusbar" clickable="True"/>
+                    </header>
+                    <sheet>
+                        <h1>
+                            <field name="title" default_focus="1" placeholder="Title"/>
+                        </h1>
+                        <field name="div" widget="html"/>
+                        <group>
+                            <group>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_patient_domain_resource_text_action"
+                    name="HC Patient Domain Resource Texts"
+                    res_model="hc.patient.domain.resource.text"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
     <!-- External Reference View -->
 
         <record id="hc_res_person_view_form_inherited_patient" model="ir.ui.view">
@@ -1870,35 +1926,16 @@
             </field>
         </record>
 
-<!--         <record id="hc_res_related_person_view_form_inherited" model="ir.ui.view">
+        <record id="hc_res_related_person_view_form_inherited" model="ir.ui.view">
             <field name="name">Related Person Form</field>
             <field name="model">hc.res.related.person</field>
             <field name="inherit_id" ref="hc_related_person.hc_res_related_person_view_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='patient_ids']" position="after">
-                    <tree>
-                        <field name="patient_id"/>
-                        <field name="relationship_id"/>
-                        <field name="start_date"/>
-                        <field name="end_date"/>
-                    </tree>
-                    <form>
-                        <sheet>
-                            <group>
-                                <group>
-                                    <field name="patient_id"/>
-                                    <field name="relationship_id"/>
-                                    <field name="start_date"/>
-                                    <field name="end_date"/>
-                                </group>
-                                <group>
-                                </group>
-                            </group>
-                        </sheet>
-                    </form>
+                <xpath expr="//field[@name='relationship_ids']" position="before">
+                    <field name="patient_id"/>
                 </xpath>
             </field>
-        </record> -->
+        </record>
 
     </data>
 </odoo>

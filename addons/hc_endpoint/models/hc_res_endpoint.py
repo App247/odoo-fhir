@@ -73,15 +73,12 @@ class Endpoint(models.Model):
     # Domain Resource
     text_id = fields.Many2one(
         comodel_name="hc.endpoint.domain.resource.text")
-
     contained_ids = fields.One2many(
         comodel_name="hc.endpoint.domain.resource.contained",
         inverse_name="endpoint_id")
-
-    extension_ids = fields.One2many(    
+    extension_ids = fields.One2many(
         comodel_name="hc.endpoint.domain.resource.extension",
         inverse_name="endpoint_id")
-
     modifier_extension_ids = fields.One2many(
         comodel_name="hc.endpoint.domain.resource.modifier.extension",
         inverse_name="endpoint_id")
@@ -143,7 +140,7 @@ class EndpointDomainResourceContained(models.Model):
 
     endpoint_id = fields.Many2one(
         comodel_name="hc.res.endpoint",
-        string="Organization",
+        string="Endpoint",
         help="Endpoint associated with this Endpoint Domain Resource Contained.")
 
 class EndpointDomainResourceExtension(models.Model):
@@ -153,7 +150,7 @@ class EndpointDomainResourceExtension(models.Model):
 
     endpoint_id = fields.Many2one(
         comodel_name="hc.res.endpoint",
-        string="Organization",
+        string="Endpoint",
         help="Endpoint associated with this Endpoint Domain Resource Extension.")
 
 class EndpointDomainResourceModifierExtension(models.Model):
@@ -163,7 +160,7 @@ class EndpointDomainResourceModifierExtension(models.Model):
 
     endpoint_id = fields.Many2one(
         comodel_name="hc.res.endpoint",
-        string="Organization",
+        string="Endpoint",
         help="Endpoint associated with this Endpoint Domain Resource Modifier Extension.")
 
 class EndpointConnectionType(models.Model):

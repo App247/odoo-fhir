@@ -6,6 +6,7 @@ class Practitioner(models.Model):
     _name = "hc.res.practitioner"
     _description = "Practitioner"
     _inherits = {"hc.res.person": "person_id"}
+    _inherit = ["hc.domain.resource"]
     _rec_name = "person_id"
 
     person_id = fields.Many2one(
@@ -101,19 +102,15 @@ class Practitioner(models.Model):
     # Domain Resource
     text_id = fields.Many2one(
         comodel_name="hc.practitioner.domain.resource.text")
-
     contained_ids = fields.One2many(
         comodel_name="hc.practitioner.domain.resource.contained",
         inverse_name="practitioner_id")
-
     extension_ids = fields.One2many(
         comodel_name="hc.practitioner.domain.resource.extension",
         inverse_name="practitioner_id")
-
     modifier_extension_ids = fields.One2many(
         comodel_name="hc.practitioner.domain.resource.modifier.extension",
         inverse_name="practitioner_id")
-
 
     # _defaults = {
     #     "is_practitioner": True,

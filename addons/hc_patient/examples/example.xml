@@ -2,21 +2,6 @@
 <odoo>
     <data noupdate="0">
 
-        <!-- Example Organization -->
-
-<!--         <record id="base.patient_example_organization" model="res.partner">
-            <field name="name">Acme Healthcare, Inc.</field>
-            <field name="company_type">company</field>
-            <field name="is_company" eval="True"/>
-            <field name="is_organization" eval="True"/>
-            <field name="is_healthcare" eval="True"/>
-        </record>
-
-        <record id="hc_organization.patient_example" model="hc.res.organization">
-            <field name="partner_id" ref="base.patient_example_organization"/>
-            <field name="name">Acme Healthcare</field>
-        </record> -->
-
         <!-- Example Person -->
 
         <record id="hc_base.human_name_term_172" model="hc.human.name.term">
@@ -87,7 +72,7 @@
             <field name="end_date">2002-12-31</field>
         </record>
 
-        <!-- Example Person Address -->
+    <!-- Example Person Address -->
 
         <record id="hc_base.city_patient_example" model="hc.vs.country.city">
             <field name="name">Pleasantville</field>
@@ -116,7 +101,7 @@
             <field name="start_date">1974-12-25</field>
         </record>
 
-        <!-- Example Person Telecom -->
+    <!-- Example Person Telecom -->
 
         <record id="hc_base.cont_pnt_unknown" model="hc.contact.point">
             <field name="value">unknown</field>
@@ -166,9 +151,40 @@
             <field name="end_date">2014-12-31</field>
         </record>
 
-        <!-- Example Patient -->
+    <!-- Example Patient -->
+
+        <record id="patient_example_text" model="hc.patient.domain.resource.text">
+            <field name="title">Patient Example HTML</field>
+            <field name="status">generated</field>
+            <field name="div">
+                <!-- <table>
+                    <tbody>
+                        <tr>
+                            <td>Name</td>
+                            <td>Peter James
+                  <b>Chalmers</b> (&quot;Jim&quot;)
+                </td>
+                        </tr>
+                        <tr>
+                            <td>Address</td>
+                            <td>534 Erewhon, Pleasantville, Vic, 3999</td>
+                        </tr>
+                        <tr>
+                            <td>Contacts</td>
+                            <td>Home: unknown. Work: (03) 5555 6473</td>
+                        </tr>
+                        <tr>
+                            <td>Id</td>
+                            <td>MRN: 12345 (Acme Healthcare)</td>
+                        </tr>
+                    </tbody>
+                </table> -->
+            </field>
+        </record>
 
         <record id="patient_example" model="hc.res.patient">
+            <field name="identifier">example</field>
+            <field name="text_id" ref="patient_example_text"/>
             <field name="person_id" ref="hc_person.patient_example"/>
             <field name="birth_time">14:35:45-05:00</field>
             <field name="is_deceased" eval="False"/>
@@ -176,7 +192,7 @@
             <field name="managing_organization_id" ref="hc_organization.organization_1"/>
         </record>
 
-        <!-- Example Patient Contact -->
+    <!-- Example Patient Contact -->
 
         <record id="hc_base.human_name_term_170" model="hc.human.name.term">
             <field name="name">Bénédicte</field>
@@ -227,7 +243,7 @@
             <field name="start_date">1974-12-25</field>
         </record>
 
-        <!-- Example Patient Identifier -->
+    <!-- Example Patient Identifier -->
 
         <record id="hc_base.ident_code_patient_example" model="hc.vs.identifier.code">
             <field name="name">MRN Acme Healthcare</field>
@@ -243,6 +259,12 @@
             <field name="code_id" ref="hc_base.ident_code_patient_example"/>
             <field name="use">usual</field>
             <field name="start_date">2001-05-06</field>
+        </record>
+
+    <!-- Example Patient Related Person -->
+
+        <record id="hc_related_person.related_person_example" model="hc.res.related.person">
+            <field name="patient_id" ref="patient_example"/>
         </record>
 
     </data>

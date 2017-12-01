@@ -8,6 +8,7 @@ class Patient(models.Model):
     _name = "hc.res.patient"
     _description = "Patient"
     _inherits = {"hc.res.person": "person_id"}
+    _inherit = ["hc.domain.resource"]
     _rec_name = "person_id"
 
     person_id = fields.Many2one(
@@ -1251,17 +1252,25 @@ class Person(models.Model):
     is_patient = fields.Boolean(
         string="Is Patient",
         help="This person is a patient.")
+    is_patient_contact = fields.Boolean(
+        string="Is Patient Contact",
+        help="This person is a patient contact.")
 
 class PersonLink(models.Model):
     _inherit = ["hc.person.link"]
 
     target_type = fields.Selection(
         selection_add=[
-            ("patient", "Patient")])
+            ("patient", "Patient"),
+            ("patient_contact", "Patient Contact")])
     target_patient_id = fields.Many2one(
         comodel_name="hc.res.patient",
         string="Target Patient",
         help="Patient who is the resource to which this actual person is associated.")
+    target_patient_contact_id = fields.Many2one(
+        comodel_name="hc.patient.contact",
+        string="Target Patient Contact",
+        help="Patient Contact who is the resource to which this actual person is associated.")
 
     @api.depends('target_type')
     def _compute_target_name(self):
@@ -1270,6 +1279,8 @@ class PersonLink(models.Model):
                 hc_person_link.target_name = hc_person_link.target_person_id.name
             elif hc_person_link.target_type == 'patient':
                 hc_person_link.target_name = hc_person_link.target_patient_id.name
+            elif hc_person_link.target_type == 'patient_contact':
+                hc_person_link.target_name = hc_person_link.target_patient_contact_id.name
             elif hc_person_link.target_type == 'practitioner':
                 hc_person_link.target_name = hc_person_link.target_practitioner_id.name
             elif hc_person_link.target_type == 'related_person':
@@ -1283,13 +1294,13 @@ class PersonAddress(models.Model):
         string="Patient",
         help="Patient associated with this Person Address.")
 
-class RelatedPersonPatient(models.Model):
-    _inherit = ["hc.related.person.patient"]
+class RelatedPerson(models.Model):
+    _inherit = "hc.res.related.person"
 
     patient_id = fields.Many2one(
         comodel_name="hc.res.patient",
         string="Patient",
-        help="Patient associated with this Related Person Patient.")
+        help="Patient associated with this Related Person.")
 
 class Annotation(models.Model):
     _inherit = ["hc.annotation"]

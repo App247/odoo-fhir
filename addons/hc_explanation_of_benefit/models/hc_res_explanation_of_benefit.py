@@ -448,14 +448,14 @@ class ExplanationOfBenefitDiagnosis(models.Model):
         string="Diagnosis Condition",
         help="Patient's diagnosis.")
     type_ids = fields.Many2many(
-        comodel_name="hc.vs.ex.diagnosis.type",
+        comodel_name="hc.vs.diagnosis.type",
         relation="explanation_of_benefit_diagnosis_type_rel",
         string="Types",
         help="Type of Diagnosis.")
-    drg_id = fields.Many2one(
-        comodel_name="hc.vs.ex.diagnosis.related.group",
-        string="DRG",
-        help="Diagnosis Related Group.")
+    package_code_id = fields.Many2one(
+        comodel_name="hc.vs.diagnosis.package.code",
+        string="Package Code",
+        help="Package billing code.")
 
 class ExplanationOfBenefitProcedure(models.Model):
     _name = "hc.explanation.of.benefit.procedure"

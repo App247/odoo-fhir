@@ -45,12 +45,8 @@
         <record id="hc_related_person.related_person_newborn_mom" model="hc.res.related.person">
             <field name="patient_id" ref="patient_sp01"/>
             <field name="person_id" ref="hc_person.patient_sp01"/>
-        </record>
-
-        <record id="hc_related_person.related_person_newborn_mom_patient" model="hc.related.person.patient">
-            <field name="related_person_id" ref="hc_related_person.related_person_newborn_mom"/>
             <field name="patient_id" ref="patient_newborn"/>
-            <field name="relationship_id" ref="hc_related_person.rel_nmth"/>
+            <field eval="[(6, 0, [ref('hc_related_person.rel_type_nmth')])]" name="relationship_ids"/>
         </record>
 
     <!-- Mom Patient Link -->

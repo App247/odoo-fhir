@@ -44,8 +44,17 @@
 
     <!-- example Practitioner Role -->
 
+        <record id="practitioner_role_example_text" model="hc.practitioner.role.domain.resource.text">
+            <field name="title">Practitioner Role Example HTML</field>
+            <field name="status">generated</field>
+            <field name="div">
+                <!-- Dr Adam Careful is a Referring Practitioner for Acme Hospital from 1-Jan 2012 to 31-Mar 2012 -->
+            </field>
+        </record>
+
         <record id="practitioner_role_example" model="hc.res.practitioner.role">
             <field name="identifier">example</field>
+            <field name="text_id" ref="practitioner_role_example_text"/>
             <field name="is_active" eval="True"/>
             <field name="period_start_date">2012-01-01</field>
             <field name="period_end_date">2012-03-31</field>
@@ -54,14 +63,6 @@
             <field eval="[(6, 0, [ref('prac_role_rp')])]" name="role_ids"/>
             <field eval="[(6, 0, [ref('hc_base.prac_code_408443003')])]" name="specialty_ids"/>
             <field name="availability_exceptions">Adam is generally unavailable on public holidays and during the Christmas/New Year break</field>
-        </record>
-
-        <record id="practitioner_role_example_text" model="hc.practitioner.role.domain.resource.text">
-            <field name="practitioner_role_id" ref="practitioner_role_example"/>
-            <field name="status">generated</field>
-            <field name="div">
-                <!-- Dr Adam Careful is a Referring Practitioner for Acme Hospital from 1-Jan 2012 to 31-Mar 2012 -->
-            </field>
         </record>
 
     <!-- example Identifier -->

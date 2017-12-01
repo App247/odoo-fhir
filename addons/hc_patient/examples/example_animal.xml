@@ -76,14 +76,44 @@
     <!-- Animal Patient -->
 
         <record id="patient_animal_animal" model="hc.patient.animal">
-            <field name="name">animal</field>
+            <!-- <field name="name">animal</field> -->
             <field name="species_id" ref="species_448771007"/>
             <field name="breed_id" ref="breed_58108001"/>
             <field name="gender_status_id" ref="an_gen_stat_neutered"/>
         </record>
 
+        <record id="patient_animal_text" model="hc.patient.domain.resource.text">
+            <field name="title">Patient Animal HTML</field>
+            <field name="status">generated</field>
+            <field name="div">
+                <!-- <table>
+                    <tbody>
+                      <tr>
+                        <td>Id</td>
+                        <td>Kenzi (Dog: Golden Retriever)</td>
+                      </tr>
+                      <tr>
+                        <td>Owner</td>
+                        <td>Peter Chalmers, 534 Erewhon, Pleasantville, Vic, 3999</td>
+                      </tr>
+                      <tr>
+                        <td>Contacts</td>
+                        <td>Work: (03) 5555 6473</td>
+                      </tr>
+                      <tr>
+                        <td>Id</td>
+                        <td>Dog Tag: 1234123 (Maroondah City Council)</td>
+                      </tr>
+                    </tbody>
+                  </table> -->
+            </field>
+        </record>
+
         <record id="patient_animal" model="hc.res.patient">
+            <field name="identifier">animal</field>
+            <field name="text_id" ref="patient_animal_text"/>
             <field name="person_id" ref="hc_person.patient_animal"/>
+            <field name="type">animal</field>
             <field name="birth_time">14:35:45-05:00</field>
             <field name="is_active" eval="True"/>
             <field name="animal_id" ref="patient_animal_animal"/>
@@ -95,18 +125,14 @@
         <record id="patient_animal_contact" model="hc.patient.contact">
             <field name="patient_id" ref="patient_animal"/>
             <field name="person_id" ref="hc_person.patient_example"/>
-            <field name="name">Peter James Chalmers</field>
-            <field name="type">person</field>
+<!--             <field name="name">Peter James Chalmers</field>
+            <field name="type">person</field> -->
             <field eval="[(6, 0, [ref('contact_role_c')])]" name="relationship_ids"/>
-        </record>
-
-        <record id="hc_person.patient_example_3_telecom" model="hc.person.telecom">
-            <field name="is_preferred">True</field>
         </record>
 
     <!-- Animal Patient Identifier -->
 
-        <record id="hc_base.ident_code_patient_animal_maroondah" model="hc.vs.identifier.code">
+        <record id="hc_base.ident_code_maroondah" model="hc.vs.identifier.code">
             <field name="name">Maroondah Dog Tag</field>
             <field name="code">Maroondah Dog Tag</field>
             <field name="type_id" ref="hc_base.ident_type_ln"/>
@@ -118,7 +144,7 @@
             <field name="patient_id" ref="patient_animal"/>
             <field name="person_id" ref="hc_person.patient_animal"/>
             <field name="value">1234123</field>
-            <field name="code_id" ref="hc_base.ident_code_patient_animal_maroondah"/>
+            <field name="code_id" ref="hc_base.ident_code_maroondah"/>
             <field name="use">usual</field>
             <field name="start_date">2001-05-06</field>
         </record>

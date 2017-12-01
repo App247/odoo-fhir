@@ -474,7 +474,7 @@
             <field name="model">hc.vs.organization.type</field>
             <field name="arch" type="xml">
                 <search string="Organization Types">
-                    <field name="name"/>
+                    <field name="name" filter_domain="['|',('name','ilike',self),('definition','ilike',self)]"/>
                     <field name="code"/>
                     <field name="definition"/>
                     <group>
@@ -606,7 +606,7 @@
             <field name="model">hc.vs.contact.entity.type</field>
             <field name="arch" type="xml">
                 <search string="Contact Entity Types">
-                    <field name="name"/>
+                    <field name="name" filter_domain="['|',('name','ilike',self),('definition','ilike',self)]"/>
                     <field name="code"/>
                     <field name="definition"/>
                     <group>

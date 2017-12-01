@@ -40,18 +40,18 @@
                         <div name="buttons" class="oe_right oe_button_box"></div>
                         <group>
                             <group>
+                                <field name="type"/>
                                 <field name="gender"/>
                                 <field name="birth_date"/>
-                            </group>
-                            <group>
                                 <field name="is_active" string="Active Record"/>
+                            </group>
+                            <group string="Related To">
+                                <field name="relationship_ids" widget="many2many_tags"/>
+                                <field name="period_start_date"/>
+                                <field name="period_end_date"/>
                             </group>
                         </group>
                         <notebook>
-                            <page string="Patients">
-                                <field name="patient_ids" mode="tree">
-                                </field>
-                            </page>
                             <page string="Names">
                                 <field name="name_ids" mode="tree">
                                     <tree default_order="is_preferred">
@@ -384,66 +384,137 @@
                   groups="hc_base.group_hc_base_manager"
                   sequence="40"/>
 
+
+    <!-- Related Person Domain Resource Text Views -->
+
+        <record id="hc_related_person_domain_resource_text_view_search" model="ir.ui.view">
+            <field name="name">Related Person Domain Resource Text Search</field>
+            <field name="model">hc.related.person.domain.resource.text</field>
+            <field name="arch" type="xml">
+                <search string="Related Person Domain Resource Texts">
+                    <field name="title"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_related_person_domain_resource_text_view_tree" model="ir.ui.view">
+            <field name="name">Related Person Domain Resource Text Tree</field>
+            <field name="model">hc.related.person.domain.resource.text</field>
+            <field name="arch" type="xml">
+                <tree string="Related Person Domain Resource Texts">
+                    <field name="title"/>
+                    <field name="status"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_related_person_domain_resource_text_view_form" model="ir.ui.view">
+            <field name="name">Related Person Domain Resource Text Form</field>
+            <field name="model">hc.related.person.domain.resource.text</field>
+            <field name="arch" type="xml">
+                <form string="Related Person Domain Resource Text">
+                    <header>
+                        <field name="status" string="Status" widget="statusbar" clickable="True"/>
+                    </header>
+                    <sheet>
+                        <h1>
+                            <field name="title" default_focus="1" placeholder="Title"/>
+                        </h1>
+                        <field name="div" widget="html"/>
+                        <group>
+                            <group>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_related_person_domain_resource_text_action"
+                    name="HC Related Person Domain Resource Texts"
+                    res_model="hc.related.person.domain.resource.text"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
     <!-- Related Person Value Set Action and Menu -->
 
-    <record id="hc_vs_related_person_relationship_type_view_tree" model="ir.ui.view">
-        <field name="name">Related Person Relationship Type Tree</field>
-        <field name="model">hc.vs.related.person.relationship.type</field>
-        <field name="arch" type="xml">
-            <tree string="Related Person Relationship Types" default_order="name, code">
-                <field name="name"/>
-                <field name="code"/>
-                <field name="definition"/>
-                <field name="source_id" invisible="0"/>
-            </tree>
-        </field>
-    </record>
-
-    <record id="hc_vs_related_person_relationship_type_view_form" model="ir.ui.view">
-        <field name="name">Related Person Relationship Type Form</field>
-        <field name="model">hc.vs.related.person.relationship.type</field>
-        <field name="arch" type="xml">
-            <form string="Related Person Relationship Types" >
-                <sheet>
-                    <h1>
-                        <field name="name" default_focus="1" placeholder="Name (e.g., United States)"/>
-                    </h1>
-                    <field name="code" placeholder="Code (e.g., US)"/>
-                    <field name="definition" placeholder="Definition"/>
-                    <field name="comments" placeholder="Comments"/>
+        <record id="hc_vs_related_person_relationship_type_view_search" model="ir.ui.view">
+            <field name="name">Related Person Relationship Type Search</field>
+            <field name="model">hc.vs.related.person.relationship.type</field>
+            <field name="arch" type="xml">
+                <search string="Related Person Relationship Types">
+                    <field name="name" filter_domain="['|',('name','ilike',self),('definition','ilike',self)]"/>
+                    <field name="code"/>
+                    <field name="definition"/>
                     <group>
-                        <group>
-                            <field name="contains_id"/>
-                            <field name="level" placeholder="An integer (e.g., 1, 2)"/>
-                            <field name="is_abstract"/>
-                            <field name="version" placeholder="e.g., v2.5"/>
-                        </group>
-                        <group>
-                            <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
-                            <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
-                        </group>
+                        <filter name="group_by_parent" string="parent" context="{'group_by': 'contains_id'}"/>
                     </group>
-                </sheet>
-            </form>
-        </field>
-    </record>
+                </search>
+            </field>
+        </record>
 
-    <act_window id="hc_vs_related_person_relationship_type_action"
-                name="HC Related Person Relationship Types"
-                res_model="hc.vs.related.person.relationship.type"
-                view_mode="tree,form"
-                domain=""
-                context=""
-                limit=""/>
+        <record id="hc_vs_related_person_relationship_type_view_tree" model="ir.ui.view">
+            <field name="name">Related Person Relationship Type Tree</field>
+            <field name="model">hc.vs.related.person.relationship.type</field>
+            <field name="arch" type="xml">
+                <tree string="Related Person Relationship Types" default_order="name, code">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="definition"/>
+                    <field name="source_id" invisible="0"/>
+                </tree>
+            </field>
+        </record>
 
-    <menuitem id="hc_related_person.menu_rel_pers_rel"
-              name="Related Person Relationship Types"
-              parent="hc_related_person.menu_rel_pers"
-              action="hc_vs_related_person_relationship_type_action"
-              groups="hc_base.group_hc_base_manager"
-              sequence="10"/>
+        <record id="hc_vs_related_person_relationship_type_view_form" model="ir.ui.view">
+            <field name="name">Related Person Relationship Type Form</field>
+            <field name="model">hc.vs.related.person.relationship.type</field>
+            <field name="arch" type="xml">
+                <form string="Related Person Relationship Types" >
+                    <sheet>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name (e.g., United States)"/>
+                        </h1>
+                        <field name="code" placeholder="Code (e.g., US)"/>
+                        <field name="definition" placeholder="Definition"/>
+                        <field name="comments" placeholder="Comments"/>
+                        <group>
+                            <group>
+                                <field name="contains_id"/>
+                                <field name="level" placeholder="An integer (e.g., 1, 2)"/>
+                                <field name="is_abstract"/>
+                                <field name="version" placeholder="e.g., v2.5"/>
+                            </group>
+                            <group>
+                                <field name="source_id" placeholder="e.g., U.S. Census Bureau"/>
+                                <field name="system" widget="url" placeholder="e.g., www.census.gov/"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
-        <!-- External Reference View -->
+        <act_window id="hc_vs_related_person_relationship_type_action"
+                    name="HC Related Person Relationship Types"
+                    res_model="hc.vs.related.person.relationship.type"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
+
+        <menuitem id="hc_related_person.menu_rel_pers_rel"
+                  name="Related Person Relationship Types"
+                  parent="hc_related_person.menu_rel_pers"
+                  action="hc_vs_related_person_relationship_type_action"
+                  groups="hc_base.group_hc_base_manager"
+                  sequence="10"/>
+
+    <!-- External Reference View -->
 
         <record id="hc_res_person_view_form_inherited_related_person" model="ir.ui.view">
             <field name="name">Person Form</field>

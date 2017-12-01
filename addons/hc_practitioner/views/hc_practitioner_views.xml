@@ -9,7 +9,7 @@
             <field name="arch" type="xml">
                 <search string="Practitioners">
                     <field name="person_id"/>
-                    <!-- <field name="qualification_ids"/> -->
+                    <field name="specialty_id"/>
                 </search>
             </field>
         </record>
@@ -237,7 +237,6 @@
                                                             <sheet>
                                                                 <h1>
                                                                     <field name="communication_id" readonly="1"/>
-                                                                    <!-- <field name="communication_id" readonly="1" nolabel="1" class="oe_inline"/> -->
                                                                 </h1>
                                                                 <group>
                                                                     <group>
@@ -628,7 +627,7 @@
                     limit=""/>
 
         <menuitem id="hc_practitioner.menu_prac_com"
-                  name="Communications"
+                  name="Practitioner Communications"
                   parent="hc_practitioner.menu_prac"
                   action="hc_practitioner_communication_action"
                   groups="hc_base.group_hc_base_manager"
@@ -742,7 +741,7 @@
 
 
         <menuitem id="hc_practitioner.menu_qual"
-                  name="Qualifications"
+                  name="Practitioner Qualifications"
                   parent="hc_practitioner.menu_prac"
                   action="hc_practitioner_qualification_action"
                   groups="hc_base.group_hc_base_manager"
@@ -828,7 +827,6 @@
                       action="hc_vs_practitioner_specialty_action"
                       groups="hc_base.group_hc_base_manager"
                       sequence="50"/>
-
 
     <!-- Practitioner Qualification Views -->
 
@@ -966,6 +964,60 @@
                   groups="hc_base.group_hc_base_manager"
                   sequence="60"/>
 
+    <!-- Practitioner Domain Resource Text Views -->
+
+        <record id="hc_practitioner_domain_resource_text_view_search" model="ir.ui.view">
+            <field name="name">Practitioner Domain Resource Text Search</field>
+            <field name="model">hc.practitioner.domain.resource.text</field>
+            <field name="arch" type="xml">
+                <search string="Practitioner Domain Resource Texts">
+                    <field name="title"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="hc_practitioner_domain_resource_text_view_tree" model="ir.ui.view">
+            <field name="name">Practitioner Domain Resource Text Tree</field>
+            <field name="model">hc.practitioner.domain.resource.text</field>
+            <field name="arch" type="xml">
+                <tree string="Practitioner Domain Resource Texts">
+                    <field name="title"/>
+                    <field name="status"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_practitioner_domain_resource_text_view_form" model="ir.ui.view">
+            <field name="name">Practitioner Domain Resource Text Form</field>
+            <field name="model">hc.practitioner.domain.resource.text</field>
+            <field name="arch" type="xml">
+                <form string="Practitioner Domain Resource Text">
+                    <header>
+                        <field name="status" string="Status" widget="statusbar" clickable="True"/>
+                    </header>
+                    <sheet>
+                        <h1>
+                            <field name="title" default_focus="1" placeholder="Title"/>
+                        </h1>
+                        <field name="div" widget="html"/>
+                        <group>
+                            <group>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                    </sheet>                            
+                </form>
+            </field>
+        </record>
+
+        <act_window id="hc_practitioner_domain_resource_text_action"
+                    name="HC Practitioner Domain Resource Texts"
+                    res_model="hc.practitioner.domain.resource.text"
+                    view_mode="tree,form"
+                    domain=""
+                    context=""
+                    limit=""/>
 
     <!-- External Reference View -->
 

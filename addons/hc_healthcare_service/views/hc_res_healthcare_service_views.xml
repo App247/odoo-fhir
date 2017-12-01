@@ -37,9 +37,12 @@
                             <h1>
                                 <field name="name" default_focus="1" placeholder="Name"/>
                             </h1>
-                            <field name="comment" placeholder="Comment"/>
-                            <field name="extra_details" placeholder="Extra Details"/>
-                            <field name="availability_exceptions" placeholder="Availability Exceptions"/>
+                            <label for="comment" string="Comment"/>
+                            <field name="comment"/>
+                            <label for="extra_details" string="Extra Details"/>
+                            <field name="extra_details"/>
+                            <label for="availability_exceptions" string="Availability Exceptions"/>
+                            <field name="availability_exceptions"/>
                         </div>
                         <group>
                             <group string="Characteristics">
@@ -463,7 +466,7 @@
             <field name="model">hc.vs.service.category</field>
             <field name="arch" type="xml">
                 <search string="Service Categories">
-                    <field name="name"/>
+                    <field name="name" filter_domain="['|',('name','ilike',self),('definition','ilike',self)]"/>
                     <field name="code"/>
                     <field name="definition"/>
                     <group>
@@ -538,7 +541,7 @@
             <field name="model">hc.vs.service.provision.condition</field>
             <field name="arch" type="xml">
                 <search string="Service Provision Conditions">
-                    <field name="name"/>
+                    <field name="name" filter_domain="['|',('name','ilike',self),('definition','ilike',self)]"/>
                     <field name="code"/>
                     <field name="definition"/>
                     <group>
@@ -613,11 +616,10 @@
             <field name="model">hc.vs.service.referral.method</field>
             <field name="arch" type="xml">
                 <search string="Service Referral Methods">
-                    <field name="name"/>
+                    <field name="name" filter_domain="['|',('name','ilike',self),('definition','ilike',self)]"/>
                     <field name="code"/>
                     <field name="definition"/>
                     <group>
-                        <!-- <filter name="group_by_parent" string="Parent" context="{'group_by':'contains_id'}"/> -->
                     </group>
                 </search>
             </field>
@@ -688,7 +690,7 @@
             <field name="model">hc.vs.service.type</field>
             <field name="arch" type="xml">
                 <search string="Service Types">
-                    <field name="name"/>
+                    <field name="name" filter_domain="['|',('name','ilike',self),('definition','ilike',self)]"/>
                     <field name="code"/>
                     <field name="definition"/>
                     <group>

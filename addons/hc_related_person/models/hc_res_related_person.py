@@ -6,6 +6,7 @@ class RelatedPerson(models.Model):
     _name = "hc.res.related.person"
     _description = "Related Person"
     _inherits = {"hc.res.person": "person_id"}
+    _inherit = ["hc.domain.resource"]
     _rec_name = "person_id"
 
     person_id = fields.Many2one(
@@ -25,33 +26,28 @@ class RelatedPerson(models.Model):
         related="person_id.identifier_ids",
         string="Identifiers",
         help="A human identifier for this related person.")
-    # identifier_ids = fields.One2many(
-    #     comodel_name="hc.related.person.identifier",
-    #     inverse_name="related_person_id",
-    #     string="Identifiers",
-    #     help="A human identifier for this related person.")
     is_active = fields.Boolean(
         string="Active",
         default="True",
         help="Whether this related person's record is in active use.")
+    # patient_id = fields.Many2one(
+    #     comodel_name="hc.res.patient",
+    #     string="Patient",
+    #     required="True",
+    #     help="The patient this person is related to.")
+    relationship_ids = fields.Many2many(
+        comodel_name="hc.vs.related.person.relationship.type",
+        relation="related_person_relationship_type_rel",
+        string="Relationships",
+        help="The nature of the relationship.")
     name_ids = fields.One2many(
         related="person_id.name_ids",
         string="Names",
         help="A name associated with the related person.")
-    # name_ids = fields.One2many(
-    #     comodel_name="hc.human.name",
-    #     inverse_name="related_person_id",
-    #     string="Names",
-    #     help="A name associated with this related person.")
     telecom_ids = fields.One2many(
         related="person_id.telecom_ids",
         string="Telecoms",
         help="A contact detail for this related person.")
-    # telecom_ids = fields.One2many(
-    #     comodel_name="hc.related.person.telecom",
-    #     inverse_name="related_person_id",
-    #     string="Telecoms",
-    #     help="A contact detail for this related person.")
     gender = fields.Selection(
         related="person_id.gender",
         readonly=True,
@@ -68,26 +64,25 @@ class RelatedPerson(models.Model):
         related="person_id.photo_ids",
         string="Photos",
         help="Image of the related person.")
-    # photo_ids = fields.One2many(
-    #     comodel_name="hc.related.person.photo",
-    #     inverse_name="related_person_id",
-    #     string="Photos",
-    #     help="Image of the related person.")
-    patient_ids = fields.One2many(
-        comodel_name="hc.related.person.patient",
-        inverse_name="related_person_id",
-        string="Patients",
-        required="True",
-        help="Patient(s) related to this person.")
+    period_start_date = fields.Date(
+        string="Start Date",
+        help="Start of the period of time that this relationship is considered valid.")
+    period_end_date = fields.Date(
+        string="End Date",
+        help="End of the period of time that this relationship is considepred valid.")
 
-    # _defaults = {
-    #     "is_related_person": True,
-    #     }
-
-    # @api.model
-    # def create(self, vals):
-    #     vals['is_related_person'] = self.env.context.get('is_related_person', False)
-    #     return super(RelatedPerson, self).create(vals)
+    # Domain Resource
+    text_id = fields.Many2one(
+        comodel_name="hc.related.person.domain.resource.text")
+    contained_ids = fields.One2many(
+        comodel_name="hc.related.person.domain.resource.contained",
+        inverse_name="related_person_id")
+    extension_ids = fields.One2many(
+        comodel_name="hc.related.person.domain.resource.extension",
+        inverse_name="related_person_id")
+    modifier_extension_ids = fields.One2many(
+        comodel_name="hc.related.person.domain.resource.modifier.extension",
+        inverse_name="related_person_id")
 
     # Indicate that associated Person is a Related Person.
     @api.model
@@ -193,29 +188,45 @@ class RelatedPerson(models.Model):
 #         string="Related Person",
 #         help="Related Person associated with this Related Person Photo.")
 
-class RelatedPersonPatient(models.Model):
-    _name = "hc.related.person.patient"
-    _description = "Related Person Patient"
-    _inherit = ["hc.basic.association"]
+class RelatedPersonDomainResourceText(models.Model):
+    _name = "hc.related.person.domain.resource.text"
+    _description = "Related Person Domain Resource Text"
+    _inherit = ["hc.basic.association", "hc.narrative"]
 
     related_person_id = fields.Many2one(
         comodel_name="hc.res.related.person",
         string="Related Person",
-        help="Related Person associated with this Related Person Patient.")
-    # patient_id = fields.Many2one(
-    #     comodel_name="hc.res.patient",
-    #     string="Patient",
-    #     help="Patient associated with this Related Person Patient.")
-    relationship_id = fields.Many2one(
-        comodel_name="hc.vs.related.person.relationship.type",
-        string="Relationship",
-        help="The nature of the relationship.")
-    start_date = fields.Date(
-        string="Start Date",
-        help="Start of the period of time that this relationship is considered valid.")
-    end_date = fields.Date(
-        string="End Date",
-        help="End of the period of time that this relationship is considered valid.")
+        help="Related Person associated with this Related Person Domain Resource Text.")
+
+class RelatedPersonDomainResourceContained(models.Model):
+    _name = "hc.related.person.domain.resource.contained"
+    _description = "Related Person Domain Resource Contained"
+    _inherit = ["hc.basic.association", "hc.resource"]
+
+    related_person_id = fields.Many2one(
+        comodel_name="hc.res.related.person",
+        string="Related Person",
+        help="Related Person associated with this Related Person Domain Resource Contained.")
+
+class RelatedPersonDomainResourceExtension(models.Model):
+    _name = "hc.related.person.domain.resource.extension"
+    _description = "Related Person Domain Resource Extension"
+    _inherit = ["hc.basic.association", "hc.extension"]
+
+    related_person_id = fields.Many2one(
+        comodel_name="hc.res.related.person",
+        string="Related Person",
+        help="Related Person associated with this Related Person Domain Resource Extension.")
+
+class RelatedPersonDomainResourceModifierExtension(models.Model):
+    _name = "hc.related.person.domain.resource.modifier.extension"
+    _description = "Related Person Domain Resource Modifier Extension"
+    _inherit = ["hc.basic.association", "hc.extension"]
+
+    related_person_id = fields.Many2one(
+        comodel_name="hc.res.related.person",
+        string="Related Person",
+        help="Related Person associated with this Related Person Domain Resource Modifier Extension.")
 
 class RelatedPersonRelationshipType(models.Model):
     _name = "hc.vs.related.person.relationship.type"
