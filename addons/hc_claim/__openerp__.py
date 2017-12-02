@@ -9,10 +9,10 @@
     'description': """
         A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.
 
-        **Scope and Usage** 
-        
-        The Claim is used by providers and payors, insurers, to exchange the financial information, and supporting clinical information, regarding the provision of 
-        healthcare services with payors an firms which provide data analytics. The primary uses of this resource is to support eClaims, the exchange of proposed or 
+        **Scope and Usage**
+
+        The Claim is used by providers and payors, insurers, to exchange the financial information, and supporting clinical information, regarding the provision of
+        healthcare services with payors an firms which provide data analytics. The primary uses of this resource is to support eClaims, the exchange of proposed or
         actual services to benefit payors, insurers and national health programs, for treatment payment planning and reimbursement.
 
         The Claim is intended to support:
@@ -20,7 +20,7 @@
         * Claims - where the provision of goods and services is complete and reimbursement is sought.
         * Pre-Authorization - where the provision of goods and services is proposed and either authorization and/or the reservation of funds is desired.
         * Pre-Determination - where the provision of goods and services is explored to determine what services may be covered and to what amount. Essentially a 'what if' claim.
-        
+
         The Claim also supports:
 
         * Up to a 3 tier hierarchy of Goods, products, and Services, to support simple to complex billing.
@@ -43,6 +43,9 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+
+        'data/data_claim.xml',
+
         'views/hc_res_claim_views.xml',
         'views/hc_res_claim_templates.xml',
     ],

@@ -13,7 +13,7 @@ class Claim(models.Model):
     name = fields.Char(
         string="Name",
         required="True",
-        help="Text representation of the claim. Patient Name + Created Date.")
+        help="Text representation of the claim. Claim Number + Patient Name + Created Date.")
     identifier_ids = fields.One2many(
         comodel_name="hc.claim.identifier",
         inverse_name="claim_id",
@@ -28,16 +28,11 @@ class Claim(models.Model):
         inverse_name="claim_id",
         string="Status History",
         help="The status of the claim over time.")
-    type = fields.Selection(
+    type_id = fields.Many2one(
+        comodel_name="hc.vs.claim.type",
         string="Type",
         required="True",
-        selection=[
-            ("institutional", "Institutional"),
-            ("oral", "Oral"),
-            ("pharmacy", "Pharmacy"),
-            ("professional", "Professional"),
-            ("vision", "Vision")],
-        help="The category of claim, eg, oral, pharmacy, vision, insitutional, professional.")
+        help="The category of claim, eg, oral, pharmacy, vision, institutional, professional.")
     sub_type_ids = fields.Many2many(
         comodel_name="hc.vs.claim.sub.type",
         relation="claim_sub_type_rel",
@@ -127,20 +122,14 @@ class Claim(models.Model):
         string="Employment Impacted End Date",
         help="End of the period unable to work.")
     hospitalization_start_date = fields.Datetime(
-        string="Start Date",
+        string="Hospitalization Start Date",
         help="Start of the period in hospital.")
     hospitalization_end_date = fields.Datetime(
-        string="End Date",
+        string="Hospitalization End Date",
         help="End of the period in hospital.")
     total = fields.Float(
-        string="Total",
+        string="Total Cost",
         help="Total claim cost.")
-
-
-
-
-
-
     related_ids = fields.One2many(
         comodel_name="hc.claim.related.claim",
         inverse_name="claim_id",
@@ -151,13 +140,11 @@ class Claim(models.Model):
         inverse_name="claim_id",
         string="Payees",
         help="Payee.")
-
     care_team_ids = fields.One2many(
         comodel_name="hc.claim.care.team",
         inverse_name="claim_id",
         string="Care Teams",
         help="Members of the care team.")
-
     information_ids = fields.One2many(
         comodel_name="hc.claim.information",
         inverse_name="claim_id",
@@ -183,37 +170,42 @@ class Claim(models.Model):
         inverse_name="claim_id",
         string="Accidents",
         help="Details about an accident.")
-    missing_teeth_ids = fields.One2many(
-        comodel_name="hc.claim.missing.teeth",
-        inverse_name="claim_id",
-        string="Missing Teeth",
-        help="Only if type = oral.")
+    # missing_teeth_ids = fields.One2many(
+    #     comodel_name="hc.claim.missing.teeth",
+    #     inverse_name="claim_id",
+    #     string="Missing Teeth",
+    #     help="Only if type = oral.")
     item_ids = fields.One2many(
         comodel_name="hc.claim.item",
         inverse_name="claim_id",
         string="Items",
         help="Goods and Services.")
 
+    @api.depends('prescription_type')
+    def _compute_prescription_name(self):
+        for hc_res_claim in self:
+            if hc_res_claim.prescription_type == 'medication_request':
+                hc_res_claim.prescription_name = hc_res_claim.prescription_medication_request_id.name
+            elif hc_res_claim.prescription_type == 'vision_prescription':
+                hc_res_claim.prescription_name = hc_res_claim.prescription_vision_prescription_id.name
+
     @api.model
     def create(self, vals):
-        status_history_obj = self.env['hc.claim.status.history']
-        res = super(Claim, self).create(vals)
+        status_history_obj = self.env['hc.structure.map.status.history']
+        res = super(StructureMap, self).create(vals)
         if vals and vals.get('status_id'):
             status_history_vals = {
-                'claim_id': res.id,
-                'status': res.status_id.name,
+                'structure_map_id': res.id,
+                'status': res.status,
                 'start_date': datetime.today()
                 }
-            if vals.get('status_id') == 'entered-in-error':
-                status_history_vals.update({'end_date': datetime.today()})
             status_history_obj.create(status_history_vals)
         return res
 
     @api.multi
     def write(self, vals):
-        status_history_obj = self.env['hc.claim.status.history']
-        fm_status_obj = self.env['hc.vs.fm.status']
-        res = super(Claim, self).write(vals)
+        status_history_obj = self.env['hc.structure.map.status.history']
+        res = super(StructureMap, self).write(vals)
         status_history_record_ids = status_history_obj.search([('end_date','=', False)])
         if status_history_record_ids:
             if vals.get('status_id') and status_history_record_ids[0].status != vals.get('status_id'):
@@ -235,14 +227,11 @@ class Claim(models.Model):
                                 status_history.time_diff_hour = str(times[0])
                                 status_history.time_diff_min = str(times[1])
                                 status_history.time_diff_sec = str(times[2])
-                fm_status = fm_status_obj.browse(vals.get('status_id'))
                 status_history_vals = {
-                    'claim_id': self.id,
-                    'status': fm_status.name,
+                    'structure_map_id': self.id,
+                    'status': vals.get('status'),
                     'start_date': datetime.today()
                     }
-                if vals.get('status_id') == 'entered-in-error':
-                    status_id_history_vals.update({'end_date': datetime.today()})
                 status_history_obj.create(status_history_vals)
         return res
 
@@ -318,14 +307,26 @@ class ClaimPayee(models.Model):
         string="Party Related Person",
         help="Related Person to receive the payable.")
 
+    @api.depends('party_type')
+    def _compute_party_name(self):
+        for hc_claim_payee in self:
+            if hc_claim_payee.party_type == 'practitioner':
+                hc_claim_payee.party_name = hc_claim_payee.party_practitioner_id.name
+            elif hc_claim_payee.party_type == 'organization':
+                hc_claim_payee.party_name = hc_claim_payee.party_organization_id.name
+            elif hc_claim_payee.party_type == 'patient':
+                hc_claim_payee.party_name = hc_claim_payee.party_patient_id.name
+            elif hc_claim_payee.party_type == 'related_person':
+                hc_claim_payee.party_name = hc_claim_payee.party_related_person_id.name
+
 class ClaimCareTeam(models.Model):
     _name = "hc.claim.care.team"
     _description = "Claim Care Team"
 
-    item_id = fields.Many2one(
-        comodel_name="hc.claim.item",
-        string="Item",
-        help="Goods and Services.")
+    claim_id = fields.Many2one(
+        comodel_name="hc.res.claim",
+        string="Claim",
+        help="Claim associated with this Claim Care Team.")
     sequence = fields.Integer(
         string="Sequence",
         required="True",
@@ -362,6 +363,14 @@ class ClaimCareTeam(models.Model):
         comodel_name="hc.vs.provider.qualification",
         string="Qualification",
         help="Type, classification or Specialization.")
+
+    @api.depends('provider_type')
+    def _compute_provider_name(self):
+        for hc_claim_care_team in self:
+            if hc_claim_care_team.provider_type == 'practitioner':
+                hc_claim_care_team.provider_name = hc_claim_care_team.provider_practitioner_id.name
+            elif hc_claim_care_team.provider_type == 'organization':
+                hc_claim_care_team.provider_name = hc_claim_care_team.provider_organization_id.name
 
 class ClaimInformation(models.Model):
     _name = "hc.claim.information"
@@ -410,7 +419,7 @@ class ClaimInformation(models.Model):
             ("string", "String"),
             ("quantity", "Quantity"),
             ("attachment", "Attachment"),
-            ("any", "Any")],
+            ("reference", "Reference")],
         help="Type of Additional Data or supporting information.")
     value_name = fields.Char(
         string="Value",
@@ -431,19 +440,27 @@ class ClaimInformation(models.Model):
         comodel_name="hc.attachment",
         string="Value Attachment",
         help="Attachment of Additional Data or supporting information.")
-    value_any_type = fields.Char(
-        string="Value Any Type",
-        compute="_compute_value_any_type",
+    value_reference_type = fields.Char(
+        string="Value Reference Type",
+        compute="_compute_value_reference_type",
         store="True",
         help="Type of additional data or supporting information.")
-    value_any_name = fields.Reference(
-        string="Value Any",
+    value_reference_name = fields.Reference(
+        string="Value Reference",
         selection="_reference_models",
         help="Additional Data or supporting information.")
     reason_id = fields.Many2one(
         comodel_name="hc.vs.claim.information.reason",
         string="Reason",
         help="Reason associated with the information.")
+
+    @api.depends('timing_type')
+    def _compute_timing_name(self):
+        for hc.claim.information in self:
+            if hc.claim.information.timing_type == 'date':
+                hc.claim.information.timing_name = hc.claim.information.timing_date
+            elif hc.claim.information.timing_type == 'period':
+                hc.claim.information.timing_name = "Between " + str(hc.claim.information.timing_start_date) + " and" + str(hc.claim.information.timing_end_date)
 
     @api.model
     def _reference_models(self):
@@ -452,11 +469,11 @@ class ClaimInformation(models.Model):
             for model in models
                 if model.model.startswith('hc.res')]
 
-    @api.depends('value_any_name')
-    def _compute_value_any_type(self):
+    @api.depends('value_reference_name')
+    def _compute_value_reference_type(self):
         for this in self:
-            if this.value_any_name:
-                this.value_any_type = this.value_any_name._description
+            if this.value_reference_name:
+                this.value_reference_type = this.value_reference_name._description
 
     @api.depends('value_type')
     def _compute_value_name(self):
@@ -464,12 +481,12 @@ class ClaimInformation(models.Model):
             if hc_claim_information.value_type == 'string':
                 hc_claim_information.value_name = hc_claim_information.value_string
             elif hc_claim_information.value_type == 'quantity':
-                hc_claim_information.value_name = str(hc_claim_information.value_quantity) + " " + hc_claim_information.value_quantity_uom_id.name
+                hc_claim_information.value_name = str(hc_claim_information.value_quantity) + " " + str(hc_claim_information.value_quantity_uom_id.name)
             elif hc_claim_information.value_type == 'attachment':
                 hc_claim_information.value_name = hc_claim_information.value_attachment_id.name
-            elif hc_claim_information.value_type == 'any':
-                hc_claim_information.value_type = hc_claim_information.value_any_type
-                hc_claim_information.value_name = hc_claim_information.value_any_name
+            elif hc_claim_information.value_type == 'reference':
+                hc_claim_information.value_type = hc_claim_information.value_reference_type
+                hc_claim_information.value_name = hc_claim_information.value_reference_name
 
 class ClaimDiagnosis(models.Model):
     _name = "hc.claim.diagnosis"
@@ -513,6 +530,14 @@ class ClaimDiagnosis(models.Model):
         comodel_name="hc.vs.diagnosis.package.code",
         string="Package Code",
         help="Package billing code.")
+
+    @api.depends('diagnosis_type')
+    def _compute_diagnosis_name(self):
+        for hc_claim_diagnosis in self:
+            if hc_claim_diagnosis.diagnosis_type == 'code':
+                hc_claim_diagnosis.diagnosis_name = hc_claim_diagnosis.diagnosis_code_id.name
+            elif hc_claim_diagnosis.diagnosis_type == 'condition':
+                hc_claim_diagnosis.diagnosis_name = hc_claim_diagnosis.diagnosis_condition_id.name
 
 class ClaimProcedure(models.Model):
     _name = "hc.claim.procedure"
@@ -605,7 +630,7 @@ class ClaimAccident(models.Model):
         string="Claim",
         help="Claim associated with this Claim Accident.")
     date = fields.Date(
-        string="Date Date",
+        string="Date",
         required="True",
         help="When the accident occurred.")
     type_id = fields.Many2one(
@@ -640,26 +665,26 @@ class ClaimAccident(models.Model):
             elif hc_claim_accident.location_type == 'location':
                 hc_claim_accident.location_name = hc_claim_accident.location_location_id.name
 
-class ClaimMissingTeeth(models.Model):
-    _name = "hc.claim.missing.teeth"
-    _description = "Claim Missing Teeth"
+# class ClaimMissingTeeth(models.Model):
+#     _name = "hc.claim.missing.teeth"
+#     _description = "Claim Missing Teeth"
 
-    claim_id = fields.Many2one(
-        comodel_name="hc.res.claim",
-        string="Claim",
-        help="Claim associated with this Claim Missing Teeth.")
-    tooth_id = fields.Many2one(
-        comodel_name="hc.vs.teeth",
-        string="Tooth",
-        required="True",
-        help="Tooth Code.")
-    reason_id = fields.Many2one(
-        comodel_name="hc.vs.missing.tooth.reason",
-        string="Reason",
-        help="Reason for missing.")
-    extraction_date = fields.Date(
-        string="Extraction Date",
-        help="Date of Extraction.")
+#     claim_id = fields.Many2one(
+#         comodel_name="hc.res.claim",
+#         string="Claim",
+#         help="Claim associated with this Claim Missing Teeth.")
+#     tooth_id = fields.Many2one(
+#         comodel_name="hc.vs.teeth",
+#         string="Tooth",
+#         required="True",
+#         help="Tooth Code.")
+#     reason_id = fields.Many2one(
+#         comodel_name="hc.vs.missing.tooth.reason",
+#         string="Reason",
+#         help="Reason for missing.")
+#     extraction_date = fields.Date(
+#         string="Extraction Date",
+#         help="Date of Extraction.")
 
 class ClaimItem(models.Model):
     _name = "hc.claim.item"
@@ -778,6 +803,7 @@ class ClaimItem(models.Model):
         help="Total item cost.")
     udi_ids = fields.One2many(
         comodel_name="hc.claim.item.udi",
+        inverse_name="item_id",
         string="UDIs",
         help="Unique Device Identifier.")
     body_site_id = fields.Many2one(
@@ -791,6 +817,7 @@ class ClaimItem(models.Model):
         help="Service Sub-location.")
     encounter_ids = fields.One2many(
         comodel_name="hc.claim.item.encounter",
+        inverse_name="item_id",
         string="Encounters",
         help="Encounters related to this billed item.")
     detail_ids = fields.One2many(
@@ -798,11 +825,29 @@ class ClaimItem(models.Model):
         inverse_name="item_id",
         string="Details",
         help="Additional items.")
-    prosthesis_ids = fields.One2many(
-        comodel_name="hc.claim.item.prosthesis",
-        inverse_name="item_id",
-        string="Prosthesis",
-        help="Prosthetic details.")
+    # prosthesis_ids = fields.One2many(
+    #     comodel_name="hc.claim.item.prosthesis",
+    #     inverse_name="item_id",
+    #     string="Prosthesis",
+    #     help="Prosthetic details.")
+
+    @api.depends('serviced_type')
+    def _compute_serviced_name(self):
+        for hc.claim.item in self:
+            if hc.claim.item.serviced_type == 'date':
+                hc.claim.item.serviced_name = hc.claim.item.serviced_date
+            elif hc.claim.item.serviced_type == 'period':
+                hc.claim.item.serviced_name = "Between " + str(hc.claim.item.serviced_start_date) + " and" + str(hc.claim.item.serviced_end_date)
+
+    @api.depends('location_type')
+    def _compute_location_name(self):
+        for hc_claim_diagnosis in self:
+            if hc_claim_diagnosis.location_type == 'code':
+                hc_claim_diagnosis.location_name = hc_claim_diagnosis.location_code_id.name
+            elif hc_claim_diagnosis.location_type == 'address':
+                hc_claim_diagnosis.location_name = hc_claim_diagnosis.location_address_id.text
+            elif hc_claim_diagnosis.location_type == 'location':
+                hc_claim_diagnosis.location_name = hc_claim_diagnosis.location_location_id.name
 
 class ClaimItemDetail(models.Model):
     _name = "hc.claim.item.detail"
@@ -852,14 +897,15 @@ class ClaimItemDetail(models.Model):
     factor = fields.Float(
         string="Factor",
         help="Price scaling factor.")
-    points = fields.Float(
-        string="Points",
-        help="Difficulty scaling factor.")
+    # points = fields.Float(
+    #     string="Points",
+    #     help="Difficulty scaling factor.")
     net = fields.Float(
         string="Net",
         help="Total additional item cost.")
     udi_ids = fields.One2many(
         comodel_name="hc.claim.item.detail.udi",
+        inverse_name="detail_id",
         string="UDIs",
         help="Unique Device Identifier.")
     sub_detail_ids = fields.One2many(
@@ -917,33 +963,28 @@ class ClaimItemDetailSubDetail(models.Model):
         help="Net additional item cost.")
     udi_ids = fields.One2many(
         comodel_name="hc.claim.item.detail.sub.detail.udi",
+        inverse_name="sub_detail_id",
         string="UDIs",
         help="Unique Device Identifier.")
 
-    udi_id = fields.Many2one(
-        comodel_name="hc.vs.unique.device.identifier",
-        string="UDI",
-        help="Unique Device Identifier.")
+# class ClaimItemProsthesis(models.Model):
+#     _name = "hc.claim.item.prosthesis"
+#     _description = "Claim Item Prosthesis"
 
-class ClaimItemProsthesis(models.Model):
-    _name = "hc.claim.item.prosthesis"
-    _description = "Claim Item Prosthesis"
-
-    item_id = fields.Many2one(
-        comodel_name="hc.claim.item",
-        string="Item",
-        help="Goods and Services.")
-    is_initial = fields.Boolean(
-        string="Initial",
-        help="Is this the initial service.")
-    prior_date = fields.Date(
-        string="Prior Date",
-        help="Initial service Date.")
-    prior_material_id = fields.Many2one(
-        comodel_name="hc.vs.oral.prosthodontic.material",
-        string="Prior Material",
-        help="Prosthetic Material.")
-
+#     item_id = fields.Many2one(
+#         comodel_name="hc.claim.item",
+#         string="Item",
+#         help="Goods and Services.")
+#     is_initial = fields.Boolean(
+#         string="Initial",
+#         help="Is this the initial service.")
+#     prior_date = fields.Date(
+#         string="Prior Date",
+#         help="Initial service Date.")
+#     prior_material_id = fields.Many2one(
+#         comodel_name="hc.vs.oral.prosthodontic.material",
+#         string="Prior Material",
+#         help="Prosthetic Material.")
 
 class ClaimIdentifier(models.Model):
     _name = "hc.claim.identifier"
@@ -954,6 +995,16 @@ class ClaimIdentifier(models.Model):
         comodel_name="hc.res.claim",
         string="Claim",
         help="Claim associated with this Claim Identifier.")
+
+class ClaimInsuranceIdentifier(models.Model):
+    _name = "hc.claim.insurance.identifier"
+    _description = "Claim Insurance Identifier"
+    _inherit = ["hc.basic.association", "hc.identifier"]
+
+    insurance_id = fields.Many2one(
+        comodel_name="hc.claim.insurance",
+        string="Insurance",
+        help="Insurance associated with this Claim Insurance Identifier.")
 
 class ClaimStatusHistory(models.Model):
     _name = "hc.claim.status.history"
@@ -1011,18 +1062,18 @@ class ClaimItemLocationAddress(models.Model):
         required="True",
         help="Location Address associated with this Claim Item Location Address.")
 
-class ClaimCoveragePreAuthRef(models.Model):
-    _name = "hc.claim.coverage.pre.auth.ref"
-    _description = "Claim Coverage Pre Auth Ref"
+class ClaimInsurancePreAuthRef(models.Model):
+    _name = "hc.claim.insurance.pre.auth.ref"
+    _description = "Claim Insurance Pre Auth Ref"
     _inherit = ["hc.basic.association"]
 
-    coverage_id = fields.Many2one(
-        comodel_name="hc.claim.coverage",
-        string="Coverage",
+    insurance_id = fields.Many2one(
+        comodel_name="hc.claim.insurance",
+        string="Insurance",
         help="Insurance or medical plan.")
     pre_auth_ref = fields.Char(
         string="Pre Auth Ref",
-        help="Pre Auth Ref associated with this Claim Coverage Pre Auth Ref.")
+        help="Pre Auth Ref associated with this Claim Insurance Pre Auth Ref.")
 
 class ClaimItemCareTeamLinkId(models.Model):
     _name = "hc.claim.item.care.team.link.id"
@@ -1086,7 +1137,7 @@ class ClaimItemUDI(models.Model):
         string="Item",
         help="Goods and Services.")
     udi_id = fields.Many2one(
-        comodel_name="hc.vs.unique.device.identifier",
+        comodel_name="hc.res.device",
         string="UDI",
         help="UDI associated with this Claim Item UDI.")
 
@@ -1095,12 +1146,12 @@ class ClaimItemDetailUDI(models.Model):
     _description = "Claim Item Detail UDI"
     _inherit = ["hc.basic.association"]
 
-    item_id = fields.Many2one(
-        comodel_name="hc.claim.item",
-        string="Item",
+    detail_id = fields.Many2one(
+        comodel_name="hc.claim.item.detail",
+        string="Detail",
         help="Goods and Services.")
     udi_id = fields.Many2one(
-        comodel_name="hc.vs.unique.device.identifier",
+        comodel_name="hc.res.device",
         string="UDI",
         help="UDI associated with this Claim Item Detail UDI.")
 
@@ -1109,12 +1160,12 @@ class ClaimItemDetailSubDetailUDI(models.Model):
     _description = "Claim Item Detail Sub Detail UDI"
     _inherit = ["hc.basic.association"]
 
-    item_id = fields.Many2one(
-        comodel_name="hc.claim.item",
-        string="Item",
+    sub_detail_id = fields.Many2one(
+        comodel_name="hc.claim.item.detail.sub.detail",
+        string="Sub Detail",
         help="Goods and Services.")
     udi_id = fields.Many2one(
-        comodel_name="hc.vs.unique.device.identifier",
+        comodel_name="hc.res.device",
         string="UDI",
         help="UDI associated with this Claim Item Detail Sub Detail UDI.")
 
@@ -1136,6 +1187,27 @@ class ClaimRelatedClaimReference(models.Model):
     _name = "hc.claim.related.claim.reference"
     _description = "Claim Related Claim Reference"
     _inherit = ["hc.basic.association", "hc.identifier"]
+
+    related_claim_id = fields.Many2one(
+        comodel_name="hc.claim.related.claim",
+        string="Related Claim",
+        help="Related Claim associated with this Claim Related Claim Reference.")
+
+class ClaimType(models.Model):
+    _name = "hc.vs.claim.type"
+    _description = "Claim Type"
+    _inherit = ["hc.value.set.contains"]
+
+    name = fields.Char(
+        string="Name",
+        help="Name of this claim type.")
+    code = fields.Char(
+        string="Code",
+        help="Code of this claim type.")
+    contains_id = fields.Many2one(
+        comodel_name="hc.vs.claim.type",
+        string="Parent",
+        help="Parent claim type.")
 
 class ActIncidentCode(models.Model):
     _name = "hc.vs.act.incident.code"
@@ -1217,10 +1289,10 @@ class InformationType(models.Model):
     _description = "Information Type"
     _inherit = ["hc.value.set.contains"]
 
-class MissingToothReason(models.Model):
-    _name = "hc.vs.missing.tooth.reason"
-    _description = "Missing Tooth Reason"
-    _inherit = ["hc.value.set.contains"]
+# class MissingToothReason(models.Model):
+#     _name = "hc.vs.missing.tooth.reason"
+#     _description = "Missing Tooth Reason"
+#     _inherit = ["hc.value.set.contains"]
 
 class OralProsthodonticMaterial(models.Model):
     _name = "hc.vs.oral.prosthodontic.material"
@@ -1257,10 +1329,10 @@ class Surface(models.Model):
     _description = "Surface"
     _inherit = ["hc.value.set.contains"]
 
-class Teeth(models.Model):
-    _name = "hc.vs.teeth"
-    _description = "Teeth"
-    _inherit = ["hc.value.set.contains"]
+# class Teeth(models.Model):
+#     _name = "hc.vs.teeth"
+#     _description = "Teeth"
+#     _inherit = ["hc.value.set.contains"]
 
 class Tooth(models.Model):
     _name = "hc.vs.tooth"

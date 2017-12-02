@@ -1,23 +1,335 @@
 <odoo>
     <data>
 
-<!-- <page string="Status History">
-    <field name="status_history_ids" mode="tree">
-        <tree>
-            <field name="status" readonly="1"/>
-            <field name="start_date"/>
-            <field name="end_date"/>
-            <field name="time_diff_day"/>
-            <field name="time_diff_hour"/>
-            <field name="time_diff_min"/>
-            <field name="time_diff_sec"/>
-            <field name="write_uid" invisible="0"/>
-        </tree>
-    </field>
-</page> -->
+    <!-- Claim Views -->
 
+        <record id="hc_res_claim_view_search" model="ir.ui.view">
+            <field name="name">Claim Search</field>
+            <field name="model">hc.res.claim</field>
+            <field name="arch" type="xml">
+                <search string="Claims">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
 
-        <!-- Claim Action and Menu -->
+        <record id="hc_res_claim_view_tree" model="ir.ui.view">
+            <field name="name">Claim Tree</field>
+            <field name="model">hc.res.claim</field>
+            <field name="arch" type="xml">
+                <tree string="Claims">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hc_res_claim_view_form" model="ir.ui.view">
+            <field name="name">Claim Form</field>
+            <field name="model">hc.res.claim</field>
+            <field name="arch" type="xml">
+                <form string="Claim">
+                    <header>
+                        <field name="status_id" string="Status" widget="statusbar" clickable="True"/>
+                    </header>
+                    <sheet>
+                        <div>
+                            <h1>
+                                <field name="name" default_focus="1" placeholder="Name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group string="Summary">
+                                <field name="patient_id"/>
+                                <field name="type_id"/>
+                                <field name="use"/>
+                                <field name="priority_id"/>
+                                <field name="funds_reserve_id"/>
+                                <field name="total"/>
+                            </group>
+                            <group string="Dates">
+                                <field name="created"/>
+                                <field name="billable_period_start_date"/>
+                                <field name="billable_period_end_date"/>
+                                <field name="employment_impacted_start_date"/>
+                                <field name="employment_impacted_end_date"/>
+                                <field name="hospitalization_start_date"/>
+                                <field name="hospitalization_end_date"/>
+                            </group>
+                            <group string="References">
+                                <field name="referral_id"/>
+                                <field name="facility_id"/>
+                                <field name="enterer_id"/>
+                                <field name="insurer_id"/>
+                                <field name="provider_id"/>
+                                <field name="organization_id"/>
+                            </group>
+                            <group string="Prescription">
+                                <field name="prescription_name"/>
+                                <field name="prescription_type" class="oe_edit_only"/>
+                                <field name="prescription_medication_request_id" class="oe_edit_only" attrs="{'invisible': [('prescription_type','!=','medication_request')], 'required': [('prescription_type','=','medication_request')]}"/>
+                                <field name="prescription_vision_prescription_id" class="oe_edit_only" attrs="{'invisible': [('prescription_type','!=','vision_prescription')], 'required': [('prescription_type','=','vision_prescription')]}"/>
+                                <field name="original_prescription_id"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Identifiers">
+                                <field name="identifier_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Related Claims">
+                                <field name="related_ids" mode="tree">
+                                    <tree>
+                                        <field name="claim_id"/>
+                                        <field name="relationship_id"/>
+                                        <field name="reference_id"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                    <field name="claim_id"/>
+                                                    <field name="relationship_id"/>
+                                                    <field name="reference_id"/>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Payees">
+                                <field name="payee_ids" mode="tree">
+                                    <tree>
+                                        <field name="type_id"/>
+                                        <field name="resource_type"/>
+                                        <field name="party_name"/>
+                                        <field name="party_type"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                    <field name="type_id"/>
+                                                    <field name="resource_type"/>
+                                                    <field name="party_name"/>
+                                                    <field name="party_type" class="oe_edit_only"/>
+                                                    <field name="party_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('party_type','!=','practitioner')], 'required': [('party_type','=','practitioner')]}"/>
+                                                    <field name="party_organization_id" class="oe_edit_only" attrs="{'invisible': [('party_type','!=','organization')], 'required': [('party_type','=','organization')]}"/>
+                                                    <field name="party_patient_id" class="oe_edit_only" attrs="{'invisible': [('party_type','!=','patient')], 'required': [('party_type','=','patient')]}"/>
+                                                    <field name="party_related_person_id" class="oe_edit_only" attrs="{'invisible': [('party_type','!=','related_person')], 'required': [('party_type','=','related_person')]}"/>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Care Teams">
+                                <field name="care_team_ids" mode="tree">
+                                    <tree>
+                                        <field name="sequence"/>
+                                        <field name="provider_name"/>
+                                        <field name="provider_type"/>
+                                        <field name="is_responsible"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                    <field name="sequence"/>
+                                                    <field name="provider_name"/>
+                                                    <field name="provider_type" class="oe_edit_only"/>
+                                                    <field name="provider_practitioner_id" class="oe_edit_only" attrs="{'invisible': [('provider_type','!=','practitioner')], 'required': [('provider_type','=','practitioner')]}"/>
+                                                    <field name="provider_organization_id" class="oe_edit_only" attrs="{'invisible': [('provider_type','!=','organization')], 'required': [('provider_type','=','organization')]}"/>
+                                                    <field name="is_responsible"/>
+                                                    <field name="role_id"/>
+                                                    <field name="qualification_id"/>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Information">
+                                <field name="information_ids" mode="tree">
+                                    <tree>
+                                        <field name="sequence"/>
+                                        <field name="category_id"/>
+                                        <field name="code_id"/>
+                                        <field name="reason_id"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                    <field name="sequence"/>
+                                                    <field name="category_id"/>
+                                                    <field name="code_id"/>
+                                                    <field name="reason_id"/>
+                                                </group>
+                                                <group>
+                                                    <field name="timing_name"/>
+                                                    <field name="timing_type" class="oe_edit_only"/>
+                                                    <field name="timing_date" class="oe_edit_only" attrs="{'invisible': [('timing_type','!=','date')], 'required': [('timing_type','=','date')]}"/>
+                                                    <field name="timing_start_date" class="oe_edit_only" attrs="{'invisible': [('timing_type','!=','period')], 'required': [('timing_type','=','period')]}"/>
+                                                    <field name="timing_end_date" class="oe_edit_only" attrs="{'invisible': [('timing_type','!=','period')], 'required': [('timing_type','=','period')]}"/>
+                                                    <field name="value_name"/>
+                                                    <field name="value_type" class="oe_edit_only"/>
+                                                    <field name="value_string" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','string')], 'required': [('value_type','=','string')]}"/>
+                                                    <field name="value_quantity" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','quantity')], 'required': [('value_type','=','quantity')]}"/>
+                                                    <field name="value_quantity_uom_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','quantity')], 'required': [('value_type','=','quantity')]}"/>
+                                                    <field name="value_attachment_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','attachment')], 'required': [('value_type','=','attachment')]}"/>
+                                                    <field name="value_reference_type" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','reference')], 'required': [('value_type','=','reference')]}"/>
+                                                    <field name="value_reference_name" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','reference')], 'required': [('value_type','=','reference')]}"/>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Diagnosis">
+                                <field name="diagnosis_ids" mode="tree">
+                                    <tree>
+                                        <field name="sequence"/>
+                                        <field name="diagnosis_name"/>
+                                        <field name="diagnosis_type"/>
+                                        <field name="type_ids" widget="many2many_tags"/>
+                                        <field name="package_code_id"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                    <field name="sequence"/>
+                                                    <field name="diagnosis_name"/>
+                                                    <field name="diagnosis_type" class="oe_edit_only"/>
+                                                    <field name="diagnosis_code_id" class="oe_edit_only" attrs="{'invisible': [('diagnosis_type','!=','code')], 'required': [('diagnosis_type','=','code')]}"/>
+                                                    <field name="diagnosis_condition_id" class="oe_edit_only" attrs="{'invisible': [('diagnosis_type','!=','condition')], 'required': [('diagnosis_type','=','condition')]}"/>
+                                                    <field name="type_ids" widget="many2many_tags"/>
+                                                    <field name="package_code_id"/>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Procedures">
+                                <field name="procedure_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Insurance">
+                                <field name="insurance_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Accidents">
+                                <field name="accident_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Items">
+                                <field name="item_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Status History">
+                                <field name="status_history_ids" mode="tree">
+                                    <tree>
+                                        <field name="status" readonly="1"/>
+                                        <field name="start_date"/>
+                                        <field name="end_date"/>
+                                        <field name="time_diff_day"/>
+                                        <field name="time_diff_hour"/>
+                                        <field name="time_diff_min"/>
+                                        <field name="time_diff_sec"/>
+                                        <field name="write_uid" invisible="0"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Meta">
+                                <field name="identifier_ids" mode="tree">
+                                    <tree>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <group>
+                                                </group>
+                                                <group>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
         <act_window id="hc_res_claim_action"
                     name="HC Claims"

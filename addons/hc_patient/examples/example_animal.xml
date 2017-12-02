@@ -125,8 +125,6 @@
         <record id="patient_animal_contact" model="hc.patient.contact">
             <field name="patient_id" ref="patient_animal"/>
             <field name="person_id" ref="hc_person.patient_example"/>
-<!--             <field name="name">Peter James Chalmers</field>
-            <field name="type">person</field> -->
             <field eval="[(6, 0, [ref('contact_role_c')])]" name="relationship_ids"/>
         </record>
 
@@ -142,7 +140,7 @@
 
         <record id="patient_animal_identifier" model="hc.patient.identifier">
             <field name="patient_id" ref="patient_animal"/>
-            <field name="person_id" ref="hc_person.patient_animal"/>
+            <!-- <field name="person_id" ref="hc_person.patient_animal"/> -->
             <field name="value">1234123</field>
             <field name="code_id" ref="hc_base.ident_code_maroondah"/>
             <field name="use">usual</field>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+    <!-- Claim Type -->
+            
+        <record id="claim_type_institutional" model="hc.vs.claim.type">
+            <field name="code">institutional</field>
+            <field name="name">Institutional</field>
+            <field name="definition">Hospital, clinic and typically inpatient claims.</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/claim-type</field>
+        </record>
+
+        <record id="claim_type_oral" model="hc.vs.claim.type">
+            <field name="code">oral</field>
+            <field name="name">Oral</field>
+            <field name="definition">Dental, Denture and Hygiene claims.</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/claim-type</field>
+        </record>
+
+        <record id="claim_type_pharmacy" model="hc.vs.claim.type">
+            <field name="code">pharmacy</field>
+            <field name="name">Pharmacy</field>
+            <field name="definition">Pharmacy claims for goods and services.</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/claim-type</field>
+        </record>
+
+        <record id="claim_type_professional" model="hc.vs.claim.type">
+            <field name="code">professional</field>
+            <field name="name">Professional</field>
+            <field name="definition">Typically outpatient claims from Physician, Psychological, Chiropractor, Physiotherapy, Speech Pathology, rehabilitative, consulting.</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/claim-type</field>
+        </record>
+
+        <record id="claim_type_vision" model="hc.vs.claim.type">
+            <field name="code">vision</field>
+            <field name="name">Vision</field>
+            <field name="definition">Vision claims for professional services and products such as glasses and contact lenses.</field>
+            <field name="source_id" ref="base.hl7fhir"/>
+            <field name="system">http://hl7.org/fhir/ValueSet/claim-type</field>
+        </record>
+
+
+    </data>
+</odoo>
