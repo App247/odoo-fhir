@@ -1,5 +1,5 @@
 <odoo>
-    <data noupdate="1">
+    <data noupdate="0">
 
 <!-- Deceased patient (using time) -->
 
@@ -28,8 +28,9 @@
         </record>
 
         <record id="hc_person.patient_pat3" model="hc.res.person">
-            <field name="name_id" ref="hc_base.patient_pat3_name"/>
             <field name="partner_id" ref="base.patient_pat3"/>
+            <field name="identifier">pat3</field>
+            <field name="name_id" ref="hc_base.patient_pat3_name"/>
             <field name="gender">male</field>
             <field name="birth_date">1982-01-23</field>
         </record>
@@ -48,7 +49,7 @@
             <field name="is_deceased" eval="True"/>
             <field name="deceased_date">2015-02-14</field>
             <field name="deceased_time">13:42:00+10:00</field>
-            <field name="managing_organization_id" ref="hc_organization.patient_example"/>
+            <field name="managing_organization_id" ref="hc_organization.organization_1"/>
         </record>
 
         <record id="patient_pat3_identifier" model="hc.patient.identifier">

@@ -1,5 +1,5 @@
 <odoo>
-    <data noupdate="1">
+    <data noupdate="0">
 
     <!-- Pat4 Person -->
 
@@ -22,8 +22,9 @@
         </record>
 
         <record id="hc_person.patient_pat4" model="hc.res.person">
-            <field name="name_id" ref="hc_base.patient_pat4_name"/>
             <field name="partner_id" ref="base.patient_pat4"/>
+            <field name="identifier">pat4</field>
+            <field name="name_id" ref="hc_base.patient_pat4_name"/>
             <field name="gender">female</field>
             <field name="birth_date">1982-08-02</field>
         </record>
@@ -40,7 +41,7 @@
             <field name="person_id" ref="hc_person.patient_pat4"/>
             <field name="is_active" eval="True"/>
             <field name="is_deceased" eval="True"/>
-            <field name="managing_organization_id" ref="hc_organization.patient_example"/>
+            <field name="managing_organization_id" ref="hc_organization.organization_1"/>
         </record>
 
         <record id="patient_pat4_identifier" model="hc.patient.identifier">

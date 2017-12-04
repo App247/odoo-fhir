@@ -21,6 +21,7 @@
 
         <record id="hc_person.patient_dicom" model="hc.res.person">
             <field name="partner_id" ref="base.patient_dicom"/>
+            <field name="identifier">dicom</field>
             <field name="name_id" ref="hc_base.patient_dicom_name"/>
             <field name="gender">male</field>
         </record>

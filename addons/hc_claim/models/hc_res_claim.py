@@ -456,11 +456,11 @@ class ClaimInformation(models.Model):
 
     @api.depends('timing_type')
     def _compute_timing_name(self):
-        for hc.claim.information in self:
-            if hc.claim.information.timing_type == 'date':
-                hc.claim.information.timing_name = hc.claim.information.timing_date
-            elif hc.claim.information.timing_type == 'period':
-                hc.claim.information.timing_name = "Between " + str(hc.claim.information.timing_start_date) + " and" + str(hc.claim.information.timing_end_date)
+        for hc_claim_information in self:
+            if hc_claim_information.timing_type == 'date':
+                hc_claim_information.timing_name = hc_claim_information.timing_date
+            elif hc_claim_information.timing_type == 'period':
+                hc_claim_information.timing_name = "Between " + str(hc_claim_information.timing_start_date) + " and" + str(hc_claim_information.timing_end_date)
 
     @api.model
     def _reference_models(self):
@@ -485,7 +485,6 @@ class ClaimInformation(models.Model):
             elif hc_claim_information.value_type == 'attachment':
                 hc_claim_information.value_name = hc_claim_information.value_attachment_id.name
             elif hc_claim_information.value_type == 'reference':
-                hc_claim_information.value_type = hc_claim_information.value_reference_type
                 hc_claim_information.value_name = hc_claim_information.value_reference_name
 
 class ClaimDiagnosis(models.Model):
@@ -663,7 +662,7 @@ class ClaimAccident(models.Model):
             if hc_claim_accident.location_type == 'address':
                 hc_claim_accident.location_name = hc_claim_accident.location_address_id.text
             elif hc_claim_accident.location_type == 'location':
-                hc_claim_accident.location_name = hc_claim_accident.location_location_id.name
+                hc_claim_accident.location_name = hc_claim_accident.location_id.name
 
 # class ClaimMissingTeeth(models.Model):
 #     _name = "hc.claim.missing.teeth"
@@ -833,11 +832,11 @@ class ClaimItem(models.Model):
 
     @api.depends('serviced_type')
     def _compute_serviced_name(self):
-        for hc.claim.item in self:
-            if hc.claim.item.serviced_type == 'date':
-                hc.claim.item.serviced_name = hc.claim.item.serviced_date
-            elif hc.claim.item.serviced_type == 'period':
-                hc.claim.item.serviced_name = "Between " + str(hc.claim.item.serviced_start_date) + " and" + str(hc.claim.item.serviced_end_date)
+        for hc_claim_item in self:
+            if hc_claim_item.serviced_type == 'date':
+                hc_claim_item.serviced_name = hc_claim_item.serviced_date
+            elif hc_claim_item.serviced_type == 'period':
+                hc_claim_item.serviced_name = "Between " + str(hc_claim_item.serviced_start_date) + " and" + str(hc_claim_item.serviced_end_date)
 
     @api.depends('location_type')
     def _compute_location_name(self):
@@ -847,7 +846,7 @@ class ClaimItem(models.Model):
             elif hc_claim_diagnosis.location_type == 'address':
                 hc_claim_diagnosis.location_name = hc_claim_diagnosis.location_address_id.text
             elif hc_claim_diagnosis.location_type == 'location':
-                hc_claim_diagnosis.location_name = hc_claim_diagnosis.location_location_id.name
+                hc_claim_diagnosis.location_name = hc_claim_diagnosis.location_id.name
 
 class ClaimItemDetail(models.Model):
     _name = "hc.claim.item.detail"
@@ -914,6 +913,20 @@ class ClaimItemDetail(models.Model):
         string="Sub Details",
         help="Additional items.")
 
+class ClaimItemDetailUDI(models.Model):
+    _name = "hc.claim.item.detail.udi"
+    _description = "Claim Item Detail UDI"
+    _inherit = ["hc.basic.association"]
+
+    detail_id = fields.Many2one(
+        comodel_name="hc.claim.item.detail",
+        string="Detail",
+        help="Goods and Services.")
+    udi_id = fields.Many2one(
+        comodel_name="hc.res.device",
+        string="UDI",
+        help="UDI associated with this Claim Item Detail UDI.")
+
 class ClaimItemDetailSubDetail(models.Model):
     _name = "hc.claim.item.detail.sub.detail"
     _description = "Claim Item Detail Sub Detail"
@@ -967,6 +980,20 @@ class ClaimItemDetailSubDetail(models.Model):
         string="UDIs",
         help="Unique Device Identifier.")
 
+class ClaimItemDetailSubDetailUDI(models.Model):
+    _name = "hc.claim.item.detail.sub.detail.udi"
+    _description = "Claim Item Detail Sub Detail UDI"
+    _inherit = ["hc.basic.association"]
+
+    sub_detail_id = fields.Many2one(
+        comodel_name="hc.claim.item.detail.sub.detail",
+        string="Sub Detail",
+        help="Goods and Services.")
+    udi_id = fields.Many2one(
+        comodel_name="hc.res.device",
+        string="UDI",
+        help="UDI associated with this Claim Item Detail Sub Detail UDI.")
+
 # class ClaimItemProsthesis(models.Model):
 #     _name = "hc.claim.item.prosthesis"
 #     _description = "Claim Item Prosthesis"
@@ -989,22 +1016,52 @@ class ClaimItemDetailSubDetail(models.Model):
 class ClaimIdentifier(models.Model):
     _name = "hc.claim.identifier"
     _description = "Claim Identifier"
-    _inherit = ["hc.basic.association", "hc.identifier"]
+    _inherit = ["hc.basic.association", "hc.identifier", "hc.identifier.use"]
 
     claim_id = fields.Many2one(
         comodel_name="hc.res.claim",
         string="Claim",
         help="Claim associated with this Claim Identifier.")
+    extension_ids = fields.One2many(
+        comodel_name="hc.claim.identifier.extension",
+        inverse_name="identifier_id",
+        string="Extensions",
+        help="Additional Content defined by implementations.")
+
+class ClaimIdentifierExtension(models.Model):
+    _name = "hc.claim.identifier.extension"
+    _description = "Claim Identifier Extension"
+    _inherit = ["hc.basic.association", "hc.extension"]
+
+    identifier_id = fields.Many2one(
+        comodel_name="hc.claim.identifier",
+        string="Identifier",
+        help="Identifier associated with this Claim Identifier Extension.")
 
 class ClaimInsuranceIdentifier(models.Model):
     _name = "hc.claim.insurance.identifier"
     _description = "Claim Insurance Identifier"
-    _inherit = ["hc.basic.association", "hc.identifier"]
+    _inherit = ["hc.basic.association", "hc.identifier", "hc.identifier.use"]
 
     insurance_id = fields.Many2one(
         comodel_name="hc.claim.insurance",
         string="Insurance",
         help="Insurance associated with this Claim Insurance Identifier.")
+#     extension_ids = fields.One2many(
+#         comodel_name="hc.claim.insurance.identifier.extension",
+#         inverse_name="insurance_identifier_id",
+#         string="Extensions",
+#         help="Additional Content defined by implementations.")
+
+# class ClaimInsuranceIdentifierExtension(models.Model):
+#     _name = "hc.claim.insurance.identifier.extension"
+#     _description = "Claim Insurance Identifier Extension"
+#     _inherit = ["hc.basic.association", "hc.extension"]
+
+#     insurance_identifier_id = fields.Many2one(
+#         comodel_name="hc.claim.insurance.identifier",
+#         string="Insurance Identifier",
+#         help="Insurance Identifier associated with this Claim Insurance Identifier Extension.")
 
 class ClaimStatusHistory(models.Model):
     _name = "hc.claim.status.history"
@@ -1141,34 +1198,6 @@ class ClaimItemUDI(models.Model):
         string="UDI",
         help="UDI associated with this Claim Item UDI.")
 
-class ClaimItemDetailUDI(models.Model):
-    _name = "hc.claim.item.detail.udi"
-    _description = "Claim Item Detail UDI"
-    _inherit = ["hc.basic.association"]
-
-    detail_id = fields.Many2one(
-        comodel_name="hc.claim.item.detail",
-        string="Detail",
-        help="Goods and Services.")
-    udi_id = fields.Many2one(
-        comodel_name="hc.res.device",
-        string="UDI",
-        help="UDI associated with this Claim Item Detail UDI.")
-
-class ClaimItemDetailSubDetailUDI(models.Model):
-    _name = "hc.claim.item.detail.sub.detail.udi"
-    _description = "Claim Item Detail Sub Detail UDI"
-    _inherit = ["hc.basic.association"]
-
-    sub_detail_id = fields.Many2one(
-        comodel_name="hc.claim.item.detail.sub.detail",
-        string="Sub Detail",
-        help="Goods and Services.")
-    udi_id = fields.Many2one(
-        comodel_name="hc.res.device",
-        string="UDI",
-        help="UDI associated with this Claim Item Detail Sub Detail UDI.")
-
 class ClaimItemEncounter(models.Model):
     _name = "hc.claim.item.encounter"
     _description = "Claim Item Encounter"
@@ -1186,7 +1215,7 @@ class ClaimItemEncounter(models.Model):
 class ClaimRelatedClaimReference(models.Model):
     _name = "hc.claim.related.claim.reference"
     _description = "Claim Related Claim Reference"
-    _inherit = ["hc.basic.association", "hc.identifier"]
+    _inherit = ["hc.basic.association", "hc.identifier", "hc.identifier.use"]
 
     related_claim_id = fields.Many2one(
         comodel_name="hc.claim.related.claim",

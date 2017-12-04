@@ -12,6 +12,7 @@ access_hc_claim_hc_claim_item_user,hc.claim.hc.claim.item.user,model_hc_claim_it
 access_hc_claim_hc_claim_item_detail_user,hc.claim.hc.claim.item.detail.user,model_hc_claim_item_detail,hc_base.group_hc_base_user,1,0,0,0
 access_hc_claim_hc_claim_item_detail_sub_detail_user,hc.claim.hc.claim.item.detail.sub.detail.user,model_hc_claim_item_detail_sub_detail,hc_base.group_hc_base_user,1,0,0,0
 access_hc_claim_hc_claim_identifier_user,hc.claim.hc.claim.identifier.user,model_hc_claim_identifier,hc_base.group_hc_base_user,1,0,0,0
+access_hc_claim_hc_claim_identifier_extension_user,hc.claim.hc.claim.identifier.extension.user,model_hc_claim_identifier_extension,hc_base.group_hc_base_user,1,0,0,0
 access_hc_claim_hc_claim_insurance_identifier_user,hc.claim.hc.claim.insurance.identifier.user,model_hc_claim_insurance_identifier,hc_base.group_hc_base_user,1,0,0,0
 access_hc_claim_hc_claim_status_history_user,hc.claim.hc.claim.status.history.user,model_hc_claim_status_history,hc_base.group_hc_base_user,1,0,0,0
 access_hc_claim_hc_claim_accident_location_address_user,hc.claim.hc.claim.accident.location.address.user,model_hc_claim_accident_location_address,hc_base.group_hc_base_user,1,0,0,0

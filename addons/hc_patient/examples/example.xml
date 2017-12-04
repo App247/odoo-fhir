@@ -47,7 +47,7 @@
 
         <record id="hc_person.patient_example" model="hc.res.person">
             <field name="partner_id" ref="base.patient_example"/>
-
+            <field name="identifier">example</field>
             <field name="name_id" ref="hc_base.patient_example_1_name"/>
             <field name="gender">male</field>
             <field name="birth_date">1970-06-20</field>

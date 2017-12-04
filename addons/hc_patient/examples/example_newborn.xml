@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data noupdate="1">
+    <data noupdate="0">
 
     <!-- Simple newborn example -->
 
@@ -26,6 +26,7 @@
 
         <record id="hc_person.patient_newborn" model="hc.res.person">
             <field name="partner_id" ref="base.patient_newborn"/>
+            <field name="identifier">newborn</field>
             <field name="name_id" ref="hc_base.patient_newborn_name"/>
             <field name="gender">male</field>
             <field name="birth_date">2017-09-05</field>

@@ -60,6 +60,7 @@
 
         <record id="hc_person.patient_animal" model="hc.res.person">
             <field name="partner_id" ref="base.patient_animal"/>
+            <field name="identifier">animal</field>
             <field name="name_id" ref="hc_base.patient_animal_name"/>
             <field name="gender">female</field>
             <field name="birth_date">2010-03-23</field>

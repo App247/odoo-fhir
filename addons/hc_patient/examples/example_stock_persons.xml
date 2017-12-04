@@ -1,5 +1,5 @@
 <odoo>
-    <data noupdate="1">
+    <data noupdate="0">
 
 <!-- Stock people (defined by HL7 publishing)     -->
 
@@ -51,6 +51,7 @@
 
         <record id="hc_person.patient_sp01" model="hc.res.person">
             <field name="partner_id" ref="base.patient_sp01"/>
+            <field name="identifier">sp01</field>
             <field name="name_id" ref="hc_base.patient_sp01_name"/>
             <field name="gender">female</field>
             <field name="birth_date">1973-05-31</field>
@@ -130,6 +131,7 @@
 
         <record id="hc_person.patient_sp02" model="hc.res.person">
             <field name="partner_id" ref="base.patient_sp02"/>
+            <field name="identifier">sp02</field>
             <field name="name_id" ref="hc_base.patient_sp02_name"/>
             <field name="gender">male</field>
         </record>
@@ -205,6 +207,7 @@
 
         <record id="hc_person.patient_sp03" model="hc.res.person">
             <field name="partner_id" ref="base.patient_sp03"/>
+            <field name="identifier">sp03</field>
             <field name="name_id" ref="hc_base.patient_sp03_name"/>
             <field name="gender">female</field>
         </record>
@@ -280,6 +283,7 @@
 
         <record id="hc_person.patient_sp04" model="hc.res.person">
             <field name="partner_id" ref="base.patient_sp04"/>
+            <field name="identifier">sp04</field>
             <field name="name_id" ref="hc_base.patient_sp04_name"/>
             <field name="gender">female</field>
         </record>
@@ -356,6 +360,7 @@
 
         <record id="hc_person.patient_sp05" model="hc.res.person">
             <field name="partner_id" ref="base.patient_sp05"/>
+            <field name="identifier">sp05</field>
             <field name="name_id" ref="hc_base.patient_sp05_name"/>
             <field name="gender">male</field>
         </record>
@@ -422,6 +427,7 @@
 
         <record id="hc_person.patient_sp06" model="hc.res.person">
             <field name="partner_id" ref="base.patient_sp06"/>
+            <field name="identifier">sp06</field>
             <field name="name_id" ref="hc_base.patient_sp06_name"/>
             <field name="gender">male</field>
         </record>
@@ -488,6 +494,7 @@
 
         <record id="hc_person.patient_sp07" model="hc.res.person">
             <field name="partner_id" ref="base.patient_sp07"/>
+            <field name="identifier">sp07</field>
             <field name="name_id" ref="hc_base.patient_sp07_name"/>
             <field name="gender">female</field>
         </record>
@@ -554,6 +561,7 @@
 
         <record id="hc_person.patient_sp08" model="hc.res.person">
             <field name="partner_id" ref="base.patient_sp08"/>
+            <field name="identifier">sp08</field>
             <field name="name_id" ref="hc_base.patient_sp08_name"/>
             <field name="gender">female</field>
         </record>
@@ -633,6 +641,7 @@
 
         <record id="hc_person.patient_sp09" model="hc.res.person">
             <field name="partner_id" ref="base.patient_sp09"/>
+            <field name="identifier">sp09</field>
             <field name="name_id" ref="hc_base.patient_sp09_name"/>
             <field name="gender">other</field>
             <field name="gender_other">FTM</field>
@@ -710,6 +719,7 @@
 
         <record id="hc_person.patient_sp10" model="hc.res.person">
             <field name="partner_id" ref="base.patient_sp10"/>
+            <field name="identifier">sp10</field>
             <field name="name_id" ref="hc_base.patient_sp10_name"/>
             <field name="gender">male</field>
         </record>
@@ -780,6 +790,7 @@
 
         <record id="hc_person.patient_sp11" model="hc.res.person">
             <field name="partner_id" ref="base.patient_sp11"/>
+            <field name="identifier">sp11</field>
             <field name="name_id" ref="hc_base.patient_sp11_name"/>
             <field name="gender">male</field>
         </record>
@@ -857,6 +868,7 @@
 
         <record id="hc_person.patient_sp12" model="hc.res.person">
             <field name="partner_id" ref="base.patient_sp12"/>
+            <field name="identifier">sp12</field>
             <field name="name_id" ref="hc_base.patient_sp12_name"/>
             <field name="gender">female</field>
         </record>

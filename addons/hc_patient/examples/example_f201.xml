@@ -53,6 +53,7 @@
 
         <record id="hc_person.patient_f201" model="hc.res.person">
             <field name="partner_id" ref="base.patient_f201"/>
+            <field name="identifier">f201</field>
             <field name="name_id" ref="hc_base.patient_f201_name_1"/>
             <field name="gender">male</field>
             <field name="birth_date">1960-03-13</field>

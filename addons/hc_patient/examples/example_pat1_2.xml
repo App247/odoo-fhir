@@ -1,5 +1,5 @@
 <odoo>
-    <data noupdate="1">
+    <data noupdate="0">
 
 <!-- Patient 1 for linking -->
 
@@ -42,8 +42,9 @@
         </record>
 
         <record id="hc_person.patient_pat1" model="hc.res.person">
-            <field name="name_id" ref="hc_base.patient_pat1_name"/>
             <field name="partner_id" ref="base.patient_pat1"/>
+            <field name="identifier">pat1</field>
+            <field name="name_id" ref="hc_base.patient_pat1_name"/>
             <field name="gender">male</field>
         </record>
 
@@ -58,7 +59,7 @@
         <record id="patient_pat1" model="hc.res.patient">
             <field name="person_id" ref="hc_person.patient_pat1"/>
             <field name="is_active" eval="True"/>
-            <field name="managing_organization_id" ref="hc_organization.patient_example"/>
+            <field name="managing_organization_id" ref="hc_organization.organization_1"/>
         </record>
 
         <record id="patient_pat1_contact" model="hc.patient.contact">
@@ -100,8 +101,9 @@
         </record>
 
         <record id="hc_person.patient_pat2" model="hc.res.person">
-            <field name="name_id" ref="hc_base.patient_pat2_name"/>
             <field name="partner_id" ref="base.patient_pat2"/>
+            <field name="identifier">pat2</field>
+            <field name="name_id" ref="hc_base.patient_pat2_name"/>
             <field name="gender">other</field>
             <field name="gender_other">A</field>
         </record>
@@ -117,7 +119,7 @@
         <record id="patient_pat2" model="hc.res.patient">
             <field name="person_id" ref="hc_person.patient_pat2"/>
             <field name="is_active" eval="True"/>
-            <field name="managing_organization_id" ref="hc_organization.patient_example"/>
+            <field name="managing_organization_id" ref="hc_organization.organization_1"/>
         </record>
 
         <record id="patient_pat2_identifier" model="hc.patient.identifier">

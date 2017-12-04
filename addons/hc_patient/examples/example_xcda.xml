@@ -40,6 +40,7 @@
 
         <record id="hc_person.patient_xcda" model="hc.res.person">
             <field name="partner_id" ref="base.patient_xcda"/>
+            <field name="identifier">xcda</field>
             <field name="name_id" ref="hc_base.patient_xcda_name"/>
             <field name="gender">male</field>
             <field name="birth_date">1932-09-24</field>

@@ -9,6 +9,8 @@
             <field name="arch" type="xml">
                 <search string="Claims">
                     <field name="name"/>
+                    <field name="patient_id"/>
+                    <field name="type_id"/>
                 </search>
             </field>
         </record>
@@ -19,6 +21,9 @@
             <field name="arch" type="xml">
                 <tree string="Claims">
                     <field name="name"/>
+                    <field name="patient_id"/>
+                    <field name="type_id"/>
+                    <field name="total"/>
                 </tree>
             </field>
         </record>
@@ -75,15 +80,54 @@
                             <page string="Identifiers">
                                 <field name="identifier_ids" mode="tree">
                                     <tree>
+                                        <field name="is_preferred"/>
+                                        <field name="name"/>
+                                        <field name="type_id"/>
+                                        <field name="start_date"/>
+                                        <field name="end_date"/>
                                     </tree>
                                     <form>
                                         <sheet>
-                                            <group>
+                                            <div>
+                                                <h1>
+                                                    <field name="name" placeholder="Identifier"/>
+                                                </h1>
+                                            </div>
+                                            <group col="4" colspan="4">
                                                 <group>
+                                                    <field name="value"/>
+                                                    <field name="system"/>
+                                                    <field name="code_id"/>
+                                                    <field name="type_id"/>
+                                                    <field name="use"/>
                                                 </group>
-                                                <group>
-                                                </group>
+                                                <group string="Association">
+                                                    <field name="is_preferred"/>
+                                                    <field name="is_active"/>
+                                                    <field name="start_date" placeholder="Valid From"/>
+                                                    <field name="end_date" placeholder="Valid To"/>
+                                               </group>
                                             </group>
+                                            <notebook>
+                                                <page string="Extensions">
+                                                    <field name="extension_ids" mode="tree">
+                                                        <tree>
+                                                            <field name="url"/>
+                                                        </tree>
+                                                        <form>
+                                                            <sheet>
+                                                                <group>
+                                                                    <group>
+                                                                        <field name="url"/>
+                                                                    </group>
+                                                                    <group>
+                                                                    </group>
+                                                                </group>
+                                                            </sheet>
+                                                        </form>
+                                                    </field>
+                                                </page>
+                                            </notebook>
                                         </sheet>
                                     </form>
                                 </field>
@@ -234,11 +278,21 @@
                             <page string="Procedures">
                                 <field name="procedure_ids" mode="tree">
                                     <tree>
+                                        <field name="sequence"/>
+                                        <field name="date"/>
+                                        <field name="procedure_name"/>
+                                        <field name="procedure_type"/>
                                     </tree>
                                     <form>
                                         <sheet>
                                             <group>
                                                 <group>
+                                                    <field name="sequence"/>
+                                                    <field name="date"/>
+                                                    <field name="procedure_name"/>
+                                                    <field name="procedure_type" class="oe_edit_only"/>
+                                                    <field name="procedure_code_id" class="oe_edit_only" attrs="{'invisible': [('procedure_type','!=','code')], 'required': [('procedure_type','=','code')]}"/>
+                                                    <field name="procedure_id" class="oe_edit_only" attrs="{'invisible': [('procedure_type','!=','procedure')], 'required': [('procedure_type','=','procedure')]}"/>
                                                 </group>
                                                 <group>
                                                 </group>
@@ -250,15 +304,57 @@
                             <page string="Insurance">
                                 <field name="insurance_ids" mode="tree">
                                     <tree>
+                                        <field name="sequence"/>
+                                        <field name="identifier_id"/>
+                                        <field name="is_focal"/>
+                                        <field name="coverage_id"/>
+                                        <field name="business_arrangement"/>
                                     </tree>
                                     <form>
                                         <sheet>
                                             <group>
                                                 <group>
+                                                    <field name="sequence"/>
+                                                    <field name="is_focal"/>
+                                                    <field name="identifier_id"/>
+                                                    <field name="coverage_id"/>
+                                                    <field name="business_arrangement"/>
                                                 </group>
                                                 <group>
                                                 </group>
                                             </group>
+                                            <notebook>
+                                                 <page string="Pre Auth Refs">
+                                                    <field name="pre_auth_ref_ids" mode="tree">
+                                                        <tree>
+                                                            <field name="is_preferred"/>
+                                                            <field name="pre_auth_ref"/>
+                                                            <field name="is_active"/>
+                                                            <field name="start_date"/>
+                                                            <field name="end_date"/>
+                                                        </tree>
+                                                        <form>
+                                                            <sheet>
+                                                                <div>
+                                                                    <h1>
+                                                                        <field name="pre_auth_ref" placeholder="Pre Authorization Reference"/>
+                                                                    </h1>
+                                                                </div>
+                                                                <group>
+                                                                    <group string="Association">
+                                                                        <field name="is_preferred"/>
+                                                                        <field name="is_active"/>
+                                                                        <field name="start_date" placeholder="Valid From"/>
+                                                                        <field name="end_date" placeholder="Valid To"/>
+                                                                   </group>
+                                                                    <group>
+                                                                    </group>
+                                                                </group>
+                                                            </sheet>
+                                                        </form>
+                                                    </field>
+                                                </page>
+                                            </notebook>
                                         </sheet>
                                     </form>
                                 </field>
@@ -266,11 +362,21 @@
                             <page string="Accidents">
                                 <field name="accident_ids" mode="tree">
                                     <tree>
+                                        <field name="date"/>
+                                        <field name="type_id"/>
+                                        <field name="location_name"/>
+                                        <field name="location_type"/>
                                     </tree>
                                     <form>
                                         <sheet>
                                             <group>
                                                 <group>
+                                                    <field name="date"/>
+                                                    <field name="type_id"/>
+                                                    <field name="location_name"/>
+                                                    <field name="location_type" class="oe_edit_only"/>
+                                                    <field name="location_address_id" class="oe_edit_only" attrs="{'invisible': [('location_type','!=','address')], 'required': [('location_type','=','address')]}"/>
+                                                    <field name="location_id" class="oe_edit_only" attrs="{'invisible': [('location_type','!=','location')], 'required': [('location_type','=','location')]}"/>
                                                 </group>
                                                 <group>
                                                 </group>
@@ -282,15 +388,344 @@
                             <page string="Items">
                                 <field name="item_ids" mode="tree">
                                     <tree>
+                                        <field name="serviced_name"/>
+                                        <field name="location_name"/>
                                     </tree>
                                     <form>
                                         <sheet>
                                             <group>
                                                 <group>
+                                                    <field name="sequence"/>
+                                                    <field name="revenue_id"/>
+                                                    <field name="category_id"/>
+                                                    <field name="service_id"/>
+                                                    <field name="modifier_ids" widget="many2many_tags"/>
+                                                    <field name="program_code_ids" widget="many2many_tags"/>
                                                 </group>
                                                 <group>
+                                                    <field name="serviced_name"/>
+                                                    <field name="serviced_type" class="oe_edit_only"/>
+                                                    <field name="serviced_date" class="oe_edit_only" attrs="{'invisible': [('serviced_type','!=','date')], 'required': [('serviced_type','=','date')]}"/>
+                                                    <field name="serviced_start_date" class="oe_edit_only" attrs="{'invisible': [('serviced_type','!=','period')], 'required': [('serviced_type','=','period')]}"/>
+                                                    <field name="serviced_end_date" class="oe_edit_only" attrs="{'invisible': [('serviced_type','!=','period')], 'required': [('serviced_type','=','period')]}"/>
+                                                    <field name="location_name"/>
+                                                    <field name="location_type" class="oe_edit_only"/>
+                                                    <field name="location_code_id" class="oe_edit_only" attrs="{'invisible': [('location_type','!=','code')], 'required': [('location_type','=','code')]}"/>
+                                                    <field name="location_address_id" class="oe_edit_only" attrs="{'invisible': [('location_type','!=','address')], 'required': [('location_type','=','address')]}"/>
+                                                    <field name="location_id" class="oe_edit_only" attrs="{'invisible': [('location_type','!=','location')], 'required': [('location_type','=','location')]}"/>
                                                 </group>
                                             </group>
+                                            <notebook>
+                                                <page string="Care Team Link IDs">
+                                                    <field name="care_team_link_id_ids" mode="tree">
+                                                        <tree>
+                                                            <field name="is_preferred"/>
+                                                            <field name="care_team_link_id"/>
+                                                            <field name="is_active"/>
+                                                            <field name="start_date"/>
+                                                            <field name="end_date"/>
+                                                        </tree>
+                                                        <form>
+                                                            <sheet>
+                                                                <div>
+                                                                    <h1>
+                                                                        <field name="care_team_link_id" placeholder="Care Team Link ID"/>
+                                                                    </h1>
+                                                                </div>
+                                                                <group>
+                                                                    <group string="Association">
+                                                                        <field name="is_preferred"/>
+                                                                        <field name="is_active"/>
+                                                                        <field name="start_date" placeholder="Valid From"/>
+                                                                        <field name="end_date" placeholder="Valid To"/>
+                                                                   </group>
+                                                                    <group>
+                                                                    </group>
+                                                                </group>
+                                                            </sheet>
+                                                        </form>
+                                                    </field>
+                                                </page>
+                                                <page string="Diagnosis Link IDs">
+                                                    <field name="diagnosis_link_id_ids" mode="tree">
+                                                        <tree>
+                                                            <field name="is_preferred"/>
+                                                            <field name="diagnosis_link_id"/>
+                                                            <field name="is_active"/>
+                                                            <field name="start_date"/>
+                                                            <field name="end_date"/>
+                                                        </tree>
+                                                        <form>
+                                                            <sheet>
+                                                                <div>
+                                                                    <h1>
+                                                                        <field name="diagnosis_link_id" placeholder="Diagnosis Link ID"/>
+                                                                    </h1>
+                                                                </div>
+                                                                <group>
+                                                                    <group string="Association">
+                                                                        <field name="is_preferred"/>
+                                                                        <field name="is_active"/>
+                                                                        <field name="start_date" placeholder="Valid From"/>
+                                                                        <field name="end_date" placeholder="Valid To"/>
+                                                                   </group>
+                                                                    <group>
+                                                                    </group>
+                                                                </group>
+                                                            </sheet>
+                                                        </form>
+                                                    </field>
+                                                </page>
+                                                <page string="Procedure Link IDs">
+                                                    <field name="procedure_link_id_ids" mode="tree">
+                                                        <tree>
+                                                            <field name="is_preferred"/>
+                                                            <field name="procedure_link_id"/>
+                                                            <field name="is_active"/>
+                                                            <field name="start_date"/>
+                                                            <field name="end_date"/>
+                                                        </tree>
+                                                        <form>
+                                                            <sheet>
+                                                                <div>
+                                                                    <h1>
+                                                                        <field name="procedure_link_id" placeholder="Procedure Link ID"/>
+                                                                    </h1>
+                                                                </div>
+                                                                <group>
+                                                                    <group string="Association">
+                                                                        <field name="is_preferred"/>
+                                                                        <field name="is_active"/>
+                                                                        <field name="start_date" placeholder="Valid From"/>
+                                                                        <field name="end_date" placeholder="Valid To"/>
+                                                                   </group>
+                                                                    <group>
+                                                                    </group>
+                                                                </group>
+                                                            </sheet>
+                                                        </form>
+                                                    </field>
+                                                </page>
+                                                <page string="Information Link IDs">
+                                                    <field name="information_link_id_ids" mode="tree">
+                                                        <tree>
+                                                            <field name="is_preferred"/>
+                                                            <field name="information_link_id"/>
+                                                            <field name="is_active"/>
+                                                            <field name="start_date"/>
+                                                            <field name="end_date"/>
+                                                        </tree>
+                                                        <form>
+                                                            <sheet>
+                                                                <div>
+                                                                    <h1>
+                                                                        <field name="information_link_id" placeholder="Information Link ID"/>
+                                                                    </h1>
+                                                                </div>
+                                                                <group>
+                                                                    <group string="Association">
+                                                                        <field name="is_preferred"/>
+                                                                        <field name="is_active"/>
+                                                                        <field name="start_date" placeholder="Valid From"/>
+                                                                        <field name="end_date" placeholder="Valid To"/>
+                                                                   </group>
+                                                                    <group>
+                                                                    </group>
+                                                                </group>
+                                                            </sheet>
+                                                        </form>
+                                                    </field>
+                                                </page>
+                                                <page string="UDIs">
+                                                    <field name="udi_ids" mode="tree">
+                                                        <tree>
+                                                            <field name="is_preferred"/>
+                                                            <field name="udi_id"/>
+                                                            <field name="is_active"/>
+                                                            <field name="start_date"/>
+                                                            <field name="end_date"/>
+                                                        </tree>
+                                                        <form>
+                                                            <sheet>
+                                                                <div>
+                                                                    <h1>
+                                                                        <field name="udi_id" placeholder="Unique Device Identifier"/>
+                                                                    </h1>
+                                                                </div>
+                                                                <group>
+                                                                    <group string="Association">
+                                                                        <field name="is_preferred"/>
+                                                                        <field name="is_active"/>
+                                                                        <field name="start_date" placeholder="Valid From"/>
+                                                                        <field name="end_date" placeholder="Valid To"/>
+                                                                   </group>
+                                                                    <group>
+                                                                    </group>
+                                                                </group>
+                                                            </sheet>
+                                                        </form>
+                                                    </field>
+                                                </page>
+                                                <page string="Encounters">
+                                                    <field name="encounter_ids" mode="tree">
+                                                        <tree>
+                                                            <field name="is_preferred"/>
+                                                            <field name="encounter_id"/>
+                                                            <field name="is_active"/>
+                                                            <field name="start_date"/>
+                                                            <field name="end_date"/>
+                                                        </tree>
+                                                        <form>
+                                                            <sheet>
+                                                                <div>
+                                                                    <h1>
+                                                                        <field name="encounter_id" placeholder="Encounter"/>
+                                                                    </h1>
+                                                                </div>
+                                                                <group>
+                                                                    <group string="Association">
+                                                                        <field name="is_preferred"/>
+                                                                        <field name="is_active"/>
+                                                                        <field name="start_date" placeholder="Valid From"/>
+                                                                        <field name="end_date" placeholder="Valid To"/>
+                                                                   </group>
+                                                                    <group>
+                                                                    </group>
+                                                                </group>
+                                                            </sheet>
+                                                        </form>
+                                                    </field>
+                                                </page>
+                                                <page string="Details">
+                                                    <field name="detail_ids" mode="tree">
+                                                        <tree>
+                                                            <field name="sequence"/>
+                                                            <field name="revenue_id"/>
+                                                            <field name="category_id"/>
+                                                            <field name="service_id"/>
+                                                            <field name="modifier_ids" widget="many2many_tags"/>
+                                                            <field name="program_code_ids" widget="many2many_tags"/>
+                                                        </tree>
+                                                        <form>
+                                                            <sheet>
+                                                                <group>
+                                                                    <group>
+                                                                        <field name="sequence"/>
+                                                                        <field name="revenue_id"/>
+                                                                        <field name="category_id"/>
+                                                                        <field name="service_id"/>
+                                                                        <field name="modifier_ids" widget="many2many_tags"/>
+                                                                        <field name="program_code_ids" widget="many2many_tags"/>
+                                                                        <field name="quantity"/>
+                                                                        <field name="quantity_uom_id"/>
+                                                                        <field name="unit_price"/>
+                                                                        <field name="factor"/>
+                                                                        <field name="net"/>
+                                                                    </group>
+                                                                    <group>
+                                                                    </group>
+                                                                </group>
+                                                                <notebook>
+                                                                    <page string="UDIs">
+                                                                        <field name="udi_ids" mode="tree">
+                                                                            <tree>
+                                                                                <field name="is_preferred"/>
+                                                                                <field name="udi_id"/>
+                                                                                <field name="is_active"/>
+                                                                                <field name="start_date"/>
+                                                                                <field name="end_date"/>
+                                                                            </tree>
+                                                                            <form>
+                                                                                <sheet>
+                                                                                    <div>
+                                                                                        <h1>
+                                                                                            <field name="udi_id" placeholder="Unique Device Identifier"/>
+                                                                                        </h1>
+                                                                                    </div>
+                                                                                    <group>
+                                                                                        <group string="Association">
+                                                                                            <field name="is_preferred"/>
+                                                                                            <field name="is_active"/>
+                                                                                            <field name="start_date" placeholder="Valid From"/>
+                                                                                            <field name="end_date" placeholder="Valid To"/>
+                                                                                       </group>
+                                                                                        <group>
+                                                                                        </group>
+                                                                                    </group>
+                                                                                </sheet>
+                                                                            </form>
+                                                                        </field>
+                                                                    </page>
+                                                                    <page string="Sub Details">
+                                                                        <field name="sub_detail_ids" mode="tree">
+                                                                            <tree>
+                                                                                <field name="sequence"/>
+                                                                                <field name="revenue_id"/>
+                                                                                <field name="category_id"/>
+                                                                                <field name="service_id"/>
+                                                                                <field name="modifier_ids" widget="many2many_tags"/>
+                                                                                <field name="program_code_ids" widget="many2many_tags"/>
+                                                                            </tree>
+                                                                            <form>
+                                                                                <sheet>
+                                                                                    <group>
+                                                                                        <group>
+                                                                                            <field name="sequence"/>
+                                                                                            <field name="revenue_id"/>
+                                                                                            <field name="category_id"/>
+                                                                                            <field name="service_id"/>
+                                                                                            <field name="modifier_ids" widget="many2many_tags"/>
+                                                                                            <field name="program_code_ids" widget="many2many_tags"/>
+                                                                                            <field name="quantity"/>
+                                                                                            <field name="unit_price"/>
+                                                                                            <field name="factor"/>
+                                                                                            <field name="net"/>
+                                                                                        </group>
+                                                                                        <group>
+                                                                                        </group>
+                                                                                    </group>
+                                                                                    <notebook>
+                                                                                        <page string="UDIs">
+                                                                                            <field name="udi_ids" mode="tree">
+                                                                                                <tree>
+                                                                                                    <field name="is_preferred"/>
+                                                                                                    <field name="udi_id"/>
+                                                                                                    <field name="is_active"/>
+                                                                                                    <field name="start_date"/>
+                                                                                                    <field name="end_date"/>
+                                                                                                </tree>
+                                                                                                <form>
+                                                                                                    <sheet>
+                                                                                                        <div>
+                                                                                                            <h1>
+                                                                                                                <field name="udi_id" placeholder="Unique Device Identifier"/>
+                                                                                                            </h1>
+                                                                                                        </div>
+                                                                                                        <group>
+                                                                                                            <group string="Association">
+                                                                                                                <field name="is_preferred"/>
+                                                                                                                <field name="is_active"/>
+                                                                                                                <field name="start_date" placeholder="Valid From"/>
+                                                                                                                <field name="end_date" placeholder="Valid To"/>
+                                                                                                           </group>
+                                                                                                            <group>
+                                                                                                            </group>
+                                                                                                        </group>
+                                                                                                    </sheet>
+                                                                                                </form>
+                                                                                            </field>
+                                                                                        </page>
+                                                                                    </notebook>
+                                                                                </sheet>
+                                                                            </form>
+                                                                        </field>
+                                                                    </page>
+                                                                </notebook>
+                                                            </sheet>
+                                                        </form>
+                                                    </field>
+                                                </page>
+                                            </notebook>
                                         </sheet>
                                     </form>
                                 </field>
@@ -310,20 +745,167 @@
                                 </field>
                             </page>
                             <page string="Meta">
-                                <field name="identifier_ids" mode="tree">
-                                    <tree>
-                                    </tree>
-                                    <form>
-                                        <sheet>
+                                <form>
+                                    <sheet>
+                                        <group string="Resource">
                                             <group>
-                                                <group>
-                                                </group>
-                                                <group>
-                                                </group>
+                                                <field name="identifier"/>
+                                                <field name="implicit_rules"/>
+                                                <field name="language_id"/>
+                                                <field name="meta_id"/>
                                             </group>
-                                        </sheet>
-                                    </form>
-                                </field>
+                                            <group>
+                                            </group>
+                                        </group>
+                                        <group string="Domain Resource">
+                                            <group>
+                                                <field name="text_id"/>
+                                            </group>
+                                            <group>
+                                            </group>
+                                        </group>
+                                        <notebook>
+                                            <page string="Contained">
+                                                <field name="contained_ids" mode="tree">
+                                                    <tree>
+                                                        <field name="identifier"/>
+                                                        <field name="meta_id"/>
+                                                        <field name="implicit_rules"/>
+                                                        <field name="language_id"/>
+                                                    </tree>
+                                                    <form>
+                                                        <sheet>
+                                                            <group>
+                                                                <group>
+                                                                    <field name="identifier"/>
+                                                                    <field name="meta_id"/>
+                                                                    <field name="implicit_rules"/>
+                                                                    <field name="language_id"/>
+                                                                </group>
+                                                                <group>
+                                                                </group>
+                                                            </group>
+                                                        </sheet>
+                                                    </form>
+                                                </field>
+                                            </page>
+                                            <page string="Extensions">
+                                                <field name="extension_ids" mode="tree">
+                                                    <tree>
+                                                        <field name="url"/>
+                                                        <field name="value_name"/>
+                                                        <field name="value_type"/>
+                                                    </tree>
+                                                    <form>
+                                                        <sheet>
+                                                            <group>
+                                                                <group>
+                                                                    <field name="url"/>
+                                                                    <field name="value_name"/>
+                                                                    <field name="value_type" class="oe_edit_only"/>
+                                                                    <field name="value_integer" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','integer')], 'required': [('value_type','=','integer')]}"/>
+                                                                    <field name="value_decimal" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','decimal')], 'required': [('value_type','=','decimal')]}"/>
+                                                                    <field name="value_date_time" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','date_time')], 'required': [('value_type','=','date_time')]}"/>
+                                                                    <field name="value_date" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','date')], 'required': [('value_type','=','date')]}"/>
+                                                                    <field name="value_instant" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','instant')], 'required': [('value_type','=','instant')]}"/>
+                                                                    <field name="value_string" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','string')], 'required': [('value_type','=','string')]}"/>
+                                                                    <field name="value_uri" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','uri')], 'required': [('value_type','=','uri')]}"/>
+                                                                    <field name="value_boolean" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','boolean')], 'required': [('value_type','=','boolean')]}"/>
+                                                                    <field name="value_code_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','code')], 'required': [('value_type','=','code')]}"/>
+                                                                    <field name="value_markdown" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','markdown')], 'required': [('value_type','=','markdown')]}"/>
+                                                                    <field name="value_base_64_binary" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','base_64_binary')], 'required': [('value_type','=','base_64_binary')]}"/>
+                                                                    <field name="value_coding_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','coding')], 'required': [('value_type','=','coding')]}"/>
+                                                                    <field name="value_codeable_concept_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','codeable_concept')], 'required': [('value_type','=','codeable_concept')]}"/>
+                                                                    <field name="value_attachment_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','attachment')], 'required': [('value_type','=','attachment')]}"/>
+                                                                    <field name="value_identifier_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','identifier')], 'required': [('value_type','=','identifier')]}"/>
+                                                                    <field name="value_quantity" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','quantity')], 'required': [('value_type','=','quantity')]}"/>
+                                                                    <field name="value_quantity_uom_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','quantity')], 'required': [('value_type','=','quantity')]}"/>
+                                                                    <field name="value_range" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','range')], 'required': [('value_type','=','range')]}"/>
+                                                                    <field name="value_period" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','period')], 'required': [('value_type','=','period')]}"/>
+                                                                    <field name="value_period_uom_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','period')], 'required': [('value_type','=','period')]}"/>
+                                                                    <field name="value_ratio" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','ratio')], 'required': [('value_type','=','ratio')]}"/>
+                                                                    <field name="value_human_name_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','human_name')], 'required': [('value_type','=','human_name')]}"/>
+                                                                    <field name="value_address_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','address')], 'required': [('value_type','=','address')]}"/>
+                                                                    <field name="value_contact_point_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','contact_point')], 'required': [('value_type','=','contact_point')]}"/>
+                                                                    <field name="value_timing_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','timing')], 'required': [('value_type','=','timing')]}"/>
+                                                                    <field name="value_signature_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','signature')], 'required': [('value_type','=','signature')]}"/>
+                                                                    <field name="value_reference_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','reference')], 'required': [('value_type','=','reference')]}"/>
+                                                                    <field name="value_time" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','time')], 'required': [('value_type','=','time')]}"/>
+                                                                    <field name="value_oid" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','oid')], 'required': [('value_type','=','oid')]}"/>
+                                                                    <field name="value_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','id')], 'required': [('value_type','=','id')]}"/>
+                                                                    <field name="value_unsigned_int" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','unsigned_int')], 'required': [('value_type','=','unsigned_int')]}"/>
+                                                                    <field name="value_positive_int" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','positive_int')], 'required': [('value_type','=','positive_int')]}"/>
+                                                                    <field name="value_annotation_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','annotation')], 'required': [('value_type','=','annotation')]}"/>
+                                                                    <field name="value_sampled_data_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','sampled_data')], 'required': [('value_type','=','sampled_data')]}"/>
+                                                                    <field name="value_meta_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','meta')], 'required': [('value_type','=','meta')]}"/>
+                                                                </group>
+                                                                <group>
+                                                                </group>
+                                                            </group>
+                                                        </sheet>
+                                                    </form>
+                                                </field>
+                                            </page>
+                                            <page string="Modifier Extensions">
+                                                <field name="modifier_extension_ids" mode="tree">
+                                                    <tree>
+                                                        <field name="url"/>
+                                                        <field name="value_name"/>
+                                                        <field name="value_type"/>
+                                                    </tree>
+                                                    <form>
+                                                        <sheet>
+                                                            <group>
+                                                                <group>
+                                                                    <field name="url"/>
+                                                                    <field name="value_name"/>
+                                                                    <field name="value_type" class="oe_edit_only"/>
+                                                                    <field name="value_integer" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','integer')], 'required': [('value_type','=','integer')]}"/>
+                                                                    <field name="value_decimal" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','decimal')], 'required': [('value_type','=','decimal')]}"/>
+                                                                    <field name="value_date_time" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','date_time')], 'required': [('value_type','=','date_time')]}"/>
+                                                                    <field name="value_date" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','date')], 'required': [('value_type','=','date')]}"/>
+                                                                    <field name="value_instant" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','instant')], 'required': [('value_type','=','instant')]}"/>
+                                                                    <field name="value_string" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','string')], 'required': [('value_type','=','string')]}"/>
+                                                                    <field name="value_uri" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','uri')], 'required': [('value_type','=','uri')]}"/>
+                                                                    <field name="value_boolean" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','boolean')], 'required': [('value_type','=','boolean')]}"/>
+                                                                    <field name="value_code_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','code')], 'required': [('value_type','=','code')]}"/>
+                                                                    <field name="value_markdown" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','markdown')], 'required': [('value_type','=','markdown')]}"/>
+                                                                    <field name="value_base_64_binary" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','base_64_binary')], 'required': [('value_type','=','base_64_binary')]}"/>
+                                                                    <field name="value_coding_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','coding')], 'required': [('value_type','=','coding')]}"/>
+                                                                    <field name="value_codeable_concept_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','codeable_concept')], 'required': [('value_type','=','codeable_concept')]}"/>
+                                                                    <field name="value_attachment_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','attachment')], 'required': [('value_type','=','attachment')]}"/>
+                                                                    <field name="value_identifier_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','identifier')], 'required': [('value_type','=','identifier')]}"/>
+                                                                    <field name="value_quantity" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','quantity')], 'required': [('value_type','=','quantity')]}"/>
+                                                                    <field name="value_quantity_uom_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','quantity')], 'required': [('value_type','=','quantity')]}"/>
+                                                                    <field name="value_range" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','range')], 'required': [('value_type','=','range')]}"/>
+                                                                    <field name="value_period" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','period')], 'required': [('value_type','=','period')]}"/>
+                                                                    <field name="value_period_uom_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','period')], 'required': [('value_type','=','period')]}"/>
+                                                                    <field name="value_ratio" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','ratio')], 'required': [('value_type','=','ratio')]}"/>
+                                                                    <field name="value_human_name_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','human_name')], 'required': [('value_type','=','human_name')]}"/>
+                                                                    <field name="value_address_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','address')], 'required': [('value_type','=','address')]}"/>
+                                                                    <field name="value_contact_point_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','contact_point')], 'required': [('value_type','=','contact_point')]}"/>
+                                                                    <field name="value_timing_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','timing')], 'required': [('value_type','=','timing')]}"/>
+                                                                    <field name="value_signature_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','signature')], 'required': [('value_type','=','signature')]}"/>
+                                                                    <field name="value_reference_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','reference')], 'required': [('value_type','=','reference')]}"/>
+                                                                    <field name="value_time" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','time')], 'required': [('value_type','=','time')]}"/>
+                                                                    <field name="value_oid" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','oid')], 'required': [('value_type','=','oid')]}"/>
+                                                                    <field name="value_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','id')], 'required': [('value_type','=','id')]}"/>
+                                                                    <field name="value_unsigned_int" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','unsigned_int')], 'required': [('value_type','=','unsigned_int')]}"/>
+                                                                    <field name="value_positive_int" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','positive_int')], 'required': [('value_type','=','positive_int')]}"/>
+                                                                    <field name="value_annotation_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','annotation')], 'required': [('value_type','=','annotation')]}"/>
+                                                                    <field name="value_sampled_data_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','sampled_data')], 'required': [('value_type','=','sampled_data')]}"/>
+                                                                    <field name="value_meta_id" class="oe_edit_only" attrs="{'invisible': [('value_type','!=','meta')], 'required': [('value_type','=','meta')]}"/>
+                                                                </group>
+                                                                <group>
+                                                                </group>
+                                                            </group>
+                                                        </sheet>
+                                                    </form>
+                                                </field>
+                                            </page>
+                                        </notebook>
+                                    </sheet>
+                                </form>
                             </page>
                         </notebook>
                     </sheet>
